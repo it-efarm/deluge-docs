@@ -1,0 +1,263 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Projects integration tasks</a></li>
+        <li><a>Create Project in Zoho Projects</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create Project in Zoho Projects</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The&nbsp;<strong>zoho.projects.createProject&nbsp;</strong>task
+              creates a project in the specified portal of Zoho Projects.
+            </p>
+            <div>
+              <strong>Note:</strong> For security reasons, if you execute Zoho
+              Projects integration tasks for more than 100 times under 2
+              minutes, you will be restricted to execute any Zoho Projects
+              integration task for the next 30 mins.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.projects.createProject</span><span>(</span><span>&lt;</span><span>portal</span><span>&gt;</span><span>, </span><span>[&lt;</span><span>values</span><span>&gt;]</span><span>, </span><span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details of the project that will be created.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;portal&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The name of the portal in which the project needs to
+                            be created.
+                          </p>
+                          <p>
+                            <strong>Note: </strong>You can get the name or ID of
+                            the portal using the&nbsp;<strong
+                              >get portals</strong
+                            >
+                            task. Click&nbsp;<a>here</a> to learn more about it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;values&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The values of the project that needs to be created.
+                            The keys to this parameter are provided as specified
+                            in the&nbsp;<a>Zoho Projects API</a>.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the&nbsp;<a>connection</a>.</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script creates a new project in the Zoho Projects
+              portal -&nbsp;<strong>zylker:</strong>
+            </p>
+            <div>
+              <pre>&nbsp;<span>new_project</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>new_project</span><span> . </span><span>put</span><span>(</span><span>"name"</span>, <span>"Sales"</span><span>)</span><span>;</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.projects.createProject</span><span>(</span><span>"zylker"</span><span>, </span><span>new_project</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Projects.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"zylker"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the portal name.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>new_project</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the details
+                      of the project that needs to be created.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"projects": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"is_strict":
+                  "no",<br />&nbsp;&nbsp;"project_percent": "0",<br />&nbsp;&nbsp;"role":
+                  "admin",<br />&nbsp;&nbsp;"bug_count": {<br />&nbsp;&nbsp;"closed":
+                  0,<br />&nbsp;&nbsp;"open": 0<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"IS_BUG_ENABLED":
+                  true,<br />&nbsp;&nbsp;"owner_id": "58XXXX70",<br />&nbsp;&nbsp;"taskbug_prefix":
+                  "SA1",<br />&nbsp;&nbsp;"link": {<br />&nbsp;&nbsp;"activity":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/activities/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"document":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/documents/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"forum":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/forums/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"timesheet":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/logs/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"task":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/tasks/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"folder":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/folders/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"milestone":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/milestones/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"bug":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/bugs/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"self":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"tasklist":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/tasklists/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"event":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/events/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"user":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/users/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"status":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX005/statuses/"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"custom_status_id":
+                  "548XXXXXXXXXXX089",<br />&nbsp;&nbsp;"milestone_count": {<br />&nbsp;&nbsp;"closed":
+                  0,<br />&nbsp;&nbsp;"open": 0<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"updated_date_long":
+                  156XXXXXXX812,<br />&nbsp;&nbsp;"show_project_overview":
+                  false,<br />&nbsp;&nbsp;"task_count": {<br />&nbsp;&nbsp;"closed":
+                  0,<br />&nbsp;&nbsp;"open": 0<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"updated_date_format":
+                  "08-13-2019 04:32:05 PM",<br />&nbsp;&nbsp;"workspace_id":
+                  "o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX99595",<br />&nbsp;&nbsp;"custom_status_name":
+                  "zp.projstatus.active",<br />&nbsp;&nbsp;"bug_defaultview":
+                  "6",<br />&nbsp;&nbsp;"billing_status": "Billable",<br />&nbsp;&nbsp;"id":
+                  548XXXXXXXXXXX005,<br />&nbsp;&nbsp;"key": "TE-3",<br />&nbsp;&nbsp;"is_chat_enabled":
+                  true,<br />&nbsp;&nbsp;"custom_status_color": "#33927d",<br />&nbsp;&nbsp;"owner_name":
+                  "Shawn",<br />&nbsp;&nbsp;"created_date_long":
+                  1565694125812,<br />&nbsp;&nbsp;"created_date_format":
+                  "08-13-2019 04:32:05 PM",<br />&nbsp;&nbsp;"profile_id":
+                  548XXXXXXXXXXX320,<br />&nbsp;&nbsp;"enabled_tabs": [<br />&nbsp;&nbsp;"dashboard",<br />&nbsp;&nbsp;"projectfeed",<br />&nbsp;&nbsp;"tasks",<br />&nbsp;&nbsp;"bugs",<br />&nbsp;&nbsp;"milestones",<br />&nbsp;&nbsp;"calendar",<br />&nbsp;&nbsp;"documents",<br />&nbsp;&nbsp;"timesheet",<br />&nbsp;&nbsp;"invoices",<br />&nbsp;&nbsp;"users",<br />&nbsp;&nbsp;"reports"<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"name":
+                  "Sales",<br />&nbsp;&nbsp;"is_public": "no",<br />&nbsp;&nbsp;"id_string":
+                  "548XXXXXXXXXXX005",<br />&nbsp;&nbsp;"created_date":
+                  "08-13-2019",<br />&nbsp;&nbsp;"updated_date":
+                  "08-13-2019",<br />&nbsp;&nbsp;"bug_prefix": "SA1-I",<br />&nbsp;&nbsp;"cascade_setting":
+                  {<br />&nbsp;&nbsp;"date": false,<br />&nbsp;&nbsp;"percentage":
+                  false,<br />&nbsp;&nbsp;"workHours": false,<br />&nbsp;&nbsp;"logHours":
+                  false,<br />&nbsp;&nbsp;"plan": true<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"layout_details":
+                  {<br />&nbsp;&nbsp;"task": {<br />&nbsp;&nbsp;"name":
+                  "default",<br />&nbsp;&nbsp;"id": "548XXXXXXXXXXX005"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"project":
+                  {<br />&nbsp;&nbsp;"name": "zp.customfields.defaultlayout",<br />&nbsp;&nbsp;"id":
+                  "548XXXXXXXXXXX008"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"status":
+                  "active"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for invalid portal name will be returned
+                  in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"error":
+                  {<br />&nbsp;&nbsp;"code": 6504,<br />&nbsp;&nbsp;"message":
+                  "Domain Not Available"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for missing mandatory field in input
+                  values will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"error":
+                  {<br />&nbsp;&nbsp;"code": 6831,<br />&nbsp;&nbsp;"message":
+                  "Input Parameter Missing"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Projects Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

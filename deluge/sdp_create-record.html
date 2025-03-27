@@ -1,0 +1,346 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>SDP Cloud integration tasks</a></li>
+        <li><a>Create Record in SDP Cloud</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create Record in SDP Cloud</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2>Overview</h2>
+            <p>
+              The <strong>zoho.sdp.create</strong> task creates a new record
+              with the given values in the specified module of SDP Cloud.
+            </p>
+            <p>
+              This integration task is based on the SDP Cloud API -&nbsp;<a
+                >Create Request</a
+              >.
+            </p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.sdp.create</span><span>(</span><span>&lt;</span><span>module</span><span>&gt;</span><span>, </span><span>&lt;data_map</span><span>&gt;</span>, <span>&lt;</span><span>app_account_name</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>&lt;response&gt;&nbsp;</td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>The details of the record that will be created.</td>
+                      </tr>
+                      <tr>
+                        <td>&lt;module&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The name of the module in which the new record will
+                            be created.
+                          </p>
+                          <p>
+                            Currently, only "Request" is the applicable module.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;data_map&gt;</td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The values of the new record that will be created.
+                          </p>
+                          <p>
+                            The keys of this parameter should be specified as
+                            given in the&nbsp;<a>SDP Cloud API</a>.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;app_account_name&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The name of the account in which this task will be
+                            performed.
+                          </p>
+                          <div>
+                            <p><strong>Note:</strong></p>
+                            <ul>
+                              <li>
+                                The&nbsp;<strong>account_name</strong> can be
+                                obtained from the SDP Cloud URL.&nbsp;The URL is
+                                in the following format:<br />https://sdpondemand.zoho.com/app/<strong>&lt;account_name&gt;</strong>/HomePage.do
+                              </li>
+                              <li>
+                                You can specify an empty string for this param,
+                                in which case the task is performed in the
+                                default account.
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;connection&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The name of the <a>connection</a></p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory&nbsp;for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter unless the authtoken is
+                                manually deleted&nbsp;from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in
+                                <a>SDP Cloud API document</a>&nbsp;while
+                                creating the connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>​</p>
+              </div>
+            </div>
+            <h2>Example</h2>
+            <p>
+              The following script creates a new record with the specified
+              values in the module -&nbsp;<strong>Request:</strong>
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Create a KEY-VALUE variable to hold the values of the new record</span>
+&nbsp;<span>recordValue</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>recordValue</span><span>.</span><span>put</span><span>(</span><span>"subject"</span><span>, </span><span>"OS installation"</span><span>)</span><span>;</span>
+&nbsp;<span>recordValue</span><span>.</span><span>put</span><span>(</span><span>"requester"</span><span>, </span><span>{</span><span>"name"</span>:<span>"Shawn"</span><span>})</span><span>;</span>
+&nbsp;<span>recordValue</span><span>.</span><span>put</span><span>(</span><span>"category"</span><span>, </span><span>{</span><span>"name"</span>:<span>"Operating System"</span><span>})</span><span>;</span>
+&nbsp;<span>recordValue</span><span>.</span><span>put</span><span>(</span><span>"subcategory"</span><span>, </span><span>{</span><span>"name"</span>:<span>"Windows XP"</span><span>})</span><span>;</span>
+&nbsp;
+&nbsp;<span>//Execute the integration task to create a new record in the SDP Cloud module - Request</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sdp.create</span><span>(</span><span>"Request"</span>, <span>recordValue</span>, <span>""</span>, <span>"sdp_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response variable that holds
+                      the details of the record that will be created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Request"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      module in which the new record needs to be created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>recordValue</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span>&nbsp;variable that holds the
+                      values of the new record that needs to be created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>""</span>
+</pre>
+                    </div>
+                    <div>
+                      Empty <span>TEXT</span> to denote creation of record in
+                      default account.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"sdp_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The connection link name in <span>TEXT</span> format.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response returned will be in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"request": {<br />&nbsp;"subject": "OS
+                  installation",<br />&nbsp;"resolution": null,<br />&nbsp;"linked_to_request":
+                  null,<br />&nbsp;"mode": null,<br />&nbsp;"lifecycle":
+                  null,<br />&nbsp;"is_read": false,<br />&nbsp;"assets": [<br />&nbsp;],<br />&nbsp;"is_trashed":
+                  false,<br />&nbsp;"id": "317XXXXXXXXXX348",<br />&nbsp;"assigned_time":
+                  null,<br />&nbsp;"group": null,<br />&nbsp;"requester": {<br />&nbsp;"email_id":
+                  null,<br />&nbsp;"is_technician": false,<br />&nbsp;"sms_mail":
+                  null,<br />&nbsp;"phone": null,<br />&nbsp;"name": "Tom",<br />&nbsp;"mobile":
+                  null,<br />&nbsp;"id": "317XXXXXXXXXX338",<br />&nbsp;"photo_url":
+                  "https://contacts.zoho.com/file?exp=10&amp;ID=-1&amp;t=user&amp;height=60&amp;width=60",<br />&nbsp;"is_vip_user":
+                  false,<br />&nbsp;"department": null<br />&nbsp;},<br />&nbsp;"email_to":
+                  [<br />&nbsp;],<br />&nbsp;"created_time": {<br />&nbsp;"display_value":
+                  "Sep 20, 2019 05:01 PM",<br />&nbsp;"value":
+                  "1568979088854"<br />&nbsp;},<br />&nbsp;"item": null,<br />&nbsp;"level":
+                  null,<br />&nbsp;"approval_status": null,<br />&nbsp;"impact":
+                  null,<br />&nbsp;"sla": null,<br />&nbsp;"resolved_time":
+                  null,<br />&nbsp;"priority": null,<br />&nbsp;"created_by":
+                  {<br />&nbsp;"email_id": "tom@zylker.com",<br />&nbsp;"is_technician":
+                  true,<br />&nbsp;"sms_mail": null,<br />&nbsp;"phone":
+                  null,<br />&nbsp;"name": "Shawn",<br />&nbsp;"mobile":
+                  null,<br />&nbsp;"id": "3173000000115318",<br />&nbsp;"photo_url":
+                  "https://contacts.zoho.com/file?exp=10&amp;ID=58XXXX60&amp;t=user&amp;height=60&amp;width=60",<br />&nbsp;"is_vip_user":
+                  false,<br />&nbsp;"department": null<br />&nbsp;},<br />&nbsp;"first_response_due_by_time":
+                  null,<br />&nbsp;"is_escalated": false,<br />&nbsp;"last_updated_time":
+                  {<br />&nbsp;"display_value": "Sep 20, 2019 05:01 PM",<br />&nbsp;"value":
+                  "1568979089117"<br />&nbsp;},<br />&nbsp;"has_notes":
+                  false,<br />&nbsp;"udf_fields": {<br />&nbsp;},<br />&nbsp;"impact_details":
+                  null,<br />&nbsp;"subcategory": {<br />&nbsp;"name": "Windows
+                  XP",<br />&nbsp;"id": "317XXXXXXXXXX747"<br />&nbsp;},<br />&nbsp;"deleted_time":
+                  null,<br />&nbsp;"email_cc": [<br />&nbsp;],<br />&nbsp;"status":
+                  {<br />&nbsp;"in_progress": true,<br />&nbsp;"internal_name":
+                  "Open",<br />&nbsp;"stop_timer": false,<br />&nbsp;"color":
+                  "#0066ff",<br />&nbsp;"name": "Open",<br />&nbsp;"id":
+                  "317XXXXXXXXXX657"<br />&nbsp;},<br />&nbsp;"template": {<br />&nbsp;"name":
+                  "Default Request",<br />&nbsp;"id": "317XXXXXXXXXX655"<br />&nbsp;},<br />&nbsp;"email_ids_to_notify":
+                  [<br />&nbsp;],<br />&nbsp;"attachments": [<br />&nbsp;],<br />&nbsp;"request_type":
+                  null,<br />&nbsp;"display_id": "1",<br />&nbsp;"time_elapsed":
+                  "0",<br />&nbsp;"notification_status": null,<br />&nbsp;"description":
+                  null,<br />&nbsp;"responded_time": null,<br />&nbsp;"is_service_request":
+                  false,<br />&nbsp;"urgency": null,<br />&nbsp;"has_request_initiated_change":
+                  false,<br />&nbsp;"department": null,<br />&nbsp;"is_reopened":
+                  false,<br />&nbsp;"has_draft": false,<br />&nbsp;"has_attachments":
+                  false,<br />&nbsp;"has_linked_requests": false,<br />&nbsp;"is_overdue":
+                  false,<br />&nbsp;"technician": null,<br />&nbsp;"has_problem":
+                  false,<br />&nbsp;"due_by_time": null,<br />&nbsp;"is_fcr":
+                  false,<br />&nbsp;"has_project": false,<br />&nbsp;"site":
+                  null,<br />&nbsp;"is_first_response_overdue": false,<br />&nbsp;"completed_time":
+                  null,<br />&nbsp;"email_bcc": [<br />&nbsp;],<br />&nbsp;"category":
+                  {<br />&nbsp;"deleted": false,<br />&nbsp;"name": "Operating
+                  System",<br />&nbsp;"id": "317XXXXXXXXXX705"<br />&nbsp;}<br />&nbsp;},<br />&nbsp;"response_status":
+                  {<br />&nbsp;"status_code": 2000,<br />&nbsp;"status":
+                  "success"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p>
+              To fetch the ID of the newly created record from the success
+              response obtained, execute the following snippet:
+            </p>
+            <div>
+              <pre>&nbsp;<span>info </span><span>&lt;response_variable&gt;</span>.<span>get</span>(<span>"request"</span>).<span>get</span>(<span>"id"</span>);
+</pre>
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for incorrect or non-existent record ID
+                  will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"response_status": {<br />&nbsp;"status_code":
+                  4000,<br />&nbsp;"messages": [<br />&nbsp;{<br />&nbsp;"status_code":
+                  4007,<br />&nbsp;"type": "failed",<br />&nbsp;"message":
+                  "Invalid URL accessed"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"status":
+                  "failed"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for incorrect or non-existent field API
+                  name will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"response_status": {<br />&nbsp;"messages":
+                  [<br />&nbsp;{<br />&nbsp;"status_code": 4001,<br />&nbsp;"type":
+                  "failed",<br />&nbsp;"message": "EXTRA_KEY_FOUND_IN_JSON"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"status":
+                  "failed"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for invalid values against the field API
+                  names will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"response_status": {<br />&nbsp;"status_code":
+                  4000,<br />&nbsp;"messages": [<br />&nbsp;{<br />&nbsp;"status_code":
+                  4001,<br />&nbsp;"field": "subcategory",<br />&nbsp;"type":
+                  "failed"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"status":
+                  "failed"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2>Related Links</h2>
+            <ul>
+              <li><a>SDP Cloud API</a></li>
+              <li>Common error codes can be viewed&nbsp;<a>here</a></li>
+              <li>
+                The possible response formats can be viewed&nbsp;<a>here</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

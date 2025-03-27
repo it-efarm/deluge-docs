@@ -1,0 +1,249 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho FSM integration tasks</a></li>
+        <li><a>Create Record in Zoho FSM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create Record in Zoho FSM</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2>Overview</h2>
+            <p>
+              You can create a record in the specified module of FSM using the
+              <strong>zoho.fsm.createRecord()</strong> task.
+            </p>
+            <p>
+              This task is based on <a>Zoho FSM API</a> -&gt; &lt;Module&gt;
+              APIs -&gt; Create &lt;ModuleName&gt;
+            </p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.fsm.createRecord</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>record_details</span><span>&gt;</span><span>, </span><span>&lt;</span><span>optional_data_map</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>&lt;variable&gt;&nbsp;</td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>is the response returned by Zoho FSM.</td>
+                      </tr>
+                      <tr>
+                        <td>&lt;module_name&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            is the API name of the Zoho FSM module&nbsp;where
+                            the record will be added.
+                          </p>
+                          <p>
+                            <strong>The API names of the modules are:</strong
+                            ><br />Assets, Companies, Contacts, Estimates,
+                            Invoices, Requests, Scheduled_Maintenances,
+                            Service_And_Parts, Service_Appointments, Time_Off,
+                            Work_Orders
+                          </p>
+                          <p>&nbsp;</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;record_details&gt;</td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            is a map with details of the record that needs to be
+                            inserted into the module
+                          </p>
+                          <p>
+                            <strong>Note: </strong>To learn about the mandatory
+                            fields, click <a>here</a> and navigate to
+                            &lt;Module&gt; APIs -&gt; Create &lt;ModuleName&gt;
+                          </p>
+                          <p>&nbsp;</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;optional_data_map&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            is a Map parameter to pass any additional values. If
+                            you want to ignore this parameter, supply an empty
+                            map.
+                          </p>
+                          <p>
+                            <strong>Note: </strong>To learn about the
+                            optional&nbsp;parameters,
+                            click&nbsp;<a>here</a>&nbsp;and navigate to
+                            &lt;Module&gt; APIs -&gt; Create &lt;ModuleName&gt;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>is the name of the <a>connection</a>.</p>
+                          <p>
+                            <strong>Note:</strong> Add relevant scopes as
+                            mentioned in <a>Zoho FSM API</a> -&gt;
+                            &lt;Module&gt; -&gt; Create
+                            &lt;ModuleName&gt;.&nbsp;
+                          </p>
+                          <p>&nbsp;</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2>Example: Creating a Request record</h2>
+            <p>The following script will create a Request record in FSM:</p>
+            <div>
+              <pre><span>emptyMap </span><span>= </span><span>Map</span><span>()</span><span>;</span>&nbsp;
+&nbsp;
+<span>serviceAddress </span><span>= </span><span>Map</span><span>()</span><span>;</span>&nbsp;
+<span>serviceAddress</span><span>.put</span><span>(</span><span>"id"</span><span>, </span><span>"1439XXXXXXXX1231"</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+<span>billingAddress </span><span>= </span><span>Map</span><span>()</span><span>;</span>&nbsp;
+<span>billingAddress</span><span>.put</span><span>(</span><span>"id"</span><span>, </span><span>"1439XXXXXXXX1230"</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+<span>newRecordInfo </span><span>= </span><span>Map</span><span>()</span><span>;</span>&nbsp;
+<span>newRecordInfo</span><span>.put</span><span>(</span><span>"Summary"</span><span>, </span><span>"Sample"</span><span>)</span><span>;</span>&nbsp;
+<span>newRecordInfo</span><span>.put</span><span>(</span><span>"Status"</span><span>, </span><span>"New"</span><span>)</span><span>;</span>&nbsp;
+<span>newRecordInfo</span><span>.put</span><span>(</span><span>"Contact"</span><span>, </span><span>"1439XXXXXXXX1222"</span><span>)</span><span>;</span>&nbsp;
+<span>newRecordInfo</span><span>.put</span><span>(</span><span>"Territory"</span><span>,</span><span>"1439XXXXXXXX1185"</span><span>)</span><span>;</span>&nbsp;
+<span>newRecordInfo</span><span>.put</span><span>(</span><span>"Service_Address"</span><span>,</span><span>serviceAddress</span><span>)</span><span>;</span>&nbsp;
+<span>newRecordInfo</span><span>.put</span><span>(</span><span>"Billing_Address"</span><span>,</span><span>billingAddress</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+<span>response </span><span>= </span><span>zoho.fsm.createRecord</span><span>(</span><span>"Requests"</span><span>, </span><span>newRecordInfo</span><span>, </span><span>emptyMap</span><span>, </span><span>"fsm_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div><pre>newRecordInfo</pre></div>
+                    <div>
+                      is the <span>KEY-VALUE</span>&nbsp;containing the values
+                      for the record to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Summary"</span>&nbsp;
+<span>"Status"</span>&nbsp;
+<span>"Contact"</span>&nbsp;
+<span>"Territory"</span>&nbsp;
+<span>"Service_Address"</span>&nbsp;
+<span>"Billing_Address"</span></pre>
+                    </div>
+                    <div>
+                      are the <strong>API names</strong> of Zoho FSM fields.
+                      They are of <span>TEXT</span> data type.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Requests"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the API name of
+                      the Zoho FSM module where the record will be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> response returned by Zoho
+                      FSM.&nbsp;
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"fsm_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the connection created for Zoho FSM.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>The response returned is of the following format:</p>
+                <div>
+                  &nbsp;{<br />&nbsp;"result": "success",<br />&nbsp;"code":
+                  "SUCCESS",<br />&nbsp;"data": {<br />&nbsp;"Requests": [<br />&nbsp;{<br />&nbsp;"UID":
+                  "Requests_0",<br />&nbsp;"Modified_Time":
+                  "2022-05-16T03:56:17-07:00",<br />&nbsp;"Modified_By": {<br />&nbsp;"name":
+                  "Mary Cooper",<br />&nbsp;"id": "1439XXXXXXXX1001"<br />&nbsp;},<br />&nbsp;"Created_Time":
+                  "2022-05-16T03:56:17-07:00",<br />&nbsp;"id":
+                  "1439XXXXXXXX5716",<br />&nbsp;"Created_By": {<br />&nbsp;"name":
+                  "Mary Cooper",<br />&nbsp;"id": "1439XXXXXXXX1001"<br />&nbsp;},<br />&nbsp;"TabName":
+                  "Requests"<br />&nbsp;}<br />&nbsp;]<br />&nbsp;},<br />&nbsp;"status":
+                  "success"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><a></a></p>
+            <p>
+              To get the ID of the newly created record, execute the following
+              script:
+            </p>
+            <div>
+              &lt;variable&gt; =
+              response.get("data").get("Requests").get(0).get("id").toLong();
+            </div>
+            <h2>Related Links</h2>
+            <ul>
+              <li><a>Connections</a></li>
+              <li><a>Zoho FSM API document</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

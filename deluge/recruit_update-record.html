@@ -1,0 +1,278 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Recruit integration tasks</a></li>
+        <li><a>Update record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Update records in Zoho Recruit</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>zoho.recruit.updateRecord</strong> is used to
+              update a record&nbsp;in Zoho Recruit. This task is based on the
+              <a>Zoho Recruit API - Update Record</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho</span><span>.recruit.updateRecord</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_ID</span><span>&gt;, </span><span>&lt;</span><span>data_map</span><span>&gt;</span>, <span>&lt;</span><span>workflow_trigger</span><span>&gt;</span>,<span> &lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td>&nbsp;<span>KEY-VALUE</span>&nbsp;</td>
+                        <td>
+                          <p>
+                            variable which will hold the response returned by
+                            Zoho Recruit.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;</p></td>
+                        <td>&nbsp;<span>TEXT</span>&nbsp;</td>
+                        <td>
+                          <p>module in which the record will be updated.</p>
+                          <p><strong>Applicable&nbsp;modules:</strong></p>
+                          <ul>
+                            <li>Candidates</li>
+                            <li>JobOpenings</li>
+                            <li>Contacts</li>
+                            <li>Clients</li>
+                            <li>Interviews</li>
+                            <li>Custom Module</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;record_ID&gt;</p></td>
+                        <td>&nbsp;<span>NUMBER</span>&nbsp;</td>
+                        <td>
+                          <p>ID of the record which will be updated.</p>
+                          <p>
+                            Learn how to fetch the ID of a record
+                            after&nbsp;<a>creating</a>,&nbsp;<a>searching</a>&nbsp;it&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;data_map&gt;</p></td>
+                        <td>&nbsp;<span>KEY-VALUE</span>&nbsp;</td>
+                        <td>
+                          <p>
+                            keys and values to update the record with the new
+                            data.
+                          </p>
+                          <div>
+                            <strong>Note:</strong> Field names (keys) should be
+                            specified as given in the&nbsp;<a
+                              >Zoho Recruit API</a
+                            >.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;workflow_trigger&gt;</td>
+                        <td>BOOLEAN</td>
+                        <td>
+                          <ul>
+                            <li>
+                              If this param is supplied with
+                              <strong>true</strong>, all the&nbsp;<a
+                                >workflows configured</a
+                              >
+                              for the specified module will be triggered for the
+                              current record.
+                            </li>
+                            <li>
+                              If this param is supplied with
+                              <strong>false</strong>, no workflow&nbsp;will be
+                              triggered.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>TEXT</td>
+                        <td>
+                          <p>The link name of the Zoho Recruit connection.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in
+                                <a>Zoho Recruit API</a> while creating the
+                                connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Update a record in Candidates module</h2>
+            <p>
+              The following script updates a record in the "Candidates" module
+              in Zoho Recruit.
+            </p>
+            <div>
+              <pre>&nbsp;<span>candidatesMap </span><span>= </span><span>Map();</span>
+&nbsp;<span>candidatesMap</span><span>.put</span><span>(</span><span>"Email","john@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>response</span><span>=</span> <span>zoho</span><span>.recruit.updateRecord</span><span>(</span><span>"Candidates", </span><span>3342000000267001</span>,<span> candidatesMap</span>,<span> false</span>,<span> "recruit_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>candidatesMap</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>KEY-VALUE</span> variable which will hold keys
+                      and values required to update the record.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Email</span><span>"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span>&nbsp;that represents the label
+                      name&nbsp;of field&nbsp;in Zoho Recruit which will get
+                      updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"john@zylker.com</span><span>"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span>&nbsp;that represents the updated
+                      value&nbsp;of field&nbsp;in Zoho Recruit.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Candidates"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a&nbsp;<span>TEXT</span> that represents
+                      the&nbsp;module in which the record will be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>false</span>
+</pre>
+                    </div>
+                    <div>
+                      is a&nbsp;<span>BOOLEAN</span>&nbsp;that indicates&nbsp;no
+                      workflow will be triggered.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"recruit_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a&nbsp;<span>TEXT</span> that represents
+                      the&nbsp;module in which the record will be updated.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              The <strong>success</strong>&nbsp;response returned is of the
+              following format:
+            </p>
+            <div>
+              <p>
+                {&nbsp;&nbsp;<br />&nbsp; &nbsp;"Is Locked":"false",<br />&nbsp;
+                &nbsp;"Candidate ID":"ZR_23_CAND",<br />&nbsp;
+                &nbsp;"CANDIDATEID":"1687000000106001",<br />&nbsp; &nbsp;"Is
+                Unqualified":"false",<br />&nbsp; &nbsp;"Updated On":"2015-08-05
+                18:41:34",<br />&nbsp; &nbsp;"Created By":"dinesh.d",<br />&nbsp;
+                &nbsp;"Is Attachment Present":"true",<br />&nbsp;
+                &nbsp;"Source":"Resume",<br />&nbsp;
+                &nbsp;"MODIFIEDBY":"1687000000077003",<br />&nbsp;
+                &nbsp;"Created Time":"2015-08-05 18:41:34",<br />&nbsp;
+                &nbsp;"Modified By":"dinesh.d",<br />&nbsp;
+                &nbsp;"SMOWNERID":"1687000000077003",<br />&nbsp;
+                &nbsp;"Candidate Status":"New",<br />&nbsp; &nbsp;"Last Activity
+                Time":"2015-08-05 18:41:34",<br />&nbsp;
+                &nbsp;"SMCREATORID":"1687000000077003",<br />&nbsp; &nbsp;"Email
+                Opt Out":"false",<br />&nbsp; &nbsp;"Is Hot
+                Candidate":"false",<br />&nbsp; &nbsp;"Last Name":"No name",<br />&nbsp;
+                &nbsp;"Experience in Years":"0",<br />&nbsp; &nbsp;"Candidate
+                Owner":"dinesh.d"<br />}
+              </p>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Recruit integration tasks</a></li>
+              <li><a>Zoho Recruit API - Update Record</a></li>
+              <li><a>Zoho Recruit API - Possible error codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

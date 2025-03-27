@@ -1,0 +1,424 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Invoice Integration Tasks</a></li>
+        <li><a>Create record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create record&nbsp;in Zoho Invoice</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to create a record&nbsp;in&nbsp;Zoho
+              Invoice.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho</span><span>.invoice.create</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>org_ID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>data_map</span><span>&gt;, &lt;connection&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;&nbsp;</span></p>
+                        </td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            specifies the variable which will hold
+                            the&nbsp;response returned by Zoho Invoice.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;module_name&gt;</span></p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            specifies the Zoho Invoice's module in which the
+                            record will be created.
+                          </p>
+                          <p>Following are the applicable&nbsp;modules.</p>
+                          <div>
+                            <table>
+                              <tbody>
+                                <tr>
+                                  <td>Contacts</td>
+                                  <td>Invoices</td>
+                                  <td>Customer Payments</td>
+                                  <td>Items</td>
+                                </tr>
+                                <tr>
+                                  <td>Estimates</td>
+                                  <td>Expenses</td>
+                                  <td>ExpenseCategory</td>
+                                  <td>
+                                    <p>Projects</p>
+                                    <p>
+                                      (applicable to all Zoho services except
+                                      Zoho Creator)
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;org_ID&gt;</span></p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            specifies the <a>organization ID</a>&nbsp;of the
+                            account in which the record will be created.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;data_map&gt;</span></p>
+                        </td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            Input map with key as Invoice field's name and the
+                            required value.
+                          </p>
+                          <p>
+                            To learn about the mandatory fields,&nbsp;<a
+                              >click here</a
+                            >&nbsp;and go to &lt;ModuleName&gt; -&gt; Create
+                            &lt;ModuleName&gt;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connection&gt;*</span></p>
+                          <p><span>(optional)</span></p>
+                        </td>
+                        <td>TEXT</td>
+                        <td>
+                          <p>
+                            specifies the name of the Zoho Invoice connection.
+                          </p>
+                          <p>
+                            *<u><strong>Note:</strong></u> This&nbsp;param is
+                            not supported when used in&nbsp;Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              1) Let's say we have a Zoho Creator form containing a field called
+              <strong>Customer_ID</strong>, and a&nbsp;subform called
+              <strong>Products</strong>. The subform contains fields
+              <strong>item_id</strong>, <strong>name</strong>,
+              <strong>rate</strong>, and&nbsp;<strong>quantity</strong>. On
+              submission of this form, an invoice must be created in Zoho
+              Invoice with the details specified in the subform. We can achieve
+              this using the following snippet:
+            </p>
+            <div>
+              <pre><span>listVar</span> = <span>List();
+</span>
+​//iterating each row in the subform
+<span>for each</span> <span> line</span> in <span>Products</span>
+{
+  <span>mapVar</span> = <span>map()</span>;
+  <span>mapVar</span>.<span>put</span>(<span>"item_id", line.item_id</span>);
+  <span>mapVar</span>.<span>put</span>(<span>"name", line.name</span>);
+  <span>mapVar</span>.<span>put</span>(<span>"rate", line.rate</span>);
+  <span>mapVar</span>.<span>put</span>(<span>"quantity", line.quantity</span>);
+  <span>listVar</span>.<span>add</span>(<span>mapVar</span>);
+}
+
+<span>values</span> = <span>map()</span>;
+<span>values</span>.<span>put</span>(<span>"customer_id", input.Customer_ID</span>);
+<span>values</span>.<span>put</span>(<span>"line_items", listVar</span>);
+
+<span>response</span> = <span>zoho.invoice.create</span>(<span>"Invoices", "66XXXXX66", values</span>);</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>listVar</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>LIST</span> variable that holds the list
+                      of&nbsp;key value pairs for the line items in the invoice
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>mapVar</span>
+&nbsp;<span>values</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      are the <span>MAP</span>&nbsp;variables which
+                      hold&nbsp;key value pairs
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>"item_id"</span>
+&nbsp;<span>"name"</span>
+&nbsp;<span>"rate"</span>
+&nbsp;<span>"quantity"</span>
+&nbsp;<span>"customer_id"</span>
+&nbsp;<span>"line_items"</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      are the <span>TEXT</span> that represents the label name
+                      of the field specified in Zoho Invoice' <a>API</a>.
+                      Customer ID and Item ID can be viewed in the url in Zoho
+                      Invoice account when you click on a record in Customers or
+                      Items modules&nbsp;respectively.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Invoices"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module in
+                      which the record needs to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"66XXXXX66"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the organization
+                      ID of the Zoho Invoice account in which the record needs
+                      to be created
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              2)&nbsp;The following script creates a new record in the Zoho
+              Invoice module - <strong>customerpayments</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>CusPayMap</span><span>=</span><span>map();</span>
+&nbsp;<span>CusPayMap</span><span>.put</span><span>(</span><span>"customer_id","13144XXXXXXXXXXXX"</span><span>)</span><span>;</span>
+&nbsp;<span>CusPayMap</span><span>.put</span><span>(</span><span>"payment_mode","cheque"</span><span>)</span><span>;</span>
+&nbsp;<span>CusPayMap</span><span>.put</span><span>(</span><span>"amount","450"</span><span>)</span><span>;</span>
+&nbsp;<span>CusPayMap</span><span>.put</span><span>(</span><span>"date","2017-01-01"</span><span>)</span><span>;</span>
+&nbsp;<span>response</span> <span>=</span><span>zoho</span><span>.invoice.create</span><span>(</span><span>"Customerpayments", "5368XXXX",</span><span>CusPayMap</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>CusPayMap</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      values of the record that needs to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>"customer_id"</span>
+&nbsp;<span>"payment_mode"</span>
+&nbsp;<span>"amount"</span>
+&nbsp;<span>"date"</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      are the <span>TEXT</span> that represents the label names
+                      of fields specified in Zoho Invoice's <a>API</a>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Customerpayments"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module in
+                      which the record needs to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"5368XXXX"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the organization
+                      ID of the Zoho Invoice account in which the record needs
+                      to be created
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p><strong>Success Format</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The following is a sample <strong>success</strong> response:
+                </p>
+                <div>
+                  <p>
+                    {&nbsp;&nbsp;<br />&nbsp; &nbsp;"payment":{&nbsp;&nbsp;<br />&nbsp;
+                    &nbsp; &nbsp; "date":"2017-01-01",<br />&nbsp; &nbsp; &nbsp;
+                    "can_send_in_mail":true,<br />&nbsp; &nbsp; &nbsp;
+                    "documents":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "discount_amount":0.0,<br />&nbsp; &nbsp; &nbsp;
+                    "is_payment_details_required":true,<br />&nbsp; &nbsp;
+                    &nbsp; "attachment_name":"",<br />&nbsp; &nbsp; &nbsp;
+                    "is_client_review_settings_enabled":false,<br />&nbsp;
+                    &nbsp; &nbsp; "description":"",<br />&nbsp; &nbsp; &nbsp;
+                    "currency_code":"INR",<br />&nbsp; &nbsp; &nbsp;
+                    "online_transaction_id":"",<br />&nbsp; &nbsp; &nbsp;
+                    "page_width":"8.27in",<br />&nbsp; &nbsp; &nbsp;
+                    "bank_charges":0.0,<br />&nbsp; &nbsp; &nbsp;
+                    "invoices":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "payment_id":"13144XXXXXXXXXXXX",<br />&nbsp; &nbsp; &nbsp;
+                    "tax_amount_withheld":0.0,<br />&nbsp; &nbsp; &nbsp;
+                    "custom_field_hash":{&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; },<br />&nbsp; &nbsp; &nbsp;
+                    "template_type":"elite",<br />&nbsp; &nbsp; &nbsp;
+                    "product_description":"",<br />&nbsp; &nbsp; &nbsp;
+                    "last_four_digits":"",<br />&nbsp; &nbsp; &nbsp;
+                    "payment_mode":"check",<br />&nbsp; &nbsp; &nbsp;
+                    "amount":450.0,<br />&nbsp; &nbsp; &nbsp;
+                    "orientation":"portrait",<br />&nbsp; &nbsp; &nbsp;
+                    "exchange_rate":1.0,<br />&nbsp; &nbsp; &nbsp;
+                    "custom_fields":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "payment_refunds":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "card_type":"",<br />&nbsp; &nbsp; &nbsp;
+                    "reference_number":"",<br />&nbsp; &nbsp; &nbsp;
+                    "template_name":"Elite Template",<br />&nbsp; &nbsp; &nbsp;
+                    "template_id":"13144XXXXXXXXXXXX",<br />&nbsp; &nbsp; &nbsp;
+                    "customer_name":"Bowman and Cos",<br />&nbsp; &nbsp; &nbsp;
+                    "unused_amount":450.0,<br />&nbsp; &nbsp; &nbsp;
+                    "customer_id":"13144XXXXXXXXXXXX",<br />&nbsp; &nbsp; &nbsp;
+                    "is_pre_gst":true,<br />&nbsp; &nbsp; &nbsp;
+                    "currency_id":"13144XXXXXXXXXXXX",<br />&nbsp; &nbsp; &nbsp;
+                    "page_height":"11.69in"<br />&nbsp; &nbsp;},<br />&nbsp;
+                    &nbsp;"code":0,<br />&nbsp;
+                    &nbsp;"instrumentation":{&nbsp;&nbsp;<br />&nbsp; &nbsp;
+                    &nbsp; "response_write_time":11,<br />&nbsp; &nbsp; &nbsp;
+                    "query_execution_time":28,<br />&nbsp; &nbsp; &nbsp;
+                    "page_context_write_time":0,<br />&nbsp; &nbsp; &nbsp;
+                    "request_handling_time":1012<br />&nbsp; &nbsp;},<br />&nbsp;
+                    &nbsp;"message":"The payment from the customer has been
+                    recorded"<br />}
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <p>
+              To get the ID of the newly created record, execute the following
+              script:
+            </p>
+            <div>
+              &lt;variable&gt; =
+              &lt;response_variable&gt;.get("&lt;module_name&gt;").get("&lt;module_name&gt;_id"&gt;
+              ;<br />// example for &lt;module_name&gt; is contact and example
+              for &lt;module_name&gt;_id is contact_id
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned due to incorrect
+                  <strong>organization ID</strong> is of the following format:
+                </p>
+                <div>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {&nbsp;&nbsp;<br />&nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"code":6041,<br />&nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"message":"This user
+                  is not associated with the CompanyID/CompanyName:537XX."<br />&nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Z</a><a>oho Invoice API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

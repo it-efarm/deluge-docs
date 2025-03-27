@@ -1,0 +1,321 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Desk Integration Tasks</a></li>
+        <li><a>Update Record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Update record in Zoho Desk</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This task is used to update a record using its ID in the specified
+              Zoho Desk module.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> =</span> <span>zoho</span><span>.desk.update</span><span>(</span><span>&lt;</span><span>orgId</span><span>&gt;, </span><span>&lt;</span><span>module_name</span><span>&gt;,</span> <span>&lt;</span><span>record_id</span><span>&gt;, </span><span>&lt;</span><span>record_value</span><span>&gt;, </span>&lt;<span>connection</span><span>&gt;</span>)<span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the response returned by Zoho Desk. It
+                            represents the values of the updated record.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;orgId&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the organization ID&nbsp;of the account in
+                            which the record will be updated. This can be found
+                            in Zoho Desk Settings &gt; Developer Space &gt;
+                            API.&nbsp;&nbsp;<br /><br /><img />
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;module_name&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the module in which the record will be
+                            updated.
+                          </p>
+                          <p>
+                            <span
+                              >The following is the list of applicable
+                              modules.</span
+                            >
+                          </p>
+                          <ul>
+                            <li><p>Tickets</p></li>
+                            <li><p>Contacts</p></li>
+                            <li><p>Accounts</p></li>
+                            <li><p>Tasks</p></li>
+                            <li><p>Products</p></li>
+                            <li><p>Contracts</p></li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;record_id&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the ID of the record which will be
+                            updated.
+                          </p>
+                          <p>
+                            Learn how to fetch the record ID
+                            after&nbsp;<a>creating</a>,&nbsp;<a>searching</a>&nbsp;or&nbsp;<a>fetching</a>&nbsp;records.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;record_value&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the new values of the record that needs to
+                            be updated.
+                          </p>
+                          <p>
+                            To learn about the field names,&nbsp;<a
+                              >click here</a
+                            >&nbsp;and go to &lt;ModuleName&gt; -&gt; Update
+                            &lt;ModuleName&gt;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connection&gt;</span></p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>specifies the name of the <a>connection</a>.</p>
+                          <p>
+                            The scopes which&nbsp;need&nbsp;to be selected
+                            are:&nbsp;<br />- Desk.contacts.UPDATE<br />-
+                            Desk.tasks.UPDATE<br />- Desk.tickets.UPDATE<br />-
+                            Desk.settings.UPDATE
+                          </p>
+                          <p>
+                            <strong>*Note:</strong>&nbsp;This is a mandatory
+                            param when used in&nbsp;<a>Zoho Creator</a>.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following example updates the record of ID -
+              <strong>168XXXXXXXXXXXX001</strong> with the specified values in
+              the Zoho Desk module - <strong>Tickets</strong>.
+            </p>
+            <div>
+              <pre><span>recordValue</span><span> = </span><span>{</span><span>"subject"</span><span>:</span><span>"Update ticket"</span><span>, </span><span>"email"</span><span>:</span><span>"shawn@zylker.com"</span><span>, </span><span>"phone"</span><span>:</span><span>"+1 234 XXX XXXX"</span><span>}</span><span>;</span>&nbsp;
+<span>response</span><span> = </span><span>zoho</span><span>.desk.update</span><span>(</span><span>641XXXXXX</span><span>, </span><span>"tickets"</span><span>, </span><span>168XXXXXXXXXXXX001</span><span>, </span><span>recordValue</span><span>, </span><span>"desk_connection"</span><span><span>)</span><span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      variable which will hold the response returned by Zoho
+                      Desk. It represents the values of the updated record.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>641XXXXXX</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the
+                      organization ID
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"tickets"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      module in which the record needs to be updated
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>168XXXXXXXXXXXX001</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the ID of the
+                      record that needs to be updated
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>recordValue</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the new
+                      values of the record that needs to be updated
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"subject"
+"email"
+"phone"</span></pre>
+                    </div>
+                    <div>
+                      are the <span>TEXT</span> keys that represent the
+                      attribute names as given in the <a>Zoho Desk API</a>.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"desk_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>The success response returned is of the following format.</p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"ticketNumber": "118",<br />&nbsp;&nbsp;"modifiedTime":
+                  "2018-10-19T06:36:59.251Z",<br />&nbsp;&nbsp;"subCategory":
+                  null,<br />&nbsp;&nbsp;"statusType": "Open",<br />&nbsp;&nbsp;"subject":
+                  "Update Ticket",<br />&nbsp;&nbsp;"customFields": {},<br />&nbsp;&nbsp;"dueDate":
+                  null,<br />&nbsp;&nbsp;"departmentId":
+                  "168XXXXXXXXXXXX044",<br />&nbsp;&nbsp;"channel": "Phone",<br />&nbsp;&nbsp;"description":
+                  null,<br />&nbsp;&nbsp;"resolution": null,<br />&nbsp;&nbsp;"closedTime":
+                  null,<br />&nbsp;&nbsp;"approvalCount": "0",<br />&nbsp;&nbsp;"timeEntryCount":
+                  "0",<br />&nbsp;&nbsp;"channelRelatedInfo": null,<br />&nbsp;&nbsp;"responseDueDate":
+                  null,<br />&nbsp;&nbsp;"isDeleted": false,<br />&nbsp;&nbsp;"createdTime":
+                  "2018-10-15T07:18:01.000Z",<br />&nbsp;&nbsp;"modifiedBy":
+                  "100XXXXXXXX005",<br />&nbsp;&nbsp;"id": "100XXXXXXXX001",<br />&nbsp;&nbsp;"isResponseOverdue":
+                  false,<br />&nbsp;&nbsp;"email": "shawn@zylker.com",<br />&nbsp;&nbsp;&nbsp;&nbsp;"customerResponseTime":
+                  "2018-10-15T10:26:02.019Z",<br />&nbsp;&nbsp;"productId":
+                  null,<br />&nbsp;&nbsp;"contactId": "168XXXXXXXXXXXX005",<br />&nbsp;&nbsp;"threadCount":
+                  "0",<br />&nbsp;&nbsp;"priority": null,<br />&nbsp;&nbsp;"classification":
+                  null,<br />&nbsp;&nbsp;"assigneeId": "100XXXXXXXX020",<br />&nbsp;&nbsp;"commentCount":
+                  "0",<br />&nbsp;&nbsp;"taskCount": "0",<br />&nbsp;&nbsp;"accountId":
+                  "100XXXXXXXX002",<br />&nbsp;&nbsp;"phone": "92114XXXXX,<br />&nbsp;&nbsp;"webUrl":
+                  "https://desk.zoho.com/support/smith/ShowHomePage.do#Cases/dv/a23592d4XXXXXXXXXXXXXXXXXXXXc6c0",<br />&nbsp;&nbsp;"teamId":
+                  null,<br />&nbsp;&nbsp;"attachmentCount": "0",<br />&nbsp;&nbsp;"category":
+                  null,<br />&nbsp;&nbsp;"status": "open"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned for
+                  <strong>incorrect or non-existent</strong> organization ID is
+                  of the following format.
+                </p>
+                <div>
+                  &nbsp; &nbsp;{<br />&nbsp;
+                  &nbsp;"errorCode":"UNPROCESSABLE_ENTITY",<br />&nbsp;
+                  &nbsp;"message":"The value passed for the 'orgId' parameter is
+                  invalid."<br />&nbsp; &nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned for
+                  <strong>incorrect or non-existent</strong> record ID is of the
+                  following format.
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"errorCode":"FORBIDDEN",<br />&nbsp;&nbsp;"message":"You
+                  are not authorized to access this resource."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Desk API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

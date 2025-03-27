@@ -1,0 +1,254 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Miscellaneous</a></li>
+        <li><a>Set field value</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h1>Set Field Value</h1>
+      <div>
+        <div>
+          <h4>Table of Contents</h4>
+          <ul>
+            <li><a>Overview</a></li>
+            <li><a> Return Type</a></li>
+            <li><a> Syntax </a></li>
+            <li><a>Things to keep in mind</a></li>
+            <li><a>Example</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Note: </strong>This help page is applicable only to Zoho
+          Creator
+        </div>
+        <h2><a></a>Overview</h2>
+        <p>
+          The <strong>set variable</strong>&nbsp;deluge task can be&nbsp;used to
+          assign values to form fields.
+        </p>
+        <p>
+          See&nbsp;<a>this page</a>&nbsp;to learn how to declare variables using
+          this task.
+        </p>
+        <h2><a></a>Return Type</h2>
+        <p>This task returns the stored value.&nbsp;</p>
+        <h2><a></a>Syntax</h2>
+        <div>
+          <span>input.&lt;field_link_name&gt;</span> =
+          <span>&lt;expression&gt;;</span>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th><span>Parameter</span></th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div><span>&lt;field_link_name&gt;</span></div>
+                </td>
+                <td>
+                  <p>
+                    Link name of the field to which the given&nbsp;value will
+                    be&nbsp;assigned.
+                  </p>
+                  <ul>
+                    <li>
+                      Mandatory fields should not be assigned null value. If a
+                      null value is specified, execution will be stopped during
+                      run time.
+                    </li>
+                    <li>
+                      Signature and&nbsp;Formula
+                      fields&nbsp;<strong>cannot</strong>&nbsp;be specified
+                    </li>
+                    <li>
+                      The Add Notes field type can be specified only in the "On
+                      user input" and the "On load" workflow sections.
+                    </li>
+                    <li>
+                      Values for Auto Number&nbsp;field type, Formula field
+                      type, and system
+                      fields&nbsp;should&nbsp;<strong>not</strong>&nbsp;be
+                      specified. Zoho Creator will set values for them
+                      automatically.
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div><span>&lt;expression&gt;</span></div>
+                </td>
+                <td>
+                  <p>Value to be assigned to the field.</p>
+                  <p>
+                    See&nbsp;<a>this table</a>&nbsp;for the list of field types
+                    this task can be applied to.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h2><a></a>Things to keep in mind</h2>
+        <ul>
+          <li>
+            If a value is initially&nbsp;entered&nbsp;for a form in the UI, and
+            a different value has been assigned to that field using this task in
+            the On Validate or On Success event, the value assigned in the
+            script will overwrite the value given in the UI when the form is
+            submitted.&nbsp;
+          </li>
+          <li>
+            If this task is used to assign a value to a field in the On Load
+            event, the maximum characters property for that field is ignored.
+            However, if you start editing the field, the maximum characters
+            property will take effect.
+          </li>
+          <li>
+            If "No Duplicate Values" is selected, and a duplicate value is
+            specified in the "Add Record" task, the script execution will fail.
+          </li>
+        </ul>
+        <h2>This task can be used in the following events</h2>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>When a record is Created</strong></td>
+              </tr>
+              <tr>
+                <td>On Load</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Validate</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Success</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On User input</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>Subform on add row</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>Subform on delete row</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td><strong>When a record is Created or Edited</strong></td>
+              </tr>
+              <tr>
+                <td>On Load</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Validate</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Success</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On User input</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>Subform on add row</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>Subform on delete row</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td><strong>When a record is Edited</strong></td>
+              </tr>
+              <tr>
+                <td>On Load</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Validate</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Success</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On User input</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>Subform on add row</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>Subform on delete row</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td><strong>When a record is Deleted</strong></td>
+              </tr>
+              <tr>
+                <td>On Validate</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Success</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td><strong>Other workflow events</strong></td>
+              </tr>
+              <tr>
+                <td>On a scheduled date</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>During approval process</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>During payment process</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>In a Custom Function</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>In an Action item in report</td>
+                <td><span>Yes</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h2><a></a>Example</h2>
+        <p>
+          The following script assigns the current date value to the field
+          "Date".
+        </p>
+        <div>input.Date = zoho.currentdate;</div>
+      </div>
+    </div>
+    <div><iframe></iframe></div>
+  </div>
+</div>

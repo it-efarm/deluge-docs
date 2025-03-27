@@ -1,0 +1,235 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho People Integration Tasks</a></li>
+        <li><a>Get Record By ID</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Record By ID from Zoho People</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.people.getRecordById</strong>&nbsp;task is used
+              to fetch a record&nbsp;from the specified Zoho People&nbsp;form
+              using its ID.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt; </span><span>= </span><span>zoho.people.getRecordById</span><span>(</span><span>&lt;</span><span>form_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_id</span><span>&gt;</span><span>, </span><span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params&nbsp;</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>The details of the record that will be fetched.</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;form_name&gt;<strong>&nbsp;</strong></p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The label name of the form from which the records
+                            need to be fetched.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> Click <a>here</a> for the
+                            instructions to get the form label names in Zoho
+                            People.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;record_id&gt;</p></td>
+                        <td><span>NUMBER</span></td>
+                        <td>
+                          <p>The ID of the record that needs to be fetched.</p>
+                          <p>
+                            <strong>Note: </strong>Learn how to get the ID of
+                            a&nbsp;record after&nbsp;<a>fetching</a> and
+                            <a>creating</a> it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <p>
+                            <strong>*Note: </strong>This param is not applicable
+                            to <strong>Zoho Creator</strong> and mandatory in
+                            <strong>Zoho Cliq</strong>.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script fetches the record with ID -
+              <strong>4163000000170001</strong> from the form -
+              <strong>Employee</strong> in Zoho People
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho.people.getRecordById</span><span>(</span><span>"P_Employee", </span><span>4163000000170001</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"P_Employee"</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;that represents
+                      the&nbsp;label name of the form from which the record
+                      needs to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>4163000000170001</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the ID of the
+                      record that needs to be fetched.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response will be returned in the following format:
+                <div>
+                  <p>
+                    {&nbsp;&nbsp;<br />&nbsp;
+                    &nbsp;"Current_Job_Description":"",<br />&nbsp;
+                    &nbsp;"EmailID":"richard@zohocorp.com",<br />&nbsp;
+                    &nbsp;"CreatedTime":"1500373226190",<br />&nbsp;
+                    &nbsp;"Address":"",<br />&nbsp; &nbsp;"Date_of_birth":"",<br />&nbsp;
+                    &nbsp;"Dateofexit":"",<br />&nbsp;
+                    &nbsp;"Photo":"https://contacts.zoho.com/file?ID=-1&amp;fs=thumb",<br />&nbsp;
+                    &nbsp;"Marital_status":"",<br />&nbsp; &nbsp;"Gender":"",<br />&nbsp;
+                    &nbsp;"Other_Email":"",<br />&nbsp;
+                    &nbsp;"ApprovalStatus":"Approval Not Enabled",<br />&nbsp;
+                    &nbsp;"Work_location":"",<br />&nbsp;
+                    &nbsp;"LocationName":"",<br />&nbsp;
+                    &nbsp;"Department":"",<br />&nbsp; &nbsp;"Nick_Name":"",<br />&nbsp;
+                    &nbsp;"ModifiedTime":"1500373226190",<br />&nbsp;
+                    &nbsp;"Reporting_To.MailID":"",<br />&nbsp;
+                    &nbsp;"Zoho_ID":"4163000000170001",<br />&nbsp;
+                    &nbsp;"LocationName.ID":"",<br />&nbsp;
+                    &nbsp;"Designation.ID":"",<br />&nbsp;
+                    &nbsp;"tabularSections":"{\"Education\":[{\"Specialization\":\"\",\"Education_AdditionalNotes\":\"\",\"Degree\":\"\",\"College\":\"\",\"Yearofgraduation\":\"\",\"Interests\":\"\"}],\"Work
+                    experience\":[{\"Jobtitle\":\"\",\"Employer\":\"\",\"Previous_JobDesc\":\"\",\"FromDate\":\"\",\"Todate\":\"\"}],\"Dependent\":[{\"DependentDOB\":\"\",\"Name\":\"\",\"DependentRelationship\":\"\"}]}",<br />&nbsp;
+                    &nbsp;"Source_of_hire":"",<br />&nbsp; &nbsp;"Tags":"",<br />&nbsp;
+                    &nbsp;"Reporting_To":"",<br />&nbsp;
+                    &nbsp;"Photo_downloadUrl":"https://contacts.zoho.com/file?ID=-1&amp;fs=thumb",<br />&nbsp;
+                    &nbsp;"Designation":"",<br />&nbsp;
+                    &nbsp;"FirstName":"Richard",<br />&nbsp;
+                    &nbsp;"Dateofjoining":"",<br />&nbsp; &nbsp;"AboutMe":"",<br />&nbsp;
+                    &nbsp;"Mobile":"",<br />&nbsp;
+                    &nbsp;"Employeestatus":"Inactive",<br />&nbsp;
+                    &nbsp;"Extension":"",<br />&nbsp; &nbsp;"Role":"Team
+                    member",<br />&nbsp; &nbsp;"Employee_type":"",<br />&nbsp;
+                    &nbsp;"Reporting_To.ID":"",<br />&nbsp;
+                    &nbsp;"Work_phone":"",<br />&nbsp;
+                    &nbsp;"Role.ID":"4163000000019635",<br />&nbsp;
+                    &nbsp;"LastName":"Patrick",<br />&nbsp;
+                    &nbsp;"Department.ID":"",<br />&nbsp;
+                    &nbsp;"EmployeeID":"12311",<br />&nbsp;
+                    &nbsp;"Expertise":""<br />}
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <p><strong>Failure Response</strong></p>
+          <ul>
+            <li>
+              The failure response for incorrect or non-existent form name will
+              be returned in the following format:
+              <div>
+                <p>
+                  {&nbsp;&nbsp;<br />&nbsp; &nbsp;"response": {<br />&nbsp;
+                  &nbsp;"message": "Error occurred",<br />&nbsp; &nbsp;"uri":
+                  "/api/forms/PEmployee/getDataByID",<br />&nbsp;
+                  &nbsp;"errors": {<br />&nbsp; &nbsp;"code": 7011,<br />&nbsp;
+                  &nbsp;"message": "Form name 'PEmployee' is invalid"<br />&nbsp;
+                  &nbsp;},<br />&nbsp; &nbsp;"status": 1<br />&nbsp; &nbsp;}<br />&nbsp;
+                  &nbsp;}
+                </p>
+              </div>
+            </li>
+            <li>
+              The failure response for incorrect or non-existent record ID will
+              be returned in the following format:
+              <div>
+                <p>
+                  {&nbsp;&nbsp;<br />&nbsp; &nbsp;"response": {<br />&nbsp;
+                  &nbsp;"message": "Error occurred",<br />&nbsp; &nbsp;"uri":
+                  "/api/forms/P_Employee/getDataByID",<br />&nbsp;
+                  &nbsp;"errors": {<br />&nbsp; &nbsp;"code": 7049,<br />&nbsp;
+                  &nbsp;"message": "No record available with the specified
+                  record ID"<br />&nbsp; &nbsp;},<br />&nbsp; &nbsp;"status":
+                  1<br />&nbsp; &nbsp;}<br />}
+                </p>
+              </div>
+            </li>
+          </ul>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>Zoho People Integration Tasks</a></li>
+            <li><a>Connections</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

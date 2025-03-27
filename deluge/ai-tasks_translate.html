@@ -1,0 +1,253 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Artificial Intelligence Tasks</a></li>
+        <li><a>Translate</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <p>​</p>
+      <div>
+        <div>
+          <h1>Translate</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.ai.translate</strong>&nbsp;task translates the
+              input text into the specified language.
+            </p>
+            <div>
+              <strong>Note:&nbsp;</strong>
+              <ul>
+                <li>
+                  The prediction results may not be accurate, which is also the
+                  case with any AI prediction. However, we are working on
+                  improving this.
+                </li>
+                <li>
+                  The prediction results are dynamic. The same script may
+                  produce different outcomes at different times based on how
+                  much the machine has learned.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.ai.translate</span><span>(</span><span>&lt;</span><span>input_text</span><span>&gt;</span>, <span>&lt;</span><span>target_language</span><span>&gt;</span>, <span>[</span><span>source_language</span><span>]</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td><p>Holds&nbsp;the&nbsp;translated text.</p></td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;input_text&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td><p>The input text that needs to be translated</p></td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;target_language&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The two-letter&nbsp;ISO code representing the language
+                        to which the input text needs to be translated.&nbsp;
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>[source_language]</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The two-letter&nbsp;ISO code representing the language
+                        in which the input text is supplied. If no value is
+                        supplied to this parameter it assumes "en"
+                        representing&nbsp;<strong>English.</strong>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <strong>Note: </strong> The following are the supported languages
+              and their language codes:
+              <ol>
+                <li>"en" - English</li>
+                <li>"de" - German</li>
+                <li>"zh" - Chinese</li>
+                <li>"ru" - Russian</li>
+                <li>"it" - Italian</li>
+                <li>"pt" - Portuguese</li>
+                <li>"es" - Spanish</li>
+                <li>"fr" - French</li>
+                <li>"ar" - Arabic</li>
+                <li>"cs" - Czech</li>
+                <li>"hu" - Hungarian</li>
+                <li>"nl" - Dutch</li>
+                <li>"pl" - Polish</li>
+                <li>"sv" - Swedish</li>
+                <li>"ja" - Japanese</li>
+                <li>"ro" - Romanian</li>
+              </ol>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script translates the given English text into
+              Spanish.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.ai</span><span>.translate</span><span>(</span><span>"I will collect the package tomorrow"</span><span>, </span><span>"es"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that holds the
+                      translated text.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"I will collect the package tomorrow"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the input that needs
+                      to be translated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"es"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents language code to
+                      which the input text that needs to be translated. "es"
+                      represents Spanish.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2</h2>
+            <p>
+              The following script translates the given French text into
+              Chinese.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span> <span>=</span> <span>zoho</span><span>.ai</span><span>.translate</span><span>(</span><span>"Je vous remercie de la session"</span><span>,</span> <span>"zh"</span><span>,</span><span>"fr"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"Je vous remercie de la session"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the input that needs
+                      to be translated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"zh"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents language code of the
+                      target language. "zh" represents Chinese.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"fr"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents language code of the
+                      source language. "fr" represents French.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following
+                  format:.
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"source_language": "fr",<br />&nbsp;"status":
+                  {<br />&nbsp;"code": 200,<br />&nbsp;"message": "success"<br />&nbsp;},<br />&nbsp;"target_language":
+                  "zh",<br />&nbsp;"translation": [<br />&nbsp;{<br />&nbsp;"source":
+                  "Je vous remercie de la session",<br />&nbsp;"translate":
+                  "谢谢本届会议。"<br />&nbsp;}<br />&nbsp;]<br />&nbsp;}
+                </div>
+                <p>
+                  <br /><strong>​Note:&nbsp;</strong>To fetch the translated
+                  text from the response, use the following script:
+                </p>
+                <div>
+                  <pre><span>info</span><span> response</span><span>.get</span><span>(</span><span>"translation"</span><span>)</span><span>.get</span><span>(</span><span>0</span><span>)</span><span>.get</span><span>(</span><span>"translate"</span><span>)</span><span>;</span>
+</pre>
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>AI tasks</a></li>
+              <li><a>AI tasks Limitations</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

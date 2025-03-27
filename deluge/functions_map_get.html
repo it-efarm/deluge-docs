@@ -1,0 +1,95 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Map functions</a></li>
+        <li><a>get</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>get()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>get()</strong> function takes
+              <strong>mapVariable</strong> and <strong>searchKey</strong> as
+              arguments. It returns the value mapped to the searchKey in
+              mapVariable.
+            </p>
+            <div>
+              <strong>Note :</strong>If the key is not found, the function will
+              return null
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>
+                The return type will depend on the data type of the returned
+                value.
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>&lt;</span><span>mapVariable</span><span>&gt;</span><span>.get</span><span>(</span><span>&lt;</span><span>searchkey</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Description</strong></td>
+                    <td><strong>Data type</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>Variable which will contain the returned value.</td>
+                    <td>AS APPLICABLE</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;mapVariable&gt;</td>
+                    <td>
+                      The map variable from which the value will be returned.
+                    </td>
+                    <td>KEY-VALUE</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;searchkey&gt;</td>
+                    <td>The key whose corresponding value will be returned</td>
+                    <td>AS APPLICABLE</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre> &nbsp;
+<span>mapVar </span><span>= </span><span>{</span><span>"Product" </span><span>: </span><span>"Creator"</span><span>, </span><span>"Company" </span><span>: </span><span>"Zoho"</span><span>}</span><span>;</span> &nbsp;
+<span>boolVal </span><span>= </span><span>mapVar</span><span>.get</span><span>(</span><span>"Creator"</span><span>)</span><span>;        </span><span>//returns null</span> &nbsp;
+<span>newBoolVal </span><span>= </span><span>mapVar</span><span>.get</span><span>(</span><span>"Product"</span><span>)</span><span>;     </span><span>//returns Creator</span> &nbsp;
+<span>info </span><span>boolVal</span> <span>;</span> &nbsp;
+<span>info </span><span>newBoolVal</span> <span>;</span> &nbsp;
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

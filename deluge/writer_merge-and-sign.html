@@ -1,0 +1,633 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Merge and sign</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Merge and Sign in Zoho Writer</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li>
+                  <a>Usecase</a>
+                  <ul>
+                    <li><a>Scenario 1</a></li>
+                    <li><a>Scenario 2</a></li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.writer.mergeAndSign</strong> task merges your
+              document and sends it to recipients for signature collection. This
+              task is based on the <a>Zoho Writer Merge and Sign API</a>.
+            </p>
+            <div>
+              <strong>Note:&nbsp;</strong>Applicable to all services except Zoho
+              Creator.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.mergeAndSign</span><span>(</span><span>&lt;</span><span>document_id</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>merge_detail</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>filename</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>signerList</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>option_settings</span><span>&gt;</span><span>,</span>  <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span>
+
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><strong>Params</strong></td>
+                      <td><strong>Data type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                    <tr>
+                      <td>&lt;response&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        The response returned by Zoho Writer. It provides the
+                        merged document's details such as the merge data, along
+                        with the status of the merge.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;document_id&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>
+                          The ID of the document to be merged and sent for
+                          signature.
+                        </p>
+                        <p>
+                          The document ID can be obtained from the URL of the
+                          document which needs to be merged and sent for sign.
+                        </p>
+                        <p>
+                          The URL is formatted as follows:<br />https://writer.zoho.com/writer/open/<strong
+                            >&lt;document_id&gt;</strong
+                          >
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;merge_detail&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        &nbsp;Specify how your input for the merge will be. It
+                        can be JSON, CSV file, or a URL.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;filename&gt;</td>
+                      <td><span>String</span></td>
+                      <td>A&nbsp;unique name for the signed document.</td>
+                    </tr>
+                    <tr>
+                      <td>&lt;signerList&gt;</td>
+                      <td>
+                        <p>
+                          [<br />{<br />"recipient_1": "john@zylker.com",<br />"action_type":
+                          &lt;approve|sign|view|in_person_sign&gt;,<br />"language":
+                          "en”,<br />“private_notes”: “Hey! Please sign this
+                          document”<br />},<br />{<br />"recipient_2":
+                          "amelia@zylker.com",<br />"action_type":
+                          &lt;approve|sign|view|in_person_sign&gt;,<br />"language":
+                          "fr",<br />“verification_info": {<br />"type":
+                          &lt;email|sms|offline&gt;<br />}<br />},<br />...<br />]
+                        </p>
+                      </td>
+                      <td>
+                        <p>
+                          The recipients to whom the document will be
+                          sent&nbsp;for signature, in-person signing,
+                          or&nbsp;viewing and approval in the form of a JSON
+                          Array.
+                        </p>
+                        <p>&nbsp;</p>
+                        <p>
+                          You can also set the language&nbsp;for the
+                          notification email that will be sent to
+                          signers.&nbsp;You can authenticate&nbsp;and provide
+                          private notes to recipients.
+                        </p>
+                        <p>&nbsp;</p>
+                        <p><strong>Supported languages</strong>:</p>
+                        <p>
+                          Chinese(zh), Dutch(nl), English(en), French(fr),
+                          German(de), Italian(it), Japanese(ja), Polish(pl),
+                          Portuguese(pt), Russian(ru), Spanish(es), Swedish(sv).
+                        </p>
+                        <p>&nbsp;</p>
+                        <p>You can refer to a sample JSON Array <a>here</a>.</p>
+                        <p>&nbsp;</p>
+                        <p>
+                          <strong>Note</strong>: If this parameter is not
+                          passed, we will apply the values configured in the
+                          template settings.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;optional_settings&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        The optional parameters you can send to merge and
+                        sign&nbsp;data according to your preference.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;connection&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>The&nbsp;<a>connection</a>'s link name.</p>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            <p>
+                              To&nbsp;<a>prevent new authtoken generation</a>
+                              and ensure new integration tasks (tasks created
+                              after the deadline specified in the post) work as
+                              expected, a Zoho OAuth connection with appropriate
+                              scopes is mandatory. Existing integration tasks
+                              will continue to work, with or without the
+                              connections parameter, until you manually delete
+                              the authtoken from <a>Zoho Accounts</a>
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              Add relevant scopes from the&nbsp;<a
+                                >Zoho Writer API</a
+                              >
+                              when creating the connection.
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              Refer to <a>this post</a> for a list of Zoho
+                              services that support the Connections page.
+                            </p>
+                          </li>
+                          <li>
+                            <p><a>Learn more about connections</a></p>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>&nbsp;</p>
+            </div>
+            <p>
+              You can provide the <strong>merge_detail</strong
+              ><merge_detail
+                >&nbsp;parameter in&nbsp;any one of the below
+                formats:</merge_detail
+              >
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td>merge_data</td>
+                    <td>JSONObject</td>
+                    <td>
+                      Pass a String value through <strong>data</strong>&nbsp;key
+                      as JSON Array.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>merge_data_csv_content</td>
+                    <td>File</td>
+                    <td>
+                      Provide the required CSV&nbsp;content in your API request
+                      body.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>merge_data_json_content</td>
+                    <td>File</td>
+                    <td>
+                      Provide the required JSON&nbsp;content in your API request
+                      body.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>merge_data_csv_url</td>
+                    <td>URL</td>
+                    <td>
+                      Provide the required CSV URL in your API request body.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>merge_data_json_url</td>
+                    <td>URL</td>
+                    <td>
+                      Provide the required JSON URL in your API request body.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>signerList&nbsp;</strong>parameter values:</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p><strong>Parameter</strong></p>
+                    </td>
+                    <td>
+                      <p><strong>Type</strong></p>
+                    </td>
+                    <td>
+                      <p><strong>Possible Values</strong></p>
+                    </td>
+                    <td>
+                      <p><strong>Default Value</strong></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>recipient_n</p></td>
+                    <td><p>string</p></td>
+                    <td>
+                      <p>recipient_1, recipient_2, ... , recipient_10</p>
+                      <p>
+                        <strong>Note</strong>: You can send up to 10 recipients
+                      </p>
+                    </td>
+                    <td><p>john@zylker.com</p></td>
+                  </tr>
+                  <tr>
+                    <td><p>action_type</p></td>
+                    <td><p>string</p></td>
+                    <td><p>approve/sign/view/in_person_sign</p></td>
+                    <td><p>sign</p></td>
+                  </tr>
+                  <tr>
+                    <td><p>language</p></td>
+                    <td><p>string</p></td>
+                    <td>
+                      <p>
+                        zh/ nl / en / fr / de / it / ja / pl / pt / ru / es / sv
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        This option is available only for
+                        <strong>Zoho Sign Premium Plan</strong> users.
+                      </p>
+                      <p>
+                        For <strong>Free Plan</strong> users, the notification
+                        email will be sent in their account language by default.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>optional_settings&nbsp;</strong>parameter values:</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p><strong>Parameter</strong></p>
+                    </td>
+                    <td>
+                      <p><strong>Data Type</strong></p>
+                    </td>
+                    <td>
+                      <p><strong>Description</strong></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>sign_in_order</p></td>
+                    <td><p>Boolean (true/false)</p></td>
+                    <td>
+                      <p>
+                        Specify whether the signing&nbsp;order should be
+                        maintained as entered.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>message</p></td>
+                    <td><p>String</p></td>
+                    <td><p>Add&nbsp;a message for the signer.</p></td>
+                  </tr>
+                  <tr>
+                    <td><p>set_expire</p></td>
+                    <td><p>Number</p></td>
+                    <td>
+                      <p>
+                        Specify when the merged documents which are sent for
+                        sign need to be expired.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>reminder_period</p></td>
+                    <td><p>Number</p></td>
+                    <td>
+                      <p>
+                        Specify&nbsp;when reminder emails&nbsp;should&nbsp;be
+                        sent to signers.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>common_attachments</p></td>
+                    <td><p>File</p></td>
+                    <td>
+                      <p>
+                        Specify the attachments that need to be sent to all the
+                        recipients in common.
+                      </p>
+                      <p><strong>Maximum files allowed</strong>:&nbsp;3</p>
+                      <p><strong>Maximum file size allowed</strong>: 3 MB</p>
+                      <p>
+                        <strong>Supported file formats</strong>: DOCX / DOC /
+                        RTF / PDF&nbsp;/ ZIP / HTML / TXT / PNG / JPEG
+                        /&nbsp;GIF / JPG
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>unique_attachments</p></td>
+                    <td>
+                      <p>
+                        {<br />"type": "field",<br />"field_id":
+                        &lt;field_id&gt;<br />}
+                      </p>
+                      <p>(OR)</p>
+                      }
+                    </td>
+                    <td>
+                      <p>
+                        Using this parameter, you can send a different or unique
+                        attachment to each recipient.
+                      </p>
+                      <p>It can be sent in either one of the following ways:</p>
+                      <p>
+                        <strong>1. Field Containing Attachment URLs</strong
+                        >:<strong>&nbsp;</strong>If you want to map the
+                        attachment file paths to a spreadsheet/CSV file.
+                      </p>
+                      <p>(OR)</p>
+                      <p>
+                        <strong>2. Folder Containing Attachments</strong
+                        >:<strong>&nbsp;</strong>If you want to map the
+                        attachment file paths to a particular folder.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>test_mode</p></td>
+                    <td><p>Boolean (true/false)</p></td>
+                    <td>
+                      <p>
+                        Using this parameter, you can test the Merge APIs
+                        without consuming any credit points. The output file
+                        will contain a watermark as it is used only for testing
+                        purposes.
+                      </p>
+                      Test mode limit: <strong>50 merges/day</strong> for an
+                      org.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script merges a document and sends it for approval
+              to a user and once approved sends it for signature collection in
+              the defined order.
+            </p>
+            <div>
+              <pre><span>document_id</span> <span>=</span> <span>"po5uobda049e029d44b13a9956f6d2cedc67b"</span><span>;</span> 
+
+<span>fields</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> 
+<span>fields</span><span>.put</span><span>(</span><span>"InvoiceNo"</span><span>,</span><span>"12345"</span><span>)</span><span>;</span> 
+<span>fields</span><span>.put</span><span>(</span><span>"InvoiceDate"</span><span>,</span><span>"27 May 2022"</span><span>)</span><span>;</span> 
+<span>fields</span><span>.put</span><span>(</span><span>"InvoiceAmount"</span><span>,</span><span>"$100"</span><span>)</span><span>;</span>
+<span>data_map</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>data_map</span><span>.put</span><span>(</span><span>"data"</span><span>,</span> <span>fields</span><span>)</span>
+<span>merge_details</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>merge_details</span><span>.put</span><span>(</span><span>"merge_data"</span><span>,</span> <span>data_map</span><span>)</span><span>;</span>
+
+<span>filename</span> <span>=</span> <span>"Invoice data"</span><span>;</span>
+
+<span>signerList</span> <span>=</span> <span>List</span><span>(</span><span>)</span><span>;</span> 
+<span>signerObj1</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> 
+<span>signerObj1</span><span>.put</span><span>(</span><span>"recipient_1"</span><span>,</span><span>"john@zylker.com"</span><span>)</span><span>;</span> 
+<span>signerObj1</span><span>.put</span><span>(</span><span>"action_type"</span><span>,</span><span>"approve"</span><span>)</span><span>;</span>  <span>//approve|sign|view  </span>
+<span>signerObj1</span><span>.put</span><span>(</span><span>"language"</span><span>,</span><span>"en"</span><span>)</span><span>;</span> 
+<span>signerObj2</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> 
+<span>signerObj2</span><span>.put</span><span>(</span><span>"recipient_2"</span><span>,</span><span>"amelia@zylker.com"</span><span>)</span><span>;</span> 
+<span>signerObj2</span><span>.put</span><span>(</span><span>"action_type"</span><span>,</span><span>"sign"</span><span>)</span><span>;</span>  <span>//approve|sign|view  </span>
+<span>signerObj2</span><span>.put</span><span>(</span><span>"language"</span><span>,</span><span>"fr"</span><span>)</span><span>;</span> 
+<span>signerList</span><span>.add</span><span>(</span><span>signerObj1</span><span>)</span><span>;</span> 
+<span>signerList</span><span>.add</span><span>(</span><span>signerObj2</span><span>)</span><span>;</span>
+
+
+<span>commonAttachmentFile1</span> <span>=</span> <span>invokeurl</span> 
+<span>[</span> 
+<span>url</span> <span>:</span><span>"&lt;https://example.com/download/publicdocument&gt;"</span> 
+<span>type</span> <span>:GET</span> 
+<span>]</span><span>;</span> 
+
+
+<span>option_settings</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+
+<span>option_settings</span><span>.put</span><span>(</span><span>"sign_in_order"</span><span>,</span><span>"true"</span><span>)</span><span>;</span>
+<span>option_settings</span><span>.put</span><span>(</span><span>"message"</span><span>,</span> <span>"Please find the document to be signed here"</span><span>)</span><span>;</span>   
+<span>option_settings</span><span>.put</span><span>(</span><span>"set_expire"</span><span>,</span> <span>"30"</span><span>)</span><span>;</span>
+<span>option_settings</span><span>.put</span><span>(</span><span>"reminder_period"</span><span>,</span> <span>"15"</span><span>)</span><span>;</span>
+<span>option_settings</span><span>.put</span><span>(</span><span>"common_attachments"</span><span>,</span> <span>commonAttachmentFile1</span><span>)</span><span>;</span>
+<span>option_settings</span><span>.put</span><span>(</span><span>"test_mode"</span><span>,</span> <span>"true"</span><span>)</span><span>;</span>
+
+<span>response</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.mergeAndSign</span><span>(</span><span>document_id</span><span>,</span> <span>merge_details</span><span>,</span> <span>filename</span><span>,</span> <span>signerList</span><span>,</span> <span>option_settings</span><span>,</span> <span>"writer_oauth_connection"</span><span>)</span><span>;
+</span>
+<span>info</span> <span>response</span><span>;</span>
+</pre>
+            </div>
+            <h2><a></a>Usecase</h2>
+            <h3><a></a>Scenario 1: Send a document for signing</h3>
+            <p>
+              Consider a scenario where you need to send an offer letter for
+              signature with all the fields configured. HR merges and creates
+              the offer letter and sends it to the candidate for signing.
+            </p>
+            <div>
+              <pre><span>document_id</span> <span>=</span> <span>"po5uobda049e029d44b13a9956f6d2cedc67b"</span><span>;</span>
+
+<span>fields</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> 
+<span>fields</span><span>.put</span><span>(</span><span>"Date"</span><span>,</span><span>"27 May 2022"</span><span>)</span><span>;</span> 
+<span>fields</span><span>.put</span><span>(</span><span>"Recipients_name"</span><span>,</span><span>"Mikeal"</span><span>)</span><span>;</span> 
+<span>fields</span><span>.put</span><span>(</span><span>"Position"</span><span>,</span><span>"Support Engineer"</span><span>)</span><span>;</span>
+
+<span>data_map</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>data_map</span><span>.put</span><span>(</span><span>"data"</span><span>,</span> <span>fields</span><span>)</span>
+<span>merge_details</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>merge_details</span><span>.put</span><span>(</span><span>"merge_data"</span><span>,</span> <span>data_map</span><span>)</span><span>;</span>
+
+<span>String</span> <span>filename</span> <span>=</span> <span>"Offer Letter"</span><span>;</span>
+
+<span>signerList</span> <span>=</span> <span>List</span><span>(</span><span>)</span><span>;</span> 
+<span>signerObj1</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> 
+<span>signerObj1</span><span>.put</span><span>(</span><span>"recipient_1"</span><span>,</span><span>"Hr-operations@zylker.com"</span><span>)</span><span>;</span> 
+<span>signerObj1</span><span>.put</span><span>(</span><span>"action_type"</span><span>,</span><span>"approve"</span><span>)</span><span>;</span>  <span>//approve|sign|view  </span>
+<span>signerObj1</span><span>.put</span><span>(</span><span>"language"</span><span>,</span><span>"en"</span><span>)</span><span>;</span> 
+
+<span>signerObj2</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> 
+<span>signerObj2</span><span>.put</span><span>(</span><span>"recipient_2"</span><span>,</span><span>"mikeal@test.com"</span><span>)</span><span>;</span> 
+<span>signerObj2</span><span>.put</span><span>(</span><span>"action_type"</span><span>,</span><span>"sign"</span><span>)</span><span>;</span>  <span>//approve|sign|view  </span>
+<span>signerObj2</span><span>.put</span><span>(</span><span>"language"</span><span>,</span><span>"fr"</span><span>)</span><span>;</span>
+
+<span>signerList</span><span>.add</span><span>(</span><span>signerObj1</span><span>)</span><span>;</span> 
+<span>signerList</span><span>.add</span><span>(</span><span>signerObj2</span><span>)</span><span>;</span>
+
+<span>option_settings</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+
+<span>option_settings</span><span>.put</span><span>(</span><span>"sign_in_order"</span><span>,</span><span>"true"</span><span>)</span><span>;</span>
+<span>option_settings</span><span>.put</span><span>(</span><span>"message"</span><span>,</span> <span>"Kindly read all the details in the document properly and accept it by signing"</span><span>)</span><span>;</span>   
+<span>option_settings</span><span>.put</span><span>(</span><span>"set_expire"</span><span>,</span> <span>"30"</span><span>)</span><span>;</span>
+<span>option_settings</span><span>.put</span><span>(</span><span>"reminder_period"</span><span>,</span> <span>"15"</span><span>)</span><span>;</span>
+
+<span>response</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.mergeAndSign</span><span>(</span><span>document_id</span><span>,</span> <span>merge_details</span><span>,</span> <span>filename</span><span>,</span> <span>signerList</span><span>,</span> <span>option_settings</span><span>,</span> <span>"writer_oauth_connection"</span><span>)</span><span>;</span>
+
+<span>info</span> <span>response</span><span>;</span>
+</pre>
+            </div>
+            <h3><a></a>Scenario 2: Collect signatures in a specific order</h3>
+            <p>
+              Consider a scenario where you need multiple people to sign a
+              purchase order. Sales person creates the order and sends it to
+              sales manager for approval. Once it is signed by the manager, it
+              is sent to the client.
+            </p>
+            <div>
+              <pre><span>document_id</span> <span>=</span> <span>"po5uobda049e029d44b13a9956f6d2cedc67b"</span><span>;</span> 
+
+<span>fieldsList</span> <span>=</span> <span>List</span><span>(</span><span>)</span><span>;</span>
+
+<span>fieldsmap1</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> 
+<span>fieldsmap1</span><span>.put</span><span>(</span><span>"Purchsed_Date"</span><span>,</span><span>"27 May 2022"</span><span>)</span><span>;</span> 
+<span>fieldsmap1</span><span>.put</span><span>(</span><span>"Product_name"</span><span>,</span><span>"Samsung series s8"</span><span>)</span><span>;</span> 
+<span>fieldsmap1</span><span>.put</span><span>(</span><span>"Price"</span><span>,</span><span>"50000"</span><span>)</span><span>;</span>
+
+<span>fieldsmap2</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> 
+<span>fieldsmap2</span><span>.put</span><span>(</span><span>"Purchsed_Date"</span><span>,</span><span>"30 May 2022"</span><span>)</span><span>;</span> 
+<span>fieldsmap2</span><span>.put</span><span>(</span><span>"Product_name"</span><span>,</span><span>"Apple 15 pro max"</span><span>)</span><span>;</span> 
+<span>fieldsmap2</span><span>.put</span><span>(</span><span>"Price"</span><span>,</span><span>"10000"</span><span>)</span><span>;</span>
+
+<span>fieldsList</span><span>.add</span><span>(</span><span>fieldsmap1</span><span>)</span><span>;</span>
+<span>fieldsList</span><span>.add</span><span>(</span><span>fieldsmap2</span><span>)</span><span>;</span>
+
+<span>data_map</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>data_map</span><span>.put</span><span>(</span><span>"data"</span><span>,</span> <span>fields</span><span>)</span>
+<span>merge_details</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>merge_details</span><span>.put</span><span>(</span><span>"merge_data"</span><span>,</span> <span>data_map</span><span>)</span><span>;</span>
+
+<span>String</span> <span>filename</span> <span>=</span> <span>"Sales Invoice"</span><span>;</span>
+
+<span>signerList</span> <span>=</span> <span>List</span><span>(</span><span>)</span><span>;</span> 
+<span>signerObj1</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> 
+<span>signerObj1</span><span>.put</span><span>(</span><span>"recipient_1"</span><span>,</span><span>"approval-manager@zylker.com"</span><span>)</span><span>;</span> 
+<span>signerObj1</span><span>.put</span><span>(</span><span>"action_type"</span><span>,</span><span>"approve"</span><span>)</span><span>;</span>  <span>//approve|sign|view  </span>
+<span>signerObj1</span><span>.put</span><span>(</span><span>"language"</span><span>,</span><span>"en"</span><span>)</span><span>;</span> 
+
+<span>signerObj2</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> 
+<span>signerObj2</span><span>.put</span><span>(</span><span>"recipient_2"</span><span>,</span><span>"client-manager@test.com"</span><span>)</span><span>;</span> 
+<span>signerObj2</span><span>.put</span><span>(</span><span>"action_type"</span><span>,</span><span>"sign"</span><span>)</span><span>;</span>  <span>//approve|sign|view  </span>
+<span>signerObj2</span><span>.put</span><span>(</span><span>"language"</span><span>,</span><span>"en"</span><span>)</span><span>;</span>
+
+<span>signerList</span><span>.add</span><span>(</span><span>signerObj1</span><span>)</span><span>;</span> 
+<span>signerList</span><span>.add</span><span>(</span><span>signerObj2</span><span>)</span><span>;</span>
+
+<span>option_settings</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+
+<span>option_settings</span><span>.put</span><span>(</span><span>"sign_in_order"</span><span>,</span><span>"true"</span><span>)</span><span>;</span>
+<span>option_settings</span><span>.put</span><span>(</span><span>"message"</span><span>,</span> <span>"Details regarding latest purchase order"</span><span>)</span><span>;</span>   
+<span>option_settings</span><span>.put</span><span>(</span><span>"reminder_period"</span><span>,</span> <span>"15"</span><span>)</span><span>;</span>
+
+<span>response</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.mergeAndSign</span><span>(</span><span>document_id</span><span>,</span> <span>merge_details</span><span>,</span> <span>filename</span><span>,</span> <span>signerList</span><span>,</span> <span>option_settings</span><span>,</span> <span>"writer_oauth_connection"</span><span>)</span><span>;</span>
+
+<span>info</span> <span>response</span><span>;</span>
+
+</pre>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <div>
+              <pre><span>{</span>
+    <span>"merge_report_data_url"</span><span>:</span> <span>"http://writer.zoho.com/writer/api/v1/merge/job/po5uobda049e029d44b13a9956f6d2cedc67b/data"</span><span>,</span>
+    <span>"merge_report_url"</span><span>:</span> <span>"http://writer.zoho.com/writer/v1/mailmerge/job/po5uobda049e029d44b13a9956f6d2cedc67b"</span><span>,</span>
+    <span>"records"</span><span>:</span> <span>[</span>
+        <span>{</span>
+            <span>"InvoiceNo"</span><span>:</span> <span>"12345"</span><span>,</span>
+            <span>"InvoiceDate"</span><span>:</span> <span>"27 May 2022"</span><span>,</span>
+            <span>"InvoiceAmount"</span><span>:</span> <span>"$100"</span><span>,</span>
+            <span>"download_link"</span><span>:</span> <span>"{url}"</span><span>,</span>
+            <span>"sign_request_id"</span><span>:12345****</span><span>",</span>
+            <span>"status"</span><span>:</span> <span>"inprogress"</span>
+        <span>}</span>
+    <span>]</span>
+<span>}</span>
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Writer integration tasks</a></li>
+              <li><a>Connections</a></li>
+              <li><a>Zoho Writer - Merge and Sign API document</a>​</li>
+              <li><a>Zoho Writer API - Possible error responses</a></li>
+            </ul>
+            <p>&nbsp;</p>
+          </div>
+        </div>
+      </div>
+      <quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

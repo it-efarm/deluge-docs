@@ -1,0 +1,155 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Encryption functions</a></li>
+        <li><a>aesEncode</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>aesEncode</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>aesEncode</strong> function takes
+              <strong>encryption_key</strong>&nbsp;and
+              <strong>encryption_value</strong>&nbsp;as arguments, and returns
+              an <strong>encrypted text</strong> using AES (Advanced Encryption
+              Standard).
+            </p>
+            <div>
+              <p>
+                <strong>Note:</strong>​​​​​​&nbsp;The encryption is performed
+                using 256 bits.
+              </p>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>TEXT</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.encryption.aesEncode</span><span>(</span><span>&lt;</span><span>encryption_key</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>encryption_value</span><span>&gt;, &lt;</span><span>encryption_iv</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>Variable which will contain the encrypted text.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;encryption_key&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>The key used during encryption of the text.</p>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            The&nbsp;same &lt;encryption_key&gt; needs to be
+                            used while performing <a>decryption</a>.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;encryption_value&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>The piece of text that needs to be encrypted.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;encryption_iv&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        An initialization vector that offers&nbsp;stronger
+                        security for encryption.
+                      </p>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            This parameter should be of 16&nbsp;characters.
+                          </li>
+                          <li>
+                            The same IV number that is used for encryption
+                            should be provided while <a>decrypting</a> the
+                            encrypted text.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre><span>info </span><span>zoho.encryption.aesEncode</span>(<span>"passkey"</span>,<span>"Confidential details"</span>);               <span>// Returns "F0JOCSWN0Eb2Y//llSoROcsQxHihYnMwCuJSywFaaigEJzQdjnznq7+rSUXy6JlG"</span>
+
+</pre>
+            </div>
+            <div>
+              <pre><span>info </span><span>zoho.encryption.aesEncode</span>(<span>"passkey"</span>,<span>"Confidential details"</span>,<span>"0000000000000000"</span>);        <span>// Returns "AR+ygx+et18UNeIltGh82NBgPQx6Y0hWbEcgN3NVbJA="</span>
+
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>passkey</span></pre>
+                    </div>
+                    <div>This is the encryption key</div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>Confidential details</span></pre>
+                    </div>
+                    <div>This is the value to be encrypted</div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>0000000000000000
+</span></pre>
+                    </div>
+                    <div>This is the encryption IV</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

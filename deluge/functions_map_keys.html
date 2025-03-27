@@ -1,0 +1,96 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Map functions</a></li>
+        <li><a>keys</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>keys()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>keys()</strong> function takes a
+              <strong>mapVariable</strong> as argument, and returns all the keys
+              in the map in a list format.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>List</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>&lt;</span><span>mapVariable</span><span>&gt;</span><span>.keys</span><span>(</span><span>)</span><span>;</span></pre>
+            </div>
+            &nbsp;
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Description</strong></td>
+                    <td><strong>Data type</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>Variable which will contain the returned list.</td>
+                    <td>List</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;mapVariable&gt;</td>
+                    <td>
+                      The map variable from which the keys will be returned.
+                    </td>
+                    <td>KEY-VALUE</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre><span>mapVar </span><span>= </span><span>{</span><span>"Product" </span><span>: </span><span>"Zoho Creator"</span><span>, </span><span>"Version" </span><span>: </span><span>5</span><span>}</span><span>;</span>&nbsp;
+<span>listVar </span><span>= </span><span>mapVar</span><span>.keys</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>info </span><span>listVar</span><span>;</span>&nbsp;
+<span>//returns Product,Version</span>
+</pre>
+            </div>
+            &nbsp;
+            <div>
+              <pre><span>mapVar </span><span>= </span><span>{</span><span>{</span><span>"Creator"</span><span>, </span><span>"CRM"</span><span>} </span><span>: </span><span>"Products"</span><span>, </span><span>"Zoho" </span><span>: </span><span>"Company"</span><span>}</span><span>;</span>&nbsp;
+<span>listVar </span><span>= </span><span>mapVar</span><span>.keys</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>info</span> <span>listVar</span><span>;</span>&nbsp;
+<span>//returns {"Creator", "CRM"}, Zoho</span>
+</pre>
+            </div>
+            &nbsp;
+            <div>
+              <pre><span>mapVar </span><span>= </span><span>{</span><span>1 </span><span>: </span><span>"Number"</span><span>, </span><span>"a" </span><span>: </span><span>"Alphabet"</span><span>}</span><span>;</span>&nbsp;
+<span>listVar </span><span>= </span><span>mapVar</span><span>.keys</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>info </span><span>listVar;</span>
+<span>//returns 1,a</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

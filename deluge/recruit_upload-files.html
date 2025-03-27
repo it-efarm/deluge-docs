@@ -1,0 +1,284 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Recruit integration tasks</a></li>
+        <li><a>Upload files to Zoho Recruit</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Upload files&nbsp;to Zoho Recruit</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong> This task is applicable only to Zoho
+              Creator.
+            </div>
+            <h2><a>Overview </a></h2>
+            <p>
+              <a></a
+              ><a
+                >Upload&nbsp;files to records in Zoho Recruit. This task is
+                based on the Zoho Recruit API - Upload File</a
+              >
+            </p>
+            <h2><a>Syntax</a></h2>
+            <div>
+              <a
+                ><span
+                  ><span>&lt;variable&gt;</span> =
+                  <span>zoho.recruit.uploadFile</span
+                  >(<span>&lt;record_ID&gt;</span>, <span>&lt;File&gt;, </span
+                  ><span>&lt;type&gt;, </span><span>&lt;module_name&gt;,</span
+                  ><span> &lt;connection&gt;</span>);</span
+                ></a
+              >
+            </div>
+            <p><a>where:</a></p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <a><strong>Parameter</strong></a>
+                    </td>
+                    <td>
+                      <a><strong>Description</strong></a>
+                    </td>
+                    <td>
+                      <a><strong>Data type</strong></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><a>&lt;variable&gt;&nbsp;</a></p>
+                    </td>
+                    <td>
+                      <a><span>KEY-VALUE</span></a>
+                    </td>
+                    <td>
+                      <p>
+                        <a
+                          >is the variable which will hold the response returned
+                          by Zoho Recruit.</a
+                        >
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><a>&lt;record_ID&gt;</a></p>
+                    </td>
+                    <td>
+                      <a><span>TEXT</span></a>
+                    </td>
+                    <td>
+                      <p>
+                        <a
+                          >is the ID of the record to which the file will be
+                          attached.</a
+                        >
+                      </p>
+                      <p>
+                        <a>Learn how to fetch the ID of a record after&nbsp;</a
+                        ><a>creating</a
+                        >&nbsp;it&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;file&gt;</td>
+                    <td><span>FILE</span></td>
+                    <td>
+                      <p>refers to the file that needs to be attached.</p>
+                      <p>The file size must not exceed 20 MB.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;type&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>refers to the type of file that is being attached.</p>
+                      <p>
+                        Supported values: <strong>Resume</strong> or
+                        <strong>Others</strong>.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;module_name&gt;</p></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        is the name of the module in Zoho Recruit, where the
+                        file will be attached.
+                      </p>
+                      <p>Following are the names of applicable modules.</p>
+                      <ul>
+                        <li>Candidates</li>
+                        <li>Job Openings</li>
+                        <li>Contacts</li>
+                        <li>Clients</li>
+                        <li>Interviews</li>
+                        <li>Custom Module</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;connection&gt;</span></p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>The link name of the Zoho Recruit connection.</p>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of
+                            <a>stopping new authtoken generation</a>,&nbsp;a
+                            Zoho OAuth connection with appropriate scopes is
+                            mandatory in order for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter until you manually delete the authtoken
+                            from <a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes mentioned in
+                            <a>Zoho Recruit - Upload File API document</a
+                            >&nbsp;while creating the connection.
+                          </li>
+                          <li>
+                            Refer to <a>this&nbsp;post</a> for the list of Zoho
+                            services that support the connections page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              When the following snippet gets executed in Zoho Creator, the
+              specified file gets attached to the specified record&nbsp;in Zoho
+              Recruit.
+            </p>
+            <div>
+              <pre><span>response </span><span>=</span><span> zoho</span><span>.recruit</span><span>.uploadFile</span><span>(</span><span>"1687000000116035"</span><span>, </span><span>input</span><span>.file</span><span>, </span><span>"Others"</span><span>, </span><span>"Candidates"</span><span>, </span><span>"recruit_connection"</span><span>)</span><span>;</span> 
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>"response"</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable which will hold the
+                      response by Zoho Recruit.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"1687000000116035"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the ID of the
+                      record.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>input.file</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      is the Zoho Creator <span>FILE</span> upload field that
+                      holds the input file.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Others"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that refers to the type of file
+                      that will be attached.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Candidates"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module in
+                      which the file will be attached.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>"recruit_connection"</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p>The response returned is of the following format:</p>
+            <div>
+              {&nbsp;&nbsp;<br />&nbsp; &nbsp;"message":"File has been attached
+              successfully",<br />&nbsp; &nbsp;"Created Time":"2015-11-19
+              18:18:25",<br />&nbsp; &nbsp;"Modified By":"dinesh.d",<br />&nbsp;
+              &nbsp;"Id":"1687000000116035",<br />&nbsp; &nbsp;"Modified
+              Time":"2015-11-19 18:18:25",<br />&nbsp; &nbsp;"Created
+              By":"dinesh.d"<br />}
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Recruit - UploadDocument API document</a></li>
+              <li><a>Zoho Recruit API - Possible error codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

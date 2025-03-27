@@ -1,0 +1,168 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Send notifications using Deluge</a></li>
+        <li><a>Send push notifications</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Send Push Notifications using Deluge</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> This task is applicable only to
+                <strong>Zoho Creator</strong>.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task&nbsp;is used&nbsp;to send notifications to your
+              users.&nbsp;For example,&nbsp;send notifications&nbsp;whenever a
+              new record is added.<br /><br />Notifications can be viewed in the
+              "Notifications" tab inside the&nbsp;Zoho Creator app.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>zoho.pushNotification</span><span>(</span><span>&lt;</span><span>emailID</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>title</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>message</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>reportLinkName</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>recordID</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,&nbsp;</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>&lt;variable&gt;</td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          specifies the variable to hold the returned response.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;emailID&gt;</td>
+                        <td><span>TEXT</span> or <span>LIST</span></td>
+                        <td>
+                          specifies&nbsp;the&nbsp;email address of the Zoho
+                          Creator account to which the notifications will be
+                          sent.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;title&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>specifies&nbsp;the title of the notification.</p>
+                          <div>
+                            <strong>Note</strong>: The &lt;title&gt; value can
+                            contain a maximum of 200 characters. If exceeded,
+                            the remaining characters will be trimmed.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;message&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>specifies the contents of the notification.</p>
+                          <div>
+                            <strong>Note</strong>: The &lt;message&gt; value can
+                            have a maximum limit of 250 characters. If exceeded,
+                            the remaining characters will be trimmed.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;reportLinkName&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            specifies the link name of the Report in which the
+                            target record exists.
+                          </p>
+                          <div>
+                            <p><strong>Note:</strong></p>
+                            <ul>
+                              <li>
+                                Link names of applications, reports, and fields
+                                in your account can be&nbsp;<br /><a
+                                  >viewed on the reference page</a
+                                >&nbsp;(listed in brackets).
+                              </li>
+                              <li>
+                                You can also fetch link names from the URL while
+                                accessing the report.<br />The URL is in the
+                                format:<br />app.zohocreator.com/appbuilder/&lt;application_owner&gt;/&lt;application_name&gt;/#Report:<strong
+                                  >&lt;report_link_name&gt;</strong
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;recordID&gt;</td>
+                        <td><span>NUMBER</span></td>
+                        <td>
+                          specifies the ID of the record, which will be
+                          displayed when the notification is opened.
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div>
+                <p>
+                  <strong>Note</strong>: If the intended recipient does not
+                  receive the notifications triggered by this task, check out
+                  this <a>troubleshooting section</a> for potential issues and
+                  solutions.
+                </p>
+              </div>
+              <h2><a></a>Example</h2>
+              <p>
+                The following snippet sends a notification to the specified
+                users when new feedback is received.
+              </p>
+              <div>
+                <pre><span>responseMessage</span> <span>=</span> <span>zoho.pushNotification</span><span>({</span><span>"tony@zylker.com"</span><span>,</span> <span>"john@zylker.com"</span><span>}</span><span>,</span> <span>"New feedback received"</span><span>,</span> <span>"Click to view the record"</span><span>,</span> <span>"All_Feedback_Report"</span><span>,</span> <span>input.ID</span><span>)</span><span>;</span></pre>
+              </div>
+              <h2><a></a>Response Format</h2>
+              <ul>
+                <li>
+                  <p>
+                    The following is a sample <strong>success</strong> response:
+                  </p>
+                  <div>
+                    &nbsp;&nbsp;{<br />&nbsp;&nbsp;"status":"success"<br />&nbsp;
+                    }
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.0198532"><iframe></iframe></div>
+</div>

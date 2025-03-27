@@ -1,0 +1,227 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Client Functions</a></li>
+        <li><a>Clear items</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Clear items</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>clear items&nbsp;</strong>deluge
+              task&nbsp;clears(removes) all choices in a specified
+              single-select, multi-select or lookup field.
+            </p>
+            <p>
+              This task only hides the choices from appearing, and does not
+              delete them from the database.
+            </p>
+            <div>
+              <p>Note:</p>
+              <ul>
+                <li>
+                  It is advisable to use the <strong>clear</strong> task before
+                  using the <a><strong>add</strong></a> task, to make sure the
+                  choices are cleared before the new choices are added.​
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span>clear <span>&lt;field_link_name&gt;</span>;</span>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span><span>&lt;field_link_name&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        Link name of the field in which choices will&nbsp;be
+                        cleared(removed) .
+                      </p>
+                      <p>Only the following field types can be specified:</p>
+                      <ul>
+                        <li>Radio</li>
+                        <li>Drop Down</li>
+                        <li>Multi Select</li>
+                        <li>Checkbox</li>
+                        <li>Lookup (all Display Types are supported)</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>No</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              In the following example, "colors" is a form field of drop-down
+              type. "Get_Bright_Colors" is a decision-box field type, which when
+              checked, adds one set of colors to the "colors" field and adds
+              another set if unchecked. Before adding the choices, the
+              <strong>clear</strong> task makes sure the previous choices have
+              been removed.
+            </p>
+            <div>
+              if(Get_Bright_Colors)<br />{<br />addColors={"white","orange","yellow"}<br />}<br />else<br />{<br />addColors={"Brown","Black","Grey"};<br />}<br />​clear
+              colors;<br />colors:ui.add(addColors);
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

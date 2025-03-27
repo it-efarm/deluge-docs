@@ -1,0 +1,320 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho CRM integration tasks</a></li>
+        <li><a>Bulk Create Records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create records in bulk in Zoho CRM</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li><a>Create Leads in Bulk</a></li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              We have facilitated the creation of multiple records
+              simultaneously in Zoho CRM under the various modules (listed below
+              in the syntax section). The syntax employed for bulk records
+              creation is almost similar to the
+              <strong>zoho.crm.create</strong> task just that the input format
+              of the request (data map) would contain data for multiple records.
+              This task is based on <a>Zoho CRM Insert Records</a> API.&nbsp;
+            </p>
+            <div>
+              <strong>Note:</strong>&nbsp;Using this task, you can create up to
+              100 records at a time.
+            </div>
+            <h4>Use Case Scenario</h4>
+            <p>
+              Let's say that a user would like to create multiple Zoho CRM
+              records (say Leads) simultaneously. This can be effected by
+              supplying the data for record creation inside a list through the
+              <strong>zoho.crm.bulkcreate</strong> task. More details on how to
+              execute this task are explained below.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span> = </span> <span>zoho</span><span>.crm</span><span>.bulkCreate</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>records_value</span><span>&gt;</span><span>, </span><span>&lt;</span><span>options_map</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data Type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the response returned by Zoho CRM. It
+                            represents the status of the task, the id of the
+                            created record along with the&nbsp;values of the
+                            fields against its respective API names.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the <a>API name</a> of the CRM module,
+                            where the records will be added.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;records_value&gt;</p></td>
+                        <td>
+                          <p><span>LIST</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the list containing key-value pairs with
+                            the key as each field's
+                            <strong>API name</strong> and its corresponding
+                            value. For ex:
+                            <strong>{"Last_name":"Zoho CRM"}</strong>
+                          </p>
+                          <p>
+                            <strong>Note</strong>:&nbsp;Refer&nbsp;<a
+                              >this page</a
+                            >&nbsp;for details about mandatory fields&nbsp;in
+                            each module.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;options_map&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>Represents other options data(like trigger).</p>
+                          <p>
+                            This param can be used to selectively allow&nbsp;the
+                            execution of scripts(if any) when the records are
+                            added.
+                          </p>
+                          <p>
+                            Applicable key is&nbsp;<strong>trigger</strong>, and
+                            applicable values
+                            are&nbsp;<strong>workflow</strong>,&nbsp;<strong>approval</strong>,
+                            and&nbsp;<strong>blueprint</strong>.&nbsp;
+                          </p>
+                          <p>
+                            When this param is specified, the mentioned values
+                            will get executed. When this param is not specified,
+                            only approvals and blueprints will get executed by
+                            default.&nbsp;To restrict all the scripts from
+                            getting executed, specify empty list as value to the
+                            "trigger" key.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the name of the Zoho CRM connection
+                            required to accomplish the task
+                          </p>
+                          <p>
+                            <strong>Note: </strong>This field is not employed in
+                            Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1: Creating a Lead in Zoho CRM</h2>
+            <p>
+              Let’s take a look below at an example of creating two leads using
+              the lead name, company and email details&nbsp;in Zoho CRM from
+              outside it.
+            </p>
+            <div>
+              <pre><span>//List that contains key value pairs for bulk create</span> </pre>
+              <pre><span>createList</span> <span> = </span> <span>List</span><span>()</span><span>;</span> </pre>
+              <pre><span>//Data Map for Lead#1</span> </pre>
+              <pre><span>recordMap1</span> <span> = </span> <span>{</span><span>"Company"</span><span>:</span><span>"Zylker"</span><span>,</span> <span> "Last_Name"</span><span>:</span><span>"Daly"</span><span>,</span><span> "First_Name"</span><span>:</span><span>"Paul"</span><span>,</span><span> "Email"</span><span>:</span><span>"p.daly@zylker.com"</span><span>}</span><span>;</span> </pre>
+              <pre><span>//Data Map for Lead#2</span>  </pre>
+              <pre><span>recordMap2</span> <span> = </span> <span>{</span><span>"Company"</span><span>:</span><span>"Tycoon"</span><span>,</span><span> "Last_Name"</span><span>:</span><span>"Richard"</span><span>,</span><span> "First_Name"</span><span>:</span><span>"Brian"</span><span>,</span><span> "Email"</span><span>:</span><span>"brian@villa.com"</span><span>};</span> </pre>
+              <pre><span>//Add both leads' data to a list</span> </pre>
+              <pre><span>createList.add(recordMap1);</span> </pre>
+              <pre><span>createList.add(recordMap2);</span> </pre>
+              <pre><span>leadInfo</span><span> =</span><span> zoho</span><span>.crm.bulkCreate</span><span>(</span><span>"Leads"</span><span>,createList</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>leadInfo</span></pre>
+                    </div>
+                    <div>
+                      is a&nbsp;variable that holds the response returned by
+                      Zoho CRM
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>recordMap1</span>
+</pre>
+                      <pre><span>recordMap2</span></pre>
+                    </div>
+                    <div>
+                      are <span>KEY-VALUE</span> pairs that contain the data for
+                      creating Lead records
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>createList</span></pre>
+                    </div>
+                    <div>
+                      is a <span>LIST</span> variable that contains the
+                      <span>KEY-VALUE</span> pairs
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Company"</span>&nbsp;
+<span>"Last_Name"</span>&nbsp;
+<span>"First_Name"</span>&nbsp;
+<span>"Email"</span>&nbsp;</pre>
+                    </div>
+                    <div>
+                      are API names of Zoho CRM Lead fields of type
+                      <span>TEXT</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Leads"</span></pre>
+                    </div>
+                    <div>
+                      is the name of the CRM module where the record will be
+                      created. It is of <span>TEXT</span> type
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p>
+                <b>Note:</b> The following modules follow a similar process of
+                creating records, as explained in the above example:
+              </p>
+              <div>
+                <ul>
+                  <li>Leads</li>
+                  <li>Potentials</li>
+                  <li>Products</li>
+                  <li>Accounts</li>
+                  <li>Contacts</li>
+                  <li>Campaigns</li>
+                  <li>Vendors</li>
+                  <li>Cases</li>
+                </ul>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p>
+              Following is a successful response when records are created in
+              bulk in Zoho CRM:
+            </p>
+            <div>
+              {<br />"code": "SUCCESS",<br />"details": {<br />"Modified_Time":
+              "2018-07-11T18:06:04+02:00",<br />"Modified_By": {<br />"name":
+              "Rodriguez",<br />"id": "3171565000000152015"<br />},<br />"Created_Time":
+              "2018-07-11T18:06:04+02:00",<br />"id": "3171565000000600000",<br />"Created_By":
+              {<br />"name": "Rodriguez",<br />"id": "3171565000000152018"<br />}<br />},<br />"message":
+              "record added",<br />"status": "success"<br />},
+            </div>
+            <div>
+              {<br />"code": "SUCCESS",<br />"details": {<br />"Modified_Time":
+              "2018-07-11T18:06:04+2:00",<br />"Modified_By": {<br />"name":
+              "Rodriguez",<br />"id": "3171565000000152015"<br />},<br />"Created_Time":
+              "2018-07-11T18:06:04+02:00",<br />"id": "3171565000000600001",<br />"Created_By":
+              {<br />"name": "Rodriguez",<br />"id": "3171565000000152018"<br />}<br />},<br />"message":
+              "record added",<br />"status": "success"<br /><br />}
+            </div>
+            <p>
+              Below is the response returned when a record insertion is
+              attempted without a required field. To know more about error
+              codes, click
+              <strong
+                ><span><a>here</a></span></strong
+              >.
+            </p>
+            <div>
+              {<br />"code": "MANDATORY_NOT_FOUND",<br />"details": {<br />"api_name":
+              "Last_Name"<br />},<br />"message": "required field not found",<br />"status":
+              "error"<br />}
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li>
+                To fetch the string value to which the specified key is mapped,
+                use <a><strong>get()</strong></a>
+              </li>
+              <li>
+                To get values from fetched records, use
+                <a
+                  ><strong><span>getJSON()</span></strong></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

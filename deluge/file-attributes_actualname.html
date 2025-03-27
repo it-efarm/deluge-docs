@@ -1,0 +1,121 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>File upload field tasks</a></li>
+        <li><a>Actual name</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch name of a file</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong>
+              <ul>
+                <li>
+                  This file attribute is applicable only to the files uploaded
+                  using the&nbsp;<strong>file upload</strong> field
+                  in&nbsp;<strong>Zoho Creator</strong>.
+                </li>
+                <li>
+                  To fetch names of files fetched using <a>invoke URL</a> task
+                  in any service, use <a>getFileName</a> function.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The file attribute -&nbsp;<strong>actualname</strong>&nbsp;returns
+              the name of the file uploaded in the specified Zoho Creator file
+              upload field.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>&lt;</span><span>field_link_name</span><span>&gt;</span><span>.actualname</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td><p>The name&nbsp;of the file.</p></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;file_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td><p>The link name the file upload field.</p></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following example fetches the content of the file upload field
+              in Zoho Creator.
+            </p>
+            <div>
+              <pre>&nbsp;<span>file_name</span><span> = </span><span>fileUpload</span>.<span>actualname</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>file_name</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      specified file.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>fileUpload</span></pre>
+                    </div>
+                    <div>The link name of the file upload field</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>File upload field tasks</a></li>
+              <li><a>File Methods</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

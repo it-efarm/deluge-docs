@@ -1,0 +1,261 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Miscellaneous</a></li>
+        <li><a>Break</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Break</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Example 1: Terminate execution of a loop if the value -
+                        Red is found in the list</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 2: Check if at least one technician is
+                        available</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The break statement when executed terminates the execution of the
+              current loop and resumes execution of the first statement
+              <strong>after</strong> the loop. Typically, a break statement is
+              used for an abrupt drop out from the current loop.
+            </p>
+            <div>
+              <strong>Note</strong>: Both break&nbsp;and <a>continue</a> Deluge
+              task helps control the&nbsp;<a>for each loop</a>. The difference
+              between them is that the break statement terminates the execution
+              of the loop and the continue statement terminates only the current
+              iteration of the loop.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>break</span><span>;</span>
+</pre>
+            </div>
+            <p>
+              The syntax can be placed within a conditional block. When the
+              condition is met, the current loop is terminated and the immediate
+              next statement after the loop takes the control.
+            </p>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              The list&nbsp;-&nbsp;<strong>colors</strong> contains
+              <strong>4</strong> values. In the following example, if the value
+              "Red" is available&nbsp;in the list, the execution of the for loop
+              will be terminated.
+            </p>
+            <div>
+              <pre>&nbsp;<span>colors</span> <span>=</span> <span>List</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>colors</span><span>.add</span><span>(</span><span>"Green"</span><span>)</span><span>;</span>
+&nbsp;<span>colors</span><span>.add</span><span>(</span><span>"Red"</span><span>)</span><span>;</span>
+&nbsp;<span>colors</span><span>.add</span><span>(</span><span>"Blue"</span><span>)</span><span>;</span>
+&nbsp;<span>colors</span><span>.add</span><span>(</span><span>"Teal"</span><span>)</span><span>;</span>
+&nbsp;<span>for each </span><span>rec </span><span>in </span><span>colors</span>
+&nbsp;<span>{</span>
+&nbsp;<span>if</span><span>(</span><span>rec </span><span>== </span><span>"Red"</span><span>)</span>
+&nbsp;<span>{</span> 
+&nbsp;<span>break</span><span>;</span>
+&nbsp;<span>}</span>
+&nbsp;<span>info</span><span> rec</span><span>;</span>
+&nbsp;<span>}</span>
+</pre>
+            </div>
+            <p>Returns:<br />Green</p>
+            <h2><a></a>Example 2</h2>
+            <p>
+              Let's assume a collection variable -
+              <strong>technicians</strong>&nbsp;contains details&nbsp;of
+              different technicians and their availability statuses. To display
+              the first available technician, you can use "break" statement.
+            </p>
+            <div>
+              <pre><span>technician1 </span><span>= </span><span>Collection</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>technician1</span><span>.insert</span><span>(</span><span>"name"</span><span>:</span><span>"Alberto"</span><span>)</span><span>;</span>&nbsp;
+<span>technician1</span><span>.insert</span><span>(</span><span>"status"</span><span>:</span><span>"unavailable"</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+<span>technician2 </span><span>= </span><span>Collection</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>technician2</span><span>.insert</span><span>(</span><span>"name"</span><span>:</span><span>"Bruno"</span><span>)</span><span>;</span>&nbsp;
+<span>technician2</span><span>.insert</span><span>(</span><span>"status"</span><span>:</span><span>"available"</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+<span>technician3 </span><span>= </span><span>Collection</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>technician3</span><span>.insert</span><span>(</span><span>"name"</span><span>:</span><span>"A3"</span><span>)</span><span>;</span>&nbsp;
+<span>technician3</span><span>.insert</span><span>(</span><span>"status"</span><span>:</span><span>"available"</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+<span>technicians </span><span>= </span><span>Collection</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>technicians</span><span>.insert</span><span>(</span><span>technician1</span><span>)</span><span>;</span>&nbsp;
+<span>technicians</span><span>.insert</span><span>(</span><span>technician2</span><span>)</span><span>;</span>&nbsp;
+<span>technicians</span><span>.insert</span><span>(</span><span>technician3</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+<span>for each </span><span>technician </span><span>in </span><span>technicians</span>&nbsp;
+<span>{</span>&nbsp;
+    <span>if</span><span>(</span><span>technician</span><span>.get</span><span>(</span><span>"status"</span><span>) </span><span>== </span><span>"available"</span><span>)</span> &nbsp;
+    <span>{</span>&nbsp;
+        <span>info </span><span>technician</span><span>.get</span><span>(</span><span>"name"</span><span>) </span><span>+ </span><span>" is available"</span><span>;</span>&nbsp;
+        <span>break</span><span>;</span>&nbsp;
+    <span>}</span>&nbsp;
+<span>}</span>&nbsp;
+<span> //Returns Bruno is available</span>
+
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>For each statement</a></li>
+              <li><a>If condition</a></li>
+              <li><a>Continue</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

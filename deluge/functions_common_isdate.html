@@ -1,0 +1,105 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>isDate</a></li>
+        <li><a>Functions which return a boolean value</a></li>
+        <li><a>isDate - type check function</a></li>
+        <li><a>Type check functions</a></li>
+        <li><a>isDate</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>isDate()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The<strong>&nbsp;isDate()</strong>&nbsp;function takes
+              an&nbsp;<strong>expression</strong>&nbsp;as an argument, and
+              returns true if it is a valid date-time value. Otherwise,
+              it&nbsp;returns false.&nbsp; &nbsp;&nbsp;
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>BOOLEAN</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; = isDate(<span> </span
+              ><span>&lt;expression&gt;</span> );
+            </div>
+            (or)
+            <div>
+              &lt;variable&gt; = <span>&lt;expression&gt;</span>.isDate();
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      Variable which will contain the returned boolean value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;expression&gt;</span></td>
+                    <td>-</td>
+                    <td>
+                      <p>
+                        The expression which needs to be checked.&nbsp; &nbsp;
+                        &nbsp;
+                      </p>
+                      <p>
+                        Text values containing a <a>valid</a> date-time value
+                        will return true, and which do not contain
+                        a&nbsp;valid&nbsp;date-time value will throw an error.
+                      </p>
+                      <p>
+                        List and key-value data type will return a null value.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre><span>dateString</span><span>=</span> <span>"01-Jan-2019"</span><span>;</span>
+&nbsp;<span>dateValue</span><span>=</span> <span>'01-Jun-2020'</span><span>;</span>
+&nbsp;<span>numValue</span><span>=</span> <span>100</span> <span>;</span>
+&nbsp;
+&nbsp;<span>boolValOne</span> <span>=</span> <span>isDate</span><span>(</span><span>dateString</span><span>)</span><span>;</span> <span>//returns true</span>
+&nbsp;<span>boolValTwo</span> <span>=</span> <span>isDate</span><span>(</span><span>numValue</span><span>)</span><span>;</span> <span>// returns false</span>
+&nbsp;<span>boolValThree</span> <span>=</span> <span>dateValue</span><span>.isDate</span><span>(</span><span>)</span><span>;</span> <span>// returns true</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

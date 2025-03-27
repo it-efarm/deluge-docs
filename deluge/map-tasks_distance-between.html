@@ -1,0 +1,203 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Map Integration Tasks</a></li>
+        <li><a>Distance Between</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Distance Between</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.map.distanceBetween</strong> task returns the
+              flight distance between the specified source and destination
+              addresses.
+            </p>
+            <div>
+              <strong>Note:</strong>
+              <ul>
+                <li>
+                  Zoho Maps use open-source address data. Hence, accuracy might
+                  not be on par with commercial vendors.
+                </li>
+                <li>
+                  This task cannot be used in AU domain as Zoho Maps is not
+                  available for AU users.
+                </li>
+              </ul>
+            </div>
+            <h2>​<a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.map.distanceBetween</span><span>(</span><span>&lt;</span><span>source_address</span><span>&gt;</span>, <span>&lt;</span><span>destination_address</span>, <span>&lt;</span><span>unit</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>NUMBER</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The distance between the specified source and
+                        destination addresses.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;source_address&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The source address from which the flight distance needs
+                        to be calculated.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;destination_address&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The destination address until which the flight distance
+                        needs to be calculated.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;unit&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The unit in which the distance needs to be returned.
+                      </p>
+                      <ul>
+                        <li>MILE</li>
+                        <li>KILOMETRE</li>
+                        <li>NAUTICAL</li>
+                      </ul>
+                      <p>
+                        <strong>Note:&nbsp;</strong>This is an optional
+                        parameter in Zoho Creator. If
+                        the&nbsp;<strong>&lt;unit&gt;</strong>&nbsp;parameter is
+                        not specified, the distance is returned
+                        in&nbsp;<strong>miles</strong>&nbsp;by default.&nbsp;
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script returns the flight distance (in miles)
+              between the specified source and destination addresses:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.map.distanceBetween</span><span>(</span><span>"Chennai, Tamil Nadu, India"</span>,<span> "Austin, Texas, US"</span>,<span> "MILE"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> variable that holds distance (in
+                      miles) between the specified addresses.&nbsp;This example
+                      returns <strong>9458.287130449206</strong>.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Chennai, Tamil Nadu, India"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the source address.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Austin, Texas, US"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the destination
+                      address.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"MILE"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the unit in which
+                      the distance needs to be returned.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for an undetectable source and
+                  destination addresses will be returned in the following
+                  format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"error": "unable to geocode",<br />&nbsp;"status":
+                  "failure"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            &nbsp;
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Map Integration Tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

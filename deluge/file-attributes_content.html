@@ -1,0 +1,141 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>File upload field tasks</a></li>
+        <li><a>content</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch content from a file</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong>
+              <ul>
+                <li>
+                  This file attribute is applicable only to the files uploaded
+                  using the&nbsp;<strong>file upload</strong> field
+                  in&nbsp;<strong>Zoho Creator</strong>.
+                </li>
+                <li>
+                  This task can extract file content upto
+                  <strong>5 MB</strong>.&nbsp; Some older accounts would allow
+                  extraction up to<strong> 50 MB</strong> which will eventually
+                  be reduced without affecting the existing scripts.
+                  <a>Learn more</a>.
+                </li>
+                <li>
+                  To fetch content&nbsp;of files fetched using
+                  <a>invoke URL</a> task in any service, use
+                  <a>getFileContent</a>&nbsp;function.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The file attribute -&nbsp;<strong>content</strong> returns the
+              content of the file uploaded in the specified Zoho Creator field.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>&lt;</span><span>field_link_name</span><span>&gt;</span><span>.content</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The content of the file.</p>
+                          <p>
+                            <strong>Note:</strong> File types that
+                            usually&nbsp;contain&nbsp;only text values, (for
+                            example&nbsp;<strong>.txt</strong>,&nbsp;<strong>.csv&nbsp;</strong>etc.)
+                            will return the content&nbsp;accurately. File
+                            types&nbsp;that usually contain images, (for
+                            example&nbsp;<strong>.pdf</strong>, etc.) will
+                            return junk values.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;file_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the file upload&nbsp;field.</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following example fetches the content of the file upload field
+              in Zoho Creator.
+            </p>
+            <div>
+              <pre>&nbsp;<span>file_content</span><span> = </span><span>fileUpload</span>.<span>content</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>file_content</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that&nbsp;represents the content of
+                      the specified file.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>fileUpload</span></pre>
+                    </div>
+                    <div>The link name of the file upload field</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>File upload field tasks</a></li>
+              <li><a>File Methods</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

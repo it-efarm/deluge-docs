@@ -1,0 +1,165 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Encryption functions</a></li>
+        <li><a>hmacsha1</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>HMAC-SHA1</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.encryption.hmacsha1</strong> task returns the
+              hash corresponding to the given text generated using the HMAC-SHA1
+              algorithm.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.encryption.hmacsha1</span><span>(</span><span>&lt;</span><span>key</span><span>&gt;</span>,<span> &lt;</span><span>data</span><span>&gt;</span>,<span> [&lt;</span><span>output_type</span><span>&gt;]</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>The hash generated using the HMAC-SHA1 algorithm.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;key&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The secret key with which the hash needs to be
+                        generated.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;data&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The source text whose corresponding hash needs to be
+                        computed.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;output_type&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The type in which the generated hash needs to be
+                        represented. By default, the output type is
+                        <strong>base64</strong>.
+                      </p>
+                      <p><strong>Allowed values:</strong></p>
+                      <ul>
+                        <li>
+                          <strong>hex</strong> - returns the hash in hexadecimal
+                          format
+                        </li>
+                      </ul>
+                      <div>
+                        <strong>Note:</strong> This parameter is not applicable
+                        to Zoho Creator.
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script returns the hash generated using the
+              HMAC-SHA1 algorithm for the text -&nbsp;<strong
+                >My#New#Password</strong
+              >
+              with the key -&nbsp;<strong>Use me to generate hash</strong>:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.encryption.hmacsha1</span><span>(</span><span>"Use me to generate hash"</span>,<span> "My#New#Password"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the hash value
+                      returned by this task. Here, the hash returned
+                      is&nbsp;<strong>VK9VMxdsbxZBLHKgSEZYMEUlURs=</strong>.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Use me to generate hash"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the secret key with
+                      which the hash is generated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"My#New#Password"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the source text
+                      whose corresponding hash needs to be computed.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Encryption tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

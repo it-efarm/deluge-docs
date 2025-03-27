@@ -1,0 +1,96 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho CRM Vertical Solutions Integration Tasks</a></li>
+        <li><a>Get Organization Information in Zoho CRM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Organization Information</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+              </ul>
+              <p>
+                You can fetch the details about the organization associated with
+                your account using the
+                <strong>zoho.crm.invokeConnector()</strong> deluge task.
+              </p>
+              <div>
+                <strong>Note:&nbsp;</strong
+                ><span
+                  >This task can be performed only in
+                  <a>Zoho CRM Vertical Solutions</a>.</span
+                >
+              </div>
+              <h2>​<a></a>Syntax</h2>
+              <div>
+                <pre><span>&lt;</span><span>Response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.crm</span><span>.invokeConnector</span><span>(</span><span>"crm.getorg"</span><span>,</span> <span>&lt;</span><span>parameterMap</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+              </div>
+              <p>where:</p>
+              <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <td><strong>Params</strong></td>
+                      <td><strong>Data type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><p>&lt;Response&gt;</p></td>
+                      <td>
+                        <p><span>&nbsp;KEY-VALUE</span></p>
+                      </td>
+                      <td><p>&nbsp;The task response returned as a Map</p></td>
+                    </tr>
+                    <tr>
+                      <td><p>&lt;parameterMap&gt;</p></td>
+                      <td>
+                        <p><span>&nbsp;KEY-VALUE</span></p>
+                      </td>
+                      <td>
+                        <p>
+                          &nbsp;A mandatory argument for the
+                          zoho.crm.invokeConnector() deluge task. In this case,
+                          an empty map can be passed as the argument.
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h2><a>Example</a></h2>
+              <div>
+                <pre><span>m</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;
+</span><span>resp</span> <span>=</span> <span>zoho</span><span>.crm</span><span>.invokeConnector</span><span>(</span><span>"crm.getorg"</span><span>,</span><span>m</span><span>)</span><span>;</span> 
+<span>info</span> <span>resp</span><span>;</span> </pre>
+              </div>
+              <h2><a>Response Format</a></h2>
+              <div>
+                {"{"status_code":200,"response":"{\"org\":[{\"country\":null,\"photo_id\":null,\"city\":null,\"description\":null,\"mc_status\":false,\"gapps_enabled\":false,\"domain_name\":\"org74822955\",\"translation_enabled\":false,\"street\":null,\"alias\":null,\"currency\":\"US
+                Dollar\",\"id\":\"2019230000000452658\",\"state\":null,\"fax\":null,\"employee_count\":\"1\",\"zip\":null,\"website\":null,\"currency_symbol\":\"$\",\"mobile\":null,\"currency_locale\":\"en_US\",\"primary_zuid\":\"71562802\",\"zia_portal_id\":null,\"time_zone\":\"Asia/Kolkata\",\"zgid\":\"74822955\",\"country_code\":\"US\",\"license_details\":{\"paid_expiry\":null,\"users_license_purchased\":3,\"trial_type\":\"enterprise\",\"trial_expiry\":\"2023-03-31T15:59:53+05:30\",\"paid\":false,\"paid_type\":\"free\"},\"phone\":\"+1
+                505-363-2395\",\"company_name\":\"inter.org\",\"privacy_settings\":false,\"primary_email\":\"esther.binu+t1@zohotest.com\",\"hipaa_compliance_enabled\":false,\"iso_code\":\"USD\"}]}"}"
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

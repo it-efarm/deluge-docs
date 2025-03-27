@@ -1,0 +1,154 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Send SMS</a></li>
+        <li><a>Send SMS using ClockworkSMS</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Send SMS using ClockworkSMS</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Response Format</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note</strong>: This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2>Overview</h2>
+            <p>
+              The <strong>clockworksms.sms.send</strong> task is used to send
+              messages through your ClockworkSMS account using Deluge. For
+              example, imagine you have a Zoho Creator application to track your
+              inventory. You can use this task to send SMS notification to the
+              specified phone number through your
+              <strong>ClockworkSMS</strong> account, whenever your inventory
+              runs low on stock.
+            </p>
+            <h2>Syntax</h2>
+            <div>
+              <span>&lt;variable&gt;</span><span> = </span
+              ><span>clockworksms.sms.send</span><span>(</span
+              ><span>&lt;clockworksms_connection&gt;</span><span>, </span
+              ><span>&lt;to_number&gt;</span><span>,&nbsp;</span
+              ><span>&lt;message&gt;</span><span>);</span>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;variable&gt;&nbsp;</span></td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      is the variable which will hold the response returned by
+                      Clockworksms.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>&lt;clockworksms_connection&gt;</span
+                      ><span><strong>&nbsp;</strong></span>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>is the name of the ClockworkSMS <a>connection</a>.</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;to_number&gt;</span></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        is the phone number to which the message must be sent.
+                      </p>
+                      <p>
+                        The phone number must be in the format:&nbsp;<strong
+                          >+&lt;country_code&gt;&lt;phone_number&gt;</strong
+                        >
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;message&gt;</span></td>
+                    <td><span>TEXT</span></td>
+                    <td>Contents of the message</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>Send an SMS using ClockworkSMS</h2>
+            <p>
+              The following snippet when executed sends the specified message to
+              the specified number.&nbsp;
+            </p>
+            <div>
+              <p>
+                <span
+                  >response = clockworksms.sms.send("Clockworksms",
+                  "+91XXXXXXXXXX", "Thank you&nbsp;for subscribing");</span
+                >
+              </p>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td><span>"Clockworksms"</span></td>
+                    <td>is the name of the Clockworksms connection</td>
+                  </tr>
+                  <tr>
+                    <td><span>"+91XXXXXXXXXX"</span></td>
+                    <td>
+                      is the phone number to which the message will be sent
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>"Thank you for subscribing"</span></td>
+                    <td>is the message which will be sent</td>
+                  </tr>
+                  <tr>
+                    <td><span>response</span></td>
+                    <td>
+                      is response returned
+                      as&nbsp;<span>KEY-VALUE</span>&nbsp;by Clockworksms
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>Response Format</h2>
+            <p>
+              Following is a sample&nbsp;<strong>success</strong> response
+              returned by Clockworksms:
+            </p>
+            <div>{"status":"Success"}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

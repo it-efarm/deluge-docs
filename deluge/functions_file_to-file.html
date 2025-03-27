@@ -1,0 +1,136 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>File Functions</a></li>
+        <li><a>toFile</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>toFile</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>toFile</strong> function takes&nbsp;<strong
+                >any content</strong
+              >&nbsp;and creates a <strong>file object</strong>.
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  It is advisable to use file objects from the cloud directly
+                  and only in the absence of such means should this&nbsp;task be
+                  used.
+                </li>
+                <li>
+                  The toFile task&nbsp;<strong>is not </strong>a utility to
+                  create files of desired type. It only helps wrapping up
+                  contents inside a file object. So there shall be instances
+                  where the file might appear broken or corrupted unless
+                  appropriate content is supplied during file creation.
+                </li>
+                <li>
+                  The file object would be created in the name of the file along
+                  with the extension(if provided).
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>FILE</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>&lt;</span><span>value</span><span>&gt;</span><span>.toFile</span><span>(</span><span>&lt;</span><span>file_name</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+          </div>
+          <p>where,</p>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>Parameter</strong></td>
+                  <td><strong>Data type</strong></td>
+                  <td><strong>Description</strong></td>
+                </tr>
+                <tr>
+                  <td>&lt;variable&gt;</td>
+                  <td><span>FILE</span></td>
+                  <td>Variable which will contain the created file object.</td>
+                </tr>
+                <tr>
+                  <td>&lt;value&gt;</td>
+                  <td><span>TEXT</span>/<span>COLLECTION</span></td>
+                  <td>
+                    <p>
+                      The value that needs to be converted to a file object.
+                    </p>
+                    <div>
+                      <p><strong>Note:</strong></p>
+                      <ul>
+                        <li>
+                          In Zoho Creator, the input value cannot exceed
+                          <strong>5MB</strong>. However, some older accounts may
+                          still allow up to <strong>50MB</strong> which will
+                          eventually be reduced without impacting the existing
+                          scripts.<br />&nbsp;
+                        </li>
+                        <li>
+                          For all other services, the input value limit is up to
+                          <strong>50MB</strong>.
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>&lt;file_name&gt;</td>
+                  <td><span>TEXT</span></td>
+                  <td>
+                    The value which will represent the file name and its
+                    extension.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>​</p>
+          <h2><a></a>Example</h2>
+          <p>
+            Imagine that you need to put feedback content provided by a customer
+            into a file object. The <strong>toFile</strong> function can convert
+            the text into a file with a specified name and extension.
+          </p>
+          <div>
+            <pre><span>changes</span> = <span>collection</span>();
+<span>changes</span>.<span>insert</span>("<span>Provide UI builder</span>");
+<span>changes</span>.<span>insert</span>("<span>insert different layouts</span>");
+<span>changes</span>.<span>insert</span>("<span>introduce different font families</span>");
+<span>file_object</span> = <span>changes.toFile</span>("<span>feedback</span>");
+<span>info</span> <span>file_object</span>;                         <span>// This would create a file with the name "feedback" with data included in the collection.</span></pre>
+          </div>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>Upload File in Zoho Workdrive</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

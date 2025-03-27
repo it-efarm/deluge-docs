@@ -1,0 +1,101 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Functions which return a boolean value</a></li>
+        <li><a>isText - type check function</a></li>
+        <li><a>Type check functions</a></li>
+        <li><a>isText</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>isText()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>isText()</strong>&nbsp;function takes
+              an&nbsp;<strong>expression</strong>&nbsp;as an argument, and
+              returns true if it is a valid text value. Otherwise, it returns
+              false.&nbsp; &nbsp;
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>BOOLEAN</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; = isText(<span> &lt;expression&gt;</span> );
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      Variable which will contain the returned boolean value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;expression&gt;</span></td>
+                    <td>-</td>
+                    <td>
+                      <p>
+                        The expression which needs to be checked.&nbsp; &nbsp;
+                      </p>
+                      <p>
+                        Empty double quotes (with or without spaces) will return
+                        true.
+                      </p>
+                      <p>
+                        Numerical values in double quotes will return false
+                        unless accompanied with letters.
+                      </p>
+                      <p>
+                        List, Key-value, Boolean data types will return null.
+                      </p>
+                      <p>
+                        Empty single quotes (date and time values) will return
+                        null.&nbsp;
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>textValue</span> <span>=</span> <span>isText</span><span>(</span><span>"Hello"</span><span>)</span><span>;</span>  <span>//returns true</span>
+&nbsp;<span>numberText</span> <span>=</span> <span>isText</span> <span>(</span><span>"123"</span><span>)</span><span>;</span>  <span>//returns false</span>
+&nbsp;<span>dateText</span> <span>=</span> <span>'01-02-2020'</span><span>.isText</span><span>(</span><span>)</span><span>;</span>  <span>//returns false</span>
+&nbsp;<span>empty</span> <span>=</span> <span>isText</span> <span>(</span><span>""</span><span>)</span> <span>;</span>  ​<span>//returns true</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

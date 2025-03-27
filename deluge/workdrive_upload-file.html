@@ -1,0 +1,298 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho WorkDrive Integration Tasks</a></li>
+        <li><a>Upload File In Zoho Workdrive</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Upload File In Zoho WorkDrive</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2>Description</h2>
+            <p>
+              The <strong>zoho.workdrive.uploadFile</strong>&nbsp;task uploads a
+              file to the specified folder in Zoho WorkDrive.
+            </p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.workdrive.uploadFile</span><span>(</span><span>&lt;</span><span>file</span><span>&gt;</span>, <span>&lt;</span><span>folder_id</span><span>&gt;</span>, <span>&lt;</span><span>file_name</span><span>&gt;</span>, <span>&lt;</span><span>override_name_exist</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <p>&nbsp;</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>&lt;response&gt;</td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          The details of the file that will be uploaded to the
+                          specified folder of Zoho WorkDrive.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;file&gt;</td>
+                        <td><span>FILE</span></td>
+                        <td>
+                          <p>The file that will be uploaded.</p>
+                          <div>
+                            <p><strong>Note:&nbsp;</strong></p>
+                            <ul>
+                              <li>
+                                You can find the supported file
+                                types&nbsp;<a>here</a>.
+                              </li>
+                              <li>
+                                The file is invoked from the cloud using
+                                the&nbsp;<strong>invokeUrl</strong> task.
+                                Click&nbsp;<a>here</a> to learn more about the
+                                invokeUrl task.
+                              </li>
+                              <li>
+                                In&nbsp;<strong>Zoho Creator</strong>, the file
+                                uploaded in the&nbsp;<a>file upload field</a>
+                                can also be used as a value for this parameter.
+                              </li>
+                              <li>
+                                In <strong>Zoho Creator</strong>, the size of
+                                the file cannot be more than
+                                <strong>50MB</strong>.
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;folder_id&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The ID of the folder to which the file will be
+                            uploaded.
+                          </p>
+                          <div>
+                            <strong>Note: </strong>You can get
+                            the&nbsp;folder_id parameter from the Zoho WorkDrive
+                            URL. The URL will be in the following format:<br />https://workdrive.zoho.com/home/teams/&lt;team_id&gt;/privatespace/folders/<strong
+                              >&lt;folder_id&gt;</strong
+                            >
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;file_name&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          The name of the file should be URL encoded with UTF-8
+                          Charset.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;override_name_exist&gt;</td>
+                        <td><span>BOOLEAN</span></td>
+                        <td>
+                          <p>
+                            This parameter decides what will happen if a file
+                            with the same name already exists in the specified
+                            folder.
+                          </p>
+                          <p><strong>Allowed values:</strong></p>
+                          <ul>
+                            <li>
+                              <strong>true</strong> - existing file with the
+                              same name as the specified file name will be
+                              replaced by the new file
+                            </li>
+                            <li>
+                              <strong>false</strong> - the file is uploaded as
+                              new
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;connection&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The link name of the connection.&nbsp;</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Scope required for this integration
+                                task:&nbsp;<strong
+                                  >WorkDrive.files.CREATE</strong
+                                >
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2>Example</h2>
+            <h3>Example 1</h3>
+            <p>
+              The following script uploads an encoded file to the specified
+              folder in Zoho WorkDrive:
+            </p>
+            <div>
+              <pre><span>myurl</span> <span>=</span> <span>encodeUrl</span><span>(</span><span>"book1.pdf"</span><span>)</span><span>;</span>
+sample_file <span>=</span> <span>invokeUrl</span>
+            <span>[</span> 
+               <span>url:</span> <span>"http://www.africau.edu/images/default/sample.pdf"</span> 
+               <span>type:</span> <span>GET</span>
+            <span>]</span><span>;</span>
+<span>response</span> <span>=</span> <span>zoho.workdrive.uploadFile</span><span>(sample_</span><span>file</span><span>,</span> <span>"g4xh1XXXXXXXXXXXXXXXXXXXXXXXXXXXb0d05"</span><span>,</span> <span>myurl</span> <span>,</span> <span>false</span><span>,</span> <span>"workdrive_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span>&nbsp;response returned by Zoho
+                      WorkDrive. It represents the details of the file that will
+                      be uploaded.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>sample_file</span></pre>
+                    </div>
+                    <div>
+                      The <span>FILE</span> variable that holds the file that
+                      needs to be uploaded.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"g4xh1XXXXXXXXXXXXXXXXXXXXXXXXXXXb0d05"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the ID of the
+                      folder in which the file needs to be uploaded.
+                    </div>
+                  </div>
+                  <div>
+                    <div><pre>myurl</pre></div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the name of the
+                      file that is URL encoded.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>false</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>BOOLEAN</span> that represents how the file
+                      will not replace the existing file with the same name.
+                      Instead, it will be uploaded as new.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"workdrive_oauth_connection"</span></pre>
+                    </div>
+                    <div>
+                      <p>
+                        The&nbsp;<span>TEXT</span> that represents the
+                        connection link name.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2>Response Format</h2>
+          <p><strong>Success Response</strong></p>
+          <ul>
+            <li>
+              <p>
+                The success response will be returned in the following format:
+              </p>
+              <div>
+                &nbsp;&nbsp;{<br />&nbsp;&nbsp;"data": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"attributes":
+                {<br />&nbsp;&nbsp;"File INFO":
+                "{\"RESOURCE_ID\":\"g4xh1XXXXXXXXXXXXXXXXXXXXXXXXXXX100c5\",\"LIBRARY_ID\":\"3uinyXXXXXXXXXXXXXXXXXXXXXXXXXXX428fd\",\"PARENT_MODEL_ID\":\"g4xh1XXXXXXXXXXXXXXXXXXXXXXXXXXXb0d05\",\"PARENT_ID\":\"g4xh1XXXXXXXXXXXXXXXXXXXXXXXXXXXb0d05\",\"RESOURCE_TYPE\":2001,\"WMS_SENT_TIME\":\"1566479972918\",\"OWNER\":\"667XXX621\",\"RESOURCE_GROUP\":\"FILE\",\"PARENT_MODEL_NAME\":\"file\",\"OPERATION\":\"UPLOAD\",\"EVENT_ID\":\"-1\",\"AUDIT_INFO\":{\"resource\":{\"owner\":\"667XXX621\",\"created_time\":1566479972495,\"creator\":\"662607120\",\"service_type\":1,\"extension\":\"txt\",\"resource_type\":2001,\"name\":\"sample.txt\"},\"parentInfo\":{\"parentName\":\"Folder
+                1\",\"parentId\":\"g4xh1XXXXXXXXXXXXXXXXXXXXXXXXXXXb0d05\",\"parentType\":1001},\"libraryInfo\":{\"libraryName\":\"MYSPACE_LIBRARY\",\"libraryId\":\"3uinyXXXXXXXXXXXXXXXXXXXXXXXXXXX428fd\",\"libraryType\":20},\"statusCode\":\"D201\"},\"ZUID\":662607120,\"TEAM_ID\":\"6oq3dXXXXXXXXXXXXXXXXXXXXXXXXXXX4a777\"}",<br />&nbsp;&nbsp;"parent_id":
+                "g4xh1XXXXXXXXXXXXXXXXXXXXXXXXXXXb0d05",<br />&nbsp;&nbsp;"FileName":
+                "sample.txt",<br />&nbsp;&nbsp;"resource_id":
+                "g4xh1XXXXXXXXXXXXXXXXXXXXXXXXXXX100c5"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"type":
+                "files"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+              </div>
+            </li>
+          </ul>
+          <p><strong>Failure Response</strong></p>
+          <ul>
+            <li>
+              <p>
+                The failure response for an incorrect folder ID will be returned
+                in the following format:
+              </p>
+              <div>
+                &nbsp;&nbsp;{<br />&nbsp;&nbsp;"errors": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"id":
+                "F6003",<br />&nbsp;&nbsp;"title": "Invalid Param found"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+              </div>
+            </li>
+          </ul>
+          <h2>Related Links</h2>
+          <ul>
+            <li><a>Zoho WorkDrive Integration Tasks</a></li>
+            <li><a>Connections</a></li>
+            <li><a>InvokeUrl</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

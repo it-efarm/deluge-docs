@@ -1,0 +1,270 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Bookings integration tasks</a></li>
+        <li><a>Update record in Zoho Bookings</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Update record in Zoho Bookings</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to update a record with the specified
+              values using its ID.
+            </p>
+            <p>
+              This integration task is based on the Zoho Bookings
+              API&nbsp;-&nbsp;<a>Update Appointment</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.bookings.updateRecord</span><span>(</span><span>&lt;</span><span>module</span><span>&gt;</span>, <span>&lt;</span><span>record_id</span><span>&gt;</span>, <span>&lt;</span><span>new_values</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The variable which will hold the returned response.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module&gt;&nbsp;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The name of the module in which the record will be
+                            updated with new values.
+                          </p>
+                          <p>The applicable modules are:</p>
+                          <ul>
+                            <li>appointment</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;record_id&gt;&nbsp;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The booking ID of the appointment that will be
+                            updated.
+                          </p>
+                          <p>
+                            Click&nbsp;<a>here</a> to learn how to get the
+                            booking ID while&nbsp;creating an appointment.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;new_values&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The new values with which the record will be
+                            updated.
+                          </p>
+                          <p>The applicable key and&nbsp;values are:</p>
+                          <ul>
+                            <li><strong>key:&nbsp;</strong>action</li>
+                            <li>
+                              <strong>value:&nbsp;</strong>completed, cancel,
+                              and&nbsp;noshow
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes while creating the
+                                connection.
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following example changes the status of the appointment with
+              booking ID -&nbsp;<strong>#PA-00002</strong>
+              to&nbsp;<strong>completed</strong>:
+            </p>
+            <div>
+              <pre><span>// Create a map to hold the new values of the record</span>
+<span>valuesMap </span><span>= </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>valuesMap</span><span>.put</span><span>(</span><span>"action"</span><span>, </span><span>"completed"</span><span>)</span><span>;</span>
+&nbsp;
+<span>//Execute the bookings integration task to update an appointment with the new values</span>
+<span>response</span><span> = </span><span>zoho</span><span>.bookings.updateRecord</span><span>(</span><span>"appointment"</span><span>, </span><span>"#PA-00002"</span><span>, </span><span>valuesMap</span><span>, </span><span>"bookings_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The variable which holds the response in&nbsp;<span
+                        >KEY-VALUE</span
+                      >
+                      format.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"appointment"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the module name.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"#PA-00002"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the booking ID.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>valuesMap</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE&nbsp;</span>variable that holds the
+                      new values of the record.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"bookings_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>The <span>TEXT</span> name of the connection.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response will be returned in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"response": {<br />&nbsp;"returnvalue":
+                  {<br />&nbsp;"staff_name": "\"Shawn\"",<br />&nbsp;"customer_more_info":
+                  {<br />&nbsp;},<br />&nbsp;"customer_booking_start_time":
+                  "\"2019-10-18 10:00:00\"",<br />&nbsp;"customer_contact_no":
+                  "\"+919998979695\"",<br />&nbsp;"booked_on": "\"17-Oct-2019
+                  16:25:03\"",<br />&nbsp;"booking_id": "\"#PA-00002\"",<br />&nbsp;"workspace_id":
+                  "\"3883XXXXXXXXXXX6010\"",<br />&nbsp;"duration": "\"70
+                  mins\"",<br />&nbsp;"service_id":
+                  "\"3883XXXXXXXXXXX7032\"",<br />&nbsp;"staff_id":
+                  "\"3883XXXXXXXXXXX7016\"",<br />&nbsp;"cost_paid":
+                  "\"1500.00\"",<br />&nbsp;"currency": "\"INR\"",<br />&nbsp;"workspace_name":
+                  "\"Soft skills\"",<br />&nbsp;"cost": "\"1500.00\"",<br />&nbsp;"service_name":
+                  "\"Technical counseling\"",<br />&nbsp;"time_zone":
+                  "\"Asia/Calcutta\"",<br />&nbsp;"start_time": "\"18-Oct-2019
+                  10:00:00\"",<br />&nbsp;"due": "\"0.0\"",<br />&nbsp;"customer_email":
+                  "\"tim@gmail.com\"",<br />&nbsp;"booking_type":
+                  "\"appointment\"",<br />&nbsp;"customer_name": "\"Tim
+                  McGraw\"",<br />&nbsp;"summary_url":
+                  "\"https://shawn24.zohobookings.com/#/customer/softskills/invoice/WuLKnVtF%2F08vVAJ2Tfm5r%2FLaM1ZRiYFBYbYq1PbO83qgDo%2BJD8E64BCcHAlR9UCq\"",<br />&nbsp;"staff_email":
+                  "\"shawn@zylker.com\"",<br />&nbsp;"customer_booking_time_zone":
+                  "\"Asia/Calcutta GMT +05:30\"",<br />&nbsp;"status":
+                  "\"completed\""<br />&nbsp;},<br />&nbsp;"status":
+                  "success"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                The failure response for an
+                <strong>invalid or non-existent</strong> record ID will be
+                returned in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"response": {<br />&nbsp;"returnvalue":
+                  {<br />&nbsp;"message": "Invalid appointment id",<br />&nbsp;"status":
+                  "failure"<br />&nbsp;},<br />&nbsp;"status": "success"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Bookings API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

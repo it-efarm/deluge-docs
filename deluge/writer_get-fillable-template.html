@@ -1,0 +1,424 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Get fillable templates</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Fillable Templates in Zoho Writer</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.writer.getFillableTemplates</strong>&nbsp;task
+              lists all the fillable templates created by the user. This task is
+              based on <a>Zoho Writer Get Fillable Templates API</a>.
+            </p>
+            <div>
+              <strong><strong>Note:</strong></strong
+              >&nbsp;Applicable to all services except Zoho Creator.
+            </div>
+            <h2>
+              <strong><a></a>Syntax</strong>
+            </h2>
+            <div>
+              <pre><strong>
+</strong><span>&lt;</span><span>response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.getFillableTemplates</span><span>(</span><span>&lt;</span><span>optional_settings</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><strong>Params</strong></td>
+                      <td><strong>Data type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                    <tr>
+                      <td>&lt;response&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        The response returned by Zoho Writer. It represents the
+                        list of all fillable templates and their metadata.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;optional_settings&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        &nbsp;The optional parameters you can send to fetch data
+                        according to your preference.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;connection&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>The <a>connection</a>'s link name.</p>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            <p>
+                              To prevent<a> new authtoken generation</a
+                              >&nbsp;and ensure new integration tasks (created
+                              after the deadline specified in the post) work as
+                              expected, a Zoho OAuth connection with appropriate
+                              scopes is mandatory. Existing integration tasks
+                              will continue to work, with or without the
+                              connections parameter, until you manually delete
+                              the authtoken from <a>Zoho Accounts</a>.
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              Add relevant scopes from the&nbsp;<a
+                                >Zoho Writer API</a
+                              >
+                              when creating the connection.
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              Refer to <a>this post</a> for a list of Zoho
+                              services that support the Connections page.
+                            </p>
+                          </li>
+                          <li>
+                            <p><a>Learn more about connections</a></p>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>&nbsp;</p>
+              <p><strong>optional_settings&nbsp;</strong>parameter values:</p>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>offset</td>
+                      <td>Integer</td>
+                      <td>
+                        <p>
+                          Set <strong>offset</strong> parameter to get the list
+                          of fillable&nbsp;templates from a specified page.
+                        </p>
+                        <p>
+                          By <strong>default</strong>, offset value will
+                          be<strong> 0</strong>.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>limit</td>
+                      <td>Integer</td>
+                      <td>
+                        <p>
+                          Set <strong>offset</strong> parameter to get the list
+                          of fillable templates from the respective page.
+                        </p>
+                        <p>
+                          By <strong>default</strong>, offset value will be
+                          <strong>10</strong>.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>sortby</td>
+                      <td>String</td>
+                      <td>
+                        <p>
+                          <strong>created_time&nbsp;</strong><br />Get the list
+                          of fillable templates with respect to the template
+                          created time.<br /><strong>modified_time</strong
+                          ><br />Get the list of fillable templates with respect
+                          to the last modified time of the template.<br /><strong
+                            >name</strong
+                          ><br />Get the list of fillable templates with respect
+                          to the template name.<br />&nbsp;
+                        </p>
+                        <p><strong>Default date format</strong>: IS08601</p>
+                        <p>
+                          <strong>By default</strong>, the templates will be
+                          sorted and listed based on the
+                          <strong>modified_time</strong>.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>sort_order_by</td>
+                      <td>String</td>
+                      <td>
+                        <p>
+                          <strong>ascending</strong><br />Get the list of
+                          fillable templates in the ascending order based on the
+                          'sortby' param value configured.<br /><strong
+                            >descending</strong
+                          ><br />Get the list of fillable templates in the
+                          descending order based on the 'sortby' param value
+                          configured.
+                        </p>
+                        <p>
+                          <strong>By default</strong>, the templates will be
+                          sorted and listed in the
+                          <strong>descending order</strong>.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>category</td>
+                      <td>String</td>
+                      <td>
+                        <p>
+                          <strong>all</strong><br />Get all the list of fillable
+                          templates.<br /><strong>shared_to_me</strong><br />Get
+                          only the list of fillable templates which are shared
+                          to you.<br /><strong>owned_by_me</strong><br />Get
+                          only the list of fillable templates which are created
+                          by you.
+                        </p>
+                        <p>
+                          <strong>By default</strong>, the category value will
+                          be <strong>all</strong>. Here, all the fillable
+                          templates will be listed.
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h2><a></a> Example</h2>
+              <p>
+                The following script&nbsp;lists all of a user's fillable
+                templates in descending&nbsp;order based on document modified
+                time in groups of five.
+              </p>
+              <div>
+                <pre><span>optional_settings</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>optional_settings</span><span>.put</span><span>(</span><span>"offset"</span><span>,</span> <span>"0"</span><span>)</span><span>;</span>
+<span>optional_settings</span><span>.put</span><span>(</span><span>"limit"</span><span>,</span> <span>"5"</span><span>)</span><span>;</span>
+<span>optional_settings</span><span>.put</span><span>(</span><span>"sortby"</span><span>,</span> <span>"modified_time"</span><span>)</span><span>;</span>
+<span>optional_settings</span><span>.put</span><span>(</span><span>"sort_order_by"</span><span>,</span> <span>"descending"</span><span>)</span><span>;</span>
+<span>optional_settings</span><span>.put</span><span>(</span><span>"category"</span><span>,</span> <span>"all"</span><span>)</span><span>;</span>
+<span>response</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.getFillableTemplates</span><span>(</span><span>optional_settings</span><span>,</span> <span>"writer_oauth_connection"</span><span>)</span><span>;</span>
+<span>info</span> <span>response</span><span>;</span>
+</pre>
+              </div>
+              <p>where:</p>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <div>
+                        <pre><span>response</span></pre>
+                      </div>
+                      <div>
+                        The <span>KEY-VALUE</span> response returned by Zoho
+                        Writer.
+                        <span
+                          >It represents the list of fillable templates for the
+                          user.</span
+                        >
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <pre><span>0</span></pre>
+                      </div>
+                      <div>
+                        The <span>INTEGER</span>&nbsp;which represents from
+                        which page to get the list of fillable templates.
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <pre><span>5</span></pre>
+                      </div>
+                      <div>
+                        The <span>INTEGER</span>&nbsp;which represents how many
+                        fillable templates to get in a single call.
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <pre><span>modified_time</span></pre>
+                      </div>
+                      <div>
+                        The STRING&nbsp;which represents the sortby order
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <pre><span>descending</span></pre>
+                      </div>
+                      <div>
+                        The STRING&nbsp;which represents the display order
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <pre><span>all</span></pre>
+                      </div>
+                      <div>
+                        The STRING&nbsp;which represents to get all the fillable
+                        templates for the user.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h2>
+                  <strong><a></a>Response Format</strong>
+                </h2>
+                <div>
+                  <p>
+                    {<br />"documents": [<br />{<br />"document_name": "Presales
+                    tips",<br />"open_url":
+                    "https://writer.zoho.com/writer/open/1x3q99f2155c6737241ea929eb72ad141da7c",<br />"is_favourite":
+                    false,<br />"thumbnail_url":
+                    "https://writer.zoho.com/writer/thumbnail/1x3q99f2155c6737241ea929eb72ad141da7c",<br />"document_id":
+                    "1x3q99f2155c6737241ea929eb72ad141da7d",<br />"type":
+                    "document",<br />"modified_time": "2020-06-23T10:13:11Z",<br />"download_url":
+                    "https://writer.zoho.com/writer/api/v1/download/1x3q99f2155c6737241ea929eb72ad141da7c",<br />"lastmodified_by":
+                    [<br />{<br />"email_id": "amelia@zylker.com",<br />"profile_photo":
+                    "https://contacts.zoho.com/file?t=user&amp;ID=1234&amp;fs=thumb",<br />"user_id":
+                    "456215787",<br />"timezone": "Asia/Kolkata",<br />"language":
+                    "en",<br />"display_name": "Amelia"<br />}<br />],<br />"created_time":
+                    "2020-06-16T08:46:40Z",<br />"last_opened_time":
+                    "2020-06-16T08:46:40Z",<br />"created_by": "Amelia",<br />"created_time_ms":
+                    1592297200540,<br />"preview_url":
+                    "https://writer.zoho.com/writer/zwpreview/1x3q99f2155c6737241ea929eb72ad141da7c",<br />"creator_id":
+                    "53884257",<br />},<br />{<br />"open_url":
+                    "https://writer.zoho.com/writer/open/1slbxa0f3e1ecc88b4403b5f1b66617f0e92c",<br />"is_favourite":
+                    false,<br />"thumbnail_url":
+                    "https://writer.zoho.com/writer/thumbnail/1slbxa0f3e1ecc88b4403b5f1b66617f0e92c",<br />"document_id":
+                    "1slbxa0f3e1ecc88b4403b5f1b66617f0e92c",<br />"type":
+                    "document",<br />"document_name": "Investment details",<br />"modified_time":
+                    "2020-12-01T12:56:50Z",<br />"download_url":
+                    "https://writer.zoho.com/writer/api/v1/download/1slbxa0f3e1ecc88b4403b5f1b66617f0e92c",<br />"lastmodified_by":
+                    [<br />"total_count": 33,<br />"limit": 5"<br />}<br />{<br />"email_id":
+                    "John@zylker.com",<br />"profile_photo":
+                    "https://contacts.zoho.com/file?t=user&amp;ID=53884257&amp;fs=thumb",<br />"user_id":
+                    "53884257",<br />"timezone": "Asia/Kolkata",<br />"language":
+                    "en",<br />"display_name": "John"<br />}<br />],<br />"created_time":
+                    "2020-12-01T09:01:43Z",<br />"last_opened_time":
+                    "2020-12-01T09:01:43Z",<br />"created_by": "John",<br />"created_time_ms":
+                    1606813303541,<br />"preview_url":
+                    "https://writer.zoho.com/writer/zwpreview/1slbxa0f3e1ecc88b4403b5f1b66617f0e92c",<br />"creator_id":
+                    "53884257",<br />},<br />{<br />"open_url":
+                    "https://writer.zoho.com/writer/open/ll60fcb6bfab23ffd4821804dc629bbd16656",<br />"is_favourite":
+                    false,<br />"thumbnail_url":
+                    "https://writer.zoho.com/writer/thumbnail/ll60fcb6bfab23ffd4821804dc629bbd16656",<br />"document_id":
+                    "ll60fcb6bfab23ffd4821804dc629bbd16656",<br />"type":
+                    "document",<br />"document_name": "Finalised Document",<br />"modified_time":
+                    "2020-09-15T03:57:36Z",<br />"download_url":
+                    "https://writer.zoho.com/writer/api/v1/download/ll60fcb6bfab23ffd4821804dc629bbd16656",<br />"lastmodified_by":
+                    [<br />{<br />"email_id": "mike@zylker.com",<br />"profile_photo":
+                    "https://contacts.zoho.com/file?t=user&amp;ID=648787570&amp;fs=thumb",<br />"user_id":
+                    "648787570",<br />"timezone": "Asia/Kolkata",<br />"language":
+                    "en",<br />"display_name": "Mike"<br />}<br />],<br />"created_time":
+                    "2020-09-03T07:18:03Z",<br />"last_opened_time":
+                    "2020-09-03T07:18:03Z",<br />"created_by": "Mike",<br />"created_time_ms":
+                    1599117483853,<br />"preview_url":
+                    "https://writer.zoho.com/writer/zwpreview/ll60fcb6bfab23ffd4821804dc629bbd16656",<br />"creator_id":
+                    "53884257",<br />"name": "New Document",<br />},<br />{<br />"open_url":
+                    "https://writer.zoho.com/writer/open/6zqn0d6f9ca0d3ba140f892b0603baae3e8d3",<br />"is_favourite":
+                    false,<br />"thumbnail_url":
+                    "https://writer.zoho.com/writer/thumbnail/6zqn0d6f9ca0d3ba140f892b0603baae3e8d3",<br />"document_id":
+                    "6zqn0d6f9ca0d3ba140f892b0603baae3e8d3",<br />"type":
+                    "document",<br />"document_name": "Invoices",<br />"modified_time":
+                    "2020-09-25T03:54:17Z",<br />"download_url":
+                    "https://writer.zoho.com/writer/api/v1/download/6zqn0d6f9ca0d3ba140f892b0603baae3e8d3",<br />"lastmodified_by":
+                    [<br />{<br />"email_id": "jack@zylker.com",<br />"profile_photo":
+                    "https://contacts.zoho.com/file?t=user&amp;ID=53884257&amp;fs=thumb",<br />"user_id":
+                    "53884257",<br />"timezone": "Asia/Kolkata",<br />"language":
+                    "en",<br />"display_name": "Jack"<br />}<br />],<br />"created_time":
+                    "2020-09-21T08:48:32Z",<br />"last_opened_time":
+                    "2020-09-21T08:48:32Z",<br />"created_by": "Jack",<br />"created_time_ms":
+                    1600678112999,<br />"preview_url":
+                    "https://writer.zoho.com/writer/zwpreview/6zqn0d6f9ca0d3ba140f892b0603baae3e8d3",<br />"creator_id":
+                    "53884257",<br />"name": "Product Details",<br />},<br />{<br />"open_url":
+                    "https://writer.zoho.com/writer/open/lvm1t3b4d9576b7b4415d958405b161ee0b67",<br />"is_favourite":
+                    false,<br />"thumbnail_url":
+                    "https://writer.zoho.com/writer/thumbnail/lvm1t3b4d9576b7b4415d958405b161ee0b67",<br />"document_id":
+                    "lvm1t3b4d9576b7b4415d958405b161ee0b67",<br />"type":
+                    "document",<br />"document_name": "Product prices",<br />"modified_time":
+                    "2020-12-10T11:19:35Z",<br />"download_url":
+                    "https://writer.zoho.com/writer/api/v1/download/lvm1t3b4d9576b7b4415d958405b161ee0b67",<br />"lastmodified_by":
+                    [<br />{<br />"email_id": "amelia@zylker.com",<br />"profile_photo":
+                    "https://contacts.zoho.com/file?t=user&amp;ID=53884257&amp;fs=thumb",<br />"user_id":
+                    "53884257",<br />"timezone": "Asia/Kolkata",<br />"language":
+                    "en",<br />"display_name": "Amelia"<br />}<br />],<br />"created_time":
+                    "2020-09-22T12:15:28Z",<br />"last_opened_time":
+                    "2020-09-22T12:15:28Z",<br />"created_by": "Amelia",<br />"created_time_ms":
+                    1600776928655,<br />"preview_url":
+                    "https://writer.zoho.com/writer/zwpreview/lvm1t3b4d9576b7b4415d958405b161ee0b67",<br />"creator_id":
+                    "53884257",<br />"name": "Sample file",<br />}<br />],
+                  </p>
+                </div>
+                <h2>
+                  <strong><a></a>Related Links</strong>
+                </h2>
+                <ul>
+                  <li><a>Zoho Writer integration tasks</a></li>
+                  <li><a>Connections</a></li>
+                  <li>
+                    <a>Zoho Writer - Get Fillable Templates API document</a>​
+                  </li>
+                  <li><a>Zoho Writer API - Possible error responses</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <strong
+          ><quillbot-extension-portal></quillbot-extension-portal
+          ><quillbot-extension-portal></quillbot-extension-portal
+          ><quillbot-extension-portal></quillbot-extension-portal
+          ><quillbot-extension-portal></quillbot-extension-portal
+          ><quillbot-extension-portal></quillbot-extension-portal
+          ><quillbot-extension-portal></quillbot-extension-portal
+        ></strong>
+      </div>
+      <quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

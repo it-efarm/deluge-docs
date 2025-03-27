@@ -1,0 +1,853 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Cliq Integration Tasks</a></li>
+        <li><a>Posting to Zoho Cliq</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Posting to Zoho Cliq</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li>
+                  <a>Text message</a>
+                  <ul>
+                    <li><a>Message Formats</a></li>
+                  </ul>
+                </li>
+                <li><a>Attachments</a></li>
+                <li><a>Files</a></li>
+                <li><a>Buttons</a></li>
+                <li>
+                  <a
+                    >Customize username and profile picture of message sender</a
+                  >
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The examples listed below illustrate the different types of
+              content that can be posted to chat, channel, and bot in Zoho Cliq.
+              This section also includes an example to change the username and
+              profile picture of the message sender.
+            </p>
+            <ul>
+              <li><a>Text message</a></li>
+              <li><a>Attachments</a></li>
+              <li><a>Files</a></li>
+              <li><a>Buttons</a></li>
+              <li>
+                <a>Customize username and profile picture of message sender</a>
+              </li>
+            </ul>
+            <h2><a></a>Text Message</h2>
+            <p>
+              The following script posts the message <strong>Hello</strong> in
+              the chat window of the intended recipient.
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChat</span><span>(</span><span>"2230642502700000000"</span><span>,</span><span>"Hello"</span><span>)</span><span>;</span>
+                </pre>
+            </div>
+            <p>(or)</p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChat</span><span>(</span><span>"2230642502700000000"</span><span>,</span><span>{</span><span>"text"</span><span>:</span><span>"Hello"</span><span>})</span><span>;</span><span>
+                </span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is a <span>KEY-VALUE</span> that represents the response
+                      message returned by Zoho Cliq
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"2230642502700000000"</span></pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> that represents the chat ID of the
+                      recipient
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"text"</span></pre>
+                    </div>
+                    <div>
+                      is the key of <span>TEXT</span> data type which represents
+                      the message to be posted
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Hello"</span></pre>
+                    </div>
+                    <div>is the <span>TEXT</span> message to be posted</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>The response of the above script is as follows:</p>
+            <p><img /></p>
+            <p>&nbsp;<a></a><strong>Message Formats</strong></p>
+            <p>
+              The following script displays the message,
+              <strong>Hello</strong> in the channel -&nbsp;<strong
+                >DelugeChannel</strong
+              >
+              in bold format.
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannel</span><span>(</span><span>"DelugeChannel"</span><span>,</span><span>"*Hello*"</span><span>)</span><span>;</span>
+                </pre>
+            </div>
+            <p>&nbsp;</p>
+            <p>
+              The following table displays the syntax for different
+              <a>formats</a>.
+            </p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>Format</strong></th>
+                    <th><strong>Example</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Bold</td>
+                    <td>
+                      <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannel</span><span>(</span><span>"DelugeChannel"</span><span>,</span><span>"*Hello*"</span><span>)</span><span>;</span>
+                            </pre>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Italics</td>
+                    <td>
+                      <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannel</span><span>(</span><span>"DelugeChannel"</span><span>,</span><span>"_Hello_"</span><span>)</span><span>;</span>
+                            </pre>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Strike</td>
+                    <td>
+                      <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannel</span><span>(</span><span>"DelugeChannel"</span><span>,</span><span>"~Hello~"</span><span>)</span><span>;</span>
+                            </pre>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Quote</td>
+                    <td>
+                      <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannel</span><span>(</span><span>"DelugeChannel"</span><span>,</span><span>"`Hello`"</span><span>)</span><span>;</span>
+                            </pre>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Blockquote</td>
+                    <td>
+                      <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannel</span><span>(</span><span>"DelugeChannel"</span><span>,</span><span>"!Hello"</span><span>)</span><span>;</span>
+                            </pre>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Large Heading</td>
+                    <td>
+                      <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannel</span><span>(</span><span>"DelugeChannel"</span><span>,</span><span>"#Hello"</span><span>)</span><span>;</span>
+                            </pre>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Small Heading</td>
+                    <td>
+                      <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannel</span><span>(</span><span>"DelugeChannel"</span><span>,</span><span>"###Hello"</span><span>)</span><span>;</span>
+                            </pre>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Insert link</td>
+                    <td>
+                      <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannel</span><span>(</span><span>"DelugeChannel"</span><span>,</span><span>"refer [this link](https://www.zoho.com/deluge/help/)"</span><span>)</span><span>;</span>
+                            </pre>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Horizontal line</td>
+                    <td>
+                      <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannel</span><span>(</span><span>"DelugeChannel"</span><span>,</span><span>"---"</span><span>)</span><span>;</span>
+                            </pre>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Send text inside a box</td>
+                    <td>
+                      <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannel</span><span>(</span><span>"DelugeChannel"</span><span>,</span><span>"```Hello```"</span><span>)</span><span>;</span>
+                            </pre>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is a <span>KEY-VALUE</span> that represents the response
+                      message returned by Zoho Cliq
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"DelugeChannel"</span></pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> that represents the name of the
+                      channel in which the message will be posted
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Hello"</span></pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> value which specifies the required
+                      message to be posted
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a>Attachments</a></h2>
+            <p>
+              The various types of attachment content that can be posted are:
+            </p>
+            <ul>
+              <li><a>Table</a></li>
+              <li><a>Image</a></li>
+              <li><a>List</a></li>
+              <li><a>Labelled Content</a></li>
+            </ul>
+            <ol>
+              <li>
+                <p><a></a><strong>Post a Table:</strong></p>
+                <p>
+                  The following script posts a message with a table to the chat
+                  window of the intended recipient.
+                </p>
+                <div>
+                  <pre>&nbsp;<span><strong>table_data</strong></span><span> = </span><span>{</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"text"</span><span>:</span><span>"New interns will be joining these teams from July"</span><span>,</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>"slides"</strong></span><span>:</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>[{</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"type"</span><span>:</span><span>"table"</span><span>,</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"title"</span><span>:</span><span>"Details"</span><span>,</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>"data"</strong></span><span>:</span><span>{</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"headers"</span><span>:</span><span>[</span><span>"Name"</span><span>,</span><span>"Team"</span><span>]</span><span>,</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"rows"</span><span>:</span><span>[{</span><span>"Name"</span><span>:</span><span>"John"</span><span>,</span><span>"Team"</span><span>:</span><span>"Marketing"</span><span>}</span><span>,</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span><span>"Name"</span><span>:</span><span>"Charlie"</span><span>,</span><span>"Team"</span><span>:</span><span>"Sales"</span><span>}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>]</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}]</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span><span>;</span>
+                        &nbsp;<span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChat</span><span>(</span><span>"2230642502700000000"</span><span>,table_data</span><span>)</span><span>;</span></pre>
+                </div>
+                <p>&nbsp;</p>
+                <p>
+                  Let us now break down the above example. To define a table, it
+                  requires you to create a nested collection.
+                </p>
+                <p><strong>table_data:</strong></p>
+                <p>
+                  It is a <span>KEY-VALUE</span> variable which holds the
+                  content (a text and a table) to be posted. The below table,
+                  lists the keys and its associated values.
+                </p>
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th><strong>Key</strong></th>
+                        <th><strong>Data Type</strong></th>
+                        <th><strong>Value</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>text</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          holds the message to be&nbsp;posted. This field
+                          is&nbsp;<strong>mandatory</strong>.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <a><strong>slides</strong></a>
+                        </td>
+                        <td><span>LIST</span> of <span>KEY-VALUE</span></td>
+                        <td>holds the attachment content</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p><a></a><strong>slides:</strong></p>
+                <p>
+                  Attaching contents of various types can be done using the
+                  slides key.
+                </p>
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th><strong>Key</strong></th>
+                        <th><strong>Data Type</strong></th>
+                        <th><strong>Value</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>type</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          informs the type of data to be attached. In our case,
+                          the type of data is <strong>table</strong>.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>title</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          specifies the title of the data to be attached. This
+                          field is optional.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <a><strong>data</strong></a>
+                        </td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>holds the content of the attachment table</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p><a></a><strong>data:</strong></p>
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th><strong>Key</strong></th>
+                        <th><strong>Data Type</strong></th>
+                        <th><strong>Value</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>headers</td>
+                        <td><span>LIST</span></td>
+                        <td>contains the headers of the table</td>
+                      </tr>
+                      <tr>
+                        <td>rows</td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          specifies the data to be added in the attachment
+                          table. The elements of the
+                          <strong>headers</strong> field are the keys for every
+                          <span>KEY-VALUE</span> element of the
+                          <strong>rows</strong> field.<br /><br />For instance,
+                          in our example,&nbsp;<strong>Name</strong>
+                          and&nbsp;<strong>Team</strong> are the elements of
+                          the&nbsp;<strong>headers</strong> field which acts as
+                          the keys for&nbsp;<strong>rows</strong>.
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>The response of the above script is as follows:</p>
+                <p><img /></p>
+              </li>
+              <li>
+                <p><a></a><strong>Post an Image:</strong></p>
+                <p>
+                  The following script posts a message with the
+                  text&nbsp;<strong>Image</strong> and an image to the channel
+                  -&nbsp;<strong>DelugeChannel</strong>.
+                </p>
+                <div>
+                  <pre>&nbsp;<span>image_data</span><span> = </span><span>{</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"text"</span><span>:</span><span>"Image"</span><span>,</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>"slides"</strong></span><span>:</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>[{</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"type"</span><span>:</span><span>"images"</span><span>,</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"data"</span><span>:</span><span>[(</span><span>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz4pZuwLofV4goZVT0e2R3K5bElhWk3oMDuUgP3XT9p9d4_Tkv4g"</span><span>)]</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}]</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span><span>;</span>
+                        &nbsp;<span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannel</span><span>(</span><span>"DelugeChannel"</span><span>,image_data</span><span>)</span><span>;</span></pre>
+                </div>
+                <p>&nbsp;</p>
+                <p>
+                  The nested collection defined for attaching an image is quite
+                  similar to that of attaching a table, except for the value of
+                  the <strong>slides</strong> key.
+                </p>
+                <p><strong>slides</strong></p>
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th><strong>Key</strong></th>
+                        <th><strong>Data Type</strong></th>
+                        <th><strong>Value</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>type</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          type of data, in our case is <strong>images</strong>.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>data</td>
+                        <td><span>LIST</span></td>
+                        <td>
+                          specifies the address of the image to be attached
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>The response of the above script is as follows:</p>
+                <p><img /></p>
+              </li>
+              <li>
+                <p><a></a><strong>Post a List:</strong></p>
+                <p>&nbsp;</p>
+                <p>
+                  The following example posts a message with a list of items in
+                  the channel -&nbsp;<strong>DelugeChannel</strong>.
+                </p>
+                <div>
+                  <pre>&nbsp;<span>list_data</span><span> = </span><span>{</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"text"</span><span>:</span><span>"New interns will be joining from July"</span><span>,</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>"slides"</strong></span><span>:</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>[{</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"type"</span><span>:</span><span>"list"</span><span>,</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"title"</span><span>:</span><span>"Names"</span><span>,</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"data"</span><span>:</span><span>[</span><span>"John"</span><span>,</span><span>"Peter"</span><span>,</span><span>"Kate"</span><span>,</span><span>"James"</span><span>,</span><span>"Hanna"</span><span>]</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}]</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span><span>;</span>
+                        &nbsp;<span>response</span><span> = </span><span>zoho</span><span>.cliq.postToChannelAsAdmin</span><span>(</span><span>"DelugeChannel"</span><span>,list_data</span><span>)</span><span>;</span></pre>
+                </div>
+                <p>&nbsp;</p>
+                <p>
+                  Here, the <strong>slides</strong> key is altered as follows.
+                </p>
+                <p><strong>slides</strong></p>
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th><strong>Key</strong></th>
+                        <th><strong>Data Type</strong></th>
+                        <th><strong>Value</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>type</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          type of data, in our case is <strong>list</strong>.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>title</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          is the title of the attachment image. This field is
+                          optional.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>data</td>
+                        <td><span>LIST</span></td>
+                        <td>holds the elements of the list to be attached</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>The response of the above script is as follows:</p>
+                <p><img /></p>
+              </li>
+              <li>
+                <p><a></a><strong>Post a labelled content:</strong></p>
+                <p>
+                  The following example posts a message with labelled content in
+                  the Bot -&nbsp;<strong>Bookaholics</strong>.
+                </p>
+                <div>
+                  <pre>&nbsp;<span>label_data</span><span> = </span><span>{</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"text"</span><span>:</span><span>"Books",</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>"slides"</strong></span><span>:</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>[{</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"type"</span><span>:</span><span>"label"</span><span>,</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"data"</span><span>:</span><span>[</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span><span>"Artemis Fowl": "[Artemis Fowl - PDF](https://www.readingstudios.com/uploads/5/2/4/6/52467441/artemis_fowl.pdf)"</span><span>}</span><span>,</span>
+                        &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span><span>"Charlie and the chocolate factory":"[Charlie and the chocolate factory - PDF](https://www.readingstudios.com/uploads/5/2/4/6/52467441/charlie_and_the_chocolate_factory.pdf)"</span><span>}</span><span>,</span>
+                        &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span><span>"The Book Thief": "[The Book Thief - PDF](https://www.readingstudios.com/uploads/5/2/4/6/52467441/grade9gt--thebookthiefmarkuszusak.pdf)"</span><span>}]</span>
+                        &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}]</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span><span>;</span>
+                        &nbsp;<span>response</span><span> = </span><span>zoho</span><span>.cliq.postToBot</span><span>(</span><span>"Bookaholics"</span><span>,label_data</span><span>)</span><span>;</span></pre>
+                </div>
+                <p>&nbsp;</p>
+                <p>
+                  Here, the value of the <strong>slides</strong> key is altered
+                  as follows.
+                </p>
+                <p><strong>slides</strong></p>
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th><strong>Key</strong></th>
+                        <th><strong>Data Type</strong></th>
+                        <th><strong>Value</strong></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>type</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          type of data, in our case is <strong>label</strong>.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>data</td>
+                        <td><span>LIST</span></td>
+                        <td>
+                          holds a collection of <span>KEY-VALUE</span>, each key
+                          representing a label and value representing its
+                          attached link
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>The response of the above script is as follows:</p>
+                <p><img /></p>
+              </li>
+            </ol>
+            <h2><a></a>Files</h2>
+            <p>
+              The following script posts a file in the Bot
+              -&nbsp;<strong>Bookaholics</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>file_object</span><span> = </span><span>invokeUrl</span>
+                &nbsp;<span>[</span>
+                &nbsp;<span>url:</span><span> "https://www.readingstudios.com/uploads/5/2/4/6/52467441/artemis_fowl.pdf"</span>
+                &nbsp;<span>type:</span><span> GET</span>
+                &nbsp;<span>]</span><span>;</span>
+                &nbsp;<span>response</span><span> = </span><span>zoho</span><span>.cliq.postToBot</span><span>(</span><span>"Bookaholics"</span><span>,file_object</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>&nbsp;</p>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>invokeUrl</span></pre>
+                    </div>
+                    <div>fetches the file from cloud storage</div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>file_object</span></pre>
+                    </div>
+                    <div>
+                      is the variable that holds the file object to be posted
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p>
+                Note: Click <a>here</a> to know more about the invokeUrl task.
+              </p>
+            </div>
+            <p>The response of the above script is as follows:</p>
+            <p><img /></p>
+            <h2><a></a>Buttons</h2>
+            <p>
+              The following script posts three buttons with three different
+              functions in the chat window of the recipient
+              -&nbsp;<strong>charlie@zylker.com</strong>.
+            </p>
+            <div>
+              <pre><span><strong>buttons_data</strong></span><span> = </span><span>{</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"text"</span><span>:</span><span>"Buttons"</span><span>,</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"card"</span><span>:</span><span>{</span><span>"theme"</span><span>:</span><span>"modern-inline"</span><span>}</span><span>,</span>
+                           
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>"buttons"</strong></span><span>:</span><span>[</span>
+                           
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"label"</span><span>:</span><span>"Built-in functions"</span><span>,</span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"type"</span><span>:</span><span>"+"</span><span>,</span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>"action"</strong></span><span>:</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span><span>"type"</span><span>:</span><span>"open.url"</span><span>,</span><span>"data"</span><span>:</span><span>{</span><span>"web"</span><span>:</span><span>"https://www.zoho.com/creator/help/"</span><span>} }</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span><span>,</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"label"</span><span>:</span><span>"Invoke Function"</span><span>,</span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"type"</span><span>:</span><span>"+"</span><span>,</span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>"action"</strong></span><span>:</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span><span>"type"</span><span>:</span><span>"invoke.function"</span><span>,</span><span>"data"</span><span>:</span><span>{</span><span>"name"</span><span>:</span><span>"TicketStatus"</span><span>,</span><span>"owner"</span><span>:</span><span>"shawn@zylker.com"</span><span>} }</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span><span>,</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"label"</span><span>:</span><span>"Click here to chat"</span><span>,</span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"type"</span><span>:</span><span>"+"</span><span>,</span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>"action"</strong></span><span>:</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span><span>"type"</span><span>:</span><span>"system.api"</span><span>,</span><span>"data"</span><span>:</span><span>{</span><span>"api"</span><span>:</span><span>"startchat/123456"</span><span>} }</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>]}</span><span>;</span> 
+                &nbsp;<span>response</span><span> = </span><span>zoho</span><span>.cliq.postToUser</span><span>(</span><span>"charlie@zylker.com"</span><span>,buttons_data</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>&nbsp;</p>
+            <p>where,</p>
+            <p><strong>message:</strong></p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>Key</strong></th>
+                    <th><strong>Data Type</strong></th>
+                    <th><strong>Value</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>text</td>
+                    <td><span>TEXT</span></td>
+                    <td>holds the message to be posted</td>
+                  </tr>
+                  <tr>
+                    <td>card</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      is a themed message that can be customized. Refer&nbsp;<a
+                        >this</a
+                      >
+                      to know more about message cards.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a><strong>buttons</strong></a>
+                    </td>
+                    <td><span>LIST</span> of <span>KEY-VALUE</span></td>
+                    <td>contains the list of buttons to be posted</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p><a></a><strong>buttons:</strong></p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>Key</strong></th>
+                    <th><strong>Data Type</strong></th>
+                    <th><strong>Value</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>label</td>
+                    <td><span>TEXT</span></td>
+                    <td>specifies the display name of the button</td>
+                  </tr>
+                  <tr>
+                    <td>type</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      specifies the color of the button. "+" indicates green and
+                      "-" indicates red. This field is optional.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a><strong>action</strong></a>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>decides the action to be performed on button click</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p><a></a><strong>action:</strong></p>
+            <p>There are three types of actions,</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>type</strong></th>
+                    <th><strong>data</strong></th>
+                    <th><strong>action</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>open.url</td>
+                    <td>{web:&lt;web_address&gt;}</td>
+                    <td>opens the page specified by &lt;web_address&gt;</td>
+                  </tr>
+                  <tr>
+                    <td>invoke.function</td>
+                    <td>
+                      {name:&lt;function_name&gt;, owner:&lt;function_owner&gt;}
+                    </td>
+                    <td>
+                      triggers the function &lt;function_name&gt; which is
+                      created by &lt;function_owner&gt;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>system.api</td>
+                    <td>{api:&lt;action/<a>ZUID</a>&gt;}</td>
+                    <td>
+                      triggers a system api like: audiocall, videocall,
+                      startchat, and invite. In our example, it starts a chat.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>The response of the above script is as follows:</p>
+            <p><img /></p>
+            <h2>
+              <a></a>Customize username and profile picture of message sender
+            </h2>
+            <p>
+              The following script customizes the username and profile picture
+              of the message sender to&nbsp;<strong>Greetings</strong>&nbsp;and
+              posts the message&nbsp;<strong>Good Morning</strong>,&nbsp;in the
+              chat window of the recipient whose ZUID is
+              <strong>12345678</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>message</span><span> = </span><span>{</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"text"</span><span>:</span><span>"Good Morning"</span><span>,</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><strong>"bot"</strong></span><span>:</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{</span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"name"</span><span>:</span><span>"Greetings"</span><span>,</span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>"image"</span><span>:</span><span>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz4pZuwLofV4goZVT0e2R3K5bElhWk3oMDuUgP3XT9p9d4_Tkv4g"</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>}</span><span>;</span> 
+                &nbsp;<span>response</span><span> = </span><span>zoho</span><span>.cliq.postToUser</span><span>(</span><span>"12345678"</span><span>,message</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>&nbsp;</p>
+            <p>where,</p>
+            <p><strong>message:</strong></p>
+            <p>
+              It is a <span>KEY-VALUE</span> variable that holds the content to
+              be posted.
+            </p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>Key</strong></th>
+                    <th><strong>Data Type</strong></th>
+                    <th><strong>Value</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>text</td>
+                    <td><span>TEXT</span></td>
+                    <td>holds the message to be posted.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <a><strong>bot</strong></a>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>holds the new sender name and profile photo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p><a></a><strong>bot:</strong></p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>Key</strong></th>
+                    <th><strong>Data Type</strong></th>
+                    <th><strong>Value</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>name</td>
+                    <td><span>TEXT</span></td>
+                    <td>specifies the new sender name</td>
+                  </tr>
+                  <tr>
+                    <td>image</td>
+                    <td><span>TEXT</span></td>
+                    <td>specifies the new profile photo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>The response of the above script is as follows:</p>
+            <p><img /></p>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Post to chat and Post to chat as admin</a></li>
+              <li><a>Post to channel and Post to channel as admin</a></li>
+              <li><a>Post to bot and post to bot as&nbsp;admin</a></li>
+              <li><a>Post to user</a></li>
+              <li><a>Deluge Error Messages</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

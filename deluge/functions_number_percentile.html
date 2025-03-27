@@ -1,0 +1,156 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>percentile</a></li>
+        <li><a>Number functions</a></li>
+        <li><a>percentile</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>percentile</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>percentile</strong> function takes a
+              <strong>numerical value</strong> 'n' as argument, and returns the
+              nth percentile in a collection of values
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  This task is applicable to all services except Zoho Creator.
+                </li>
+                <li>
+                  A <strong>percentile</strong> is a value below which a given
+                  percentage of values in a data set fall.
+                </li>
+                <li><a>See how</a> the percentile gets calculated</li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>NUMBER</span>/<span>DECIMAL</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>collection</span><span>&gt;</span><span>.percentile</span><span>(&lt;n&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>NUMBER</span>/<span>DECIMAL</span></td>
+                    <td>
+                      Variable which will contain the calculated percentile
+                      value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;collection&gt;</td>
+                    <td><span>COLLECTION</span></td>
+                    <td>
+                      <p>
+                        The
+                        <strong
+                          >collection of numbers/decimals/text(containing
+                          numbers or decimals)</strong
+                        >
+                        whose percentile needs to be determined.
+                      </p>
+                      <p><strong>Note</strong>:</p>
+                      <ul>
+                        <li>
+                          If the collection contains alphanumeric elements, then
+                          an error message will be thrown at runtime.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;n&gt;</td>
+                    <td><span>NUMBER</span>/<span>DECIMAL</span></td>
+                    <td>
+                      The nth percentile which will be calculated.
+                      <ul>
+                        <li>
+                          The numerical value&nbsp;n&nbsp;can be either
+                          a&nbsp;number&nbsp;or a&nbsp;decimal.
+                        </li>
+                        <li>
+                          The numerical value&nbsp;n&nbsp;should be within the
+                          range 0 (exclusive)&nbsp;and 100 (inclusive).
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              Let's consider a collection of numerical values. Calculating the
+              50th percentile of the collection of numbers.
+            </p>
+            <div>
+              <pre>&nbsp;<span>marks</span> <span>=</span> <span>Collection</span><span>(</span><span>300</span><span>,</span><span>455</span><span>,</span><span>124</span><span>,</span><span>926</span><span>,</span><span>780</span><span>)</span><span>;</span>
+&nbsp;<span>info </span><span>marks</span><span>.percentile</span><span>(</span><span>50</span><span>)</span><span>; <span>// returns 455</span></span></pre>
+            </div>
+            <div>
+              <p><strong>Percentile calculation:</strong></p>
+              <ol>
+                <li>
+                  Multiply the percentile (<strong>50</strong> in this case)to
+                  be calculated with the number of elements (<strong>5</strong>
+                  in this case).
+                </li>
+                <li>
+                  Dividing the product by 100, we get 2.5 (<strong
+                    >50*5/100 = 2.5</strong
+                  >)
+                </li>
+                <li>
+                  Rounding up the result to the nearest whole number, we get 'n'
+                  (<strong>3</strong>).
+                </li>
+                <li>
+                  Ordering the collection in ascending order, we get
+                  {124,300,455,780,926}.
+                </li>
+                <li>
+                  Find the n'th (<strong>3<sup>rd</sup></strong
+                  >) value from the collection. <strong>455</strong> is the
+                  <strong>50th percentile</strong> for the collection.
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

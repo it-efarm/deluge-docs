@@ -1,0 +1,158 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>replaceFirst</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>replaceFirst()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>replaceFirst() </strong>function takes
+              <strong>string</strong>, <strong>searchString</strong>, and
+              <strong>replacementString</strong> as arguments.
+            </p>
+            <p>
+              It replaces the first occurrence of searchString with the
+              replacementString in the string, and returns the string.
+            </p>
+            <p>
+              If searchString is not present in the string, it will return the
+              string as it is.
+            </p>
+            <div>
+              <p>
+                <strong>Note:</strong> This function performs a case-sensitive
+                search.
+              </p>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Text</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; = <span>&lt;string&gt;</span>.replaceFirst(
+              <span>&lt;searchString&gt;</span>,
+              <span>&lt;replacementString&gt;</span>,
+              <span>&lt;boolean&gt;)</span>;
+            </div>
+            <p>(OR)</p>
+            <div>
+              &lt;variable&gt; = replaceFirst( <span>&lt;string&gt;,</span>
+              <span>&lt;searchString&gt;</span>,<span>
+                &lt;replacementString&gt;</span
+              >, <span>&lt;boolean&gt;</span>);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>Variable which will contain the returned string.</td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;string&gt;</span></td>
+                    <td>
+                      The string in which the first occurrence of searchString
+                      will be replaced with replacementString.
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;searchString&gt;</span></td>
+                    <td>
+                      <p>
+                        The first occurrence of this searchString will be
+                        replaced with replacementString, in the string.
+                      </p>
+                      <div>
+                        <strong>Note:&nbsp;</strong>searchString can also be in
+                        the form of regular expression.
+                      </div>
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;replacementString&gt;</span></td>
+                    <td>
+                      This replacementString will replace the first occurrence
+                      of searchString in the string.
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;boolean&gt;</span></td>
+                    <td>
+                      <p>
+                        Applicable values: <strong>true</strong> or
+                        <strong>false</strong>.
+                      </p>
+                      <p>
+                        By default, the replaceFirst() function supports regular
+                        expression (i.e) it will <strong>not</strong> find and
+                        replace the special characters like $ in the source
+                        string.
+                      </p>
+                      <p>
+                        This parameter can be used to specify if the regular
+                        expression is to be supported or escaped.
+                      </p>
+                      <ul>
+                        <li>
+                          The value <strong>true</strong> denotes escaping the
+                          regular expression.
+                        </li>
+                        <li>
+                          The value <strong>false</strong> denotes supporting
+                          the regular expression. By default, the value is taken
+                          as "false".
+                        </li>
+                      </ul>
+                    </td>
+                    <td>BOOLEAN</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre><span>mainString</span><span>=</span><span>"Create online database applications"</span><span>;</span>
+<span>newText</span> <span>=</span> <span>replaceFirst</span><span>(</span><span>mainString</span><span>,</span> <span>"online"</span><span>,</span> <span>"custom"</span><span>)</span><span>;</span>&nbsp;&nbsp;&nbsp;<span>// returns Create custom database applications</span>
+
+<span>useremail</span> <span>=</span> <span>"nancy@zylker.com"</span><span>;</span>
+<span>newdomain_email</span> <span>=</span> <span>replaceFirst</span><span>(</span><span>useremail</span><span>,</span><span>"\\@[a-z]{6}\\.[a-z]{3}"</span><span>,</span><span>"@zylkertech.com"</span><span>)</span><span>;</span>
+<span>//returns nancy@zylkertech.com</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

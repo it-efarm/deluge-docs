@@ -1,0 +1,152 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Map Integration Tasks</a></li>
+        <li><a>Geocode</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Geocode</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.map.geoCode</strong> task returns the GPS
+              coordinates (latitude and longitude) of the specified address.
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  Zoho Maps use open-source address data. Hence, accuracy might
+                  not be on par with commercial vendors.
+                </li>
+                <li>
+                  This task cannot be used in AU domain as Zoho Maps is not
+                  available for AU users.
+                </li>
+              </ul>
+            </div>
+            <h2>​<a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.map.geoCode</span><span>(</span><span>&lt;</span><span>address</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>Params</strong></th>
+                    <th><strong>Data type</strong></th>
+                    <th><strong>Description</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;response&gt;</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      The latitude and longitude of the specified location, and
+                      the status of the executed task.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;address&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      The address of the location whose latitude and longitude
+                      need to be obtained.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script returns the latitude and longitude of the
+              specified location:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.map.geoCode</span><span>(</span><span>"4141 Hacienda Dr, Pleasanton, CA 94588, United States"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the
+                      latitude and longitude of the specified location, and the
+                      status of the executed task.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"4141 Hacienda Dr, Pleasanton, CA 94588, United States"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the address of the
+                      location whose latitude and longitude need to be obtained.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"latitude": "37.68612315",<br />&nbsp;"longitude":
+                  "-121.893741811263",<br />&nbsp;"status": "success"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for an undetectable address value will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"error": "unable to geocode",<br />&nbsp;"status":
+                  "failure"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Map Integration Tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

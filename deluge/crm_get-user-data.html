@@ -1,0 +1,232 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho CRM Vertical Solutions Integration Tasks</a></li>
+        <li><a>Get User Data in Zoho CRM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get User Data</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li>
+                  <a>Additional Example</a>
+                  <ul>
+                    <li><a>Round Robin Assignment</a></li>
+                  </ul>
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+              <p>
+                The details about the users of an extension or vertical solution
+                can be fetched using
+                the&nbsp;<strong>zoho.crm.getRecords()&nbsp;</strong>deluge
+                task.
+              </p>
+              <div>
+                <strong>Note:&nbsp;</strong
+                ><span>This task can be performed only in </span
+                ><a><span>Zoho CRM Vertical Solutions</span></a
+                ><span>.</span>
+              </div>
+              <h2>​<a></a>Syntax</h2>
+              <div>
+                <pre><span>&lt;</span><span>Response</span><span>&gt;</span> <span>=</span> <span>zoho.crm.getRecords</span><span>(</span><span>"users"</span><span>,</span> <span>&lt;</span><span>page</span> <span>Long</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>perPage</span> <span>Long</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>userTypeMap</span> <span>map</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+              </div>
+              <p>where:</p>
+              <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th><strong>Params</strong></th>
+                      <th><strong>Data type</strong></th>
+                      <th><strong>Description</strong></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>&lt;Response&gt;</td>
+                      <td><span>&nbsp;KEY-VALUE</span></td>
+                      <td>&nbsp;Indicates the task response.</td>
+                    </tr>
+                    <tr>
+                      <td>&lt;page&gt;</td>
+                      <td><span>&nbsp;NUMBER</span></td>
+                      <td>
+                        &nbsp;Indicates the page number from which you want to
+                        retrieve records. The default value is 1.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;perPage&gt;</td>
+                      <td><span>&nbsp;NUMBER</span></td>
+                      <td>
+                        &nbsp;Specifies the number of records that need to be
+                        fetched per page. The default value is 200.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;userTypeMap&gt;</td>
+                      <td><span>&nbsp;KEY-VALUE</span></td>
+                      <td>
+                        &nbsp;specify the user Type. You can fetch All Users,
+                        Admin Users, Active Users, and Inactive Users using the
+                        key, value pairs ("type","AllUsers"),
+                        ("type","AdminUsers"), ("type","ActiveUsers"), and
+                        ("type","DeactiveUsers") respectively.&nbsp;
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h2>​<a></a>Example</h2>
+              <p>
+                Fetch all the active users associated with an extension or
+                vertical solution.
+              </p>
+              <div>
+                <pre><span>response</span> <span>=</span> <span>zoho.crm.getRecords</span><span>(</span><span>"users"</span><span>,</span><span>1</span><span>,</span><span>200</span><span>,</span><span>{</span><span>"type"</span><span>:</span><span>"ActiveUsers"</span><span>})</span><span>;&nbsp;</span>
+<span>info</span> <span>response</span><span>;</span>
+</pre>
+              </div>
+              <h2><a>Response Format</a></h2>
+              <h3><a>Success Response</a></h3>
+              <ul>
+                <li>
+                  <p>
+                    The success response will be returned in the following
+                    format.
+                  </p>
+                  <div>
+                    { "users": [ { "country": null, "role": { "name": "CEO",
+                    "id": "2853142000000026005" }, "city": null, "language":
+                    "en_US", "locale": "en_US", "microsoft": false, "Isonline":
+                    false, "Modified_By": { "name": "Latha Velu", "id":
+                    "2853142000000131009" }, "street": null, "alias": null,
+                    "id": "2853142000001501001", "state": null, "fax": null,
+                    "country_locale": "US", "first_name": "Brenda", "email":
+                    "lathav.spring@gmail.com", "Reporting_To": null, "zip":
+                    null, "created_time": "2019-07-30T11:26:00+05:30",
+                    "Modified_Time": "2019-07-30T11:26:00+05:30", "website":
+                    null, "time_format": "hh:mm a", "offset": 19800000,
+                    "profile": { "name": "Administrator", "id":
+                    "2853142000000026011" }, "mobile": null, "last_name": null,
+                    "time_zone": "Asia/Kolkata", "created_by": { "name": "Latha
+                    Velu", "id": "2853142000000131009" }, "zuid": "663254876",
+                    "confirm": true, "full_name": "Brenda ", "territories": [],
+                    "phone": null, "dob": null, "date_format": "MM/dd/yyyy",
+                    "status": "active" }, { "country": "null", "role": { "name":
+                    "CEO", "id": "2853142000000026005" }, "customize_info": {
+                    "notes_desc": null, "show_right_panel": null, "bc_view":
+                    null, "show_home": false, "show_detail_view": true,
+                    "unpin_recent_item": null }, "city": null, "signature":
+                    null, "name_format": "Salutation,First Name,Last Name",
+                    "language": "en_US", "locale": "en_US", "microsoft": false,
+                    "personal_account": false, "Isonline": true,
+                    "default_tab_group": "0", "Modified_By": { "name": "Latha
+                    Velu", "id": "2853142000000131009" }, "street": null,
+                    "alias": null, "theme": { "normal_tab": { "font_color":
+                    "#FFFFFF", "background": "#222222" }, "selected_tab": {
+                    "font_color": "#FFFFFF", "background": "#00FFFFFF" },
+                    "new_background": null, "background": "#F3F0EB", "screen":
+                    "fixed", "type": "default" }, "id": "2853142000000131009",
+                    "state": "null", "fax": null, "country_locale": "US",
+                    "first_name": "Latha", "email": "latha.v@zohocorp.com",
+                    "Reporting_To": null, "zip": null, "decimal_separator":
+                    "en_US", "created_time": "2017-11-01T22:37:11+05:30",
+                    "Modified_Time": "2017-11-01T22:37:11+05:30", "website":
+                    null, "time_format": "hh:mm a", "offset": 19800000,
+                    "profile": { "name": "Administrator", "id":
+                    "2853142000000026011" }, "mobile": null, "last_name":
+                    "Velu", "time_zone": "Asia/Calcutta", "created_by": {
+                    "name": "Latha Velu", "id": "2853142000000131009" }, "zuid":
+                    "650456410", "confirm": true, "full_name": "Latha Velu",
+                    "territories": [], "phone": "null", "dob": null,
+                    "date_format": "MM/dd/yyyy", "status": "active" } ], "info":
+                    { "per_page": 200, "count": 2, "page": 1, "more_records":
+                    false } } }}
+                  </div>
+                </li>
+              </ul>
+              <h2>​<a></a>Additional-Example</h2>
+              <h3>​<a></a>Round Robin Assignment</h3>
+              <p>Assign Leads to your users using the round robin method.</p>
+              <div>
+                <pre><span>lead_id</span> <span>=</span> <span>input.lead</span><span>.get</span><span>(</span><span>"Leads.ID"</span><span>)</span><span>;</span>
+<span>datamap</span> <span>=</span> <span>map</span><span>()</span><span>;</span>
+<span>datamap</span><span>.put</span><span>(</span><span>"module"</span><span>,</span> <span>"Leads"</span><span>)</span><span>;</span>
+<span>datamap</span><span>.put</span><span>(</span><span>"id"</span><span>,</span> <span>lead_id</span><span>)</span><span>;</span>
+<span>resp</span> <span>=</span> <span>zoho.crm.invokeConnector</span><span>((</span><span>"crm.get"</span><span>)</span><span>,</span> <span>datamap</span><span>)</span><span>;</span>
+<span>resp1</span> <span>=</span> <span>(</span><span>resp</span><span>.get</span><span>(</span><span>"response"</span><span>))</span><span>.toMap</span><span>()</span><span>;</span>
+<span>datalist</span> <span>=</span> <span>resp1</span><span>.get</span><span>(</span><span>"data"</span><span>)</span><span>.toJSONList</span><span>()</span><span>;</span>
+<span>reqq</span> <span>=</span> <span>datalist</span><span>.get</span><span>(</span><span>0</span><span>)</span><span>.toMap</span><span>()</span><span>;</span>
+<span>l_number</span> <span>=</span> <span>(</span><span>reqq</span><span>.get</span><span>((</span><span>"roundrobinleadassignment0.Lead_Number"</span><span>)))</span><span>.toLong</span><span>()</span><span>;</span>
+<span>rule</span> <span>=</span> <span>reqq</span><span>.get</span><span>((</span><span>"roundrobinleadassignment0.Assign_Using_Active_Assignment_Rule"</span><span>))</span><span>;</span>
+<span>m</span> <span>=</span> <span>map</span><span>()</span><span>;</span>
+<span>resp</span> <span>=</span> <span>zoho.crm.invokeConnector</span><span>((</span><span>"crm.getusers"</span><span>)</span><span>,</span> <span>m</span><span>)</span><span>;</span>
+<span>respMap</span> <span>=</span> <span>(</span><span>resp</span><span>.get</span><span>(</span><span>"response"</span><span>))</span><span>.toMap</span><span>()</span><span>;</span>
+<span>users</span> <span>=</span> <span>respMap</span><span>.get</span><span>(</span><span>"users"</span><span>)</span><span>;</span>
+<span>userList</span> <span>=</span> <span>users.toJSONList</span><span>()</span><span>;</span>
+<span>userIds</span> <span>=</span> <span>List</span><span>()</span><span>;</span>
+<span>for each</span> <span>user</span> <span>in</span> <span>userList</span>
+<span>{</span>
+     <span>eachUser</span> <span>=</span> <span>user.toMap</span><span>()</span><span>;</span>
+     <span>userIds.add</span><span>(</span><span>eachUser</span><span>.get</span><span>(</span><span>"id"</span><span>))</span><span>;</span>
+<span>}</span>
+<span>max_lead_level</span> <span>=</span> <span>(</span><span>userIds.size</span><span>())</span><span>.toLong</span><span>()</span><span>;</span>
+<span>ans</span> <span>=</span> <span>(</span><span>abs</span><span>((</span><span>l_number</span> <span>%</span> <span>max_lead_level</span><span>)))</span><span>.toLong</span><span>()</span><span>;</span>
+<span>if</span> <span>(</span><span>rule</span> <span>==</span> <span>"true"</span><span>)</span>
+<span>{</span>
+     <span>ownerid</span> <span>=</span> <span>userIds</span><span>.get</span><span>(</span><span>ans</span><span>)</span><span>;</span>
+     <span>updateMap</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+     <span>updateMap</span><span>.put</span><span>(</span><span>"Lead_Owner"</span> <span>:</span> <span>ownerid</span><span>)</span><span>;</span>
+     <span>resp</span> <span>=</span> <span>zoho.crm.update</span><span>(</span><span>"Leads"</span><span>,</span><span>lead_id</span><span>,</span><span>updateMap</span><span>)</span><span>;</span>
+<span>}</span>
+</pre>
+              </div>
+              <h3><a>Response Format</a></h3>
+              <p><a>Success Response</a></p>
+              <div>
+                { "status_code": 200, "response":
+                "{"users":[{"zip":6000049,"phone":9876543210,"fax":null,
+                "status":"active","website":"http:
+                //www.zoho.com","street":null,"state":"TamilNadu",
+                "country":"in","city":"Chennai","alias_name":null,"first_name":"Zoho","timezone":"Asia/Calcutta",
+                "zuid":"3032021",
+                "email":"platform+demo@zohocorp.com","dob":22.2.1993,"last_name":Demo,
+                "time_format":null,
+                "role":"CEO","user_id":"1297376000000094003","language":"en_US",
+                "confirm":true,"mobile":"9500080429","full_name":"ZohoDemo","profile":"Administrator"},
+                {"zip":null,"phone":null,"fax":null,"status":"deleted","website":null,"street":null,
+                "state":null,"country":null,"city":null,
+                "alias_name":null,"first_name":"Zoho1",
+                "timezone":"Asia/Kolkata","zuid":null,"email":"platform+demo1@zohocorp.com",
+                "dob":null,"last_name":"Demo1","time_format":null,"role":"CEO","user_id":"1297376000000108007",
+                "language":"en","confirm":true,"mobile":null,"full_name":"Zoho1Demo1","profile":"Administrator"}]}"
+                }
+              </div>
+              <h2><a></a>Related Links</h2>
+              <ul>
+                <li><a>Zoho CRM API</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

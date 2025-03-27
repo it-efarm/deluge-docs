@@ -1,0 +1,465 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Recruit integration tasks</a></li>
+        <li><a>Fetch records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get&nbsp;records from&nbsp;Zoho Recruit</h1>
+          <div>
+            <div>
+              <h4>
+                Table of Contents<span><span>Up</span></span>
+              </h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li><a>Example 1: Fetch records based on criteria</a></li>
+                    <li>
+                      <a
+                        >Example 2: Fetch records based on SelectColumn param</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;zoho.recruit.getRecords&nbsp;task is&nbsp;used to fetch
+              records from&nbsp;Zoho Recruit. This integration task is based on
+              the <a>Zoho Recruit API - Get Records</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho</span>.<span>recruit</span>.<span>getRecords</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>fromIndex</span><span>&gt;</span><span>, </span><span>&lt;</span><span>toIndex</span><span>&gt;</span><span>, </span><span>&lt;(</span><span>selectColumns)</span><span>&gt;</span><span>, </span><span>&lt;</span><span>sortColumnString</span><span>&gt;</span><span>, </span><span>&lt;</span><span>sortOrderString</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;&nbsp;</p></td>
+                        <td>&nbsp;<span>KEY-VALUE</span></td>
+                        <td><p>The response returned by Zoho Recruit.</p></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;</p></td>
+                        <td>&nbsp;<span>TEXT</span></td>
+                        <td>
+                          <p>Module from which the records will be fetched.</p>
+                          <p><strong>Applicable&nbsp;modules:</strong></p>
+                          <ul>
+                            <li>Candidates</li>
+                            <li>Job Openings</li>
+                            <li>Contacts</li>
+                            <li>Clients</li>
+                            <li>Interviews</li>
+                            <li>Custom Module</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;fromIndex&gt;</p></td>
+                        <td>&nbsp;<span>NUMBER</span>&nbsp;</td>
+                        <td>
+                          <p>
+                            The starting index of the records that will be
+                            retrieved.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;toIndex&gt;</p></td>
+                        <td>&nbsp;<span>NUMBER</span>&nbsp;</td>
+                        <td>
+                          <p>
+                            The last index of the records that will be
+                            retrieved.
+                          </p>
+                          <div>
+                            <strong>Note: </strong>Using &lt;fromindex&gt; and
+                            &lt;toindex&gt; params you can fetch upto 200
+                            records. So, if the difference between the
+                            &lt;fromindex&gt; and &lt;toindex&gt; exceeds 200,
+                            only the first 200 records will be fetched.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;selectColumns&gt;</p></td>
+                        <td>&nbsp;<span>TEXT</span>&nbsp;</td>
+                        <td>
+                          <p>
+                            Field names whose values will be included in the
+                            fetched records.
+                          </p>
+                          <p>
+                            Multiple column names can be specified&nbsp;each
+                            separated by a comma and enclosed in brackets.
+                            <strong>Eg:</strong>&nbsp;(Last Name,Website,Email)
+                          </p>
+                          <p>
+                            If this param is supplied with&nbsp;<strong
+                              >ALL</strong
+                            >
+                            or an empty value, all field values will be included
+                            in the fetched records.
+                          </p>
+                          <div>
+                            <strong>Note:</strong> The field names should be
+                            provided as specified in the&nbsp;<a
+                              >Zoho Recruit API document</a
+                            >.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;sortColumnString&gt;</p></td>
+                        <td>&nbsp;<span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The field based on which the fetched records will be
+                            sorted.
+                          </p>
+                          <div>
+                            <strong>Note:</strong> The field names should be
+                            provided as specified in the
+                            <a>Zoho Recruit API document</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;sortOrderString&gt;</p></td>
+                        <td>&nbsp;<span>TEXT</span>&nbsp;</td>
+                        <td>
+                          <p>
+                            Order in which the records will be sorted.&nbsp;<br /><br /><strong
+                              >Allowed values:</strong
+                            >
+                          </p>
+                          <ul>
+                            <li>
+                              <strong>asc</strong> - sorts in ascending order
+                            </li>
+                            <li>
+                              <strong>desc</strong> - sorts in descending order
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>TEXT</td>
+                        <td>
+                          <p>The link name of the Zoho Recruit connection.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in
+                                <a>Zoho Recruit - Get Records API</a>&nbsp;while
+                                creating the connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1: Fetch&nbsp;record from Candidates module</h2>
+            <p>
+              The following script fetches records from the "Candidates" module,
+              based on the specified fromIndex and toIndex,&nbsp;in Zoho
+              Recruit.
+            </p>
+            <div>
+              <pre><span>response </span><span>=</span> <span>zoho</span>.<span>recruit</span>.<span>getRecords</span><span>(</span><span>"Candidates" </span>,<span> 0</span>,<span> 20</span>,<span> "ALL"</span>,<span> "Last Name"</span>,<span> "asc"</span>,<span> "recruit_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"Candidates"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module from
+                      which the records will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>0</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the index of
+                      the first of the records which will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>20</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the index of
+                      the last of the records which will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"ALL"</span>
+</pre>
+                    </div>
+                    <div>
+                      is&nbsp;the <span>TEXT</span> value that represent that
+                      all fields of the will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Last Name"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> value that represents the field
+                      based on which the records will be sorted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"asc"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> value that represents the order in
+                      which the records that will be sorted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"recruit_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> value that represents connection
+                      link name.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              The <strong>success</strong>&nbsp;response returned is of the
+              following format:
+            </p>
+            <div>
+              <p>
+                {&nbsp;&nbsp;<br />&nbsp; &nbsp;"Is Locked":"false",<br />&nbsp;
+                &nbsp;"Candidate ID":"ZR_23_CAND",<br />&nbsp;
+                &nbsp;"CANDIDATEID":"1687000000102009",<br />&nbsp; &nbsp;"Is
+                Unqualified":"false",<br />&nbsp; &nbsp;"Updated On":"2015-08-05
+                18:41:34",<br />&nbsp; &nbsp;"Created By":"dinesh.d",<br />&nbsp;
+                &nbsp;"Is Attachment Present":"true",<br />&nbsp;
+                &nbsp;"Source":"Resume",<br />&nbsp;
+                &nbsp;"MODIFIEDBY":"1687000000077003",<br />&nbsp;
+                &nbsp;"Created Time":"2015-08-05 18:41:34",<br />&nbsp;
+                &nbsp;"Modified By":"dinesh.d",<br />&nbsp;
+                &nbsp;"SMOWNERID":"1687000000077003",<br />&nbsp;
+                &nbsp;"Candidate Status":"New",<br />&nbsp; &nbsp;"Last Activity
+                Time":"2015-08-05 18:41:34",<br />&nbsp;
+                &nbsp;"SMCREATORID":"1687000000077003",<br />&nbsp; &nbsp;"Email
+                Opt Out":"false",<br />&nbsp; &nbsp;"Is Hot
+                Candidate":"false",<br />&nbsp; &nbsp;"Last Name":"No name",<br />&nbsp;
+                &nbsp;"Experience in Years":"0",<br />&nbsp; &nbsp;"Candidate
+                Owner":"dinesh.d"<br />},<br />{&nbsp;&nbsp;<br />&nbsp;
+                &nbsp;"Is Locked":"false",<br />&nbsp; &nbsp;"Candidate
+                ID":"ZR_24_CAND",<br />&nbsp;
+                &nbsp;"CANDIDATEID":"1687000000102031",<br />&nbsp; &nbsp;"Is
+                Unqualified":"false",<br />&nbsp; &nbsp;"Updated On":"2015-08-05
+                18:47:53",<br />&nbsp; &nbsp;"Created By":"dinesh.d",<br />&nbsp;
+                &nbsp;"Is Attachment Present":"true",<br />&nbsp;
+                &nbsp;"Source":"Resume",<br />&nbsp;
+                &nbsp;"MODIFIEDBY":"1687000000077003",<br />&nbsp;
+                &nbsp;"Created Time":"2015-08-05 18:47:53",<br />&nbsp;
+                &nbsp;"Modified By":"dinesh.d",<br />&nbsp;
+                &nbsp;"SMOWNERID":"1687000000077003",<br />&nbsp;
+                &nbsp;"Candidate Status":"New",<br />&nbsp; &nbsp;"Last Activity
+                Time":"2015-08-05 18:47:53",<br />&nbsp;
+                &nbsp;"SMCREATORID":"1687000000077003",<br />&nbsp; &nbsp;"Email
+                Opt Out":"false",<br />&nbsp; &nbsp;"Is Hot
+                Candidate":"false",<br />&nbsp; &nbsp;"Last Name":"No name",<br />&nbsp;
+                &nbsp;"Experience in Years":"0",<br />&nbsp; &nbsp;"Candidate
+                Owner":"john"<br />}
+              </p>
+            </div>
+            <p>To fetch the IDs of the records execute the following script:</p>
+            <div>
+              for each var in &lt;response_variable&gt;&nbsp;<br />&nbsp;
+              {&nbsp;<br />&nbsp; &nbsp; info
+              var.get("&lt;module&gt;ID").toLong(); // example for
+              &lt;module&gt;ID is CANDIDATEID&nbsp;<br />&nbsp; }
+            </div>
+            <h2><a></a>Example 2: Fetch records based on selectColumn param</h2>
+            <p>
+              The following script fetches records from the "Candidates" module
+              in Zoho Recruit, based on the specified selectColumns param
+            </p>
+            <div>
+              <pre><span>response </span><span>= </span><span>zoho.recruit.getRecords</span><span>(</span><span>"Candidates"</span>,<span> 1</span>,<span>4</span>,<span> "(Last Name,Email,Mobile)"</span>,<span> "Email"</span>,<span> "desc"</span>,<span> "recruit_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"Candidates"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> that represents the module from
+                      which the records will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>1</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>NUMBER</span> index of the first of the records
+                      which will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>4</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>NUMBER</span> index of the last of the records
+                      which will be fetched. It is
+                      of&nbsp;<span>LONG</span>&nbsp;data type.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"(Last Name,Email,Mobile)"</span>
+</pre>
+                    </div>
+                    <div>
+                      are&nbsp;the <span>TEXT</span> values that represent the
+                      column names in the records which will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Email"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> value that represents the field
+                      based on which the fetched records will be sorted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"desc"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> value that represents the order in
+                      which the records that will be sorted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"recruit_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> value that represents connection
+                      link name.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              The <strong>success</strong>&nbsp;response returned is of the
+              following format:
+            </p>
+            <div>
+              <p>
+                {&nbsp;&nbsp;<br />&nbsp; &nbsp;"Email":"henry@zylker.com",<br />&nbsp;
+                &nbsp;"CANDIDATEID":"3342000000157003",<br />&nbsp; &nbsp;"Last
+                Name":"T",<br />&nbsp; &nbsp;"Mobile":"08940270215"<br />},<br />{&nbsp;&nbsp;<br />&nbsp;
+                &nbsp;"Email":"richardPatrick@zylker.com",<br />&nbsp;
+                &nbsp;"CANDIDATEID":"3342000000266010",<br />&nbsp; &nbsp;"Last
+                Name":"Patrick"<br />},<br />{&nbsp;&nbsp;<br />&nbsp;
+                &nbsp;"Email":"richard@zylker.com",<br />&nbsp;
+                &nbsp;"CANDIDATEID":"3342000000267001",<br />&nbsp; &nbsp;"Last
+                Name":"Richard",<br />&nbsp; &nbsp;"Mobile":"+91 9988776655"<br />},<br />{&nbsp;&nbsp;<br />&nbsp;
+                &nbsp;"Email":"john@zylker.com,tony@zylker.com",<br />&nbsp;
+                &nbsp;"CANDIDATEID":"3342000000161049",<br />&nbsp; &nbsp;"Last
+                Name":"No name"<br />}
+              </p>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Recruit integration tasks</a></li>
+              <li><a>Zoho Recruit API - Get Records</a></li>
+              <li><a>Zoho Recruit API - Possible error codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

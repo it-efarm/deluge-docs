@@ -1,0 +1,223 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Artificial Intelligence Tasks</a></li>
+        <li><a>Parse Phone Number</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Parse Phone Number</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.ai.parsePhoneNumber</strong> task examines the
+              given phone number to provide its device, network, location, and
+              formatting information.
+            </p>
+            <div>
+              <strong>Note:&nbsp;</strong>
+              <ul>
+                <li>
+                  The prediction results may not be accurate, which is also the
+                  case with any AI prediction. However, we are working on
+                  improving this.
+                </li>
+                <li>
+                  The prediction results are dynamic. The same script may
+                  produce different outcomes at different times based on how
+                  much the machine has learned.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.ai.parsePhoneNumber</span><span>(</span><span>&lt;</span><span>phone_number</span><span>&gt;</span>, <span>&lt;country_code</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the time zone, location, type of the device,
+                        network provider, and formatting information of the
+                        given phone number.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;phone_number&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the phone number that needs to be examined.
+                      </p>
+                      <div>
+                        <p>
+                          <strong>Note</strong>: The specified number should not
+                          have&nbsp;space separations&nbsp;regardless of the
+                          relevant country's phone number format.
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;country_code&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the country code of the phone number in ISO
+                        alpha-2 format.<br /><strong>Note: </strong>You can find
+                        the list of ISO alpha-2 country codes&nbsp;<a>here</a>.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script provides information about the phone number
+              -&nbsp;<strong>92597XXXXX</strong>.
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.ai.parsePhoneNumber</span><span>(</span><span>"92597XXXXX"</span>,<span>"US"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      time zone, location, type of the device, network provider,
+                      and formatting information of the given phone number.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"92597XXXXX"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the phone number
+                      that needs to be parsed.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"US"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the ISO Alpha-2
+                      country code of the phone number.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response&nbsp;will be returned in the following
+                  format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"extension":"",<br />&nbsp;"italian_leading_zero":"false",<br />&nbsp;"international_format":"+1
+                  925-97X-XXXX",<br />&nbsp;"national_format":"(925)
+                  97X-XXXX",<br />&nbsp;"timezone":"[\"America/Los_Angeles\"]",<br />&nbsp;"e164_format":"+192597XXXXX",<br />&nbsp;"national_number":"92597XXXXX",<br />&nbsp;"type":"FIXED_LINE_OR_MOBILE",<br />&nbsp;"outside_from_CH":"00
+                  1 925-97X-XXXX",<br />&nbsp;"country_code":"1",<br />&nbsp;"carrier":"",<br />&nbsp;"original_format":"(925)
+                  97X-XXXX",<br />&nbsp;"outside_from_US":"1 (925) 97X-XXXX",<br />&nbsp;"location":"California",<br />&nbsp;"raw_input":"92597XXXXX",<br />&nbsp;"region":"US",<br />&nbsp;"country_code_source":"FROM_DEFAULT_COUNTRY"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            To fetch the the parsed values from the response, use
+            <a>get()</a> function. For example, the following script fetches the
+            timezone from the returned response:
+            <div>
+              <pre>&nbsp;<span>info </span><span>response</span><span>.get</span><span>(</span><span>"timezone"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for an empty input text will be returned
+                  in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"Error Message ": "phoneNumber less than
+                  minimum occurrence"<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for invalid phone number
+                  pattern&nbsp;will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"Error Message":"phoneNumber value is not
+                  in the expected pattern"<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for invalid country code&nbsp;will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"Error Message":"countryName value is not
+                  in the expected pattern"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            &nbsp;
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>AI tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

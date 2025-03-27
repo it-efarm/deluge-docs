@@ -1,0 +1,139 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>addMonth</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>addMonth()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The<strong> addMonth()</strong> function takes
+              <strong>dateTimeValue</strong> and
+              <strong>numberOfMonths</strong> as arguments. It returns the
+              dateTimeValue after adding the specified number of months to it.
+            </p>
+            <p>
+              The date-time value will be returned in the format specified in
+              Application Settings.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Date-Time</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt;=<span>&lt;dateTimeValue</span
+              ><span>&gt;</span>.addMonth(<span>&lt;numberOfMonths&gt;</span>);
+            </div>
+            <p>(OR)</p>
+            <div>
+              &lt;variable&gt;=addMonth(<span>&lt;dateTimeValue&gt;</span>,
+              <span>&lt;numberOfMonths&gt;</span>);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>
+                      Variable which will contain the returned date-time value.
+                    </td>
+                    <td>NUMBER</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;dateTimeValue&gt;</span></td>
+                    <td>
+                      <p>
+                        The date-time value to which the specified number of
+                        months will be added.
+                      </p>
+                      <p>
+                        The date-time value can be specified without a time
+                        value, in which case 00:00:00 will be taken as the
+                        default time value.
+                      </p>
+                      <p>
+                        If the hour value is specified as 24 or more, the
+                        date-time value be reset to 00:00:00. If the minutes
+                        value is specified as 60 or more, the mm:ss value will
+                        be reset to 00:00, if the seconds value is specified as
+                        60 or more, the ss value will be reset to 00.
+                      </p>
+                      <p>A runtime error will be encountered if:</p>
+                      <ul>
+                        <li>
+                          the hour value, or minute value, or second value, is
+                          specified in more than 2 digits.
+                        </li>
+                        <li>
+                          the date value exceeds the number of days in that
+                          month.
+                        </li>
+                        <li>an incorrect month value is specified.</li>
+                        <li>the year value has more than 4 digits.</li>
+                      </ul>
+                      <p>
+                        Refer <a>this help document</a> to learn about the
+                        supported date-time formats.
+                      </p>
+                    </td>
+                    <td>DATE-TIME</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;numberOfMonths&gt;</span></td>
+                    <td>
+                      <p>
+                        The number of months to be added to dateTimeValue. .
+                      </p>
+                      <p>
+                        A negative number will subtract the specified number of
+                        months from dateTimeValue.
+                      </p>
+                    </td>
+                    <td>NUMBER</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              currentDate = '01-Jan-2019';<br />currentDateTime = '01-Jan-2019
+              15:00:00';<br />newDate = currentDate.addMonth(11);&nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp; &nbsp; &nbsp;&nbsp; // returns '01-Dec-2019 00:00:00'<br />newDateTime
+              = currentDateTime.addMonth(13); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; // returns '01-Feb-2020 15:00:00'
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

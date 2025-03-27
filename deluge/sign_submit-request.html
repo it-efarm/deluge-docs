@@ -1,0 +1,332 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sign Integration Tasks</a></li>
+        <li><a>Submit request</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <p>​</p>
+      <div>
+        <div>
+          <h1>Submit request in Zoho Sign</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.sign.submitRequest</strong> task is used to
+              insert required fields into documents and send them out to the
+              specified recipients.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.sign.submitRequest</span><span>(</span><span>&lt;</span><span>request_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>params</span><span>&gt;</span><span>,</span> <span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data Type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The status of the executed task, document details,
+                            recipient details, and other relevant information.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;request_id&gt;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The request ID of the document that needs to be
+                            downloaded.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> You can get the ID of the
+                            Zoho Sign request from its URL. The URL is in the
+                            format:
+                            https://sign.zoho.com/zs#/request/new/<strong
+                              >&lt;request_id&gt;</strong
+                            ><br />(or)<br />You can get the request ID from the
+                            response of
+                            <strong>zoho.sign.uploadDocument</strong> task.
+                            Click <a>here</a> to learn how to fetch request ID
+                            from the response.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;params&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details of the documents, fields, and the
+                            recipients.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <div>
+                            <strong>*Note:</strong> This param is not applicable
+                            to <strong>Zoho Creator</strong> and mandatory in
+                            <strong>Zoho Cliq.</strong>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script adds fields to a document in Zoho Sign and
+              emails it to a recipient to get it signed.
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Create a map to store the details of the signature field</span>
+&nbsp;<span>fieldsMap</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>fieldsMap</span><span>.put</span><span>(</span><span>"x_coord"</span><span>, </span><span>"402"</span><span>)</span><span>;</span>
+&nbsp;<span>fieldsMap</span><span>.put</span><span>(</span><span>"field_type_id"</span><span>, </span><span>"10696000000000047"</span><span>)</span><span>;</span>
+&nbsp;<span>fieldsMap</span><span>.put</span><span>(</span><span>"abs_height"</span><span>, </span><span>"20"</span><span>)</span><span>;</span>
+&nbsp;<span>fieldsMap</span><span>.put</span><span>(</span><span>"field_category"</span><span>, </span><span>"image"</span><span>)</span><span>;</span>
+&nbsp;<span>fieldsMap</span><span>.put</span><span>(</span><span>"field_label"</span><span>, </span><span>"Signature"</span><span>)</span><span>;</span>
+&nbsp;<span>fieldsMap</span><span>.put</span><span>(</span><span>"is_mandatory"</span><span>, </span><span>"true"</span><span>)</span><span>;</span>
+&nbsp;<span>fieldsMap</span><span>.put</span><span>(</span><span>"page_no"</span><span>, </span><span>"0"</span><span>)</span><span>;</span>
+&nbsp;<span>fieldsMap</span><span>.put</span><span>(</span><span>"document_id"</span><span>, </span><span>"10696000000010242"</span><span>)</span><span>;</span>
+&nbsp;<span>fieldsMap</span><span>.put</span><span>(</span><span>"field_name"</span><span>, </span><span>"Signature"</span><span>)</span><span>;</span>
+&nbsp;<span>fieldsMap</span><span>.put</span><span>(</span><span>"field_type_name"</span><span>, </span><span>"Signature"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create a list to store all the fields that need to be inserted</span>
+&nbsp;<span>fieldList </span><span>= </span><span>List</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>fieldList</span><span>.add</span><span>(</span><span>fieldsMap</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create a map to store the details of the first recipient</span>
+&nbsp;<span>actionMap</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>actionMap</span><span>.put</span><span>(</span><span>"fields"</span><span>, </span><span>fieldList</span><span>)</span><span>;</span>
+&nbsp;<span>actionMap</span><span>.put</span><span>(</span><span>"recipient_name"</span><span>, </span><span>"Shawn"</span><span>)</span><span>;</span>
+&nbsp;<span>actionMap</span><span>.put</span><span>(</span><span>"recipient_email"</span><span>, </span><span>"shawn@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;<span>actionMap</span><span>.put</span><span>(</span><span>"action_type"</span><span>, </span><span>"SIGN"</span><span>)</span><span>;</span>
+&nbsp;<span>actionMap</span><span>.put</span><span>(</span><span>"signing_order"</span><span>, </span><span>0</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create a list to store all the recipients of the document</span>
+&nbsp;<span>actionList</span><span> = </span><span>List</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>actionList</span><span>.add</span><span>(</span><span>actionMap</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>//Create a map to store the request details</span>&nbsp;
+&nbsp;<span>requestMap</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>&nbsp;
+&nbsp;<span>requestMap</span><span>.put</span><span>(</span><span>"request_name"</span><span>, </span><span>"Agreement"</span><span>)</span><span>;</span>&nbsp;
+&nbsp;<span>requestMap</span><span>.put</span><span>(</span><span>"actions"</span><span>, </span><span>actionList</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+&nbsp;<span>// Store the request details as a value to the key - data</span>&nbsp;
+&nbsp;<span>dataMap</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>&nbsp;
+&nbsp;<span>dataMap</span><span>.put</span><span>(</span><span>"data"</span><span>, </span><span>{</span><span>"requests"</span><span>: requestMap</span><span>}</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+&nbsp;<span>// Perform submit request task to insert fields and send the document to the specified recipients</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sign</span><span>.submitRequest</span><span>(</span><span>10696000000010248</span><span>, </span><span>dataMap</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that holds the details
+                      of the recipients and documents that are sent out to sign.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>fieldsMap</span>&nbsp;
+<span>actionMap</span>&nbsp;
+<span>requestMap</span>&nbsp;
+<span>dataMap</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> pairs which hold the required
+                      information to submit the request.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>fieldList</span>&nbsp;
+<span>actionList</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      The <span>LIST</span> variables that holds the list of
+                      fields and recipients.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>10696000000010242</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the ID of the
+                      document into which the signature field needs to be
+                      inserted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>10696000000000047</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the ID of the
+                      signature field.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>10696000000010248</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the request ID.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <strong>Note: </strong>You can get the
+              <strong>field_type_id</strong> from the response of
+              <strong>zoho.sign.getFieldIds</strong> task. Click <a>here</a> to
+              learn more about it.
+            </div>
+            <h2><a></a>Response Format</h2>
+            <ul>
+              <li><strong>Success Response</strong></li>
+              <li>
+                The success response will be returned in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"code": 0,<br />&nbsp;"requests": {<br />&nbsp;"request_status":
+                  "inprogress",<br />&nbsp;"notes": "",<br />&nbsp;"attachments":
+                  [<br />&nbsp;<br />&nbsp;],<br />&nbsp;"reminder_period":
+                  5,<br />&nbsp;"owner_id": "10696000000009003",<br />&nbsp;"description":
+                  "",<br />&nbsp;"request_name": "ReqestName",<br />&nbsp;"modified_time":
+                  1575553781979,<br />&nbsp;"action_time": 1575553782054,<br />&nbsp;"is_deleted":
+                  false,<br />&nbsp;"expiration_days": 15,<br />&nbsp;"is_sequential":
+                  true,<br />&nbsp;"sign_submitted_time": 1575553782054,<br />&nbsp;"owner_first_name":
+                  "Shawn",<br />&nbsp;"sign_percentage": 16.67,<br />&nbsp;"expire_by":
+                  1576866540000,<br />&nbsp;"is_expiring": false,<br />&nbsp;"owner_email":
+                  "shawn@zylker.com",<br />&nbsp;"created_time":
+                  1573034420841,<br />&nbsp;"email_reminders": true,<br />&nbsp;"document_ids":
+                  [<br />&nbsp;{<br />&nbsp;"document_name":
+                  "Agreement_1.jpg",<br />&nbsp;"document_size": 1095706,<br />&nbsp;"document_order":
+                  "0",<br />&nbsp;"total_pages": 1,<br />&nbsp;"document_id":
+                  "10696000000013005"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"document_name":
+                  "Agreement_2.png",<br />&nbsp;"document_size": 96995,<br />&nbsp;"document_order":
+                  "1",<br />&nbsp;"total_pages": 1,<br />&nbsp;"document_id":
+                  "10696000000013008"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"self_sign":
+                  false,<br />&nbsp;"in_process": false,<br />&nbsp;"validity":
+                  -1,<br />&nbsp;"request_type_name": "Others",<br />&nbsp;"request_id":
+                  "10696000000013017",<br />&nbsp;"request_type_id":
+                  "10696000000000187",<br />&nbsp;"owner_last_name": "Shawn",<br />&nbsp;"actions":
+                  [<br />&nbsp;{<br />&nbsp;"verify_recipient": false,<br />&nbsp;"action_type":
+                  "SIGN",<br />&nbsp;"private_notes": "",<br />&nbsp;"recipient_email":
+                  "shawn@zylker.com",<br />&nbsp;"allow_signing": true,<br />&nbsp;"recipient_phonenumber":
+                  "",<br />&nbsp;"is_bulk": false,<br />&nbsp;"action_id":
+                  "10696000000013021",<br />&nbsp;"is_revoked": false,<br />&nbsp;"is_embedded":
+                  false,<br />&nbsp;"signing_order": 1,<br />&nbsp;"fields":
+                  [<br />&nbsp;{<br />&nbsp;"field_id": "10696000000013024",<br />&nbsp;"x_coord":
+                  431,<br />&nbsp;"field_type_id": "10696000000000047",<br />&nbsp;"abs_height":
+                  20,<br />&nbsp;"field_category": "image",<br />&nbsp;"field_label":
+                  "Signature",<br />&nbsp;"is_mandatory": true,<br />&nbsp;"page_no":
+                  0,<br />&nbsp;"document_id": "10696000000013005",<br />&nbsp;"field_name":
+                  "Signature",<br />&nbsp;"y_value": 78.76336,<br />&nbsp;"abs_width":
+                  135,<br />&nbsp;"action_id": "10696000000013021",<br />&nbsp;"width":
+                  22.689075,<br />&nbsp;"y_coord": 663,<br />&nbsp;"field_type_name":
+                  "Signature",<br />&nbsp;"description_tooltip": "",<br />&nbsp;"x_value":
+                  72.43435,<br />&nbsp;"height": 2.375297<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"recipient_name":
+                  "Shawn",<br />&nbsp;"action_status": "NOACTION",<br />&nbsp;"recipient_countrycode":
+                  ""<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"verify_recipient":
+                  false,<br />&nbsp;"action_type": "SIGN",<br />&nbsp;"recipient_email":
+                  "shawn@zylker.com",<br />&nbsp;"allow_signing": true,<br />&nbsp;"recipient_phonenumber":
+                  "",<br />&nbsp;"is_bulk": false,<br />&nbsp;"action_id":
+                  "10696000000027002",<br />&nbsp;"is_revoked": false,<br />&nbsp;"is_embedded":
+                  false,<br />&nbsp;"signing_order": -1,<br />&nbsp;"fields":
+                  [<br />&nbsp;{<br />&nbsp;"field_id": "10696000000027005",<br />&nbsp;"x_coord":
+                  402,<br />&nbsp;"field_type_id": "10696000000000047",<br />&nbsp;"abs_height":
+                  20,<br />&nbsp;"field_category": "image",<br />&nbsp;"field_label":
+                  "Signature",<br />&nbsp;"is_mandatory": true,<br />&nbsp;"page_no":
+                  0,<br />&nbsp;"document_id": "10696000000013005",<br />&nbsp;"field_name":
+                  "Signature",<br />&nbsp;"action_id": "10696000000027002",<br />&nbsp;"field_type_name":
+                  "Signature",<br />&nbsp;"description_tooltip": ""<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"recipient_name":
+                  "Shawn",<br />&nbsp;"action_status": "UNOPENED",<br />&nbsp;"recipient_countrycode":
+                  ""<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"attachment_size":
+                  0<br />&nbsp;},<br />&nbsp;"message": "Document has been
+                  submitted and sent for signature",<br />&nbsp;"status":
+                  "success"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <strong>Failure Response</strong>
+            <ul>
+              <li>
+                The failure response for an incorrect or inaccessible document
+                will be returned in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"code":4003,<br />&nbsp;"message":"Access
+                  to view the document is denied",<br />&nbsp;"status":"failure"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Sign integration tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.0411227"><iframe></iframe></div>
+</div>

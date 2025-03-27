@@ -1,0 +1,192 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Cliq Integration Tasks</a></li>
+        <li><a>Zoho Cliq Integration Attributes</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Zoho Cliq Integration Attributes</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Chat ID</a></li>
+                <li><a>Channel Name</a></li>
+                <li><a>Bot Name</a></li>
+                <li><a>ZUID</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Chat ID</h2>
+            <p>To get the chat ID of a recipient,</p>
+            <ol>
+              <li>
+                <p>
+                  Navigate to your&nbsp;<strong>display picture</strong>&nbsp;on
+                  the top right corner.
+                </p>
+                <img />
+              </li>
+              <li>
+                <p>Select <strong>Bots and Tools</strong>.</p>
+                <img />
+              </li>
+              <li>
+                <p>
+                  Click on the <strong>commands</strong>&nbsp;option in the left
+                  pane.
+                </p>
+                <img />
+              </li>
+              <li>
+                <p><strong>Edit</strong> the code of any of your commands.</p>
+                <img />
+              </li>
+              <li>
+                <ul>
+                  <li>
+                    <p><strong>Save</strong> the following script.</p>
+                    <strong><u>Script:</u></strong>
+                    <p>&nbsp;</p>
+                    <div>
+                      <pre><span> &lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>chat</span><span>.get</span><span>(</span><span>"id"</span><span>)</span><span>;</span></pre>
+                    </div>
+                    <p>&nbsp;</p>
+                    <img />
+                  </li>
+                  <li>
+                    <p>
+                      <strong>Execute</strong> the command in the chat window of
+                      the contact whose chat ID needs to be retrieved. (For
+                      instance, in the below example,
+                      <strong>/postamessage</strong> is the command that is
+                      executed and <strong>2231000000000000000</strong> is the
+                      chat ID retrieved).<br /><img />
+                    </p>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+            <h2><a></a>Channel Name</h2>
+            <p>To get a Channel's unique name,</p>
+            <ol>
+              <li>
+                <p>
+                  Select the desired channel whose name has to be retrieved.
+                </p>
+                <img />
+              </li>
+              <li>
+                <p>Click on the <strong>channel icon</strong>.</p>
+                <img />
+              </li>
+              <li>
+                <p>Click on the <strong>Connectors</strong> tab.</p>
+                <img />
+              </li>
+              <li>
+                <p>
+                  The <strong>API Endpoint</strong> will have the channel's
+                  unique name. It is of the format,<br />https://cliq.zoho.com/api/v2/channelsbyname/<strong>&lt;channel_unique_name&gt;</strong>/message
+                </p>
+                <img />
+              </li>
+            </ol>
+            <h2><a></a>Bot Name</h2>
+            <p>To get a Bot's unique name,</p>
+            <ol>
+              <li>
+                <p>
+                  Select the desired Bot whose name has to be retrieved from the
+                  list of subscribed Bots.
+                </p>
+                <img />
+              </li>
+              <li>
+                <p>Click on the&nbsp;<strong>Bot icon</strong></p>
+                <img />
+              </li>
+              <li>
+                <p>
+                  The <strong>API Endpoint</strong> will have the Bot's unique
+                  name. It is of the format,<br />/api/v2/bots/<strong>&lt;bot_unique_name&gt;</strong>/message.
+                </p>
+                <img />
+              </li>
+            </ol>
+            <h2><a></a>ZUID</h2>
+            <p>To get the ZUID of a recipient,</p>
+            <ol>
+              <li>
+                <p>
+                  Navigate to your&nbsp;<strong>display picture</strong>&nbsp;on
+                  the top right corner.
+                </p>
+                <img />
+              </li>
+              <li>
+                <p>Select <strong>Bots and Tools</strong>.</p>
+                <img />
+              </li>
+              <li>
+                <p>
+                  Click on the <strong>commands</strong>&nbsp;option in the left
+                  pane.
+                </p>
+                <img />
+              </li>
+              <li>
+                <p><strong>Edit</strong> the code of any of your commands.</p>
+                <img />
+              </li>
+              <li>
+                <ul>
+                  <li>
+                    <p>
+                      <strong>Save</strong> the following script.<br /><strong
+                        ><u>Script:</u></strong
+                      >
+                    </p>
+                    <div>
+                      <pre><span> &lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>chat</span><span>.get</span><span>(</span><span>"members"</span><span>)<span>.get</span><span>(</span><span>0</span><span>)<span>.get</span><span>(</span><span>"id"</span><span>)</span><span>;</span></span></span></pre>
+                    </div>
+                    <p>&nbsp;</p>
+                    <img />
+                  </li>
+                  <li>
+                    <p>
+                      <strong>Execute</strong> the command in the chat window of
+                      the contact whose ZUID needs to be retrieved. (For
+                      instance, in the below example,
+                      <strong>/postamessage</strong> is the command that is
+                      executed and <strong>658700000</strong> is the ZUID
+                      retrieved).
+                    </p>
+                    <img />
+                  </li>
+                </ul>
+              </li>
+            </ol>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Post to chat and Post to chat as admin</a></li>
+              <li><a>Post to channel and Post to channel as admin</a></li>
+              <li><a>Post to bot and post to bot as&nbsp;admin</a></li>
+              <li><a>Post to user</a></li>
+              <li><a>Deluge Error Messages</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

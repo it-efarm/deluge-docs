@@ -1,0 +1,270 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>List Manipulations</a></li>
+        <li><a>For each element</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>For each element</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Example 1: Iterate through a list</a></li>
+                    <li><a>Example 2: Send mail for every iteration</a></li>
+                    <li><a>Example 3: Iterate values of a CSV file</a></li>
+                  </ul>
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>for each element&nbsp;</strong>deluge
+              task&nbsp;iterates through all the elements present in a list,
+              comma-separated text, or a CSV file.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span><span>for each&nbsp;</span></span
+              ><span><span>&lt;elementVariable&gt;</span></span
+              ><span><span> in </span></span
+              ><span><span>&lt;variable&gt;</span></span
+              ><br />&nbsp;<span><span>{</span></span
+              ><br />&nbsp;<span><span>}</span></span>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span><span>&lt;elementVariable&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>Variable to hold an element for each iteration.</p>
+                      <p>
+                        You can specify any variable name here, without having
+                        to declare it initially.
+                      </p>
+                      <p>
+                        After the iteration, this variable will hold the last
+                        element in the list.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;variable&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        The variable containing the elements which will be
+                        iterated.
+                      </p>
+                      <p><strong>Supported data types: </strong></p>
+                      <ul>
+                        <li>List</li>
+                        <li>CSV file</li>
+                      </ul>
+                      <p>
+                        <strong>Note:</strong> The size of the input CSV file
+                        cannot be more than <strong>2MB</strong>.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1: Iterate through a list</h2>
+            <p>
+              The following example displays all the element present in the list
+              - <strong>numbers</strong>
+            </p>
+            <div>
+              //Create a list<br />numbers = {"One", "Two", "Three"};<br />//Iterate
+              through each element of the list using for each<br />for each item
+              in numbers<br />{<br />info item;<br />}
+            </div>
+            <h2><a></a>Example 2: Send mail for every iteration</h2>
+            <p>
+              In the following example, the code snippet iterates through each
+              team in the list and executes the send mail task for each
+              iteration. "Employees" is a form with "Team" and "EmailID" fields.
+            </p>
+            <div>
+              //Create list to hold teams<br />teamList = {"Zoho Creator", "Zoho
+              CRM"};<br /><br />//Iterate through the list using for each
+              task<br />for each temp in teamList<br />{<br />//Send mails to
+              every team from the list using the sendMail task<br />sendMail<br />[<br />from:
+              zoho.adminuserid<br />to: Employees[Team =
+              temp].EmailID.getall();<br />Subject: "Working day for "+temp<br />Message:
+              "Coming Saturday will be a working day"<br />];<br />}
+            </div>
+            <h2><a></a>Example 3: Iterate values of a CSV file</h2>
+            <div>
+              //Download a Zip file using invokeUrl task<br />csv_file_zip =
+              invokeurl<br />[<br />url:
+              "https://www.stats.govt.nz/assets/Uploads/Business-financial-data/Business-financial-data-June-2021-quarter/Download-data/wholesale-trade-survey-june-2021-quarter-csv.zip"<br />type:
+              GET<br />];
+            </div>
+            <div>
+              <br />//Extract the csv file from the downloaded zip file<br />csv_file
+              =
+              csv_file_zip.extract().get("wholesale-trade-survey-jun-2021-quarter-csv.csv");
+            </div>
+            <div>
+              <br />//Iterate values of the extracted CSV file<br />for each val
+              in csv_file<br />{<br />info val;<br />}
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2><a></a>Related Links</h2>
+      <ul>
+        <li><a>Send Mail</a></li>
+        <li><a>Extract</a></li>
+      </ul>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

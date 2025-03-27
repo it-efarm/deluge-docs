@@ -1,0 +1,168 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Encryption functions</a></li>
+        <li><a>base64encode</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Base 64 Encode</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Encode a text to base 64 format</a></li>
+                    <li><a>Encode a file to base 64 format</a></li>
+                  </ul>
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.encryption.base64Encode</strong> task is used to
+              encode data to base 64 format.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.encryption.base64Encode</span><span>(</span><span>&lt;</span><span>data</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the response that represents the base 64
+                        encoded data
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;data&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span>&nbsp;/&nbsp;<span>FILE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the data that needs to be encoded to base 64
+                        format
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1: Encode a text to base 64 format</h2>
+            <p>
+              The following script encodes the text -
+              <strong>john@zylker.com</strong> to base 64 format.
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.encryption.base64Encode</span><span>(</span><span>"john@zylker.com"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> response that represents the base 64
+                      encoded data. This example returns -
+                      <strong>am9obkB6eWxrZXIuY29t.</strong>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"john@zylker.com"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the data that needs
+                      to be encoded
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Encode a file to base 64 format</h2>
+            <p>
+              The following script <a>invokes</a> a file from the web and
+              encodes it to base 64 format.
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Fetch a file from the web</span>
+&nbsp;<span>sample_file</span><span> = </span><span>invokeUrl
+&nbsp;<span>[</span>
+&nbsp;<span>url</span><span>: </span><span>"http://www.africau.edu/images/default/sample.pdf"</span>
+&nbsp;<span>type</span><span>: </span><span>GET</span>
+&nbsp;<span>];</span>
+&nbsp;
+&nbsp;<span>// Encode the file content</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.encryption.base64Encode</span><span>(</span><span>sample_file</span><span>)</span><span>;</span>
+</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> response that represents the base 64
+                      encoded data
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>sample_file</span></pre>
+                    </div>
+                    <div>
+                      The <span>FILE</span> that holds the pdf file fetched from
+                      the web that needs to be encoded
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Encryption tasks</a></li>
+              <li><a>Invoke URL</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

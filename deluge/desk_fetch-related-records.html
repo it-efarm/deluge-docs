@@ -1,0 +1,477 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Desk Integration Tasks</a></li>
+        <li><a>Fetch related records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get related records from Zoho Desk</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li><a>To fetch tickets associated with contact</a></li>
+                    <li>
+                      <a
+                        >To fetch and sort time entries associated with task
+                        based on the query parameter</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to fetch records from a submodule related
+              to a record in a&nbsp;parent module in Zoho Desk.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.desk.getRelatedRecords</span><span>(</span><span>&lt;</span><span>orgID</span><span>&gt;, </span><span>&lt;sub_</span><span>module</span><span>&gt;, </span><span>&lt;</span><span>parent_module</span><span>&gt;, </span><span>&lt;record</span><span>_ID</span><span>&gt;, </span>&lt;<span>fromIndex</span><span>&gt;</span><span>, </span><span>&lt;</span><span>limit</span><span>&gt;</span><span>, <span>&lt;</span><span>query_value</span><span>&gt;, </span>&lt;<span>connection</span><span>&gt;</span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            variable which will hold&nbsp;the response returned
+                            by Zoho Desk. It represents the related records
+                            fetched from the specified submodule.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;orgID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the organization ID&nbsp;of the account
+                            from which the records will be fetched. This can be
+                            found in Zoho Desk Settings &gt; Developer Space
+                            &gt; API.&nbsp;&nbsp;<br /><br /><img />
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;sub_module&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the name of the submodule from which the
+                            records will be fetched.
+                          </p>
+                          <p>
+                            The
+                            <strong>zoho.desk.getRelatedRecords</strong>
+                            task&nbsp;allows you to fetch:
+                          </p>
+                          <ul>
+                            <li><p>tickets based on a contact</p></li>
+                            <li><p>tickets based on an account</p></li>
+                            <li><p>tasks based on a ticket</p></li>
+                            <li><p>timeEntry based on a ticket</p></li>
+                            <li><p>timeEntry based on a task</p></li>
+                            <li><p>timeEntry based on an agent</p></li>
+                            <li><p>comments based on a ticket</p></li>
+                            <li><p>thread based on a ticket</p></li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;parent_module&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the name of the module whose related
+                            records will be fetched.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;record_ID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>specifies the ID of the parent record.</p>
+                          <p>
+                            Learn how to fetch the record ID
+                            after&nbsp;<a>creating</a>,&nbsp;<a>searching</a>&nbsp;or&nbsp;<a>fetching</a>&nbsp;records.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;fromIndex&gt;</span></p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the index number, starting from which the
+                            records will be fetched.&nbsp;
+                          </p>
+                          <p>&nbsp;</p>
+                          <p>
+                            <strong>*Note:</strong>&nbsp;This is a mandatory
+                            param when used in&nbsp;Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;limit&gt;</span></p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the number of records&nbsp;to be fetched.
+                          </p>
+                          <p>&nbsp;</p>
+                          <p>
+                            <strong>*Note:</strong>&nbsp;This is a mandatory
+                            param when used in&nbsp;Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;query_value&gt;</span></p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the query to include secondary information
+                            related to the selected module.
+                          </p>
+                          <p>
+                            To learn about the applicable values,&nbsp;<a
+                              >click here</a
+                            >&nbsp;and go to &lt;ModuleName&gt; -&gt; List
+                            &lt;subModule&gt; by &lt;ModuleName&gt;
+                          </p>
+                          <p>
+                            <strong>*Note:</strong>&nbsp;This is a mandatory
+                            param when used in&nbsp;Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connection&gt;</span></p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>specifies the name of the <a>connection</a>.</p>
+                          <p>
+                            The scopes which need&nbsp;to be selected
+                            are:&nbsp;&nbsp;<br />- Desk.basic.READ&nbsp;<br />-
+                            Desk.tasks.READ&nbsp;<br />-
+                            Desk.tickets.READ&nbsp;<br />-
+                            Desk.settings.READ&nbsp;<br />-
+                            Desk.contacts.READ&nbsp;
+                          </p>
+                          <p>
+                            <strong>*Note:</strong>&nbsp;This is a mandatory
+                            param when used in&nbsp;<a>Zoho Creator</a>.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              The following script fetches all the records from the submodule -
+              <strong>tickets</strong> associated with the contact of record ID
+              - <strong>168XXXXXXXXXXXX043</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>queryValue</span><span> = </span><span>{</span><span>""</span><span>:</span><span>""</span><span>}</span><span>;</span>&nbsp;
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.desk.getRelatedRecords</span><span>(</span><span>641XXXXXX</span><span>, </span><span>"tickets"</span><span>, </span><span>"contacts"</span><span>, </span><span>168XXXXXXXXXXXX043</span><span>, </span><span>1</span><span>, </span><span>10</span><span>, </span><span>queryValue</span><span>, </span><span>"desk_connection"</span><span><span>)</span><span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      variable which will hold the&nbsp;response returned by
+                      Zoho Desk. It represents the related records fetched from
+                      the specified submodule.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>641XXXXXX</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the
+                      organization ID
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"tickets"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      related list
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"contacts"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      module whose related records are to be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>168XXXXXXXXXXXX043</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the ID of the
+                      parent record
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2</h2>
+            <p>
+              The following script fetches all the records from the submodule -
+              <strong>timeEntry</strong> associated to the task with record ID -
+              <strong>168XXXXXXXXXXXX043</strong>. It sorts the records in
+              descending order based on the the field -
+              <strong> executedTime</strong> and returns 3 records starting from
+              the index 1.
+            </p>
+            <div>
+              <pre>&nbsp;<span>queryValue</span><span> = </span><span>{</span><span>"orderBy"</span><span>:</span><span>"DESC"</span><span>}</span><span>;</span>&nbsp;
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.desk.getRelatedRecords</span><span>(</span><span>641XXXXXX</span><span>, </span><span>"timeEntry"</span><span>, </span><span>"tasks"</span><span>, </span><span>168XXXXXXXXXXXX043</span><span>, </span><span>1</span><span>, </span><span>3</span><span>, </span><span>queryValue</span><span>, </span><span>"desk_connection"</span><span><span>)</span><span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"timeEntry"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      related list
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"tasks"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      module whose related records are to be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>168XXXXXXXXXXXX043</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the ID of the
+                      parent record
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>1</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the start index
+                      from which the records are to be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>3</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the number of
+                      records to be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>queryValue</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      query parameters
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"orderBy"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the query param
+                      as specified in <a>Zoho Desk API</a>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"desk_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response returned is of the following format. It
+                  represents the values of the records fetched from the
+                  specified submodule (eg, tickets).
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"data": [<br />&nbsp;{<br />&nbsp;"id":
+                  "168XXXXXXXXXXX043",<br />&nbsp;"ticketNumber": "677",<br />&nbsp;"email":
+                  "smith@gmail.com",<br />&nbsp;"phone": "999999999",<br />&nbsp;"subject":
+                  "Ticket subject 1",<br />&nbsp;"status": "Open",<br />&nbsp;"statusType":
+                  "Open",<br />&nbsp;"createdTime":
+                  "2019-01-24T12:48:23.000Z",<br />&nbsp;"priority": null,<br />&nbsp;"channel":
+                  "Phone",<br />&nbsp;"dueDate": "2019-03-21T16:16:16.000Z",<br />&nbsp;"responseDueDate":
+                  null,<br />&nbsp;"commentCount": "1",<br />&nbsp;"threadCount":
+                  "120",<br />&nbsp;"closedTime": null,<br />&nbsp;"onholdTime":
+                  null<br />&nbsp;"departmentId": "168XXXXXXXXXXXX044",<br />&nbsp;"contactId":
+                  "168XXXXXXXXXXXX005",<br />&nbsp;"productId": null,<br />&nbsp;"assigneeId":
+                  "189XXXXXXXXXX001",<br />&nbsp;"teamId":
+                  "892XXXXXXXXXX071",<br />&nbsp;"webUrl":
+                  "https://desk.zoho.com/support/smith/ShowHomePage.do#Cases/dv/bf5c8f5ad85af0491d39fc24ba1e02adafb6719abeecaa48",<br />&nbsp;"lastThread":
+                  null,<br />&nbsp;"customerResponseTime":
+                  "2019-03-24T12:48:22.000Z"<br />&nbsp;}<br />&nbsp;{<br />&nbsp;"id":
+                  "168XXXXXXXXXXXXX043",<br />&nbsp;"ticketNumber": "678",<br />&nbsp;"email":
+                  "zen@gmail.com",<br />&nbsp;"phone": "1111111111",<br />&nbsp;"subject":
+                  "Ticket subject 2",<br />&nbsp;"status": "Closed",<br />&nbsp;"statusType":
+                  "Closed",<br />&nbsp;"createdTime":
+                  "2019-01-24T13:24:19.000Z",<br />&nbsp;"priority": "High",<br />&nbsp;"channel":
+                  "Phone",<br />&nbsp;"dueDate": "2019-03-15T16:16:16.000Z",<br />&nbsp;"responseDueDate":
+                  null,<br />&nbsp;"commentCount": "1",<br />&nbsp;"threadCount":
+                  "121",<br />&nbsp;"closedTime": "2019-01-24T13:24:58.000Z",<br />&nbsp;"onholdTime":
+                  null,<br />&nbsp;"departmentId": "168XXXXXXXXXXXX044",<br />&nbsp;"contactId":
+                  "168XXXXXXXXXXXX005",<br />&nbsp;"productId": null,<br />&nbsp;"assigneeId":
+                  "189XXXXXXXXXX007",<br />&nbsp;"teamId":
+                  ""892XXXXXXXXXX072",<br />&nbsp;"webUrl":
+                  "https://desk.zoho.com/support/zen/ShowHomePage.do#Cases/dv/bf5c8f5XXXXXXXXXXXXXXXXXXXXXXXXXXfb6719abeecaa48",<br />&nbsp;"lastThread":
+                  null,<br />&nbsp;"customerResponseTime":
+                  "2019-03-24T13:24:18.000Z"<br />&nbsp;}<br />&nbsp;]<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned for incorrect or non-existent
+                  organization ID is of the following format.
+                </p>
+                <div>
+                  &nbsp; &nbsp;{<br />&nbsp;
+                  &nbsp;"errorCode":"UNPROCESSABLE_ENTITY",<br />&nbsp;
+                  &nbsp;"message":"The value passed for the 'orgId' parameter is
+                  invalid."<br />&nbsp; &nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned for an incorrect or non-existent
+                  record ID is of the following format.
+                </p>
+                <div>
+                  &nbsp; &nbsp;{<br />&nbsp;
+                  &nbsp;"errorCode":"URL_NOT_FOUND",<br />&nbsp;
+                  &nbsp;"message":"The URL you requested could not be found."<br />&nbsp;
+                  &nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Desk API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

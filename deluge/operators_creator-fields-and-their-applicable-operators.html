@@ -1,0 +1,843 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Operators</a></li>
+        <li><a>Creator fields and their applicable operators</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Creator fields and its applicable operators</h1>
+          <div>
+            <h4>Table of Contents</h4>
+            <ul>
+              <li><a>Arithmetic operators</a></li>
+              <li><a>Relational operators</a></li>
+              <li><a>Logical operators</a></li>
+              <li><a>Related links</a></li>
+            </ul>
+          </div>
+          <h2><a></a>Arithmetic operators:</h2>
+          <p>
+            Used to perform mathematical operations on numerical values and
+            concatenate operations on text values.
+          </p>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <td><strong>Data Type</strong></td>
+                  <td><strong>Field (Operand 1)</strong></td>
+                  <td><strong>Applicable Arithmetic Operators</strong></td>
+                  <td><strong>Applicable Field Types (Operand 2)</strong></td>
+                  <td><strong>Response</strong></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;Text</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Name</li>
+                      <li>Email</li>
+                      <li>Address</li>
+                      <li>Phone</li>
+                      <li>Single Line</li>
+                      <li>Multi Line</li>
+                      <li>Drop Down</li>
+                      <li>Radio</li>
+                      <li>Rich Text</li>
+                      <li>Image</li>
+                      <li>Url</li>
+                      <li>Signature</li>
+                      <li>File Upload</li>
+                      <li>Audio</li>
+                      <li>Video</li>
+                      <li>Users</li>
+                      <li>Integration</li>
+                      <li>Keyword Extraction</li>
+                      <li>Sentiment Analysis</li>
+                      <li>Object Detection</li>
+                      <li>Text Analysis</li>
+                    </ul>
+                  </td>
+                  <td><p>+</p></td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Boolean</span></li>
+                      <li><span>&nbsp;Date-Time</span></li>
+                      <li><span>&nbsp;Decimal</span></li>
+                      <li><span>&nbsp;Number</span></li>
+                      <li><span>&nbsp;Text</span></li>
+                      <li><span>&nbsp;Time</span></li>
+                      <li><span>&nbsp;List</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      When the '+' operator is applied between a text type field
+                      and any applicable type field, the values get
+                      concatenated.
+                    </p>
+                    <p>
+                      <strong>For example:</strong>The following example adds a
+                      single line field that gets the username of an email
+                      address and a dropdown field that lists the supported
+                      domains. Let's assume '<span>shawn13</span>' and
+                      '<span>zylker.com</span>' are the input username and
+                      domain respectively.
+                    </p>
+                    <p>
+                      info username + "@" + domain;&nbsp;&nbsp;<span
+                        >//returns shawn13@zylker.com</span
+                      >
+                    </p>
+                    <div>
+                      <strong>Note:&nbsp;</strong>For <a>File-upload</a>,
+                      <a>Audio</a>, <a>Video</a>, and <a>Signature fields</a>,
+                      the file name will be concatenated to the input text, and
+                      for the <a>Image field</a>, the image HTML content will be
+                      concatenated.
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;Number</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Auto Number</li>
+                      <li>Lookup - Dropdown/Radio</li>
+                      <li>Number</li>
+                    </ul>
+                  </td>
+                  <td><p>+</p></td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Text</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      When the '+' operator is applied between a number type
+                      field and a text type field, the values get concatenated.
+                    </p>
+                    <p>
+                      <strong>For example:</strong> Consider the following
+                      scenario where you need to combine the address number and
+                      street name. The following example adds a number field
+                      with the single line field.
+                    </p>
+                    <p>
+                      Let's assume '<span>101</span>' and '<span
+                        >Elliot Avenue</span
+                      >' are inputs of address number and street.
+                    </p>
+                    <p>
+                      Info Number + ", " + Single_line_field;&nbsp;&nbsp;<span
+                        >// Returns, 101, Elliot Avenue.</span
+                      >
+                    </p>
+                    <div>
+                      <strong>Note:&nbsp;</strong> For the look-up field, the
+                      record IDNumber) will be stored as its value.
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>+</p>
+                    <p>-</p>
+                    <p>/</p>
+                    <p>*</p>
+                    <p>%</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Decimal</span></li>
+                      <li><span>&nbsp;Number</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      Follows the arithmetic rules. Performs mathematical
+                      operations based on the operator used.
+                    </p>
+                    <div>
+                      <strong>Note:&nbsp;</strong>For the lookup field, the
+                      record ID(Number) will be stored as its value. The ID
+                      number will be used for arithmetic operations depending on
+                      the operator used.
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;Boolean</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Decision Box</li>
+                    </ul>
+                  </td>
+                  <td><p>+</p></td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Text</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      When the '+' operator is applied between the decision box
+                      field(true/false) and the text type field, the values will
+                      be concatenated.
+                    </p>
+                    <p>
+                      <strong>For example:</strong> Let us consider a decision
+                      box and a single-line field. Assume the decision box is
+                      '<span>on</span>', and '<span>text</span>' is the input of
+                      the single-line field
+                    </p>
+                    <p>
+                      <span>info decision_box + single_line;&nbsp;&nbsp;</span
+                      ><span>// Returns truetext</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;Decimal</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Percent</li>
+                      <li>Currency</li>
+                    </ul>
+                  </td>
+                  <td><p>+</p></td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Text</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      When the '+' operator is applied between a decimal type
+                      field and a text type field, the values get concatenated.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>+</p>
+                    <p>-</p>
+                    <p>/</p>
+                    <p>*</p>
+                    <p>%</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Decimal</span></li>
+                      <li><span>&nbsp;Number</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      Follows the arithmetic rules. Performs mathematical
+                      operations based on the operator used.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;List</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Checkbox</li>
+                      <li>Lookup-Multiselect/Checkbox</li>
+                      <li>Multiselect</li>
+                    </ul>
+                  </td>
+                  <td><p>+</p></td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Text</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      When the '+' operator is applied between the list type
+                      field and a text type field, the values get concatenated.
+                    </p>
+                    <div>
+                      <strong>Note:&nbsp;</strong> For the Lookup-Multiselect
+                      field, the record ID Number) will be stored as its value
+                      and it will be concatenated with the text value.
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;Date-Time</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Date</li>
+                      <li>Date-Time</li>
+                    </ul>
+                  </td>
+                  <td><p>+</p></td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Text</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      When the '+' operator is applied between the list type
+                      field and a text type field, the values get concatenated.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          &nbsp;
+          <h2><a>Relational operators: </a></h2>
+          <p>
+            They compare two given values and return a boolean value as a
+            response. They are more commonly used in
+            <a>conditional statements.</a>
+          </p>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <td><strong>Data Type</strong></td>
+                  <td><strong>Field (Operand 1)</strong></td>
+                  <td><strong>Applicable Relational Operators</strong></td>
+                  <td><strong>Applicable Field Types (Operand 2)</strong></td>
+                  <td><strong>Notes</strong></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;Text</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Name</li>
+                      <li>Email</li>
+                      <li>Address</li>
+                      <li>Phone</li>
+                      <li>Single Line</li>
+                      <li>Multi Line</li>
+                      <li>Drop Down</li>
+                      <li>Radio</li>
+                      <li>Rich Text</li>
+                      <li>Image</li>
+                      <li>Url</li>
+                      <li>Signature</li>
+                      <li>File Upload</li>
+                      <li>Audio</li>
+                      <li>Video</li>
+                      <li>Users</li>
+                      <li>Integration</li>
+                      <li>Keyword Extraction</li>
+                      <li>Sentiment Analysis</li>
+                      <li>Object Detection</li>
+                      <li>Text Analysis</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>==</p>
+                    <p>!=</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Text</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      In <a>File-upload</a>, <a>Audio</a>, <a>Video</a>, and
+                      <a>Signature fields</a>, the file name will be stored as a
+                      value in the field, and for the <a>Image field</a>, the
+                      image URL will be stored. These file names will be used
+                      for comparison.
+                    </p>
+                    <p>
+                      <strong>For example:</strong> Consider a File_upload
+                      field, the name of the file uploaded in this field is
+                      '<span> File.pdf</span>'. Let's compare this field with a
+                      single line field of value '<span> File.pdf</span>'
+                    </p>
+                    <p>
+                      info file_upload == single_line_field;&nbsp;&nbsp;<span
+                        >//Returns true, as the value in the single line field
+                        and the value of the file upload field, are
+                        matched.</span
+                      >
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;Number</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Auto Number</li>
+                      <li>Lookup - Dropdown/Radio</li>
+                      <li>Number</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>&lt;</p>
+                    <p>&gt;</p>
+                    <p>&lt;=</p>
+                    <p>&gt;=</p>
+                    <p>==</p>
+                    <p>!=</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Decimal</span></li>
+                      <li><span>&nbsp;Number</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      In the look-up field, the record ID (Number) will be
+                      stored, and that ID will be considered as a number for
+                      comparison.
+                    </p>
+                    <p>
+                      <strong>For example:</strong> Consider a lookup field
+                      '<span>Lookup_field</span>' with the value
+                      '<span>12345678910</span>' and a number field
+                      '<span>Number_field</span>' with value '<span>123</span>'.
+                    </p>
+                    <p>On comparing these values,</p>
+                    <p>
+                      info Lookup_field == Number_field ;&nbsp;&nbsp;<span
+                        >// Returns false.</span
+                      >
+                    </p>
+                    <p>
+                      info Lookup_field &gt; Number_field ;&nbsp;&nbsp;<span
+                        >// Returns true</span
+                      >
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;Boolean</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Decision Box</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>==</p>
+                    <p>!=</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Boolean</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>The two boolean field values will be compared.</p>
+                    <p>
+                      <strong>For example:</strong>Consider two boolean fields,
+                      '<span> Decision_box_1</span>' and
+                      '<span>'Decison_box_2</span>' of values,
+                    </p>
+                    <p><span>Decision_box_1</span> in true state</p>
+                    <p><span>Decision_box_2</span> in false state</p>
+                    <p>On comparing these two fields,</p>
+                    <p>
+                      info Decision_box_1 == Decision_box_2;&nbsp;&nbsp;<span
+                        >//Returns false</span
+                      >
+                    </p>
+                    <p>
+                      info Decision_box_1 != Decision_box_2;&nbsp;&nbsp;<span
+                        >// Returns true</span
+                      >
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;Decimal</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Percent</li>
+                      <li>Currency</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>&lt;</p>
+                    <p>&gt;</p>
+                    <p>&lt;=</p>
+                    <p>&gt;=</p>
+                    <p>==</p>
+                    <p>!=</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Decimal</span></li>
+                      <li><span>&nbsp;Number</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      The values in these fields will be considered as numbers
+                      and compared. Depending on the operator used, the boolean
+                      value will be returned.
+                    </p>
+                    <p>
+                      <strong>For example:</strong>Consider Two percentage
+                      fields '<span>Percentage_field_1</span>' and
+                      '<span>Percentage_field_2</span>', of values
+                      <span>60.0</span> and <span>70.0</span>,
+                    </p>
+                    <p>
+                      info Percentage_field_1 &gt; Percentage_field_2
+                      ;&nbsp;&nbsp;<span>// Returns false.</span>
+                    </p>
+                    <p>
+                      info Percentage_field_1 &lt; Percentage_field_2
+                      ;&nbsp;&nbsp;<span>// Returns true.</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;List</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Check Box</li>
+                      <li>Multi Select</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>==</p>
+                    <p>!=</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Text</span></li>
+                      <li><span>&nbsp;List</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      <strong
+                        >Comparing the list with the text data type</strong
+                      >
+                    </p>
+                    <p>
+                      <strong>For example:</strong> Consider a Multi_Select
+                      field '<span>Zoho_Product</span>' and a single_line field
+                      '<span>Keyword</span>' with values,
+                    </p>
+                    <p>Zoho_Products = 'writer', 'sheets', 'crm'</p>
+                    <p>Keyword = 'writer'</p>
+                    <p>Now, let's compare these fields.</p>
+                    <p>
+                      info Zoho_Products == Keyword ;&nbsp;&nbsp;<span
+                        >// Returns true, as the value of
+                        <span>Keyword</span> is listed in
+                        <span>Zoho_Products</span>.</span
+                      >&nbsp;&nbsp;
+                    </p>
+                    <p><strong>Comparing list with list data type</strong></p>
+                    <p>
+                      If a list type field is compared with another list type
+                      field it will be treated as a text.
+                    </p>
+                    <p>
+                      <strong>For example:</strong>Consider a checkbox fields
+                      '<span>Zoho_Products</span>' and '<span>Keyword</span>'
+                      with values,
+                    </p>
+                    <p>Zoho_Products = 'writer', 'sheets', 'crm'</p>
+                    <p>Keyword = 'writer', 'crm', 'sheets'</p>
+                    <p>Now, let's compare,</p>
+                    <p>
+                      info Zoho_Products == Keyword ;&nbsp;
+                      <span
+                        >// Returns false, as they are not in the exact same
+                        order.</span
+                      >
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <ul>
+                      <li>Lookup - Multiselect/Checkbox</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>==</p>
+                    <p>!=</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Number</span></li>
+                      <li><span>&nbsp;List</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      <strong
+                        >Comparing the list with the number data type</strong
+                      >
+                    </p>
+                    <p>
+                      In the look-up field, the record ID(Number) will be stored
+                      as a list and it will be compared.
+                    </p>
+                    &nbsp;
+                    <p>
+                      <strong>For example:</strong>Consider a Look-up
+                      Multi_Select field '<span>Lookup_Multiselect</span>' and a
+                      Number field '<span>Number_field</span>' with values,
+                    </p>
+                    <p>
+                      Lookup_Multiselect = '4359134000000146007',
+                      '4359134000000148007', '4359134000000151005'
+                    </p>
+                    <p>Number_field = '4359134000000148007'</p>
+                    <p>Let's compare</p>
+                    <p>
+                      info Lookup_Multiselect == Number_field ;&nbsp;&nbsp;<span
+                        >// Returns true, as the value of </span
+                      ><span>Number_field</span><span> is in the list of </span
+                      ><span>Lookup_Multiselect</span><span>.</span>
+                    </p>
+                    <p>
+                      <strong
+                        >Comparing the list with the list data type</strong
+                      >
+                    </p>
+                    <p>
+                      On comparing the Lookup-Multiselect field with another
+                      list field, it will be treated as a text.
+                    </p>
+                    <p>
+                      <strong>For example:</strong> Consider two list type
+                      fields '<span>Lookup_Multiselect</span>' and
+                      '<span>Checkbox_field</span>' with values:
+                    </p>
+                    <p>
+                      Lookup_Multiselect = '4359134000000146007'
+                      '4359134000000148007' '4359134000000151005'
+                    </p>
+                    <p>
+                      Checkbox_field ='4359134000000151005'
+                      '4359134000000148007'
+                    </p>
+                    <p>Let's compare,</p>
+                    <p>
+                      info Lookup_Multiselect ==
+                      Checkbox_field;&nbsp;&nbsp;<span
+                        >// Returns false, as they are not in the same
+                        order.</span
+                      >.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;Time</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Time</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>&lt;</p>
+                    <p>&gt;</p>
+                    <p>&lt;=</p>
+                    <p>&gt;=</p>
+                    <p>==</p>
+                    <p>!=</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Date-Time</span></li>
+                      <li><span>&nbsp;Time</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      If a time field is compared with the date-time field, only
+                      the time value from the date-time field will be considered
+                      for comparison.
+                    </p>
+                    <div>
+                      <strong>Note:&nbsp;</strong> A Time field cannot be
+                      compared with a Date field.
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;Date-Time</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Date</li>
+                      <li>Date-Time</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>&lt;</p>
+                    <p>&gt;</p>
+                    <p>&lt;=</p>
+                    <p>&gt;=</p>
+                    <p>==</p>
+                    <p>!=</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Date-Time</span></li>
+                      <li><span>&nbsp;Time</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>
+                      If a date field is compared with the date-time field, only
+                      the date value will be considered for comparison.
+                    </p>
+                    <p>
+                      If a date-time field is compared with the time field, only
+                      the time value will be considered for comparison.
+                    </p>
+                    <div>
+                      <strong>Note:&nbsp;</strong> A Date field cannot be
+                      compared with a Time field.
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2><a>Logical operators:</a></h2>
+          <p>
+            Typically used with multiple conditions in the criteria. Each
+            condition returns a boolean value, and the logical operators used to
+            connect the conditions determine the overall boolean value of the
+            criteria.
+          </p>
+          <p>
+            <strong>For example:</strong> Consider a number field
+            '<span>Experience</span>' which contains the experience of the
+            candidate. Let's set criteria to check whether the candidate has
+            experience between two-to-four years.
+          </p>
+          <div>
+            <pre><span>Experience</span> <span>=</span> <span>3</span><span>;</span>&nbsp;
+<span>Response</span> <span>=</span> <span>(</span><span>Experience</span> <span>&gt;</span> <span>1</span><span>)</span> <span>&amp;&amp;</span> <span>(</span><span>Experience</span> <span>&lt;</span> <span>5</span><span>)</span> <span>;</span>&nbsp;
+<span>//returns true, as the experience of the candidate falls within the criteria.</span>
+</pre>
+          </div>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <td><strong>Data Type</strong></td>
+                  <td><strong>Field (Operand 1)</strong></td>
+                  <td><strong>Applicable Logical Operators</strong></td>
+                  <td><strong>Applicable Field Types (Operand 2)</strong></td>
+                  <td><strong>Response</strong></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <p><span>&nbsp;Boolean</span></p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Decision Box</li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>&amp;&amp;</p>
+                    <p>||</p>
+                    <p>!</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><span>&nbsp;Boolean</span></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <p>Follows <a>boolean laws</a>.</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          &nbsp;
+          <div>
+            <p><strong>Note:&nbsp;</strong></p>
+            <ul>
+              <li>
+                <strong>Prediction</strong> field's data type changes
+                dynamically with respect to the predicted value in the field.
+                For example, if the predicted value is a text, the field behaves
+                like a text type field.
+              </li>
+              <li>
+                <strong>Subform</strong> field is an advanced&nbsp;field type,
+                which&nbsp;contains fields of&nbsp;varied data types. So,&nbsp;a
+                subform field does not take any data&nbsp;type as such. However,
+                we can refer to the fields in the SubForm as
+                <strong>&lt;SubForm_Name&gt;.&lt;SubForm_Field&gt;</strong>.
+              </li>
+              <li>
+                <strong>Section</strong> is not meant to collect data. So, it
+                does not take any data type.
+              </li>
+              <li>
+                <strong>Formula</strong> field can contain expressions which can
+                resolve to any one of decimal, number, text,
+                boolean,&nbsp;date-time or time values. Hence,&nbsp;the
+                resultant expression's data type&nbsp;will be the data type of
+                the formula field.
+              </li>
+            </ul>
+          </div>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>Data Types</a></li>
+            <li><a>Operators</a></li>
+            <li><a>Zoho Creator fields' data types</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

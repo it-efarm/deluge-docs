@@ -1,0 +1,268 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Mail integration tasks</a></li>
+        <li><a>Get folders from Zoho Mail</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get folders from Zoho Mail</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note: </strong>This task is applicable to all Zoho
+              services, except Zoho Creator.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.mail.getFolders</strong> task fetches&nbsp;the
+              list of all the folders from Zoho Mail. This task is based on a
+              Zoho Mail API.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span>=</span><span>zoho</span><span>.mail.getFolders</span><span>(</span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params&nbsp;</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details including the type, name, ID, and ID of
+                            the parent folder of all the folders that will be
+                            fetched from Zoho Mail.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;&nbsp;</p>
+                          <p>&nbsp;</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the link name of the Zoho Mail <a>connection</a>
+                          </p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                The scope&nbsp;required for this task as
+                                mentioned by Zoho Mail&nbsp;API is:
+                                <strong>folders</strong>&nbsp;
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script retrieves all the folders from Zoho Mail:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.mail.getFolders</span><span>(</span><span>"mail_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      details of all the folders fetched from Zoho Mail.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"mail_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;that represents the link name
+                      of the&nbsp;Zoho Mail connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <p>
+              The success response returned will be in the the following format:
+            </p>
+            <div>
+              &nbsp; &nbsp;{<br />&nbsp; &nbsp;"ID":"6012326000000008019",<br />&nbsp;
+              &nbsp;"TYPE":"Inbox",<br />&nbsp; &nbsp;"NAME":"Inbox"<br />&nbsp;
+              &nbsp;"CHILDREN": [<br />&nbsp; &nbsp;{<br />&nbsp; &nbsp;"ID":
+              "094480000000011003",<br />&nbsp; &nbsp;"TYPE": "Inbox",<br />&nbsp;
+              &nbsp;"NAME": "folder1"<br />&nbsp; &nbsp;}<br />&nbsp; &nbsp;]<br />&nbsp;
+              &nbsp;},<br />&nbsp; &nbsp;{<br />&nbsp;
+              &nbsp;"PID":"6729326000000008013",<br />&nbsp;
+              &nbsp;"ID":"6729326000000008015",<br />&nbsp;
+              &nbsp;"TYPE":"Drafts",<br />&nbsp; &nbsp;"NAME":"Drafts"<br />&nbsp;
+              &nbsp;},<br />&nbsp; &nbsp;{<br />&nbsp;
+              &nbsp;"PID":"6729326000000008015",<br />&nbsp;
+              &nbsp;"ID":"6729326000000008017",<br />&nbsp;
+              &nbsp;"TYPE":"Templates",<br />&nbsp; &nbsp;"NAME":"Templates"<br />&nbsp;
+              &nbsp;},<br />&nbsp; &nbsp;{<br />&nbsp;
+              &nbsp;"PID":"6729326000000008017",<br />&nbsp;
+              &nbsp;"ID":"6729326000000008019",<br />&nbsp;
+              &nbsp;"TYPE":"Sent",<br />&nbsp; &nbsp;"NAME":"Sent"<br />&nbsp;
+              &nbsp;},<br />&nbsp; &nbsp;{<br />&nbsp;
+              &nbsp;"PID":"6729326000000008019",<br />&nbsp;
+              &nbsp;"ID":"6729326000000008021",<br />&nbsp;
+              &nbsp;"TYPE":"Spam",<br />&nbsp; &nbsp;"NAME":"Spam"<br />&nbsp;
+              &nbsp;},<br />&nbsp; &nbsp;{<br />&nbsp;
+              &nbsp;"PID":"6729326000000008023",<br />&nbsp;
+              &nbsp;"ID":"6729326000000008025",<br />&nbsp;
+              &nbsp;"TYPE":"Outbox",<br />&nbsp; &nbsp;"NAME":"Outbox"<br />&nbsp;
+              &nbsp;},<br />&nbsp; &nbsp;{<br />&nbsp;
+              &nbsp;"PID":"6729326000000548069",<br />&nbsp;
+              &nbsp;"ID":"6729326000000548027",<br />&nbsp;
+              &nbsp;"TYPE":"Inbox",<br />&nbsp; &nbsp;"NAME":"ZMGroup"<br />&nbsp;
+              &nbsp;},<br />&nbsp; &nbsp;{<br />&nbsp;
+              &nbsp;"PID":"6729326000000548027",<br />&nbsp;
+              &nbsp;"ID":"6729326000000548015",<br />&nbsp;
+              &nbsp;"TYPE":"Inbox",<br />&nbsp; &nbsp;"NAME":"ZMNewsLetter"<br />&nbsp;
+              &nbsp;},<br />&nbsp; &nbsp;{<br />&nbsp;
+              &nbsp;"PID":"6729326000000548015",<br />&nbsp;
+              &nbsp;"ID":"6729326000000548003",<br />&nbsp;
+              &nbsp;"TYPE":"Inbox",<br />&nbsp; &nbsp;"NAME":"ZMNotification"<br />&nbsp;
+              &nbsp;}
+            </div>
+            <a></a> &nbsp; &nbsp;
+            <p>
+              To fetch the IDs of the folders from the success response
+              obtained, execute the following snippet:
+            </p>
+            <div>
+              <pre>&nbsp;<span>for each</span><span> var </span>in<span> &lt;response_variable&gt;</span>
+&nbsp;{
+&nbsp;<span>info </span><span>var</span>.<span>get</span>(<span>"ID"</span>);
+&nbsp;}
+</pre>
+            </div>
+            &nbsp; &nbsp;
+            <p>
+              To fetch the IDs of all the subfolders from the success response
+              obtained, execute the following snippet:
+            </p>
+            <div>
+              <pre>&nbsp;<span>for each</span><span> folder </span>in<span> &lt;response_variable&gt;</span>
+&nbsp;{
+
+&nbsp;<span>//Fetch the list of subfolders of the folder in the current iteration</span>
+&nbsp;<span>subfolders_list </span>=<span> folder</span>.<span>get</span>(<span>"CHILDREN"</span>);
+&nbsp;
+&nbsp;<span>// Check if the subfolders list is not empty</span>
+&nbsp;<span>if</span>(<span>subfolders_list</span>!= <span>null</span>)
+​&nbsp;{
+&nbsp;
+&nbsp;<span>//Iterate through the list of subfolders and fetch their IDs</span>
+&nbsp;<span>for each </span><span>child_folder </span>in <span>subfolders_list</span>
+&nbsp;{
+&nbsp;<span>info</span><span> child_folder</span>.<span>get</span>(<span>"ID"</span>) ;
+&nbsp;}
+&nbsp;
+&nbsp;}
+&nbsp;}
+</pre>
+            </div>
+            &nbsp; &nbsp;
+            <p>
+              To fetch the subfolders IDs of the specified folder from the
+              success response obtained, execute the following snippet:
+            </p>
+            <div>
+              <pre>&nbsp;<span>for each </span><span>folder </span>in<span> &lt;response_variable&gt;</span>
+&nbsp;{
+&nbsp;<span>//Fetch the ID of the current folder in the iteration</span>
+&nbsp;<span>folder_id </span>=<span> folder</span>.<span>get</span>(<span>"ID"</span>) ;
+&nbsp; 
+&nbsp;<span>//Check if the current ID is the required ID</span>
+&nbsp;<span>if</span>(<span>folder_id </span>==<span> &lt;required_folder_id&gt;</span>)
+&nbsp;{
+&nbsp;
+&nbsp;<span>//Fetch the list of subfolders of the current folder in the iteration</span>
+&nbsp;<span>subfolders_list </span>=<span> folder</span>.<span>get</span>(<span>"CHILDREN"</span>);
+
+&nbsp;<span>//Iterate through the list of subfolders and fetch their IDs</span>
+&nbsp;<span>for each </span><span>child_folder </span>in<span> subfolders_list</span>
+&nbsp;{
+&nbsp;<span>info </span><span>child_folder</span>.<span>get</span>(<span>"ID"</span>) ;
+&nbsp;}
+&nbsp;}
+&nbsp;}
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Mail Integration Tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,272 @@
+<div class="help-content-panel">
+  <div>
+    <div><ul></ul></div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get organization from Zoho Billing</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.billing.getOrganizations</strong> task is used to
+              fetch all the organizations associated with your Zoho Billing
+              account. This task is based on the
+              <a>Zoho Billing API - Organization ID</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.billing.getOrganizations</span><span>(</span><span>&lt;</span><span>connection&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details of the organizations that you are part
+                            of.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in
+                                <a>Zoho Billing -&nbsp;Organization ID</a> while
+                                creating the connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following example fetches all the organizations associated
+              with your Zoho Billing account:
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.billing.getOrganizations</span><span>(</span><span>"billing_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      details of the organizations that you are part of.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"billing_connection"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;that represents the link name
+                      of the connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 0,<br />&nbsp;&nbsp;"message":
+                  "success",<br />&nbsp;&nbsp;"organizations": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"isOrgNotSupported":
+                  false,<br />&nbsp;&nbsp;"organization_id": "67XXXXX41",<br />&nbsp;&nbsp;"name":
+                  "Sample",<br />&nbsp;&nbsp;"contact_name": "Shawn",<br />&nbsp;&nbsp;"email":
+                  "shawn@zylker.com",<br />&nbsp;&nbsp;"source": 2,<br />&nbsp;&nbsp;"country":
+                  "India",<br />&nbsp;&nbsp;"country_code": "IN",<br />&nbsp;&nbsp;"org_settings":
+                  true,<br />&nbsp;&nbsp;"is_ziedition": false,<br />&nbsp;&nbsp;"custom_field_type":
+                  2,<br />&nbsp;&nbsp;"is_sku_enabled": true,<br />&nbsp;&nbsp;"zoho_one_org":
+                  "",<br />&nbsp;&nbsp;"zi_zb_edition": 1,<br />&nbsp;&nbsp;"org_created_app_source":
+                  1,<br />&nbsp;&nbsp;"zi_zb_client": 1,<br />&nbsp;&nbsp;"partners_domain":
+                  "",<br />&nbsp;&nbsp;"version": "india",<br />&nbsp;&nbsp;"version_formatted":
+                  "India",<br />&nbsp;&nbsp;"is_search360_enabled": "true",<br />&nbsp;&nbsp;"is_registered_for_composite_scheme":
+                  false,<br />&nbsp;&nbsp;"is_sales_reverse_charge_enabled":
+                  false,<br />&nbsp;&nbsp;"is_export_with_payment_enabled":
+                  false,<br />&nbsp;&nbsp;"state_code": "TN",<br />&nbsp;&nbsp;"is_registered_for_tax":
+                  false,<br />&nbsp;&nbsp;"is_sales_inclusive_tax_enabled":
+                  false,<br />&nbsp;&nbsp;"sales_tax_type": "exclusive",<br />&nbsp;&nbsp;"is_gst_india_version":
+                  false,<br />&nbsp;&nbsp;"is_registered_for_gst": false,<br />&nbsp;&nbsp;"tax_group_enabled":
+                  true,<br />&nbsp;&nbsp;"language_code": "en",<br />&nbsp;&nbsp;"fiscal_year_start_month":
+                  3,<br />&nbsp;&nbsp;"time_zone": "Asia/Calcutta",<br />&nbsp;&nbsp;"field_separator":
+                  "/",<br />&nbsp;&nbsp;"time_zone_formatted": "(GMT 5:30) India
+                  Standard Time (Asia/Calcutta)",<br />&nbsp;&nbsp;"can_change_timezone":
+                  true,<br />&nbsp;&nbsp;"digital_signature_mode": "none",<br />&nbsp;&nbsp;"is_dsign_required":
+                  false,<br />&nbsp;&nbsp;"can_sign_invoice": false,<br />&nbsp;&nbsp;"is_user_dsign_mandatory":
+                  true,<br />&nbsp;&nbsp;"currency_id":
+                  "1649636000000000099",<br />&nbsp;&nbsp;"currency_code":
+                  "INR",<br />&nbsp;&nbsp;"currency_symbol": "\u20b9",<br />&nbsp;&nbsp;"currency_format":
+                  "#,##,##0.00",<br />&nbsp;&nbsp;"price_precision": 2,<br />&nbsp;&nbsp;"org_joined_app_list":
+                  [<br />&nbsp;&nbsp;"books",<br />&nbsp;&nbsp;"inventory"<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"is_tax_registered":
+                  false,<br />&nbsp;&nbsp;"is_international_trade_enabled":
+                  false,<br />&nbsp;&nbsp;"is_designated_zone": false,<br />&nbsp;&nbsp;"isOrgActive":
+                  true,<br />&nbsp;&nbsp;"plan_type": 0,<br />&nbsp;&nbsp;"plan_name":
+                  "FREE",<br />&nbsp;&nbsp;"plan_period": "",<br />&nbsp;&nbsp;"is_org_active":
+                  true,<br />&nbsp;&nbsp;"is_quick_setup_completed": false,<br />&nbsp;&nbsp;"is_trial_period_extended":
+                  false,<br />&nbsp;&nbsp;"is_invoice_pmt_tds_allowed": true,<br />&nbsp;&nbsp;"is_hsn_or_sac_enabled":
+                  false,<br />&nbsp;&nbsp;"mode": "read_only",<br />&nbsp;&nbsp;"org_action":
+                  "join",<br />&nbsp;&nbsp;"AppList": [<br />&nbsp;&nbsp;"books",<br />&nbsp;&nbsp;"inventory"<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"is_default_org":
+                  false<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"isOrgNotSupported":
+                  false,<br />&nbsp;&nbsp;"organization_id": "69XXXXX37",<br />&nbsp;&nbsp;"name":
+                  "Test24",<br />&nbsp;&nbsp;"contact_name": "Shawn",<br />&nbsp;&nbsp;"email":
+                  "shawn@zylker.com",<br />&nbsp;&nbsp;"source": 2,<br />&nbsp;&nbsp;"country":
+                  "India",<br />&nbsp;&nbsp;"country_code": "IN",<br />&nbsp;&nbsp;"org_settings":
+                  true,<br />&nbsp;&nbsp;"is_ziedition": false,<br />&nbsp;&nbsp;"custom_field_type":
+                  2,<br />&nbsp;&nbsp;"is_sku_enabled": false,<br />&nbsp;&nbsp;"zoho_one_org":
+                  "",<br />&nbsp;&nbsp;"zi_zb_edition": 0,<br />&nbsp;&nbsp;"org_created_app_source":
+                  0,<br />&nbsp;&nbsp;"zi_zb_client": 0,<br />&nbsp;&nbsp;"partners_domain":
+                  "",<br />&nbsp;&nbsp;"version": "india",<br />&nbsp;&nbsp;"version_formatted":
+                  "India",<br />&nbsp;&nbsp;"is_search360_enabled": "true",<br />&nbsp;&nbsp;"is_registered_for_composite_scheme":
+                  false,<br />&nbsp;&nbsp;"is_sales_reverse_charge_enabled":
+                  false,<br />&nbsp;&nbsp;"is_export_with_payment_enabled":
+                  false,<br />&nbsp;&nbsp;"state_code": "TN",<br />&nbsp;&nbsp;"is_registered_for_tax":
+                  false,<br />&nbsp;&nbsp;"is_sales_inclusive_tax_enabled":
+                  false,<br />&nbsp;&nbsp;"sales_tax_type": "exclusive",<br />&nbsp;&nbsp;"is_gst_india_version":
+                  false,<br />&nbsp;&nbsp;"is_registered_for_gst": false,<br />&nbsp;&nbsp;"tax_group_enabled":
+                  true,<br />&nbsp;&nbsp;"language_code": "en",<br />&nbsp;&nbsp;"fiscal_year_start_month":
+                  3,<br />&nbsp;&nbsp;"time_zone": "Asia/Calcutta",<br />&nbsp;&nbsp;"field_separator":
+                  "/",<br />&nbsp;&nbsp;"time_zone_formatted": "(GMT 5:30) India
+                  Standard Time (Asia/Calcutta)",<br />&nbsp;&nbsp;"can_change_timezone":
+                  true,<br />&nbsp;&nbsp;"digital_signature_mode": "none",<br />&nbsp;&nbsp;"is_dsign_required":
+                  false,<br />&nbsp;&nbsp;"can_sign_invoice": false,<br />&nbsp;&nbsp;"is_user_dsign_mandatory":
+                  true,<br />&nbsp;&nbsp;"currency_id":
+                  "1923321000000000099",<br />&nbsp;&nbsp;"currency_code":
+                  "INR",<br />&nbsp;&nbsp;"currency_symbol": "\u20b9",<br />&nbsp;&nbsp;"currency_format":
+                  "#,##,##0.00",<br />&nbsp;&nbsp;"price_precision": 2,<br />&nbsp;&nbsp;"org_joined_app_list":
+                  [<br />&nbsp;&nbsp;"invoice"<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"is_designated_zone":
+                  false,<br />&nbsp;&nbsp;"isOrgActive": true,<br />&nbsp;&nbsp;"plan_type":
+                  0,<br />&nbsp;&nbsp;"plan_name": "FREE",<br />&nbsp;&nbsp;"plan_period":
+                  "",<br />&nbsp;&nbsp;"is_org_active": true,<br />&nbsp;&nbsp;"is_quick_setup_completed":
+                  false,<br />&nbsp;&nbsp;"is_trial_period_extended": false,<br />&nbsp;&nbsp;"is_invoice_pmt_tds_allowed":
+                  true,<br />&nbsp;&nbsp;"is_hsn_or_sac_enabled": false,<br />&nbsp;&nbsp;"mode":
+                  "read_only",<br />&nbsp;&nbsp;"org_action": "join",<br />&nbsp;&nbsp;"AppList":
+                  [<br />&nbsp;&nbsp;"invoice"<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"is_default_org":
+                  false<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"isOrgNotSupported":
+                  false,<br />&nbsp;&nbsp;"organization_id": "63XXXXX22",<br />&nbsp;&nbsp;"name":
+                  "Travel India",<br />&nbsp;&nbsp;"contact_name": "Travel
+                  Desk",<br />&nbsp;&nbsp;"email": "donotreply@travel.com",<br />&nbsp;&nbsp;"source":
+                  2,<br />&nbsp;&nbsp;"country": "India",<br />&nbsp;&nbsp;"country_code":
+                  "IN",<br />&nbsp;&nbsp;"org_settings": true,<br />&nbsp;&nbsp;"is_ziedition":
+                  false,<br />&nbsp;&nbsp;"custom_field_type": 2,<br />&nbsp;&nbsp;"is_sku_enabled":
+                  true,<br />&nbsp;&nbsp;"zoho_one_org": "",<br />&nbsp;&nbsp;"zi_zb_edition":
+                  1,<br />&nbsp;&nbsp;"org_created_app_source": 3,<br />&nbsp;&nbsp;"zi_zb_client":
+                  1,<br />&nbsp;&nbsp;"partners_domain": "null",<br />&nbsp;&nbsp;"version":
+                  "india",<br />&nbsp;&nbsp;"version_formatted": "India",<br />&nbsp;&nbsp;"is_search360_enabled":
+                  "true",<br />&nbsp;&nbsp;"is_registered_for_composite_scheme":
+                  false,<br />&nbsp;&nbsp;"is_sales_reverse_charge_enabled":
+                  false,<br />&nbsp;&nbsp;"is_export_with_payment_enabled":
+                  false,<br />&nbsp;&nbsp;"state_code": "TN",<br />&nbsp;&nbsp;"is_registered_for_tax":
+                  false,<br />&nbsp;&nbsp;"is_sales_inclusive_tax_enabled":
+                  false,<br />&nbsp;&nbsp;"sales_tax_type": "exclusive",<br />&nbsp;&nbsp;"is_gst_india_version":
+                  false,<br />&nbsp;&nbsp;"is_registered_for_gst": false,<br />&nbsp;&nbsp;"tax_group_enabled":
+                  true,<br />&nbsp;&nbsp;"language_code": "en",<br />&nbsp;&nbsp;"fiscal_year_start_month":
+                  3,<br />&nbsp;&nbsp;"time_zone": "Asia/Calcutta",<br />&nbsp;&nbsp;"field_separator":
+                  "-",<br />&nbsp;&nbsp;"time_zone_formatted": "(GMT 5:30) India
+                  Standard Time (Asia/Calcutta)",<br />&nbsp;&nbsp;"can_change_timezone":
+                  true,<br />&nbsp;&nbsp;"digital_signature_mode": "none",<br />&nbsp;&nbsp;"is_dsign_required":
+                  false,<br />&nbsp;&nbsp;"can_sign_invoice": false,<br />&nbsp;&nbsp;"is_user_dsign_mandatory":
+                  true,<br />&nbsp;&nbsp;"currency_id": "420519000000000099",<br />&nbsp;&nbsp;"currency_code":
+                  "INR",<br />&nbsp;&nbsp;"currency_symbol": "Rs.",<br />&nbsp;&nbsp;"currency_format":
+                  "#,##,##0.00",<br />&nbsp;&nbsp;"price_precision": 2,<br />&nbsp;&nbsp;"org_joined_app_list":
+                  [<br />&nbsp;&nbsp;"books",<br />&nbsp;&nbsp;"expense",<br />&nbsp;&nbsp;"financeplus"<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"is_tax_registered":
+                  false,<br />&nbsp;&nbsp;"is_international_trade_enabled":
+                  false,<br />&nbsp;&nbsp;"is_designated_zone": false,<br />&nbsp;&nbsp;"isOrgActive":
+                  true,<br />&nbsp;&nbsp;"plan_type": 0,<br />&nbsp;&nbsp;"plan_name":
+                  "FREE",<br />&nbsp;&nbsp;"plan_period": "",<br />&nbsp;&nbsp;"is_org_active":
+                  true,<br />&nbsp;&nbsp;"is_quick_setup_completed": false,<br />&nbsp;&nbsp;"is_trial_period_extended":
+                  false,<br />&nbsp;&nbsp;"is_invoice_pmt_tds_allowed": true,<br />&nbsp;&nbsp;"is_hsn_or_sac_enabled":
+                  true,<br />&nbsp;&nbsp;"mode": "read_only",<br />&nbsp;&nbsp;"org_action":
+                  "no_access",<br />&nbsp;&nbsp;"AppList": [<br />&nbsp;&nbsp;"expense"<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"is_default_org":
+                  false<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <a></a>
+            <p>
+              To get the ID of the organizations, execute the following script:
+            </p>
+            <div>
+              <pre><span>organizations_details</span><span> = </span><span>response.</span><span>get</span><span>(</span><span>"organizations"</span><span>)</span><span>;</span>
+<span>for each</span><span> org </span><span>in </span><span>organizations_details</span>
+<span>{</span>
+<span>info</span><span> org.</span><span>get</span><span>(</span><span>"organization_id"</span><span>)</span> <span>;</span>
+<span>}</span></pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Billing Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+              <li><a>Zoho Billing -&nbsp;Organization ID API</a></li>
+              <li><a>Zoho Billing - Possible error codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

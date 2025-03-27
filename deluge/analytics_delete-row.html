@@ -1,0 +1,244 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Analytics integration tasks</a></li>
+        <li><a>Delete a row</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Delete&nbsp;rows in Zoho Analytics</h1>
+          <div>
+            <div>
+              <h4>
+                Table of Contents<span><span>Up</span></span>
+              </h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to delete&nbsp;rows in a table in Zoho
+              Analytics. The rows are deleted based on the given criteria.
+            </p>
+            <p>
+              This integration task is based on the Zoho Analytics
+              API&nbsp;-&nbsp;<a>Delete Row</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.reports.deleteRow</span><span>(</span><span>&lt;</span><span>database_name</span><span>&gt;</span>, <span>&lt;</span><span>table_name</span><span>&gt;</span>, <span>&lt;criteria</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Params</strong>&nbsp;</td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;variable&gt;&nbsp;</p></td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>
+                        is the variable that will hold the&nbsp;response
+                        returned by Zoho Analytics.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;database_name&gt;&nbsp;</p></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        is the name of the database in which the table rows will
+                        be deleted.&nbsp;
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;table_name&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      is the name of the table in which rows will be deleted.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;criteria&gt;</p></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>Criteria based on which rows will be deleted.</p>
+                      <p>
+                        The criteria must be in the format:&nbsp;<strong
+                          >"&lt;column_name&gt; &lt;operator&gt;
+                          '&lt;value&gt;'"</strong
+                        >
+                      </p>
+                      <p>Following is the list of supported operators:</p>
+                      <div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>=</td>
+                              <td>!=</td>
+                              <td>&lt;</td>
+                              <td>&gt;</td>
+                            </tr>
+                            <tr>
+                              <td>&lt;=</td>
+                              <td>&gt;=</td>
+                              <td>LIKE</td>
+                              <td>NOT LIKE</td>
+                            </tr>
+                            <tr>
+                              <td>IN</td>
+                              <td>NOT IN</td>
+                              <td>
+                                <p>
+                                  BETWEEN (to be used as: "<strong
+                                    >BETWEEN '&lt;value1&gt;' AND
+                                    '&lt;value2&gt;'"</strong
+                                  >)
+                                </p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;connection&gt;</p></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        specifies the name of the Zoho
+                        Analytics&nbsp;<a>connection</a>.
+                      </p>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of&nbsp;<a
+                              >stopping new authtoken generation</a
+                            >,&nbsp;a Zoho OAuth connection with appropriate
+                            scopes is mandatory&nbsp;for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter unless the authtoken is manually
+                            deleted&nbsp;from&nbsp;<a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes mentioned in&nbsp;<a
+                              >Zoho Analytics&nbsp;API document</a
+                            >&nbsp;while creating the connection.
+                          </li>
+                          <li>
+                            Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                            list of Zoho services that support the connections
+                            page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example: Delete&nbsp;rows in Zoho Analytics</h2>
+            <p>
+              The following sample snippet deletes&nbsp;rows that meet the
+              specified criteria.
+            </p>
+            <div>
+              <span
+                >mapResponse = zoho.reports.deleteRow("Website", "Search
+                Analytics", "name='John'", "analytics_connection" );
+              </span>
+            </div>
+            <p><span>where,</span></p>
+            <div><table></table></div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span><strong>Param</strong></span>
+                    </td>
+                    <td>
+                      <span><strong>Explanation</strong></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>mapResponse</td>
+                    <td>variable that holds the returned response.</td>
+                  </tr>
+                  <tr>
+                    <td>"Website"</td>
+                    <td>is the Database name in Zoho Analytics</td>
+                  </tr>
+                  <tr>
+                    <td>"Search Analytics"</td>
+                    <td>is the table name in Zoho Analytics</td>
+                  </tr>
+                  <tr>
+                    <td>"name"</td>
+                    <td>is a column name in Zoho Analytics</td>
+                  </tr>
+                  <tr>
+                    <td>=</td>
+                    <td>refers to the operator.</td>
+                  </tr>
+                  <tr>
+                    <td>'John'</td>
+                    <td>
+                      <p>is the required column value.</p>
+                      <p>
+                        All "name" columns having John as the value will be
+                        deleted.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>"analytics_connection"</td>
+                    <td>is the connection link name</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p>
+              <span
+                >The following is a sample&nbsp;<strong>success</strong>
+                response:</span
+              >
+            </p>
+            <div>
+              {&nbsp;&nbsp;<br />&nbsp; &nbsp;"message":"Deleted Rows"<br />}​​
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Analytics API</a>&nbsp;</li>
+              <li>Common error codes can be viewed&nbsp;<a>here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div></div>
+</div>

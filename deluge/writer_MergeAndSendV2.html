@@ -1,0 +1,669 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Merge and send V2</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Merge And Send V2</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Usecase</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+              <div>
+                <p>Note: Applicable to all services except Zoho Creator</p>
+              </div>
+              <h2><a></a>Description</h2>
+              <p>
+                The <strong>zoho.writer.v2.mergeAndSend</strong> task merges
+                your document and sends it via email. The merged documents can
+                be sent inline (in the body of an email) or as an attachment to
+                the email. This task is based on the Zoho Writer
+                <a>Merge and Email API</a>.
+              </p>
+              <div>
+                <p>
+                  Note: To use this API for CRM and People templates you need to
+                  add the following scopes and include the id in the
+                  merge_data.<br />CRM: ZohoCRM.settings.emails.ALL<br />People:
+                  zohopeople.automation.ALL
+                </p>
+                <p>Sample merge data:</p>
+                <p>
+                  merge_data = {data: [{"name": "Amelia", "email":
+                  "amelia@zylker.com", "id": "1234567789"}]}
+                </p>
+                <ul>
+                  <li>
+                    To use the 'from address alias' of Zoho Mail service as
+                    'from address' for this API, you need to include
+                    VirtualOffice.settings.ALL scope as well.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre>
+ &lt;response&gt; = zoho.writer.v2.mergeAndSend(&lt;document_id&gt;, &lt;merge_detail&gt;, &lt;output_settings&gt;, &lt;optional_settings&gt;,  &lt;connection&gt;)</pre
+              >
+            </div>
+          </div>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>Params</strong></td>
+                  <td><strong>Data type</strong></td>
+                  <td><strong>Description</strong></td>
+                </tr>
+                <tr>
+                  <td>&lt;response&gt;</td>
+                  <td>KEY-VALUE</td>
+                  <td>
+                    The response returned by Zoho Writer. It provides the merged
+                    document's details, such as the merge data and the status of
+                    the merge.
+                  </td>
+                </tr>
+                <tr>
+                  <td>&lt;document_id&gt;</td>
+                  <td>TEXT</td>
+                  <td>
+                    The ID of the document to be merged and sent as an email.<br />The
+                    document ID can be obtained from the URL of the document
+                    that needs to be merged and sent as an email. The URL is
+                    formatted as follows:<br />https://writer.zoho.com/writer/open/&lt;document_id&gt;
+                  </td>
+                </tr>
+                <tr>
+                  <td>&lt;merge_detail&gt;</td>
+                  <td>KEY-VALUE</td>
+                  <td>
+                    Specify how your input for the merge will be. It can be a
+                    JSON, CSV file, or a URL.
+                  </td>
+                </tr>
+                <tr>
+                  <td>&lt;output_settings&gt;</td>
+                  <td>KEY-VALUE</td>
+                  <td>
+                    The output parameters you can send to merge and send as an
+                    email according to your preference.
+                  </td>
+                </tr>
+                <tr>
+                  <td>&lt;option_settings&gt;</td>
+                  <td>KEY-VALUE</td>
+                  <td>
+                    The optional parameters you can send to merge and send as an
+                    email according to your preference.
+                  </td>
+                </tr>
+                <tr>
+                  <td>&lt;connection&gt;</td>
+                  <td>TEXT</td>
+                  <td>
+                    <p>The <a>connection's</a> link name.</p>
+                    <p>Note:</p>
+                    <ul>
+                      <li>
+                        To prevent new AuthToken generation and ensure new
+                        integration tasks (tasks created after the deadline
+                        specified in the post) work as expected, a Zoho OAuth
+                        connection with appropriate scopes is mandatory.
+                        Existing integration tasks will continue to work, with
+                        or without the connections parameter, until you manually
+                        delete the AuthToken from Zoho Accounts.
+                      </li>
+                      <li>
+                        Add relevant scopes from the Zoho Writer API when
+                        creating the connection
+                      </li>
+                      <li>
+                        Refer to this post for a list of Zoho services that
+                        support the Connections page.
+                      </li>
+                      <li>Learn more about connections</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p>
+          You can provide the &lt;<strong>merge_detail</strong>&gt; in any one
+          of the following formats:
+        </p>
+        <p>&nbsp;</p>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Key</strong></p>
+                </td>
+                <td>
+                  <p><strong>Value</strong></p>
+                </td>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>merge_data</p></td>
+                <td><p>JSONObject</p></td>
+                <td>
+                  <p>
+                    Pass a string value through the data key as a JSON Array.
+                  </p>
+                  <p>&nbsp;</p>
+                  <p>Sample json:</p>
+                  <p><br />{</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;"data": [</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"First_Name":
+                    "Amelia",
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Email":
+                    "amelia@zylker.com",
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Phone":
+                    9876543210,
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Address":
+                    "132, My Street,\nKingston,\nNew York 12401.",
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Invoices":
+                    [
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Invoices.Invoice_Number":
+                    "10001",
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Invoices.Date":
+                    "07/10/2024"
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Products":
+                    [
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Products.Product_Code":
+                    "129548",
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Products.Product_Image":
+                    "&lt;Publicly downloadable image url&gt;",
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Products.Item_Quantity":
+                    2,
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Products.Item_Price":
+                    "$ 10"
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+                  </p>
+                  <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]
+                  </p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+                  <p>]</p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>merge_data_csv_content</p></td>
+                <td><p>File</p></td>
+                <td>
+                  <p>
+                    Provide the required CSV content in your API request body.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>merge_data_json_content</p></td>
+                <td><p>File</p></td>
+                <td>
+                  <p>
+                    Provide the required JSON content in your API request body.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>merge_data_csv_url</p></td>
+                <td><p>URL</p></td>
+                <td>
+                  <p>Provide the required CSV URL in your API request body.</p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>merge_data_json_url</p></td>
+                <td><p>URL</p></td>
+                <td>
+                  <p>Provide the required JSON URL in your API request body.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>Output_settings</p>
+        <p>&nbsp;</p>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Parameter</strong></p>
+                </td>
+                <td>
+                  <p><strong>Type</strong></p>
+                </td>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>output_format</p></td>
+                <td><p>string</p></td>
+                <td>
+                  <p>
+                    Specify the format in which the merged document needs to be
+                    attached and sent.
+                  </p>
+                  <p>&nbsp;</p>
+                  <p>
+                    Supported formats include&nbsp;PDF, PDFFORM,&nbsp;and
+                    DOCX.&nbsp;<br /><br />&nbsp;
+                  </p>
+                  <p>&nbsp;</p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>subject</p></td>
+                <td><p>string</p></td>
+                <td>
+                  <p>Specify a subject for the email.</p>
+                  <p>&nbsp;</p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>message</p></td>
+                <td><p>string</p></td>
+                <td>
+                  <p>
+                    Specify a message related to the attachment in the email.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>recipient_email</p></td>
+                <td><p>String</p></td>
+                <td>
+                  <p>Specify the receiver's email address.</p>
+                  <p>&nbsp;</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&lt;optional_settings&gt;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <p><strong>Parameter</strong></p>
+                </td>
+                <td>
+                  <p><strong>Data type</strong></p>
+                </td>
+                <td>
+                  <p><strong>Description</strong></p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>cc_email</p></td>
+                <td><p>String</p></td>
+                <td>
+                  <p>
+                    Specify the CC email addresses' (maximum of 10) separated by
+                    comma.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>bcc_email</p></td>
+                <td><p>String</p></td>
+                <td>
+                  <p>
+                    Specify the BCC email addresses' (maximum of 10) separated
+                    by comma.
+                  </p>
+                  <p>&nbsp;</p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>password</p></td>
+                <td><p>String</p></td>
+                <td>
+                  <p>
+                    Specify a password if you would like to protect the merged
+                    document.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>attachment_name</p></td>
+                <td><p>String</p></td>
+                <td>
+                  <p>
+                    Specify a name (without the file format) for the merged
+                    document (PDF or DOCX) to be sent as an email attachment.
+                  </p>
+                  <p>&nbsp;</p>
+                  <p>
+                    For example: "attachment_name = test" (extension will be
+                    automatically added according to the attached file format)
+                  </p>
+                  <p>&nbsp;</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>from_email</p>
+                  <p>&nbsp;</p>
+                </td>
+                <td><p>String</p></td>
+                <td>
+                  <p>
+                    Specify the from email address used to send the merged
+                    document.
+                  </p>
+                  <p>&nbsp;</p>
+                  <p>
+                    If the 'from_email' parameter is not passed (OR) the 'from
+                    address' is not configured in the template's mail merge
+                    settings, then the current user's email address will be
+                    used.
+                  </p>
+                  <p>&nbsp;</p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>common_attachments</p></td>
+                <td>
+                  <p>File</p>
+                  <p>&nbsp;</p>
+                </td>
+                <td>
+                  <p>
+                    Specify the attachments that need to be sent to all the
+                    recipients in common.
+                  </p>
+                  <p>&nbsp;</p>
+                  <p>Maximum files allowed: 3</p>
+                  <p>Maximum file size allowed: 3MB</p>
+                  <p>Supported file formats:</p>
+                  <p>
+                    DOCX /DOC /RTF / PDF / ZIP/ HTML/ TXT/ PNG / JPEG/ GIF/ JPG
+                  </p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>unique_attachments</p>
+                  <p>&nbsp;</p>
+                </td>
+                <td>
+                  <p>
+                    {<br />&nbsp;&nbsp;"type": "field",<br />&nbsp;&nbsp;"field_id":
+                    &lt;field_id&gt;<br />}
+                  </p>
+                  <p>(OR)</p>
+                  <p>
+                    {<br />&nbsp;&nbsp;&nbsp;"type": "file",<br />&nbsp;&nbsp;&nbsp;"folder_id":123456789,<br />&nbsp;&nbsp;&nbsp;"filename_filter":<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"startswith/contains/is/endswith",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"value":
+                    &lt;field_id&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />}
+                  </p>
+                  <p>&nbsp;</p>
+                </td>
+                <td>
+                  <p>
+                    Using this param, you can send a different or unique
+                    attachment to each recipient.
+                  </p>
+                  <p>&nbsp;</p>
+                  <p>It can be sent in either of the following ways:</p>
+                  <p>&nbsp;</p>
+                  <p>
+                    1. Field Containing Attachment URLs: If you want to map the
+                    attachment file paths to a spreadsheet/CSV file.
+                  </p>
+                  <p>&nbsp;</p>
+                  <p>(OR)</p>
+                  <p>&nbsp;</p>
+                  <p>
+                    2. Folder Containing Attachments: If you want to map the
+                    attachment file paths to a particular WorkDrive folder.
+                  </p>
+                  <p>&nbsp;</p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>from_name</p></td>
+                <td><p>String</p></td>
+                <td>
+                  <p>
+                    Specify the display name for your from address. If this
+                    param is not passed, the display name of your Zoho email
+                    account will be used.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>replyto_email</p></td>
+                <td><p>String</p></td>
+                <td>
+                  <p>
+                    Specify the 'Reply to' email addresses to which you want the
+                    recipient's response email to be sent.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>sign_service_name</p></td>
+                <td><p>String</p></td>
+                <td>
+                  <p>
+                    This param needs to be configured when you would like to
+                    upload the merged document with signer fields to a third
+                    party sign service.
+                  </p>
+                  <p>&nbsp;</p>
+                  <p>Possible values: adobesign and docusign</p>
+                  <p>&nbsp;</p>
+                  <p>
+                    Note: This param can be used only when the 'output_format'
+                    param value is configured as PDF.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>test_mode</p></td>
+                <td><p>Boolean (true/false)</p></td>
+                <td>
+                  <p>
+                    Using this param, you can test the Merge APIs without
+                    consuming any credit points. The output file will contain a
+                    watermark, as it is used only for testing purposes.
+                  </p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                  <p>&nbsp;</p>
+                  <p>Test mode limit: 50 merges/day for an org.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h2><a></a>4. Examples</h2>
+        <p>
+          The following script merges a document and sends it in an email to a
+          user.
+        </p>
+        <div>
+          <pre><span>document_id</span> <span>=</span> <span>"rrxzk387b5db17dd343f5335cd440"</span><span>;</span>
+<span>CustomerInfo</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>CustomerInfo</span><span>.put</span><span>(</span><span>"First_Name"</span><span>,</span> <span>"Amelia"</span><span>)</span><span>;</span>
+<span>CustomerInfo</span><span>.put</span><span>(</span><span>"Email"</span><span>,</span> <span>"amelia@zylker.com"</span><span>)</span><span>;</span>
+<span>CustomerInfo</span><span>.put</span><span>(</span><span>"Phone"</span><span>,</span> <span>9876543210</span><span>)</span><span>;</span>
+<span>CustomerInfo</span><span>.put</span><span>(</span><span>"Address"</span><span>,</span> <span>"132, My Street,\nKingston,\nNew York 12401."</span><span>)</span><span>;</span>
+<span>invoicesList</span> <span>=</span> <span>List</span><span>()</span><span>;</span>
+<span>invoiceDetails</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>invoiceDetails</span><span>.put</span><span>(</span><span>"Invoices.Invoice_Number"</span><span>,</span> <span>"10001"</span><span>)</span><span>;</span>
+<span>invoiceDetails</span><span>.put</span><span>(</span><span>"Invoices.Date"</span><span>,</span> <span>"07/10/2024"</span><span>)</span><span>;</span>
+<span>invoicesList.add</span><span>(</span><span>invoiceDetails</span><span>)</span><span>;</span>
+<span>CustomerInfo</span><span>.put</span><span>(</span><span>"Invoices"</span><span>,</span> <span>invoicesList</span><span>)</span><span>;</span>
+<span>productList</span> <span>=</span> <span>list</span><span>()</span><span>;</span>
+<span>productDetails</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>productDetails</span><span>.put</span><span>(</span><span>"Products.Product_Code"</span><span>,</span> <span>"129548"</span><span>)</span><span>;</span>
+<span>productDetails</span><span>.put</span><span>(</span><span>"Products.Product_Image"</span><span>,</span> <span>&lt;</span><span>Publicly</span> <span>downloadable</span> <span>image</span> <span>url</span><span>&gt;</span><span>)</span><span>;</span>
+<span>productDetails</span><span>.put</span><span>(</span><span>"Products.Item_Quantity"</span><span>,</span> <span>2</span><span>)</span><span>;</span>
+<span>productDetails</span><span>.put</span><span>(</span><span>"Products.Item_Price"</span><span>,</span> <span>"$ 10"</span><span>)</span><span>;</span>
+<span>CustomerInfo</span><span>.put</span><span>(</span><span>"Products"</span><span>,</span> <span>productList</span><span>)</span><span>;</span>
+<span>merge_detail</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>merge_detail</span><span>.put</span><span>(</span><span>"merge_data"</span><span>,</span><span>{</span><span>"data"</span><span>:</span><span>CustomerInfo</span><span>})</span><span>;</span>
+<span>output_settings</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>output_settings</span><span>.put</span><span>(</span><span>"output_format"</span><span>,</span><span>"pdf"</span><span>)</span><span>;</span>
+<span>output_settings</span><span>.put</span><span>(</span><span>"subject"</span><span>,</span><span>"Invoice Details"</span><span>)</span><span>;</span>
+<span>output_settings</span><span>.put</span><span>(</span><span>"message"</span><span>,</span><span>"Please find your invoice attached."</span><span>)</span><span>;</span>
+<span>output_settings</span><span>.put</span><span>(</span><span>"recipient_email"</span><span>,</span><span>"amelia@zylker.com"</span><span>)</span><span>;</span>
+<span>downloadFile</span> <span>=</span> <span>invokeurl</span>
+<span>[</span>
+<span>url</span> <span>:</span><span>"&lt;https://example.com/download/publicdocument&gt;"</span>
+<span>type</span> <span>:</span><span>GET</span>
+<span>]</span><span>;</span>
+<span>downloadFile1</span> <span>=</span> <span>invokeurl</span>
+<span>[</span>
+<span>url</span> <span>:</span><span>"&lt;https://example.com/download/publicdocument&gt;"</span>
+<span>type</span> <span>:</span><span>GET</span>
+<span>]</span><span>;</span>
+<span>optional_settings</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>optional_settings</span><span>.put</span><span>(</span><span>"password"</span><span>,</span><span>"12345"</span><span>)</span><span>;</span>
+<span>optional_settings</span><span>.put</span><span>(</span><span>"attachment_name"</span><span>,</span><span>"attachmenttesting"</span><span>)</span><span>;</span>
+<span>optional_settings</span><span>.put</span><span>(</span><span>"common_attachments"</span><span>,</span><span>{</span><span>downloadFile</span><span>,</span><span>downloadFile1</span><span>})</span><span>;</span>                <br><span>response</span> <span>=</span> <span>zoho.writer.v2.mergeAndSend</span><span>(</span><span>document_id</span><span>,</span><span>merge_detail</span><span>,</span><span>output_settings</span><span>,</span><span>optional_settings</span><span>,</span><span>"writer_connection"</span><span>)</span><span>;</span>
+<span>info</span> <span>response</span><span>;</span></pre>
+        </div>
+        <h2><a></a>5. Use case</h2>
+        <p>
+          Scenario: Say the HR team is generating offer letters for employees in
+          Zoho People who need to be onboarded with your organization. The team
+          inputs each employee's name, designation, salary, and work mode, then
+          sends it as an email attachment to the employees with the help of a
+          custom function.
+        </p>
+        <div>
+          <pre><span>records</span> <span>=</span> <span>zoho.people.getRecordByID</span><span>(</span><span>"Candidate"</span><span>,</span><span>peopleID</span><span>)</span><span>;</span>
+<span>document_id</span> <span>=</span> <span>"34ulekd9w3403klwori093wjlwer34fl32er"</span>
+<span>merge_detail</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>merge_detail</span><span>.put</span><span>(</span><span>"215519000000255007_215519000000255051"</span><span>,</span><span>records</span><span>.get</span><span>(</span><span>"First_Name"</span><span>))</span><span>;</span>
+<span>merge_detail</span><span>.put</span><span>(</span><span>"215519000000255007_215519000001098655"</span><span>,</span><span>records</span><span>.get</span><span>(</span><span>"Posting_Title"</span><span>))</span><span>;</span>
+<span>merge_detail</span><span>.put</span><span>(</span><span>"215519000000255007_215519000001098721"</span><span>,</span><span>records</span><span>.get</span><span>(</span><span>"Job_Posting_Location"</span><span>))</span><span>;</span>
+<span>merge_detail</span><span>.put</span><span>(</span><span>"215519000000255007_215519000001098637"</span><span>,</span><span>records</span><span>.get</span><span>(</span><span>"Date_of_Joining"</span><span>))</span><span>;</span>
+<span>merge_detail</span><span>.put</span><span>(</span><span>"215519000000255007_215519000000451001"</span><span>,</span><span>records</span><span>.get</span><span>(</span><span>"Tentative_Joining_Date"</span><span>))</span><span>;</span>
+<span>merge_detail</span><span>.put</span><span>(</span><span>"Id"</span><span>,</span><span>peopleID</span><span>)</span><span>;</span>
+<span>data_map</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>data_map</span><span>.put</span><span>(</span><span>"data"</span><span>,</span><span>merge_detail</span><span>)</span><span>;</span>
+<span>merge_data</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>merge_data</span><span>.put</span><span>(</span><span>"merge_data"</span><span>,</span><span>data_map</span><span>)</span><span>;</span>
+<span>output_settings</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>output_settings</span><span>.put</span><span>(</span><span>"output_format"</span><span>,</span><span>"pdf"</span><span>)</span><span>;</span>
+<span>output_settings</span><span>.put</span><span>(</span><span>"subject"</span><span>,</span><span>""</span><span>)</span><span>;</span>
+<span>output_settings</span><span>.put</span><span>(</span><span>"message"</span><span>,</span><span>"Kindly read all the details in the properly..."</span><span>)</span><span>;</span>
+<span>output_settings</span><span>.put</span><span>(</span><span>"recipient_email"</span><span>,</span><span>records</span><span>.get</span><span>(</span><span>"Email_ID"</span><span>))</span><span>;</span>
+<span>optional_settings</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>optional_settings</span><span>.put</span><span>(</span><span>"password"</span><span>,</span><span>"12345"</span><span>)</span><span>;</span>
+<span>optional_settings</span><span>.put</span><span>(</span><span>"attachment_name"</span><span>,</span><span>"attachmenttesting"</span><span>)</span><span>;</span>
+<span>response</span> <span>=</span> <span>zoho.writer.v2.mergeAndSend</span><span>(</span><span>document_id</span><span>,</span><span>merge_detail</span><span>,</span><span>output_settings</span><span>,</span><span>optional_settings</span><span>,</span><span>"writer_connection"</span><span>)</span><span>;</span>
+<span>info</span> <span>response</span><span>;</span></pre>
+        </div>
+        <h2><a></a>Response Format &nbsp; &nbsp;</h2>
+      </div>
+      <p>Success Response: &nbsp; &nbsp;</p>
+      <p>
+        The success response will be returned in the following format: &nbsp;
+        &nbsp;
+      </p>
+      <div>
+        <p>
+          {<br />"merge_report_data_url":
+          "http://writer.zoho.com/writer/api/v1/merge/job/fbsa6360a78f53f564dfa9b4a1e79febed569/data",<br />"merge_report_url":
+          "http://writer.zoho.com/writer/v1/mailmerge/job/fbsa6360a78f53f564dfa9b4a1e79febed569",<br />"records":
+          [<br />{<br />"InvoiceNo": "12345",<br />"InvoiceDate": "27 May
+          2022",<br />"InvoiceAmount": "$100",<br />"download_link": "{url}",<br />"status":
+          "inprogress"<br />}<br />],<br />} &nbsp; &nbsp; &nbsp; &nbsp;
+        </p>
+      </div>
+      <h2><a></a>Related Links &nbsp; &nbsp;</h2>
+      <ul>
+        <li>
+          <a>Zoho Writer integration tasks</a> &nbsp; &nbsp; &nbsp; &nbsp;
+        </li>
+        <li><a>Connections</a> &nbsp; &nbsp; &nbsp; &nbsp;</li>
+        <li>
+          <a>Zoho Writer: Merge and Email API document</a> &nbsp; &nbsp; &nbsp;
+          &nbsp;
+        </li>
+        <li>
+          <a>Zoho Writer API: Possible error responses</a><br />&nbsp; &nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

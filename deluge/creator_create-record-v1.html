@@ -1,0 +1,316 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Creator V1 Integration tasks</a></li>
+        <li><a>Create record in Zoho Creator - V1 task</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create Record</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong> The Creator V1 integration tasks are
+              deprecated and will work until Creator V1 APIs reach their end of
+              life on <strong>February 3rd, 2021</strong>. Click <a>here</a> for
+              Zoho Creator V2 integration tasks.
+            </div>
+            <p><a> </a></p>
+            <h2>Overview</h2>
+            <p>This task is used to create a record in Zoho Creator.</p>
+            <p><a> </a></p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span>= </span><span>zoho</span><span>.creator</span><span>.v1.createRecord</span><span>(</span><span>&lt;</span><span>ownerName</span><span>&gt;</span><span>, </span><span>&lt;</span><span>appLinkName</span><span>&gt;</span><span>, </span><span>&lt;</span><span>formLinkName</span><span>&gt;</span><span>, </span><span>&lt;</span><span>dataMap</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connectionlinkName</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data Type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Variable which will hold&nbsp;the returned response.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;ownerName&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is&nbsp;the name of the owner of the app in which
+                            the record will be created.
+                          </p>
+                          <p>
+                            Name of the app owner is present in the url while
+                            editing the&nbsp;app:&nbsp;<u
+                              >creator.zoho.com/appbuilder/<strong
+                                >&lt;appOwner&gt;</strong
+                              ></u
+                            >
+                          </p>
+                          <p>
+                            App owner&nbsp;name can also be fetched&nbsp;using
+                            the&nbsp;<a>system variable</a>&nbsp;<strong
+                              >zoho.adminuser</strong
+                            >
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;appLinkName&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the link name of the application in which the
+                            record&nbsp;will be created.
+                          </p>
+                          <p>
+                            Link names of applications, forms, and fields in
+                            your&nbsp;account can be&nbsp;<a>viewed here</a
+                            >&nbsp;(listed in brackets).
+                          </p>
+                          <p>
+                            Application Link name can also&nbsp;be fetched using
+                            the&nbsp;<a>system variable</a>&nbsp;<strong
+                              >zoho.appname</strong
+                            >
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;formLinkName&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the link name of the form&nbsp;in which the
+                            record&nbsp;will be added.
+                          </p>
+                          <p>
+                            Link names of applications, forms, and fields in
+                            your account can be&nbsp;<a>viewed here</a
+                            >&nbsp;(listed in brackets).
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;dataMap&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            contains field link names and their corresponding
+                            values for record creation in Zoho Creator form
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connectionLinkName&gt;</p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the name of the Zoho
+                            Creator&nbsp;<a>connection</a>.
+                          </p>
+                          <p><strong>*Note</strong></p>
+                          <ul>
+                            <li>
+                              The connectionLinkName is mandatory when executed
+                              in&nbsp;<strong>Zoho Cliq</strong>.
+                            </li>
+                            <li>
+                              The connection should be authtoken based. To
+                              create authtoken&nbsp;based connection with Zoho
+                              services, choose the default service
+                              -&nbsp;<strong>Zoho</strong>&nbsp;under&nbsp;<a
+                                >pick your service</a
+                              >&nbsp;in connections page.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <p><a> </a></p>
+            <h2>Example</h2>
+            <p>
+              Let us consider the below example of creating a record in Zoho
+              Creator. Assume that we have a form with the two fields -
+              <strong>Task_Name</strong> (Single Line Field Type) and
+              <strong>Task_Description</strong> (Single Line Field Type). The
+              arguments - <strong>Task_Management</strong> (Application Link
+              Name), <strong>Create_Task</strong> (Form Link Name),
+              <strong>tony</strong> (Owner Name) will be supplied to
+              createRecord() in the following example.
+            </p>
+            <div>
+              <pre><span>dataMap </span><span>= </span><span>{</span><span>"Task_Name"</span><span>:</span><span>"Priority Task"</span><span>, </span><span>"Task_Description"</span><span>:</span><span>"I need help configuring my new toaster"</span><span>}</span><span>;</span></pre>
+              <p><a> </a></p>
+              <pre><span>response </span><span>= </span><span>zoho</span><span>.creator</span><span>.v1.createRecord</span><span>(</span><span>"tony"</span><span>,</span><span> "Task_Management"</span><span>,</span><span> "Create_Task"</span><span>,</span><span> dataMap</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> pair that holds the response
+                      of the task
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>tony</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the application
+                      owner's name
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>Task_Management</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the application's
+                      link name
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>Create_Task</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the form's link
+                      name
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>datamap</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that represents the
+                      key value pairs required to create records
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p><a> </a></p>
+            <h2>Sample Response</h2>
+            <h3>Success</h3>
+            <p>
+              Following is a successful response received after creating a
+              record:
+            </p>
+            <div>
+              {"values":<br />{<br />"Task_Description":"I need help configuring
+              my new toaster",<br />"ID":3605445000000075003,<br />"Task_Name":"Priority
+              Task"<br />},<br />"status":"Success"<br />}
+            </div>
+            &nbsp;
+            <p>
+              <br />To get the ID of the newly created record, execute the
+              following snippet:
+            </p>
+            <div>
+              info &lt;<span>response_variable&gt;.get</span><span>(</span
+              ><span>"values"</span><span>)</span><span>.get("ID");</span>
+            </div>
+            <h3>Error</h3>
+            <p>
+              Following is an error when the user tries to insert a record with
+              the mandatory field not filled:
+            </p>
+            <div>
+              {"values":<br />{<br />"Task_Description":"",<br />"Task_Name":"Task-100"<br />},<br />"status":"Failure,
+              Enter a value for Task Description"<br />}
+            </div>
+            <p>
+              Following is an error when the user tries to insert a duplicate
+              record:
+            </p>
+            <div>
+              {"values":<br />{<br />"Task_Description":"I need help installing
+              my air conditioner",<br />"Task_Name":"Task-100"<br />},<br />"status":"Failure,<br />Duplicate
+              values found for 'Task Description' "<br />}
+            </div>
+            <p>
+              Following is an error when the user tries to insert an text value
+              for a field which accepts only numbers:
+            </p>
+            <div>
+              {"values":<br />{<br />"Task_Description":"Test",<br />"Task_ID":"Task-100"<br />},<br />"status":"Failure,<br />Enter
+              a valid number for Task ID"<br />}
+            </div>
+            <p><a> </a></p>
+            <h2>Related Links</h2>
+            <ul>
+              <li>
+                To fetch the string value to which the specified key is mapped,
+                use
+                <a
+                  ><strong><span>get()</span></strong></a
+                >
+              </li>
+              <li>
+                To get values from fetched records, use
+                <a
+                  ><strong><span>getJSON()</span></strong></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

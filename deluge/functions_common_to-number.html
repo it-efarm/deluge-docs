@@ -1,0 +1,143 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Number functions</a></li>
+        <li><a>toNumber</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>toNumber</a></li>
+        <li><a>Type conversion functions</a></li>
+        <li><a>toNumber</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>toNumber</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>toLong</strong> function takes an
+              <strong>expression</strong> as an argument, and returns a number.
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  <strong>Decimals</strong> when subjected to the toNumber
+                  function will lose their fraction parts. Use
+                  <a>toDecimal</a> instead.
+                </li>
+                <li>
+                  If a piece of text has alphanumeric data(say,
+                  <strong>1000abc</strong>) in it, then toNumber function will
+                  throw an error message.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>NUMBER</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression</span><span>&gt;</span><span>.toNumber</span><span>(</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>toNumber</span><span>(</span><span>&lt;</span><span>expression</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression</span><span>&gt;</span><span>.toLong</span><span>(</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>toLong</span><span>(</span><span>&lt;</span><span>expression</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>Variable which will contain the converted number.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;expression&gt;</td>
+                    <td>
+                      <span>NUMBER</span
+                      >/<span>DECIMAL</span>/<span>DATE-TIME</span>/<span
+                        >TEXT</span
+                      >
+                    </td>
+                    <td>
+                      <p>The expression which will resolve to a number.</p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <ul>
+                          <li>
+                            Date-time values will be converted into their
+                            equivalent number of milliseconds starting from
+                            '31-Dec-1969 16:00:00' (which is equivalent to
+                            0).<br />For instance,
+                            <strong>'31-Dec-1969 16:00:01'.toNumber()</strong>
+                            will yield <strong>1000</strong> and
+                            <strong>'31-Dec-1969 15:59:59'.toNumber()</strong>
+                            will yield <strong>-1000</strong> and so on.
+                          </li>
+                          <li>
+                            Decimals will be truncated off their fraction parts.
+                          </li>
+                          <li>
+                            Empty texts will throw an error during runtime.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>decimal</span> <span>=</span> <span>123.25</span><span>;</span>
+&nbsp;<span>info </span> <span>decimal</span><span>.toNumber</span><span>(</span><span>)</span><span>;</span> <span><span>// Converts the decimal into a number and returns 123</span></span>
+</pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>num_text</span> <span>=</span> <span>"1234"</span><span>;</span>
+&nbsp;<span>info </span> <span>num_text</span><span>.toNumber</span><span>(</span><span>)</span><span>;</span> <span><span>// Returns 1234</span></span>
+</pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>alpha_text</span> <span>=</span> <span>"134A123B"</span><span>;</span>
+&nbsp;<span>info </span> <span>alpha_text</span><span>.toNumber</span><span>(</span><span>)</span><span>;</span> <span><span>// Returns error</span></span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,408 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Desk Integration Tasks</a></li>
+        <li><a>Search Records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Search Records In Zoho Desk</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              This&nbsp;task is used to fetch&nbsp;records that match a
+              specified criteria.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> =</span> <span>zoho</span><span>.desk.searchRecords</span><span>(</span><span>&lt;</span><span>orgID</span><span>&gt;, </span><span>&lt;</span><span>module_name</span><span>&gt;,</span> <span>&lt;</span><span>query</span><span>&gt;, <span>&lt;</span><span>fromIndex</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>limit</span><span>&gt;</span><span>, </span>&lt;<span>connection</span><span>&gt;</span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the variable which will hold the response
+                            returned by Zoho Desk.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;orgID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the organization ID&nbsp;of the account in
+                            which the record will be searched. This can be found
+                            in Zoho Desk Settings &gt; Developer Space &gt;
+                            API.&nbsp;&nbsp;<br /><br /><img />
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;module_name&gt;<strong>&nbsp;</strong></p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the module in which the records need to be
+                            searched.
+                          </p>
+                          <p>
+                            <span
+                              >The following is the list of supported
+                              modules.</span
+                            >
+                          </p>
+                          <ul>
+                            <li><p>Tickets</p></li>
+                            <li><p>Accounts</p></li>
+                            <li><p>Contacts</p></li>
+                            <li><p>Articles</p></li>
+                            <li><p>Tasks</p></li>
+                            <li><p>Products</p></li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;query&gt;&nbsp;</p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the search criteria. The search criteria
+                            are given as key-value pairs, with keys as query
+                            param names given in the <a>Zoho Desk API</a>.
+                          </p>
+                          <p>
+                            <u><strong>*Note:</strong></u
+                            >&nbsp;This is a mandatory param when used
+                            in&nbsp;Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;from&gt;</p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the start index of the record from which
+                            the records will be searched. The index starts from
+                            <strong>0</strong>.
+                          </p>
+                          <p>
+                            <u><strong>*Note:</strong></u
+                            >&nbsp;This is a mandatory param when used
+                            in&nbsp;Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;limit&gt;</p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the number of records that will be
+                            fetched.
+                          </p>
+                          <p>
+                            <u><strong>*Note:</strong></u
+                            >&nbsp;This is a mandatory param when used
+                            in&nbsp;Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>specifies the name of the <a>connection</a>.</p>
+                          <p>
+                            The scopes needed to be selected
+                            are&nbsp;&nbsp;&nbsp;<br />-
+                            Desk.search.READ&nbsp;<br />- Desk.articles.READ<br />-
+                            Desk.tasks.READ&nbsp;<br />-
+                            Desk.tickets.READ&nbsp;<br />-
+                            Desk.settings.READ&nbsp;<br />-
+                            Desk.contacts.READ&nbsp;
+                          </p>
+                          <p>
+                            <u><strong>*Note:</strong></u
+                            >&nbsp;This is a mandatory param when used
+                            in&nbsp;<a>Zoho Creator</a>.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following example searches for the records whose subject
+              contains - <strong>Deluge</strong> in the Zoho Desk module -
+              <strong>Tickets</strong>.
+            </p>
+            <div>
+              <pre><span>searchValue</span><span> = </span><span>{</span><span>"subject"</span><span>:</span><span>"Deluge"</span><span>}</span><span>;</span>&nbsp;
+<span>response</span><span> = </span><span>zoho</span><span>.desk.searchRecords</span><span>(</span><span>641XXXXXX</span><span>, </span><span>"tickets"</span><span><span>, </span><span>searchValue</span>, </span><span>0</span><span>, </span><span>5</span><span>, </span><span>"desk_connection"</span><span><span>)</span><span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the variable which will hold the&nbsp;<span
+                        >KEY-VALUE</span
+                      >
+                      response returned by Zoho Desk. It represents the records
+                      fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>641XXXXXX</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the
+                      organization ID
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"tickets"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      module in which the records need to be searched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>searchValue</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      search criteria
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"subject"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the field name as
+                      specified by the <a>Zoho Desk API</a>.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>0</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the start index
+                      from which the records need to be searched for.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>5</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the number of
+                      records that need to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"desk_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <strong>Success response</strong>
+            <p>
+              The success response will be returned in the following format:
+            </p>
+            <ul>
+              <li>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"data": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"ticketNumber":
+                  "687",<br />&nbsp;&nbsp;"modifiedTime":
+                  "2019-03-04T07:30:44.000Z",<br />&nbsp;&nbsp;"subCategory":
+                  null,<br />&nbsp;&nbsp;"statusType": "Open",<br />&nbsp;&nbsp;"subject":
+                  "Query in Deluge script",<br />&nbsp;&nbsp;"customFields":
+                  {<br />&nbsp;&nbsp;"Mailing Zip": null,<br />&nbsp;&nbsp;"TAM":
+                  null,<br />&nbsp;&nbsp;"Quote number": null,<br />&nbsp;&nbsp;"TestData":
+                  null,<br />&nbsp;&nbsp;"LightAgents": null,<br />&nbsp;&nbsp;"attachmentLinks":
+                  null,<br />&nbsp;&nbsp;"Contract Type": null,<br />&nbsp;&nbsp;"Serial
+                  Number": null,<br />&nbsp;&nbsp;"Mailing Country": null,<br />&nbsp;&nbsp;"Total
+                  Age": null,<br />&nbsp;&nbsp;"Start Date": "2019-03-03",<br />&nbsp;&nbsp;"bugID":
+                  null,<br />&nbsp;&nbsp;"PreviousTicketOwner": null,<br />&nbsp;&nbsp;"Managed
+                  Firewall": null,<br />&nbsp;&nbsp;"Manufacturer": null,<br />&nbsp;&nbsp;"Sales
+                  Lead?": "true",<br />&nbsp;&nbsp;"advisory": null,<br />&nbsp;&nbsp;"LIS
+                  Customer": null,<br />&nbsp;&nbsp;"Single Date": null,<br />&nbsp;&nbsp;"DateCF":
+                  null,<br />&nbsp;&nbsp;"Event_Scheduled": null,<br />&nbsp;&nbsp;"Office
+                  Name": null,<br />&nbsp;&nbsp;"previousClosedTime": null,<br />&nbsp;&nbsp;"Incoming
+                  Count": null,<br />&nbsp;&nbsp;"offbusinesshour": "false",<br />&nbsp;&nbsp;"SAM":
+                  null,<br />&nbsp;&nbsp;"Every issue no.": null,<br />&nbsp;&nbsp;"Setup
+                  Sub Category": null,<br />&nbsp;&nbsp;"TicketOwnerUpdatedTime":
+                  null,<br />&nbsp;&nbsp;"Every issue link": null,<br />&nbsp;&nbsp;"PotentialId":
+                  null,<br />&nbsp;&nbsp;"TestNumber": null,<br />&nbsp;&nbsp;"Ticket
+                  type": null,<br />&nbsp;&nbsp;"Invoice Number": null,<br />&nbsp;&nbsp;"Access
+                  Information": null,<br />&nbsp;&nbsp;"NewTicketNumber":
+                  null,<br />&nbsp;&nbsp;"Type of Category": null,<br />&nbsp;&nbsp;"account
+                  type": null,<br />&nbsp;&nbsp;"Service Frequency": null,<br />&nbsp;&nbsp;"SalesLead_alertSend":
+                  "true",<br />&nbsp;&nbsp;"SATcase Serial Number": null,<br />&nbsp;&nbsp;"Mailing
+                  City": null,<br />&nbsp;&nbsp;"Mailing State": null,<br />&nbsp;&nbsp;"OldTicketNumber":
+                  null,<br />&nbsp;&nbsp;"Department Responsible": null,<br />&nbsp;&nbsp;"Mailing
+                  Street": null,<br />&nbsp;&nbsp;"Model": null,<br />&nbsp;&nbsp;"TestDate":
+                  null,<br />&nbsp;&nbsp;"Outgoing Count": null,<br />&nbsp;&nbsp;"NewContact":
+                  "false"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"dueDate":
+                  null,<br />&nbsp;&nbsp;"departmentId":
+                  "168XXXXXXXXXXXX907",<br />&nbsp;&nbsp;"channel":
+                  "Twitter",<br />&nbsp;&nbsp;"isRead": true,<br />&nbsp;&nbsp;"description":
+                  null,<br />&nbsp;&nbsp;"onholdTime": null,<br />&nbsp;&nbsp;"resolution":
+                  null,<br />&nbsp;&nbsp;"sharedDepartments": [<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"closedTime":
+                  null,<br />&nbsp;&nbsp;"isOverDue": false,<br />&nbsp;&nbsp;"responseDueDate":
+                  null,<br />&nbsp;&nbsp;"contact": {<br />&nbsp;&nbsp;"lastName":
+                  "230XXXXXXXXXXXX077",<br />&nbsp;&nbsp;"secondaryEmail":
+                  null,<br />&nbsp;&nbsp;"customFields": {<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"mobile":
+                  null,<br />&nbsp;&nbsp;"type": null,<br />&nbsp;&nbsp;"ownerId":
+                  null,<br />&nbsp;&nbsp;"firstName": "James",<br />&nbsp;&nbsp;"accountId":
+                  "168XXXXXXXXXXXX093",<br />&nbsp;&nbsp;"photoURL": null,<br />&nbsp;&nbsp;"phone":
+                  null,<br />&nbsp;&nbsp;"webUrl":
+                  "https://desk.zoho.com/support/smith/ShowHomePage.do#Contacts/dv/bf5c8f5ad85afXXXXXXXXXXXXXXXXXXXX416f91661cfb15",<br />&nbsp;&nbsp;"zohoCRMContact":
+                  {<br />&nbsp;&nbsp;"id": "230XXXXXXXXXXXXX027",<br />&nbsp;&nbsp;"type":
+                  "new"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"customerHappiness":
+                  {<br />&nbsp;&nbsp;"badPercentage": "0",<br />&nbsp;&nbsp;"okPercentage":
+                  "0",<br />&nbsp;&nbsp;"goodPercentage": "0"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"id":
+                  "168XXXXXXXXXXXX109",<br />&nbsp;&nbsp;"email": null,<br />&nbsp;&nbsp;"account":
+                  {<br />&nbsp;&nbsp;"website": null,<br />&nbsp;&nbsp;"accountName":
+                  "JC",<br />&nbsp;&nbsp;"phone": null,<br />&nbsp;&nbsp;"customFields":
+                  {<br />&nbsp;&nbsp;<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"webUrl":
+                  "https://desk.zoho.com/support/smith/ShowHomePage.do#Accounts/dv/bf5c8f5ad85afXXXXXXXXXXXXXXXXXXXXd98648cf73bac9a",<br />&nbsp;&nbsp;"id":
+                  "168XXXXXXXXXXXX093",<br />&nbsp;&nbsp;"email": null<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"createdTime":
+                  "2019-03-04T07:30:43.000Z",<br />&nbsp;&nbsp;"modifiedBy":
+                  "168XXXXXXXXXXXX005",<br />&nbsp;&nbsp;"id":
+                  "168XXXXXXXXXXXX107",<br />&nbsp;&nbsp;"department": {<br />&nbsp;&nbsp;"name":
+                  "smith",<br />&nbsp;&nbsp;"id": "168XXXXXXXXXXXX6907"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"email":
+                  null,<br />&nbsp;&nbsp;"customerResponseTime":
+                  "2019-03-04T07:30:43.000Z",<br />&nbsp;&nbsp;"productId":
+                  null,<br />&nbsp;&nbsp;"contactId": "168XXXXXXXXXXXX109",<br />&nbsp;&nbsp;"threadCount":
+                  "0",<br />&nbsp;&nbsp;"lastThread": null,<br />&nbsp;&nbsp;"team":
+                  null,<br />&nbsp;&nbsp;"priority": null,<br />&nbsp;&nbsp;"classification":
+                  null,<br />&nbsp;&nbsp;"assigneeId": "168XXXXXXXXXXXX8005",<br />&nbsp;&nbsp;"commentCount":
+                  "0",<br />&nbsp;&nbsp;"accountId": "168XXXXXXXXXXXX093",<br />&nbsp;&nbsp;"phone":
+                  null,<br />&nbsp;&nbsp;"webUrl":
+                  "https://desk.zoho.com/support/smith/ShowHomePage.do#Cases/dv/bf5c8f5ad85afXXXXXXXXXXXXXXXXXXXX7d9b02e22471ff",<br />&nbsp;&nbsp;"teamId":
+                  null,<br />&nbsp;&nbsp;"assignee": {<br />&nbsp;&nbsp;"photoURL":
+                  null,<br />&nbsp;&nbsp;"firstName": "DRE",<br />&nbsp;&nbsp;"lastName":
+                  "smith",<br />&nbsp;&nbsp;"emailId": "smith@zylker.com",<br />&nbsp;&nbsp;"id":
+                  "168XXXXXXXXXXXX005",<br />&nbsp;&nbsp;"zuid": "72XXXX48"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"category":
+                  null,<br />&nbsp;&nbsp;"status": "Open"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"count":
+                  1<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p>
+              To extract the IDs of the records returned, execute the following:
+            </p>
+            <div>
+              <pre>&nbsp;<span>for each</span><span>&nbsp;rec&nbsp;</span><span>in&nbsp;</span><span>&lt;response&gt;</span>
+&nbsp;<span>{</span>
+&nbsp;<span>info&nbsp;</span><span>rec</span><span>.</span><span>get</span><span>(</span><span>"id"</span><span>)</span><span>;</span>
+&nbsp;<span>}</span></pre>
+            </div>
+            <strong>Failure response</strong>
+            <ul>
+              <li>
+                The failure response will be returned in the following format:
+                <div>
+                  &nbsp; &nbsp;{<br />&nbsp;
+                  &nbsp;"errorCode":"UNPROCESSABLE_ENTITY",<br />&nbsp;
+                  &nbsp;"message":"The value passed for the 'orgId' parameter is
+                  invalid."<br />&nbsp; &nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Desk API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

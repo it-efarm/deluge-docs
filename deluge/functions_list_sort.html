@@ -1,0 +1,131 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>List functions</a></li>
+        <li><a>sort</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>sort()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>sort()</strong> function takes
+              <strong>listVariable</strong> and <strong>booleanValue</strong> as
+              arguments.
+            </p>
+            <p>It returns the list with its elements sorted in:</p>
+            <ul>
+              <li>
+                <strong>ascending</strong> order if the specified boolean value
+                is true.
+              </li>
+              <li>
+                <strong>ascending</strong> order if the boolean value is not
+                specified.
+              </li>
+              <li>
+                <strong>descending</strong> order if the specified boolean value
+                is false.
+              </li>
+            </ul>
+            <div>
+              <strong>Note</strong>
+              <p>
+                While sorting string characters, the function will first check
+                the letter case, and then the actual letter.
+              </p>
+              <p>
+                In a text list, special characters, upper case, and lower case
+                letters are sorted in the following order:
+              </p>
+              <p>
+                !&nbsp;"&nbsp;#&nbsp;$&nbsp;%&nbsp;&amp;&nbsp;'&nbsp;(&nbsp;)&nbsp;*&nbsp;+&nbsp;,&nbsp;-&nbsp;.&nbsp;/&nbsp;:&nbsp;;&nbsp;&lt;&nbsp;=&nbsp;&gt;&nbsp;?&nbsp;@
+                &lt;capital letters&gt;&nbsp;[&nbsp;]&nbsp;^&nbsp;_&nbsp;`
+                &lt;small letters&gt;&nbsp;{&nbsp;|&nbsp;}&nbsp;~
+              </p>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>List</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span>&lt;variable&gt;</span><span> = &lt;listVariable&gt;.</span
+              ><span>sort</span><span>(</span><span>&lt;booleanValue&gt;)</span
+              ><span>;</span>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p><span>&lt;variable&gt;</span></p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td>Variable which will contain the returned list.</td>
+                    <td>LIST</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;listVariable&gt;</span></td>
+                    <td>
+                      <p>The list variable whose elements will be sorted.</p>
+                      <p>
+                        If the list contains elements of different data types,
+                        the function will return null.
+                      </p>
+                    </td>
+                    <td>LIST</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;booleanValue&gt;</span></p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td>Applicable values are: true or false.</td>
+                    <td>BOOLEAN</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              listVar = {"Creator", "crm", "Zoho Creator"};<br />sortOrder =
+              listVar.sort(true);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              //returns {"Creator", "Zoho Creator", "crm"}
+            </div>
+            <p>
+              The return order in the above example is "Creator", followed by
+              "Zoho Creator", followed by CRM. This is because, as specified in
+              the 'note' above, text elements with capital letters are sorted
+              first, and then the lower case letters.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.0351118"><iframe></iframe></div>
+</div>

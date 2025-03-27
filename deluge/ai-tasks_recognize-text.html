@@ -1,0 +1,349 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Artificial Intelligence Tasks</a></li>
+        <li><a>Recognize Text</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Recognize Text</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.ai.recognizeText</strong> task performs OCR
+              (optical character recognition)&nbsp;on the specified file. In
+              other words, it extracts the text from an image or PDF file.
+            </p>
+            <div>
+              <strong>Note:&nbsp;</strong>
+              <ul>
+                <li>
+                  The processing timeout of this task is 40 seconds. An error
+                  will be thrown when this time limit is exceeded. Following are
+                  some of the use-cases that contribute&nbsp;a delay in
+                  processing time:
+                  <ul>
+                    <li>
+                      When the source file&nbsp;is a PDF or image that is
+                      heavily concentrated with text.
+                    </li>
+                    <li>
+                      When the source file is a PDF that contains&nbsp;images,
+                      the processing time is the sum of the time required to
+                      extract the images from the PDF and the time required to
+                      perform OCR on the extracted images. This scenario is more
+                      likely to have high processing time.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  The prediction results may not be accurate, which is also the
+                  case with any AI prediction. However, we are working on
+                  improving this.
+                </li>
+                <li>
+                  The prediction results are dynamic. The same script may
+                  produce different outcomes at different times based on how
+                  much the machine has learned.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.ai.recognizeText</span><span>(</span><span>&lt;</span><span>file</span><span>&gt;</span>, <span>[&lt;</span><span>model_type</span><span>&gt;]</span>, <span>[&lt;</span><span>language</span><span>&gt;]</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>Specifies the text extracted from the given file</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;file&gt;</p></td>
+                    <td>
+                      <p><span>FILE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the file object that contains the image or PDF
+                        file from which the text needs to be extracted.
+                      </p>
+                      <p><strong>Note:</strong>&nbsp;</p>
+                      <ul>
+                        <li>
+                          The file can be fetched from the cloud using
+                          the&nbsp;<a>invokeUrl</a> task. In
+                          <strong>Zoho Creator</strong>, the file uploaded in
+                          the <a> file upload field </a> can also be used as a
+                          value for this parameter.
+                        </li>
+                        <li>
+                          The file can be a PDF or an image of any valid format.
+                        </li>
+                        <li>
+                          The maximum allowed file size is
+                          <strong>20 MB</strong>. However, it is recommended to
+                          use&nbsp;files with size lesser than
+                          <strong>10 MB</strong>.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;model_type&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies one of the supported&nbsp;<a>model types</a>.
+                        Appropriate model type can be provided to improve the
+                        reading accuracy.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;language&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies
+                        the&nbsp;<a>supported&nbsp;languages</a>&nbsp;that
+                        need&nbsp;to be precisely retrieved from the given
+                        image. For example, parsing the param value as 'jpn'
+                        retrieves the Japanese words from the image as it is.
+                      </p>
+                      <p>
+                        Say,&nbsp;words with accent marks, for example, from the
+                        Romanian language&nbsp;are present in the given
+                        image.&nbsp;Specifying this param value as the supported
+                        language 'ron' helps the OCR model retrieve the text
+                        with all the accent marks intact.
+                      </p>
+                      <p>
+                        If the param is not specified, the accent marks are
+                        removed and the words are retrieved with similar plain
+                        English alphabets.
+                      </p>
+                      <p>Default value :&nbsp;<strong>eng</strong></p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <strong>Note: </strong>You can find the allowed model types and
+              supported languages&nbsp;<a>here</a>.
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              <strong>Example 1 :</strong> The following script extracts and
+              returns the English text present in the given image using the OCR
+              model.
+            </p>
+            <div>
+              <pre>&nbsp;<span>// To fetch the image file from the web</span>
+&nbsp;<span>image </span><span>=</span><span> invokeurl</span>
+&nbsp;<span>[</span>
+&nbsp;<span>url: </span><span>"https://www.mmppicture.co.in/wp-content/uploads/2020/08/Action-Hero-Text-PNG-1080x842.jpg"</span>
+&nbsp;<span>type: </span><span>GET</span>
+&nbsp;<span>];</span>
+&nbsp;
+&nbsp;<span>// To extract the English text from the image file using the OCR model
+&nbsp;<span>info zoho.ai.recognizeText</span>(<span>image</span>,<span>"OCR"</span>,<span>"eng"</span>);</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>image</span></pre>
+                    </div>
+                    <div>
+                      The <span>FILE</span> that represents the image from which
+                      the text needs to be extracted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"OCR"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> value that specifies the supported
+                      model type that needs to be used.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"eng"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> value that specifies the supported
+                      language which needs to be precisely extracted from the
+                      image.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>
+            <strong>Example 2 :&nbsp;</strong>The following script extracts and
+            returns the text present in the given image. The image is retrieved
+            from a specific record's file upload field in your Creator
+            application.
+          </p>
+          <div>
+            <pre><span>image = Add_Employee[ID == 74069000002332165].File_upload;</span>
+<span>aiText =</span> <span>zoho.ai.recognizeText</span>(<span>image</span>,<span>"OCR"</span>,<span>"ron"</span>);        <span>// To extract the Romanian text from the image file using the OCR model. The image used is from a specific record's File_upload field in the Add_Employee form.</span>
+</pre>
+          </div>
+          <p>where:</p>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <pre><span>aiText</span></pre>
+                  </div>
+                  <div>
+                    The <span>KEY-VALUE</span> response that represents the text
+                    extracted from the image file.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>image</span></pre>
+                  </div>
+                  <div>
+                    The <span>FILE</span> that represents the image from which
+                    the text needs to be extracted.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>"OCR"</span></pre>
+                  </div>
+                  <div>
+                    The <span>TEXT</span> value that specifies the supported
+                    model type that needs to be used.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>"ron"</span></pre>
+                  </div>
+                  <div>
+                    The <span>TEXT</span> value that specifies the supported
+                    language which needs to be precisely extracted from the
+                    image.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2><a></a>Response Format</h2>
+        <p><strong>Success Response</strong></p>
+        <ul>
+          <li>
+            <p>
+              The success response will be returned in the following format:.
+            </p>
+            <div>
+              &nbsp;{"text":"Action Heroes\n\nB orn &nbsp;i!
+              &nbsp;Action\n\nwww. MMPPICTURE co.IN\n"}
+            </div>
+            &nbsp;
+            <div>
+              <strong>Note: </strong>The&nbsp;<strong>\n</strong> is the
+              text&nbsp;equivalent of&nbsp;new line. In other words, the text
+              following the&nbsp;\n is present in the next line.
+            </div>
+          </li>
+        </ul>
+        <p><strong>Failure Response</strong></p>
+        <ul>
+          <li>
+            <p>
+              The failure response returned for an empty file input will&nbsp;be
+              returned in the following format:
+            </p>
+            <div>
+              &nbsp;Execution exception : 'Error due to - 'Internal Exception''
+            </div>
+          </li>
+          <li>
+            <p>
+              The failure response when a file process&nbsp;for more than 40
+              seconds will&nbsp;be returned in the following format:
+            </p>
+            <div>
+              &nbsp;{<br />&nbsp;"statusMessage": "Timed out. Please try again
+              with smaller image",<br />&nbsp;"status":false<br />​&nbsp;}
+            </div>
+          </li>
+          <li>
+            <p>
+              The failure response for a file size more than 20 MB will be
+              returned in the following format:
+            </p>
+            <div>
+              &nbsp;{<br />&nbsp;"statusMessage": "File size exceeds the maximum
+              size",<br />&nbsp;"status":false<br />​&nbsp;}
+            </div>
+          </li>
+        </ul>
+        &nbsp;
+        <h2><a></a>Related Links</h2>
+        <ul>
+          <li><a>AI tasks</a></li>
+          <li><a>AI tasks Limitations</a></li>
+          <li><a>Invoke URL</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,187 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>toDate</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>toDate</a></li>
+        <li><a>Type conversion functions</a></li>
+        <li><a>toDate</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>toDate</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>toDate</strong>&nbsp;function takes
+              an&nbsp;<strong>expression</strong>&nbsp;as an argument,
+              and&nbsp;returns the expression (containing a date-time value) in
+              the date format as specified in application settings.&nbsp;
+            </p>
+            <p>
+              This function takes an optional
+              argument&nbsp;<strong>dateTimeMapping</strong>&nbsp;when the given
+              expression is of text data type. It is used to denote the
+              date-time components for which the values in the text stand for.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>DATE-TIME</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression</span><span>&gt;</span><span>.toDate</span><span>(</span><span>&lt;</span><span>dateTimeMapping</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>toDate</span><span>(</span><span>&lt;</span><span>expression</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>dateTimeMapping</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>DATE-TIME</span></td>
+                    <td>
+                      Variable which will contain the returned date value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;expression&gt;</td>
+                    <td>
+                      <span>TEXT</span>/<span>NUMBER</span>/<span
+                        >DATE-TIME</span
+                      >
+                    </td>
+                    <td>
+                      <p>
+                        The expression (containing a <a>valid</a> date time
+                        format) which will be returned in date format.
+                      </p>
+                      <p>When the data type is NUMBER:</p>
+                      <ul>
+                        <li>
+                          the number 1 stands for the date-time value
+                          31-Dec-1969, and every increase in 1000 will add 1
+                          second to the date value, and every decrease in 1000
+                          will subtract 1 second from the date&nbsp;value. So,
+                          the number 1000 will return a date value of
+                          31-Dec-1969.
+                        </li>
+                        <li>the dateTimeMapping param is ignored.</li>
+                      </ul>
+                      <p>
+                        When the data type is Date-Time, the additional
+                        parameters (mentioned below) are ignored. And, the
+                        function will throw a runtime error if the month value
+                        exceeds the number of months in a year, or the day value
+                        exceeds the number of days in a month.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;dateTimeMapping&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>DATE-TIME</span></td>
+                    <td>
+                      <p>
+                        The format in which the date-time value must be
+                        represented.
+                      </p>
+                      <p>
+                        Applies when the given expression is of&nbsp;<strong
+                          >Text</strong
+                        >
+                        data type.
+                      </p>
+                      <p>
+                        You can specify&nbsp;<a>date-time literals</a> (as
+                        mentioned in the below table) to denote the date value
+                        components in the expression as required. The pattern
+                        letters must be separated using the exact same separator
+                        as given in the expression.
+                      </p>
+                      <p>
+                        When the month is specified as numerical value, the
+                        month pattern letter "M" must be specified as M or MM.
+                      </p>
+                      <p>
+                        When the month is specified as a text value, the month
+                        pattern letter "M" must be specified as MMM (or may
+                        contain more number of M's).
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h3><a></a>Applicable Date Component Literals:</h3>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+                      &nbsp; &nbsp; &nbsp; &nbsp;Literal&nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp;
+                    </th>
+                    <th>Date and Time component</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>y</td>
+                    <td>Year</td>
+                  </tr>
+                  <tr>
+                    <td>M</td>
+                    <td>Month of the year</td>
+                  </tr>
+                  <tr>
+                    <td>d</td>
+                    <td>Day of the month</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>dateTimeString</span> <span>=</span> <span>"01,11,2019 1:30:00 pm"</span><span>;</span> 
+&nbsp;<span>info </span><span>toDate</span><span>(</span><span>dateTimeString</span><span>,</span> <span>"MM,d,yyyy"</span><span>)</span><span>;</span> 
+&nbsp;<span>// MM,d,yyyy is to denote the components in the expression
+&nbsp;// So the value for MM is 01 (January), the value for d is 11, and the value for yyyy is 2019</span>
+&nbsp;<span>// Assuming that the date time format set in application settings is dd-MMM-yyyy, the value returned is 11-Jan-2019
+</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

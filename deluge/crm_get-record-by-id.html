@@ -1,0 +1,274 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho CRM integration tasks</a></li>
+        <li><a>Fetch Record from Zoho CRM using record ID</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch Record&nbsp;from Zoho CRM using record ID</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>Fetch a record from&nbsp;Zoho CRM module using the record ID.</p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>=</span> <span>zoho.crm.getRecordById</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_ID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>query_value</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the response returned by Zoho CRM. It
+                            represents the values fetched from the specified
+                            record against the API names of the respective
+                            fields.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the <a>API name</a> of the Zoho CRM
+                            module&nbsp;from where the record&nbsp;needs to be
+                            fetched.&nbsp;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;record_Id&gt;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the ID of the record&nbsp;that needs to be
+                            fetched.
+                          </p>
+                          <p>
+                            Learn how to fetch the ID of a record
+                            after&nbsp;<a>creating</a>&nbsp;,
+                            <a>searching</a
+                            >&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;query_value&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            holds&nbsp;all the other parameters&nbsp;specified
+                            in the <a>Zoho CRM API</a>.
+                          </p>
+                          <strong>Note:</strong>
+                          <ul>
+                            <li>
+                              The keys and values of this param should&nbsp;be
+                              provided according to&nbsp;the
+                              <a>Zoho CRM API</a>.
+                            </li>
+                            <li>
+                              To ignore querying&nbsp;using this
+                              param,&nbsp;provide an empty map.<br />For
+                              example: { "" : "" }
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>is the name of the <a>connection</a>.</p>
+                          <p><strong>Note:</strong></p>
+                          <ul>
+                            <li>
+                              This param is not employed in<strong>
+                                Zoho Creator </strong
+                              >and mandatory in <strong>Zoho Cliq</strong>.
+                            </li>
+                            <li>
+                              The <strong>&lt;query_value&gt; </strong>params
+                              must be specified to be able to specify this
+                              param.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script fetches the record with ID -
+              <strong>23033XXXXXXXXXXXXXX</strong> in the Zoho CRM module -
+              <strong>Leads</strong>.
+            </p>
+            <div>
+              <pre><span>response </span><span>= </span><span>zoho</span><span>.crm.getRecordById</span><span>(</span><span>"Leads"</span><span>, </span><span>23033XXXXXXXXXXXXXX</span><span>)</span><span>;</span>&nbsp;
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span><span>&nbsp;</span>response
+                      returned by Zoho CRM. It represents the values fetched
+                      from the specified record against the API names of the
+                      respective Zoho CRM fields.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Leads"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span
+                      ><span
+                        >&nbsp;that represents the API name of the Zoho
+                        CRM&nbsp;module from which the record needs to be
+                        fetched.</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response returned is of the following format:
+                <div>
+                  {&nbsp;&nbsp;<br />&nbsp; &nbsp;"Owner":{&nbsp;&nbsp;<br />&nbsp;
+                  &nbsp; &nbsp; "name":"Ben",<br />&nbsp; &nbsp; &nbsp;
+                  "id":"23033XXXXXXXXXXXXXX"<br />&nbsp; &nbsp;},<br />&nbsp;
+                  &nbsp;"Company":"Zylker",<br />&nbsp;
+                  &nbsp;"Email":"bruce.wills@zylker.com",<br />&nbsp;
+                  &nbsp;"Description":null,<br />&nbsp;
+                  &nbsp;"Discount":null,<br />&nbsp;
+                  &nbsp;"$currency_symbol":"$",<br />&nbsp;
+                  &nbsp;"Total_Amount":null,<br />&nbsp; &nbsp;"Rating":null,<br />&nbsp;
+                  &nbsp;"Website":null,<br />&nbsp; &nbsp;"Twitter":null,<br />&nbsp;
+                  &nbsp;"Salutation":null,<br />&nbsp;
+                  &nbsp;"Last_Activity_Time":null,<br />&nbsp;
+                  &nbsp;"First_Name":null,<br />&nbsp;
+                  &nbsp;"Full_Name":"Wills",<br />&nbsp;
+                  &nbsp;"Lead_Status":null,<br />&nbsp;
+                  &nbsp;"Industry":null,<br />&nbsp;
+                  &nbsp;"Modified_By":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                  "name":"Ben",<br />&nbsp; &nbsp; &nbsp;
+                  "id":"23033XXXXXXXXXXXXXX"<br />&nbsp; &nbsp;},<br />&nbsp;
+                  &nbsp;"Skype_ID":null,<br />&nbsp;
+                  &nbsp;"$converted":false,<br />&nbsp;
+                  &nbsp;"$process_flow":false,<br />&nbsp; &nbsp;"Phone":"+1 678
+                  XXX XXXX",<br />&nbsp; &nbsp;"Street":null,<br />&nbsp;
+                  &nbsp;"Zip_Code":null,<br />&nbsp;
+                  &nbsp;"id":"23033XXXXXXXXXXXXXX",<br />&nbsp;
+                  &nbsp;"Email_Opt_Out":false,<br />&nbsp;
+                  &nbsp;"$approved":true,<br />&nbsp;
+                  &nbsp;"Designation":null,<br />&nbsp;
+                  &nbsp;"$approval":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                  "delegate":false,<br />&nbsp; &nbsp; &nbsp;
+                  "approve":false,<br />&nbsp; &nbsp; &nbsp; "reject":false,<br />&nbsp;
+                  &nbsp; &nbsp; "resubmit":false<br />&nbsp; &nbsp;},<br />&nbsp;
+                  &nbsp;"Modified_Time":"2018-03-28T11:34:40+05:30",<br />&nbsp;
+                  &nbsp;"Created_Time":"2018-03-28T11:34:40+05:30",<br />&nbsp;
+                  &nbsp;"$converted_detail":{&nbsp;&nbsp; &nbsp; &nbsp;},<br />&nbsp;
+                  &nbsp;"$followed":false,<br />&nbsp;
+                  &nbsp;"$editable":true,<br />&nbsp; &nbsp;"City":null,<br />&nbsp;
+                  &nbsp;"No_of_Employees":0,<br />&nbsp; &nbsp;"Mobile":null,<br />&nbsp;
+                  &nbsp;"Last_Name":"Wills",<br />&nbsp; &nbsp;"State":null,<br />&nbsp;
+                  &nbsp;"Total":0,<br />&nbsp; &nbsp;"Lead_Source":null,<br />&nbsp;
+                  &nbsp;"Country":"United States",<br />&nbsp;
+                  &nbsp;"Tag":[&nbsp;&nbsp; &nbsp; &nbsp;],<br />&nbsp;
+                  &nbsp;"Created_By":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                  "name":"Ben",<br />&nbsp; &nbsp; &nbsp;
+                  "id":"23033XXXXXXXXXXXXXX"<br />&nbsp; &nbsp;},<br />&nbsp;
+                  &nbsp;"Fax":null,<br />&nbsp; &nbsp;"Annual_Revenue":0,<br />&nbsp;
+                  &nbsp;"Secondary_Email":null<br />}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                The failure response for incorrect or non-existent record ID
+                will be returned in the following format:
+                <div>&nbsp;{<br />&nbsp;"status": "failure"<br />&nbsp;}</div>
+              </li>
+              <li>
+                The failure response for incorrect or non-existent module name
+                will be returned in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"code": "INVALID_MODULE",<br />&nbsp;"details":
+                  {<br /><br />&nbsp;},<br />&nbsp;"message": "the module name
+                  given seems to be invalid",<br />&nbsp;"status": "error"<br />}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho CRM API</a></li>
+              <li><a>API names of Zoho CRM modules and fields</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

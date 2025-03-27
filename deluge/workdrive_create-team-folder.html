@@ -1,0 +1,365 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho WorkDrive Integration Tasks</a></li>
+        <li><a>Create Team Folder In Zoho WorkDrive</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create Team Folder In Zoho WorkDrive</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.workdrive.createTeamFolder</strong> task
+              <a>creates a team folder</a> for the specified team.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.workdrive.createTeamFolder</span><span>(</span><span>&lt;</span><span>folder_name</span><span>&gt;</span>, <span>&lt;</span><span>parent_id</span><span>&gt;</span>, <span>&lt;</span><span>description</span><span>&gt;</span>, <span>&lt;</span><span>is_public_within_team</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <p>&nbsp;</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details of the new team folder that will be
+                            created.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;folder_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The name of the team folder that will be created.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;parent_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The ID of the team for which the folder will be
+                            created.
+                          </p>
+                          <p>
+                            <strong>Note: </strong>You can get the parent_id
+                            parameter from the Zoho WorkDrive URL. The URL will
+                            be in the following format:<br />https://workdrive.zoho.com/home/teams/<strong>&lt;parent_team_id&gt;</strong>/privatespace/folders/files
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;description&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The description of the team folder that will be
+                            created.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;is_public_within_team&gt;</p></td>
+                        <td>
+                          <p><span>BOOLEAN</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            This parameter decides the type of the team folder.
+                          </p>
+                          <p><strong>Allowed values:</strong></p>
+                          <ul>
+                            <li>true - public folder</li>
+                            <li>false - private folder</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Scope required for this integration
+                                task:&nbsp;<strong>WorkDrive.workspace.CREATE</strong>.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script creates a new folder for the team of ID
+              -&nbsp;<strong>af0u7XXXXXXXXXXXXXXXXXXXXXXXXXXXee228</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.workdrive.createTeamFolder</span><span>(</span><span>"Marketing"</span>, <span>"af0u7XXXXXXXXXXXXXXXXXXXXXXXXXXXee228"</span>, <span>"This is a team folder"</span>, <span>false</span>, <span>"workdrive_oauth_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      WorkDrive. It represents the details of the new team
+                      folder that will be created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Marketing"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the team
+                      folder.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"af0u7XXXXXXXXXXXXXXXXXXXXXXXXXXXee228"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the parent ID.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"This is a team folder"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the description
+                      of the folder.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>false</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>BOOLEAN</span> that represents the type of
+                      the team folder.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"workdrive_oauth_connection"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the connection
+                      name.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"data": {<br />&nbsp;&nbsp;"id":
+                  "o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a",<br />&nbsp;&nbsp;"type":
+                  "workspaces",<br />&nbsp;&nbsp;"attributes": {<br />&nbsp;&nbsp;"is_public_within_team":
+                  false,<br />&nbsp;&nbsp;"groups_count": 0,<br />&nbsp;&nbsp;"created_time_in_milliseconds":
+                  1566814663387,<br />&nbsp;&nbsp;"description": "This is a team
+                  folder", &nbsp;&nbsp;"is_built_in": false,<br />&nbsp;&nbsp;"storage_info":
+                  {<br />&nbsp;&nbsp;"size": "0 bytes",<br />&nbsp;&nbsp;"storage_used":
+                  "0 bytes",<br />&nbsp;&nbsp;"files_count": 0,<br />&nbsp;&nbsp;"folders_count":
+                  0,<br />&nbsp;&nbsp;"size_in_bytes": 0,<br />&nbsp;&nbsp;"storage_used_in_bytes":
+                  0<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"last_accessed_time_in_milliseconds":
+                  1566814663387,<br />&nbsp;&nbsp;"is_current_user_admin":
+                  true,<br />&nbsp;&nbsp;"files_view_pref": {<br />&nbsp;&nbsp;"sort_by":
+                  "last_modified",<br />&nbsp;&nbsp;"sort_order": "desc",<br />&nbsp;&nbsp;"filtered_by":
+                  "all",<br />&nbsp;&nbsp;"layout": "list"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"unread_count":
+                  0,<br />&nbsp;&nbsp;"role_id": 1,<br />&nbsp;&nbsp;"shared_view_pref":
+                  {<br />&nbsp;&nbsp;"sort_by": "last_modified",<br />&nbsp;&nbsp;"sort_order":
+                  "desc",<br />&nbsp;&nbsp;"filtered_by": "all",<br />&nbsp;&nbsp;"layout":
+                  "list"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"last_accessed_time":
+                  "Aug 26, 3:47 PM",<br />&nbsp;&nbsp;"is_share_allowed":
+                  true,<br />&nbsp;&nbsp;"created_time": "Aug 26, 3:47 PM",<br />&nbsp;&nbsp;"collaborators_count":
+                  1,<br />&nbsp;&nbsp;"capabilities": {<br />&nbsp;&nbsp;"can_read":
+                  true,<br />&nbsp;&nbsp;"can_share": true,<br />&nbsp;&nbsp;"can_delete":
+                  true,<br />&nbsp;&nbsp;"can_edit": true,<br />&nbsp;&nbsp;"can_manage":
+                  true,<br />&nbsp;&nbsp;"can_create_files": true,<br />&nbsp;&nbsp;"can_upload_files":
+                  true,<br />&nbsp;&nbsp;"can_trash_files": true,<br />&nbsp;&nbsp;"can_leave":
+                  true,<br />&nbsp;&nbsp;"can_add_members": true,<br />&nbsp;&nbsp;"can_join":
+                  false,<br />&nbsp;&nbsp;"can_download_files": true<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"unread_view_pref":
+                  {<br />&nbsp;&nbsp;"sort_by": "last_modified",<br />&nbsp;&nbsp;"sort_order":
+                  "desc",<br />&nbsp;&nbsp;"filtered_by": "all",<br />&nbsp;&nbsp;"layout":
+                  "list"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"incomingfiles_view_pref":
+                  {<br />&nbsp;&nbsp;"sort_by": "shared_time",<br />&nbsp;&nbsp;"sort_order":
+                  "desc",<br />&nbsp;&nbsp;"filtered_by": "all",<br />&nbsp;&nbsp;"layout":
+                  "list"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"is_org_team_folder":
+                  false,<br />&nbsp;&nbsp;"is_partof": true,<br />&nbsp;&nbsp;"is_default":
+                  false,<br />&nbsp;&nbsp;"created_by": "Shawn",<br />&nbsp;&nbsp;"created_by_zuid":
+                  "58131170",<br />&nbsp;&nbsp;"parent_id":
+                  "af0u7XXXXXXXXXXXXXXXXXXXXXXXXXXXee228",<br />&nbsp;&nbsp;"last_accessed_by":
+                  "Shawn",<br />&nbsp;&nbsp;"is_unread": false,<br />&nbsp;&nbsp;"name":
+                  "New Team Folder",<br />&nbsp;&nbsp;"status": 1<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"relationships":
+                  {<br />&nbsp;&nbsp;"settings": {<br />&nbsp;&nbsp;"links":
+                  {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/settings",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/settings"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"folders":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/folders",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/folders"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"incomingfiles":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/incomingfiles",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/incomingfiles"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"trashedfiles":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/trashedfiles",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/trashedfiles"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"mydrafts":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/mydrafts",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/mydrafts"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"deletedfiles":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/deletedfiles",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/deletedfiles"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"permissions":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/permissions",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/permissions"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"files":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/files",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/files"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"timeline":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/timeline",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/timeline"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"links":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/links",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/links"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"incomingfolders":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/incomingfolders",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/incomingfolders"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"copy":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/copy",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/copy"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"unreadfiles":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/unreadfiles",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/unreadfiles"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"outgoingfiles":
+                  {<br />&nbsp;&nbsp;"links": {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/relationships/outgoingfiles",<br />&nbsp;&nbsp;"related":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a/outgoingfiles"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"links":
+                  {<br />&nbsp;&nbsp;"self":
+                  "https://workdrive.zoho.com/api/v1/workspaces/o5cfkXXXXXXXXXXXXXXXXXXXXXXXXXXX9644a"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for an incorrect parent ID will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"errors": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"id":
+                  "R008",<br />&nbsp;&nbsp;"title": "Unauthorized access"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for an existing team folder name will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"errors": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"id":
+                  "R003",<br />&nbsp;&nbsp;"title": "Workspace with same name
+                  exists in your team. Please use a different name"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for null value in team folder name
+                  parameter will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"errors": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"id":
+                  "F000",<br />&nbsp;&nbsp;"title": "General Exception"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho WorkDrive Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

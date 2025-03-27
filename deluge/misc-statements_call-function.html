@@ -1,0 +1,322 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Miscellaneous</a></li>
+        <li><a>Call function</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Call function</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>call function</strong>&nbsp;Deluge task is used to
+              invoke a <a>custom function</a> defined in any Creator application
+              in your account.
+            </p>
+            <h2><a></a>Return</h2>
+            <p>
+              Based on how the function is defined, it might or might not return
+              a value.
+            </p>
+            <p>
+              The&nbsp;data-type of the returned value will be the data-type
+              specified for the function while defining it.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <p>
+              To invoke a function which returns a value,&nbsp;from current
+              application
+            </p>
+            <div>
+              <span
+                >&lt;variable&gt; = <span>thisapp.</span
+                ><span>&lt;function_name&gt;</span
+                ><span>(&lt;parameters&gt;)</span>;</span
+              >
+            </div>
+            <p>
+              To invoke a function which does not return any value, from current
+              application
+            </p>
+            <div>
+              <span
+                ><span>thisapp.</span><span>&lt;function_name&gt;</span
+                ><span>(&lt;parameters&gt;)</span></span
+              ><span>;</span>
+            </div>
+            <p>
+              To invoke a function which returns a value, from
+              different&nbsp;application in same account
+            </p>
+            <div>
+              <span
+                >&lt;variable&gt; =
+                <span>&lt;application_link_name&gt;</span>.<span
+                  >&lt;function_name&gt;</span
+                ><span>(&lt;parameters&gt;)</span></span
+              ><span>;</span>
+            </div>
+            <p>
+              To invoke a function which does not&nbsp;return&nbsp;any value,
+              from different application in same account
+            </p>
+            <div>
+              <span
+                ><span>&lt;application_link_name&gt;</span>.<span
+                  >&lt;function_name&gt;</span
+                ><span>(&lt;parameters&gt;)</span></span
+              ><span>;</span>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Param</th>
+                    <th>Explanation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div><span>&lt;variable&gt;</span></div>
+                    </td>
+                    <td>
+                      <p>Variable to hold the returning value.</p>
+                      <p>
+                        You can also specify a field name here, in the format
+                        <strong>input.&lt;field_link_name&gt;</strong>,&nbsp;to
+                        assign the returning value directly to the&nbsp;field.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>
+                        <span><span>&lt;function_name&gt;</span></span>
+                      </div>
+                    </td>
+                    <td>Name of the function to be invoked.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;parameters&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        Usage of this param depends on arguments specified or
+                        not while defining the function.
+                      </p>
+                      <p>
+                        An argument is a&nbsp;variable declared while defining
+                        a&nbsp;function. It is&nbsp;used to refer to a value
+                        provided as input&nbsp;while invoking the&nbsp;function.
+                        The input value is being referred as
+                        <strong>parameter</strong> here.
+                      </p>
+                      <p>
+                        You can specify a variable or an expression which can be
+                        evaluated to a value&nbsp;as a parameter, or you can
+                        also specify a field name as a parameter,&nbsp;in the
+                        format&nbsp;<strong>input.&lt;field_link_name&gt;</strong>.
+                      </p>
+                      <p>
+                        The number of parameters and their data-types should be
+                        same as those of arguments while defining the function.
+                        If there's a mismatch, the script will not get saved.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;application_link_name&gt;</span></span>
+                    </td>
+                    <td>
+                      Link name of the application in which the function has
+                      been defined.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              Let us consider an <strong>Employee Management</strong> Creator
+              application with the form 'Employee_Details', which has fields
+              like <i>Name</i>, <i>Department</i>, <i>Designation</i>, and
+              <i>Salary</i>. Within this application, we've created a
+              'getAvgSalary' <a>function</a> to compute the average salary of a
+              department using the following script:
+            </p>
+            <div>
+              <pre><span>int</span> <span>getAvgSalary</span><span>(</span><span>String</span> <span>input_department</span><span>)</span>&nbsp;
+<span>{</span>&nbsp;
+<span>avgSalary</span><span>=</span><span>Employee_Details</span><span>[</span><span>Department</span> <span>=</span> <span>input_department</span><span>]</span><span>.avg</span><span>(</span><span>Salary</span><span>)</span><span>;</span>&nbsp;
+<span>return</span> <span>avgSalary</span>
+<span>}</span></pre>
+            </div>
+            <p>
+              We can invoke the defined&nbsp;function for the "Sales" department
+              in the same app using the following snippet:
+            </p>
+            <div>
+              <pre><span>Average_Sales_Salary</span> <span>=</span> <span>thisapp</span><span>.getAvgSalary</span><span>(</span><span>"Sales"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>
+              We can invoke the defined function for the "Sales" department in
+              different Creator application using the following snippet:
+            </p>
+            <div>
+              <pre><span>Average_Sales_Salary</span> <span>=</span> <span>Empolyee_Management</span><span>.getAvgSalary</span><span>(</span><span>"Sales"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

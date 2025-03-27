@@ -1,0 +1,203 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Miscellaneous</a></li>
+        <li><a>Success message</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Success message</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note</strong>: This task is only applicable to Zoho
+              Creator.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>success message</strong>&nbsp;deluge task is used to
+              display&nbsp;a specified message after a form is submitted or when
+              an <a>action item in a report</a> is executed successfully.&nbsp;
+            </p>
+            <p>
+              The message specified in this task overrules the message specified
+              through <a>UI in form properties</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span>success message </span><span>&lt;expression&gt;</span
+              ><span>;</span>
+            </div>
+            <div>
+              <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th><strong>Parameter</strong></th>
+                      <th><strong>Description</strong></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span>&lt;expression&gt;</span></td>
+                      <td>
+                        <p>The message to be displayed.</p>
+                        <p>All data types are applicable.</p>
+                        <p>
+                          You can specify field inputs in the format:
+                          <strong>input.&lt;field_link_name&gt;</strong>
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following snippet&nbsp;when triggered displays the
+              specified&nbsp;success message.
+            </p>
+            <div>success message "Thanks for your feedback";</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

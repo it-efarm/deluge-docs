@@ -1,0 +1,266 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Miscellaneous</a></li>
+        <li><a>Continue</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Continue</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li>
+                      <a>Example1: Display all values of a list except "Red"</a>
+                    </li>
+                    <li>
+                      <a>Example2: Send email to all approved order requests</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>continue</strong> statement skips a particular
+              iteration within a <a>loop</a> based on specified condition and
+              continues with the iteration process. Typically used instead of
+              using conditional statements to skip/ignore certain portion of a
+              loop.
+            </p>
+            <div>
+              <strong>Note</strong>: Both <a>break</a>&nbsp;and continue Deluge
+              task helps control the&nbsp;<a>for each loop</a>. The difference
+              between them is that the break statement terminates the execution
+              of the loop and the continue statement terminates only the current
+              iteration of the loop.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>continue</span><span>;</span>
+</pre>
+            </div>
+            <p>&nbsp;</p>
+            <p>
+              The syntax can be placed within the loop after a conditional
+              statement. When the condition is met, the current iteration is
+              skipped while the loop continues.
+            </p>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              The list&nbsp;-&nbsp;<strong>colors</strong> contains
+              <strong>4</strong> values. In the following example, when the
+              value "Red" is encountered in the list, the execution of the
+              current iteration is skipped.
+            </p>
+            <div>
+              <pre>&nbsp;<span>colors</span> <span>=</span> <span>List</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>colors</span><span>.add</span><span>(</span><span>"Green"</span><span>)</span><span>;</span>
+&nbsp;<span>colors</span><span>.add</span><span>(</span><span>"Red"</span><span>)</span><span>;</span>
+&nbsp;<span>colors</span><span>.add</span><span>(</span><span>"Blue"</span><span>)</span><span>;</span>
+&nbsp;<span>colors</span><span>.add</span><span>(</span><span>"Red"</span><span>)</span><span>;</span>
+&nbsp;<span>colors</span><span>.add</span><span>(</span><span>"Teal"</span><span>)</span><span>;</span>
+&nbsp;<span>for each </span><span>rec </span><span>in </span><span>colors</span>
+&nbsp;<span>{</span>
+&nbsp;<span>if</span><span>(</span><span>rec </span><span>== </span><span>"Red"</span><span>)</span>
+&nbsp;<span>{</span> 
+&nbsp;<span>continue</span><span>;</span>
+&nbsp;<span>}</span>
+&nbsp;<span>info</span><span> rec</span><span>;</span>
+&nbsp;<span>}</span>
+</pre>
+            </div>
+            <p>Returns:<br />Green<br />Blue<br />Teal</p>
+            <h2><a></a>Example 2</h2>
+            <p>
+              Let us say a list variable <strong>orders</strong> contains the
+              details of orders placed such as: order ID, order status, and
+              customer email. To send a mail to every order except for the
+              orders with the status -&nbsp;"Delivered", we can use the
+              "continue" statement as shown below:
+            </p>
+            <div>
+              <pre><span>order1 </span><span>= </span><span>Collection</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>order1</span><span>.insert</span><span>(</span><span>"id"</span><span>:</span><span>"1000"</span><span>)</span><span>;</span>&nbsp;
+<span>order1</span><span>.insert</span><span>(</span><span>"status"</span><span>:</span><span>"Approved"</span><span>)</span><span>;</span>&nbsp;
+<span>order1</span><span>.insert</span><span>(</span><span>"customer-email"</span><span>:</span><span>"james@zylker.com"</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+<span>order2 </span><span>= </span><span>Collection</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>order2</span><span>.insert</span><span>(</span><span>"id"</span><span>:</span><span>"1001"</span><span>)</span><span>;</span>&nbsp;
+<span>order2</span><span>.insert</span><span>(</span><span>"status"</span><span>:</span><span>"Pending"</span><span>)</span><span>;</span>&nbsp;
+<span>order2</span><span>.insert</span><span>(</span><span>"customer-email"</span><span>:</span><span>"august@zylker.com"</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+<span>order3 </span><span>= </span><span>Collection</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>order3</span><span>.insert</span><span>(</span><span>"id"</span><span>:</span><span>"1002"</span><span>)</span><span>;</span>&nbsp;
+<span>order3</span><span>.insert</span><span>(</span><span>"status"</span><span>:</span><span>"Delivered"</span><span>)</span><span>;</span>&nbsp;
+<span>order3</span><span>.insert</span><span>(</span><span>"customer-email"</span><span>:</span><span>"betty@zylker.com"</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+<span>orders </span><span>= </span><span>Collection</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>orders</span><span>.insert</span><span>(</span><span>order1</span><span>)</span><span>;</span>&nbsp;
+<span>orders</span><span>.insert</span><span>(</span><span>order2</span><span>)</span><span>;</span>&nbsp;
+<span>orders</span><span>.insert</span><span>(</span><span>order3</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+<span>for each </span><span>order </span><span>in </span><span>orders</span>&nbsp;
+<span>{</span>&nbsp;
+<span>if</span><span>(</span><span>order</span><span>.get</span><span>(</span><span>"status"</span><span>)</span><span>==</span><span>"Delivered"</span><span>)</span>&nbsp;
+<span>{</span>&nbsp;
+<span>continue</span><span>;</span>&nbsp;
+<span>}</span>&nbsp;
+<span>sendmail</span>&nbsp;
+<span>[</span>&nbsp;
+<span>from</span><span>:</span><span>zoho</span><span>.adminuserid</span>&nbsp;
+<span>to</span><span>:</span><span>order</span><span>.get</span><span>(</span><span>"customer-email"</span><span>)</span>&nbsp;
+<span>subject</span><span>:</span><span>"Order Delay Notice"</span>&nbsp;
+<span>message</span><span>:</span><span>"Due to the current measures to protect the safety of our distribution center employees, please expect delays in processing and delivering your order. We apologize for the inconvenience."</span>&nbsp;
+<span>]</span>&nbsp;
+<span>}</span>&nbsp;
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>For each statement</a></li>
+              <li><a>If condition</a></li>
+              <li><a>Break</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

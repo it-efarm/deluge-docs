@@ -1,0 +1,404 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho FSM integration tasks</a></li>
+        <li><a>Get Records from Zoho FSM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Records from Zoho FSM</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2>Description</h2>
+            <p>
+              You can fetch records from a specified module using the
+              <strong>zoho.fsm.getRecords</strong>&nbsp;Deluge task.
+            </p>
+            <p>
+              This task is based on
+              <a>Zoho FSM API</a> -&gt;&nbsp;&nbsp;&lt;Module&gt; -&gt; List
+              &lt;ModuleName&gt;.
+            </p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.fsm.getRecords</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;,</span> <span>&lt;</span><span>page</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>per_page</span><span>&gt;</span><span>, </span><span>&lt;optional_data_map</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>&lt;variable&gt;</td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>is the response returned by Zoho FSM.</td>
+                      </tr>
+                      <tr>
+                        <td>&lt;module_name&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            is the API name of the module from which you want to
+                            fetch records.
+                          </p>
+                          <p>
+                            <strong
+                              >The API names of the modules are:&nbsp;</strong
+                            ><br />Assets, Companies, Contacts, Estimates,
+                            Invoices, Requests, Scheduled_Maintenances,
+                            &nbsp;Service_And_Parts, Service_Appointments,
+                            Territories, Time_Off, Work_Orders, Work_Types
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;page&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td><span>NUMBER</span></td>
+                        <td>
+                          <p>
+                            indicates the page number from which you want to
+                            retrieve records.&nbsp;
+                          </p>
+                          <p><strong>Default value:</strong> 1</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;per_page&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td><span>NUMBER</span></td>
+                        <td>
+                          <p>
+                            is&nbsp;the number of records that need to be
+                            fetched per page.
+                          </p>
+                          <p><strong>Default value:</strong> 200</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;optional_data_map&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            is the parameter to pass any additional
+                            values.&nbsp;
+                          </p>
+                          <p><strong>Note:</strong></p>
+                          <ul>
+                            <li>
+                              To learn about the optional parameters, click
+                              <a>here</a> and go to &lt;moduleName&gt; -&gt;
+                              list &lt;moduleName&gt;.
+                            </li>
+                            <li>
+                              The <strong>&lt;page&gt;</strong> and
+                              <strong>&lt;per_page&gt;</strong> params must be
+                              specified to be able to specify this
+                              param.&nbsp;&nbsp;
+                            </li>
+                            <li>
+                              To ignore querying&nbsp;using this
+                              param,&nbsp;specify an empty map.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            is the&nbsp;<a>connection</a>&nbsp;created for Zoho
+                            FSM.
+                          </p>
+                          <p>
+                            <strong>Note:</strong>&nbsp;Add relevant scopes as
+                            mentioned in <a>Zoho FSM AP</a>I -&gt;
+                            &lt;Module&gt; -&gt; List &lt;ModuleName&gt;.&nbsp;
+                          </p>
+                          <p>&nbsp;</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2>Example: Retrieve records from the Request module</h2>
+            <p>
+              The following script fetches the first 4&nbsp;records
+              from&nbsp;the Zoho FSM&nbsp;<strong>Requests</strong>&nbsp;module
+              and sorts the fetched records in descending order based on the
+              field - <strong>Name</strong>.&nbsp;
+            </p>
+            <div>
+              <pre><span>optionalDataMap </span><span>= </span><span>Map</span><span>()</span><span>;</span>&nbsp;
+<span>optionalDataMap</span><span>.put</span><span>(</span><span>"sort_by"</span><span>, </span><span>"Name"</span><span>)</span><span>;</span>&nbsp;
+<span>optionalDataMap</span><span>.put</span><span>(</span><span>"sort_order"</span><span>, </span><span>"desc"</span><span>)</span><span>;</span>&nbsp;
+​
+<span>response </span><span>= </span><span>zoho.fsm.getRecords</span><span>(</span><span>"Requests"</span><span>, </span><span>1</span><span>, </span><span>4</span><span>, </span><span>optionalDataMap</span><span>, </span><span>"fsm_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> response returned by Zoho
+                      FSM.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Requests"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the API name of
+                      the Zoho FSM module from which records will be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>1</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the index of
+                      the first record to be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>4</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the number of
+                      records to be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>optionalDataMap</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable with TEXT keys for
+                      sorting the fetched records&nbsp;s
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"fsm_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>Response Format</h2>
+            <p>The success response returned is of the following format:</p>
+            <div>
+              {&nbsp;<br />"data": [&nbsp;<br />{&nbsp;<br />"Owner": {&nbsp;<br />"name":
+              "Mary Cooper",&nbsp;<br />"id": "1439000000161001",&nbsp;<br />"email":
+              "shawn@zylker.com"&nbsp;<br />},&nbsp;<br />"Company":
+              null,&nbsp;<br />"Email": null,&nbsp;<br />"$currency_symbol":
+              "$",&nbsp;<br />"Cancellation_Reason": null,&nbsp;<br />"Config":
+              null,&nbsp;<br />"Closed_Time": null,&nbsp;<br />"Reported_By":
+              null,&nbsp;<br />"Cancelled_Or_Terminated_Time": null,&nbsp;<br />"Dispatcher":
+              {&nbsp;<br />"name": "Mary Cooper",&nbsp;<br />"id":
+              "1439000000161001"&nbsp;<br />},&nbsp;<br />"Name":
+              "REQ13",&nbsp;<br />"Modified_By": {&nbsp;<br />"name": "Mary
+              Cooper",&nbsp;<br />"id": "1439000000161001",&nbsp;<br />"email":
+              "shawn@zylker.com"&nbsp;<br />},&nbsp;<br />"Exchange_Rate":
+              1,&nbsp;<br />"Phone": null,&nbsp;<br />"Cancellation_Message":
+              null,&nbsp;<br />"Currency": "USD",&nbsp;<br />"$inactive":
+              false,&nbsp;<br />"Service_Address": {&nbsp;<br />"Service_Latitude":
+              41.491496,&nbsp;<br />"Service_Street_1": "4117 Kennedy
+              Dr",&nbsp;<br />"Service_State": "Illinois",&nbsp;<br />"Service_Zip_Code":
+              "61244",&nbsp;<br />"name": "AD-2",&nbsp;<br />"id":
+              "1439000000161231",&nbsp;<br />"Service_Longitude":
+              -90.457028,&nbsp;<br />"Service_Address_Name": "Service
+              Address",&nbsp;<br />"Service_Street_2": null,&nbsp;<br />"Service_Country":
+              "United States",&nbsp;<br />"Service_City": "East Moline"&nbsp;<br />},&nbsp;<br />"Asset":
+              null,&nbsp;<br />"id": "1439000000185716",&nbsp;<br />"Status":
+              "New",&nbsp;<br />"Territory": {&nbsp;<br />"name":
+              "Colona",&nbsp;<br />"id": "1439000000161185"&nbsp;<br />},&nbsp;<br />"Modified_Time":
+              "2022-05-16T03:56:17-07:00",&nbsp;<br />"Due_Date": null,&nbsp;<br />"Priority":
+              null,&nbsp;<br />"Created_Time":
+              "2022-05-16T03:56:17-07:00",&nbsp;<br />"$editable":
+              true,&nbsp;<br />"Completed_Time": null,&nbsp;<br />"$permissions":
+              {&nbsp;<br />"read": true,&nbsp;<br />"edit": true,&nbsp;<br />"delete":
+              true&nbsp;<br />},&nbsp;<br />"Estimate_Required": false,&nbsp;<br />"Contact":
+              {&nbsp;<br />"name": "Lucy Robins",&nbsp;<br />"id":
+              "1439000000161222"&nbsp;<br />},&nbsp;<br />"Parent_Work_Order":
+              null,&nbsp;<br />"Request_Origin": null,&nbsp;<br />"Preference":
+              {&nbsp;<br />"Preferred_Date_1": null,&nbsp;<br />"Preferred_Date_2":
+              null,&nbsp;<br />"Preference_Note": null,&nbsp;<br />"Preferred_Time":
+              null&nbsp;<br />},&nbsp;<br />"Billing_Address": {&nbsp;<br />"Billing_Longitude":
+              -90.358476,&nbsp;<br />"Billing_City": "Colona",&nbsp;<br />"Billing_Country":
+              "United States",&nbsp;<br />"name": "AD-1",&nbsp;<br />"Billing_Address_Name":
+              "Billing Address",&nbsp;<br />"Billing_Street_1": "901 1st
+              St",&nbsp;<br />"Billing_State": "Illinois",&nbsp;<br />"Billing_Zip_Code":
+              "61241",&nbsp;<br />"Billing_Street_2": null,&nbsp;<br />"Billing_Latitude":
+              41.469353,&nbsp;<br />"id": "1439000000161230"&nbsp;<br />},&nbsp;<br />"Summary":
+              "Sample",&nbsp;<br />"Created_By": {&nbsp;<br />"name": "Mary
+              Cooper",&nbsp;<br />"id": "1439000000161001",&nbsp;<br />"email":
+              "shawn@zylker.com"&nbsp;<br />}&nbsp;<br />},&nbsp;<br />{&nbsp;<br />"Owner":
+              {&nbsp;<br />"name": "Mary Cooper",&nbsp;<br />"id":
+              "1439000000161001",&nbsp;<br />"email":
+              "shawn@zylker.com"&nbsp;<br />},&nbsp;<br />"Company":
+              null,&nbsp;<br />"Email": null,&nbsp;<br />"$currency_symbol":
+              "$",&nbsp;<br />"Cancellation_Reason": null,&nbsp;<br />"Config":
+              null,&nbsp;<br />"Closed_Time": null,&nbsp;<br />"Reported_By":
+              null,&nbsp;<br />"Cancelled_Or_Terminated_Time": null,&nbsp;<br />"Dispatcher":
+              {&nbsp;<br />"name": "Mary Cooper",&nbsp;<br />"id":
+              "1439000000161001"&nbsp;<br />},&nbsp;<br />"Name":
+              "REQ10",&nbsp;<br />"Modified_By": {&nbsp;<br />"name": "Mary
+              Cooper",&nbsp;<br />"id": "1439000000161001",&nbsp;<br />"email":
+              "shawn@zylker.com"&nbsp;<br />},&nbsp;<br />"Exchange_Rate":
+              1,&nbsp;<br />"Phone": null,&nbsp;<br />"Cancellation_Message":
+              null,&nbsp;<br />"Currency": "USD",&nbsp;<br />"$inactive":
+              false,&nbsp;<br />"Service_Address": {&nbsp;<br />"Service_Latitude":
+              41.491496,&nbsp;<br />"Service_Street_1": "4117 Kennedy
+              Dr",&nbsp;<br />"Service_State": "Illinois",&nbsp;<br />"Service_Zip_Code":
+              "61244",&nbsp;<br />"name": "AD-2",&nbsp;<br />"id":
+              "1439000000161231",&nbsp;<br />"Service_Longitude":
+              -90.457028,&nbsp;<br />"Service_Address_Name": "Service
+              Address",&nbsp;<br />"Service_Street_2": null,&nbsp;<br />"Service_Country":
+              "United States",&nbsp;<br />"Service_City": "East Moline"&nbsp;<br />},&nbsp;<br />"Asset":
+              null,&nbsp;<br />"id": "1439000000186166",&nbsp;<br />"Status":
+              "New",&nbsp;<br />"Territory": {&nbsp;<br />"name":
+              "Colona",&nbsp;<br />"id": "1439000000161185"&nbsp;<br />},&nbsp;<br />"Modified_Time":
+              "2022-05-15T23:08:22-07:00",&nbsp;<br />"Due_Date": null,&nbsp;<br />"Priority":
+              null,&nbsp;<br />"Created_Time":
+              "2022-05-15T23:08:22-07:00",&nbsp;<br />"$editable":
+              true,&nbsp;<br />"Completed_Time": null,&nbsp;<br />"$permissions":
+              {&nbsp;<br />"read": true,&nbsp;<br />"edit": true,&nbsp;<br />"delete":
+              true&nbsp;<br />},&nbsp;<br />"Estimate_Required": false,&nbsp;<br />"Contact":
+              {&nbsp;<br />"name": "Lucy Robins",&nbsp;<br />"id":
+              "1439000000161222"&nbsp;<br />},&nbsp;<br />"Parent_Work_Order":
+              null,&nbsp;<br />"Request_Origin": null,&nbsp;<br />"Preference":
+              {&nbsp;<br />"Preferred_Date_1": null,&nbsp;<br />"Preferred_Date_2":
+              null,&nbsp;<br />"Preference_Note": null,&nbsp;<br />"Preferred_Time":
+              null&nbsp;<br />},&nbsp;<br />"Billing_Address": {&nbsp;<br />"Billing_Longitude":
+              -90.358476,&nbsp;<br />"Billing_City": "Colona",&nbsp;<br />"Billing_Country":
+              "United States",&nbsp;<br />"name": "AD-1",&nbsp;<br />"Billing_Address_Name":
+              "Billing Address",&nbsp;<br />"Billing_Street_1": "901 1st
+              St",&nbsp;<br />"Billing_State": "Illinois",&nbsp;<br />"Billing_Zip_Code":
+              "61241",&nbsp;<br />"Billing_Street_2": null,&nbsp;<br />"Billing_Latitude":
+              41.469353,&nbsp;<br />"id": "1439000000161230"&nbsp;<br />},&nbsp;<br />"Summary":
+              "Sample",&nbsp;<br />"Created_By": {&nbsp;<br />"name": "Mary
+              Cooper",&nbsp;<br />"id": "1439000000161001",&nbsp;<br />"email":
+              "shawn@zylker.com"&nbsp;<br />}&nbsp;<br />},&nbsp;<br />{&nbsp;<br />"Owner":
+              {&nbsp;<br />"name": "Mary Cooper",&nbsp;<br />"id":
+              "1439000000161001",&nbsp;<br />"email":
+              "shawn@zylker.com"&nbsp;<br />},&nbsp;<br />"Company": {&nbsp;<br />"name":
+              "ABC Services",&nbsp;<br />"id": "1439000000161212"&nbsp;<br />},&nbsp;<br />"Email":
+              "betty@zylker.com",&nbsp;<br />"$currency_symbol": "$",&nbsp;<br />"Cancellation_Reason":
+              null,&nbsp;<br />"Config":
+              "{\"sales_tax_type\":\"exclusive\",\"tax_rounding_type\":\"not_configured\",\"Type\":\"32\",\"is_discount_before_tax\":true,\"is_inclusive_tax\":false,\"is_discount_tax_inclusive\":false,\"discount_type\":\"entity_level\",\"is_sales_inclusive_tax_enabled\":false,\"transaction_rounding_type\":\"no_rounding\",\"is_registered_for_tax\":true,\"Tax_Details\":{\"Tax_Percentage\":7,\"Tax_Id\":\"3219741000000078015\",\"taxFromModule\":\"Addresses\",\"Tax_Name\":\"SalesTax\",\"Taxable\":true}}",&nbsp;<br />"Closed_Time":
+              null,&nbsp;<br />"Reported_By": null,&nbsp;<br />"Cancelled_Or_Terminated_Time":
+              null,&nbsp;<br />"Dispatcher": {&nbsp;<br />"name": "Mary
+              Cooper",&nbsp;<br />"id": "1439000000161001"&nbsp;<br />},&nbsp;<br />"Name":
+              "REQ1",&nbsp;<br />"Modified_By": {&nbsp;<br />"name": "Mary
+              Cooper",&nbsp;<br />"id": "1439000000161001",&nbsp;<br />"email":
+              "shawn@zylker.com"&nbsp;<br />},&nbsp;<br />"Exchange_Rate":
+              1,&nbsp;<br />"Phone": "111-111-1111",&nbsp;<br />"Cancellation_Message":
+              null,&nbsp;<br />"Currency": "USD",&nbsp;<br />"$inactive":
+              false,&nbsp;<br />"Service_Address": {&nbsp;<br />"Service_Latitude":
+              41.491496,&nbsp;<br />"Service_Street_1": "4117 Kennedy
+              Dr",&nbsp;<br />"Service_State": "Illinois",&nbsp;<br />"Service_Zip_Code":
+              "61244",&nbsp;<br />"name": "AD-2",&nbsp;<br />"id":
+              "1439000000161231",&nbsp;<br />"Service_Longitude":
+              -90.457028,&nbsp;<br />"Service_Address_Name": "Service
+              Address",&nbsp;<br />"Service_Street_2": null,&nbsp;<br />"Service_Country":
+              "United States",&nbsp;<br />"Service_City": "East Moline"&nbsp;<br />},&nbsp;<br />"Asset":
+              null,&nbsp;<br />"id": "1439000000185139",&nbsp;<br />"Status":
+              "Work In Progress",&nbsp;<br />"Territory": {&nbsp;<br />"name":
+              "Colona",&nbsp;<br />"id": "1439000000161185"&nbsp;<br />},&nbsp;<br />"Modified_Time":
+              "2022-05-16T00:48:58-07:00",&nbsp;<br />"Due_Date": null,&nbsp;<br />"Priority":
+              "Medium",&nbsp;<br />"Created_Time":
+              "2022-05-12T03:42:38-07:00",&nbsp;<br />"$editable":
+              true,&nbsp;<br />"Completed_Time": null,&nbsp;<br />"$permissions":
+              {&nbsp;<br />"read": true,&nbsp;<br />"edit": true,&nbsp;<br />"delete":
+              true&nbsp;<br />},&nbsp;<br />"Estimate_Required": false,&nbsp;<br />"Contact":
+              {&nbsp;<br />"name": "Lucy Robins",&nbsp;<br />"id":
+              "1439000000161222"&nbsp;<br />},&nbsp;<br />"Parent_Work_Order":
+              null,&nbsp;<br />"Request_Origin": null,&nbsp;<br />"Preference":
+              {&nbsp;<br />"Preferred_Date_1": null,&nbsp;<br />"Preferred_Date_2":
+              null,&nbsp;<br />"Preference_Note": null,&nbsp;<br />"Preferred_Time":
+              null&nbsp;<br />},&nbsp;<br />"Billing_Address": {&nbsp;<br />"Billing_Longitude":
+              -90.358476,&nbsp;<br />"Billing_City": "Colona",&nbsp;<br />"Billing_Country":
+              "United States",&nbsp;<br />"name": "AD-1",&nbsp;<br />"Billing_Address_Name":
+              "Billing Address",&nbsp;<br />"Billing_Street_1": "901 1st
+              St",&nbsp;<br />"Billing_State": "Illinois",&nbsp;<br />"Billing_Zip_Code":
+              "61241",&nbsp;<br />"Billing_Street_2": null,&nbsp;<br />"Billing_Latitude":
+              41.469353,&nbsp;<br />"id": "1439000000161230"&nbsp;<br />},&nbsp;<br />"Summary":
+              "Bathroom floor repair",&nbsp;<br />"Created_By": {&nbsp;<br />"name":
+              "Mary Cooper",&nbsp;<br />"id": "1439000000161001",&nbsp;<br />"email":
+              "shawn@zylker.com"&nbsp;<br />}&nbsp;<br />}&nbsp;<br />],&nbsp;<br />"info":
+              {&nbsp;<br />"per_page": 4,&nbsp;<br />"count": 3,&nbsp;<br />"page":
+              1,&nbsp;<br />"more_records": false&nbsp;<br />}&nbsp;<br />}
+            </div>
+            <p><a></a></p>
+            <p>
+              To get the list of record IDs from the response, execute the
+              following snippet:
+            </p>
+            <div>
+              <pre><span>list_variable </span><span>= </span><span>response.toMap</span><span>()</span><span>.get</span><span>(</span><span>"data"</span><span>)</span><span>.toList</span><span>()</span><span>;</span>&nbsp;
+<span>for each </span><span>item </span><span>in </span><span>list_variable</span>&nbsp;
+<span>{</span>&nbsp;
+<span>info item</span><span>.get</span><span>(</span><span>"id"</span><span>)</span><span>;</span>&nbsp;
+<span>}</span>
+</pre>
+            </div>
+            <h2>Related Links</h2>
+            <ul>
+              <li><a>Connections</a></li>
+              <li><a>Zoho FSM API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

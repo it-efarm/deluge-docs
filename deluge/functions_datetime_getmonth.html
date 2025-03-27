@@ -1,0 +1,122 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>getMonth</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>getMonth()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>getMonth() </strong>function takes a
+              <strong>dateTimeValue</strong> as an argument, and returns the
+              numerical value of the month.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Number</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; = <span>&lt;dateTimeValue&gt;</span>.getMonth();
+            </div>
+            <p>(OR)</p>
+            <div>
+              &lt;variable&gt; = getMonth( <span>&lt;dateTimeValue&gt;</span>);
+            </div>
+            <p>(OR)</p>
+            <div>
+              &lt;variable&gt; = <span>&lt;dateTimeValue&gt;</span>.month();
+            </div>
+            <p>(OR)</p>
+            <div>
+              &lt;variable&gt; = month( <span>&lt;dateTimeValue&gt;</span>);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>Variable which will contain the returned number.</td>
+                    <td>NUMBER</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;dateTimeValue&gt;</span></td>
+                    <td>
+                      <p>
+                        The date-time value from which the month's numerical
+                        value will be returned.
+                      </p>
+                      <p>A runtime error will be encountered if:</p>
+                      <ul>
+                        <li>
+                          the specified 2 digit date value exceeds the number of
+                          days in that month.
+                        </li>
+                        <li>
+                          an incorrect month value is specified in 3 or more
+                          characters.
+                        </li>
+                      </ul>
+                      <p>The function returns a null value if:</p>
+                      <ul>
+                        <li>
+                          the month value is specified in less than 3
+                          characters.
+                        </li>
+                        <li>
+                          the hour value, or the minutes value, or the seconds
+                          value is specified in more than 2 digits.
+                        </li>
+                        <li>
+                          the date value is specified in more than 2 digits.
+                        </li>
+                        <li>the year value has more than 4 digits.</li>
+                      </ul>
+                      <p>
+                        Refer <a>this help document</a> to learn about the
+                        supported date-time formats.
+                      </p>
+                    </td>
+                    <td>DATE-TIME</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              currentDate = '08-Jan-2019';<br />monthNumber =
+              currentDate.getMonth();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+              returns 1
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

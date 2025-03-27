@@ -1,0 +1,260 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>text</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>text</h1>
+          <div>
+            <h4>Table of Contents</h4>
+            <ul>
+              <li><a>Overview</a></li>
+              <li><a>Return Type</a></li>
+              <li><a>Syntax</a></li>
+              <li><a>Examples</a></li>
+              <li><a>Related Links</a></li>
+            </ul>
+          </div>
+          <h2><a></a>Overview</h2>
+          <p>
+            The <strong>text</strong> function takes a numerical expression and
+            returns it in the desired format.
+          </p>
+          <div>
+            <p><strong>Note</strong>:</p>
+            <ul>
+              <li>
+                The function can format <strong>numbers</strong>,
+                <strong>decimals</strong> and <strong>dates</strong>.
+              </li>
+            </ul>
+          </div>
+          <h2><a></a>Return Type</h2>
+          <ul>
+            <li><span>TEXT</span></li>
+          </ul>
+          <h2><a></a>Syntax</h2>
+          <div>
+            <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression</span><span>&gt;</span><span>.toText</span><span>(</span><span>&lt;</span><span>formatText</span><span>&gt;</span><span>)</span><span>;</span></pre>
+          </div>
+          <p>where,</p>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>Parameter</strong></td>
+                  <td><strong>Data type</strong></td>
+                  <td><strong>Description</strong></td>
+                </tr>
+                <tr>
+                  <td>&lt;variable&gt;</td>
+                  <td><span>TEXT</span></td>
+                  <td>Variable which will contain the returned value.</td>
+                </tr>
+                <tr>
+                  <td>&lt;expression&gt;</td>
+                  <td>
+                    <span>DATE-TIME</span> / <span>DECIMAL</span> /
+                    <span>NUMBER</span>
+                  </td>
+                  <td>The expression which needs to be formatted.</td>
+                </tr>
+                <tr>
+                  <td><p>&lt;formatText&gt;</p></td>
+                  <td><span>TEXT</span></td>
+                  <td>
+                    <p>
+                      The text expression with which the desired expression
+                      needs to be formatted.
+                    </p>
+                    <div>
+                      <p><strong>Note:</strong></p>
+                      <ul>
+                        <li>
+                          When date-time values are to be formatted, the&nbsp;<a
+                            >date-time literals</a
+                          >
+                          provided can be used.
+                        </li>
+                        <li>
+                          If this param is not specified, a runtime error is
+                          thrown.
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3><a></a>Applicable Date-Time Literals</h3>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>Letter</strong></td>
+                  <td><strong>Date and Time Component</strong></td>
+                </tr>
+                <tr>
+                  <td>G&nbsp;</td>
+                  <td>Era designator</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>
+                    <p>Calendar year</p>
+                    <p><u>Examples:</u></p>
+                    <p>y - 2019</p>
+                    <p>yy -19</p>
+                    <p>yyy&nbsp; - 2019</p>
+                    <p>
+                      dateValue&nbsp;= '29-Dec-2019';<br />info
+                      dateValue.toText("yyyy"); // returns 2019
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Y</td>
+                  <td>
+                    <p>Week year</p>
+                    <p><u>Examples:</u></p>
+                    <p>Y - 2019</p>
+                    <p>YY -19</p>
+                    <p>YYY&nbsp; - 2019</p>
+                    <p>
+                      <span>dateValue</span><span>&nbsp;= '29-Dec-2019';</span
+                      ><br /><span>info dateValue</span
+                      ><span>.toText("YYYY");&nbsp;</span
+                      ><span>// returns 2020</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>M</td>
+                  <td>
+                    <p>Month in year</p>
+                    <p><u>Examples:</u></p>
+                    <p>M - 1</p>
+                    <p>MM - 01</p>
+                    <p>MMM - January</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>w</td>
+                  <td>Week in year</td>
+                </tr>
+                <tr>
+                  <td>W</td>
+                  <td>Week in month</td>
+                </tr>
+                <tr>
+                  <td>D</td>
+                  <td>Day in year</td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                  <td>Day in month</td>
+                </tr>
+                <tr>
+                  <td>F</td>
+                  <td>Day of week in month</td>
+                </tr>
+                <tr>
+                  <td>E</td>
+                  <td>
+                    <p>Day name in week</p>
+                    <p><u>Examples:</u></p>
+                    <p>E - Tue</p>
+                    <p>EEEE - Tuesday</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>u</td>
+                  <td>Day number of week</td>
+                </tr>
+                <tr>
+                  <td>a</td>
+                  <td>am/pm marker</td>
+                </tr>
+                <tr>
+                  <td>H</td>
+                  <td>Hour in day (0-23)</td>
+                </tr>
+                <tr>
+                  <td>k</td>
+                  <td>Hour in day (1-24)</td>
+                </tr>
+                <tr>
+                  <td>K</td>
+                  <td>Hour in am/pm (0-11)</td>
+                </tr>
+                <tr>
+                  <td>h</td>
+                  <td>Hour in am/pm (1-12)</td>
+                </tr>
+                <tr>
+                  <td>m</td>
+                  <td>Minute in hour</td>
+                </tr>
+                <tr>
+                  <td>s</td>
+                  <td>Second in minute</td>
+                </tr>
+                <tr>
+                  <td>S</td>
+                  <td>Millisecond</td>
+                </tr>
+                <tr>
+                  <td>z</td>
+                  <td>General time zone</td>
+                </tr>
+                <tr>
+                  <td>Z</td>
+                  <td>RFC time zone</td>
+                </tr>
+                <tr>
+                  <td>X</td>
+                  <td>ISO 8601 time zone</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2><a></a>Examples</h2>
+          <p>
+            Below are the various ways in which date-time values, decimal and
+            number values can be formatted.
+          </p>
+          <div>
+            <pre>&nbsp;<span>leadingZero </span> <span>= </span> <span>2434.</span><span>text</span><span>(</span><span>"000000000"</span><span>)</span><span>;</span> <span>// 000002434</span>
+&nbsp;<span>separateValue </span> <span>= </span> <span>"123123456"</span><span>.text</span><span>(</span><span>"##,###"</span><span>)</span><span>;</span> <span>// 123,123,456</span>
+&nbsp;<span>dayOfYear </span> <span>= </span> <span>"02/04/2020"</span><span>.text</span><span>(</span><span>"DDD"</span><span>)</span><span>;</span> <span>// 035</span>
+&nbsp;<span>monthOfYear </span> <span>= </span> <span>"02/04/2020"</span><span>.text</span><span>(</span><span>"MM"</span><span>)</span><span>;</span> <span>// 02</span>
+
+&nbsp;<span>dayName </span> <span>= </span> <span>"02/04/2020"</span><span>.text</span><span>(</span><span>"EEEE"</span><span>)</span><span>;</span> <span>// Tuesday</span>
+&nbsp;<span>currencyFormat </span> <span>= </span> <span>"12345654.1234"</span><span>.text</span><span>(</span><span>"$#,##0.00"</span><span>)</span><span>;</span> <span>// $12,345,654.12</span>
+&nbsp;<span>dateFormat </span> <span>= </span> <span>zoho</span><span>.currenttime</span><span>.text</span><span>(</span><span>"MM/dd/YY"</span><span>)</span><span>;</span> <span>// 02/04/20</span>
+&nbsp;<span>dateFormat2 </span> <span>= </span> <span>zoho</span><span>.currentdate</span><span>.text</span><span>(</span><span>"MMM dd, yy 'at' hh:mm:ss, E"</span><span>)</span><span>;</span> <span>// Feb 04, 20 at 12:00:00, Tue</span>
+&nbsp;<span>noParam </span> <span>= </span> <span>zoho</span><span>.currenttime</span><span>.text</span><span>(</span><span>)</span><span>; <span>// Run-time error: No. of arguments mismatches for the function text</span></span></pre>
+          </div>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>Number functions</a></li>
+            <li><a>Date-time functions</a></li>
+            <li><a>Time functions</a></li>
+            <li><a>toText</a></li>
+            <li><a>toString</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

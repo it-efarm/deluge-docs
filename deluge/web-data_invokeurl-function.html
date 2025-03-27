@@ -1,0 +1,179 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>invokeUrl function</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>invokeUrl Function</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>invoke&nbsp;URL</strong>&nbsp;function&nbsp;is
+              used to make API calls.
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  This function is applicable only to
+                  <strong>Zoho Creator</strong>
+                </li>
+                <li>
+                  Users are advised to use the&nbsp;<a>invoke URL&nbsp;task</a
+                  >&nbsp;since this function will be deprecated.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Text</li>
+              <li>Key-value</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <p>To use the various HTTP methods:</p>
+            <div>
+              &lt;variable&gt; = invokeUrl(
+              <span>&lt;stringUrl&gt;</span>,&nbsp;<span>&lt;type&gt;</span
+              ><span>,</span><span> </span><span>[&lt;boolean&gt;]</span
+              ><span>&nbsp;</span>);
+            </div>
+            <p>(OR)</p>
+            <p>
+              To use the various HTTP methods along with
+              <a>header information</a>:
+            </p>
+            <div>
+              &lt;variable&gt; = invokeUrl( <span>&lt;stringUrl&gt;</span>,
+              <span>&lt;type&gt;</span>,&nbsp;<span>&lt;body&gt;</span
+              ><span>, </span><span>[&lt;headerMap&gt;]</span><span>,</span
+              ><span> </span><span>[&lt;boolean&gt;]</span><span>&nbsp;</span>);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p>&lt;variable&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>Variable which will contain the returned response.</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;stringUrl&gt;</span></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        is the URL specified in external services API to perform
+                        different actions.
+                      </p>
+                      <p>
+                        For example, to post a tweet, use the URL specified in
+                        Twitter API.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;type&gt;</span></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      Applicable values:&nbsp;GET, POST, PUT, PATCH, and DELETE.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;body&gt;</span></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>is used to send body along with the request.</p>
+                      <p>
+                        KEY-VALUE data will be sent as "x-www-form-urlencoded"
+                        type.
+                      </p>
+                      <p>TEXT data will be sent as "raw" type.</p>
+                      <p>
+                        This is an&nbsp;<strong>optional</strong>&nbsp;param
+                        when using the GET method.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;headerMap&gt;</span></p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>Variable holding header values as key-value pairs.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;boolean&gt;</span></p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      <p>
+                        Value 'true'&nbsp;will return a simple response content
+                        as&nbsp;text.
+                      </p>
+                      <p>
+                        Value 'false' will return the response code
+                        (HTTP&nbsp;status code), and response content
+                        as&nbsp;key-value.
+                      </p>
+                      <p>Default value is true.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              The following snippet will fetch records from Leads module in Zoho
+              CRM
+            </p>
+            <div>
+              <pre><span>urlData</span> <span>=</span> <span>"https://crm.zoho.com/crm/internal/json/Leads/getRecords"</span><span>;</span>&nbsp;
+<span>authtoken</span> <span>=</span> <span>"xxxxxxxxx"</span><span>;</span>      <span>// refers to your authtoken</span>&nbsp;
+<span>testparams</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> &nbsp;
+<span>testparams</span><span>.put</span><span>(</span><span>"authtoken"</span><span>,</span> <span>authtoken</span><span>)</span><span>;</span> &nbsp;
+
+<span>response</span> <span>=</span> <span>invokeUrl</span><span>(</span><span>urlData</span><span>,</span> <span>"GET"</span><span>,</span> <span>testparams</span><span>)</span><span>;</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

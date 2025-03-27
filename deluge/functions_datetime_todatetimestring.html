@@ -1,0 +1,329 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>toDateTimeString</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>toDateTimeString</h1>
+          <div>
+            <h4>Table of Contents</h4>
+            <ul>
+              <li><a>Overview</a></li>
+              <li><a>Return Type</a></li>
+              <li><a>Syntax</a></li>
+              <li><a>Examples</a></li>
+            </ul>
+          </div>
+          <div>
+            <p>
+              <strong>Note</strong>:The toDateTimeString built-in function is
+              applicable to all Zoho services.
+            </p>
+          </div>
+          <h2><a></a>Overview</h2>
+          <p>
+            The <strong>toDateTimeString</strong> function is a built-in
+            function used for managing date and time data efficiently.
+            Primarily, this function is used to handle Unix time conversion,
+            simplifying the process of working with timestamps in Unix-based
+            systems.
+          </p>
+          <ol>
+            <li>
+              <strong>Date Format format</strong>: In addition
+              to&nbsp;converting Unix time, this function can also adjust input
+              date-time values to various accepted date-time formats, enhancing
+              compatibility with diverse date representations.
+            </li>
+            <li>
+              <strong>Timezone</strong>: Additionally, the toDateTimeString
+              function enables seamless conversion of dates and times between
+              different time zones. This capability guarantees consistent
+              handling of time-related data, a critical necessity for globally
+              used or distributed applications.
+            </li>
+          </ol>
+        </div>
+        <div>
+          <p><strong>Note</strong>:</p>
+          <ul>
+            <li>
+              Daylight saving is taken into account by default wherever
+              required. This means&nbsp;the returned date will be automatically
+              adjusted for DST.
+            </li>
+            <li>
+              The output (for example, month, timezone, or day) is in English
+              for all users, regardless of their locale.
+            </li>
+          </ul>
+        </div>
+        <h2><a></a>Return Type</h2>
+        <ul>
+          <li><span>TEXT</span></li>
+        </ul>
+        <h2><a></a>Syntax</h2>
+        <div>
+          <pre><span>&lt;</span><span>result</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>input_data</span><span>&gt;</span><span>.toDateTimeString</span><span>(</span><span>&lt;</span><span>dateTimeFormat</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>timeZone</span><span>&gt;</span><span>)</span><span>;</span></pre>
+        </div>
+        <p>(or)</p>
+        <div>
+          <pre><span>&lt;</span><span>result</span><span>&gt;</span> <span>=</span> <span>toDateTimeString</span><span>(</span><span>&lt;</span><span>input_data</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>dateTimeFormat</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>timeZone</span><span>&gt;</span><span>)</span><span>;</span></pre>
+        </div>
+        <p>where,</p>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>Parameter</strong></td>
+                <td><strong>Data type</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+              <tr>
+                <td>&lt;result&gt;</td>
+                <td><span>TEXT</span></td>
+                <td>
+                  Result that will contain the returned date value.<br /><strong
+                    >Note</strong
+                  >:The date-time format and timezone will be converted to the
+                  preference specified using &lt;dateTimeFormat&gt; and
+                  &lt;timeZone&gt; parameters.
+                </td>
+              </tr>
+              <tr>
+                <td>&lt;input_data&gt;</td>
+                <td><span>NUMBER</span></td>
+                <td>
+                  <p>
+                    The data is returned in the specified date-time format or
+                    timezone as indicated in the input.
+                  </p>
+                  <div>
+                    <p><strong>Note</strong>:</p>
+                    <ul>
+                      <li>
+                        The input format for date-time and timezone is
+                        determined by the service settings.&nbsp;
+                      </li>
+                      <li>
+                        The numeric value 0 represents the date-time value of
+                        01-Jan-1970 in the UTC timezone. Each increase of 1000
+                        adds one second to the date value, while each decrease
+                        of 1000 subtracts one second. For instance, the number
+                        1000 corresponds to a date value of 01-01-1970 00:00:01.
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>&lt;dateTimeFormat&gt;</td>
+                <td><span>TEXT</span></td>
+                <td>
+                  <p>
+                    The format in which the date time value will be returned.
+                  </p>
+                  <div>
+                    <p><strong>Note:</strong></p>
+                    <ul>
+                      <li>
+                        Within this param, you can only specify&nbsp;<a
+                          >date-time literals</a
+                        >
+                        which represent the respective components of a date or
+                        time value.
+                      </li>
+                      <li>
+                        If this param is not specified, the date-time value will
+                        be returned in a format specified in application
+                        settings.
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>&lt;timeZone&gt;</td>
+                <td><span>TEXT</span></td>
+                <td>
+                  <p>
+                    Time zone in which the date-time value will be returned.
+                  </p>
+                  <div>
+                    <p><strong>Note:</strong></p>
+                    <ul>
+                      <li>
+                        Value must be specified exactly as given in the
+                        <a>TZ database name</a>.
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p>
+        Learn more about the supported <a>date-time</a> and <a>time</a> formats.
+      </p>
+      <h3><a></a>Applicable Date-Time Literals</h3>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td><strong>Letter</strong></td>
+              <td><strong>Date and Time Component</strong></td>
+            </tr>
+            <tr>
+              <td>G&nbsp;</td>
+              <td>Era designator</td>
+            </tr>
+            <tr>
+              <td>y</td>
+              <td>
+                <p>Calendar year</p>
+                <p><u>Examples:</u></p>
+                <p>y - 2019</p>
+                <p>yy -19</p>
+                <p>yyy&nbsp; - 2019</p>
+                <p>
+                  dateValue&nbsp;= '29-Dec-2019';<br />info
+                  dateValue.toDateString("yyyy"); // returns 2019
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Y</td>
+              <td>
+                <p>Week year</p>
+                <p><u>Examples:</u></p>
+                <p>Y - 2019</p>
+                <p>YY -19</p>
+                <p>YYY&nbsp; - 2019</p>
+                <p>
+                  <span>dateValue&nbsp;= '29-Dec-2019';</span><br /><span
+                    >info dateValue.toDateString("YYYY");&nbsp;// returns
+                    2020</span
+                  >
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>M</td>
+              <td>
+                <p>Month in year</p>
+                <p><u>Examples:</u></p>
+                <p>M - 1</p>
+                <p>MM - 01</p>
+                <p>MMM - Jan<br /><br />MMMM - January</p>
+              </td>
+            </tr>
+            <tr>
+              <td>w</td>
+              <td>Week in year</td>
+            </tr>
+            <tr>
+              <td>W</td>
+              <td>Week in month</td>
+            </tr>
+            <tr>
+              <td>D</td>
+              <td>Day in year</td>
+            </tr>
+            <tr>
+              <td>d</td>
+              <td>Day in month</td>
+            </tr>
+            <tr>
+              <td>F</td>
+              <td>Day of week in month</td>
+            </tr>
+            <tr>
+              <td>E</td>
+              <td>
+                <p>Day name in week</p>
+                <p><u>Examples:</u></p>
+                <p>E - Tue</p>
+                <p>EEEE - Tuesday</p>
+              </td>
+            </tr>
+            <tr>
+              <td>u</td>
+              <td>Day number of week</td>
+            </tr>
+            <tr>
+              <td>a</td>
+              <td>am/pm marker</td>
+            </tr>
+            <tr>
+              <td>H</td>
+              <td>Hour in day (0-23)</td>
+            </tr>
+            <tr>
+              <td>k</td>
+              <td>Hour in day (1-24)</td>
+            </tr>
+            <tr>
+              <td>K</td>
+              <td>Hour in am/pm (0-11)</td>
+            </tr>
+            <tr>
+              <td>h</td>
+              <td>Hour in am/pm (1-12)</td>
+            </tr>
+            <tr>
+              <td>m</td>
+              <td>Minute in hour</td>
+            </tr>
+            <tr>
+              <td>s</td>
+              <td>Second in minute</td>
+            </tr>
+            <tr>
+              <td>S</td>
+              <td>Millisecond</td>
+            </tr>
+            <tr>
+              <td>z</td>
+              <td>General time zone</td>
+            </tr>
+            <tr>
+              <td>Z</td>
+              <td>RFC time zone</td>
+            </tr>
+            <tr>
+              <td>X</td>
+              <td>ISO 8601 time zone</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2><a></a>Examples</h2>
+      <p>Here is an example of how the toDateTimeString can be used:</p>
+      <div>
+        <pre><span>ctime</span><span> =</span><span> 1693905560373</span><span>;</span><span> // This is a date-time value represented in Unix time format.</span>
+ <span>info</span> <span>toDateTimeString</span><span>(</span><span>ctime</span><span>,</span><span>"MMM dd, yy 'at' hh:mm:ss z, E"</span><span>,</span><span>"IST"</span><span>)</span><span>;
+</span><span>// Returns Sep 05, 23 at 02:49:20 IST, Tue</span></pre>
+      </div>
+      <h2>Related Topics</h2>
+      <ul>
+        <li><a>unixEpoch</a></li>
+        <li><a>Tostring</a></li>
+        <li><a>Totime</a></li>
+        <li><a>Totext</a></li>
+        <li><a>Todate</a></li>
+        <li><a>ToDateTime</a></li>
+      </ul>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

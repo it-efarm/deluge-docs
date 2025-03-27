@@ -1,0 +1,189 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Miscellaneous</a></li>
+        <li><a>Cancel Delete</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Cancel Delete</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note</strong>: This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The "cancel delete" deluge task prevents data from being removed
+              from the database when users try to delete records.&nbsp;An error
+              message will be displayed to the user, which can be customized by
+              using the&nbsp;<a>alert</a> task before "cancel delete".
+            </p>
+            <p>
+              This task is generally used in&nbsp;<a>conditional statements</a>,
+              when a user must not be able to delete a record unless a specified
+              condition is met.&nbsp;
+            </p>
+            <div>
+              <p>
+                <strong>Note</strong>: When the "cancel delete" task is
+                triggered, all other deluge tasks except "send mail" task and
+                API calls written in that "On Validate" section will be rolled
+                back and won't get executed.
+              </p>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div><span>cancel delete;</span></div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>No</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script disables the record deletion&nbsp;if the
+              <strong>First Name</strong> field value is not specified
+            </p>
+            <div>
+              if ( Name.first_name != "Null" )<br />{<br />cancel delete;<br />}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

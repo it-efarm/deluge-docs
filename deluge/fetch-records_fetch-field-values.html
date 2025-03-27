@@ -1,0 +1,461 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Data Access</a></li>
+        <li><a>Fetch records</a></li>
+        <li><a>Fetch a field's value</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch a field's value</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Things to keep in mind</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>Note:</p>
+              <ul>
+                <li>This task is applicable only to Zoho Creator.</li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <a><strong>fetch record</strong></a
+              >&nbsp;deluge task retrieves records from a specified form, when a
+              given criteria is met.
+            </p>
+            <p>
+              This page will explain how to fetch a specified field's value from
+              the first record in the collection of records.
+            </p>
+            <p>
+              See <a>this page</a> to learn about fetching all values of a field
+              in a collection.
+            </p>
+            <div>
+              <p>Note:</p>
+              <ul>
+                <li>
+                  The fetched records may appear to be sorted based on "added
+                  time" (oldest first) system field. However, there is no
+                  guarantee to this order and there is no guarantee that the
+                  order will remain constant over time. If you are particular
+                  about the sequence of the records, it is advisable to use the
+                  sort param.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return</h2>
+            <p>
+              This task returns a specified field's value from the
+              first&nbsp;record in a collection.
+            </p>
+            <p>
+              The returned field value can be put to further use like updating
+              it.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <p>
+              To fetch a specified field's value from the
+              <strong>first</strong> record&nbsp;which meets the criteria
+            </p>
+            <div>
+              <span
+                >&lt;variable&gt; = <span>&lt;form_link_name&gt;</span>
+                <span>[&lt;criteria&gt;]</span
+                >.<span>&lt;field_link_name&gt;</span>;</span
+              >
+            </div>
+            <p>
+              To fetch a specified field's value from the
+              <strong>first</strong> record of all the records sorted in
+              ascending order, which meet&nbsp;the criteria
+            </p>
+            <div>
+              <span
+                >&lt;variable&gt; = <span>&lt;form_link_name&gt;</span>
+                <span>[&lt;</span></span
+              ><span>criteria</span
+              ><span
+                ><span>&gt;]</span>.<span>&lt;field_link_name&gt;</span>
+                <span>sort by &lt;field_link_name&gt;</span>;</span
+              >
+            </div>
+            <p>
+              To fetch a specified field's value from the
+              <strong>first</strong> record of all the records sorted in
+              descending order, which meet&nbsp;the criteria
+            </p>
+            <div>
+              <span
+                >&lt;variable&gt; = <span>&lt;form_link_name&gt;</span>
+                <span>[&lt;</span></span
+              ><span>criteria</span
+              ><span
+                ><span>&gt;]</span
+                >.<span>&lt;field_link_name&gt;</span>&nbsp;<span
+                  >sort by &lt;field_link_name&gt; desc</span
+                >;</span
+              >
+            </div>
+            <p>
+              To fetch a specified field's value from the
+              <strong>first</strong> record of all the records in the specified
+              range, which meet&nbsp;the criteria
+            </p>
+            <div>
+              <span
+                >&lt;variable&gt; = <span>&lt;form_link_name&gt;</span>
+                <span>[&lt;</span></span
+              ><span>criteria</span
+              ><span
+                ><span>&gt;]</span
+                >.<span>&lt;field_link_name&gt;</span>&nbsp;<span
+                  >range from &lt;start_index&gt; to &lt;end_index&gt;</span
+                >;</span
+              >
+            </div>
+            <p>
+              To fetch a specified field's value from the
+              <strong>first</strong> record of all the records in the specified
+              range sorted in ascending order based on a field, which
+              meet&nbsp;the criteria
+            </p>
+            <div>
+              <span
+                >&lt;variable&gt; = <span>&lt;form_link_name&gt;</span>
+                <span>[&lt;</span></span
+              ><span>criteria</span
+              ><span
+                ><span>&gt;]</span>.<span>&lt;field_link_name&gt;</span>
+                <span>sort by &lt;field_link_name&gt;</span>
+                <span>range from &lt;start_index&gt; to &lt;end_index&gt;</span
+                >;</span
+              >
+            </div>
+            <p>
+              To fetch a specified field's value from the
+              <strong>first</strong> record of all the records&nbsp;in the
+              specified range sorted in descending order based on a field, which
+              meet&nbsp;the criteria
+            </p>
+            <div>
+              <span
+                >&lt;variable&gt; = <span>&lt;form_link_name&gt;</span>
+                <span>[&lt;</span></span
+              ><span>criteria</span
+              ><span
+                ><span>&gt;]</span>.<span>&lt;field_link_name&gt;</span>
+                <span>sort by &lt;field_link_name&gt; desc</span>
+                <span>range from &lt;start_index&gt; to &lt;end_index&gt;</span
+                >;</span
+              >
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span>&lt;variable&gt;</span></td>
+                    <td>Variable holding the specified field's value</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;form_link_name&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        Link name of the form from which the records will be
+                        fetched.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <span><span>&lt;</span></span
+                        ><span>criteria</span><span><span>&gt;</span></span>
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a>Criteria</a> based on which the records will be
+                        fetched.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span
+                        >[&lt;criteria&gt;].<span
+                          >&lt;field_link_name&gt;</span
+                        ></span
+                      >
+                    </td>
+                    <td>
+                      <p>
+                        Link name of the field whose value has to be retrieved.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>sort by &lt;field_link_name&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        Link name of the field based on which records will be
+                        sorted.
+                      </p>
+                      <p>&nbsp;</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <span
+                          ><span
+                            >range from &lt;start_index&gt; to
+                            &lt;end_index&gt;</span
+                          ></span
+                        >
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        Records falling in the specified index range will be
+                        fetched.
+                      </p>
+                      <div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>&lt;start_index&gt;</td>
+                              <td>
+                                <p>
+                                  Start index of the range of records to be
+                                  fetched.
+                                </p>
+                                <p>
+                                  Both,&nbsp;<strong>0</strong>&nbsp;and&nbsp;<strong>1</strong>&nbsp;are
+                                  considered as the index number of the first
+                                  record when used in &lt;start_index&gt;
+                                  param.<br />If 0 is the specified start index,
+                                  the last index is numbered from 0. If 1, or
+                                  any number greater than 1,&nbsp;is the
+                                  specified start index, the last index is
+                                  numbered from 1.<br />So let's say we have
+                                  records - A (index 1), B (index 2), C (index
+                                  3), D (index 4), and E (index 5).&nbsp;<br />Range
+                                  from 0 to 3&nbsp;will fetch A, B, C, D<br />Range
+                                  from 1 to 4 will fetch A, B, C, D<br />Range
+                                  from 2 to 4 will fetch B, C, D
+                                </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>&lt;end_index&gt;</td>
+                              <td>
+                                <p>
+                                  Last index of the range of records to be
+                                  fetched.
+                                </p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p>Negative index values will return a runtime error.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Things to keep in mind</h2>
+            <ul>
+              <li>
+                If you wish to fetch all records of the specified form, use the
+                following script as criteria:
+                <div>[ID != 0]</div>
+                <br />It is advisable to fetch all records only when absolutely
+                needed. Fetching all records generates a load resulting in
+                performance issues.
+              </li>
+              <li>
+                If you wish to use the "sort" and "range" parameters together,
+                the "sort" parameter should be followed by the "range"
+                parameter.
+              </li>
+              <li>
+                The&nbsp;<strong>Name</strong>&nbsp;and&nbsp;<strong>Address</strong>&nbsp;fields
+                do not work with the&nbsp;<strong>sort by&nbsp;</strong>param.
+              </li>
+            </ul>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              1) The following script fetches the value of the "name" field from
+              the&nbsp;record which appears at the top after the records have
+              been sorted based on the age field.
+            </p>
+            <div>
+              <pre><span>EmployeeDetails </span><span>= </span><span>Employee</span><span>[</span><span>ID</span><span>!=</span><span>0</span><span>]</span><span>.name </span><span>sort </span><span>by </span><span>age</span><span>;</span></pre>
+            </div>
+            <p>
+              2) The following script fetches the value of a checkbox&nbsp;field
+              and iterates through all the selected values.
+            </p>
+            <div>
+              <pre><span>selected_values </span><span>= </span><span>test</span><span>[</span><span>ID </span><span>== </span><span>128976000000008013</span><span>]</span><span>.Checkbox</span><span>;</span>&nbsp;
+<span>for each </span><span>val </span><span>in </span><span>selected_values</span>&nbsp;
+<span>{</span>&nbsp;
+<span>info </span><span>val</span><span>;</span>&nbsp;
+<span>}</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

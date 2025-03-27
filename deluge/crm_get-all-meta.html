@@ -1,0 +1,137 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho CRM Vertical Solutions Integration Tasks</a></li>
+        <li><a>Get All Module Metadata in Zoho CRM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get All Module Metadata</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+              </ul>
+              <p>
+                You can get the metadata of all the modules using the
+                <strong>zoho.crm.invokeConnector()</strong> deluge task.
+              </p>
+              <div>
+                <strong>Note:&nbsp;</strong
+                ><span
+                  >This task can be performed only in
+                  <a>Zoho CRM Vertical Solutions</a>.</span
+                >
+              </div>
+              <h2>​<a></a>Syntax</h2>
+              <div>
+                <pre><span>&lt;</span><span>Response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.crm</span><span>.invokeConnector</span><span>(</span><span>"crm.modulemetadata"</span><span>,</span> <span>&lt;</span><span>parameterMap</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+              </div>
+              <p>where:</p>
+              <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <td><strong>Params</strong></td>
+                      <td><strong>Data type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><p>&lt;Response&gt;</p></td>
+                      <td>
+                        <p><span>&nbsp;KEY-VALUE</span></p>
+                      </td>
+                      <td><p>&nbsp;The task response returned as a Map</p></td>
+                    </tr>
+                    <tr>
+                      <td><p>&lt;parameterMap&gt;</p></td>
+                      <td>
+                        <p><span>&nbsp;KEY-VALUE</span></p>
+                      </td>
+                      <td>
+                        <p>
+                          &nbsp;A mandatory argument for the
+                          zoho.crm.invokeConnector() deluge task. In this case,
+                          an empty map can be passed as the argument.
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h2><a>Example</a></h2>
+              <div>
+                <pre><span>map</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>modulemeta</span> <span>=</span> <span>zoho</span><span>.crm</span><span>.invokeConnector</span><span>(</span><span>"crm.modulemetadata"</span><span>,</span> <span>map</span><span>)</span><span>;</span>
+<span>info</span> <span>modulemeta</span><span>;</span>
+</pre>
+              </div>
+              <h2><a>Response Format</a></h2>
+              <p>
+                The response below shows a snippet of the entire response.
+                Details of modules can be fetched using the key
+                <strong>modules</strong>. The value for the key
+                <strong>modules</strong> is an array with the metadata details
+                of all modules.
+              </p>
+              <div>
+                { "status_code": 200, "response": "{\"modules\":
+                [{\"global_search_supported\":false,
+                \"deletable\":false,\"creatable\":false,\"modified_time\":null,\"plural_label\":\"Home\",
+                \"presence_sub_menu\":false,\"id\":\"2853142000000002173\",\"visibility\":1,\"convertable\":false,
+                \"editable\":false,\"profiles\":[{\"name\":\"Administrator\",\"id\":\"2853142000000026011\"},
+                {\"name\":\"Standard\",\"id\":\"2853142000000026014\"}],\"filter_supported\":false,
+                \"web_link\":null,\"sequence_number\":1,\"singular_label\":\"Home\",\"viewable\":true,
+                \"api_supported\":false,\"api_name\":\"Home\",\"quick_create\":false,\"modified_by\":null,
+                \"generated_type\":\"default\",\"feeds_required\":false,\"scoring_supported\":false,
+                \"arguments\":[],\"module_name\":\"Home\",\"business_card_field_limit\":0,\"parent_module\":{}},
+                {\"global_search_supported\":true,\"deletable\":true,\"creatable\":true,
+                \"modified_time\":\"2018-11-19T10:47:34+05:30\",\"plural_label\":\"Leads\",
+                \"presence_sub_menu\":true,\"id\":\"2853142000000002175\",\"visibility\":1,\"convertable\":true,
+                \"editable\":true,\"profiles\":[{\"name\":\"Administrator\",\"id\":\"2853142000000026011\"},
+                {\"name\":\"Standard\",\"id\":\"2853142000000026014\"}],\"filter_supported\":true,\"web_link\":null,
+                \"sequence_number\":2,\"singular_label\":\"Lead\",\"viewable\":true,\"api_supported\":true,
+                \"api_name\":\"Leads\",\"quick_create\":true,\"modified_by\":{\"name\":\"ZohoDemo\",
+                \"id\":\"2853142000000131009\"},\"generated_type\":\"default\",\"feeds_required\":false,
+                \"scoring_supported\":true,\"arguments\":[],\"module_name\":\"Leads\",
+                \"business_card_field_limit\":5,\"parent_module\":{}},... ]}" }
+              </div>
+              <p>&nbsp;</p>
+              <p>
+                Details of the <strong>Leads</strong> module have been extracted
+                from the response and shown below:
+              </p>
+              <div>
+                {
+                \"global_search_supported\":true,\"deletable\":true,\"creatable\":true,
+                \"modified_time\":\"2018-11-19T10:47:34+05:30\",\"plural_label\":\"Leads\",\
+                "presence_sub_menu\":true,\"id\":\"2853142000000002175\",\"visibility\":1,\"convertable\":true,
+                \"editable\":true,\"profiles\":[{\"name\":\"Administrator\",\"id\":\"2853142000000026011\"},
+                {\"name\":\"Standard\",\"id\":\"2853142000000026014\"}],\"filter_supported\":true,\"web_link\":null,
+                \"sequence_number\":2,\"singular_label\":\"Lead\",\"viewable\":true,\"api_supported\":true,
+                \"api_name\":\"Leads\",\"quick_create\":true,\"modified_by\":{\"name\":\"ZohoDemo\",
+                \"id\":\"2853142000000131009\"},\"generated_type\":\"default\",\"feeds_required\":false,
+                \"scoring_supported\":true,\"arguments\":[],\"module_name\":\"Leads\",
+                \"business_card_field_limit\":5,\"parent_module\":{} }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

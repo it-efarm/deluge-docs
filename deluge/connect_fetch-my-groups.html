@@ -1,0 +1,169 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Connect integration tasks</a></li>
+        <li><a>Fetch groups</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch groups</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a> </a>Overview</h2>
+            <p>
+              This task is used to fetch&nbsp;all the groups under a specified
+              network.
+            </p>
+            <h2><a> </a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho.connect.myGroups</span><span>(</span><span>&lt;</span><span>scopeID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connectionName</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Params</td>
+                        <td>Description</td>
+                        <td>Data type</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the variable which will hold&nbsp;the returned
+                            response.
+                          </p>
+                          <p>
+                            The response contains the group names and their
+                            respective <a>Partition IDs</a>.
+                          </p>
+                        </td>
+                        <td>KEY-VALUE</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;scopeID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the variable which represents the
+                            <a>Scope ID</a> of the network.
+                          </p>
+                          <p>
+                            You can also fetch the scope ID from the
+                            <a>response</a> of myNetworks task.
+                          </p>
+                        </td>
+                        <td>NUMBER</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connectionName&gt;</span></p>
+                          <p><span>(optional)*</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the&nbsp;name of the Zoho
+                            connect&nbsp;<a>connection</a>.
+                          </p>
+                          <p>
+                            <strong>*Note</strong>: This param is not applicable
+                            to Zoho Creator and mandatory in Zoho Cliq.
+                          </p>
+                        </td>
+                        <td>TEXT</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a> </a>Example</h2>
+            <p>
+              Imagine that the user wants to know all the groups under a
+              network&nbsp;represented by the Scope ID -
+              <strong>105000017039001</strong>. The following snippet can be
+              used in such&nbsp;a scenario.
+            </p>
+            <div>
+              <pre><span>groupDetails </span><span>= </span><span>zoho</span><span>.connect</span><span>.myGroups</span><span>(</span><span>105000017039001</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>groupDetails</span></pre>
+                    </div>
+                    <div>
+                      is a&nbsp;variable which will hold the returned response.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>105000017039001</span></pre>
+                    </div>
+                    <div>
+                      is a <span>BIGINT</span> value that represents the Scope
+                      ID of the network
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a> </a>Sample Response</h2>
+            <p>Following is a sample success response:</p>
+            <div>
+              {"groups": [<br />"{\"name\":\"Deluge\",\"id\":\"23412000000002002\"}",<br />"{\"name\":\"DRE\",\"id\":\"23425000000002002\"}",<br />"{\"name\":\"Test
+              Group\",\"id\":\"32890000000002002\"}",<br />}
+            </div>
+            <p>To&nbsp;fetch the partition IDs, use the following snippet:</p>
+            <div>
+              &lt;variable&gt;&nbsp;=
+              &lt;response_variable&gt;.get("groups");<br />for each
+              &lt;loop_variable&gt;&nbsp;in &lt;variable&gt;<br />{<br />info
+              &lt;loop_variable&gt;.get("id");<br />}
+            </div>
+            <p>
+              <strong>Note</strong>: The&nbsp;<a
+                ><strong>partition id</strong></a
+              >&nbsp;can also be found out&nbsp;from the settings of a group
+              which is under the corresponding network.
+            </p>
+            <p>
+              The response returned is <strong>null</strong> when the Scope ID
+              supplied is incorrect
+            </p>
+            <h2><a> </a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Connect API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

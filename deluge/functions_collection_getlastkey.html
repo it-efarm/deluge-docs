@@ -1,0 +1,118 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>getLastKey</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>getLastKey</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>getLastKey</strong> function returns the key of a
+              specified value's last occurrence, or the index of a specified
+              element's last occurrence, in a <a>collection</a>.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>
+                Data type of the return value will depend on the data type of
+                the key.
+              </li>
+              <li>Returns null if the specified value is not found.</li>
+              <li>
+                Data type is <span>NUMBER</span> if the index of an element is
+                returned. Returns -1 if the specified element is not found.
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <p>To get the key of a specified value's last occurrence:</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.getLastKey</span><span>(</span><span>&lt;</span><span>value</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <p>To get the index value of an element's last occurrence:</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.getLastKey</span><span>(</span><span>&lt;</span><span>element</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>Variable which will hold the returned value.</td>
+                    <td>AS APPLICABLE</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;collectionVariable&gt;</td>
+                    <td><span>COLLECTION</span></td>
+                    <td>
+                      The variable from which the key or the index will be
+                      returned.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;value&gt;</p></td>
+                    <td>AS APPLICABLE</td>
+                    <td>
+                      <p>The value whose key will be returned.</p>
+                      <p>
+                        This function returns null if the specified value is not
+                        found.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;element&gt;</td>
+                    <td>AS APPLICABLE</td>
+                    <td>
+                      <p>The element whose index value will be returned.</p>
+                      <p>
+                        This function returns -1 if the specified element is not
+                        found.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>productVersion</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span> <span>:</span> <span>5</span><span>,</span> <span>"CRM"</span> <span>:</span> <span>2</span><span>,</span> <span>"Mail"</span> <span>:</span> <span>5</span><span>)</span><span>;</span>
+&nbsp;<span>info </span><span>productVersion</span><span>.getLastKey</span><span>(</span> <span>5</span> <span>)</span><span>;</span> <span>// Returns "Mail"</span></pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>products</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span><span>,</span> <span>"CRM"</span><span>,</span> <span>"Creator"</span><span>)</span><span>;</span>
+&nbsp;<span>info </span><span>products</span><span>.getLastKey</span><span>(</span> <span>"Creator"</span> <span>)</span><span>;</span> <span>// Returns 2</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

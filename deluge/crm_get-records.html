@@ -1,0 +1,390 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho CRM integration tasks</a></li>
+        <li><a>Get Records from Zoho CRM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Records from Zoho CRM</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ol>
+                    <li><a>Fetch records from Contacts modules</a></li>
+                    <li><a>Fetch data from a Custom Module</a></li>
+                  </ol>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              This&nbsp;task is used to fetch records from the specified Zoho
+              CRM module.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.crm.getRecords</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;, </span><span>&lt;</span><span>page</span><span>&gt;</span><span>, </span><span>&lt;</span><span>per_page</span><span>&gt;</span><span>, <span>&lt;</span><span>query_value</span><span>&gt;</span></span><span>, <span>&lt;</span><span>connection</span><span>&gt;)</span><span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the response returned by Zoho CRM. It represents
+                            the values fetched&nbsp;records against the API
+                            names of its respective fields.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the <a>API name</a> of the Zoho CRM module from
+                            where the records will be fetched.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;page&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is used to get the list of records based on pages.
+                          </p>
+                          <p><strong>Default value:</strong> 1</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;per_page&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is used to get the list of records available per
+                            page.
+                          </p>
+                          <p><strong>Default value:</strong> 200</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;query_value&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is used to hold&nbsp;all the other
+                            parameters&nbsp;specified in the
+                            <a>Zoho CRM API</a>.
+                          </p>
+                          <strong>Note:</strong>
+                          <ul>
+                            <li>
+                              The keys and values of this param should&nbsp;be
+                              provided according to&nbsp;the
+                              <a>Zoho CRM API</a>.
+                            </li>
+                            <li>
+                              The <strong>&lt;page&gt;</strong> and
+                              <strong>&lt;per_page&gt;</strong> params must be
+                              specified to be able to specify this
+                              param.&nbsp;&nbsp;
+                            </li>
+                            <li>
+                              To ignore querying&nbsp;using this
+                              param,&nbsp;specify an empty map.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in
+                                <a>Zoho CRM - get records API</a> while creating
+                                the connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1: Fetch records&nbsp;from Contacts module</h2>
+            <p>
+              The following script fetches the first 10 records from&nbsp;the
+              Zoho CRM&nbsp;<strong>Contacts</strong>&nbsp;module an sorts the
+              fetched records in ascending order based on the field -
+              <strong>First_Name</strong>.&nbsp;
+            </p>
+            <div>
+              <pre>&nbsp;<span>query_map</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>; </span>
+&nbsp;<span>query_map</span><span>.put</span><span>(</span><span>"sort_order"</span><span>, </span><span>"asc"</span><span>)</span><span>; </span>
+&nbsp;<span>query_map</span><span>.put</span><span>(</span><span>"sort_by"</span><span>, </span><span>"First_Name"</span><span>)</span><span>; </span>
+
+&nbsp;<span>response </span><span>= </span><span>zoho</span><span>.crm</span><span>.getRecords</span><span>(</span><span>"Contacts"</span><span>, </span><span>1</span><span>, </span><span>10</span><span>, </span><span>query_map</span><span>, </span><span>"crm_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the variable which will hold the response returned by
+                      Zoho CRM. It holds the records fetched from Zoho CRM’s
+                      Contacts module.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Contacts"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the API name of
+                      the Zoho CRM module from which the records will be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>1</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the index of
+                      the first record that will be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>10</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the number of
+                      records that will be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>query_map</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      query parameters
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"sort_order"</span>&nbsp;
+<span>"sort_by"</span>
+</pre>
+                    </div>
+                    <div>
+                      are the <span>TEXT</span> keys as specified in the
+                      <a>Zoho CRM API</a> that are required to sort the fetched
+                      records.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"crm_oauth_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Fetch data from a Custom Module</h2>
+            <p>
+              The following script fetches all the records from Zoho CRM custom
+              module - <strong>Hotels</strong>
+            </p>
+            <div>
+              <pre><span>query_map </span><span>= </span><span>Map</span><span>(</span><span>)</span><span>; </span>
+<span>response </span><span>= </span><span>zoho</span><span>.crm.getRecords</span><span>(</span><span>"Hotels"</span>,<span> 1</span>,<span> 200</span>,<span> query_map</span>,<span> "crm_oauth_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the variable which will hold the response returned by
+                      Zoho CRM. It holds the records fetched from Zoho<br />CRM’s
+                      Custom Module.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Hotels"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the
+                      <a>API name</a> of the Zoho CRM's custom&nbsp;module from
+                      which the records are to be fetched.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p>
+              The success response returned when a Lead is fetched from Leads
+              module is of the following format.
+            </p>
+            <div>
+              {&nbsp;&nbsp;<br />&nbsp; &nbsp;"Owner":{&nbsp;&nbsp;<br />&nbsp;
+              &nbsp; &nbsp; "name":"Ben",<br />&nbsp; &nbsp; &nbsp;
+              "id":"29383XXXXXXXXXXXXXX"<br />&nbsp; &nbsp;},<br />&nbsp;
+              &nbsp;"Company":"Zylker",<br />&nbsp;
+              &nbsp;"Email":"bruce.wills@zylker.com",<br />&nbsp;
+              &nbsp;"Description":null,<br />&nbsp; &nbsp;"Discount":null,<br />&nbsp;
+              &nbsp;"$currency_symbol":"$",<br />&nbsp;
+              &nbsp;"Total_Amount":null,<br />&nbsp; &nbsp;"Rating":null,<br />&nbsp;
+              &nbsp;"Website":null,<br />&nbsp; &nbsp;"Twitter":null,<br />&nbsp;
+              &nbsp;"Salutation":null,<br />&nbsp;
+              &nbsp;"Last_Activity_Time":null,<br />&nbsp;
+              &nbsp;"First_Name":null,<br />&nbsp; &nbsp;"Full_Name":"Wills",<br />&nbsp;
+              &nbsp;"Lead_Status":null,<br />&nbsp; &nbsp;"Industry":null,<br />&nbsp;
+              &nbsp;"Modified_By":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+              "name":"Ben",<br />&nbsp; &nbsp; &nbsp;
+              "id":"29383XXXXXXXXXXXXXX"<br />&nbsp; &nbsp;},<br />&nbsp;
+              &nbsp;"Skype_ID":null,<br />&nbsp; &nbsp;"$converted":false,<br />&nbsp;
+              &nbsp;"$process_flow":false,<br />&nbsp; &nbsp;"Phone":"+1 678 XXX
+              XXXX",<br />&nbsp; &nbsp;"Street":null,<br />&nbsp;
+              &nbsp;"Zip_Code":null,<br />&nbsp;
+              &nbsp;"id":"29383XXXXXXXXXXXXXX",<br />&nbsp;
+              &nbsp;"Email_Opt_Out":false,<br />&nbsp;
+              &nbsp;"$approved":true,<br />&nbsp; &nbsp;"Designation":null,<br />&nbsp;
+              &nbsp;"$approval":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+              "delegate":false,<br />&nbsp; &nbsp; &nbsp; "approve":false,<br />&nbsp;
+              &nbsp; &nbsp; "reject":false,<br />&nbsp; &nbsp; &nbsp;
+              "resubmit":false<br />&nbsp; &nbsp;},<br />&nbsp;
+              &nbsp;"Modified_Time":"2018-03-28T11:34:40+05:30",<br />&nbsp;
+              &nbsp;"Created_Time":"2018-03-28T11:34:40+05:30",<br />&nbsp;
+              &nbsp;"$converted_detail":{&nbsp;&nbsp;
+              <p>&nbsp;</p>
+              <p>
+                &nbsp; &nbsp;},<br />&nbsp; &nbsp;"$followed":false,<br />&nbsp;
+                &nbsp;"$editable":true,<br />&nbsp; &nbsp;"City":null,<br />&nbsp;
+                &nbsp;"No_of_Employees":0,<br />&nbsp; &nbsp;"Mobile":null,<br />&nbsp;
+                &nbsp;"Last_Name":"Wills",<br />&nbsp; &nbsp;"State":null,<br />&nbsp;
+                &nbsp;"Total":0,<br />&nbsp; &nbsp;"Lead_Source":null,<br />&nbsp;
+                &nbsp;"Country":"United States",<br />&nbsp;
+                &nbsp;"Tag":[&nbsp;&nbsp;
+              </p>
+              <p>
+                &nbsp; &nbsp;],<br />&nbsp; &nbsp;"Created_By":{&nbsp;&nbsp;<br />&nbsp;
+                &nbsp; &nbsp; "name":"Ben",<br />&nbsp; &nbsp; &nbsp;
+                "id":"29383XXXXXXXXXXXXXX"<br />&nbsp; &nbsp;},<br />&nbsp;
+                &nbsp;"Fax":null,<br />&nbsp; &nbsp;"Annual_Revenue":0,<br />&nbsp;
+                &nbsp;"Secondary_Email":null<br />}
+              </p>
+            </div>
+            <p>
+              To get the list of record IDs from the response, execute the
+              following snippet:
+            </p>
+            <div>
+              &lt;list_variable&gt; = list();<br />&lt;variable&gt; =
+              &lt;response_variable&gt;.toJsonList();<br />for each
+              &lt;loop_variable&gt; in &lt;variable&gt;<br />{<br />&lt;variable1&gt;
+              = &lt;loop_variable&gt;.getJson("id");<br />&lt;list_variable&gt;.add(variable1);<br />info
+              &lt;list_variable&gt;;<br />}
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho CRM API</a></li>
+              <li><a>API names of Zoho CRM modules and fields</a></li>
+              <li><a>Connections</a></li>
+              <li><a>Zoho CRM API - possible error codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

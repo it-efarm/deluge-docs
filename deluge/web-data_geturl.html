@@ -1,0 +1,130 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>getUrl</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>getUrl</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Response Format</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note: </strong>It is recommended to use <a>invoke URL</a>,
+              since this task will be deprecated.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>get url</strong>&nbsp;deluge task corresponds to
+              a&nbsp;<a>HTTP GET</a>&nbsp;request.&nbsp;It is normally supported
+              by services to perform a read operation like fetching data.
+            </p>
+            <div>
+              <strong>Note:</strong> Using this task, you can download files of
+              size up to <strong>5 MB</strong>.
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Text</li>
+              <li>Key-value</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; = getUrl(
+              <span>&lt;stringUrl&gt;</span>,&nbsp;<span>&lt;headerMap&gt;</span
+              ><span>,</span><span> </span><span>&lt;boolean&gt;</span
+              ><span>&nbsp;</span>);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>TEXT</span> or <span>KEY-VALUE</span></td>
+                    <td>Variable which will contain the returned response.</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;stringUrl&gt;</span></td>
+                    <td><span>TEXT</span></td>
+                    <td>The URL&nbsp;which will return the response.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;headerMap&gt;</span></p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>Variable holding header values as key-value pairs.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;boolean&gt;</span></p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      <p>
+                        Value 'true' will return a simple response content
+                        as&nbsp;text.
+                      </p>
+                      <p>
+                        Value 'false' will return the response code (HTTP status
+                        code), and response content as&nbsp;key-value.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>The following snippet returns the response of the given url:</p>
+            <div>
+              <pre>&nbsp;<span>xmlResp</span> <span>=</span> <span>getUrl</span><span>(</span><span>"https://www.w3schools.com/xml/cd_catalog.xml"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p>
+              The success response when the third param is set to
+              <strong>false</strong>&nbsp;will be returned in the following
+              format:
+            </p>
+            <div>
+              {<br />&nbsp;"responseText":&nbsp;<response_content
+                >,<br />"responseHeader": {<br />"date": "Fri, 31 Jul 2020
+                02:47:31 GMT",<br />"last-modified": "Tue, 14 Feb 2017 13:51:43
+                GMT",<br />"server": "ECS (sec/975F)",<br />"vary":
+                "Accept-Encoding",<br />"x-frame-options": "SAMEORIGIN",<br />"x-powered-by":
+                "ASP.NET",<br />"content-type": "text/xml",<br />"etag":
+                "\"84e9d179c986d21:0\"",<br />"x-cache": "HIT",<br />"accept-ranges":
+                "bytes",<br />"cache-control": "public,max-age=14400,public",<br />"age":
+                "8812"<br />},<br />"responseCode": 200<br />}</response_content
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

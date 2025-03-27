@@ -1,0 +1,167 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Bookings integration tasks</a></li>
+        <li><a>Get Workspaces from Zoho Bookings</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Workspaces from Zoho Bookings</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to fetch all the workspaces from your Zoho
+              Bookings account.
+            </p>
+            <p>
+              This integration task is based on the Zoho Bookings
+              API&nbsp;-&nbsp;<a>Fetch Workspaces</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.bookings.getWorkspaces</span><span>(</span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The variable which will hold the returned response.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes while creating the
+                                connection.
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>The following script fetches all your workspaces:</p>
+            <div>
+              <pre><span>response</span> <span>=</span><span>zoho</span><span>.bookings.getWorkspaces</span><span>(</span><span>"bookings_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The variable which returns the returned response
+                      in&nbsp;<span>KEY-VALUE</span> format.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"bookings_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>The <span>TEXT</span> name of the connection.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response returned will be returned in the following
+                format:
+                <div>
+                  &nbsp;{<br />&nbsp;"response": {<br />&nbsp;"returnvalue":
+                  {<br />&nbsp;"data": [<br />&nbsp;{<br />&nbsp;"name": "Soft
+                  skills",<br />&nbsp;"id": "3883XXXXXXXXXXX6010"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"name":
+                  "Computer courses",<br />&nbsp;"id": "3883XXXXXXXXXXX6106"<br />&nbsp;}<br />&nbsp;]<br />&nbsp;},<br />&nbsp;"status":
+                  "success"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <a></a>
+            <p>To get the IDs of the workspaces, use the following script:</p>
+            <div>
+              <pre>&nbsp;<span>for each</span><span> var </span>in<span> &lt;response_variable&gt;</span>
+&nbsp;{
+&nbsp;<span>list_var </span>=<span> var</span>.<span>get</span>(<span>"returnvalue"</span>).<span>get</span>(<span>"data"</span>);
+&nbsp;<span>for each</span><span> var1 </span>in<span> list_var</span>
+&nbsp;{
+&nbsp;<span>info </span><span> var1 </span>.<span>get</span>(<span>"id"</span>);
+&nbsp;}
+&nbsp;}
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Bookings Integration Tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,333 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>openUrl</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>openUrl</h1>
+          <div>
+            <div>
+              <h4>
+                Table of Contents<span><span>Up</span></span>
+              </h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a>Example 1: Open a report of the same application</a>
+                    </li>
+                    <li>
+                      <a>Example 2: Open a form of the same application</a>
+                    </li>
+                    <li>
+                      <a>Example 3: Open a form of a different application</a>
+                    </li>
+                    <li>
+                      <a
+                        >Example 4: Redirect to the previous URL loaded in the
+                        browser's history</a
+                      >
+                    </li>
+                    <li><a>Example 5: Use iframe on a Zoho Creator page</a></li>
+                  </ul>
+                </li>
+                <li><a>Related links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note: </strong>This task is applicable only to the
+              following Zoho services:
+              <ul>
+                <li>Zoho Creator</li>
+                <li>Zoho CRM</li>
+                <li>Zoho Books</li>
+                <li>Zoho Billing</li>
+                <li>Zoho Invoice</li>
+                <li>Zoho Inventory</li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;open url&nbsp;deluge task when executed takes the user to
+              the specified url.&nbsp;&nbsp;<br /><br />The URL can also be
+              opened in iframe. Support for iframe provides huge opportunities
+              for developers to improve the interface/interaction of their
+              applications and provide Web 2.0 (AJAX) like experience to their
+              users where parts of the Web Page can be refreshed with new data
+              from the server without having to repaint the entire screen
+              space.&nbsp;
+            </p>
+            <div>
+              <p>
+                <strong>Note</strong>:<br /><strong>openUrl()</strong> is a
+                terminal statement and will execute only the last openURL task
+                when configured more than once.<br /><br />The openURL task will
+                not be executed, if a user defined function (with the openUrl
+                task) is invoked from a custom action that is placed in the View
+                header and type is set as execute action for each
+                record.&nbsp;<br /><strong>Reason</strong>:&nbsp;A custom action
+                placed in the view header can be invoked on all or specific
+                records in a view. Hence, if a custom action that executes the
+                openURL task is invoked on all or many number of records in a
+                view, it will open that many browser windows. A user who invokes
+                this custom action may sometimes not be aware of the actual
+                reason for this behaviour. Hence, openURL task is not supported
+                when the custom action is placed in the view header.
+              </p>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>openUrl</span>(<span>&lt;URL</span><span>&gt;</span>,<span> &lt;</span><span>window</span><span>&gt;</span>,<span> [</span><span>optional_param</span><span>]</span>);</pre>
+            </div>
+          </div>
+          <p>where:</p>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Parameter</td>
+                  <td>Data type</td>
+                  <td>Description</td>
+                </tr>
+                <tr>
+                  <td><p>&lt;URL&gt;</p></td>
+                  <td><span>TEXT</span></td>
+                  <td>
+                    <p>
+                      URL or the Zoho Creator's URL param&nbsp;that will be
+                      opened.
+                    </p>
+                    <p>
+                      <strong
+                        >Examples for&nbsp;Zoho Creator's URL param:</strong
+                      >&nbsp;#Form:form1, #Report:report1
+                    </p>
+                    <p><strong>Note: </strong></p>
+                    <ul>
+                      <li>
+                        <strong>​</strong>Know the Zoho
+                        Creator's&nbsp;<a>functionality-based</a>,
+                        <a>navigational</a>, and <a>style-based</a> URLs that
+                        can be used as a value to this parameter.
+                      </li>
+                      <li>
+                        All URLs except Zoho Creator's URL params must contain
+                        the&nbsp;appropriate protocol (Example:
+                        <strong>https://</strong>www.zoho.com)
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><p>&lt;window&gt;</p></td>
+                  <td><span>TEXT</span></td>
+                  <td>
+                    The type of window in which the URL will be opened.
+                    <p><strong>Applicable values:&nbsp;</strong></p>
+                    <ul>
+                      <li>same window</li>
+                      <li>new window</li>
+                      <li>parent window</li>
+                      <li>popup window</li>
+                      <li>iframe</li>
+                    </ul>
+                    <div>
+                      <strong>Note: </strong>Only Zoho Creator's&nbsp;URL params
+                      can be opened in a popup window. If this param is supplied
+                      with&nbsp;"popup window"&nbsp;and the &lt;URL&gt; param is
+                      not a Zoho Creator's URL param, the specified
+                      URL&nbsp;will be opened in a new window.&nbsp;<strong
+                        >Examples for Zoho Creator's URL param:</strong
+                      >
+                      #Form:form1, #Report:report1
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>&lt;optional_param&gt;</p>
+                    <p>(Optional)</p>
+                  </td>
+                  <td><span>TEXT</span></td>
+                  <td>
+                    <ul>
+                      <li>
+                        If the &lt;window&gt; param is specified as
+                        <strong>"popup window"</strong>, you can customize the
+                        <strong>dimension</strong> of the popup window by
+                        supplying height and width information using&nbsp;this
+                        param.<br />The value should be in the
+                        format:&nbsp;<strong
+                          >"height=&lt;height&gt;,width=&lt;width&gt;"</strong
+                        >
+                      </li>
+                      <li>
+                        If the &lt;window&gt; param is specified as
+                        <strong>"new window</strong><strong>"</strong>,&nbsp;the
+                        new window occurs only once if this param is left empty.
+                        Subsequent clicks lead to the screens opening in the
+                        same new window. You can specify
+                        <strong>successive=true</strong> as the value to this
+                        param to open all subsequent screens in&nbsp;new
+                        windows.&nbsp;
+                      </li>
+                      <li>
+                        If the &lt;window&gt; param is specified as
+                        <strong>"iframe"</strong>, you can specify
+                        <strong>frame name</strong> using this param.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2><a></a>Example 1: Open a report of the same application form</h2>
+          <p>
+            Assuming a user submits a form called "My Contacts", you can use the
+            following snippet in the On Success workflow action to take him to
+            the form's report.
+          </p>
+          <div>
+            <pre><span>openUrl</span><span>(</span><span>"#Report:My_Contacts_Report"</span><span>, </span><span>"same window"</span><span>)</span><span>;</span></pre>
+          </div>
+        </div>
+        <p>where:</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>"#Report:My_Contacts_Report"</span>
+</pre>
+                </div>
+                <div>
+                  The <span>TEXT</span> that represents the Zoho Creator URL. It
+                  opens the report with link name -
+                  <strong>My_Contacts_Report</strong> from the same application
+                  the task is executed.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"same window"</span>
+</pre>
+                </div>
+                <div>
+                  The <span>TEXT</span> that represents the URL needs to be
+                  opened in the same window.
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2>
+            <a></a>Example 2: Open a form of the same application in a popup
+            window
+          </h2>
+          <p>
+            The following example opens the form - <strong>Orders</strong> in a
+            popup window of height - <strong>510 px</strong>, width -
+            <strong>420 px</strong>,&nbsp;and sets the color -
+            <strong>#34ebd2</strong> as its background:
+          </p>
+          <div>
+            <pre><span>openUrl</span><span>(</span><span>"#Form:Orders?zc_BgClr=#34ebd2"</span><span>,</span><span>"popup window"</span><span>,</span><span>"height=510px,width=420px"</span><span>)</span><span>;</span></pre>
+          </div>
+        </div>
+        <p>where:</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>"#Form:Orders?zc_BgClr=#34ebd2"</span>
+</pre>
+                </div>
+                <div>
+                  The <span>TEXT</span> that represents the Zoho Creator URL. It
+                  opens the form with link name - <strong>Orders</strong> from
+                  the same application the task is executed. The
+                  <strong>zc_BgClr</strong> is a <a>styling attribute</a> that
+                  fills the background of the form with the specified color.
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2><a></a>Example 3: Open a form of a different application</h2>
+          <p>
+            The following example opens the form -
+            <strong>registration</strong> from your application -
+            <strong>customer-details</strong>:
+          </p>
+          <div>
+            <pre><span>openUrl</span><span>(</span><span>"https://app.zohocreator.com/shawn24/customer-details#Form:Registration"</span><span>,</span> <span>"same window"</span><span>)</span><span>;</span>
+</pre>
+          </div>
+        </div>
+        <p>where:</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>"https://app.zohocreator.com/shawn24/customer-details#Form:Registration"</span>
+</pre>
+                </div>
+                <div>The <span>TEXT</span> that represents the form URL</div>
+              </div>
+            </div>
+          </div>
+          <h2>
+            <a></a>Example 4: Redirect to the previous URL loaded in the
+            browser's history
+          </h2>
+          <p>
+            The following script navigates to the previous URL loaded in the
+            browser's location bar:
+          </p>
+          <div>
+            <pre><span>openUrl</span><span>(</span><span>"#Script:page.back"</span><span>,</span><span>"same window"</span><span>)</span><span>;</span></pre>
+          </div>
+        </div>
+        <h2><a></a>Example 5: Use iframe on a Zoho Creator page</h2>
+        <p>
+          Let's say we have the following iframe snippet in a
+          <a>Creator page</a>:
+        </p>
+        <div>
+          &lt;iframe name="frameName" width="1000" height="1000" frameborder="0"
+          scrolling="yes"&gt; &lt;/iframe&gt;
+        </div>
+        <p>
+          The following deluge script is written on the 'On User Input'
+          workflows section. It opens the above mentioned iframe with different
+          URLs depending on the selected product:
+        </p>
+        <div>
+          if (Product=="Creator")<br />&nbsp; {<br />&nbsp; &nbsp;
+          openUrl("https://www.zoho.com/creator", "iframe", "frameName");<br />&nbsp;
+          }<br />else if (Product == "CRM")<br />&nbsp; {<br />&nbsp; &nbsp;
+          openUrl("https://www.zoho.com/crm", "iframe", "frameName");<br />&nbsp;
+          }
+        </div>
+        <h2><a></a>Related Links</h2>
+        <ul>
+          <li><a>Zoho Creator functionality-based URLs</a></li>
+          <li><a>Zoho Creator navigational URLS</a></li>
+          <li><a>Zoho Creator style-based URLs</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

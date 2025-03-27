@@ -1,0 +1,257 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>unixEpoch</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>unixEpoch</h1>
+          <div>
+            <h4>Table of Contents</h4>
+            <ul>
+              <li><a>Overview</a></li>
+              <li><a>Return Type</a></li>
+              <li><a>Syntax</a></li>
+              <li><a>Examples</a></li>
+              <li><a>Related Links</a></li>
+            </ul>
+          </div>
+          <h2><a></a>Overview</h2>
+          <p>
+            The <strong>unixEpoch</strong> function calculates the number of
+            milliseconds that have elapsed since 00:00:00 UTC on 1 January 1970.
+          </p>
+          <div>
+            <p><strong>Note</strong>:</p>
+            <ul>
+              <li>
+                The date-time expression has to be in text format to enable the
+                conversion. If any other date-type is supplied, a run-time error
+                is encountered.
+              </li>
+              <li>
+                The conversion is done&nbsp;based on time zones. If no timezone
+                is provided, the timezone set&nbsp;in the application will be
+                applied. If an&nbsp;invalid timezone is provided, the timezone
+                is defaulted to GMT(see example below).
+              </li>
+              <li>
+                If the function fails to recognise the date-time value, it will
+                simply return the given value in text format.
+              </li>
+              <li>Leap seconds are not included for lapsed time</li>
+            </ul>
+          </div>
+          <h2><a></a>Return Type</h2>
+          <ul>
+            <li><span>NUMBER</span></li>
+          </ul>
+          <h2><a></a>Syntax</h2>
+          <div>
+            <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>dateText</span><span>&gt;</span><span>.unixEpoch</span><span>(<span>[</span></span><span><span>&lt;</span></span><span>timeZone</span><span><span>&gt;]</span></span><span>)</span><span>;</span></pre>
+          </div>
+          <p>where,</p>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>Parameter</strong></td>
+                  <td><strong>Data type</strong></td>
+                  <td><strong>Description</strong></td>
+                </tr>
+                <tr>
+                  <td>&lt;variable&gt;</td>
+                  <td><span>NUMBER</span></td>
+                  <td>Variable which will contain the returned value.</td>
+                </tr>
+                <tr>
+                  <td>&lt;dateText&gt;</td>
+                  <td><span>TEXT</span>​</td>
+                  <td>The expression which will be returned in text format.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>&lt;timeZone&gt;</p>
+                    <p>(optional)</p>
+                  </td>
+                  <td><span>TEXT</span></td>
+                  <td>
+                    <p>
+                      Time zone in which the time elapsed in milliseconds should
+                      be calculated.
+                    </p>
+                    <p>
+                      Value must be specified exactly as given in the&nbsp;<a
+                        >TZ database name</a
+                      >.<br /><br />If no timezone or an invalid timezone is
+                      provided, the timezone is defaulted to GMT.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3><a></a>Applicable Date-Time Literals</h3>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>Letter</strong></td>
+                  <td><strong>Date and Time Component</strong></td>
+                </tr>
+                <tr>
+                  <td>G&nbsp;</td>
+                  <td>Era designator</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>
+                    <p>Calendar year</p>
+                    <p><u>Examples:</u></p>
+                    <p>y - 2019</p>
+                    <p>yy -19</p>
+                    <p>yyy&nbsp; - 2019</p>
+                    <p>
+                      dateValue&nbsp;= '29-Dec-2019';<br />info
+                      dateValue.toText("yyyy"); // returns 2019
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Y</td>
+                  <td>
+                    <p>Week year</p>
+                    <p><u>Examples:</u></p>
+                    <p>Y - 2019</p>
+                    <p>YY -19</p>
+                    <p>YYY&nbsp; - 2019</p>
+                    <p>
+                      <span>dateValue</span><span>&nbsp;= '29-Dec-2019';</span
+                      ><br /><span>info dateValue</span
+                      ><span>.toText("YYYY");&nbsp;</span
+                      ><span>// returns 2020</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>M</td>
+                  <td>
+                    <p>Month in year</p>
+                    <p><u>Examples:</u></p>
+                    <p>M - 1</p>
+                    <p>MM - 01</p>
+                    <p>MMM - January</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>w</td>
+                  <td>Week in year</td>
+                </tr>
+                <tr>
+                  <td>W</td>
+                  <td>Week in month</td>
+                </tr>
+                <tr>
+                  <td>D</td>
+                  <td>Day in year</td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                  <td>Day in month</td>
+                </tr>
+                <tr>
+                  <td>F</td>
+                  <td>Day of week in month</td>
+                </tr>
+                <tr>
+                  <td>E</td>
+                  <td>
+                    <p>Day name in week</p>
+                    <p><u>Examples:</u></p>
+                    <p>E - Tue</p>
+                    <p>EEEE - Tuesday</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>u</td>
+                  <td>Day number of week</td>
+                </tr>
+                <tr>
+                  <td>a</td>
+                  <td>am/pm marker</td>
+                </tr>
+                <tr>
+                  <td>H</td>
+                  <td>Hour in day (0-23)</td>
+                </tr>
+                <tr>
+                  <td>k</td>
+                  <td>Hour in day (1-24)</td>
+                </tr>
+                <tr>
+                  <td>K</td>
+                  <td>Hour in am/pm (0-11)</td>
+                </tr>
+                <tr>
+                  <td>h</td>
+                  <td>Hour in am/pm (1-12)</td>
+                </tr>
+                <tr>
+                  <td>m</td>
+                  <td>Minute in hour</td>
+                </tr>
+                <tr>
+                  <td>s</td>
+                  <td>Second in minute</td>
+                </tr>
+                <tr>
+                  <td>S</td>
+                  <td>Millisecond</td>
+                </tr>
+                <tr>
+                  <td>z</td>
+                  <td>General time zone</td>
+                </tr>
+                <tr>
+                  <td>Z</td>
+                  <td>RFC time zone</td>
+                </tr>
+                <tr>
+                  <td>X</td>
+                  <td>ISO 8601 time zone</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2><a></a>Examples</h2>
+          <div>
+            <pre>&nbsp;<span>currentDate </span><span>= </span><span>"03-Feb-2020 03:48:12"</span><span>;</span>
+&nbsp;<span>indiaTime </span> <span>= </span> <span>currentDate</span><span>.unixEpoch</span><span>(</span><span>"Asia/Calcutta"</span><span>)</span><span>;</span> <span><span>// 1580681892000</span></span>
+&nbsp;<span>gmtMinus8 </span> <span>= </span> <span>currentDate</span><span>.unixEpoch</span><span>(</span><span>"GMT-8"</span><span>)</span><span>;</span> <span><span>// 1580730492000</span></span>
+&nbsp;<span>default </span> <span>= </span> <span>currentDate</span><span>.unixEpoch</span><span>(</span><span>)</span><span>;</span> <span><span>// 1580730492000</span></span>
+&nbsp;<span>utcPlus8 </span> <span>= </span> <span>currentDate</span><span>.unixEpoch</span><span>(</span><span>"UTC+8"</span><span>)</span><span>;</span> <span><span>// 1580701692000</span></span>
+&nbsp;<span>gmt </span> <span>= </span> <span>currentDate</span><span>.unixEpoch</span><span>(</span><span>"GMT"</span><span>)</span><span>;</span> <span><span>// 1580701692000</span></span>
+&nbsp;<span>indiaGMT </span> <span>= </span> <span>currentDate</span><span>.unixEpoch</span><span>(</span><span>"GMT+5:30"</span><span>)</span><span>;</span> <span><span>// 1580681892000</span></span>
+&nbsp;<span>est </span> <span>= </span> <span>currentDate</span><span>.unixEpoch</span><span>(</span><span>"EST"</span><span>)</span><span>;</span> <span><span>// 1580719692000</span></span>
+&nbsp;<span>sst </span> <span>= </span> <span>currentDate</span><span>.unixEpoch</span><span>(</span><span>"SST"</span><span>)</span><span>;</span> <span><span>// 1580662092000</span></span>
+&nbsp;<span>invalidTZ </span> <span>= </span> <span>currentDate</span><span>.unixEpoch</span><span>(</span><span>"Hello"</span><span>)</span><span>;</span> <span><span>// Invalid timezone. So, defaulted to GMT. 1580701692000</span></span>
+&nbsp;<span>invalidType </span> <span>= </span> <span>'03-Feb-2020 03:48:12'</span><span>.unixEpoch</span><span>(</span><span>"GMT"</span><span>)</span><span>;</span> <span><span>// Run-time error</span></span></pre>
+          </div>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>Date-time functions</a></li>
+            <li><a>Textfunctions</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

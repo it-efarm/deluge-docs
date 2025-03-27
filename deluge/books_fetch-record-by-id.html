@@ -1,0 +1,422 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Books integration tasks</a></li>
+        <li><a>Fetch record by ID</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch record&nbsp;by ID</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This task is used to fetch a record from&nbsp;Zoho Books using the
+              record ID.
+            </p>
+            <p>
+              This task is based on&nbsp;<a>Zoho Books API</a>&nbsp;-&gt;
+              &lt;Module&gt; -&gt; Get &lt;ModuleName&gt;.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho</span><span>.books.getRecordsByID</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>org_ID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_id</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data Type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Variable to hold&nbsp;the response returned by Zoho
+                            Books.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the Zoho Books' module from which the
+                            record will be fetched.
+                          </p>
+                          <p>
+                            The applicable module names&nbsp;can be found in the
+                            "Request Example" section in&nbsp;<a
+                              >Zoho Books API</a
+                            >&nbsp;-&gt; &lt;Module&gt; -&gt; Get
+                            &lt;ModuleName&gt;&nbsp;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;org_ID&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the <a>organization ID</a>&nbsp;of the
+                            organization from which the record will be fetched.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;record_ID&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>ID of the record which will be fetched.</p>
+                          <p>
+                            Learn how to fetch the ID of a record
+                            after&nbsp;<a>creating</a>&nbsp;it&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>&nbsp;</p>
+                        </td>
+                        <td>TEXT</td>
+                        <td>
+                          <p>
+                            is the name of the Zoho Books&nbsp;<a>connection</a>
+                          </p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes as mentioned in&nbsp;<a
+                                  >Zoho Books API</a
+                                >&nbsp;-&gt; &lt;Module&gt; -&gt; Get
+                                &lt;ModuleName&gt;.&nbsp;
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script fetches a record from the Zoho Books module -
+              <strong>Contacts</strong> module in Zoho Books based on the
+              specified record id.
+            </p>
+            <div>
+              <pre><span>response</span> <span>= </span><span>zoho</span><span>.books.getRecordsById</span><span>(</span><span>"Contacts"</span><span>, </span><span>"5379XXXX"</span><span>, </span><span>"XXXXXXXXXXXX92275"</span>, <span>"books_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> response returned by Zoho
+                      Books
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Contacts"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module from
+                      which the record needs to be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"5379XXXX"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the organization
+                      ID of the Zoho Books account from which the record needs
+                      to be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"XXXXXXXXXXXX92275"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the ID of the
+                      record which needs to be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"books_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the Zoho Books
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <ul>
+              <li>
+                The <strong>success</strong> response returned is of the
+                following format:
+                <div>
+                  <p>
+                    {&nbsp;&nbsp;<br />&nbsp; &nbsp;"code":0,<br />&nbsp;
+                    &nbsp;"contact":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                    "is_crm_customer":false,<br />&nbsp; &nbsp; &nbsp;
+                    "addresses":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "notes":"",<br />&nbsp; &nbsp; &nbsp;
+                    "documents":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "owner_id":"",<br />&nbsp; &nbsp; &nbsp;
+                    "is_linked_with_zohocrm":false,<br />&nbsp; &nbsp; &nbsp;
+                    "is_client_review_settings_enabled":false,<br />&nbsp;
+                    &nbsp; &nbsp; "pan_no":"",<br />&nbsp; &nbsp; &nbsp;
+                    "billing_address":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;"zip":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"country":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"address":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"city":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"phone":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"address_id":"XXXXXXXXXXXX92277",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"attention":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"street2":"",<br />&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;"state":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"state_code":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"fax":""<br />&nbsp; &nbsp; &nbsp; },<br />&nbsp;
+                    &nbsp; &nbsp; "default_templates":{&nbsp;&nbsp;<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"invoice_email_template_id":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"salesorder_email_template_id":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;"salesorder_template_id":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"creditnote_email_template_id":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"creditnote_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"paymentthankyou_email_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;"estimate_template_id":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"paymentthankyou_template_id":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"salesorder_email_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;"salesorder_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"invoice_email_template_name":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"creditnote_email_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;"invoice_template_id":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"paymentthankyou_email_template_id":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;"invoice_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;"estimate_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"estimate_email_template_id":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"creditnote_template_id":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"paymentthankyou_template_name":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"estimate_email_template_name":""<br />&nbsp;
+                    &nbsp; &nbsp; },<br />&nbsp; &nbsp; &nbsp;
+                    "source":"api",<br />&nbsp; &nbsp; &nbsp;
+                    "outstanding_receivable_amount_bcy":0.0,<br />&nbsp; &nbsp;
+                    &nbsp; "language_code":"",<br />&nbsp; &nbsp; &nbsp;
+                    "twitter":"",<br />&nbsp; &nbsp; &nbsp;
+                    "zcrm_contact_id":"",<br />&nbsp; &nbsp; &nbsp;
+                    "unused_credits_receivable_amount_bcy":100.0,<br />&nbsp;
+                    &nbsp; &nbsp; "gst_no":"",<br />&nbsp; &nbsp; &nbsp;
+                    "tax_reg_no":"",<br />&nbsp; &nbsp; &nbsp;
+                    "contact_category":"",<br />&nbsp; &nbsp; &nbsp;
+                    "associated_with_square":false,<br />&nbsp; &nbsp; &nbsp;
+                    "place_of_contact":"",<br />&nbsp; &nbsp; &nbsp;
+                    "contact_persons":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "pricebook_id":"",<br />&nbsp; &nbsp; &nbsp;
+                    "outstanding_receivable_amount":0.0,<br />&nbsp; &nbsp;
+                    &nbsp; "gst_treatment":"",<br />&nbsp; &nbsp; &nbsp;
+                    "created_time":"2017-02-24T12:31:14+0530",<br />&nbsp;
+                    &nbsp; &nbsp; "owner_name":"",<br />&nbsp; &nbsp; &nbsp;
+                    "zcrm_account_id":"",<br />&nbsp; &nbsp; &nbsp;
+                    "custom_fields":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "vat_reg_no":"",<br />&nbsp; &nbsp; &nbsp;
+                    "unused_credits_receivable_amount":100.0,<br />&nbsp; &nbsp;
+                    &nbsp; "has_transaction":true,<br />&nbsp; &nbsp; &nbsp;
+                    "outstanding_payable_amount_bcy":0.0,<br />&nbsp; &nbsp;
+                    &nbsp; "tax_id":"XXXXXXXXXXXX10079",<br />&nbsp; &nbsp;
+                    &nbsp; "pricebook_name":"",<br />&nbsp; &nbsp; &nbsp;
+                    "price_precision":2,<br />&nbsp; &nbsp; &nbsp;
+                    "tags":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "primary_contact_id":"",<br />&nbsp; &nbsp; &nbsp;
+                    "country_code":"",<br />&nbsp; &nbsp; &nbsp;
+                    "checks":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "unused_credits_payable_amount_bcy":0.0,<br />&nbsp; &nbsp;
+                    &nbsp; "company_name":"",<br />&nbsp; &nbsp; &nbsp;
+                    "tax_treatment":"",<br />&nbsp; &nbsp; &nbsp;
+                    "crm_owner_id":"",<br />&nbsp; &nbsp; &nbsp;
+                    "status":"active",<br />&nbsp; &nbsp; &nbsp;
+                    "cards":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "contact_id":"XXXXXXXXXXXX92275",<br />&nbsp; &nbsp; &nbsp;
+                    "payment_terms":0,<br />&nbsp; &nbsp; &nbsp;
+                    "currency_code":"INR",<br />&nbsp; &nbsp; &nbsp;
+                    "outstanding_payable_amount":0.0,<br />&nbsp; &nbsp; &nbsp;
+                    "contact_type":"customer",<br />&nbsp; &nbsp; &nbsp;
+                    "unused_credits_payable_amount":0.0,<br />&nbsp; &nbsp;
+                    &nbsp; "shipping_address":{&nbsp;&nbsp;<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"zip":"",<br />&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;"country":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"address":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"city":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"phone":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"address_id":"XXXXXXXXXXXX92279",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"attention":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"street2":"",<br />&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;"state":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"state_code":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"fax":""<br />&nbsp; &nbsp; &nbsp; },<br />&nbsp;
+                    &nbsp; &nbsp; "contact_name":"updated24-Feb-2017 123114",<br />&nbsp;
+                    &nbsp; &nbsp; "website":"",<br />&nbsp; &nbsp; &nbsp;
+                    "is_client_review_asked":false,<br />&nbsp; &nbsp; &nbsp;
+                    "last_modified_time":"2017-02-24T12:31:18+0530",<br />&nbsp;
+                    &nbsp; &nbsp; "language_code_formatted":"",<br />&nbsp;
+                    &nbsp; &nbsp; "currency_symbol":"Rs.",<br />&nbsp; &nbsp;
+                    &nbsp; "ach_supported":false,<br />&nbsp; &nbsp; &nbsp;
+                    "facebook":"",<br />&nbsp; &nbsp; &nbsp;
+                    "tax_name":"GST12",<br />&nbsp; &nbsp; &nbsp;
+                    "vendor_portal_url":"",<br />&nbsp; &nbsp; &nbsp;
+                    "unused_retainer_payments":0.0,<br />&nbsp; &nbsp; &nbsp;
+                    "contact_salutation":"",<br />&nbsp; &nbsp; &nbsp;
+                    "tax_percentage":12.0,<br />&nbsp; &nbsp; &nbsp;
+                    "bank_accounts":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "currency_id":"XXXXXXXXXXXX00099",<br />&nbsp; &nbsp; &nbsp;
+                    "is_taxable":true,<br />&nbsp; &nbsp; &nbsp;
+                    "payment_terms_label":"Due On Receipt",<br />&nbsp; &nbsp;
+                    &nbsp; "payment_reminder_enabled":true<br />&nbsp;
+                    &nbsp;},<br />&nbsp;
+                    &nbsp;"instrumentation":{&nbsp;&nbsp;<br />&nbsp; &nbsp;
+                    &nbsp; "query_execution_time":359,<br />&nbsp; &nbsp; &nbsp;
+                    "response_write_time":260,<br />&nbsp; &nbsp; &nbsp;
+                    "page_context_write_time":0,<br />&nbsp; &nbsp; &nbsp;
+                    "request_handling_time":191<br />&nbsp; &nbsp;},<br />&nbsp;
+                    &nbsp;"message":"success"<br />}
+                  </p>
+                </div>
+              </li>
+              <li>
+                The <strong>failure</strong> response returned due to incorrect
+                record id is of the following format:
+                <div>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {&nbsp;&nbsp;<br />&nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"code":1002,<br />&nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"message":"Contact
+                  does not exist."<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }
+                </div>
+              </li>
+              <li>
+                The <strong>failure</strong> response returned due to incorrect
+                org id is of the following format:
+                <div>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {&nbsp;&nbsp;<br />&nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"code":6041,<br />&nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"message": "This user
+                  is not associated with the CompanyID/CompanyName:537XX."<br />&nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li>
+                <a>​</a><a>Zoho Books API</a>&nbsp;-&gt; &lt;Module&gt; -&gt;
+                Get &lt;ModuleName&gt;​
+              </li>
+              <li><a>Common error codes can be viewed&nbsp;here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

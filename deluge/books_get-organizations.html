@@ -1,0 +1,169 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Books integration tasks</a></li>
+        <li><a>Get Organizations</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get organizations from Zoho Books</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to fetch all the organizations that a user
+              is associated with&nbsp;in Zoho Books.
+            </p>
+            <p>This task is based on <a>Zoho Books API</a>.</p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho</span><span>.books.getOrganizations</span><span>(</span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            Variable to store the response&nbsp;returned by Zoho
+                            Books
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>&nbsp;</p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>is the name of the Zoho Books <a>connection</a></p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes as mentioned in
+                                <a>Zoho Books API</a> while creating the
+                                connection.
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              This task fetches all the organizations that a user is part of.
+            </p>
+            <div>
+              <pre><span>response</span> = <span>zoho</span><span>.books.getOrganizations</span><span>(</span><span>"books_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"books_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> name of Zoho Books connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <ul>
+              <li>
+                <p>
+                  The following is a sample <strong>success response</strong>:
+                </p>
+                <div>
+                  <p>
+                    {<br />&nbsp;"code": 0,<br />&nbsp;"message": "success",<br />&nbsp;"organizations":
+                    [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"organization_id":
+                    "10234695",<br />&nbsp;&nbsp;"name": "Zillum",<br />&nbsp;&nbsp;"contact_name":
+                    "John Smith",<br />&nbsp;&nbsp;"email":
+                    "johnsmith@zillum.com",<br />&nbsp;&nbsp;"is_default_org":
+                    false,<br />&nbsp;&nbsp;"language_code": "en",<br />&nbsp;&nbsp;"fiscal_year_start_month":
+                    0,<br />&nbsp;&nbsp;"account_created_date": "2016-02-18",<br />&nbsp;&nbsp;"time_zone":
+                    "PST",<br />&nbsp;&nbsp;"is_org_active": true,<br />&nbsp;&nbsp;"currency_id":
+                    "460000000000097",<br />&nbsp;&nbsp;"currency_code":
+                    "USD",<br />&nbsp;&nbsp;"currency_symbol": "$",<br />&nbsp;&nbsp;"currency_format":
+                    "###,##0.00",<br />&nbsp;&nbsp;"price_precision": 2<br />&nbsp;},<br />&nbsp;{...},<br />&nbsp;{...}<br />&nbsp;]<br />}
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <p>
+              To get the organization ID or organization name from the response:
+            </p>
+            <div>
+              <pre><span>orgs</span> <span>=</span> <span>response</span><span>.get</span><span>(</span><span>"organizations"</span><span>)</span><span>;</span>
+&nbsp;<span>for each </span><span>org</span><span> in </span><span>orgs</span>
+&nbsp;<span>{</span>
+&nbsp;<span>info</span> <span> org</span><span>.get</span><span>(</span><span>"organization_id"</span><span>)</span><span>;</span>
+&nbsp;<span>info</span> <span> org</span><span>.get</span><span>(</span><span>"name"</span><span>)</span><span>;</span>
+&nbsp;<span>}</span></pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Books API</a></li>
+              <li><a>Common error codes can be viewed&nbsp;here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

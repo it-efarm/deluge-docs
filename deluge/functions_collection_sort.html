@@ -1,0 +1,96 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>sort</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>sort</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>sort</strong>&nbsp;function sorts the elements, or key
+              value pairs based on values in a&nbsp;<a>collection</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.sort</span><span>(</span><span>&lt;</span><span>booleanValue</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;collectionVariable&gt;</td>
+                    <td><span>COLLECTION</span></td>
+                    <td>
+                      <p>
+                        The variable in which elements or key value pairs will
+                        be sorted.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;booleanValue&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      <p>
+                        Applicable values are <strong>true</strong> and
+                        <strong>false</strong>.
+                      </p>
+                      <p>
+                        The value <strong>true</strong> sorts in
+                        ascending(default) order, and the value
+                        <strong>false</strong> sorts in descending order.
+                      </p>
+                      <p>
+                        In a string list, special characters, upper case, and
+                        lower case letters are sorted in the following order:<br />!
+                        " # $ % &amp; ' ( ) * + , - . / &lt;numerical values&gt;
+                        : ; &lt; = &gt; ? @ &lt;capital letters&gt; [ ] ^ _ `
+                        &lt;small letters&gt; { | } ~
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>productVersion1</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span> <span>:</span> <span>5</span><span>,</span> <span>"CRM"</span> <span>:</span> <span>2</span><span>,</span> <span>"Mail"</span> <span>:</span> <span>8</span><span>)</span><span>;</span>
+&nbsp;<span>productVersion1</span><span>.sort</span><span>(</span><span>)</span><span>;</span> <span>// collection becomes {"CRM":2,"Creator":5,"Mail":8}</span></pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>productVersion2</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span><span>,</span> <span>"CRM"</span><span>,</span> <span>"Mail"</span><span>)</span><span>;</span>
+&nbsp;<span>productVersion2</span><span>.sort</span><span>(</span><span>false</span><span>)</span><span>;</span> <span>// collection becomes {"Mail", "Creator", "CRM"}</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

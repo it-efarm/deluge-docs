@@ -1,0 +1,216 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Artificial Intelligence Tasks</a></li>
+        <li><a>Detect Object</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <p>​</p>
+      <div>
+        <div>
+          <h1>Detect Object</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.ai.detectObject</strong> task detects objects
+              from the input image. Click <a>here</a> for the list of object
+              categories this task can detect.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.ai.detectObject</span><span>(</span><span>&lt;</span><span>file</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the objects detected from the input file and
+                        their coordinates.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;file&gt;</p></td>
+                    <td>
+                      <p><span>FILE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the file object that contains the
+                        image&nbsp;file from which objects need to be detected.
+                      </p>
+                      <p><strong>Note:</strong>&nbsp;</p>
+                      <ul>
+                        <li>
+                          The file can be fetched from the cloud using
+                          the&nbsp;<a>invokeUrl</a> task.
+                        </li>
+                        <li>
+                          In <strong>Zoho Creator</strong>, the file fetched
+                          using invokeUrl can be supplied as a value to this
+                          parameter, however, a file from the&nbsp;<a
+                            >file upload field</a
+                          >&nbsp;cannot be directly supported&nbsp;as a value to
+                          this parameter.
+                        </li>
+                        <li>
+                          The file can be&nbsp;an image of<strong>
+                            .png, .jpg, .jpeg</strong
+                          >&nbsp;format.
+                        </li>
+                        <li>
+                          The maximum allowed file size is&nbsp;<strong
+                            >10 MB</strong
+                          >.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script extracts and returns the objects such as
+              person, chair, laptop, etc., that are available in the input
+              image.
+            </p>
+            <div>
+              <pre><span>image </span><span>=</span><span> invokeurl</span>&nbsp;
+<span>[</span>&nbsp;
+<span>url</span><span> : </span><span>"https://st.focusedcollection.com/18590116/i/1800/focused_220909150-stock-photo-group-business-people-working-office.jpg"</span>&nbsp;
+<span>]</span><span>;</span>&nbsp;
+&nbsp;
+<span>response</span><span> = </span><span>zoho</span><span>.ai</span><span>.detectObject</span><span>(</span><span>image</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      objects detected from the image file and their
+                      coordinates.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>image</span></pre>
+                    </div>
+                    <div>
+                      The <span>FILE</span> that represents the image from which
+                      objects&nbsp;need&nbsp;to be detected.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  {<br />"data": {<br />"detection": [<br />{<br />"category":
+                  "person",<br />"coordinates": {<br />"ymin": "0.09889359",<br />"xmin":
+                  "0.36033365",<br />"ymax": "0.4674538",<br />"xmax":
+                  "0.90111893"<br />},<br />"accuracy": "0.9999038"<br />},<br />{<br />"category":
+                  "person",<br />"coordinates": {<br />"ymin": "0.6769759",<br />"xmin":
+                  "0.13946709",<br />"ymax": "0.9323825",<br />"xmax":
+                  "0.74334395"<br />},<br />"accuracy": "0.9996403"<br />},<br />{<br />"category":
+                  "person",<br />"coordinates": {<br />"ymin": "0.19069281",<br />"xmin":
+                  "0.30147356",<br />"ymax": "0.32138097",<br />"xmax":
+                  "0.37876928"<br />},<br />"accuracy": "0.93886554"<br />},<br />{<br />"category":
+                  "person",<br />"coordinates": {<br />"ymin": "0.41176188",<br />"xmin":
+                  "0.28800115",<br />"ymax": "0.7079046",<br />"xmax":
+                  "0.8212157"<br />},<br />"accuracy": "0.914988"<br />},<br />{<br />"category":
+                  "cup",<br />"coordinates": {<br />"ymin": "0.50251013",<br />"xmin":
+                  "0.5412055",<br />"ymax": "0.5488396",<br />"xmax":
+                  "0.5911263"<br />},<br />"accuracy": "0.82785475"<br />},<br />{<br />"category":
+                  "chair",<br />"coordinates": {<br />"ymin": "0.5360593",<br />"xmin":
+                  "0.30517107",<br />"ymax": "0.6863361",<br />"xmax":
+                  "0.40787065"<br />},<br />"accuracy": "0.9263675"<br />},<br />{<br />"category":
+                  "chair",<br />"coordinates": {<br />"ymin": "0.005246768",<br />"xmin":
+                  "0.5437859",<br />"ymax": "0.25210744",<br />"xmax":
+                  "0.9349979"<br />},<br />"accuracy": "0.77300894"<br />},<br />{<br />"category":
+                  "laptop",<br />"coordinates": {<br />"ymin": "0.26221845",<br />"xmin":
+                  "0.4746042",<br />"ymax": "0.45911294",<br />"xmax":
+                  "0.5859201"<br />},<br />"accuracy": "0.99141645"<br />}<br />]<br />},<br />"message":
+                  "success"<br />}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response when the file size exceeded the allowed
+                  limit will&nbsp;be returned in the following format:
+                </p>
+                <div>
+                  The zoho.ai.detectObject integration task failed because the
+                  size of the supplied input file exceeded the allowed limit of
+                  10MB. (Line No - 114)
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for an unsupported input file will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{ &nbsp;"error":<br />&nbsp;{<br />&nbsp;"code":400,<br />&nbsp;"message":"image
+                  file content is not allowed"<br />&nbsp;},<br />&nbsp;"status":"Failed"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            &nbsp;
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>AI tasks</a></li>
+              <li><a>AI tasks Limitations</a></li>
+              <li><a>Invoke URL</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

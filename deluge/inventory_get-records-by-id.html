@@ -1,0 +1,282 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Inventory Integration Tasks</a></li>
+        <li><a>Get Records By ID from Zoho Inventory</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Records By ID From Zoho Inventory</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.inventory.getRecordsByID</strong> task fetches a
+              record from the specified module of Zoho Inventory using its ID.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.inventory.getRecordsByID</span><span>(</span><span>&lt;</span><span>module</span><span>&gt;</span>, <span>&lt;</span><span>org_id</span><span>&gt;</span>, <span>&lt;</span><span>record_id</span><span>&gt;</span>, [<span>&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <p>&nbsp;</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>The details of the record that will be fetched.</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The module in which the record that needs to be
+                            fetched is held.
+                          </p>
+                          <p><strong>Allowed Values:</strong></p>
+                          <ul>
+                            <li>Contacts</li>
+                            <li>PurchaseOrders</li>
+                            <li>Bills</li>
+                            <li>SalesOrders</li>
+                            <li>CompositeItems</li>
+                            <li>Items</li>
+                            <li>Invoices</li>
+                            <li>Packages (not supported in Zoho Creator)</li>
+                            <li>
+                              ShipmentOrders (not supported in Zoho Creator)
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;org_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The&nbsp;organization ID of the account from which
+                            the record needs to be fetched.
+                          </p>
+                          <div>
+                            <strong>Note:</strong> Learn how to fetch
+                            organization ID from the&nbsp;<a>UI</a> and
+                            from&nbsp;the response of&nbsp;<a
+                              >zoho.inventory.getOrganization</a
+                            >
+                            task.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;record_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The ID of the record that needs to be fetched.</p>
+                          <div>
+                            <strong>Note:</strong> Learn how to fetch the ID of
+                            a record
+                            after&nbsp;<a>creating</a>&nbsp;it&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <div>
+                            <strong>Note:</strong> This parameter is not
+                            applicable to <strong>Zoho Creator</strong> and
+                            mandatory in <strong>Zoho Cliq</strong>.
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              The following script fetches the record with ID -&nbsp;<strong
+                >478XXXXXXXXXXX009</strong
+              >
+              from the Zoho Inventory module -&nbsp;<strong>Items</strong>:
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.inventory.getRecordsByID</span><span>(</span><span>"Items"</span>, <span>"58XXXX49"</span>, <span>"478XXXXXXXXXXX009"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Inventory. It represents the details of the record that
+                      will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Items"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      module.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"58XXXX49"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the
+                      organization ID.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"478XXXXXXXXXXX009"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the ID of the
+                      record that needs to be fetched.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 0,<br />&nbsp;&nbsp;"message":
+                  "success",<br />&nbsp;&nbsp;"item": {<br />&nbsp;&nbsp;"item_id":
+                  "478XXXXXXXXXXX009",<br />&nbsp;&nbsp;"name": "Earphones",<br />&nbsp;&nbsp;"unit":
+                  "pcs",<br />&nbsp;&nbsp;"brand": "",<br />&nbsp;&nbsp;"manufacturer":
+                  "",<br />&nbsp;&nbsp;"is_linked_with_zohocrm": false,<br />&nbsp;&nbsp;"zcrm_product_id":
+                  "",<br />&nbsp;&nbsp;"crm_owner_id": "",<br />&nbsp;&nbsp;"tax_id":
+                  "",<br />&nbsp;&nbsp;"documents": [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"description":
+                  "",<br />&nbsp;&nbsp;"tax_name": "",<br />&nbsp;&nbsp;"tax_percentage":
+                  0,<br />&nbsp;&nbsp;"tax_type": "",<br />&nbsp;&nbsp;"product_type":
+                  "goods",<br />&nbsp;&nbsp;"category_id": "",<br />&nbsp;&nbsp;"category_name":
+                  "",<br />&nbsp;&nbsp;"purchase_account_id":
+                  "478XXXXXXXXXXX003",<br />&nbsp;&nbsp;"purchase_account_name":
+                  "Cost of Goods Sold",<br />&nbsp;&nbsp;"account_id":
+                  "478XXXXXXXXXXX388",<br />&nbsp;&nbsp;"account_name":
+                  "Sales",<br />&nbsp;&nbsp;"inventory_account_id":
+                  "478XXXXXXXXXXX001",<br />&nbsp;&nbsp;"inventory_account_name":
+                  "Inventory Asset",<br />&nbsp;&nbsp;"status": "active",<br />&nbsp;&nbsp;"source":
+                  "user",<br />&nbsp;&nbsp;"is_combo_product": false,<br />&nbsp;&nbsp;"item_type":
+                  "inventory",<br />&nbsp;&nbsp;"is_returnable": true,<br />&nbsp;&nbsp;"rate":
+                  800.0,<br />&nbsp;&nbsp;"pricebook_rate": 800.0,<br />&nbsp;&nbsp;"purchase_rate":
+                  850.0,<br />&nbsp;&nbsp;"reorder_level": "",<br />&nbsp;&nbsp;"initial_stock":
+                  0.0,<br />&nbsp;&nbsp;"initial_stock_rate": 0.0,<br />&nbsp;&nbsp;"vendor_id":
+                  "",<br />&nbsp;&nbsp;"vendor_name": "",<br />&nbsp;&nbsp;"stock_on_hand":
+                  0.0,<br />&nbsp;&nbsp;"asset_value": "",<br />&nbsp;&nbsp;"available_stock":
+                  0.0,<br />&nbsp;&nbsp;"actual_available_stock": 0.0,<br />&nbsp;&nbsp;"committed_stock":
+                  0,<br />&nbsp;&nbsp;"actual_committed_stock": 0.0,<br />&nbsp;&nbsp;"available_for_sale_stock":
+                  0.0,<br />&nbsp;&nbsp;"actual_available_for_sale_stock":
+                  0.0,<br />&nbsp;&nbsp;"sku": "20",<br />&nbsp;&nbsp;"upc":
+                  "",<br />&nbsp;&nbsp;"ean": "",<br />&nbsp;&nbsp;"isbn":
+                  "",<br />&nbsp;&nbsp;"part_number": "",<br />&nbsp;&nbsp;"image_document_id":
+                  "",<br />&nbsp;&nbsp;"image_name": "",<br />&nbsp;&nbsp;"custom_fields":
+                  [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"custom_field_hash":
+                  {<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"purchase_description":
+                  "",<br />&nbsp;&nbsp;"image_type": "",<br />&nbsp;&nbsp;"sales_channels":
+                  [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"package_details": {<br />&nbsp;&nbsp;"length":
+                  "",<br />&nbsp;&nbsp;"width": "",<br />&nbsp;&nbsp;"height":
+                  "",<br />&nbsp;&nbsp;"weight": "",<br />&nbsp;&nbsp;"weight_unit":
+                  "kg",<br />&nbsp;&nbsp;"dimension_unit": "cm"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"preferred_vendors":
+                  [<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"instrumentation":
+                  {<br />&nbsp;&nbsp;"query_execution_time": 89,<br />&nbsp;&nbsp;"request_handling_time":
+                  64,<br />&nbsp;&nbsp;"response_write_time": 193,<br />&nbsp;&nbsp;"page_context_write_time":
+                  0<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for incorrect or non-existent record ID
+                  will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 1002,<br />&nbsp;&nbsp;"message":
+                  "Sorry! The item you are looking for is not available!"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for incorrect organization ID will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 6041,<br />&nbsp;&nbsp;"message":
+                  "This user is not associated with the
+                  CompanyID/CompanyName:5831949."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Inventory Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

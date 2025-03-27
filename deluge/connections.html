@@ -1,0 +1,859 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Custom integrations with any Zoho or external service</a></li>
+        <li><a>Connections</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Connections</h1>
+          <div>
+            <h4>Table of Contents</h4>
+            <ul>
+              <li><a>Overview</a></li>
+              <li>
+                <a>Services</a>
+                <ul>
+                  <li><a>Configure custom services</a></li>
+                  <li><a>Edit and Delete your custom service</a></li>
+                </ul>
+              </li>
+              <li>
+                <a>Connections</a>
+                <ul>
+                  <li><a>Types of connections</a></li>
+                  <li><a>Creating a connection from My Connections page</a></li>
+                  <li>
+                    <a
+                      >Creating a connection from Default services/ Custom
+                      services pages</a
+                    >
+                  </li>
+                  <li><a>Edit, delete, and revoke connection</a></li>
+                </ul>
+              </li>
+              <li><a>Dark Mode</a></li>
+            </ul>
+          </div>
+          <div>
+            <p><strong>Note:&nbsp;</strong></p>
+            <ul>
+              <li>
+                Following are Zoho services that support connections
+                <ul>
+                  <li>Backstage</li>
+                  <li>Bigin</li>
+                  <li>Billing</li>
+                  <li>Books</li>
+                  <li>BugTracker</li>
+                  <li>Circuit</li>
+                  <li>Cliq</li>
+                  <li>CommandCenter</li>
+                  <li>Connect</li>
+                  <li>CRM</li>
+                  <li>CRM SandBox</li>
+                  <li>Desk</li>
+                  <li>Expense</li>
+                  <li>Forms</li>
+                  <li>FSM</li>
+                  <li>GC</li>
+                  <li>Inventory</li>
+                  <li>Invoice</li>
+                  <li>IOT</li>
+                  <li>Mail</li>
+                  <li>Orchestly</li>
+                  <li>Payroll</li>
+                  <li>People</li>
+                  <li>Projects</li>
+                  <li>QEngine</li>
+                  <li>Qntrl</li>
+                  <li>Recruit</li>
+                  <li>SalesIQ</li>
+                  <li>SDPOnDemand</li>
+                  <li>Sheet</li>
+                  <li>Sites</li>
+                  <li>Solution</li>
+                  <li>Sprints</li>
+                  <li>Survey</li>
+                  <li>Voice</li>
+                  <li>Writer</li>
+                  <li>ZApps</li>
+                  <li>Zia</li>
+                </ul>
+              </li>
+              <li>
+                Zoho Creator supports a different version of connections page.
+                Click <a>here</a> to learn more.
+              </li>
+              <li><a>Know important updates on connection</a>.</li>
+            </ul>
+          </div>
+          <h2><a></a>Overview</h2>
+          <p>
+            Connection is used to establish authentication with other Zoho or
+            third-party services to perform integration with them. You can
+            consider&nbsp;connection as a way to login to any Zoho or
+            third-party service. So, if you're already logged in
+            (connected)&nbsp;to a particular service, you can always access your
+            data stored in those services.
+          </p>
+          <p>
+            Once a connection is created and connected, you can use it in Deluge
+            <a>integration tasks</a> or <a>invoke URL</a> scripts to perform
+            REST operations on the target service from the required Zoho
+            service. For example, to access your Dropbox account using their
+            REST APIs from your Zoho CRM, you can create a Dropbox connection,
+            connect to it, and use the connection link name in
+            <a>invoke URL</a> Deluge task. The invoke URL task will perform the
+            specified API call to your connected Dropbox account.
+          </p>
+          <h2><a></a>Services</h2>
+          <p>
+            Services are the connectors using which you can create your
+            connections. The following are the types of services:
+          </p>
+          <ol>
+            <li>
+              <strong>Default services:</strong>&nbsp;These are pre-configured
+              services. You can easily create a connection using default
+              services and authenticate it using your credentials.
+              <a>Learn more</a>.
+              <ul>
+                <li>
+                  To view the available default services, click on
+                  <strong>Default services</strong> under Services in the left
+                  pane.&nbsp;<br /><img />
+                </li>
+                <li>
+                  The default services are categorized based on the type of the
+                  service. To narrow down your choices, click on the dropdown on
+                  top of the page and choose your required category.<br /><img />
+                </li>
+                <li>
+                  To search for a specific service, type the service name in the
+                  search bar at the top right corner.<br /><img />
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Custom services:</strong>&nbsp;If your required service is
+              not available in the default services list, you can configure it
+              on your own. Once the service is configured, you or any member of
+              your organization can create as many connections as
+              required&nbsp;using it by providing credentials.&nbsp;
+            </li>
+          </ol>
+          <div>
+            <strong>Note:</strong> You can create more than one connection for
+            the same default or custom service.
+          </div>
+          <h2><a></a>Configure custom services</h2>
+          <p>To create a custom service:</p>
+          <ol>
+            <li>
+              Navigate to the
+              <strong>Custom Services </strong
+              >under<strong>&nbsp;</strong>Services. All the&nbsp;custom
+              services created by you and other members of your organization
+              will be listed here.<br /><img />
+            </li>
+            <li>Click on <strong>Create Service </strong>button</li>
+            <li>
+              In service details window, provide the following information:
+              <ul>
+                <li>
+                  <strong>Service Name:</strong> This is the display name of the
+                  service that you want to create.&nbsp;Display name can contain
+                  up to 50 characters.
+                </li>
+                <li>
+                  <p>
+                    <strong>Service LinkName:</strong> Link name of the service
+                    to help&nbsp;you to uniquely identify your custom service.
+                  </p>
+                  <div>
+                    <p>
+                      <strong>Note:</strong> The link name that you provide must
+                      satisfy the following conditions:
+                    </p>
+                    <ul>
+                      <li>It must begin with a lower case letter.</li>
+                      <li>
+                        It can contain lower case letters, numbers, and
+                        underscores (_).
+                      </li>
+                      <li>It can contain up to 50 characters.</li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <p>
+                    <strong>Authentication Type:</strong> Choose from the
+                    following authentication types based on the desired
+                    service's API documentation
+                  </p>
+                  <div>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td><strong>Type</strong></td>
+                          <td><strong>Description</strong></td>
+                          <td><strong>Fields</strong></td>
+                        </tr>
+                        <tr>
+                          <td>API Key</td>
+                          <td>
+                            This auth type requires you to specify the params
+                            for establishing a connection with the desired
+                            service. In the next step, you will have to supply
+                            values for these params to perform the integration.
+                            For example, if you specify authtoken as param, the
+                            next step would be to provide your account's auth
+                            token to establish a successful connection.
+                          </td>
+                          <td>
+                            <p>
+                              On choosing API Key as authentication type, you
+                              need to provide values to the following fields:
+                            </p>
+                            <ul>
+                              <li>
+                                <strong>Param Type:</strong>&nbsp; This decides
+                                how the authentication parameters will be sent
+                                along with the URLs specified&nbsp;in the invoke
+                                URL scripts.&nbsp;Supported param
+                                types:&nbsp;Query string,&nbsp;Form
+                                Data,&nbsp;and Header
+                              </li>
+                              <li>
+                                <strong>Actual Parameter: </strong>Name
+                                of&nbsp;the key (as specified in the API
+                                documentation of the desired service) against
+                                which the parameter needs to be sent
+                              </li>
+                              <li>
+                                <strong>Parameter Display Name:</strong> Display
+                                name for the parameter.&nbsp;
+                              </li>
+                            </ul>
+                            <div>
+                              <p><strong>Note:</strong></p>
+                              <ul>
+                                <li>
+                                  You can add as many parameters as required.
+                                </li>
+                                <li>
+                                  Parameter could be any type of key that is
+                                  required for authentication. Example: api-key,
+                                  user-key, authtoken, apitoken, etc.
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Basic</td>
+                          <td>
+                            This auth type requires you to specify the username
+                            and password in the next step. The provided username
+                            and password will be automatically encrypted with
+                            base64 algorithm and passed as header in the format:
+                            <strong
+                              >basic
+                              &lt;encrypted_username&gt;:&lt;encrypted_password&gt;.</strong
+                            >
+                          </td>
+                          <td>N/A</td>
+                        </tr>
+                        <tr>
+                          <td>OAuth 1</td>
+                          <td>
+                            This auth type requires you to specify the required
+                            parameters to perform an OAuth 1 authentication.
+                          </td>
+                          <td>
+                            <p>
+                              On choosing OAuth 1 as authentication Type, you
+                              need to provide values to the following fields:
+                            </p>
+                            <ul>
+                              <li>
+                                <strong>Consumer Key:</strong> Consumer key that
+                                is issued by the service provider
+                              </li>
+                              <li>
+                                <strong>Consumer Secret:</strong> Your consumer
+                                secret to authorize your application
+                              </li>
+                              <li>
+                                <strong>Request Token Url:</strong> URL to fetch
+                                the request token as specified in the API
+                                documentation of the desired service
+                              </li>
+                              <li>
+                                <strong>Authorize Url:</strong> Authorize URL as
+                                specified in the API documentation of the
+                                desired service
+                              </li>
+                              <li>
+                                <strong>Access Token Url:</strong> URL to fetch
+                                the access token as specified in the API
+                                documentation of the desired service
+                              </li>
+                              <li>
+                                <strong>Param Type:</strong>&nbsp;This decides
+                                how the authentication parameters will be sent
+                                along with the URLs specified&nbsp;in the invoke
+                                URL scripts.&nbsp;Supported param
+                                types:&nbsp;Query string, Form Data,&nbsp;and
+                                Header
+                              </li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>OAuth 2</td>
+                          <td>
+                            This auth type requires you to specify the required
+                            parameters to perform an OAuth 2 authentication.
+                          </td>
+                          <td>
+                            <p>
+                              On choosing OAuth 2 as authentication Type, you
+                              need to provide values to the following fields:
+                            </p>
+                            <ul>
+                              <li>
+                                <strong>Grant type:</strong> Grant type that the
+                                desired service uses to perform authorization.
+                                You can choose from the supported grant types:
+                                Authorization code, Authorization code with PKCE
+                                and client credentials
+                              </li>
+                              <li>
+                                <strong>Client Id:</strong> Client ID that is
+                                issued by the service provider
+                              </li>
+                              <li>
+                                <strong>Client Secret:</strong> Your client
+                                secret to authorize your application
+                              </li>
+                              <li>
+                                <strong>Authorize Url:</strong> Authorize URL as
+                                specified in the API documentation of the
+                                desired service
+                              </li>
+                              <li>
+                                <strong>Access Token Url:</strong> URL to fetch
+                                the access token as specified in the API
+                                documentation of the desired service
+                              </li>
+                              <li>
+                                <strong>Refresh Token Url:</strong> URL to fetch
+                                the request token as specified in the API
+                                documentation of the desired service
+                              </li>
+                              <li>
+                                <strong>Revoke Token URL: </strong>URL to remove
+                                the refresh token as specified in the API
+                                documentation of the desired service
+                              </li>
+                              <li>
+                                <strong>Param Type:</strong> This decides how
+                                the authentication parameters will be sent along
+                                with the URLs specified&nbsp;in the invoke URL
+                                scripts.&nbsp;Supported param types:&nbsp;Query
+                                string,&nbsp;and Header.
+                              </li>
+                              <li>
+                                <strong>Scope:</strong>&nbsp;Scopes required to
+                                perform integration as specified in the desired
+                                service's API documentation.
+                              </li>
+                              <li>
+                                <p>
+                                  <strong>Scope Delimiter:</strong
+                                  >&nbsp;Delimiter with which the&nbsp;desired
+                                  service API expects the scopes to be
+                                  separated.
+                                </p>
+                                <div>
+                                  <p><strong>Note:</strong></p>
+                                  <ul>
+                                    <li>
+                                      You can select from the&nbsp;supported
+                                      delimiters: comma, space, and plus. If not
+                                      specified,&nbsp;comma is assumed as
+                                      default delimiter.
+                                    </li>
+                                    <li>
+                                      While registering your application in your
+                                      desired service to generate client ID&amp;
+                                      client secret, you will have to provide
+                                      the callback URL as:
+                                      <ul>
+                                        <li>
+                                          <strong>US domain:</strong>
+                                          https://deluge.zoho.com/delugeauth/callback
+                                        </li>
+                                        <li>
+                                          <strong>EU domain:</strong>
+                                          https://dre.zoho.eu/delugeauth/callback
+                                        </li>
+                                        <li>
+                                          <strong>CN domain:</strong>
+                                          https://dre.zoho.com.cn/delugeauth/callback
+                                        </li>
+                                        <li>
+                                          <strong>IN domain:</strong>
+                                          https://deluge.zoho.in/delugeauth/callback​
+                                        </li>
+                                        <li>
+                                          <strong>AU domain:</strong>
+                                          https://dre.zoho.com.au/delugeauth/callback
+                                        </li>
+                                        <li>
+                                          <strong>JP domain:</strong>
+                                          https://dre.zoho.jp/delugeauth/callback
+                                        </li>
+                                        <li>
+                                          <strong>CA domain</strong
+                                          ><br />https://dre.zohocloud.ca/delugeauth/callback
+                                        </li>
+                                        <li>
+                                          <strong>SA domain</strong
+                                          ><br />https://dre.zoho.sa/delugeauth/callback
+                                        </li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>AWS Signature Version 4</td>
+                          <td>
+                            This auth type requires you to specify the required
+                            parameters to perform AWS Signature Version 4
+                            Authentication.
+                          </td>
+                          <td>
+                            <p>
+                              On choosing AWS Signature as authentication type,
+                              you need to provide values to the following fields
+                            </p>
+                            <ol>
+                              <li>
+                                <strong>AWS Service (Editable)</strong><br />The
+                                name of the service you want to connect to.<br />&nbsp;&nbsp;&nbsp;&nbsp;ex
+                                : sqs, s3, dynamodb
+                              </li>
+                              <li>
+                                <strong>AWS Region (Editable)</strong><br />The
+                                name of the region receiving the request.<br />&nbsp;&nbsp;&nbsp;&nbsp;ex
+                                : us-east-1, eu-west-1
+                              </li>
+                            </ol>
+                            <p>
+                              This auth type requires to specify the access key
+                              and secret key provided by AWS in next step.
+                            </p>
+                            <div>
+                              <strong>Note:&nbsp;</strong> Deluge supports
+                              appending AWS auth details only via headers.In
+                              headers we will add authorization, X-Amz-Date,
+                              X-Amz-Content-Sha256 fields.
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p><img /></p>
+                </li>
+                <li>
+                  <p>
+                    <a></a><strong>Dynamic Parameters:</strong>&nbsp;These are
+                    variables for which you can get values from the users while
+                    they create connections using this service. Use these
+                    parameters&nbsp;as placeholders using the format
+                    <strong>{Parameter Key}</strong> in the
+                    <a>Deluge invokeUrl task</a>, Authorize URL, Access Token
+                    URL, and Refresh Token URL. During execution, the dynamic
+                    parameter placeholders will be replaced with the values
+                    supplied by the user.<br /><br />​Let's say, we have created
+                    a dynamic parameter <strong>domain</strong>&nbsp;and the
+                    user has supplied&nbsp;<strong>zylker</strong>&nbsp;as the
+                    value to the parameter while creating the connection. During
+                    the execution of the following Deluge script, the dynamic
+                    parameter&nbsp;<strong>{domain} </strong>in the
+                    URL&nbsp;will be replaced with&nbsp;<strong
+                      >zylker.&nbsp;</strong
+                    >
+                  </p>
+                  <div>
+                    <pre>&nbsp;<span>response</span><span> = </span><span>invokeurl</span>
+                                                                                                                &nbsp;<span>[</span>
+                                                                                                                &nbsp;<span>url:</span> <span>"https://{domain}.my.salesforce.com/services/data/v56.0/sobjects/Merchandise__c/updated/v2/read"</span>
+                                                                                                                &nbsp;<span>type:</span> <span>GET</span>
+                                                                                                                &nbsp;<span>connection:</span> <span>"salesforce_connection"</span>
+                                                                                                                &nbsp;<span>]</span><span>;</span></pre>
+                  </div>
+                  <p>
+                    <img /><br /><br />Similarly, the
+                    <strong>{domain} </strong>mentioned in the Authorize URL,
+                    Access Token URL, and Refresh Token URL while creating a
+                    custom service will be replaced with the value specified by
+                    the user during execution.<br /><br /><img />
+                  </p>
+                </li>
+                <li>Click on <strong>Okay, Create</strong> button.</li>
+              </ul>
+            </li>
+          </ol>
+          <h2><a></a>Edit and Delete your&nbsp;custom service</h2>
+          <p>
+            Hover over the custom service to edit or delete it.<br /><img />
+          </p>
+          <p>(or)</p>
+          <p>&nbsp;</p>
+          <p>
+            In the custom service details page, click on the 3 horizontal dots
+            icon to edit or delete the custom service.<br /><img />
+          </p>
+          <div>
+            <p><strong>Note:</strong></p>
+            <ul>
+              <li>
+                You can only&nbsp;edit or delete the&nbsp;custom services that
+                you have configured.
+              </li>
+              <li>
+                If a custom service is edited or deleted, all&nbsp;the existing
+                connections created using the service&nbsp;will be revoked.
+              </li>
+            </ul>
+            <p>
+              The following table lists the editable and
+              non-editable&nbsp;custom service fields:
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Authentication type</strong></td>
+                    <td><strong>Editable fields</strong></td>
+                    <td><strong>Non-editable fields</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Basic</td>
+                    <td>
+                      <ul>
+                        <li>Service name</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li>Authentication type</li>
+                        <li>Service link name</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>API Key</td>
+                    <td>
+                      <ul>
+                        <li>Service name</li>
+                        <li>Param type</li>
+                        <li>New parameters can be added</li>
+                        <li>
+                          Existing parameters can be edited but cannot be
+                          deleted
+                        </li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li>Authentication type</li>
+                        <li>Service link name</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OAuth 1</td>
+                    <td>
+                      <ul>
+                        <li>Service name</li>
+                        <li>Param type</li>
+                        <li>Consumer ID</li>
+                        <li>Consumer secret</li>
+                        <li>Authorize URL</li>
+                        <li>Access token URL</li>
+                        <li>Refresh token URL</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li>Authentication type</li>
+                        <li>Service link name</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>OAuth 2</td>
+                    <td>
+                      <ul>
+                        <li>Service name</li>
+                        <li>Param type</li>
+                        <li>Client ID</li>
+                        <li>Client secret</li>
+                        <li>Authorize URL</li>
+                        <li>Access token URL</li>
+                        <li>Refresh token URL</li>
+                        <li>Revoke token URL</li>
+                        <li>
+                          Scopes can be added but cannot be edited or deleted
+                        </li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li>Authentication type</li>
+                        <li>Grant type</li>
+                        <li>Service link name</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>AWS Signature</td>
+                    <td>
+                      <ul>
+                        <li>Service name</li>
+                        <li>AWS region</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li>Service link name</li>
+                        <li>Parameter type</li>
+                        <li>authentication type</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <h2><a></a>Types of Connections</h2>
+          <ul>
+            <li>
+              <strong>My Connections:</strong>&nbsp;All the connections created
+              by you will be listed under "My Connections".
+            </li>
+            <li>
+              <strong>Connections from extensions: </strong>When you install an
+              extension that uses connections, you will have to authenticate
+              them using your credentials in order to utilize them.
+              Those&nbsp;connections that are created by the extension
+              developers and authenticated by you are listed here.&nbsp;To view
+              the connections created from extensions, go to
+              <strong>"My Connections"</strong>, click on the
+              <strong>dropdown</strong> at the top of the page and choose
+              <strong>"Extensions"</strong>.
+            </li>
+            <li>
+              <strong>Shared Connections:&nbsp;</strong>The connections that are
+              not created by you but only authenticated using your credentials
+              will be listed under "Shared Connections". These connections will
+              be listed under "My connections" for the user who created the
+              connection.
+            </li>
+            <li>
+              <strong>Internal Connections:</strong>&nbsp;The connections that
+              are created internally while you execute
+              <a>integration tasks</a> without connections parameter will be
+              listed under "Internal Connections".&nbsp;
+            </li>
+          </ul>
+          <h2><a></a>Creating a connection from My Connections page</h2>
+          <ol>
+            <li>
+              Navigate to <strong>My Connections</strong>&nbsp;and click on the
+              <strong>Create Connection </strong>button.<br /><img />
+            </li>
+            <li>
+              Under "Pick Your Service" choose your required default or custom
+              service with which you want to create the connection.<br /><img />
+            </li>
+            <li>
+              In Connection Details window, perform the following actions:
+              <img />
+              <ul>
+                <li>
+                  Provide&nbsp;<strong>connection name</strong>. This will be
+                  the display name for your connection. Display name can contain
+                  up to 50 characters.
+                </li>
+                <li>
+                  Provide&nbsp;<strong>connection link name</strong>. Link names
+                  must be unique and can be used in Deluge integration tasks and
+                  invoke URL&nbsp;scripts to establish authentication.<br />​<strong
+                    >Note:</strong
+                  >
+                  The link name that you provide must satisfy the following
+                  conditions:
+                  <ul>
+                    <li>It must begin with a lower case letter.</li>
+                    <li>
+                      It can contain lower case letters, numbers, and
+                      underscores (_).
+                    </li>
+                    <li>It can contain up to 50 characters.</li>
+                  </ul>
+                </li>
+                <li>
+                  <p>Choose appropriate scopes, if required.</p>
+                  <div>
+                    <strong>Note:</strong> The scopes and their availability
+                    vary&nbsp;depending upon the&nbsp;service that you pick. You
+                    can find the applicable scopes in the desired service's API
+                    documentation.
+                  </div>
+                </li>
+                <li>Click on <strong>Create and Connect</strong>.</li>
+                <li>
+                  <p>
+                    <strong>Use credentials of login user</strong>: This allows
+                    other users to utilize the connection that you've
+                    created.&nbsp;If this switch is turned on, other users can
+                    authenticate your connection using their credentials and a
+                    copy of it will be listed under “Shared connections” in
+                    their connections page.<img />
+                  </p>
+                  <div>
+                    <p>
+                      Consider the following scenarios to understand the
+                      "Use&nbsp;credential of login user" switch and shared
+                      connections:
+                    </p>
+                    <ul>
+                      <li>
+                        Let's assume you want to create and publish a
+                        <a>Zoho Cliq bot</a> for everyone in the organization
+                        that will upload the files forwarded to it into the
+                        user’s Dropbox account. To achieve this integration, you
+                        must create a connection to Dropbox and use it in the
+                        invoke URL Deluge task. And while creating the
+                        connection, you must turn on the "user credential of
+                        login user" switch so that the users can authenticate
+                        your connection using their credentials. Hence, the
+                        files will be uploaded to the user’s Dropbox account. If
+                        the switch was not turned on, the connection will run
+                        using the credentials of the connection owner, and the
+                        files sent by all the users will be uploaded to your
+                        (connection owner’s) Dropbox account.<br /><br />In this
+                        example, the "Use credential of login user" switch
+                        should be turned on, and all the bot users will
+                        authenticate your Dropbox connection using their
+                        credentials. Therefore, a copy of your connection will
+                        be listed under "Shared Connections" in their
+                        connections page while it will be listed under “My
+                        Connections” in your connections page.<br />&nbsp;
+                      </li>
+                      <li>
+                        Imagine you want to create and publish a &nbsp;<a
+                          >Zoho Cliq slash command</a
+                        >
+                        for everyone in the team&nbsp;that will fetch the team's
+                        task list&nbsp;from Zoho Projects. Unlike the previous
+                        example, you need not turn on the "Use credentials of
+                        login user" switch while creating the
+                        connection&nbsp;because every&nbsp;user wants&nbsp;to
+                        access the same data. So, rather than encouraging every
+                        single user to authenticate your connection in order to
+                        access your team's common data, you&nbsp;can use allow
+                        them to use your connection to communicate with Zoho
+                        Projects.<br /><br />In this example, the users will not
+                        authenticate your connection using their credentials,
+                        instead, they make use of your connection as such. So,
+                        this connection will not be listed in the user’s
+                        connections page.​
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              You will be redirected to an authentication page. Click the
+              <strong>Connect</strong> button to connect to the service using
+              your account.<br /><img />
+            </li>
+            <li>Provide credentials to log in to your account.<br /><img /></li>
+            <li>
+              A user permission dialog box will be displayed. Provide your login
+              credentials and proceed or allow access if you are already logged
+              in.<br /><img />
+            </li>
+          </ol>
+          <h2>
+            <a></a>Creating a connection from Default services/ Custom services
+            page
+          </h2>
+          <p>
+            As an alternative to the previous method for creating connections,
+            you can also create a connection from Default services or Custom
+            services page. To do so, navigate to the Default/ Custom services
+            page and click on the required service. <img />
+          </p>
+          <h2><a></a>Edit, delete, and revoke connection</h2>
+          <p>
+            Hover over the connection to edit, revoke, or delete it.<br /><img />
+          </p>
+          <p>(or)</p>
+          <p>
+            In the connection&nbsp;details page, click on the 3 horizontal dots
+            icon to edit or delete the connection.
+          </p>
+          <p><img /></p>
+          <div>
+            <p><strong>Note:</strong></p>
+            <ul>
+              <li>
+                You can edit, revoke, or delete any connection created by you
+                (the connections that are listed under "My Connections").
+              </li>
+              <li>
+                You can revoke your shared connections, internal connections,
+                and connections from extensions, but
+                <strong>cannot</strong> edit or delete them.
+              </li>
+              <li>
+                If you choose
+                <strong>Revoke access granted to all connected apps</strong>
+                option while <a>resetting the Zoho account password</a>, you
+                will need to reconnect the connections when you execute them for
+                the first time after the password updation.
+              </li>
+            </ul>
+          </div>
+          <h2><a></a>Dark Mode</h2>
+          <p>
+            To enable dark mode to your connections page, click on the icon at
+            the bottom left corner. <img />
+          </p>
+          <p>Dark mode in connections page looks like the following: <img /></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.0656842"><iframe></iframe></div>
+</div>

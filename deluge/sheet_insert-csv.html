@@ -1,0 +1,479 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sheet Integration Tasks</a></li>
+        <li><a>Insert CSV</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Insert CSV in Zoho Sheet</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Insert CSV data into a single row of Zoho Sheet file</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Insert CSV data into multiple rows of Zoho Sheet
+                        file</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Insert CSV data into Zoho Sheet file at the specified
+                        cell reference</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Fetch a CSV file from cloud storage and insert the
+                        values into the specified Zoho Sheet file</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.sheet.insertCSV</strong> task is used to insert
+              comma-separated values (CSV) into the specified worksheet of Zoho
+              Sheet file. This task is based on the
+              <a>Zoho Sheet API - Append rows with CSV data</a>.
+            </p>
+            <div>
+              <strong>Note:</strong>
+              <ul>
+                <li>
+                  On average, it takes about a minute to index a file/folder
+                  after it is created or updated. This indexing time can
+                  increase if the queue size increases.&nbsp;You will not get
+                  the expected result if&nbsp;you execute
+                  zoho.sheet.insertCSV&nbsp;task before the Zoho Sheet file
+                  (into which you need to insert values) is indexed.
+                </li>
+                <li>
+                  This task/method will insert the CSV only on the specified row
+                  and column in the parameters i.e ., the inserted data will not
+                  be appended after the last utilized row of the worksheet.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.sheet.insertCSV</span><span>(</span><span>&lt;</span><span>resource_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>worksheet_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>csv_data</span><span>&gt;</span><span>, </span><span>&lt;</span><span>row</span><span>&gt;</span><span>, </span><span>&lt;</span><span>column</span><span>&gt;</span>, <span>&lt;</span><span>connection&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td><p>The status of the executed task.</p></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;resource_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The ID of the Zoho Sheet file into which the CSV
+                            data needs to be inserted.
+                          </p>
+                          <p>
+                            <strong>Note: </strong>The resource_id can be
+                            obtained from the URL of the Zoho sheet file. The
+                            URL is in&nbsp;the following format:
+                          </p>
+                          <p>
+                            https://sheet.zoho.com/sheet/open/<strong>&lt;resource_id&gt;</strong>/sheets/&lt;worksheet_name&gt;<br />/ranges/&lt;cell_range&gt;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;worksheet_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The name of the worksheet into which the CSV
+                            data&nbsp;needs to be inserted.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;csv_data&gt;</p></td>
+                        <td>
+                          <p><span>TEXT / FILE</span></p>
+                        </td>
+                        <td>
+                          The comma separated values that need to be inserted.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;row&gt;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          The row index number of the cell into which the first
+                          value of the CSV data needs to be inserted. The
+                          remaining values are inserted into the consecutive
+                          cells of the same row.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;column&gt;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          The column index number of the cell into which the
+                          first value of the CSV data needs to be inserted.<br /><br /><strong
+                            >Note:</strong
+                          >
+                          The column_index needs to be supplied with the number
+                          equivalent of the column index (in letters). The index
+                          number starts with 1.<br />For example, the index
+                          number of the column - <strong>A</strong> is
+                          <strong>1</strong> and the index number of the column
+                          - <strong>AA</strong> is <strong>27</strong>.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Scopes required for this task as mentioned in
+                                API docs -
+                                <strong
+                                  >ZohoSheet.dataAPI.UPDATE,
+                                  ZohoSheet.dataAPI.READ</strong
+                                >.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div>
+              <strong>Note: </strong>The resource_id and worksheet_name
+              parameters can be obtained from the URL of the Zoho Sheet file.<br /><br /><strong
+                >URL format:</strong
+              >
+              https://sheet.zoho.com/sheet/open/<strong>&lt;resource_id&gt;</strong>/sheets/<strong
+                >&lt;worksheet_name&gt;</strong
+              ><br />/ranges/&lt;cell_range&gt;
+            </div>
+            <h2>
+              <a></a>Example 1: Insert CSV data into a single row of Zoho Sheet
+              file
+            </h2>
+            <p>
+              The following script inserts CSV data into the specified row of
+              the worksheet - <strong>Sheet1</strong> with the resource ID -
+              <strong>eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41:</strong>
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.sheet.insertCSV</span><span>(</span><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span>,<span>"Sheet1"</span>,<span>"Ben,ben@zylker.com,Trade Show,350,High"</span>, <span>1</span>, <span>1</span>, <span>"Sheet_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Sheet.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the ID of the Zoho
+                      Sheet file.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Sheet1"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      worksheet into which the CSV data needs to be inserted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Ben,ben@zylker.com,Trade Show,350,High"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the CSV data.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>1</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the row index
+                      number of the cell from which the CSV data needs to be
+                      inserted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>1</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the column index
+                      number of the cell from which the CSV data needs to be
+                      inserted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Sheet_connection"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the link name of the
+                      Zoho Sheet connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 2: Insert CSV data into multiple rows of Zoho Sheet
+              file
+            </h2>
+            <p>
+              The following script inserts the specified CSV data into the
+              worksheet -&nbsp;<strong>Sheet1</strong> with the resource ID
+              -&nbsp;<strong>eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41:</strong>
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.sheet.insertCSV</span><span>(</span><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span>,<span>"Sheet1"</span>,<span>"Advertisement,200,High<strong>\n</strong>Trade Show,100,High"</span>, <span>1</span>, <span>1</span>, <span>"Sheet_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"Advertisement,200,High<strong>\n</strong>Trade Show,100,High"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the CSV data that
+                      needs to be inserted.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <strong>Note:</strong> The&nbsp;<strong>\n</strong> represents a
+              new row. In other words, the comma-separated values following the
+              \n&nbsp;will be inserted into the next row.
+            </div>
+            <h2>
+              <a></a>Example 3: Insert CSV data into Zoho Sheet at the specified
+              cell reference
+            </h2>
+            <p>
+              The following script inserts the CSV data -
+              <strong>"Advertisement,200,High"</strong> into the specified
+              worksheet. The first value - <strong>Advertisement</strong> is
+              inserted into the cell - <strong>C8</strong> of the worksheet -
+              <strong>Sheet1</strong> with the resource ID -
+              <strong>eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41</strong>. The
+              remaining values are inserted into the consecutive cells of the
+              same row (index number: 8).
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.sheet.insertCSV</span><span>(</span><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span>,<span>"Sheet1"</span>,<span>"Advertisement,200,High"</span>, <span>8</span>, <span>3</span>, <span>"Sheet_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>8</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the row index
+                      number of the cell from which the CSV data needs to be
+                      inserted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>3</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the column index
+                      number of the cell from which the CSV data needs to be
+                      inserted.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 4: Fetch a CSV file from cloud storage and insert
+              the values into the specified Zoho sheet
+            </h2>
+            <p>
+              The following script inserts the CSV data fetched from cloud
+              storage using the invokeUrl task into the worksheet -
+              <strong>Sheet2</strong> with the resource ID -
+              <strong>eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41:</strong>
+            </p>
+            <div>
+              <pre><span>csv_data</span><span>=</span><span>invokeUrl
+<span>[</span>
+&nbsp;<span> url</span><span>: </span><span>"http://insight.dev.schoolwires.com/HelpAssets/C2Assets/C2Files/C2ImportCalEventSample.csv"</span></span>
+&nbsp;<span> type</span><span>: </span><span>GET</span>
+<span>];</span>
+<span>response</span><span> = </span><span>zoho</span><span>.sheet.insertCSV</span><span>(</span><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span>,<span>"Sheet2"</span>,<span>csv_data</span>, <span>1</span>, <span>1</span>, <span>"Sheet_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>csv_data</span></pre>
+                    </div>
+                    <div>
+                      The <span>FILE</span> that holds the comma-separated
+                      values fetched from the specified URL using the invokeUrl
+                      deluge task.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <strong>Note:</strong> The CSV data is fetched from the cloud
+              using the invoke URL task. To learn more about the invokeUrl task,
+              click <a>here</a>.
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"method":
+                  "worksheet.csvdata.set",<br />&nbsp;&nbsp;"status": "success"
+                </div>
+                &nbsp;&nbsp;}
+              </li>
+            </ul>
+          </div>
+          <p><strong>Failure Response</strong></p>
+          <ul>
+            <li>
+              <p>
+                The failure response&nbsp;for invalid resource ID will be
+                returned in&nbsp;the following format:
+              </p>
+              <div>
+                &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The workbook
+                does not exists",<br />&nbsp;&nbsp;"error_code": 2862<br />&nbsp;&nbsp;}
+              </div>
+            </li>
+            <li>
+              <p>
+                The failure response for incorrect or non-existent worksheet
+                name will be returned in the following format:
+              </p>
+              <div>
+                &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The sheet does
+                not exists",<br />&nbsp;&nbsp;"method":
+                "worksheet.csvdata.set",<br />&nbsp;&nbsp;"error_code": 2863,<br />&nbsp;&nbsp;"status":
+                "failure"<br />&nbsp;&nbsp;}
+              </div>
+            </li>
+          </ul>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>Zoho Sheet integration tasks</a></li>
+            <li><a>InvokeUrl</a></li>
+            <li><a>Zoho Sheet API - Append rows with CSV data</a></li>
+            <li><a>Zoho Sheet - Possible errors</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

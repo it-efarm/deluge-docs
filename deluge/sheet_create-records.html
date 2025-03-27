@@ -1,0 +1,454 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sheet Integration Tasks</a></li>
+        <li><a>Create record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create Records in Zoho Sheet</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Insert row into a table</a></li>
+                    <li><a>Insert multiple rows into a table</a></li>
+                    <li>
+                      <a
+                        >Insert row into a table whose header is not present in
+                        the first row of the worksheet</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.sheet.createRecords</strong> task is used to
+              insert data into the specified worksheet of a Zoho Sheet file.
+              This task is based on the
+              <a>Zoho Sheet API - Add records to Worksheet</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.sheet.createRecords</span><span>(</span><span>&lt;</span><span>resource_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>worksheet_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>row_data</span><span>&gt;</span><span>, </span><span>&lt;</span><span>query_map</span><span>&gt;</span>, <span>&lt;</span><span>connection&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details of the rows that will be created, and
+                            the status of the executed task.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;resource_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The ID of the Zoho Sheet file in which the new
+                            values need to be inserted.
+                          </p>
+                          <p>
+                            <strong>Note: </strong>The resource_id can be
+                            obtained from the URL of the Zoho sheet file. The
+                            URL is in&nbsp;the following format:
+                          </p>
+                          <p>
+                            https://sheet.zoho.com/sheet/open/<strong>&lt;resource_id&gt;</strong>/sheets/&lt;worksheet_name&gt;<br />/ranges/&lt;cell_range&gt;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;worksheet_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The name of the worksheet in which the data needs to
+                            be inserted.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;row_data&gt;</p></td>
+                        <td>
+                          <p>
+                            <span>KEY-VALUE</span><br />(or)<br /><span
+                              >LIST</span
+                            >
+                          </p>
+                        </td>
+                        <td>
+                          <p>
+                            The values of the rows that need to be inserted.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;query_map&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          The query parameters, as given in the
+                          <a>Zoho Sheet API</a>.&nbsp;To ignore querying using
+                          this param, specify an empty map.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Scopes required for this task as mentioned in
+                                API docs -
+                                <strong
+                                  >ZohoSheet.dataAPI.UPDATE,
+                                  ZohoSheet.dataAPI.READ</strong
+                                >.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1: Insert row into a table</h2>
+            <p>
+              The following script inserts a row with the specified values into
+              the worksheet - <strong>Sheet1</strong> of the Zoho Sheet file
+              with ID - <strong>eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Create a KEY-VALUE variable - rowData that holds values of the new row</span>
+&nbsp;<span>rowData</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>rowData</span><span>.</span><span>put</span><span>(</span><span>"Email"</span>,<span>"shawn@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;<span>rowData</span><span>.</span><span>put</span><span>(</span><span>"Name"</span>,<span>"Shawn"</span><span>)</span><span>;</span>
+&nbsp;<span>rowData</span><span>.</span><span>put</span><span>(</span><span>"Lead Source"</span>,<span>"Trade Show"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create an empty KEY-VALUE variable to skip the &lt;query_map&gt; param</span>
+&nbsp;<span>queryData</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Perform create records task to insert the new row into the worksheetsheet - Sheet1</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sheet.createRecords</span><span>(</span><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span>,<span>"Sheet1"</span>, <span>rowData</span>, <span>queryData</span>, <span>"sheet_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho Sheet
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the ID of the Zoho
+                      Sheet file.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Sheet1"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      worksheet into which the record needs to be inserted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>rowData</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the values
+                      of the new row that needs to be inserted into the
+                      worksheet.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Email"</span>&nbsp;
+<span>"Name"</span>&nbsp;
+<span>"Lead Source"</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;values that represent&nbsp;the
+                      header of the table into which the row needs to be
+                      inserted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>queryData</span></pre>
+                    </div>
+                    <div>
+                      The empty&nbsp;<span>KEY-VALUE</span> variable used to
+                      skip the &lt;query_map&gt; parameter
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"sheet_connection"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> variable that represents the link
+                      name of the sheet connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Insert multiple rows into a table</h2>
+            <p>
+              The following script inserts <strong>two rows</strong> with the
+              specified values into the worksheet - <strong>Sheet1</strong> of
+              the Zoho Sheet file with ID -
+              <strong>eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Create a KEY-VALUE variable - row1 that holds values of the first row</span>
+&nbsp;<span>row1</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>row1</span><span>.</span><span>put</span><span>(</span><span>"Email"</span>,<span>"shawn@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;<span>row1</span><span>.</span><span>put</span><span>(</span><span>"Name"</span>,<span>"Shawn"</span><span>)</span><span>;</span>
+&nbsp;<span>row1</span><span>.</span><span>put</span><span>(</span><span>"Lead Source"</span>,<span>"Trade Show"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create a KEY-VALUE variable - row2 that holds values of the second row</span>
+&nbsp;<span>row2</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>row2</span><span>.</span><span>put</span><span>(</span><span>"Name"</span>,<span>"Brent"</span><span>)</span><span>;</span>
+&nbsp;<span>row2</span><span>.</span><span>put</span><span>(</span><span>"Email"</span>,<span>"brent.r@gmail.com"</span><span>)</span><span>;</span>
+&nbsp;<span>row2</span><span>.</span><span>put</span><span>(</span><span>"Lead Source"</span>,<span>"Advertisement"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create a LIST variable - rowsData that holds the variables - row1 and row2</span>
+&nbsp;<span>rowsData</span><span> = </span><span>List</span><span>()</span><span>;</span>
+&nbsp;<span>rowsData</span><span>.</span><span>add</span><span>(</span><span>row1</span><span>)</span><span>;</span>
+&nbsp;<span>rowsData</span><span>.</span><span>add</span><span>(</span><span>row2</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create a KEY-VALUE variable to hold the query parameters</span>
+&nbsp;<span>queryData</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Perform create records task to insert values of row1 and row2 into the worksheetsheet - Sheet1</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sheet.createRecords</span><span>(</span><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span>,<span>"Sheet1"</span>, <span>rowsData</span>, <span>queryData</span>, <span>"sheet_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>row1</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the values
+                      of the first row.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>row2</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the values
+                      of the second row.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>rowsData</span></pre>
+                    </div>
+                    <div>
+                      The <span>LIST</span> variable that holds the variables -
+                      row1 and row2.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 3: Insert row into a table whose header is not
+              present in the first row of the worksheet
+            </h2>
+            <p>
+              The following script inserts a new row with the specified values
+              into the table whose header is present in the row -
+              <strong>3</strong> of the worksheet - <strong>Sheet1</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Create a KEY-VALUE variable - rowData that holds values of the new row</span>
+&nbsp;<span>rowData</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>rowData</span><span>.</span><span>put</span><span>(</span><span>"Email"</span>,<span>"shawn@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;<span>rowData</span><span>.</span><span>put</span><span>(</span><span>"Name"</span>,<span>"Shawn"</span><span>)</span><span>;</span>
+&nbsp;<span>rowData</span><span>.</span><span>put</span><span>(</span><span>"Lead Source"</span>,<span>"Trade Show"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create a KEY-VALUE variable - headerData that holds row number in which header is present</span>
+&nbsp;<span>headerData</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>headerData</span><span>.</span><span>put</span><span>(</span><span>"header_row"</span>,<span>3</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Perform create records task to insert the new row into the worksheetsheet - Sheet1</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sheet.createRecords</span><span>(</span><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span>,<span>"Sheet1"</span>, <span>rowData</span>, <span>headerData</span>, <span>"sheet_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"header_row"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> key that represents the parameter
+                      name, as specified in the <a> Zoho Sheet API</a>. It holds
+                      the row number in the worksheet that has the header values
+                      of the table.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"start_column": 1,<br />&nbsp;&nbsp;"method":
+                  "worksheet.jsondata.append",<br />&nbsp;&nbsp;"start_row":
+                  2,<br />&nbsp;&nbsp;"sheet_name": "Sheet1",<br />&nbsp;&nbsp;"end_row":
+                  2,<br />&nbsp;&nbsp;"end_column": 3,<br />&nbsp;&nbsp;"status":
+                  "success"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The success response will be returned in the following format
+                  when extra headers are passed:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"start_column": 1,<br />&nbsp;&nbsp;"method":
+                  "worksheet.jsondata.append",<br />&nbsp;&nbsp;"start_row":
+                  3,<br /><strong
+                    >&nbsp;&nbsp;"warning": "Extra header found -
+                    Company",</strong
+                  ><br />&nbsp;&nbsp;"sheet_name": "Sheet1",<br />&nbsp;&nbsp;"end_row":
+                  3,<br />&nbsp;&nbsp;"end_column": 3,<br />&nbsp;&nbsp;"status":
+                  "success"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for invalid resource ID will be returned
+                  in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The workbook
+                  does not exists",<br />&nbsp;&nbsp;"error_code": 2862<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for incorrect or non-existent worksheet
+                  name will be returned in&nbsp;the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The sheet
+                  does not exists",<br />&nbsp;&nbsp;"method":
+                  "worksheet.jsondata.append",<br />&nbsp;&nbsp;"error_code":
+                  2863,<br />&nbsp;&nbsp;"status": "failure"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for non-existent header values will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "No such
+                  header found",<br />&nbsp;&nbsp;"method":
+                  "worksheet.jsondata.append",<br />&nbsp;&nbsp;"error_code":
+                  2893,<br />&nbsp;&nbsp;"status": "failure"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Sheet integration tasks</a></li>
+              <li><a>Zoho Sheet - Possible errors</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

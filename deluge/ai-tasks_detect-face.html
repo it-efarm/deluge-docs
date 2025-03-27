@@ -1,0 +1,575 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Artificial Intelligence Tasks</a></li>
+        <li><a>Detect Face</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <pre>&nbsp;</pre>
+      <div>
+        <div>
+          <h1>Detect Face</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li><a>Example 1: Detect faces in an image</a></li>
+                    <li>
+                      <a
+                        >Example 2: Detect additional attributes like gender,
+                        emotion and pose</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 3: Apply zoho.ai.detectFace task on an image
+                        uploaded in a Zoho Creator field</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a>Use Case Scenarios</a>
+                  <ul>
+                    <li>
+                      <a>Scenario 1: Fetch required data from the response</a>
+                    </li>
+                    <li>
+                      <a
+                        >Scenario 2: Predict, whether the program was engaging
+                        based on the facial expression of the audience.</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Scenario 3: Populate Zoho Creator field with predicted
+                        emotion</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a>Response Format</a>
+                  <ul>
+                    <li><a>Success Response</a></li>
+                    <li><a>Failure Responses</a></li>
+                  </ul>
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.ai.detectFace</strong> task detects all the faces
+              in the image and returns the bounding box coordinates of the faces
+              detected. Additionally, the emotion, gender, and pose attributes
+              of the face can also be detected.
+            </p>
+            <p>
+              For example, using this task, you can predict if a seminar was
+              engaging based on the audience's facial expressions.
+              <a>Learn more</a>.
+            </p>
+            <div>
+              <strong>Note:&nbsp;</strong>
+              <ul>
+                <li>
+                  The prediction results may not be accurate, which is the case
+                  with any AI prediction. However, we are working on improving
+                  this.
+                </li>
+                <li>
+                  The prediction results are dynamic. The same script may
+                  produce different outcomes based on the machine's knowledge.
+                </li>
+              </ul>
+            </div>
+            <h2>​<a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span> <span> = </span> <span>zoho</span><span>.ai</span><span>.detectFace</span><span>(</span><span>&lt;</span><span>input_image</span><span>&gt;</span><span>, </span> <span>&lt;</span><span>is_dominant_face</span><span>&gt;</span><span>, </span> <span>&lt;</span><span>attribute_list</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>&nbsp;KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        &nbsp;Specifies the predicted face coordinates, emotion,
+                        gender, and position of all faces in the&nbsp;
+                        &nbsp;image.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;input_image&gt;</p></td>
+                    <td>
+                      <p><span>&nbsp;File</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        &nbsp;Specifies the file object that contains the image.
+                      </p>
+                      <div>
+                        <strong>&nbsp;Note:&nbsp;</strong>
+                        <ul>
+                          <li>
+                            The file can only be fetched from the cloud using
+                            the&nbsp;<a>invokeUrl task.</a>
+                          </li>
+                          <li>
+                            This task cannot be applied directly to the Zoho
+                            Creator image or file upload field.
+                          </li>
+                          <li>
+                            The file can be an image of
+                            <strong>.png</strong>,<strong> .jpg</strong>,
+                            or<strong> .jpeg</strong> format.
+                          </li>
+                          <li>The maximum allowed file size is 5MB.</li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;is_dominant_face&gt;</p></td>
+                    <td>
+                      <p><span>&nbsp;Boolean &nbsp;(true/false)</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        &nbsp;Specifies the condition to return the data of
+                        prominent face or all faces in the&nbsp;
+                        &nbsp;image.&nbsp;
+                      </p>
+                      <p>
+                        <strong>&nbsp;true</strong> - Returns bounding box of
+                        prominent face.
+                      </p>
+                      <p>
+                        <strong>&nbsp;false</strong> - Returns bounding boxes of
+                        all faces in the image.
+                      </p>
+                      <div>&nbsp;</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;attribute_list&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p><span>&nbsp;List</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        &nbsp;Specifies the list of values to return. The
+                        supported values are:
+                      </p>
+                      <ul>
+                        <li>
+                          <strong>gender</strong> - Includes gender of the face
+                          (Male / Female) in the returned response.
+                        </li>
+                        <li>
+                          <strong>emotion</strong> - Emotion of the face (Angry
+                          / Fear / Happy / Neutral / Sad / Surprise)
+                        </li>
+                        <li>
+                          <strong>pose</strong> -Returns angle/pose of the face
+                          (Yaw/Pitch/ Roll)
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1: Detect faces in an image</h2>
+            <p>
+              The following script detects the face in the image and returns its
+              coordinates.
+            </p>
+            <div>
+              <pre><span>image_file</span> <span> = </span> <span>invokeurl</span>
+  &nbsp; <span>[</span>
+     &nbsp;   <span>url</span> <span>: </span><span>"https://c0.wallpaperflare.com/preview/52/764/33/twin-boys.jpg"</span>
+    &nbsp; <span>]</span><span>;</span>
+
+&nbsp;<span>response</span> <span> = </span>  <span>zoho</span><span>.ai</span><span>.detectFace</span><span>(</span><span>image_file</span><span>, </span><span>false</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>Where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"https://c0.wallpaperflare.com/preview/52/764/33/twin-boys.jpg"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the URL of the
+                      image that needs to be analyzed.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> response that represents the
+                      objects detected from the image file and their
+                      coordinates.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>image_file</span></pre>
+                    </div>
+                    <div>
+                      is the <span>FILE</span> that represents the image from
+                      which the faces will be detected.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>false</span></pre>
+                    </div>
+                    <div>
+                      is the <span>BOOLEAN</span> value that specifies the task
+                      will return all the faces in the image.
+                    </div>
+                  </div>
+                  <div><div>&nbsp;</div></div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a
+                >Example 2: Detect additional attributes like gender, emotion
+                and pose.</a
+              >
+            </h2>
+            <p>
+              The following script detects the faces in the image and returns
+              its response with face coordinates, gender, emotion, and pose.
+            </p>
+            <div>
+              <pre><span>image_file</span> <span> = </span> <span>invokeurl</span>
+    &nbsp;<span>[</span>
+        &nbsp;<span>url</span> <span>:</span><span>"https://c0.wallpaperflare.com/preview/52/764/33/twin-boys.jpg"</span>
+    &nbsp;<span>]</span><span>;
+​</span>
+    &nbsp;<span>attribute_list</span> <span> = </span> <span>list</span><span>(</span><span>)</span><span>;</span>
+    &nbsp;<span>attribute_list</span><span>.add</span><span>(</span><span>"gender"</span><span>)</span><span>;</span>
+    &nbsp;<span>attribute_list</span><span>.add</span><span>(</span><span>"emotion"</span><span>)</span><span>;</span>
+    &nbsp;<span>attribute_list</span><span>.add</span><span>(</span><span>"pose"</span><span>)</span><span>;</span>
+
+    &nbsp;<span>response</span> <span> = </span> <span>zoho</span><span>.ai</span><span>.detectFace</span><span>(</span><span>image_file</span><span>, </span><span>false</span><span>, </span><span>attribute_list</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>Where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>attribute_list</span></pre>
+                    </div>
+                    <div>
+                      is the <span>LIST</span> of values that need to be
+                      returned. Click <a>here</a> to learn more about list
+                      function.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2>
+            <a
+              >Example 3: Apply zoho.ai.detectface task on an image uploaded in
+              a Zoho Creator field</a
+            >
+          </h2>
+          <div>
+            <strong>Note:&nbsp;</strong>This example is only applicable for Zoho
+            Creator.
+          </div>
+          <p>
+            The below code downloads the image from the field through API and
+            returns its response with <strong>zoho.ai.detectFace</strong> task.
+            The <strong>zoho.ai.detectFace</strong> task cannot be used with
+            Zoho Creator’s form fields. Before that, you need to establish a
+            <a>connection</a> within the application. In order to download the
+            uploaded file in the form, you need <a>download file API</a> to use
+            it with the <strong>zoho.ai.detectFace</strong> task.
+          </p>
+          <div>
+            <pre>&nbsp;<span>// Replace &lt;account_owner_name&gt; with  the  user name of the Creator accounts owner.</span>
+&nbsp;<span>// Replace &lt;app_link_name&gt; the link name of the target application.</span>
+&nbsp;<span>// Replace &lt;report_link_name&gt; with  the link name of the target report.</span>
+&nbsp;<span>// Replace &lt;record_ID &gt; with the ID of the record from which you want to download the file.</span>
+&nbsp;<span>// Replace &lt;field_link_name&gt; with the link name of the target file upload or image field.</span>
+
+&nbsp;<span>image_file</span> <span> = </span> <span>invokeurl</span>
+ &nbsp;   <span>[</span>
+&nbsp;    <span>url</span><span>: </span><span>"https://creator.zoho.com/api/v2/&lt;account_owner_name&gt;/&lt;app_link_name&gt;/report/&lt;report_link_name&gt;/&lt;record_ID&gt;/&lt;field_link_name&gt;/download"</span>
+    &nbsp;<span>type</span> <span>: GET</span>
+    &nbsp;<span>connection</span><span>: </span><span>"creator_oauth_connection"</span>
+    &nbsp;<span>]</span><span>;</span>
+ 
+ &nbsp;<span>attribute_list</span> <span> = </span> <span>List</span><span>(</span><span>)</span><span>;</span>
+ &nbsp;<span>attribute_list</span><span>.add</span><span>(</span><span>"gender"</span><span>)</span><span>;</span>
+ &nbsp;<span>attribute_list</span><span>.add</span><span>(</span><span>"emotion"</span><span>)</span><span>;</span>
+ &nbsp;<span>attribute_list</span><span>.add</span><span>(</span><span>"pose"</span><span>)</span><span>;</span>
+ 
+ &nbsp;<span>response</span> <span> = </span> <span>zoho</span><span>.ai</span><span>.detectFace</span><span>(</span><span>image_file</span><span>, </span> <span>false</span><span>, </span> <span>attribute_list</span><span>)</span><span>;</span>
+</pre>
+          </div>
+          <p>Where:</p>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <pre><span>"https://creator.zoho.com/api/v2/&lt;account_owner_name&gt;/
+&lt;app_link_name&gt;/report/&lt;report_link_name&gt;/&lt;record_id&gt;
+/&lt;field_link_name&gt;/download&lt;/field_link_name
+&lt;/record_id&gt;&lt;/report_link_name&gt;&lt;/app_link_name&gt;&lt;/account_owner_name&gt;"</span></pre>
+                  </div>
+                  <div>
+                    is the <span>TEXT</span> that represents the URL specified
+                    in the Zoho Creator to download the required image through
+                    <a>Zoho Creator - Download File API</a>.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>creator_oauth_connection</span></pre>
+                  </div>
+                  <div>
+                    is the <span>TEXT&nbsp;</span>that represents the name of
+                    the <a>connection</a>, created using the default service
+                    Zoho OAuth. While <a>creating the connection</a>, include
+                    scopes as mentioned in the Zoho Creator - Download File API.
+                  </div>
+                </div>
+                <div><div>&nbsp;</div></div>
+              </div>
+            </div>
+          </div>
+          <h2><a></a>Scenario 1: Fetch required data from the response</h2>
+          <p>
+            Consider an image where you need to know the total count of people.
+            This can be done by detecting the number of faces in the image. The
+            zoho.ai.detectFace task stores the number of faces found data in the
+            response as <strong>numFacesFound</strong>. This particular data can
+            be fetched using the <a>get()</a> function. Refer to the following
+            script for better understanding.
+          </p>
+          <div>
+            <pre>&nbsp;<span>image_file</span> <span> = </span> <span>invokeurl</span>
+   &nbsp; <span>[</span>
+       &nbsp;<span>url</span> <span>: </span><span>"https://ylpapp.isb.edu/user/Passport_photo_samples/Sample-9---wrong.jpg"</span>
+   &nbsp; <span>]</span><span>;</span>
+&nbsp;<span>// Create a variable to store the response.</span>
+&nbsp;<span>response</span> <span> = </span> <span>zoho</span><span>.ai</span><span>.detectFace</span><span>(</span><span>image_file</span><span>, </span> <span>false</span><span>)</span><span>;</span>
+&nbsp;<span>// Fetch the "numFacesFound" data from response using <a>get()</a> function.</span>
+&nbsp;<span>number_of_faces</span> <span> = </span> <span>response</span><span>.get</span><span>(</span><span>"numFacesFound"</span><span>)</span><span>;</span>
+</pre>
+          </div>
+          <h2>
+            <a></a>Scenario 2: Predict, whether the program was engaging based
+            on the facial expression of the audience
+          </h2>
+          <p>
+            Consider an image with a group of people sitting in an auditorium.
+            By analyzing the facial emotions of the people in the picture, we
+            can conclude whether the program is engaging or not.
+          </p>
+          <p>
+            If the number of happy faces exceeds 50% of the total face count, we
+            can conclude that the program is engaging, otherwise it is not
+            engaging.
+          </p>
+          <p>The following script fulfils the above-said scenario.</p>
+          <div>
+            <pre>&nbsp;<span>image_file</span> <span> = </span> <span>invokeurl</span>
+    &nbsp;<span>[</span>
+    &nbsp; <span>url</span> <span>: </span><span>"https://media.istockphoto.com/photos/diverse-human-faces-picture-id1187245319?k=20&amp;m=1187245319&amp;s=612x612&amp;w=0&amp;h=byaOZWGwYLZI3YoGagQEiFds05DHjmcRfSynTeTrPe4="</span>
+    &nbsp; <span>type</span> <span>: GET</span>
+ &nbsp;   <span>]</span><span>;</span>
+&nbsp;<span>// Create a variable -face_data to store the data as list by using <a>get()</a> and <a>toList()</a> function.</span>
+&nbsp;<span>face_data</span> <span> = </span>  <span>zoho</span><span>.ai</span><span>.detectFace</span><span>(</span><span>image_file</span><span>, </span><span>false</span><span>, </span><span>{</span><span>"emotion"</span><span>}</span><span>)</span><span>.get</span><span>(</span><span>"data"</span><span>)</span><span>.toList</span><span>(</span><span>)</span><span>;</span>
+ &nbsp;<span>count</span> <span> = </span> <span>0</span><span>;</span>
+&nbsp;<span>// Create a variable - total_face to stores the total face count in the image using <a>size()</a> function.</span>
+&nbsp;<span>total_face</span> <span> = </span> <span>face_data</span><span>.size</span><span>(</span><span>)</span><span>;</span> 
+
+ &nbsp;<span>for each</span> <span> index</span> <span> face</span> <span> in</span> <span> face_data</span>
+ &nbsp;<span>{</span>
+    &nbsp;<span>detect_emotion</span> <span> = </span> <span>face_data</span><span>.get</span><span>(</span><span>face</span><span>)</span><span>.get</span><span>(</span><span>"emotion"</span><span>)</span><span>.get</span><span>(</span><span>"prediction"</span><span>)</span><span>;</span>
+
+    &nbsp;<span>if</span><span>(</span><span>detect_emotion</span> <span> == </span> <span>"happy"</span><span>)</span>
+    &nbsp;<span>{</span>
+        &nbsp;<span>count</span> <span> = </span> <span>count</span> <span>+</span> <span>1</span><span>;</span>
+    &nbsp;<span>}</span>
+ &nbsp;<span>}</span>
+
+ &nbsp;<span>if</span><span>(</span><span>count</span> <span> &gt; </span> <span>total_face</span> <span>/</span> <span>2</span><span>)</span>
+ &nbsp;<span>{</span>
+    &nbsp;<span>response</span> <span> = </span> <span>"The seminar was engaging"</span><span>;</span>
+ &nbsp;<span>}</span>
+ &nbsp;<span>else</span>
+ &nbsp;<span>{</span>
+    &nbsp;<span>response</span> <span> = </span> <span>"The seminar was not engaging"</span><span>;</span>
+ &nbsp;<span>}</span>
+</pre>
+          </div>
+          <h2>
+            <a></a>Scenario 3: Populate Zoho Creator field with predicted
+            emotion
+          </h2>
+          <div>
+            <strong>Note:&nbsp;</strong>This scenario is only applicable for
+            Zoho Creator.
+          </div>
+          <p>
+            Let’s consider a situation where you need to auto-populate predicted
+            emotion on a <a>single line</a> field based on the image uploaded in
+            the file upload / image field. The emotion can be fetched from the
+            response of zoho.ai.detectFace task using <a>get()</a> function.
+            This action can be performed with the help of
+            <a>Zoho Creator - Download File API</a>.
+          </p>
+          <p>
+            The following script detects the emotion from the uploaded image and
+            updates another Zoho Creator field with the predicted emotion:
+          </p>
+          <div>
+            <pre><span>// url - Contains the download file API I URL to download the uploaded image</span>&nbsp;
+<span>// account_owner_name - Replace with the  user name of the Creator account.</span>&nbsp;
+<span>// app_link_name - Replace with the link name of the target application.</span>&nbsp;
+<span>// report_link_name - Replace with the link name of the target report.</span>&nbsp;
+<span>// record_ID - Replace with the ID of the record from which you want to download the file.</span>&nbsp;
+<span>// field_link_name - Replace with the link name of the target file upload or image field.</span>&nbsp;
+
+ <span>image_file</span>  <span>=</span>  <span>invokeurl</span>&nbsp;
+     <span>[</span>&nbsp;
+       <span>url</span><span>:</span> <span>"https://creator.zoho.com/api/v2/&lt;account_owner_name&gt;/&lt;app_link_name&gt;/report/&lt;report_link_name&gt;/&lt;record_ID&gt;/&lt;field_link_name&gt;/download"</span>&nbsp;
+       <span>type</span> <span>:</span> <span>GET</span>&nbsp;
+       <span>connection</span><span>:</span> <span>"zoho_oauth_connection"</span>&nbsp;
+      <span>]</span><span>;</span>&nbsp;
+       
+<span>// Create a variable to store the data of prominent face</span>&nbsp;
+<span>detect_emotion</span>  <span>=</span>  <span>zoho</span><span>.ai</span><span>.detectFace</span><span>(</span><span>image_file</span><span>,</span><span>true</span><span>,</span><span>{</span><span>"emotion"</span><span>}</span><span>)</span><span>.getJson</span><span>(</span><span>"data"</span><span>)</span><span>.getJson</span><span>(</span><span>"emotion"</span><span>)</span><span>.getJson</span><span>(</span><span>"prediction"</span><span>)</span><span>;</span>&nbsp;
+
+<span>// Specify a form field where the emotion needs to be populated.</span>&nbsp;
+<span>// Replace "predicted_emotion" with your single line field_link_name .</span>&nbsp;
+ <span>input</span><span>.predicted_emotion</span>  <span>=</span>  <span>detect_emotion</span><span>;</span>&nbsp;
+</pre>
+          </div>
+          <h2><a>Response Format</a></h2>
+          <p><a>Success Response</a></p>
+          <ul>
+            <li>
+              <p>
+                The success response will be returned in the following format.
+              </p>
+              <div>
+                {&nbsp; &nbsp; "data": [<br />&nbsp; &nbsp; &nbsp;{<br />&nbsp;
+                &nbsp; &nbsp; "faceCoordinate": [<br />&nbsp; &nbsp; &nbsp;
+                &nbsp; "0.565",<br />&nbsp; &nbsp; &nbsp; &nbsp; "0.273",<br />&nbsp;
+                &nbsp; &nbsp; &nbsp; "0.760",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                "0.590"<br />&nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                "gender": {<br />&nbsp; &nbsp; &nbsp; &nbsp; "prediction":
+                "male",<br />&nbsp; &nbsp; &nbsp; &nbsp; "confidence": {<br />&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; "female": "0.028",<br />&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; "male": "0.972"<br />&nbsp; &nbsp;
+                &nbsp; &nbsp; }<br />&nbsp; &nbsp; &nbsp; },<br />&nbsp; &nbsp;
+                &nbsp; "emotion": {<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                "prediction": "happy",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                "confidence": {<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "angry":
+                "0.0",<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "fear": "0.0",<br />&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; "happy": "0.999",<br />&nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; "neutral": "0.0",<br />&nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; "sad": "0.0",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; "surprise": "0.0"<br />&nbsp; &nbsp; &nbsp; &nbsp; }<br />&nbsp;
+                &nbsp; &nbsp; },<br />&nbsp; &nbsp; &nbsp; "pose": {<br />&nbsp;
+                &nbsp; &nbsp; &nbsp; "yaw": "-4.6450",<br />&nbsp; &nbsp; &nbsp;
+                &nbsp; "pitch": "-7.8978",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                "roll": "-1.0229"<br />&nbsp; &nbsp; &nbsp; }<br />&nbsp; &nbsp;
+                }<br />&nbsp; ],<br />&nbsp; "numFacesFound": 1,<br />&nbsp;
+                "executionMessage": "Faces found",<br />&nbsp; "message":
+                "success"<br />}
+              </div>
+            </li>
+          </ul>
+          <p>&nbsp;</p>
+          <p>
+            <a><strong>Failure Response</strong></a>
+          </p>
+          <ul>
+            <li>
+              <p>
+                The error message when the file size exceeded the allowed limit
+                will be returned in the following format:
+              </p>
+              <div>
+                &nbsp;<br />&nbsp;"The zoho.ai.detectFace integration task
+                failed because the size of the supplied input file exceeded the
+                allowed limit of 5MB."<br />&nbsp;
+              </div>
+            </li>
+            <li>
+              <p>
+                The failure response when the image is not in the specified
+                format(<strong>.png, .jpg,</strong>or <strong>.jpeg</strong>).
+              </p>
+              <div>
+                {&nbsp; &nbsp; "error":{<br />&nbsp; &nbsp; "code": 400,<br />&nbsp;
+                &nbsp; "message": "null file format is not allowed"<br />&nbsp;
+                },<br />&nbsp; "status": "Failed"<br />}<br />&nbsp;
+              </div>
+            </li>
+          </ul>
+          <p>&nbsp;</p>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>Artificial intelligence tasks</a></li>
+            <li><a>invokeURL task</a></li>
+            <li><a>Download file - API</a></li>
+            <li><a>Connections</a></li>
+            <li><a>List function</a></li>
+            <li><a>get function</a></li>
+            <li><a>size function</a></li>
+            <li><a>toList function</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,679 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>invokeAPI</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h1>invokeAPI Task</h1>
+      <div>
+        <div>
+          <h4>Table of Contents</h4>
+          <ul>
+            <li><a>Overview</a></li>
+            <li>
+              <a>Syntax</a>
+              <ul>
+                <li><a>Format to Send the Key-Value Data</a></li>
+              </ul>
+            </li>
+            <li>
+              <a>Examples</a>
+              <ul>
+                <li>
+                  <a>Example 1: Fetch Organization Details from Zoho Recruit</a>
+                </li>
+                <li><a>Example 2: Create a Sales Order in Zoho Books</a></li>
+                <li>
+                  <a
+                    >Example 3: Upload an Attachment to Zoho CRM Record&nbsp;</a
+                  >
+                </li>
+                <li>
+                  <a>Example 4: Update a Contact in Zoho Inventory&nbsp;</a>
+                </li>
+              </ul>
+            </li>
+            <li><a>Response Format</a></li>
+            <li><a>Related Links</a></li>
+          </ul>
+        </div>
+        <h2><a></a>Overview</h2>
+        <p>
+          The invokeAPI task is an HTTP client that allows you to access and
+          modify the data of one Zoho service from another Zoho service using
+          APIs.
+        </p>
+        <p>
+          Unlike the <a>InvokeURL</a> task where you specify the complete URL to
+          access a specific resource mentioned in the API document, with
+          invokeAPI, only the path needs to be specified. The domain of the Zoho
+          service is fetched automatically based on its data center for making
+          an API call, ensuring accessibility across all data centers.
+        </p>
+        <div>
+          <p><strong>Note:</strong></p>
+          <ul>
+            <li>
+              This task will throw "socket timeout error" if the web resource/
+              API takes more than 40 seconds to respond.&nbsp;
+            </li>
+            <li>
+              The default connection timeout will happen in 10 seconds, and the
+              connection request timeout in 5 seconds.
+            </li>
+            <li>
+              In Zoho Creator, this task can download file up to 5 MB.
+              &nbsp;Some older accounts would allow downloads up to 50 MB which
+              will eventually be reduced without affecting the existing scripts.
+              <a>Learn more</a>.
+            </li>
+            <li>
+              In services other than Zoho Creator, you can download Zoho domain
+              files of size up to 15 MB and other domain files of size up to 5
+              MB using the relevant APIs.
+            </li>
+          </ul>
+        </div>
+        <h2><a></a>Syntax</h2>
+        <div>
+          <pre><span>response</span> <span>=</span> <span>invokeapi</span>
+<span>[</span>
+<span>service</span><span>:</span><span>&lt;</span><span>service_name</span><span>&gt;</span>
+<span>path</span><span>:</span><span>&lt;</span><span>path_value</span><span>&gt;</span>
+<span>type</span><span>:</span><span>&lt;</span><span>type_value</span><span>&gt;</span>
+<span>parameters</span><span>:</span><span>&lt;</span><span>parameters_value</span><span>&gt;</span>
+<span>body</span><span>:</span><span>&lt;</span><span>body_value</span><span>&gt;</span>
+<span>headers</span><span>:</span><span>&lt;</span><span>headers_value</span><span>&gt;</span>
+<span>connection</span><span>:</span><span>&lt;</span><span>connection_name</span><span>&gt;</span>
+<span>response</span><span>-</span><span>format</span><span>:</span><span>&lt;</span><span>response_format_value</span><span>&gt;</span>
+<span>response</span><span>-</span><span>decoding</span><span>:</span><span>&lt;</span><span>encoding_format_value</span><span>&gt;</span>
+<span>]</span><span>;</span></pre>
+        </div>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>Parameter</strong></td>
+                <td><strong>Data type</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+              <tr>
+                <td>&lt;response&gt;</td>
+                <td>
+                  <span>KEY-VALUE</span>/ <span>FILE</span>/ <span>TEXT</span>/
+                  <span>LIST</span>
+                </td>
+                <td>The variable that will contain the response returned.</td>
+              </tr>
+              <tr>
+                <td>&lt;service_name&gt;&nbsp;</td>
+                <td><span>TEXT</span></td>
+                <td>
+                  <p>
+                    The name of the Zoho service whose resources need to be
+                    accessed.
+                  </p>
+                  <p><strong>Allowed Values:</strong>&nbsp;</p>
+                  <ul>
+                    <li><a>zohocrm</a></li>
+                    <li><a>zohobooks</a></li>
+                    <li><a>zohoinvoice</a></li>
+                    <li><a>zohobilling</a></li>
+                    <li><a>zohoinventory</a></li>
+                    <li><a>zohobookings</a></li>
+                    <li><a>zohorecruit</a></li>
+                    <li><a>zohocliq</a></li>
+                    <li><a>zohocreator</a></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>&lt;path_value&gt;</td>
+                <td><span>TEXT</span></td>
+                <td>
+                  The URL path of the service that needs to be accessed,
+                  excluding the base URL.<br />For example, if the request URL
+                  is "<strong>https://www.zohoapis.com/crm/v3/Leads</strong>"
+                  the path will be "<strong>/crm/v3/Leads</strong>"
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>&lt;type_value&gt;</p>
+                  <p>(optional)</p>
+                </td>
+                <td>Constant</td>
+                <td>
+                  <p>The HTTP request method.</p>
+                  <p><strong>Allowed values:</strong></p>
+                  <ul>
+                    <li>GET</li>
+                    <li>POST</li>
+                    <li>PUT</li>
+                    <li>PATCH</li>
+                    <li>DELETE</li>
+                  </ul>
+                  <p><strong>Default value:</strong> GET</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>&lt;parameters_value&gt;</p>
+                  <p>(optional)</p>
+                </td>
+                <td><span>TEXT</span>/ <span>KEY-VALUE</span></td>
+                <td>
+                  Parameters are query strings that will be appended to the end
+                  of a URL. They facilitate the transmission of specific data to
+                  the server for processing or filtering purposes.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>&lt;body_value&gt;</p>
+                  <p>(optional)</p>
+                </td>
+                <td>
+                  <span>TEXT</span>/ <span>FILE</span>/ <span>KEY-VALUE</span>
+                </td>
+                <td>
+                  <p>The body of the request.&nbsp;</p>
+                  <p>
+                    Send various types of request body using invokeAPI task:
+                  </p>
+                  <p>
+                    <strong>text/plain: </strong>This type is used to supply
+                    values to the API in raw TEXT format without any specific
+                    encoding or formatting.
+                  </p>
+                  <p>
+                    <strong>application/x-www-form-urlencoded:</strong> The data
+                    is sent to the API as KEY-VALUE pairs. This encoding is
+                    commonly used for sending form data in HTTP requests.
+                  </p>
+                  <p>
+                    <strong>multipart/form-data:</strong> The data sent to the
+                    API is structured as a multipart form in KEY-VALUE format.
+                    This format is particularly useful when dealing with file
+                    uploads, allowing for the transmission of binary data along
+                    with additional metadata.
+                  </p>
+                  <p>
+                    <strong>application/json:</strong> The data is sent to the
+                    API in JSON format. It is commonly used for sending
+                    structured data in HTTP requests, allowing for the
+                    representation of complex data structures, including objects
+                    and arrays.
+                  </p>
+                  <div>
+                    <strong>Note:</strong> When sending data in JSON format to
+                    the API, ensure it is converted to TEXT format using the
+                    <a>toString()</a> function. <a>See Example</a>
+                  </div>
+                  <p>
+                    <strong>application/octet-stream: </strong>This type is
+                    employed when sending FILE data. Data is transmitted in its
+                    raw, binary format without any specific encoding.
+                  </p>
+                  <div>
+                    <strong>Info: </strong>Refer <a>here</a> to learn how to
+                    send key-value data with this parameter.
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>&lt;headers_value&gt;</p>
+                  <p>(optional)</p>
+                </td>
+                <td><span>KEY-VALUE</span></td>
+                <td>The attributes or the header values.</td>
+              </tr>
+              <tr>
+                <td>&lt;connection_name&gt;</td>
+                <td><span>TEXT</span></td>
+                <td>
+                  <p>The <a>connection</a> name of the required service.</p>
+                  <div>
+                    <p><strong>Note:&nbsp;</strong></p>
+                    <ul>
+                      <li>
+                        This parameter is optional for services other than Zoho
+                        Creator, provided the API call is made within the same
+                        service.
+                      </li>
+                      <li>
+                        Multiple connections can be created for the same
+                        service.
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>&lt;response_format_value&gt;</p>
+                  <p>(optional)</p>
+                </td>
+                <td><span>TEXT</span></td>
+                <td>
+                  <p>The data type in which the response must be returned.</p>
+                  <p><strong>Allowed values:</strong></p>
+                  <ul>
+                    <li>FILE</li>
+                    <li>COLLECTION</li>
+                    <li>STRING</li>
+                    <li>NONE</li>
+                    <li>DEFAULT</li>
+                  </ul>
+                  <p><strong>Default value:</strong> DEFAULT</p>
+                  <div>
+                    <strong>Note: </strong>If the value of this parameter is set
+                    to <strong>NONE</strong>, the response won't be returned.
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>&lt;encoding_format_value&gt;</td>
+                <td><span>TEXT</span></td>
+                <td>
+                  <p>
+                    The character encoding scheme based on which the response
+                    returned needs to be decoded.
+                  </p>
+                  <p>
+                    <strong>Allowed values: </strong>Click <a>here</a> to find
+                    the list of allowed values for this parameter.
+                  </p>
+                  <p><strong>Default value:</strong> UTF-8</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          The following functions can be used along with the response to get a
+          detailed response.
+        </p>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>&lt;response&gt;.status</strong></td>
+                <td>Returns the response code of the respective request.</td>
+              </tr>
+              <tr>
+                <td><strong>&lt;response&gt;.headers</strong></td>
+                <td>Returns the header of the respective request</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3><a></a>Format to Send the Key-Value Data</h3>
+        <p>
+          Follow the format below to send the key-value data with the body of
+          the invokeAPI request if the value associated with the key is,
+        </p>
+        <ul>
+          <li>
+            <p><strong>FILE:</strong></p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  Only file objects, such as those returned by an
+                  <a>invokeAPI</a> or <a>invokeURL</a> task, and data converted
+                  to file using the <a>toFile</a> function, can be attached. For
+                  example, a text value formatted as CSV can be converted into a
+                  CSV file using the toFile function. Please note that this
+                  function is currently not applicable to Zoho Creator.
+                </li>
+                <li>
+                  In Zoho Creator, input text that is converted into a file
+                  cannot exceed 5MB. Some older accounts currently allow
+                  conversion up to 50MB, but this limit will eventually be
+                  reduced without affecting existing scripts.
+                </li>
+              </ul>
+            </div>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>{{</span><span>"param-name"</span><span>:</span> <span>&lt;</span><span>key</span><span>&gt;</span><span>,</span> <span>"param-value"</span><span>:</span> <span>&lt;</span><span>File</span><span>&gt;</span><span>}}</span><span>;</span></pre>
+            </div>
+          </li>
+          <li>
+            <p><strong>TEXT/ MAP:</strong></p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>{{</span><span>"param-name"</span><span>:</span> <span>&lt;</span><span>key</span><span>&gt;</span><span>,</span> <span>"param-value"</span><span>:</span> <span>&lt;</span><span>value</span><span>&gt;</span><span>,</span> <span>"content-type"</span><span>:</span><span>"&lt;content_type_value&gt;"</span><span>,</span> <span>"encoding-type"</span><span>:</span><span>"&lt;encoding_type_value&gt;"</span><span>}}</span><span>;</span></pre>
+            </div>
+          </li>
+          <li>
+            <p>
+              <strong>LIST</strong> (list of KEY-VALUE data with the associated
+              'param-values' as FILE, TEXT, or MAP):
+            </p>
+            <div>
+              <pre><span>list_</span> <span>=</span> <span>List</span><span>()</span><span>;</span>
+<span>list_variable.add</span><span>({</span><span>"param-name"</span><span>:</span> <span>&lt;</span><span>key</span><span>&gt;</span><span>,</span> <span>"param-value"</span><span>:</span> <span>&lt;</span><span>File_1</span><span>&gt;</span><span>})</span><span>;</span>
+<span>list_variable.add</span><span>({</span><span>"param-name"</span><span>:</span> <span>&lt;</span><span>key</span><span>&gt;</span><span>,</span> <span>"param-value"</span><span>:</span> <span>&lt;</span><span>File_2</span><span>&gt;</span><span>})</span><span>;</span>
+<span>list_variable.add</span><span>({</span><span>"param-name"</span><span>:</span> <span>&lt;</span><span>key</span><span>&gt;</span><span>,</span> <span>"param-value"</span><span>:</span> <span>&lt;</span><span>text_value</span><span>&gt;</span><span>,</span> <span>"&lt;content_type_value&gt;"</span><span>:</span><span>,</span> <span>"encoding-type"</span><span>:</span><span>"&lt;encoding_type_value&gt;"</span><span>})</span><span>;</span>
+<span>list_variable.add</span><span>({</span><span>"param-name"</span><span>:</span> <span>&lt;</span><span>key</span><span>&gt;</span><span>,</span> <span>"param-value"</span><span>:</span> <span>&lt;</span><span>map_value</span><span>&gt;</span><span>,</span> <span>"&lt;content_type_value&gt;"</span><span>:</span><span>,</span> <span>"encoding-type"</span><span>:</span><span>"&lt;encoding_type_value&gt;"</span><span>})</span><span>;</span>
+                                                </pre>
+            </div>
+          </li>
+        </ul>
+        <div>
+          <strong>Note: </strong>If the 'content-type' and 'encoding-type' are
+          not specified, the default value for content type will be set to
+          <strong>text/plain</strong>, and the default encoding format will be
+          set to <strong>UTF-8</strong>.
+        </div>
+        <h2><a></a>Example 1: Fetch Organization Details from Zoho Recruit</h2>
+        <p>
+          The below script fetches the organization details from your
+          <a>Zoho Recruit</a> account. Click <a>here</a> to learn more about the
+          API used in this example.
+        </p>
+        <div>
+          <pre><span>response</span> <span>=</span> <span>invokeapi</span>
+<span>[</span>
+<span>service</span><span>:</span> <span>ZohoRecruit</span>
+<span>path</span><span>:</span> <span>"/recruit/v2/org"</span>
+<span>type</span><span>:</span> <span>GET</span>
+<span>connection</span><span>:</span> <span>"recruit_connection"</span>
+<span>]</span><span>;</span><br>
+<span>info</span> <span>response</span><span>;</span></pre>
+        </div>
+        <p>Where,</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>"/recruit/v2/org"</span></pre>
+                </div>
+                <div>
+                  The <span>TEXT</span>&nbsp;that represents the URL path
+                  specified in the <a>Zoho Recruit API</a> to fetch organization
+                  details.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>GET</span></pre>
+                </div>
+                <div>The HTTP request method.</div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"recruit_connection"</span></pre>
+                </div>
+                <div>
+                  The <span>TEXT</span>&nbsp;that represents the connection
+                  name.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2><a></a>Example 2: Create a Sales Order in Zoho Books</h2>
+        <p>
+          The following script creates a sales order with the specified values
+          in <a>Zoho Books</a>. Click <a>here</a> to learn more about the API
+          used in this example.
+        </p>
+        <div>
+          <pre><span>// Create a map that holds the values of the new salesorder that needs to be created</span>
+<span>item</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                                                                                                                    <span>item</span><span>.put</span><span>(</span><span>"item_id"</span><span>,</span><span>205788000000122285</span><span>)</span><span>;</span>
+<span>item</span><span>.put</span><span>(</span><span>"rate"</span><span>,</span> <span>120</span><span>)</span><span>;</span>
+<span>item</span><span>.put</span><span>(</span><span>"name"</span><span>,</span> <span>"Hard Drive"</span><span>)</span><span>;</span>
+<span>item</span><span>.put</span><span>(</span><span>"description"</span><span>,</span> <span>"500GB, USB 2.0 interface 1400 rpm, protective hard case."</span><span>)</span><span>;</span><br>
+<span>// Format the data as specified in the Zoho Books API</span>
+<span>item_list</span> <span>=</span> <span>List</span><span>()</span><span>;</span>
+<span>item_list.add</span><span>(</span><span>item</span><span>)</span><span>;</span><br>
+<span>data</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>data</span><span>.put</span><span>(</span><span>"customer_id"</span><span>,</span><span>205788000000127011</span><span>)</span><span>;</span>
+<span>data</span><span>.put</span><span>(</span><span>"line_item"</span><span>,</span> <span>item_list</span><span>)</span><span>;</span><br>
+<span>// Supply the parameters to the invokeApi task</span>
+<span>response</span> <span>=</span> <span>invokeapi</span>
+<span>[</span>
+<span>service</span> <span>:</span> <span>ZohoBooks</span>
+<span>path</span> <span>:</span> <span>"/books/v3/invoices"</span>
+<span>type</span> <span>:</span> <span>POST</span>
+<span>parameters</span> <span>:</span> <span>{</span><span>"organization_id"</span><span>:</span> <span>"10xxx59"</span><span>}</span>
+<span>body </span><span>:</span> <span>data</span>
+<span>headers</span> <span>:</span> <span>{</span><span>"content-type"</span><span>:</span><span>"application/x-www-form-urlencoded"</span><span>}</span>
+<span>connection</span> <span>:</span> <span>"zohobooks_connection"</span>
+<span>]</span><span>;</span><br>
+<span>info</span> <span>response.status</span><span>;</span>                                                                                                                            </pre>
+        </div>
+        <p>Where,</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>"/books/v3/invoices?organization_id=10xxx695"</span></pre>
+                </div>
+                <div>
+                  The <span>TEXT</span> that represents the URL path specified
+                  in the <a>Zoho Books API</a> to create a sales order.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>POST</span></pre>
+                </div>
+                <div>The HTTP request method.</div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"zohobooks_connection"</span></pre>
+                </div>
+                <div>
+                  The <span>TEXT</span> that represents the connection name.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2><a></a>Example 3: Upload an Attachment to Zoho CRM Record</h2>
+        <p>
+          The following script uploads an attachment to the specified
+          <a>Zoho CRM</a> record. Click <a>here</a> to learn more about the API
+          used in this example.
+        </p>
+        <div>
+          <pre><span>//Fetch the file using the invoke URL task.</span>
+<span>Attachment</span> <span>=</span> <span>invokeurl</span>
+<span>[</span>                                                                                                                <span>url</span> <span>:</span><span>"https://www.cmu.edu/blackboard/files/evaluate/tests-example.xls"</span>                                                                                                              <span>type</span> <span>:</span><span>GET</span>                                                                                                         <span>]</span><span>;</span><br>
+<span>//Create a variable to store the record id of the record where the attachment to be uploaded.</span>
+<span>Record_ID</span> <span>=</span> <span>"2689962xxxxx509150"</span><span>;</span><br>
+<span>//Supply the parameters to the invokeapi task.</span>
+r<span>esponse</span> <span>=</span> <span>invokeapi</span>
+<span>[</span>
+<span>service</span> <span>:</span><span>zohocrm</span>
+<span>path</span> <span>:</span><span>"/crm/v7/Leads/"</span><span>+</span><span>Record_ID</span><span>+</span><span>"/Attachments"</span>
+<span>type</span> <span>:</span><span>POST</span>
+<span>body</span><span>:</span><span>{{</span><span>"param-name"</span><span>:</span><span>"file"</span><span>,</span><span>"param-value"</span><span>:</span><span>Attachment}</span><span>}</span>
+<span>connection</span><span>:</span><span>"zohocrm_connection"</span>
+<span>]</span><span>;</span>
+                                                                                                                                                                                                                                                                    <span>info</span> <span>response.status</span><span>;</span>                                                                                                                          </pre>
+        </div>
+        <p>Where,</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>Attachment</span></pre>
+                </div>
+                <div>
+                  The <span>FILE</span> variable that holds the attachment file.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>Record_ID</span></pre>
+                </div>
+                <div>
+                  The variable that holds the ID of the record where the file is
+                  to be uploaded.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"/crm/v7/Leads/"</span></pre>
+                </div>
+                <div>
+                  The <span>TEXT</span> that represents the URL path specified
+                  in the <a>Zoho CRM API</a> to create an invoice.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>POST</span></pre>
+                </div>
+                <div>The HTTP request method.</div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"zohocrm_connection"</span></pre>
+                </div>
+                <div>
+                  The <span>TEXT</span> that represents the name of the
+                  connection.&nbsp;
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2><a></a>Example 4: Update a Contact in Zoho Inventory</h2>
+        <p>
+          The following script updates the billing address of a contact with the
+          specified details in the <a>Zoho Inventory</a>. Click <a>here</a> to
+          learn more about the API used in this example. &nbsp; &nbsp;&nbsp;
+        </p>
+        <div>
+          <pre><span>//Create a variable to store JSON value.</span>
+<span>Address</span> <span>=</span> <span>{</span><span>"attention"</span><span>:</span> <span>"Mr.John"</span><span>,</span><span>"address"</span><span>:</span> <span>"4900 Hopyard Rd"</span><span>,</span><span>"street2"</span><span>:</span> <span>"Suit 310"</span><span>,</span><span>"city"</span><span>:</span> <span>"Pleasanton"</span><span>,</span> <span>"state"</span><span>:</span><span>"California"</span><span>,</span><span>"zip"</span><span>:</span> <span>94588</span><span>,</span><span>"country"</span><span>:</span> <span>"U.S.A"</span><span>};</span><br>
+<span>//Map the Address json with the shipping_address parameter as specifies in the Zoho Books API</span>
+<span>address_map</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>address_map</span><span>.put</span><span>(</span><span>"shipping_address"</span><span>,</span><span>Address</span><span>)</span><span>;</span><br>
+<span>//Supply the parameters to the invokeApi task.</span>
+<span>response</span> <span>=</span> <span>invokeapi</span>
+<span>[</span>
+<span>service</span> <span>:</span><span>ZohoInventory</span>
+<span>path</span> <span>:</span><span>"/inventory/v1/contacts/4600xxxxx026049"</span>
+<span>type</span> <span>:</span><span>PUT</span>
+<span>parameters</span> <span>:</span> <span>{</span><span>"organization_id"</span><span>:</span> <span>"10234695"</span><span>}</span>
+<span>body</span> <span>:</span><span>address_map.toString</span><span>()</span>
+<span>headers</span> <span>:</span><span>{</span><span>"content-type"</span><span>:</span><span>"application/json"</span><span>}</span>
+<span>connection</span> <span>:</span><span>"zohoinventory_connection"</span>
+<span>]</span><span>;</span><br>
+<span>Info</span> <span>response.headers</span><span>;</span></pre>
+        </div>
+        <p>Where, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>Address</span></pre>
+                </div>
+                <div>The variable that holds the JSON value.</div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"/inventory/v1/contacts/"</span></pre>
+                </div>
+                <div>
+                  The <span>TEXT</span> that represents the URL path specified
+                  in the <a>Zoho Inventory API</a> to update a contact.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>PUT</span></pre>
+                </div>
+                <div>The HTTP request method.</div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"zohoinventory_connection"</span></pre>
+                </div>
+                <div>
+                  The <span>TEXT</span> that represents the connection name.
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2>
+            &nbsp;<a></a>Response Format &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp;
+          </h2>
+          <p>The standard response will be returned in the following format:</p>
+          <div>
+            &nbsp;{<br />&nbsp; &nbsp; &nbsp; &nbsp;"responseText":
+            "Example.png"<br />&nbsp;}
+          </div>
+          <ul>
+            <li>
+              <p>
+                To return the header of the request use the following script.
+              </p>
+              <div>
+                <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>response</span><span>&gt;</span><span>.headers</span><span>;</span>                                                                                                                                                                                                                                                                                                                                                                                                                     </pre>
+              </div>
+              <p>
+                The response for the request to return the header will be in the
+                following format:
+              </p>
+              <div>
+                {<br />&nbsp; &nbsp; &nbsp; "date": "Wed, 23 Oct 2019 10:03:31
+                GMT",<br />&nbsp; &nbsp; &nbsp; "server": "Apache",<br />&nbsp;
+                &nbsp; &nbsp; "content-length": "159500",<br />&nbsp; &nbsp;
+                &nbsp; "expires": "Wed, 23 Oct 2019 16:03:31 GMT",<br />&nbsp;
+                &nbsp; &nbsp; "x-endurance-cache-level": "2",<br />&nbsp; &nbsp;
+                &nbsp; "x-cache-lookup": "MISS from 172.30.232.40:3128",<br />&nbsp;
+                &nbsp; &nbsp; "via": "1.1 172.30.232.40 (squid/4.1)",<br />&nbsp;
+                &nbsp; &nbsp; "last-modified": "Wed, 04 May 2016 01:44:18
+                GMT",<br />&nbsp; &nbsp; &nbsp; "content-type": "image/png",<br />&nbsp;
+                &nbsp; &nbsp; "connection": "keep-alive",<br />&nbsp; &nbsp;
+                &nbsp; "x-cache": "MISS from 172.30.232.40",<br />&nbsp; &nbsp;
+                &nbsp; "accept-ranges": "bytes",<br />&nbsp; &nbsp; &nbsp;
+                "cache-control": "max-age=21600"<br />}
+              </div>
+            </li>
+            <li>
+              <p>
+                To return the response code of the request, use the following
+                script:
+              </p>
+              <div>
+                <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>response</span><span>&gt;</span><span>.status</span><span>;</span>                                                                                                                                                                                                                                                                                                                                                                                                                     </pre>
+              </div>
+              <p>
+                The response for the request to return the response code will be
+                in the following format:
+              </p>
+              <div>200</div>
+            </li>
+          </ul>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>invokeURL task for API calls</a></li>
+            <li><a>Connections</a></li>
+            <li><a>Built-in Functions</a><br />&nbsp;</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,385 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Cliq Integration Tasks</a></li>
+        <li><a>Create record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create Record</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li><a>Creating a record with static values</a></li>
+                    <li><a>Creating a record with dynamic values</a></li>
+                  </ul>
+                </li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Tasks</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note</strong>: This task is applicable to all
+              services&nbsp;except Zoho Creator
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to add a new record with the specified
+              values into a <a>Zoho Cliq database.</a>
+            </p>
+            <p>This task is based on Zoho Cliq API - <a>Add a record</a>.</p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.cliq.createRecord</span><span>(</span><span>&lt;</span><span>database_name</span><span>&gt;</span>, <span>&lt;</span><span>data_map</span><span>&gt;, &lt;connection&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;variable&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        specifies the variable which will hold the&nbsp;response
+                        returned by Zoho Cliq.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;database_name&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        specifies the <a>unique name</a> of the database into
+                        which the new record will be&nbsp;added.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;data_map&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        specifies the content of the new record, each key
+                        representing a unique column name from the database and
+                        value representing its corresponding data to be added
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;connection&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      specifies the link name of the Zoho Cliq <a>connection</a>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of&nbsp;<a
+                              >stopping new authtoken generation</a
+                            >,&nbsp;a Zoho OAuth connection with appropriate
+                            scopes is mandatory&nbsp;for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter unless the authtoken is manually
+                            deleted&nbsp;from&nbsp;<a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes as mentioned in&nbsp;Zoho Cliq
+                            API -&nbsp;<a>Add a record</a>
+                          </li>
+                          <li>
+                            Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                            list of Zoho services that support the connections
+                            page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1: Creating a record with static values</h2>
+            <p>
+              The following script adds a new record with the specified values
+              into the Zoho Cliq database -
+              <strong>availabilitydatabase</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>values_map</span><span>=</span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>values_map</span><span>.</span><span>put</span><span>(</span><span>"name"</span><span>,</span><span>"John"</span><span>)</span><span>;</span>
+&nbsp;<span>values_map</span><span>.</span><span>put</span><span>(</span><span>"empid"</span><span>,</span><span>"1"</span><span>)</span><span>;</span>
+&nbsp;<span>values_map</span><span>.</span><span>put</span><span>(</span><span>"availability"</span><span>,</span><span>"true"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>response_map </span><span>= </span><span>zoho</span><span>.cliq.createRecord</span><span>(</span><span>"availabilitydatabase"</span><span>, </span><span>values_map</span><span>, </span><span>"cliq_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response_map</span></pre>
+                    </div>
+                    <div>
+                      is the&nbsp;<span>KEY-VALUE</span>&nbsp;returned by Zoho
+                      Cliq. It represents the status, URL, data, and ID of the
+                      created record
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"availabilitydatabase"</span></pre>
+                    </div>
+                    <div>
+                      is the&nbsp;<span>TEXT</span> that represents the unique
+                      name of the database into which the record needs to
+                      be&nbsp;added
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>values_map</span></pre>
+                    </div>
+                    <div>
+                      is the&nbsp;<span>KEY-VALUE</span> variable that holds the
+                      values of the new record
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"cliq_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the&nbsp;<span>TEXT</span> that represents the name of
+                      the connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Creating a record with dynamic values</h2>
+            <p>
+              Write the below script in the <strong>message handler</strong> of
+              your Bot configuration to make it add a new record into the Zoho
+              Cliq database - <strong>availabilitydatabase</strong>. The values
+              of the fields&nbsp;<strong>name</strong> and
+              <strong>empid</strong> are <strong>Shawn</strong> and
+              <strong>2</strong> respectively. The value of the
+              <strong>availability</strong> field is adjusted based on the
+              user's response. If the user sends <strong>YES</strong> to the
+              Bot, the <strong>availability</strong> field is filled up with
+              <strong>true</strong>. Otherwise, it is filled up with the default
+              value <strong>false</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span>=</span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>values_map</span><span>=</span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>values_map</span><span>.</span><span>put</span><span>(</span><span>"name"</span><span>,</span><span>"Shawn"</span><span>)</span><span>;</span>
+&nbsp;<span>values_map</span><span>.</span><span>put</span><span>(</span><span>"empid"</span><span>,</span><span>"2"</span><span>)</span><span>;</span>
+&nbsp;<span>dynamic_value</span><span>=</span><span>false</span><span>;</span>
+&nbsp;
+&nbsp;<span>if</span><span>(</span><span>message</span><span>.</span><span>equalsIgnoreCase</span><span>(</span><span>"YES"</span><span>)</span><span>)</span><span>{</span>
+&nbsp;<span>dynamic_value</span><span>=</span><span>true</span><span>;</span>
+&nbsp;<span>}</span>
+&nbsp;
+&nbsp;<span>values_map</span><span>.</span><span>put</span><span>(</span><span>"availability"</span><span>,</span><span>dynamic_value</span><span>)</span><span>;</span>
+&nbsp;<span>text </span><span>= </span><span>zoho</span><span>.cliq.createRecord</span><span>(</span><span>"availabilitydatabase"</span><span>, </span><span>values_map</span><span>, </span><span>"cliq_connection"</span><span>)</span><span>;</span>
+&nbsp;<span>response</span><span>.</span><span>put</span><span>(</span><span>"text"</span><span>,</span><span>text</span><span>)</span><span>;</span>
+&nbsp;<span>return response</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>values_map</span></pre>
+                    </div>
+                    <div>
+                      is the&nbsp;<span>KEY-VALUE</span> variable that holds the
+                      values of the new record
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>message</span></pre>
+                    </div>
+                    <div>
+                      is the object of <span>TEXT</span> data type that holds
+                      the most recent message sent in the Bot
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>dynamic_value</span></pre>
+                    </div>
+                    <div>
+                      is the&nbsp;<span>BOOLEAN</span> variable that holds the
+                      value of the <strong>availability</strong> field
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"availabilitydatabase"</span></pre>
+                    </div>
+                    <div>
+                      is the&nbsp;<span>TEXT</span> that represents the unique
+                      name of the database into which the record needs to
+                      be&nbsp;added
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>text</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> variable that holds the response
+                      message to be sent by the Bot
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"cliq_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the&nbsp;<span>TEXT</span> that represents the name of
+                      the connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              The following is the response of the above script when the user
+              sends <strong>YES</strong>.
+            </p>
+            <img />​
+            <h2><a></a>Sample Response</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>The success response returned is of the following format</p>
+                <div>
+                  &nbsp;{<br />&nbsp;"status":"SUCCESS",<br />&nbsp;"url":"/api/v2/storages/availabilitydatabase/records",<br />&nbsp;"object":{"empid":"1","name":"John","availability":true,"id":"1775XXXX0002XXXX009"}<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p>
+              To fetch the ID of the newly created record, execute the following
+              snippet:
+            </p>
+            <div>
+              &lt;variable&gt; =
+              &lt;response_variable&gt;.get("object").get("id");
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned for an
+                  <strong>incorrect database name</strong> is of the following
+                  format
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"status":"FAILURE",<br />&nbsp;"message":"Uh-oh!
+                  Looks like availablitydata does not exist.",<br />&nbsp;"code":"platform_storage_database_not_found"<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned for an
+                  <strong>incorrect or non-existent field name</strong> is of
+                  the following format
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"status":"FAILURE", &nbsp;"message":"The
+                  designation column does not exist.",
+                  &nbsp;"code":"platform_storage_column_not_exists" &nbsp;<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for a&nbsp;<strong
+                    >missing mandatory field</strong
+                  >
+                  is of the following format
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"status":"FAILURE",<br />&nbsp;"message":"You
+                  have to specify a value for the mandatory column empid",<br />&nbsp;"code":"platform_storage_required_field_value_missing"<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for a&nbsp;<strong
+                    >data type mismatch</strong
+                  >
+                  is of the following format
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"status":"FAILURE",<br />&nbsp;"message":"Invalid
+                  value given for field availability value yes.",<br />&nbsp;"code":"platform_storage_fields_invalid_value"<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for a&nbsp;<strong
+                    >duplicate value</strong
+                  >
+                  in unique column is of the following format
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"status":"FAILURE",<br />&nbsp;"message":"Looks
+                  like this record is a duplicate entry and hence cannot be
+                  added!",<br />&nbsp;"code":"platform_storage_unique_key_constraint_violated"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Tasks</h2>
+            <ul>
+              <li><a>Zoho Cliq API</a></li>
+              <li>Common error codes can be <a>viewed here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

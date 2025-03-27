@@ -1,0 +1,346 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Sign document</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Zoho Writer sign document</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.writer.signDocument</strong> task sends an email
+              to get a document signed by&nbsp;the specified recipients.
+            </p>
+            <p>
+              This integration task is based on the
+              <a>Zoho Writer - Sign API</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt; </span><span>= </span><span>zoho</span><span>.writer.signDocument</span><span>(</span><span>&lt;</span><span>document_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>service</span><span>&gt;</span>, <span>&lt;</span><span>recipients</span><span>&gt;</span><span>, &lt;</span><span>signed_document_name</span><span>&gt;</span><span>, &lt;</span><span>input_map</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The response returned by Zoho Writer that represents
+                            the status of the task.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;document_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The ID of the document that will&nbsp;be sent for
+                            signing.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> You can get the ID of the
+                            document for its URL. The URL is in the format:
+                            https://writer.zoho.com/writer/open/<strong
+                              >&lt;document_id&gt;</strong
+                            >
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;service&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The name of the service using which you want the
+                            document to be signed.
+                          </p>
+                          <p><strong>Allowed values:</strong></p>
+                          <ul>
+                            <li>zohosign</li>
+                          </ul>
+                          <p>&nbsp;</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;recipients&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span>/ <span>LIST</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The email address of the recipients who will sign
+                            the document.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;signed_document_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td><p>New name for the signed document</p></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;inpu_map&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Other information that can be provided to
+                            send&nbsp;a document for signing.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> The keys of this parameter
+                            should be specified as given in the
+                            <a>Zoho Writer - Sign API</a>.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in
+                                <a>Zoho Writer&nbsp;API</a>&nbsp;while creating
+                                the connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script sends the specified Sign document as emails
+              to the mentioned recipients list.&nbsp;
+            </p>
+            <div>
+              <pre>&nbsp;<span>recipient1</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>recipient1</span><span>.put</span><span>(</span><span>"recipient_1"</span>, <span>"shawn@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;<span>recipient1</span><span>.put</span><span>(</span><span>"recipient_name"</span>, <span>"Shawn"</span><span>)</span><span>;</span>
+&nbsp;<span>recipient1</span><span>.put</span><span>(</span><span>"action_type"</span>, <span>"sign"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>recipient2</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>recipient2</span><span>.put</span><span>(</span><span>"recipient_2"</span>,<span>"kate@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;<span>recipient2</span><span>.put</span><span>(</span><span>"recipient_name"</span>, <span>"Kate"</span><span>)</span><span>;</span>
+&nbsp;<span>recipient2</span><span>.put</span><span>(</span><span>"action_type"</span>, <span>"approve"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>recipient3</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>recipient3</span><span>.put</span><span>(</span><span>"recipient_3"</span>,<span>"robin@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;<span>recipient3</span><span>.put</span><span>(</span><span>"recipient_name"</span>, <span>"Robin"</span><span>)</span><span>;</span>
+&nbsp;<span>recipient3</span><span>.put</span><span>(</span><span>"action_type"</span>, <span>"view"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>email </span><span>= </span><span>List</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>email</span><span>.put</span><span>(</span><span>recipient1</span><span>)</span><span>;</span>
+&nbsp;<span>email</span><span>.put</span><span>(</span><span>recipient2</span><span>)</span><span>;</span>
+&nbsp;<span>email</span><span>.put</span><span>(</span><span>recipient3</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>inputMap </span><span>= </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>inputMap</span><span>.put</span><span>(</span><span>"subject"</span><span>, </span><span>"Document to sign"</span><span>)</span><span>;</span>
+&nbsp;<span>inputMap</span><span>.put</span><span>(</span><span>"message"</span><span>, </span><span>"Please verify and sign the document"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>response</span><span>=</span><span>zoho</span><span>.writer</span><span>.signDocument</span><span>(</span><span>"3z7frc3fda95142ef45fbb9aadf220632b1d6"</span><span>, </span><span>"zohosign"</span><span>, </span><span>email</span><span>, </span><span>"Signed Document"</span><span>, </span><span>inputMap</span><span>, </span><span>"writer_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      status of the executed task.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"3z7frc3fda95142ef45fbb9aadf220632b1d6"</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;that represents the ID of
+                      the Zoho Writer document.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"zohosign"</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp; that represents the
+                      service using which the document needs to be signed.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>email</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>LIST</span>&nbsp;variable that holds the
+                      recipients of the email.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Signed Document"</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;that represents the new
+                      name for the signed document.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>inputMap</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>KEY-VALUE</span>&nbsp;variable that holds
+                      the input parameters like subject and message of the
+                      email.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"action_type"</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;key as mentioned
+                      in&nbsp;the <a>Zoho People API</a> used&nbsp;to specify
+                      what kind of action the recipient can perform on the
+                      document.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"sign_status_url":
+                  "https://sign.zoho.com/zs#/request/details/10696XXXXXXX43001",<br />&nbsp;"status":
+                  "success"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for
+                  <strong>incorrect or unauthorized document ID</strong> will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"error": {<br />&nbsp;"message":
+                  "Permission denied. You are not authorized to perform this
+                  operation.",<br />&nbsp;"documentation_url":
+                  "https://www.zoho.com/writer/help/api/v1/general-errors.html",<br />&nbsp;"response_generated_time":
+                  1588244128206,<br />&nbsp;"request_url":
+                  "https://writerinteg1.zoho.com/writer/api/v1/documents/3z7frc3fda9542ef45fbb9aadf220632b1d6/sign",<br />&nbsp;"errorcode":
+                  "R5010"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for
+                  <strong>missing mandatory parameter</strong> will be returned
+                  in the following format:
+                </p>
+                <div>
+                  {<br />&nbsp;"error": {<br />&nbsp;"documentation_url":
+                  "https://www.zoho.com/writer/help/api/v1/general-errors.html",<br />&nbsp;"message":
+                  "One or more mandatory parameters are missing. Please try
+                  again with all required parameters.",<br />&nbsp;"errorcode":
+                  "R6001"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Writer integration tasks</a></li>
+              <li><a>Connections</a></li>
+              <li><a>Zoho Writer&nbsp;- Sign API</a>​</li>
+              <li><a>Zoho Writer API - Possible error responses</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

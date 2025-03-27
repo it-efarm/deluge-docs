@@ -1,0 +1,130 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Miscellaneous</a></li>
+        <li><a>getFieldValue</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>getFieldValue()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note: </strong>This help page is applicable only to Zoho
+              Creator
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>getFieldValue()</strong> function returns the
+              value&nbsp;of&nbsp;a&nbsp;specified field.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>STRING</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span
+                ><span>&lt;variable&gt;</span> =
+                getFieldValue(<span>&lt;fieldLinkName&gt;</span>);</span
+              ><br />// this syntax will work in workflows except custom
+              functions
+            </div>
+            <p>(OR)</p>
+            <div>
+              <span
+                ><span>&lt;variable&gt;</span> =
+                <span>&lt;collectionVariable&gt;</span
+                >.getFieldValue(<span>&lt;fieldLinkName&gt;</span>);</span
+              >
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span><span>&lt;variable&gt;</span></span>
+                    </td>
+                    <td>
+                      Variable which will contain the returned value.&nbsp;
+                    </td>
+                    <td>STRING</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;fieldLinkName&gt;</span></span>
+                    </td>
+                    <td>
+                      Link name of the field whose value will be returned.
+                    </td>
+                    <td>STRING</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;collectionVariable&gt;</span></span>
+                    </td>
+                    <td>
+                      A <a>collection variable</a> which holds records fetched
+                      using the <a>fetch records</a> task.
+                    </td>
+                    <td>--</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              1) The following snippet fetches records based on a given criteria
+              and then extracts the field values of the specified field and adds
+              to a list variable.
+            </p>
+            <div>
+              <pre>&nbsp;<span>listVar</span> <span>=</span> <span>List</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>collectionVar</span> <span>=</span> <span>Registrations</span><span>[</span><span>Email</span> <span>==</span> <span>"john@zylker.com"</span><span>]</span><span>;</span>
+&nbsp;<span>for each</span> <span>rec</span> <span>in</span> <span>collectionVar</span>
+&nbsp;<span>{</span>
+&nbsp;<span>fieldName</span> <span>=</span> <span>rec</span><span>.getFieldValue</span><span>(</span><span>"PhoneNumber"</span><span>)</span><span>;</span>
+&nbsp;<span>listVar</span><span>.add</span><span>(</span><span>fieldName</span><span>)</span><span>;</span>
+&nbsp;<span>}</span></pre>
+            </div>
+            <p>
+              <br />2) The following snippet iterates through all the fields
+              fetched using <a>getFieldNames()</a> task, and stores the fields
+              along with their values in the "values" variable.
+            </p>
+            <div>
+              <pre>&nbsp;<span>values </span> <span>= </span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>for each </span> <span>field </span> <span>in </span> <span>getFieldNames</span><span>(</span><span>)</span>
+&nbsp;<span>{</span>
+&nbsp;<span>values</span><span>.put</span><span>(</span><span>field</span><span>, </span> <span>getFieldValue</span><span>(</span><span>field</span><span>)</span><span>)</span><span>;</span>
+&nbsp;<span>}</span>
+&nbsp;<span>info </span> <span>values</span><span>;</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

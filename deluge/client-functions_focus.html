@@ -1,0 +1,444 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Client Functions</a></li>
+        <li><a>Focus</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Focus</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Unsupported Field Types</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Example 1</a></li>
+                    <li><a>Example 2</a></li>
+                    <li><a>Example 3: Data Entry through Scanner</a></li>
+                  </ul>
+                </li>
+                <li><a>See How It Works</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong> This task is applicable only to Zoho
+              Creator.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              In a form, the focus (the insertion pointer or cursor) can be
+              positioned on any required field using the
+              <strong>Focus</strong> task either while&nbsp;<a
+                >loading the form</a
+              >&nbsp;or during <a>user&nbsp;input</a> in the form events.
+            </p>
+            <p>
+              Once the user starts filling in the form, the focus can be moved
+              from one field to another required field. Likewise, a form can
+              have multiple focus tasks, which ensures quick and efficient data
+              entry.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <p><span>To focus a form field in a main form workflow</span></p>
+            <div><span>focus &lt;field_link_name&gt;;</span></div>
+            <p>&nbsp;</p>
+            <p>
+              <span
+                >To focus any field in a row in subform field's workflow</span
+              >
+            </p>
+            <div><span>focus row.&lt;subform_field_link_name&gt;;</span></div>
+            <div>&nbsp;</div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Param</strong></td>
+                    <td><strong>Explanation</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span
+                        >&lt;field_link_name&gt; &amp;
+                        &lt;subform_field_link_name&gt;</span
+                      >
+                    </td>
+                    <td>
+                      <p>Link name of the field that needs to be focused.</p>
+                      <p>Points to keep in mind for this parameter:</p>
+                      <ul>
+                        <li>Only one field can be focused at a time.</li>
+                        <li>
+                          If multiple focus tasks are configured consecutively,
+                          then the cursor will be placed on the field of the
+                          last focus task.
+                        </li>
+                        <li>
+                          To focus a subfield in a composite field, specify the
+                          subfield along with the main field. For example:
+                          <strong>focus Name.prefix;</strong>
+                        </li>
+                        <li>
+                          You cannot focus a field in the main form from a
+                          subform workflow and vice versa.
+                        </li>
+                        <li>
+                          From the main form workflow, a subform can be focused
+                          but its field cannot be focused. During the 'On Edit -
+                          On Load' workflow event, if the subform contains
+                          records, the focus will be set on the first field in
+                          the first row.
+                        </li>
+                        <li>
+                          A lookup field can be focused, but the field in the
+                          looked-up form cannot be focused.
+                        </li>
+                        <li>
+                          An integration field can be focused, but the fields
+                          that belong to the integrated services cannot be
+                          focused.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Unsupported Field Types</h2>
+            <p>
+              This task is only applicable for the fields that collect data from
+              the application users.&nbsp;<br />Focus cannot be used for the
+              below <a>fields</a>:
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Formula</td>
+                    <td>Auto number</td>
+                    <td>Blueprint</td>
+                    <td>Notes</td>
+                  </tr>
+                  <tr>
+                    <td>Section Field</td>
+                    <td>AI fields like Prediction</td>
+                    <td>Stateless form buttons</td>
+                    <td><a>System fields</a> (eg: Added Time and ID)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <center>
+                        <p><strong>When a record is Created</strong></p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td><strong>For form fields</strong></td>
+                    <td><strong>For subform fields</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On user input of a subform field</td>
+                    <td><span>No</span></td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <p>
+                          <strong>When a record is Created or Edited</strong>
+                        </p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td><strong>For form fields</strong></td>
+                    <td><strong>For subform fields</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On user input of a subform field</td>
+                    <td><span>No</span></td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <p><strong>When a record is Edited</strong></p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td><strong>For form fields</strong></td>
+                    <td><strong>For subform fields</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On user input of a subform field</td>
+                    <td><span>No</span></td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Update</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <p><strong>When a record is Deleted</strong></p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td><strong>For form fields</strong></td>
+                    <td><strong>For subform fields</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <p><strong>Other workflow events</strong></p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td><strong>For form fields</strong></td>
+                    <td><strong>For subform fields</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Stateless form button-click</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <ul>
+              <li>
+                When a form loads, the focus can be applied to the first field
+                in the form. This ensures that the cursor is placed
+                automatically on the first relevant field for immediate input,
+                once the user opens the form.
+              </li>
+            </ul>
+            <div>
+              <pre><span>focus Name; </span>           </pre>
+            </div>
+            <h2><a></a>Example 2</h2>
+            <ul>
+              <li>
+                <p>
+                  Let's say there is a subform for entering payment details,
+                  which has&nbsp;a dropdown to select the payment mode. When the
+                  user chooses "Card" option as the payment mode, the cursor can
+                  be automatically shifted to the "Card Number" field for a
+                  better user experience.
+                </p>
+                <div>
+                  <strong>Note:</strong> Since this is written in a subform
+                  workflow, the keyword "row" has to be used to refer the
+                  subform field.
+                </div>
+              </li>
+            </ul>
+            <div>
+              <pre><span>if</span><span>(Payment_Mode</span> =<span>=</span> <span>"Card"</span><span>)</span>&nbsp;
+ <span>{</span>&nbsp;
+    <span>focus</span> row.Card_Number<span>;</span>&nbsp;
+  <span>}</span>&nbsp;              </pre>
+            </div>
+            <h2><a></a>Example 3: Data entry through scanner</h2>
+            <ul>
+              <li>
+                Consider an accounting department that uses scanners to input
+                their stack of invoices. As each invoice is scanned, the focus
+                task can automatically position the cursor in the relevant
+                field, such as the invoice number. Users can quickly confirm or
+                edit the extracted data before moving on to the next scanned
+                invoice.
+              </li>
+            </ul>
+            <div>
+              <pre><span>if</span><span>(</span><span>&lt;condition&gt;</span><span>)</span>&nbsp;
+ <span>{</span>&nbsp;
+    <span>focus</span> <span>invoice</span><span>;</span>&nbsp;
+  <span>}</span>&nbsp;
+<span>else</span>&nbsp;
+ <span>{</span>&nbsp;
+    <span>focus</span> <span>next_field</span><span>;</span>&nbsp;
+  <span>}</span>&nbsp;
+                                                                                                                                                                                </pre>
+            </div>
+            <h2><a></a>See How It Works</h2>
+            <ul>
+              <li>
+                Let's consider a scenario in a retail environment, where a
+                web-based barcode scanner is being used to process inventory.
+                Assume that you've built an application named
+                <strong>Inventory Management</strong> in which the scanned data
+                is stored. Earlier, you'd have manually typed the product
+                details into a subform, one by one. Using the focus task, after
+                the completion of every scan, you can configure a workflow to
+                automatically set the focus on the desired input field for the
+                next scan. This eliminates the need to manually select the
+                required field between each scan.
+              </li>
+            </ul>
+            <center>
+              <p>
+                <video><source /></video>
+              </p>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

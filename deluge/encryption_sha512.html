@@ -1,0 +1,114 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Encryption functions</a></li>
+        <li><a>sha512</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>SHA512 encryption</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.encryption.sha512</strong>&nbsp;task returns the
+              hash corresponding to the given text, generated using the
+              SHA512&nbsp;algorithm.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.encryption.sha512</span><span>(</span><span>&lt;</span><span>data</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>The hash generated using the SHA512 algorithm.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;data&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The source text whose corresponding hash needs to be
+                        computed.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script returns the hash generated using the
+              SHA512&nbsp;algorithm for the text -&nbsp;:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.encryption.sha512</span><span>(</span><span>"hello"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>variable</span> that represents the hash value
+                      returned by this task. Here, the hash returned is
+                      <strong
+                        >3615f80c9d293ed7402687f94b22d58e529b8cc7916f8fac7fddf7fbd5af4cf777d3d795a7a00a16bf7e7f3fb9561ee9baae480da9fe7a18769e71886b03f315</strong
+                      >
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"hello"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;source text whose corresponding hash needs to be
+                      computed.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

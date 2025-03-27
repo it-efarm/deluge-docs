@@ -1,0 +1,98 @@
+<div class="help-content-panel">
+  <div>
+    <div><ul></ul></div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>getPrefix()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>getPrefix()</strong> function takes
+              <strong>string</strong> and <strong>searchString</strong> as
+              arguments. It returns all the characters which precede the first
+              occurrence of searchString in the string.
+            </p>
+            <p>If the searchString is not found, this function returns null.</p>
+            <div>
+              <strong>Note:</strong> This function performs a case-sensitive
+              search.
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>TEXT</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; = <span>&lt;string&gt;</span>.getPrefix(
+              <span>&lt;searchString&gt; </span>);
+            </div>
+            <p>(OR)</p>
+            <div>
+              &lt;variable&gt; = getPrefix( <span>&lt;string&gt;</span>,<span>
+                &lt;searchString&gt;</span
+              >);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>
+                      Variable which will contain the returned characters.
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;string&gt;</span></td>
+                    <td>
+                      The string from which all the characters preceding the
+                      searchString will be returned.
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;searchString&gt;</span></td>
+                    <td>
+                      <p>
+                        <br />The searchString whose occurrence will be checked
+                        in the string.
+                      </p>
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              text = "Zoho Creator is an online database service, which helps
+              you create custom applications" ;<br />newText =
+              text.getPrefix(",");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />//returns
+              "Zoho Creator is an online database service"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

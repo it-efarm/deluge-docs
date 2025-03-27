@@ -1,0 +1,252 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>List Manipulations</a></li>
+        <li><a>Sort</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Sort</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>sort&nbsp;</strong>deluge task&nbsp;sorts the elements
+              of a list, in an <strong>ascending</strong> order if the specified
+              boolean value is <strong>true</strong>, or in&nbsp;<strong
+                >descending</strong
+              >
+              order if the specified boolean value is <strong>false</strong>.
+            </p>
+            <p>
+              The boolean value is not mandatory. If it is not specified, the
+              elements are sorted in an ascending order.
+            </p>
+            <div>
+              <p>Note</p>
+              <ul>
+                <li>
+                  In a string list, special characters, upper case, and lower
+                  case letters are sorted in the following order:&nbsp;<br />! "
+                  # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ &lt;capital
+                  letters&gt; [ ] ^ _ ` &lt;small letters&gt; { | } ~​<capital
+                  ></capital>
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return</h2>
+            <ul>
+              <li>List</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span
+                ><span>&lt;variable&gt;</span
+                ><span> = &lt;list&gt;</span
+                >.sort(<span>&lt;boolean_value&gt;</span>);</span
+              >
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p>
+                        <span><span>&lt;variable&gt;</span></span>
+                      </p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td>Variable which will contain the returned list.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;list&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        The list variable&nbsp;whose elements will&nbsp;be
+                        sorted.
+                      </p>
+                      <p>
+                        If the list contains elements of different data types,
+                        the function will return null.
+                      </p>
+                      <p>
+                        Data type is&nbsp;<strong>List</strong>.&nbsp;&nbsp;
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;boolean_value&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>Applicable values are: true or false.</p>
+                      <p>Data type is&nbsp;<strong>Boolean</strong>.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              Let's say we have a list variable "colors" which contains the
+              values {"red", "blue", "green", "yellow"}
+            </p>
+            <p>
+              The first and second snippets shown below will sort these elements
+              in ascending order. The third snippet will sort the elements in
+              descending order.
+            </p>
+            <div>
+              &nbsp;colors.sort();&nbsp;<br />&nbsp;colors.sort(true);<br />&nbsp;colors.sort(false);
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

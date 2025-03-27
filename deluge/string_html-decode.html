@@ -1,0 +1,145 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Encryption functions</a></li>
+        <li><a>HTML Decode</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>HTML Decode</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>htmlDecode</strong> function&nbsp;is used to render
+              all the HTML entities in the input string to HTML. To perform
+              reverse operation, i.e., encode a HTML text to HTML entities, use
+              <a>htmlEncode</a> function.
+            </p>
+            <div>
+              <strong>Note:</strong>
+              <ul>
+                <li>
+                  The size of the supplied&nbsp;input text and the returned
+                  output text can individually be up
+                  to&nbsp;<strong>300KB</strong>.
+                </li>
+                <li>
+                  This function supports until the
+                  <strong>HTML 4</strong> version.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>&lt;</span><span>data</span><span>&gt;</span><span>.<span>htmlDecode</span><span>()</span><span>;</span>
+</span></pre>
+            </div>
+            (or)
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>htmlDecode</span><span>(</span><span>&lt;</span><span>data</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the response that represents the decoded HTML
+                        data
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;data&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the input HTML text whose special HTML
+                        characters&nbsp;are encoded that will be decoded
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>
+              <a></a>Example 1: Decode a text with HTML entities&nbsp;to HTML
+            </h2>
+            <p>
+              The following script decodes the input text such that all the HTML
+              entities will be transformed into respective HTML characters.
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>htmlDecode</span><span>(</span><span>"Your order is ready&amp;lt;br /&amp;gt;Thank you."</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> response that represents the decoded
+                      data. This example returns -
+                      <strong>Your order is ready&lt;br /&gt;Thank you.</strong>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Your order is ready&amp;lt;br /&amp;gt;Thank you."</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the input with HTML
+                      entities that will be decoded
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Text functions</a></li>
+              <li><a>htmlEncode</a></li>
+              <li><a>xmlEncode</a></li>
+              <li><a>xmlDecode</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

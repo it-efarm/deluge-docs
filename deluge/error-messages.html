@@ -1,0 +1,981 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge error messages</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <p>​</p>
+      <div>
+        <div>
+          <h1>Deluge Error Messages</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Save Errors</a></li>
+                <li><a>Runtime Errors</a></li>
+                <li><a>Runtime Errors: Built-In Functions</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <h2><a></a>Save Errors</h2>
+        <p>
+          Save error is a type of error that prevents the user from saving their
+          script. This type of errors mostly occurs due to incorrect syntax and
+          variable declaration. The following table lists the save errors in
+          Deluge.
+        </p>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <td><strong>Error Message</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 3) In Criteria left expression is of type &lt;Data
+                    type 1&gt; and right expression is of type &lt;data type
+                    2&gt; and the operator &lt;Operator&gt; is not valid
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    <strong>Type mismatch:</strong><br />This error message is
+                    displayed if the user tries to perform an operation with two
+                    operands of incompatible data types.<br /><br /><strong
+                      >Example:</strong
+                    >
+                    <img /><br /><strong>Solution:</strong><br />In the above
+                    example, both the operands of the multiplication operation
+                    are supplied with number values.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>(Line no: 2) Variable '&lt;variable&gt;' is not defined</p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if a variable is used before
+                    it is defined. One common way to define a variable is to use
+                    <strong>set variable</strong> task.<br /><br /><strong
+                      >Example:</strong
+                    ><img /><br /><strong>Solution:</strong><br />The variable
+                    <strong>b</strong> is defined with a number value.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>(Line no: 5) Expecting '}' but found '&lt;EOF&gt;'</p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if an opening parenthesis is
+                    not perfectly matched with a closing parenthesis. The
+                    closing parenthesis marks the end of a block of
+                    statements.<br /><br /><strong>Example:</strong>
+                    <img /><br /><strong>Solution:</strong><br />The opening
+                    parenthesis is correctly matched with a closing
+                    parenthesis.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>(Line no: 5) Comment Task is not closed properly</p></td>
+                <td>
+                  <p>
+                    This error message is displayed if an opening comment symbol
+                    (/*) is not correctly paired with a closing comment symbol
+                    (*/). Anything between these two comment symbols is skipped
+                    from execution.<br /><br /><strong>Example:</strong>
+                    <img /><br /><strong>Solution:</strong><br />The opening
+                    comment symbol is perfectly paired with a closing comment
+                    symbol.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 1) Improper Statement Error might be due to
+                    missing ';' at end of the line or incomplete expression
+                  </p>
+                </td>
+                <td>
+                  <ul>
+                    <li>
+                      <p>
+                        In Deluge, every line must be terminated by a semicolon
+                        to call it a statement. The mentioned error message is
+                        displayed if a statement is not properly terminated with
+                        a semicolon.<br /><br /><strong>Example:</strong
+                        ><br /><img /><br /><strong>Solution:</strong><br />The
+                        variable definition statement is terminated with a
+                        semicolon.<br /><img />
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        A text must always be enclosed in double quotes. If it
+                        is not properly enclosed, the improper statement error
+                        is thrown.<br /><br /><strong>Example:</strong
+                        ><br /><img /><br /><strong>Solution:</strong><br />The
+                        text value, <strong>Harry</strong> is correctly enclosed
+                        in double quotes.<br /><img />
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>Misinterpreted as an escape sequence:</strong
+                        ><br />Consider a text value that ends with a backslash
+                        (Example: a = "test\";). In this case, the closing
+                        double quote is misinterpreted as the character to be
+                        escaped from the usual execution. Thus resulting in
+                        improper statement error assuming that the text value is
+                        not properly enclosed in double quotes.<br /><br /><strong
+                          >Example:</strong
+                        ><br /><img /><br /><strong>Solution:</strong
+                        ><br />Another closing double quote is appended to the
+                        text value to make sure that the text is properly
+                        enclosed in double quotes.<br /><img />
+                      </p>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td><p>(Line no: 2) Number of Arguments mismatches</p></td>
+                <td>
+                  <p>
+                    This error message is displayed if the number of arguments
+                    that the user specified in a task does not match the number
+                    of arguments that are meant to be present.<br /><br /><strong
+                      >Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The IF()
+                    task is provided with three arguments.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 4) In cases where From: address is not a
+                    zoho.adminuserid or zoho.loginuserid, the To: address can
+                    only be zoho.adminuserid and the sendmail task cannot have
+                    any CC: or BCC: address.
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    In a sendmail task, either the <strong>From</strong> or the
+                    <strong>To</strong> address must be zoho.adminuserid or
+                    zoho.loginuserid. This constraint is to avoid communication
+                    between two unknown accounts for security purposes.<br /><br /><strong
+                      >Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The From
+                    address in the sendmail task is replaced with
+                    zoho.adminuserid.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 7) Invalid BCC: From address is not
+                    zoho.adminuserid or zoho.loginuserid so BCC address is not
+                    allowed
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    To avoid spam messages, if the <strong>From</strong> address
+                    is not zoho.adminuserid or zoho.loginuserid, the
+                    <strong>bcc</strong> and <strong>cc</strong> fields are
+                    restricted to use. The mentioned error message is displayed
+                    if the user tries to include a <strong>bcc</strong> field
+                    when the <strong>From</strong> address is neither
+                    zoho.adminuserid nor zoho.loginuserid.<br /><br /><strong
+                      >Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The From
+                    address is replaced with zoho.loginuserid.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 7) Invalid CC: From address is not
+                    zoho.adminuserid or zoho.loginuserid so CC address is not
+                    allowed
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if the user tries to include
+                    a <strong>cc</strong> field when the
+                    <strong>From</strong> address is neither zoho.adminuserid
+                    nor zoho.loginuserid.<br /><br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The From
+                    address is replaced with zoho.loginuserid.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><p>(Line no: 3) Invalid email address found</p></td>
+                <td>
+                  <p>
+                    This error message is displayed if the
+                    <strong>From</strong> or <strong>To</strong> field in
+                    sendmail task is assigned with a value that is not of Text
+                    data type.<br /><br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The From
+                    address is replaced with a valid email address.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 3) 'FROM' message is missing for sendmail task
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if the
+                    <strong>from</strong> field is not included by the user in a
+                    sendmail task.<br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    mandatory field - <strong>from</strong> is included in the
+                    sendmail task<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>(Line no: 4) 'TO' message is missing for sendmail task</p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if the
+                    <strong>to</strong> field is not included by the user in a
+                    sendmail task.<br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    mandatory field - <strong>to</strong> is included in the
+                    sendmail task<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 6) 'SUBJECT' message is missing for sendmail task
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if the
+                    <strong>subject</strong> field is not included by the user
+                    in a sendmail task.<br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    mandatory field - <strong>subject</strong> is included in
+                    the sendmail task<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>(Line no: 7) Error at 'SUBJECT' or 'MESSAGE' field</p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if the
+                    <strong>message</strong> field is not included by the user
+                    in a sendmail task.<br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    mandatory field - <strong>message</strong> is included in
+                    the sendmail task<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>(Line no: 4) 'MESSAGE' is missing for sendsms task</p>
+                </td>
+                <td>
+                  <p>
+                    In a sendsms task, the <strong>Message</strong> and
+                    <strong>To</strong> fields are mandatory. The mentioned
+                    error message is displayed if the
+                    <strong>Message</strong> field is not included by the
+                    user.<br /><br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    MESSAGE field is included in the sendsms task.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>(Line no: 3) 'TO' message is missing for sendsms task</p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if the
+                    <strong>To</strong> field is not included by the user in a
+                    sendsms task.<br /><br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The TO
+                    field is included in the sendsms task.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 1) Missing return statement: Provide MAP
+                    expression to return
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if a return statement is
+                    defined but no value is returned.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 1) Not able to find '&lt;Function name&gt;'
+                    function
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if a function is called but
+                    it is not originally defined. Also, it is displayed if the
+                    user did not assign a variable to store the returned value
+                    from a function.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p><a></a><strong>Save errors for functions</strong></p>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <td><strong>Error Message</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 2) &lt;function_name&gt; function needs to be
+                    assigned to a variable
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message will be displayed if the value returned
+                    by a function is not assigned to a variable, or used as a
+                    part of an expression.<br /><br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    value returned by the function - subtext is assigned to the
+                    variable - result.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 2) &lt;function_name&gt; function cant be assigned
+                    to variable or used in expression
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message will be displayed if a function that does
+                    not return any value is assigned to a variable, or used as a
+                    part of an expression.<br /><br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    function - insert is not assigned to a variable.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 2) No. of arguments mismatches for the function
+                    &lt;function_name&gt;
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message will be displayed if the number of
+                    arguments supplied to a function is different from the
+                    number of arguments that the function expects.<br /><br /><strong
+                      >Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    function - contains is supplied with one argument.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 2) Argument type mismatches for the function
+                    &lt;function_name&gt; at index &lt;index_number&gt;
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message will be displayed if the data type of the
+                    argument supplied to a function is different from the data
+                    type that the function expects.<br /><br /><strong
+                      >Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    function - subtext is provided with an argument of NUMBER
+                    data type.<br /><img />
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p><a></a><strong>Save errors for integration tasks</strong></p>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <td><strong>Error Message</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 1) Invalid module name for the function
+                    &lt;integration_task_name&gt; at index &lt;index_number&gt;
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message will be displayed if an unsupported or
+                    incorrect module name is supplied as the parameter to a Zoho
+                    integration task.<br /><br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />A valid
+                    module name - Contacts is supplied to the Zoho Inventory
+                    integration task - Create Record.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 1) &lt;integration_task_name&gt; is not supported
+                    for this function
+                  </p>
+                </td>
+                <td>
+                  <p>This error message will be displayed:</p>
+                  <ul>
+                    <li>
+                      If an integration task that is meant to be executed only
+                      from the Deluge editor of a specific Zoho service is tried
+                      to save elsewhere.<br />For example, the integration tasks
+                      - <strong>zoho.salesiq.visitorsession.get</strong> and
+                      <strong>zoho.salesiq.visitorsession.put</strong> are
+                      allowed to be executed on the Deluge editor of Zoho Sales
+                      IQ only. The mentioned error message will be displayed, if
+                      either of these tasks is tried on any Zoho Service other
+                      than Zoho Sales IQ.
+                    </li>
+                    <li>
+                      If the <strong>connections</strong> parameter is not
+                      specified for an integration task while saving it on
+                      <strong>Zoho Cliq</strong>.<br /><strong>Note: </strong
+                      >The connection param is mandatory while executing any
+                      integration task&nbsp;on the&nbsp;Deluge editor of Zoho
+                      Cliq.
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h2><a></a>Runtime Errors</h2>
+        <p>
+          Runtime error occurs during script execution. This type of error
+          mostly occurs due to the inappropriate action, done by the user. The
+          following table lists the runtime errors in Deluge.
+        </p>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <td><strong>Error Message</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><p>(Line no: 2) Invalid JSON Format String</p></td>
+                <td>
+                  <p>
+                    This error message is displayed if the user tries to convert
+                    a text value that is not in a proper JSON format to a
+                    key-value collection.<br /><br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Error message:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    variable <strong>a</strong> is assigned with a proper JSON
+                    format text.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 3) Error in performing the Operation / : Divide by
+                    zero error
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error occurs if the user tries to divide a number by
+                    zero. The program execution is terminated as it is
+                    mathematically impossible to divide a number by zero.<br /><br /><strong
+                      >Example:</strong
+                    ><br /><img /><br /><strong>Error message:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    variable <strong>b</strong> is assigned with a number value
+                    that is not zero.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 2) Given string is lesser than the applied
+                    boundary, so index out of bounds exception arisen.
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error occurs when the script involves manipulations
+                    with Text values. The mentioned error message is displayed
+                    if the length of the text is lesser than the index value
+                    invoked by the user.<br /><br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Error message:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    arguments of the subText() function are provided with index
+                    numbers such that they do not exceed the length of the text
+                    value.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 2) Given index &lt;Index value&gt; is greater than
+                    the list size
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if the size of the
+                    collection is lesser than the index value invoked by the
+                    user.<br /><br /><strong>Example:</strong
+                    ><br /><img /><br /><strong>Error message:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    argument of the get() function is supplied with an index
+                    value that is lesser than the size of the Collection.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 3) Null value occurred while performing
+                    &lt;Operation&gt; operation
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This type of error message is displayed if the user tries to
+                    perform operations with a null value.<br /><br /><strong
+                      >Example:</strong
+                    ><br /><img /><br /><strong>Error message:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    variable <strong>a</strong> is assigned with a number
+                    value.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 3) On performing mod operation mismatch of data
+                    type expressions found
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This type of error message is displayed if the user tries to
+                    perform modulo operation with a null value.<br /><br /><strong
+                      >Example:</strong
+                    ><br /><img /><br /><strong>Error message:</strong
+                    ><br /><img /><br /><strong>Solution:</strong><br />The
+                    variable <strong>a</strong> is assigned with a number
+                    value.<br /><img />
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 1) An error occurred while performing this action
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if the user tries to compare
+                    two non-numeric operands using a relational operator.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    (Line no: 1) '&lt;Number value&gt;' can not be cast to
+                    'MAP'.
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    This error message is displayed if the user tries to
+                    substitute a number value in the place of a key-value
+                    collection.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        &nbsp;
+        <h2><a></a>Runtime Errors: Built-In Functions</h2>
+        <p>
+          The following tables list the different runtime errors you might face
+          while executing <a>Deluge built-in functions</a>.
+        </p>
+        <ul>
+          <li>
+            <p>
+              <strong>Error messages while executing TEXT Functions</strong>
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Error Message</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        (Line no: 2) Given string is lesser than the applied
+                        boundary, so index out of bounds exception arisen
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        It is displayed when the value supplied to
+                        the&nbsp;<strong>index</strong> parameter is not within
+                        the allowed range.<br /><br /><strong>Example:</strong
+                        ><br /><img /><br /><strong>Error message:</strong
+                        ><br /><img /><br /><strong>Solution:</strong><br />The
+                        parameters are supplied with values that lie within the
+                        index range of the source text.<br /><img />
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        (Line no: 2) 'TEXT' can not be cast to '[BIGINT]' for
+                        the function &lt;Function name&gt;
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        It is displayed when a parameter that needs to be a
+                        number value is incorrectly provided with text value.<br /><br /><strong
+                          >Example:</strong
+                        ><br /><img /><br /><strong>Error message:</strong
+                        ><br /><img /><br /><strong>Solution:</strong><br />The
+                        parameters are provided with number values.<br /><img />
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p>
+              <strong>Error messages while executing NUMBER Functions</strong>
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Error Message</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        It is displayed when a parameter that needs to be a
+                        number value is incorrectly provided with text value.
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        <br /><br /><strong>Example:</strong
+                        ><br /><img /><br /><strong>Error message:</strong
+                        ><br /><img /><br /><strong>Solution:</strong><br />A
+                        number value is assigned to the variable
+                        -&nbsp;<strong>number</strong>, which in turn is
+                        supplied as the parameter.<br /><img />
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p><strong>Error messages while executing XML Functions</strong></p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Error Message</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td><p>(Line no: 2) Invalid XML or Invalid XPath</p></td>
+                    <td>
+                      <p>
+                        It is displayed if the provided XML or XPath is
+                        incorrect.<br /><br /><strong>Example:</strong
+                        ><br /><img /><br /><strong>Error message:</strong
+                        ><br /><img /><br /><strong>Solution:</strong><br />A
+                        valid XPath is provided as the parameter.<br /><img />
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p>
+              <strong>Error messages while executing Common Functions</strong>
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Error Message</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        (Line no: 2) 'TEXT' can not be cast to '[DECIMAL,
+                        NUMBER, DATE, DATE-TIME]' for the&nbsp;function 'text'
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        <br />It is displayed when a parameter that needs to be
+                        a number value is incorrectly provided with text
+                        value.<br /><strong>Example:</strong
+                        ><br /><img /><br /><strong>Error message:</strong
+                        ><br /><img /><br /><strong>Solution:</strong><br />A
+                        number value is assigned to the variable -&nbsp;<strong
+                          >fieldValue.</strong
+                        ><br /><img />
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>(Line no: 2) UnParsable date</p></td>
+                    <td>
+                      <p>
+                        It is displayed when the provided date value is not in
+                        valid date format.<br /><br /><strong>Example:</strong
+                        ><br /><img /><br /><strong>Error message:</strong
+                        ><br /><img /><br /><strong>Solution:</strong><br />A
+                        valid date is assigned to the variable
+                        -&nbsp;<strong>dateString</strong>.<br /><img />
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p>
+              <strong
+                >Error messages while executing COLLECTION Functions</strong
+              >
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Error Message</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        (Line no: 2) TEXT' can not be cast to '[BOOLEAN]' for
+                        the&nbsp;function 'sort'
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        It is displayed when a parameter that needs to be a
+                        number value is incorrectly provided with text value.<br /><br /><strong
+                          >Example:</strong
+                        ><br /><img /><br /><strong>Error message:</strong
+                        ><br /><img /><br /><strong>Solution:</strong><br />The
+                        parameter is supplied with a boolean value.<br /><img />
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        (Line no: 2) Given string is lesser than the applied
+                        boundary, so index out of bounds exception arisen
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        It is displayed when the value supplied to
+                        the&nbsp;index parameter is not within the allowed
+                        range.<br /><br /><strong>Example:</strong
+                        ><br /><img /><br /><strong>Error message:</strong
+                        ><br /><img /><br /><strong>Solution:</strong><br />The
+                        parameters are supplied with values that lie within the
+                        index range of the source text.<br /><img />
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <p>
+              <strong
+                >Error messages while executing DATE-TIME Functions</strong
+              >
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Error Message</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        (Line no: 2) TEXT' can not be cast to '[DATE-TIME,
+                        DATE]' for the function '<function>'</function>
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        It is displayed when the provided value is not in a
+                        valid date format.<br /><br /><strong>Example:</strong
+                        ><br /><img /><br /><strong>Error message:</strong
+                        ><br /><img /><br /><strong>Solution:</strong><br />A
+                        value in a valid date format is assigned to the variable
+                        -&nbsp;<strong>current_date</strong>.<br /><img />
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        (Line no: 2) TEXT' can not be cast to '[BIGINT]' for the
+                        function '<function>'</function>
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        It is displayed when a parameter that needs to be a
+                        number value is incorrectly provided with text value.<br /><br /><strong
+                          >Example:</strong
+                        ><br /><img /><br /><strong>Error message:</strong
+                        ><br />The parameter is supplied with a number value.<br /><img /><br /><strong
+                          >Solution:</strong
+                        ><br /><img />
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        (Line no: 2) Incompatible types for
+                        <function>
+                          function at argument index 1<br />Required :
+                          [DATE-TIME, DATE]<br />Found : NUMBER</function
+                        >
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        It is displayed when a parameter that needs to be a date
+                        value is incorrectly provided with number value.<br /><br /><strong
+                          >Example:</strong
+                        ><br /><img /><br /><strong>Error message:</strong
+                        ><br /><img /><br /><strong>Solution:</strong><br />The
+                        date value is assigned to the variable -&nbsp;<strong
+                          >current_date.</strong
+                        ><br /><img />
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

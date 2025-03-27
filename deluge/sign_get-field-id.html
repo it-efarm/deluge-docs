@@ -1,0 +1,148 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sign Integration Tasks</a></li>
+        <li><a>Get IDs of fields</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get IDs&nbsp;of fields in Zoho Sign</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.sign.getFieldIds</strong>&nbsp;task is used to
+              retrieve IDs of all the fields in your Zoho Sign account. The
+              retrieved field IDs can be further utilized, like adding fields to
+              a document&nbsp;using the
+              <a
+                ><u><strong>submitRequest</strong></u></a
+              >
+              task.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span>=</span><span>zoho.sign.getFieldIds</span><span>(</span><span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data Type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The response returned by Zoho Sign which contains
+                            the field type, the field ID and whether it is
+                            mandatory or not
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <div>
+                            <strong>*Note:</strong> This param is not applicable
+                            to <strong>Zoho Creator</strong> and mandatory in
+                            <strong>Zoho Cliq.</strong>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script fetches the ids of all the fields stored in
+              Zoho Sign account:
+            </p>
+            <div>
+              <pre><span>response </span><span>= </span><span>zoho</span><span>.sign.getFieldIds</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> pair returned from Zoho Sign.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response will be returned in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"field_types":[<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000000043",<br />&nbsp;"field_category":"checkbox",<br />&nbsp;"is_mandatory":false,<br />&nbsp;"field_type_name":"Checkbox"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000000045",<br />&nbsp;"field_category":"radiogroup",<br />&nbsp;"is_mandatory":false,<br />&nbsp;"field_type_name":"Radiogroup"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000000047",<br />&nbsp;"field_category":"image",<br />&nbsp;"is_mandatory":true,<br />&nbsp;"field_type_name":"Signature"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000000049",<br />&nbsp;"field_category":"image",<br />&nbsp;"is_mandatory":true,<br />&nbsp;"field_type_name":"Initial"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000000053",<br />&nbsp;"field_category":"textfield",<br />&nbsp;"is_mandatory":false,<br />&nbsp;"field_type_name":"Textfield"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000000055",<br />&nbsp;"field_category":"textfield",<br />&nbsp;"is_mandatory":true,<br />&nbsp;"field_type_name":"Email"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000000057",<br />&nbsp;"field_category":"datefield",<br />&nbsp;"is_mandatory":true,<br />&nbsp;"field_type_name":"Date"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000000059",<br />&nbsp;"field_category":"textfield",<br />&nbsp;"is_mandatory":true,<br />&nbsp;"field_type_name":"Name"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000000061",<br />&nbsp;"field_category":"textfield",<br />&nbsp;"is_mandatory":true,<br />&nbsp;"field_type_name":"Company"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000000063",<br />&nbsp;"field_category":"textfield",<br />&nbsp;"is_mandatory":true,<br />&nbsp;"field_type_name":"Jobtitle"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000005001",<br />&nbsp;"field_category":"datefield",<br />&nbsp;"is_mandatory":false,<br />&nbsp;"field_type_name":"CustomDate"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000005003",<br />&nbsp;"field_category":"dropdown",<br />&nbsp;"is_mandatory":false,<br />&nbsp;"field_type_name":"Dropdown"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_type_id":"10696000000007007",<br />&nbsp;"field_category":"filefield",<br />&nbsp;"is_mandatory":false,<br />&nbsp;"field_type_name":"Attachment"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"code":0,<br />&nbsp;"message":"Field
+                  types retrieved successfully",<br />&nbsp;"status":"success"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <a></a>
+            <p>
+              To get the field type IDs and field type names from the response
+              returned, execute the following script:
+            </p>
+            <div>
+              <pre>&nbsp;<span>res </span><span> = </span><span>&lt;</span><span>variable</span><span>&gt;</span><span>.getJSON</span><span>(</span><span>"field_types"</span><span>)</span><span>;</span>
+&nbsp;<span>for each </span><span>var </span><span>in </span><span>res </span>
+&nbsp;<span>{</span>
+&nbsp;<span>info </span><span>var</span><span>.</span><span>getJSON</span><span>(</span><span>"field_type_id"</span><span>)</span><span>;</span>
+&nbsp;<span>info </span><span>var</span><span>.</span><span>getJSON</span><span>(</span><span>"field_type_name"</span><span>)</span><span>;</span>
+&nbsp;<span>}</span>
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Sign integration tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

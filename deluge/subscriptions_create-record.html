@@ -1,0 +1,372 @@
+<div class="help-content-panel">
+  <div>
+    <div><ul></ul></div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create record&nbsp;in Zoho Billing</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This task is used to create a record in Zoho Billing.&nbsp;This
+              task is based on <a>Zoho Billing&nbsp;API</a> &lt;ModuleName&gt;
+              -&gt; Create a&nbsp;&lt;ModuleName&gt;.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre>&nbsp;<span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho</span><span>.billing</span><span>.create</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>org_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>data_map</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;variable&gt;</span></p>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>is the variable response returned by Zoho Billing.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <span>&lt;module_name&gt;</span><strong>&nbsp;</strong>
+                      </p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        is the name of the module in where the record will be
+                        added.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;org_id&gt;</span></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Org ID of the organization in which the record will be
+                        created.c
+                      </p>
+                      <div>
+                        <strong>Note:</strong> Learn how to fetch organization
+                        ID from the&nbsp;<a>UI</a> and from&nbsp;the response
+                        of&nbsp;<a>zoho.billing.getOrganization</a> task.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;data_map&gt;</span></p>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>
+                        Input map with key as Zoho Billing field's name&nbsp;and
+                        the required value. For ex:
+                        <strong>{"display_name":input.Last_Name}</strong>
+                      </p>
+                      <p>
+                        To learn about the mandatory fields,&nbsp;<a
+                          >click here</a
+                        >&nbsp;and go to &lt;Module&gt; --&gt; Create a
+                        &lt;Module&gt;&nbsp;
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;connection&gt;</span></p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        specifies the link name of the Zoho Billing connection.
+                      </p>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of
+                            <a>stopping new authtoken generation</a>,&nbsp;a
+                            Zoho OAuth connection with appropriate scopes is
+                            mandatory in order for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter until you manually delete the authtoken
+                            from <a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes mentioned in
+                            <a>Zoho Billing API</a> while creating the
+                            connection.
+                          </li>
+                          <li>
+                            Refer to <a>this&nbsp;post</a> for the list of Zoho
+                            services that support the connections page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              1) Let's say we have a Zoho Creator form
+              containing&nbsp;fields&nbsp;<strong>Customer_ID</strong>, and
+              <strong>Plan code</strong>. On submission of this form,
+              a&nbsp;subscription must be created in Zoho Billing with the
+              details specified in the form. We can achieve this using the
+              following snippet:
+            </p>
+            <div>
+              <pre><span>values</span> = <span>map()</span>;
+<span>values</span>.<span>put</span>(<span>"customer_id", input.Customer_ID</span>);
+<span>values</span>.<span>put</span>(<span>"auto_collect", false</span>);
+<span>values</span>.<span>put</span>(<span>"plan", {"plan_code" : input.Plan_Code}</span>);
+
+<span>response</span> = <span>zoho.billing.create</span>(<span>"Subscriptions", "66XXXXX66", values, "billing_connection"</span>);</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>values</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      is a <span>MAP</span>&nbsp;variable&nbsp;which
+                      hold&nbsp;key value pairs required to create a
+                      subscription
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>"auto_collect"</span>
+&nbsp;<span>"plan"</span>
+&nbsp;<span>"plan_code"</span>
+&nbsp;<span>"customer_id"</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      are the <span>TEXT</span> that represents the label name
+                      of the field specified in Zoho Billing&nbsp;<a>API</a>.
+                      Customer ID&nbsp;can be viewed in the url in Zoho Billing
+                      when you click on a Customer record.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Subscriptions"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module in
+                      which the record needs to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"66XXXXX66"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the organization
+                      ID of the Zoho Billing account in which the record needs
+                      to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"billing_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the Billing connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              2) Let’s take an example of creating a record in the "Customers"
+              module in Zoho Billing using the following snippet.
+            </p>
+            <div>
+              <pre><span> values</span><span>=</span><span>map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>values</span><span>.put</span><span>(</span><span>"display_name"</span><span>,</span><span>"john"</span><span>)</span><span>;</span>
+&nbsp;<span>values</span><span>.put</span><span>(</span><span>"email"</span><span>,</span><span>"john@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>response </span><span>= </span><span>zoho</span><span>.billing</span><span>.create</span><span>(</span><span>"Customers"</span><span>, </span><span>"</span>66XXXXX66​<span>"</span><span>, </span><span>values</span><span>, </span><span>"billing_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>values</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      is a <span>MAP</span>&nbsp;variable&nbsp;which
+                      hold&nbsp;key value pairs required to create a
+                      subscription
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>"display_name"</span>
+&nbsp;<span>"email"</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      are the <span>TEXT</span> that represents the label name
+                      of the field specified in Zoho
+                      Billing&nbsp;<a>API</a>.&nbsp;
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Customers"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module in
+                      which the record will be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"billing_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the Billing connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p>The following is a sample <strong>success</strong> response:</p>
+            <div>
+              <p>
+                {&nbsp;&nbsp;<br />&nbsp; &nbsp;"message":"The customer has been
+                added.",<br />&nbsp; &nbsp;"code":0,<br />&nbsp;
+                &nbsp;"customer":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                "default_templates":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp;"creditnote_template_id":"",<br />&nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp;"invoice_template_id":""<br />&nbsp; &nbsp;
+                &nbsp; },<br />&nbsp; &nbsp; &nbsp; "phone":"",<br />&nbsp;
+                &nbsp; &nbsp; "payment_terms":0,<br />&nbsp; &nbsp; &nbsp;
+                "payment_terms_label":"Due On Receipt",<br />&nbsp; &nbsp;
+                &nbsp; "price_precision":2,<br />&nbsp; &nbsp; &nbsp;
+                "updated_time":"2015-03-10",<br />&nbsp; &nbsp; &nbsp;
+                "outstanding_receivable_amount":0,<br />&nbsp; &nbsp; &nbsp;
+                "shipping_address":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp;"zip":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;"fax":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;"street":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;"state":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;"country":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;"city":""<br />&nbsp; &nbsp; &nbsp; },<br />&nbsp; &nbsp;
+                &nbsp; "first_name":"",<br />&nbsp; &nbsp; &nbsp;
+                "company_name":"",<br />&nbsp; &nbsp; &nbsp;
+                "zcrm_contact_id":"",<br />&nbsp; &nbsp; &nbsp;
+                "currency_symbol":"Rs.",<br />&nbsp; &nbsp; &nbsp;
+                "outstanding":0,<br />&nbsp; &nbsp; &nbsp;
+                "currency_code":"INR",<br />&nbsp; &nbsp; &nbsp;
+                "custom_fields":"[]",<br />&nbsp; &nbsp; &nbsp;
+                "currency_id":"115888000000000099",<br />&nbsp; &nbsp; &nbsp;
+                "status":"active",<br />&nbsp; &nbsp; &nbsp;
+                "pricebook_id":"115888000000011001",<br />&nbsp; &nbsp; &nbsp;
+                "zcrm_account_id":"",<br />&nbsp; &nbsp; &nbsp;
+                "unused_credits":0,<br />&nbsp; &nbsp; &nbsp;
+                "display_name":"zoho",<br />&nbsp; &nbsp; &nbsp;
+                "email":"zohocorp@gmail.com",<br />&nbsp; &nbsp; &nbsp;
+                "last_name":"",<br />&nbsp; &nbsp; &nbsp;
+                "created_time":"2015-03-10",<br />&nbsp; &nbsp; &nbsp;
+                "notes":"",<br />&nbsp; &nbsp; &nbsp;
+                "customer_id":"115888000000046001",<br />&nbsp; &nbsp; &nbsp;
+                "mobile":"",<br />&nbsp; &nbsp; &nbsp;
+                "billing_address":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;"zip":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;"fax":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;"street":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;"state":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;"country":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;"city":""<br />&nbsp; &nbsp; &nbsp; }<br />&nbsp;
+                &nbsp;}<br />}
+              </p>
+            </div>
+            <p>
+              To fetch the ID of the record from the returned response, use the
+              following snippet:
+            </p>
+            <div>
+              info &lt;response_variable&gt;<response_variable
+                >.get("&lt;module_name&gt;<module_name
+                  >").get("&lt;module_name&gt;<module_name
+                    >_id"&gt;<br />// example for&nbsp;&lt;module_name&gt;
+                    is&nbsp;<strong>customer</strong>&nbsp;and example
+                    for&nbsp;&lt;module_name&gt;<module_name is=""
+                      >_id is&nbsp;<strong>customer_id</strong></module_name
+                    ></module_name
+                  ></module_name
+                ></response_variable
+              >
+            </div>
+            <p>The following is a sample <strong>failure response</strong>:</p>
+            <div>
+              {<br />"message":"Enter valid Customer Name",<br />"code":3013<br />}
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Billing API</a></li>
+              <li><a>Zoho Billing error codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

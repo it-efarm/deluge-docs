@@ -1,0 +1,157 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>getWeekOfYear</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>getWeekOfYear()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>getWeekOfYear()</strong> function takes a
+              <strong>dateTimeValue</strong> as an argument, and returns a
+              number representing the week of the year in which the specified
+              dateTimeValue falls.
+            </p>
+            <p>
+              1 represents the first week, 2 represents the 2nd week, and so on,
+              with 52 being the final number representing the last week of the
+              year.
+            </p>
+            <div>
+              <strong>Note :</strong> A week starts from Sunday. Consequently,
+              previous year's dates falling in the first week of the new year
+              will return 1.
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Number</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; =
+              &lt;<span>dateTimeValue</span>&gt;.getWeekOfYear([<span>start_day</span>]);
+            </div>
+            <p>(OR)</p>
+            <div>
+              &lt;variable&gt; = getWeekOfYear(
+              &lt;<span>dateTimeValue</span>&gt;, [<span>start_day</span>]);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>NUMBER</td>
+                    <td>Variable which will contain the returned number.</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;dateTimeValue&gt;</span></td>
+                    <td>DATE-TIME</td>
+                    <td>
+                      <p>
+                        The date-time value based on which a number will be
+                        returned.
+                      </p>
+                      <p>
+                        The date-time value can be specified without a time
+                        value, in which case 00:00:00 will be taken as the
+                        default time value.
+                      </p>
+                      <p>A runtime error will be encountered if:</p>
+                      <ul>
+                        <li>
+                          the specified 2 digit date value exceeds the number of
+                          days in that month.
+                        </li>
+                        <li>
+                          an incorrect month value is specified in 3 or more
+                          characters.
+                        </li>
+                      </ul>
+                      <p>The function returns a null value if:</p>
+                      <ul>
+                        <li>
+                          the month value is specified in less than 3
+                          characters.
+                        </li>
+                        <li>
+                          the hour value, or the minutes value, or the seconds
+                          value is specified in more than 2 digits.
+                        </li>
+                        <li>
+                          the date value is specified in more than 2 digits.
+                        </li>
+                        <li>the year value has more than 4 digits.</li>
+                      </ul>
+                      <p>
+                        Refer <a>this help document</a> to learn about the
+                        supported date-time formats.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>[start_day]</span><br />(optional)</td>
+                    <td>TEXT</td>
+                    <td>
+                      <p>
+                        The day that will be considered as the first day of a
+                        week.
+                      </p>
+                      <div>
+                        <strong>Note:</strong>
+                        <ul>
+                          <li>
+                            If this parameter is not specified&nbsp;<strong
+                              >"Sunday"</strong
+                            >
+                            will be considered as the first day of the week.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre><span>currentDate </span><span>= </span><span>'7-Feb-2021'</span><span>;</span>&nbsp;
+<span>weekNumber </span><span>= </span><span>currentDate</span><span>.getWeekOfYear</span><span>(</span><span>)</span><span>; </span><span>// returns 7 considering "Sunday" as first day of a week</span>&nbsp;
+&nbsp;
+<span>// The following example is applicable only to services other than Zoho Creator</span>&nbsp;
+<span>currentDate </span><span>= </span><span>'7-Feb-2021'</span><span>;</span>&nbsp;
+<span>weekNumber </span><span>= </span><span>currentDate</span><span>.getWeekOfYear</span><span>(</span><span>"Monday"</span><span>)</span><span>; </span><span>// returns 6 considering "Monday" as first day of a week</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

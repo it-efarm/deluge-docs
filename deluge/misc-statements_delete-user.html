@@ -1,0 +1,236 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>User roles &amp; properties tasks</a></li>
+        <li><a>App User Tasks</a></li>
+        <li><a>Delete app user</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Delete app user</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  This task is applicable only to <strong>Zoho Creator</strong>.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;deluge task deletes a specified user from the
+              application.&nbsp;
+            </p>
+            <h2><a></a>Return</h2>
+            <p>
+              This task returns a <span>KEY-VALUE</span>&nbsp;value in the
+              format {"emailId":"&lt;specified_email&gt;"}​
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <p>
+                <span
+                  ><span>&lt;variable&gt;</span> =
+                  thisapp.permissions.deleteUser(
+                  <span>&lt;Email_ID&gt;</span> );</span
+                >
+              </p>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Param</th>
+                    <th>Explanation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p><span>&lt;variable&gt;</span></p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><p>Variable which will hold the returned value.</p></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;Email_ID&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        Email id of the&nbsp;user who needs to be deleted from
+                        the application.
+                      </p>
+                      <p>Points to note for this parameter:</p>
+                      <ul>
+                        <li>
+                          If the specified value is not a valid email address, a
+                          runtime error will be encountered.
+                        </li>
+                        <li>
+                          If the specified email address is not found, the
+                          function runs error free.&nbsp;&nbsp;
+                        </li>
+                        <li>
+                          You can view the email addresses of existing
+                          users&nbsp;in the application from the&nbsp;<a
+                            >Account setup page</a
+                          >.
+                        </li>
+                      </ul>
+                      <p>Data type is <span>TEXT</span>.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>example</h2>
+            <p>A sample snippet&nbsp;to delete&nbsp;a user.</p>
+            <div>
+              deletedUser = thisapp.permissions.deleteUser("john@zillum.com");
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

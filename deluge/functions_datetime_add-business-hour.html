@@ -1,0 +1,228 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>addBusinessHour</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>addBusinessHour</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note</strong>: This task is applicable to all services
+                except <strong>Zoho Creator</strong>
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>addBusinessHour</strong> function
+              adds/subtracts&nbsp;the specified business hours&nbsp;to/from the
+              input dateTimeValue.&nbsp;
+            </p>
+            <div>
+              <p>
+                <strong>Note:&nbsp;</strong>It allows for defining weekends,
+                holiday lists, and business hours
+              </p>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>
+                <a><span>DATE-TIME</span></a>
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>dateTimeValue</span><span>&gt;</span><span>.addBusinessHour</span><span>(</span><span>&lt;</span><span>no_of_hours</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>weekends_list</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>holiday_list</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>business_hours</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>
+                      <a><span>DATE-TIME</span></a>
+                    </td>
+                    <td>
+                      <a>Variable</a> which will contain the returned date-time
+                      value after adding/subtracting the required number of
+                      hours.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;dateTimeValue&gt;</td>
+                    <td>
+                      <a><span>DATE-TIME</span></a
+                      >/<a><span>TEXT</span></a>
+                    </td>
+                    <td>
+                      The date-time value to which the required number of
+                      business hours will be added/subtracted.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;no_of_hours&gt;</td>
+                    <td>
+                      <a><span>NUMBER</span></a
+                      ><span>&nbsp;/ </span><a><span>DECIMAL</span></a>
+                    </td>
+                    <td>
+                      <p>
+                        The number of business hours to be added to/ subtracted
+                        from&nbsp;the date-time value.
+                      </p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <ul>
+                          <li>
+                            To subtract business hours from the input date-time
+                            values, supply negative value. For example, to
+                            subtract one business hour from the input date-time
+                            value, supply <strong>-1</strong> as value to this
+                            param.
+                          </li>
+                          <li>
+                            To add/ subtract business minutes, supply decimal
+                            value. For example, to add one business minute to
+                            the input date-time value, supply
+                            <strong>0.1</strong> as value to this param.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;weekends_list&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <a><span>COLLECTION</span></a
+                      ><br /><span>(OF TEXT)</span>
+                    </td>
+                    <td>
+                      <p>
+                        The list of weekends that will be considered while
+                        adding/ subtracting business hours.
+                      </p>
+                      <div>
+                        <p>
+                          <strong>Note:</strong> By default, the weekends list
+                          is <strong>{Saturday, Sunday}</strong>
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;holidays_list&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <a><span>COLLECTION</span></a
+                      ><br /><span>(OF DATES)</span>
+                    </td>
+                    <td>
+                      <p>
+                        The list of holidays that will be considered while
+                        adding/ subtracting business hours.
+                      </p>
+                      <div>
+                        <p>
+                          <strong>Note</strong>: If no holidays are provided,
+                          any day (except weekends) will be considered a working
+                          day.
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;business_hours&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><a>COLLECTION</a></td>
+                    <td>
+                      <p>
+                        The collection of business hours that will be considered
+                        while adding/ subtracting business hours.
+                      </p>
+                      <p>
+                        The format is
+                        <strong
+                          >{"start":&lt;start_hour&gt;,
+                          "end":&lt;end_hour&gt;}</strong
+                        >
+                      </p>
+                      <div>
+                        <p>
+                          <strong>Note:</strong>&nbsp;By default, the business
+                          hours are between 9AM (9) and 5PM (17). The business
+                          hours are represented in 24 hour format only.
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              The below example illustrates adding 2 business hours to the 1<sup
+                >st</sup
+              >
+              of January 2020 at 4PM. It declares Saturday and Sunday as
+              weekends. It also lists the 2<sup>nd</sup> and 3<sup>rd</sup> of
+              January as holidays. The workday starts at 10 AM and ends at
+              5PM.&nbsp;
+            </p>
+            <div>
+              <pre>&nbsp;<span>meeting_time</span> <span>=</span> <span>"1-Jan-2020 16:00:00"</span><span>.addBusinessHour</span><span>(</span><span>2</span><span>,</span> <span>{</span><span>"Saturday"</span><span>,</span> <span>"Sunday"</span><span>}</span><span>,</span> <span>{</span><span>'2-Jan-2020'</span><span>,</span><span>'3-Jan-2020'</span><span>}</span><span>,</span> <span>{</span><span>"start"</span><span>:</span><span>"10"</span><span>,</span><span>"end"</span><span>:</span><span>"17"</span><span>})</span><span>;</span> <span>// meeting_time gets the value '06-Jan-2020 11:00:00' assigned to it.</span></pre>
+              <p>
+                <span
+                  >// When two hours are added to 01-Jan-2020 16:00:00, the task
+                  adds an hour which makes it 1-Jan-2020 17:00:00. Adding
+                  further would reach end of the day. Since the next two days
+                  are holidays and the two following are weekends, the next
+                  working day is identified as Monday. So, adding one hour to
+                  it, the required date is returned as 06-Jan-2020
+                  11:00:00​</span
+                >
+              </p>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Work days list</a></li>
+              <li><a>Work days between</a></li>
+              <li><a>Add business day</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

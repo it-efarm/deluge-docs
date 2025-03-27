@@ -1,0 +1,141 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho CRM Vertical Solutions Integration Tasks</a></li>
+        <li><a>Get Module Metadata in Zoho CRM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Module Metadata</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+              </ul>
+              <p>
+                You can get a particular module's metadata using
+                the&nbsp;<strong>zoho.crm.invokeConnector()</strong> deluge
+                task.
+              </p>
+              <div>
+                <strong>Note:&nbsp;</strong
+                ><span
+                  >This task can be performed only in
+                  <a>Zoho CRM Vertical Solutions</a>.</span
+                >
+              </div>
+              <h2>​<a></a>Syntax</h2>
+              <div>
+                <pre><span>&lt;</span><span>Response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.crm</span><span>.invokeConnector</span><span>(</span><span>"crm.modulemetadata"</span><span>,</span> <span>&lt;</span><span>module</span> <span>Map</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+              </div>
+              <p>
+                where:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;
+              </p>
+              <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <td><strong>Params</strong></td>
+                      <td><strong>Data type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><p>&lt;Response&gt;</p></td>
+                      <td>
+                        <p><span>&nbsp;KEY-VALUE</span></p>
+                      </td>
+                      <td><p>&nbsp;The task response returned as a Map</p></td>
+                    </tr>
+                    <tr>
+                      <td><p>&lt;module Map&gt;</p></td>
+                      <td>
+                        <p><span>&nbsp;KEY-VALUE</span></p>
+                      </td>
+                      <td>
+                        <p>
+                          &nbsp;The map variable to hold the API name of the
+                          module whose metadata you want to fetch. For example,
+                          <em>Price_Books</em> is the API Name of Price Books
+                          module. Use the&nbsp;<a>Refer Fields</a> in the Deluge
+                          Script Editor to learn these names.
+                        </p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h2><a></a>Example</h2>
+              <p>Fetch the metadata of the Leads module.</p>
+              <div>
+                <pre><span>moduleMap</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>moduleMap</span><span>.put</span><span>(</span><span>"module"</span><span>,</span><span>"Leads"</span><span>)</span><span>;</span>
+<span>modulemeta</span> <span>=</span> <span>zoho</span><span>.crm</span><span>.invokeConnector</span><span>(</span><span>"crm.modulemetadata"</span><span>,</span> <span>moduleMap</span><span>)</span><span>;</span>
+<span>info</span> <span>modulemeta</span><span>;</span>
+</pre>
+              </div>
+              <h2><a>Response Format</a></h2>
+              <h3><a>Success Response</a></h3>
+              <div>
+                { &nbsp; {"status_code": 200, &nbsp; "response":
+                "{\"modules\":[\"global_search_supported\":true,
+                \"deletable\":true,\"creatable\":true,\"filter_status\":true,
+                \"modified_time\":\"2018-11-19T10:47:34+05:30\",\"plural_label\":\"Leads\",
+                \"presence_sub_menu\":true,\"id\":\"2853142000000002175\",
+                \"related_list_properties\":{\"sort_by\":null,\"fields\":[\"First_Name\",
+                \"Last_Name\",\"Full_Name\",\"Company\",\"Email\",\"Lead_Source\",
+                \"Lead_Status\",\"Phone\"],\"sort_order\":null},\"$properties\":[\"$converted\",
+                \"$approved\",\"$converted_detail\",\"$currency_symbol\",\"$approval\",
+                \"$process_flow\"],\"per_page\":10,\"visibility\":1,\"convertable\":true,
+                \"editable\":true,\"profiles\":[{\"name\":\"Administrator\",
+                \"id\":\"2853142000000026011\"},{\"name\":\"Standard\",
+                \"id\":\"2853142000000026014\"}],\"filter_supported\":true,
+                \"display_field\":\"Full_Name\",\"search_layout_fields\":[\"Company\",
+                \"Owner\",\"Full_Name\",\"Email\",\"Phone\",\"Lead_Source\"],
+                \"web_link\":null,\"sequence_number\":2,\"singular_label\":\"Lead\",
+                \"viewable\":true,\"api_supported\":true,\"api_name\":\"Leads\",
+                \"quick_create\":true,\"modified_by\":{\"name\":\"ZohoDemo\",
+                \"id\":\"2853142000000131009\"},\"generated_type\":\"default\",
+                \"feeds_required\":false,\"scoring_supported\":true,\"arguments\":[],
+                \"module_name\":\"Leads\",\"business_card_field_limit\":5,
+                \"custom_view\":{\"display_value\":\"All
+                Leads\",\"shared_type\":null,
+                \"criteria\":{\"comparator\":\"equal\",\"field\":\"$converted\",
+                \"value\":false},\"system_name\":\"ALLVIEWS\",\"shared_details\":null,
+                \"sort_by\":null,\"offline\":true,\"default\":true,\"system_defined\":true,
+                \"name\":\"All Open Leads\",\"id\":\"2853142000000087501\",
+                \"category\":
+                \"shared_with_me\",\"fields\":[\"Full_Name\",\"Company\",
+                \"Email\",\"Phone\",\"Lead_Source\",\"Owner\", \"Mobile\",
+                \"Last_Activity_Time\",\"Prediction_Score\"],\"favorite\":null,
+                \"sort_order\":null}, \"parent_module\":{}}]}" } &nbsp;
+              </div>
+              <div>&nbsp;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

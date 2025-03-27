@@ -1,0 +1,228 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>System Variables</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h1>System Variables</h1>
+      <p>
+        System variables are a special class of predefined variables,&nbsp;which
+        are already defined by the system, and values are assigned by the system
+        itself. These variables&nbsp;are read-only.&nbsp;They contain values
+        that cannot or should not be changed by the user.&nbsp;
+      </p>
+      <p>
+        These variables are used to refer to common information, like the email
+        address of the logged-in user or app admin, the device type used to
+        access the application, the current date, and so on.<br />&nbsp;
+      </p>
+      <h2>Date Variables</h2>
+      <p>
+        The table given below lists the Zoho variables and value returned by the
+        variables.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>Returns</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>zoho.currentdate</td>
+              <td>
+                Current date in the format specified in Application settings.
+              </td>
+            </tr>
+            <tr>
+              <td>zoho.currenttime</td>
+              <td>
+                Current date and time in the format specified in Application
+                settings.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2><br />String Variables</h2>
+      <div>
+        <span
+          >To improve email deliverability, we will be following Gmail's updated
+          sender email policy starting from <strong>February 1, 2024</strong>.
+          This means that Gmail addresses cannot be used as a sender address in
+          the </span
+        ><em><span>send mail</span></em
+        ><span> tasks. &nbsp;</span><a><span>Learn More</span></a>
+      </div>
+      <p>
+        The table given below lists the Zoho variables and value returned by the
+        variables in a private and public application.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>Private app / Logged-in user</th>
+              <th>Public app / Logged-in user</th>
+              <th>Public app / Public user</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>zoho.loginuser</td>
+              <td>Username of the currently logged-in user</td>
+              <td>Public</td>
+              <td>Public</td>
+            </tr>
+            <tr>
+              <td>zoho.loginuserid</td>
+              <td>Email address of the currently logged-in user</td>
+              <td>Null</td>
+              <td>Null</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2><br />​Other Variables</h2>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Variable</th>
+              <th>Returns</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>zoho.adminuser</td>
+              <td>Username of the Application owner</td>
+            </tr>
+            <tr>
+              <td>zoho.adminuserid</td>
+              <td>Email address of the Application owner</td>
+            </tr>
+            <tr>
+              <td>
+                <p>zoho.appname</p>
+                <p>(applicable only to Zoho Creator)</p>
+              </td>
+              <td>Application link name of the current application</td>
+            </tr>
+            <tr>
+              <td>zoho.ipaddress</td>
+              <td>
+                Public IP address of the current user&nbsp;<br />The value is
+                displayed as null when the user is not in session.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>zoho.appuri</p>
+                <p>(applicable only to Zoho Creator)</p>
+              </td>
+              <td>
+                Application details in the format:<br />/&lt;admin_username&gt;/&lt;application_link_name&gt;/
+              </td>
+            </tr>
+            <tr>
+              <td>zoho.device.type</td>
+              <td>
+                Type of device used to access the application. Returns a string
+                "web", "phone", or "tablet"
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p><span>Note:&nbsp;</span></p>
+        <ul>
+          <li>
+            <span
+              >The variable zoho.device.type is currently supported only in Zoho
+              Creator.</span
+            >
+          </li>
+          <li>
+            <span>It's also currently not supported for </span
+            ><a><span>field rules</span></a
+            ><span> events in forms.</span>
+          </li>
+          <li>
+            <span
+              >The default value will be web for workflows where it's not
+              possible to return the exact device type. For example, when used
+              in Schedule workflows.</span
+            >
+          </li>
+        </ul>
+      </div>
+      <p>
+        The system variable <strong>zoho.device.type</strong> is used to get the
+        information of the end device type. The variable will return the device
+        types <strong>web</strong>, <strong>phone</strong>, or
+        <strong>tablet</strong>.
+      </p>
+      <p>
+        For example, in the development of a shopping application, you can make
+        use of this system variable to fetch the
+        <strong>device type</strong> and then adjust the interface elements,
+        styling, and layout based on the user's preferred device type. This
+        ensures an optimized journey for users accessing their Creator
+        application platform across <em>web</em>, <em>tablets</em>, or
+        <em>mobile devices</em>. The super admins and admins who manage the
+        application's dashboard and review analytics, or the users shopping, can
+        each experience the application tailored to their device, thereby
+        enhancing user engagement.
+      </p>
+      <div>
+        <span
+          ><strong>Note</strong>: If a user accesses a Creator application as a </span
+        ><a><span>PWA</span></a
+        ><span>, then the device return type will be </span
+        ><em><span>"phone" </span></em><span>or </span
+        ><em><span>"tablet"</span></em
+        ><span>.</span>
+      </div>
+      <p>
+        A few system variables have values that differ from user to user. Which
+        means, they are specific to the user account.&nbsp;For example, the
+        system variable <strong>zoho.loginuserid</strong> which returns the
+        email id of the logged in user. For every individual account, this value
+        will vary. And a few system variables are the same for all user
+        accounts. For example, <strong>zoho.currentdate</strong> which returns
+        the current date value.
+      </p>
+      <p>
+        The availability of system variables depends on the product you
+        use.&nbsp;
+      </p>
+      <h2>Examples</h2>
+      <p>
+        1) The following snippet sets the Date field with the current date when
+        the form loads.
+      </p>
+      <div>input.Date = zoho.currentdate;</div>
+      <p>
+        2) The following snippet returns the link to the required application.
+      </p>
+      <div>
+        baseURL = (("http://app.zohocreator.com/" + zoho.adminuser) + "/") +
+        zoho.appname;
+      </div>
+      <p>
+        3) The following snippet displays the device type that's used by a user
+        to access the application.
+      </p>
+      <div>info zoho.device.type; &nbsp; // returns "web"/"phone"/"tablet"</div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

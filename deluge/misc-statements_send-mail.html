@@ -1,0 +1,1116 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Send notifications using Deluge</a></li>
+        <li><a>Send mail</a></li>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Miscellaneous</a></li>
+        <li><a>Send mail</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Send mail</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Send emails from a verified address</a></li>
+                <li><a>Anti-spam measures</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <div>
+              To improve email deliverability, we will be following Gmail's
+              updated sender email policy starting from
+              <strong>February 1, 2024</strong>. This means that
+              <strong>Gmail addresses</strong> cannot be used as a sender
+              address in the <em>send mail</em> tasks. &nbsp;<a>Learn More</a>
+            </div>
+            <div>
+              <p>
+                <strong>Note</strong>: When an&nbsp;<a>email</a>&nbsp;is
+                triggered after a record is added via the&nbsp;<a
+                  >add record task</a
+                >, the&nbsp;<a>image</a>&nbsp;and <a>signature</a>&nbsp;fields
+                in the added record will not be included in the attached PDF.
+              </p>
+            </div>
+            <p>
+              The <strong>send mail</strong> deluge task when executed sends an
+              email to the specified recipients.
+            </p>
+            <p>For example, in <strong>Zoho Creator</strong>:</p>
+            <ul>
+              <li>
+                You can use this task to send a confirmation email to users when
+                they successfully submit a form.
+              </li>
+              <li>
+                You can attach reports to the email, select what records you
+                want to send based on criteria, attach file upload field values,
+                attach record templates, and you can choose&nbsp;the&nbsp;format
+                in which the attachment will be sent.
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre>&nbsp;<span>sendmail</span>
+<span>[</span>
+<span>from</span><span>: </span><span>&lt;</span><span>from_address</span><span>&gt;</span>
+<span>to</span><span>: </span><span>&lt;</span><span>to_address</span><span>&gt;</span>
+<span>cc</span><span>: </span><span>&lt;</span><span>cc</span><span>&gt;</span>
+<span>bcc</span><span>: </span><span>&lt;</span><span>bcc</span><span>&gt;</span>
+<span>reply to</span><span>: </span><span>&lt;</span><span>reply_to_address</span><span>&gt;</span>
+<span>subject</span><span>: </span><span>&lt;</span><span>subject</span><span>&gt;</span>
+<span>message</span><span>: </span><span>&lt;</span><span>message</span><span>&gt;</span>
+<span>content type</span><span>: </span><span>&lt;</span><span>content_type</span><span>&gt;</span>
+<span>attachments</span><span>: </span><span>&lt;</span><span>attachment</span><span>&gt;</span>
+<span>]</span>
+                                                                                                    </pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>Parameter</strong></th>
+                    <th><strong>Data type</strong></th>
+                    <th><strong>Description</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div>&lt;from_address&gt;</div></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The value you provide here will be displayed as the
+                        sender's email address.
+                      </p>
+                      <p><strong>Allowed Values:</strong></p>
+                      <ul>
+                        <li>You can hardcode the sender's email address.</li>
+                        <li>
+                          You can specify the system
+                          variable&nbsp;<strong>zoho.adminuserid</strong>.
+                        </li>
+                        <li>
+                          You can specify the system variable&nbsp;<strong
+                            >zoho.loginuserid</strong
+                          >
+                          as long as the user is not a customer portal user. If
+                          the user is a portal user, the email address has to be
+                          <a>verified</a> before it can be used as the FROM
+                          address.
+                        </li>
+                        <li>
+                          The address can be specified in the format "John
+                          &lt;john@zylker.com&gt;" to display the sender name in
+                          the recipient's inbox.
+                        </li>
+                        <li>
+                          In <strong>Zoho Creator</strong>, you can specify the
+                          value entered in&nbsp;email address field type in your
+                          form in the format:
+                          <strong>input.&lt;email_field_link_name&gt;.</strong>
+                        </li>
+                      </ul>
+                      <div>
+                        <strong>Note:</strong> Click <a>here</a> to learn about
+                        which the restrictions imposed on&nbsp;this parameter in
+                        view of&nbsp;spam control.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;to_address&gt;</span></td>
+                    <td><span>TEXT</span>/ <span>LIST</span></td>
+                    <td>
+                      <p>The email address to which the email will be sent.</p>
+                      <p><strong>Allowed Values:</strong></p>
+                      <ul>
+                        <li>
+                          You can hardcode the recipient's&nbsp;email address.
+                        </li>
+                        <li>
+                          You can specify multiple email addresses separated
+                          by&nbsp;commas, or held in a LIST.
+                        </li>
+                        <li>
+                          You can specify system
+                          variables&nbsp;<strong>zoho.adminuserid</strong>&nbsp;and&nbsp;<strong
+                            >zoho.loginuserid.</strong
+                          >
+                        </li>
+                        <li>
+                          In&nbsp;<strong>Zoho Creator</strong>, you can specify
+                          the value entered in&nbsp;email address field type in
+                          your form in the format:&nbsp;<strong
+                            >input.&lt;email_field_link_name&gt;.</strong
+                          >
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;cc_address&gt;</span></p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td><span>TEXT</span>/ <span>LIST</span></td>
+                    <td>
+                      <p>
+                        Email address of the recipients to whom the email should
+                        be copied. Recipients in this list will be able to see
+                        all others in this list.
+                      </p>
+                      <p><strong>Allowed Values:</strong></p>
+                      <ul>
+                        <li>You can hardcode the CC email address.</li>
+                        <li>
+                          You can specify multiple email addresses separated
+                          by&nbsp;commas, or held in a LIST.
+                        </li>
+                        <li>
+                          You can specify system
+                          variables&nbsp;<strong>zoho.adminuserid</strong>&nbsp;and&nbsp;<strong
+                            >zoho.loginuserid.</strong
+                          >
+                        </li>
+                        <li>
+                          In&nbsp;<strong>Zoho Creator</strong>, you can specify
+                          the value entered in&nbsp;email address field type in
+                          your form in the format:&nbsp;<strong
+                            >input.&lt;email_field_link_name&gt;.</strong
+                          >
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;bcc_address&gt;</span></p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td><span>TEXT</span>/ <span>LIST</span></td>
+                    <td>
+                      <p>
+                        Email address of the recipients to whom the email should
+                        be copied. Recipients in this list will not be able to
+                        see others in this list.
+                      </p>
+                      <p><strong>Allowed Values:</strong></p>
+                      <ul>
+                        <li>You can hardcode the BCC email address.</li>
+                        <li>
+                          You can specify multiple email addresses separated
+                          by&nbsp;commas, or held in a LIST.
+                        </li>
+                        <li>
+                          You can specify system
+                          variables&nbsp;<strong>zoho.adminuserid</strong>&nbsp;and&nbsp;<strong
+                            >zoho.loginuserid</strong
+                          >
+                        </li>
+                        <li>
+                          In&nbsp;<strong>Zoho Creator</strong>, you can specify
+                          the value entered in&nbsp;email address field type in
+                          your form in the format:&nbsp;<strong
+                            >input.&lt;email_field_link_name&gt;.</strong
+                          >
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;reply_to_address&gt;</span></p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td>
+                      <span>TEXT</span>/ <span>LIST</span>/ comma-separated
+                      <span>TEXT</span>
+                    </td>
+                    <td>
+                      <p>
+                        The email address specified here will be populated in
+                        the "To" address when the email recipient clicks on
+                        "Reply" for the email notification&nbsp;which is
+                        editable.
+                      </p>
+                      <p>
+                        The following are the examples of how multiple reply to
+                        email addresses can be provided.
+                      </p>
+                      <ul>
+                        <li><strong>List</strong>:</li>
+                      </ul>
+                      <div>
+                        replyToAddresses = List();<br />replyToAddresses.add("shawn@zylker.com");<br />replyToAddresses.add("hailee@zylker.com");<br />replyToAddresses.add("brent@zylker.com");
+                      </div>
+                      <ul>
+                        <li><strong>Text</strong>:</li>
+                      </ul>
+                      <div>
+                        replyToAddresses = "shawn@zylker.com, hailee@zylker.com,
+                        brent@zylker.com";
+                      </div>
+                      <ul>
+                        <li><strong>Comma-separated Text values</strong></li>
+                      </ul>
+                      <div>
+                        reply to = "shawn@zylker.com", "hailee@zylker.com",
+                        "brent@zylker.com"
+                      </div>
+                      <div>
+                        <strong>Note:</strong> You can provide a maximum of
+                        <strong>20</strong> reply to email addresses.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;subject&gt;</span></td>
+                    <td>All data types</td>
+                    <td>Subject of the email.</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;message&gt;</span></td>
+                    <td>All data types</td>
+                    <td>
+                      Content of the email. This can be provided as HTML or
+                      plain text.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;content_type&gt;</span></p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>It could be one of the following:</p>
+                      <ul>
+                        <li>
+                          <strong>HTML</strong> - Executes the HTML tags present
+                          in the message content
+                        </li>
+                        <li>
+                          <strong>Plain Text</strong> - Treats the message
+                          content as text
+                        </li>
+                      </ul>
+                      <p><strong>Default value: </strong>HTML</p>
+                      <p>
+                        <strong>Note:&nbsp;</strong>By default, if the
+                        &lt;message&gt; content contains HTML tags, they will be
+                        rendered. To send HTML tags without rendering, mention
+                        &lt;content_type&gt; as Plain text.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;attachments&gt;</span></p>
+                      <p><span>​(optional)</span></p>
+                    </td>
+                    <td><span>FILE</span></td>
+                    <td>
+                      <p>Files&nbsp;that needs to be attached with the mail.</p>
+                      <div>
+                        <p><strong>Note:&nbsp;</strong></p>
+                        <ul>
+                          <li>
+                            The maximum size of&nbsp;attachments is&nbsp;<strong
+                              >15 MB</strong
+                            >. If the attachments exceed this limit, the emails
+                            will be delivered without them.
+                          </li>
+                          <li>
+                            In Zoho Creator, if&nbsp;attachments
+                            exceed&nbsp;this&nbsp;limit,&nbsp;a note indicating
+                            that an attachment has been&nbsp;dropped will be
+                            sent to the recipient along with the email content.
+                          </li>
+                        </ul>
+                      </div>
+                      <ul>
+                        <li>
+                          <strong
+                            >The value of this parameter needs to be in the
+                            following format to attach files fetched
+                            using&nbsp;</strong
+                          ><a><strong>invokeUrl</strong></a
+                          ><strong>&nbsp;task:</strong>
+                          <ul>
+                            <li>
+                              To attach a single file:<br /><strong
+                                >file: &lt;file_attachment&gt;</strong
+                              ><br />&nbsp;
+                            </li>
+                            <li>
+                              The formats to attach multiple files: (or)
+                              <ul>
+                                <li>
+                                  List of files<br /><strong
+                                    >file: &lt;file_attachment_list&gt;</strong
+                                  ><br />where, &lt;file_attachment_list&gt; is
+                                  the&nbsp;LIST containing the attachments.
+                                </li>
+                                <li>
+                                  As comma-separated values<br /><strong
+                                    >file: &lt;file_attachment_1&gt;,&nbsp;file:
+                                    &lt;file_attachment_2&gt;,&nbsp;file:
+                                    &lt;file_attachment_3&gt;,..&nbsp;</strong
+                                  ><br />&nbsp;
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <strong
+                            >To attach Zoho Creator entities,&nbsp;the value of
+                            this parameter needs to be in the format specified
+                            in the </strong
+                          ><a><strong>below table</strong></a
+                          ><strong>:</strong>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p><a>To attach Zoho Creator entities</a></p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Zoho Creator Entity</strong></td>
+                    <td><strong>Format</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Reports</strong></td>
+                    <td>
+                      <p>
+                        For <strong>Pivot</strong> reports:<br />​<br />report:
+                        &lt;Report_link_name&gt;&nbsp;as PDF<br />&nbsp;
+                      </p>
+                      <p>For <strong>all other</strong> report types:</p>
+                      <p>
+                        view: &lt;Report_link_name&gt; [&lt;criteria&gt;] as
+                        &lt;attachment_format&gt;
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        Use this parameter to attach a report,&nbsp;containing
+                        records which meet a specified criteria, in a specified
+                        format.
+                      </p>
+                      <ul>
+                        <li>
+                          <strong>&lt;Report_link_name&gt;</strong> refers to
+                          the link name of the report whose records will be sent
+                          as an attachment.
+                        </li>
+                        <li>
+                          <strong>&lt;criteria&gt;</strong> refers to the
+                          criteria based on which records will be sent. The
+                          criteria is mandatory.
+                        </li>
+                        <li>
+                          <strong>&lt;attachment_format&gt;</strong> refers to
+                          the format in which the attachment will be sent.
+                          Applicable formats are:
+                          <ul>
+                            <li>PDF</li>
+                            <li>XLS</li>
+                            <li>TSV</li>
+                            <li>CSV</li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <p>
+                        You can attach multiple reports separated by a comma as
+                        shown below:
+                      </p>
+                      <p>
+                        <span>​</span><span>view: </span
+                        ><span
+                          >&lt;Report_link_name1&gt; [&lt;criteria&gt;] as
+                          &lt;attachment_format&gt;</span
+                        ><span>, view:&nbsp;</span
+                        ><span
+                          >&lt;Report_link_name2&gt; [&lt;criteria&gt;] as
+                          &lt;attachment_format&gt;</span
+                        ><span>, view:&nbsp;</span
+                        ><span
+                          >&lt;Report_link_name3&gt; [&lt;criteria&gt;] as
+                          &lt;attachment_format&gt;</span
+                        ><span> ....</span>
+                      </p>
+                      <div>
+                        <strong>Note:&nbsp;</strong>This entity is not
+                        applicable&nbsp;for <a>published forms</a>.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Files uploaded in file fields</strong></td>
+                    <td>file: input.&lt;file_upload_field&gt;</td>
+                    <td>
+                      <p>
+                        Use this parameter to attach the values&nbsp;specified
+                        in the file upload field types while submitting the form
+                      </p>
+                      <ul>
+                        <li>
+                          <strong>&lt;file_upload_field&gt;</strong> refers to
+                          the link name of the file upload field type in the
+                          form.
+                        </li>
+                      </ul>
+                      <p>
+                        You can attach multiple file upload field
+                        values&nbsp;separated by a comma as shown below:
+                      </p>
+                      <p>
+                        <span>file: </span
+                        ><span>input.&lt;file_upload_field1&gt;</span
+                        ><span>, file:&nbsp;</span
+                        ><span>input.&lt;file_upload_field2&gt;</span
+                        ><span>, file:&nbsp;</span
+                        ><span>input.&lt;file_upload_field3&gt;</span
+                        ><span> ...</span>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Files fetched using the fetch record task</strong>
+                    </td>
+                    <td>
+                      file:
+                      &lt;collection_variable&gt;.&lt;file_upload_field&gt;
+                    </td>
+                    <td>
+                      <p>
+                        Use this parameter to attach file upload field type
+                        values held in a collection variable.
+                      </p>
+                      <ul>
+                        <li>
+                          <strong>&lt;file_upload_field&gt;</strong>&nbsp;refers
+                          to the link name of the file upload field type in the
+                          first record in the collection variable.&nbsp;
+                        </li>
+                      </ul>
+                      <p>
+                        You can attach multiple file upload field values in
+                        different collection variables separated by a comma as
+                        shown below:
+                      </p>
+                      <p>
+                        <span>file:</span
+                        ><span>
+                          &lt;collection_variable1&gt;.&lt;file_upload_field&gt;</span
+                        ><span>,</span><span>&nbsp;</span><span>file:</span
+                        ><span>
+                          &lt;collection_variable2&gt;.&lt;file_upload_field&gt;</span
+                        ><span>, file:&nbsp;</span
+                        ><span
+                          >&lt;collection_variable3&gt;.&lt;file_upload_field&gt;</span
+                        ><span>&nbsp;...</span>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Record template</strong></td>
+                    <td>
+                      <p><strong>Syntax in form workflow:</strong></p>
+                      <p>
+                        template: &lt;record_template&gt; as
+                        &lt;attachment_format&gt;
+                      </p>
+                      <p><strong>Syntax in custom function:</strong></p>
+                      <p>
+                        template: &lt;record_template&gt;:
+                        &lt;form_link_name&gt; &lt;record_id_variable&gt; as
+                        &lt;attachment_format&gt;
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        Use this parameter to attach record templates&nbsp;in a
+                        specified format.
+                      </p>
+                      <ul>
+                        <li>
+                          <strong>&lt;record_template&gt;</strong>&nbsp;refers
+                          to the link name of the Record Template.
+                        </li>
+                        <li>
+                          <strong>&lt;attachment_format&gt;</strong>&nbsp;refers
+                          to the format in which the attachment will be sent.
+                          Applicable values(to be specified without quotes) :
+                          <ul>
+                            <li>
+                              PDF - sends record templates as PDF attachment
+                            </li>
+                            <li>
+                              inline - sends record templates as inline message
+                              content
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <p>
+                        Only templates based on the form specified in the
+                        <strong>workflow</strong> can be sent as an attachment.
+                      </p>
+                      <p>
+                        You can attach multiple templates separated by a comma
+                        as shown below:
+                      </p>
+                      <p>
+                        <span>template:&nbsp;</span
+                        ><span
+                          >&lt;record_template1&gt; as
+                          &lt;attachment_format&gt;</span
+                        ><span>, template:&nbsp;</span
+                        ><span
+                          >&lt;record_template2&gt;&nbsp;as
+                          &lt;attachment_format&gt;</span
+                        ><span>, template:&nbsp;</span
+                        ><span
+                          >&lt;record_template3&gt;&nbsp;as
+                          &lt;attachment_format&gt;</span
+                        ><span>&nbsp;....​​</span>
+                      </p>
+                      <p>
+                        Use the following syntax to attach multiple templates to
+                        a sendMail task written in a&nbsp;<strong
+                          >custom function</strong
+                        >
+                      </p>
+                      <p>
+                        <span>template:&nbsp;</span
+                        ><span
+                          >&lt;record_template1&gt;:&nbsp;&lt;form_link_name1&gt;&nbsp;&lt;record_id_variable1&gt;&nbsp;as
+                          &lt;attachment_format&gt;</span
+                        ><span>, template:&nbsp;</span
+                        ><span
+                          >&lt;record_template2&gt;:&nbsp;&lt;form_link_name2&gt;&lt;record_id_variable2&gt;&nbsp;as
+                          &lt;attachment_format&gt;</span
+                        ><span>, template:&nbsp;</span
+                        ><span
+                          >&lt;record_template3&gt;:&nbsp;&lt;form_link_name3&gt;&lt;record_id_variable3&gt;&nbsp;as
+                          &lt;attachment_format&gt;</span
+                        ><span>&nbsp;....​​</span>
+                      </p>
+                      <div>
+                        <strong>Note: </strong
+                        >The&nbsp;&lt;record_id_variable&gt; can be a variable
+                        that holds the ID of the record or a
+                        <a>fetch records task</a> that extracts the ID of a
+                        specific record. You cannot directly supply a NUMBER
+                        value representing the required record ID.
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>
+              In Zoho Creator, this task can be used in the following events
+            </h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Send emails from a verified address</h2>
+            <h2><a></a>Anti-spam measures</h2>
+            <ul>
+              <li>
+                <p>
+                  In services other than Zoho Cliq and Zoho
+                  Mail,&nbsp;the&nbsp;From:&nbsp;address should only
+                  be&nbsp;specified as&nbsp;zoho.adminuserid,&nbsp;or
+                  zoho.loginuserid*, or a&nbsp;<a>verified email address</a>.
+                  Otherwise, the sendmail task will fail.
+                </p>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>From</strong></td>
+                        <td><strong>To</strong></td>
+                        <td><strong>Result</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          zoho.adminuserid, zoho.loginuserid (*only when the
+                          logged in user is <strong>not</strong> a
+                          <a>customer portal</a> user), or verified email
+                          address<br />(or)<br />variable that contains any of
+                          these
+                        </td>
+                        <td>Any email address</td>
+                        <td>Mail will be sent</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          email address other than zoho.adminuserid,
+                          zoho.loginuserid, or verified email address
+                        </td>
+                        <td>Any email address</td>
+                        <td>Error&nbsp;while saving</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          variable that contains email address other than
+                          zoho.adminuserid, zoho.loginuserid, or verified email
+                          address
+                        </td>
+                        <td>Any email address</td>
+                        <td>Error during run time</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+              <li>
+                <p>
+                  In Zoho Cliq and Zoho Mail,&nbsp;the&nbsp;From:&nbsp;address
+                  should only be&nbsp;specified as&nbsp;zoho.loginuserid, or
+                  a&nbsp;<a>verified email address</a>. Otherwise, the sendmail
+                  task will fail.
+                </p>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>From</strong></td>
+                        <td><strong>To</strong></td>
+                        <td><strong>Result</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          zoho.loginuserid or verified email address<br />(or)<br />variable
+                          that contains any of these
+                        </td>
+                        <td>Any email address</td>
+                        <td>Mail will be sent</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          email address other than zoho.loginuserid or verified
+                          email address
+                        </td>
+                        <td>Any email address</td>
+                        <td>Error&nbsp;while saving</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          variable that contains email address other than
+                          zoho.adminuserid, zoho.loginuserid, or verified email
+                          address
+                        </td>
+                        <td>Any email address</td>
+                        <td>Error during run time</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Examples</h2>
+            <p>
+              1) The following script is a sample snippet of the send mail task.
+            </p>
+            <div>
+              <span>sendmail</span> &nbsp;<br /><span>&nbsp;[</span>
+              &nbsp;<br /><span>&nbsp; &nbsp;&nbsp;</span><span>from</span
+              ><span>: </span><span>zoho</span
+              ><span>.adminuserid</span> &nbsp;<br /><span
+                >&nbsp; &nbsp;&nbsp;</span
+              ><span>to</span><span>: </span
+              ><span>"shawn@zylker.com"</span> &nbsp;<br /><span
+                >&nbsp; &nbsp;&nbsp;</span
+              ><span>cc</span><span>: </span
+              ><span>"salesmanager@zoho.com"</span> &nbsp;<br /><span
+                >&nbsp; &nbsp;&nbsp;</span
+              ><span>reply </span><span>to</span><span>: </span
+              ><span>"support@zohocreator.com"</span> &nbsp;<br /><span
+                >&nbsp; &nbsp;&nbsp;</span
+              ><span>subject</span><span>: </span
+              ><span>"Welcome to Zoho Creator"</span> &nbsp;<br /><span
+                >&nbsp; &nbsp;&nbsp;</span
+              ><span>message</span><span>: </span
+              ><span
+                >"&lt;p&gt;Your registration with Basic Plan is successful. You
+                have selected the following
+                Add-on:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Customer Portal - 500
+                users&lt;/li&gt;&lt;/ul&gt;"</span
+              >
+              &nbsp;<br /><span>&nbsp;]</span>
+            </div>
+            <div>&nbsp;</div>
+          </div>
+          <div>
+            <pre><span>sendmail</span>
+                <span>[</span>
+                    <span>from</span> <span>:</span><span>"John &lt;"</span> <span>+</span> <span>zoho.loginuserid</span> <span>+</span> <span>"&gt;"</span>
+                    <span>to</span> <span>:</span><span>"john@zylker.com"</span>
+                    <span>cc</span><span>:</span><span>"salesmanager@zoho.com"</span>
+                    <span>reply</span> <span>to</span> <span>:</span><span>"support@zohocreator.com"</span>
+                    <span>subject</span> <span>:</span><span>"Team meeting"</span>
+                    <span>message</span> <span>:</span><span>"Let's meet at 5"</span>
+                <span>]</span>
+                </pre>
+            <pre>&nbsp;</pre>
+            <pre><span>sendmail</span>
+                <span>[</span>
+                    <span>from</span> <span>:</span><span>"John &lt;"</span> <span>+</span> <span>zoho.adminuserid</span> <span>+</span> <span>"&gt;"</span>
+                    <span>to</span> <span>:</span><span>"john@zylker.com"</span>
+                    <span>cc</span><span>:</span><span>"salesmanager@zoho.com"</span>
+                    <span>reply</span> <span>to</span> <span>:</span><span>"support@zohocreator.com"</span>
+                    <span>subject</span> <span>:</span><span>"Team meeting"</span>
+                    <span>message</span> <span>:</span><span>"Let's meet at 5"</span>
+                <span>]</span></pre>
+          </div>
+        </div>
+      </div>
+      <p>&nbsp;</p>
+      <div>
+        <strong>Note:</strong> You can use HTML tags to format your email
+        content. For example, use <strong>&lt;br /&gt;</strong> tag to add a
+        line break, <strong>&lt;p&gt;&nbsp;&lt;/p&gt;</strong> tags to include a
+        paragraph, and so on.
+      </div>
+      <p>
+        2) The following script is a sample snippet of the send mail task being
+        used in Zoho Creator. It sends an email from a
+        <a>verified email address</a>. The mail is displayed along with the
+        specified name in the recipient's inbox.
+      </p>
+      <div>
+        <span>sendmail</span> &nbsp;<br /><span>&nbsp;[</span> &nbsp;<br /><span
+          >&nbsp; &nbsp;&nbsp;</span
+        ><span>from</span><span>: </span
+        ><span>"Shawn &lt;shawn@zylker.com&gt;"</span>&nbsp;&nbsp;<br /><span
+          >&nbsp; &nbsp;&nbsp;</span
+        ><span>to</span><span>: </span
+        ><span>"john@zylker.com"</span> &nbsp;<br /><span
+          >&nbsp; &nbsp;&nbsp;</span
+        ><span>cc</span><span>: </span
+        ><span>"salesmanager@zoho.com"</span> &nbsp;<br /><span
+          >&nbsp; &nbsp;&nbsp;</span
+        ><span>reply </span><span>to</span><span>: </span
+        ><span>"support@zohocreator.com"</span> &nbsp;<br /><span
+          >&nbsp; &nbsp;&nbsp;</span
+        ><span>subject</span><span>: </span
+        ><span>"Team meeting"</span> &nbsp;<br /><span>&nbsp; &nbsp;&nbsp;</span
+        ><span>message</span><span>: </span
+        ><span>"Let's meet at 5"</span> &nbsp;<br /><span>&nbsp;]</span>
+      </div>
+      <p>
+        <br />3) The following script sends an email with an attachment fetched
+        using the <a>invokeURL task</a>. The email is sent to the email address
+        in the 'candidate_email' field.
+      </p>
+      <div>
+        <span>fileResp</span> = <span>invokeUrl</span> &nbsp;<br />&nbsp;[
+        &nbsp;<br />&nbsp; &nbsp;&nbsp;<span>url</span>:
+        <span
+          >"https://www.zohowebstatic.com/sites/zweb/images/ogimage/zoho-logo.png"</span
+        >
+        &nbsp;<br />&nbsp; &nbsp;&nbsp;<span>type</span>:
+        <span>GET</span> &nbsp;<br />&nbsp;];&nbsp;<br /><span>sendmail</span>
+        &nbsp;<br />&nbsp;<span>[</span> &nbsp;<br />&nbsp; &nbsp;&nbsp;<span
+          >from</span
+        ><span>: </span><span>zoho</span
+        ><span>.adminuserid</span> &nbsp;<br />&nbsp; &nbsp;&nbsp;<span>to</span
+        ><span>: </span><span>candidate_email</span> &nbsp;<br />&nbsp;
+        &nbsp;&nbsp;<span>subject</span><span>: </span
+        ><span>"Welcome aboard"</span> &nbsp;<br />&nbsp; &nbsp;&nbsp;<span
+          >message</span
+        ><span>: </span
+        ><span
+          >"We welcome you aboard. Here's wishing you a great career with
+          us."</span
+        >
+        &nbsp;<br /><span>&nbsp; &nbsp;&nbsp;</span><span>Attachments</span
+        ><span> :</span><span>file</span><span>: </span
+        ><span>fileResp</span> &nbsp;<br />&nbsp;<span>]</span>
+      </div>
+      <p>
+        <br />4) The following script sends an email with a report as an
+        attachment from Zoho Creator. The email is sent to the email address in
+        the 'team_email' field. Only the records which meet the given criteria
+        are included in the report. The report link name is "Leads_Report", and
+        only the records which contain the "Status" field value as "Converted"
+        are included in the sent report.
+      </p>
+      <div>
+        <span>sendmail</span> &nbsp;<br /><span>&nbsp;[</span>
+        &nbsp;<br />&nbsp; &nbsp;&nbsp;<span>from</span><span>:&nbsp;</span
+        ><span>zoho</span><span>.adminuserid</span> &nbsp;<br />&nbsp;
+        &nbsp;&nbsp;<span>to</span><span>:&nbsp;</span><span>input.</span
+        ><span>team_email</span> &nbsp;<br />&nbsp; &nbsp;&nbsp;<span
+          >subject</span
+        ><span>: </span><span>"Today's Deals"</span> &nbsp;<br />&nbsp;
+        &nbsp;&nbsp;<span>message</span><span>: </span
+        ><span>"Please find the PDF attachment for today's deals"</span
+        ><span> &nbsp;</span><br /><span>&nbsp; &nbsp;&nbsp;</span
+        ><span>Attachments</span><span> :</span><span>view</span><span>: </span
+        ><span>Leads_Report</span><span> [</span><span>Status</span
+        ><span>==</span><span>"Converted"</span><span>] </span><span>as </span
+        ><span>PDF</span> &nbsp;<br />&nbsp;<span>]</span>
+      </div>
+      <p>
+        <br />5) The following script sends an email with&nbsp;the 'File Upload'
+        field value as an attachment from Zoho Creator.&nbsp;The email is sent
+        to the email address in the 'hr_email' field. The 'File Upload' field
+        link name is 'resume'.
+      </p>
+      <div>
+        <span>sendmail</span> &nbsp;<br />&nbsp;<span>[</span>
+        &nbsp;<br />&nbsp; &nbsp;&nbsp;<span>from</span><span>:&nbsp;</span
+        ><span>zoho</span><span>.adminuserid</span> &nbsp;<br />&nbsp;
+        &nbsp;&nbsp;<span>to</span><span>: </span><span>input.</span
+        ><span>hr_email</span> &nbsp;<br />&nbsp; &nbsp;&nbsp;<span
+          >subject</span
+        ><span>: </span
+        ><span>"New application received"</span> &nbsp;<br />&nbsp;
+        &nbsp;&nbsp;<span>message</span><span>: </span
+        ><span>"Please find the resume attached."</span><br />&nbsp;
+        &nbsp;&nbsp;<span>Attachments</span><span> :</span><span>file</span>:
+        <span>resume</span>&nbsp;&nbsp;<br /><span>&nbsp;]</span>
+      </div>
+      <p>
+        <br />6) The following scripts send&nbsp;an email with a record template
+        as an attachment from Zoho Creator.&nbsp;The email is sent to the email
+        address in the 'customer_email' field.&nbsp;The template link name is
+        'Medical_Invoice' and the form link name is 'invoice_details'.
+      </p>
+      <p>
+        <strong>Script&nbsp;if written in form workflow</strong><br />&nbsp;
+      </p>
+      <div>
+        <span>sendmail</span> &nbsp;<br />&nbsp;<span>[</span>
+        &nbsp;<br />&nbsp; &nbsp;&nbsp;<span>from</span><span>:&nbsp;</span
+        ><span>zoho</span><span>.adminuserid</span> &nbsp;<br />&nbsp;
+        &nbsp;&nbsp;<span>to</span><span>:&nbsp;</span><span>input.</span
+        ><span>customer_email</span> &nbsp;<br />&nbsp; &nbsp;&nbsp;<span
+          >subject</span
+        ><span>: </span
+        ><span>"Thank you for the payment"</span> &nbsp;<br />&nbsp;
+        &nbsp;&nbsp;<span>message</span><span>: </span
+        ><span>"Please find your invoice in the attachment"</span><br />&nbsp;
+        &nbsp;<span>&nbsp;</span><span>Attachments</span><span> :</span
+        ><span>template</span><span>: </span><span>Medical_Invoice</span
+        ><span> </span><span>as </span><span>PDF</span> &nbsp;<br />&nbsp;<span
+          >]</span
+        >
+      </div>
+      <p>
+        <br /><strong>Script&nbsp;if written in custom function</strong>&nbsp;
+      </p>
+      <div>
+        <span>&nbsp;record_id = invoice_details</span>[<span>ID</span>!=
+        <span>0</span>].<span>ID</span>;<br />&nbsp;<span>sendmail</span>
+        &nbsp;<br />&nbsp;<span>[</span> &nbsp;<br />&nbsp; &nbsp;&nbsp;<span
+          >from</span
+        ><span>:&nbsp;</span><span>zoho</span
+        ><span>.adminuserid</span> &nbsp;<br />&nbsp; &nbsp;&nbsp;<span>to</span
+        ><span>:&nbsp;</span><span>input.</span
+        ><span>customer_email</span> &nbsp;<br />&nbsp; &nbsp;&nbsp;<span
+          >subject</span
+        ><span>: </span
+        ><span>"Thank you for the payment"</span> &nbsp;<br />&nbsp;
+        &nbsp;&nbsp;<span>message</span><span>: </span
+        ><span>"Please find your invoice in the attachment"</span><br />&nbsp;
+        &nbsp;<span>&nbsp;</span><span>Attachments</span><span> :</span
+        ><span>template</span><span>: </span><span>Medical_Invoice</span>:<span>
+          invoice_details record_id</span
+        ><span>&nbsp;</span><span>as </span
+        ><span>PDF</span> &nbsp;<br />&nbsp;<span>]</span>
+      </div>
+      <p>&nbsp;</p>
+      <p>
+        7) The following script sends an email with a report from Zoho Creator
+        and an image fetched using the invoke URL task from Workdrive as
+        attachments. The email is sent to the email address in the 'Customer
+        Email' field. Only the records which meet the given criteria are
+        included in the report. The report link name is
+        "Medical_Equipment_Report", and only the records which contain the
+        "Availability" field value as "In Stock" are included in the sent
+        report.
+      </p>
+      <div>
+        <pre><span>fileResp</span> <span>=</span> <span>invokeurl</span>
+<span>[</span>
+<span>url</span> <span>:</span><span>"https://download.zoho.com/v1/workdrive/download/9sv1b827f33bdcab545b583168f9642eabd29"</span>
+<span>type</span> <span>:GET</span>
+<span>connection</span> <span>:</span><span>"Workdrive"</span>
+<span>]</span><span>;</span>
+<span>sendmail</span>
+<span>[</span>
+<span>from</span> <span>:zoho.adminuserid</span>
+<span>to</span> <span>:</span> <span>"Customer_Email"</span>
+<span>subject</span> <span>:</span><span>"Inventory of Medical Equipments"</span>                                                                                                        <span>message</span> <span>:</span><span>"Dear customer, we have attached the report of our medical equipment inventory and a     pamphlet mentioned special offers on bulk orders."</span>
+<span>Attachments</span> <span>:</span> <span>file:</span> <span>fileResp</span><span>,</span> <span>view:Medical_Equipment_Report</span><span>[</span><span>Availability</span> <span>==</span> <span>"In Stock"</span><span>]</span> <span>as</span> <span>PDF</span>
+<span>]</span>                                                                                                    </pre>
+      </div>
+      <p>&nbsp;</p>
+      <div>
+        <p>Note:</p>
+        <ul>
+          <li>
+            Create an OAuth connection named Workdrive and make sure to select
+            <strong>WorkDrive.files.READ</strong> and
+            <strong>ZohoFiles.files.READ</strong> scopes.
+          </li>
+          <li>
+            "<span
+              >9sv1b827f33bdcab545b583168f9642eabd29" mentioned in the above
+              script is the resource ID of the image that has been uploaded to
+              the Workdrive. It will not be the same for everyone. Copy and
+              paste the resource ID of your image in its place and execute the
+              script.</span
+            >
+          </li>
+        </ul>
+      </div>
+      <pre>&nbsp;</pre>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

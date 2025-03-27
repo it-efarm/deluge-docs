@@ -1,0 +1,268 @@
+<div class="help-content-panel">
+  <div>
+    <div><ul></ul></div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch records from Zoho Billing</h1>
+          <div>
+            <div>
+              <h4>
+                Table of Contents<span><span>Up</span></span>
+              </h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This task is used to fetch records from Zoho Billing.&nbsp;This
+              task is based on <a>Zoho Billing&nbsp;API</a> &lt;ModuleName&gt;
+              -&gt; List All &lt;ModuleName&gt;.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span
+                ><span>&lt;variable&gt;</span> =
+                <span>zoho.billing.getList</span
+                >(<span>&lt;moduleName&gt;</span>,
+                <span>&lt;organization_ID&gt;, </span
+                ><span>&lt;per_page&gt;</span><span>, </span
+                ><span>&lt;page&gt;</span>, &lt;connection&gt;);</span
+              >
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Params&nbsp;</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <span><span>&lt;variable&gt;&nbsp;</span></span>
+                      </p>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td><p>Response returned by Zoho Billing.</p></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <span
+                          ><span>&lt;module_name&gt;</span
+                          ><strong>&nbsp;</strong></span
+                        >
+                      </p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The name of the module from where the records will be
+                        fetched.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <span><span>&lt;organization_ID&gt;</span></span>
+                      </p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        ID of the organization from where the records will be
+                        fetched.
+                      </p>
+                      <div>
+                        <strong>Note:</strong> Learn how to fetch organization
+                        ID from the&nbsp;<a>UI</a> and from&nbsp;the response
+                        of&nbsp;<a>zoho.billing.getOrganization</a> task.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <span><span>&lt;per_page&gt;</span></span>
+                      </p>
+                    </td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>Maximum number of records in a single page.</p>
+                      <p>&nbsp;</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <span><span>&lt;page&gt;</span></span>
+                      </p>
+                    </td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>To get the list of records based on pages.</p>
+                      <p>&nbsp;</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;connection&gt;</span></p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>The link name of the Zoho Billing connection.</p>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of
+                            <a>stopping new authtoken generation</a>,&nbsp;a
+                            Zoho OAuth connection with appropriate scopes is
+                            mandatory in order for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter until you manually delete the authtoken
+                            from <a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes mentioned in
+                            <a>Zoho Billing API</a> while creating the
+                            connection.
+                          </li>
+                          <li>
+                            Refer to <a>this&nbsp;post</a> for the list of Zoho
+                            services that support the connections page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example: Fetch records from Zoho Billing</h2>
+            <p>
+              When the following script gets executed, the specified records are
+              fetched from the "Customers" module in Zoho Billings.
+            </p>
+            <div>
+              <pre><span>response</span> = <span>zoho</span><span>.billing.getList</span>(<span>"Customers", "66XXXXX66"</span>, <span>2</span>, 1, <span>"billing_connection"</span>);</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span>&nbsp;variable returned by
+                      Zoho Billing
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Customers"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module from
+                      which the records need to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"66XXXXX66"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the organization
+                      ID of the Zoho Billing account in which the records will
+                      be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div><pre>2</pre></div>
+                    <div>
+                      is the <span>NUMBER</span>&nbsp;that represents the index
+                      of the first record that&nbsp;will be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div><pre>1</pre></div>
+                    <div>
+                      is the <span>NUMBER</span>&nbsp;that represents number of
+                      records that will be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"billing_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents Zoho Billing
+                      connection link name
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p>
+              The <strong>success</strong> response returned is of the following
+              format:
+            </p>
+            <div>
+              {"code":0,"message":"success","customers":[{"customer_name":"Portia","display_name":"Portia","customer_id":"4592517000000082032","contact_id":"4592517000000082032","currency_code":"USD","currency_symbol":"$","status":"active","company_name":"Zylker","unused_credits":0.0,"outstanding_receivable_amount":0.0,"unused_credits_receivable_amount_bcy":0.0,"outstanding_receivable_amount_bcy":0.0,"outstanding":0.0,"first_name":"Neville","last_name":"Longbottom","email":"portia@zylker.com","phone":"9999999998","mobile":"","website":"","is_gapps_customer":false,"created_time":"2023-10-12T04:37:27-0400","updated_time":"2023-10-13T06:26:44-0400","is_portal_invitation_accepted":false,"payment_terms_label":"Due
+              on Receipt","payment_terms":0,"created_by":"Megan
+              V","has_attachment":false},{"customer_name":"John","display_name":"John","customer_id":"4592517000000086001","contact_id":"4592517000000086001","currency_code":"USD","currency_symbol":"$","status":"active","company_name":"Zylker","unused_credits":0.0,"outstanding_receivable_amount":0.0,"unused_credits_receivable_amount_bcy":0.0,"outstanding_receivable_amount_bcy":0.0,"outstanding":0.0,"first_name":"Primrose","last_name":"","email":"john.l@zylker.com","phone":"9999999999","mobile":"","website":"","is_gapps_customer":false,"created_time":"2023-10-13T02:34:40-0400","updated_time":"2023-10-13T06:24:15-0400","is_portal_invitation_accepted":false,"payment_terms_label":"Due
+              on Receipt","payment_terms":0,"created_by":"Megan
+              V","has_attachment":false}],"page_context":{"page":1,"per_page":2,"has_more_page":false,"report_name":"All
+              Contacts","applied_filter":"Status.All","custom_fields":[],"sort_column":"customer_id","sort_order":"A"}}
+            </div>
+            <p>&nbsp;</p>
+            <p>
+              To fetch the record IDs from the response, use the following
+              snippet:
+            </p>
+            <div>
+              var =
+              &lt;response_variable&gt;.get("&lt;module_name&gt;");&nbsp;<br />//
+              example for &lt;module_name&gt; is customers<br />for each var1 in
+              var<br />{<br />info
+              var1.toMap().get("&lt;module_name&gt;_id");<br />//&nbsp;example
+              for &lt;module_name&gt;_id&nbsp;is customer_id<br />}
+            </div>
+            <p>The following is a sample <strong>failure</strong> response:</p>
+            <div>
+              {&nbsp;&nbsp;<br />&nbsp; &nbsp;"message":"Invalid URL passed",<br />&nbsp;
+              &nbsp;"code":5<br />}
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Billing API</a></li>
+              <li><a>Zoho Billing error codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

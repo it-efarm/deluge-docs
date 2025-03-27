@@ -1,0 +1,178 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sign Integration Tasks</a></li>
+        <li><a>Get template by ID</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get template by ID from Zoho Sign</h1>
+          <div>
+            <h4>Table of Contents</h4>
+            <ul>
+              <li><a>Overview</a></li>
+              <li><a>Syntax</a></li>
+              <li><a>Example</a></li>
+              <li><a>Response Format</a></li>
+              <li><a>Related Links</a></li>
+            </ul>
+          </div>
+          <h2><a></a>Overview</h2>
+          <p>
+            You can use the <strong>zoho.sign.getTemplateById</strong> task to
+            fetch templates based on ID from Zoho Sign.
+          </p>
+          <h2><a></a>Syntax</h2>
+          <div>
+            <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.sign.getTemplateById</span><span>(</span><span>&lt;</span><span>template_ID&gt;</span><span>,</span> <span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+          </div>
+          <p>where,</p>
+          <div>
+            <div>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><strong>Params</strong></td>
+                      <td><strong>Data Type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                    <tr>
+                      <td><p>&lt;response&gt;</p></td>
+                      <td>
+                        <p><span>KEY-VALUE</span></p>
+                      </td>
+                      <td>
+                        <p>
+                          The details of the template image as TEXT
+                          and&nbsp;details of the&nbsp;fields being used in the
+                          template - their type, their size, and other relevant
+                          information.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><p>&lt;template_ID&gt;</p></td>
+                      <td>
+                        <p><span>NUMBER</span></p>
+                      </td>
+                      <td>
+                        <p>The ID of the template that needs to be fetched.</p>
+                        <p>
+                          <strong>Note: </strong> You can get the ID of a Zoho
+                          Sign template from its URL. The URL is in the format:
+                          https://sign.zoho.com/zs#/template/viewer/<strong
+                            >&lt;template_id&gt;</strong
+                          ><br />(or)<br />You can get the template ID from the
+                          response of
+                          <strong>zoho.sign.getTemplate</strong> task. Click
+                          <a>here</a> to learn how to fetch the template ID.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>&lt;connection&gt;</p>
+                        <p>(optional)*</p>
+                      </td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>The name of the <a>connection</a>.</p>
+                        <div>
+                          <strong>*Note:</strong> This param is not applicable
+                          to <strong>Zoho Creator</strong> and mandatory in
+                          <strong>Zoho Cliq.</strong>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <h2><a></a>Example: Fetch templates from Zoho Sign based on ID</h2>
+          <p>
+            The following script fetches a template from Zoho Sign based on the
+            specified template ID.
+          </p>
+          <div>
+            <pre><span>response</span> <span> = </span><span>zoho</span><span>.sign.getTemplateById</span><span>(</span><span>32076000000002011</span><span>)</span><span>;</span>
+</pre>
+          </div>
+          <p>where:</p>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <pre><span>response</span>
+</pre>
+                  </div>
+                  <div>
+                    The&nbsp;<span>KEY-VALUE</span>&nbsp;response that
+                    represents the details of the template image, fields used in
+                    the template, and other relevant information.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>32076000000002011</span>
+</pre>
+                  </div>
+                  <div>
+                    The <span>NUMBER</span> that represents the ID of the
+                    template that needs to be fetched.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2><a></a>Response Format</h2>
+          <p><strong>Success Response</strong></p>
+          <ul>
+            <li>
+              The success response will be returned in the following format:
+              <div>
+                {<br />&nbsp;"code":0,<br />&nbsp;"templates":{<br />&nbsp;"owner_email":"tom@zylker.com",<br />&nbsp;"created_time":1572860148596,<br />&nbsp;"email_reminders":true,<br />&nbsp;"document_ids":[<br />&nbsp;{<br />&nbsp;"image_string":"/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEYAMYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA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77U7+x87VdHOlXGSPINykx6nncvGMY/HI6AE6dZel2Wp2mmC3u9Uju7lE2iYW5VQe2QXZiMbc5Ykncc8jaaPp2oWCSC/1u51Nmdypmhij2qT8o+RR0UAZ7kk4GQAAalFFFABWPrq6KdKv/7XQGz8sm5G1/u4+9heeAM7h025z8vGxRQBx2jJ4KYwLplmExHiO3NrMmxd9xx5TKNuWFxxgZ2+gXFXR28DRafpraNZOICka2uyCaIshvFA5fG4LOQxBJKhicYf5u7ooA5vXl8MS61o9lrEcf2+WY3VjlWBLwEOTuXsu7dgnB5ODWd8QLXw22lef4g8My6nZjCSzwLGrQZdccl0flm6pn+LOMnPa0UAc5e+HvDXjXTbebUdK+1wCOSOH7XDJDIisRuIDhXUkoPm4OOQcHnY0zTLLRtMt9N063S3s7ZBHFEvRQPc8k9yTyTyat0UAFYviEaIbO4/tqTEAspzKnmOP3HyeY+1Tn5fk+YDK54Iya2qKAOM+HR8HPpF1J4Ps2t7dpwblHhlVll2g7Tv7gEcKSBnPfJXTYPCn9ma8dHkl060ivJX1cwwvDlwg8xTvXKjbg5jxjqCCeeyqKa2gufL8+GOXy3Eib0DbXHRhnoR60Ac7rmp+GIdV0jTdUlkgvDKJ7FI1mjIf/VD5kAAz5mzDHB3AYPFS6tpml+J4obbU9GuZrERC6S4EmxQ3ICYRxJuA+b7u3hSDuAx0VFAHP6h4O8O69LHdX+mLP8A6OsKRyb1VUByMJkBW5IzgHBKnjitqztINPsbeytYhFbW8axRRr0RFGAB9ABU1FABXA+KD4ETxDA+saa99qxvbdEkS2llMcpaMIpkA2oBlHMeRkMTtJf5u+ooA5bxavhQ+H1PiS2F1pux8SfZ5bjauwlm3ICy/KC27I6Zzxmq/jC18INp2izeI7dFsbe7T7JC1qSrOylFjZNpIX5s7TjlBngEV2NFAHDeMIfAvh/QYZPEGiRXFrYWyJBmxadljjICIJCDj5iq/MwBLcnmqPhlfAvitJvD9v4eltpPD9yA9ldRf6p0+UEujMjgncMFjuIYkHrXo9FAFa0sLexUrbq6rzgNIzBQSThck4HOABwAABwABZoooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//Z",<br />&nbsp;"document_name":"CRM_V2_equivalent_tasks.png",<br />&nbsp;"pages":[<br />&nbsp;{<br />&nbsp;"image_string":"/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEYAMYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA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77U7+x87VdHOlXGSPINykx6nncvGMY/HI6AE6dZel2Wp2mmC3u9Uju7lE2iYW5VQe2QXZiMbc5Ykncc8jaaPp2oWCSC/1u51Nmdypmhij2qT8o+RR0UAZ7kk4GQAAalFFFABWPrq6KdKv/7XQGz8sm5G1/u4+9heeAM7h025z8vGxRQBx2jJ4KYwLplmExHiO3NrMmxd9xx5TKNuWFxxgZ2+gXFXR28DRafpraNZOICka2uyCaIshvFA5fG4LOQxBJKhicYf5u7ooA5vXl8MS61o9lrEcf2+WY3VjlWBLwEOTuXsu7dgnB5ODWd8QLXw22lef4g8My6nZjCSzwLGrQZdccl0flm6pn+LOMnPa0UAc5e+HvDXjXTbebUdK+1wCOSOH7XDJDIisRuIDhXUkoPm4OOQcHnY0zTLLRtMt9N063S3s7ZBHFEvRQPc8k9yTyTyat0UAFYviEaIbO4/tqTEAspzKnmOP3HyeY+1Tn5fk+YDK54Iya2qKAOM+HR8HPpF1J4Ps2t7dpwblHhlVll2g7Tv7gEcKSBnPfJXTYPCn9ma8dHkl060ivJX1cwwvDlwg8xTvXKjbg5jxjqCCeeyqKa2gufL8+GOXy3Eib0DbXHRhnoR60Ac7rmp+GIdV0jTdUlkgvDKJ7FI1mjIf/VD5kAAz5mzDHB3AYPFS6tpml+J4obbU9GuZrERC6S4EmxQ3ICYRxJuA+b7u3hSDuAx0VFAHP6h4O8O69LHdX+mLP8A6OsKRyb1VUByMJkBW5IzgHBKnjitqztINPsbeytYhFbW8axRRr0RFGAB9ABU1FABXA+KD4ETxDA+saa99qxvbdEkS2llMcpaMIpkA2oBlHMeRkMTtJf5u+ooA5bxavhQ+H1PiS2F1pux8SfZ5bjauwlm3ICy/KC27I6Zzxmq/jC18INp2izeI7dFsbe7T7JC1qSrOylFjZNpIX5s7TjlBngEV2NFAHDeMIfAvh/QYZPEGiRXFrYWyJBmxadljjICIJCDj5iq/MwBLcnmqPhlfAvitJvD9v4eltpPD9yA9ldRf6p0+UEujMjgncMFjuIYkHrXo9FAFa0sLexUrbq6rzgNIzBQSThck4HOABwAABwABZoooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//Z",<br />&nbsp;"page":0,<br />&nbsp;"is_thumbnail":true<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"document_size":96995,<br />&nbsp;"document_order":"0",<br />&nbsp;"total_pages":1,<br />&nbsp;"document_id":"10696000000009027"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"notes":"",<br />&nbsp;"reminder_period":5,<br />&nbsp;"owner_id":"10696000000009003",<br />&nbsp;"document_fields":[<br />&nbsp;{<br />&nbsp;"document_id":"10696000000009027",<br />&nbsp;"fields":[<br />&nbsp;<br />&nbsp;]<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"description":"",<br />&nbsp;"template_name":"CRM_V2_equivalent_tasks.png",<br />&nbsp;"modified_time":1572871750953,<br />&nbsp;"is_deleted":false,<br />&nbsp;"expiration_days":15,<br />&nbsp;"is_sequential":true,<br />&nbsp;"template_id":"10696000000009026",<br />&nbsp;"validity":-1,<br />&nbsp;"request_type_name":"Others",<br />&nbsp;"owner_first_name":"Tom",<br />&nbsp;"request_type_id":"10696000000000187",<br />&nbsp;"owner_last_name":"Tom",<br />&nbsp;"actions":[<br />&nbsp;{<br />&nbsp;"ishost":false,<br />&nbsp;"verify_recipient":false,<br />&nbsp;"role":"Role
+                1",<br />&nbsp;"action_id":"10696000000010023",<br />&nbsp;"action_type":"SIGN",<br />&nbsp;"private_notes":"",<br />&nbsp;"recipient_email":"shawn@zylker.com",<br />&nbsp;"signing_order":1,<br />&nbsp;"fields":[<br />&nbsp;{<br />&nbsp;"field_id":"10696000000009040",<br />&nbsp;"field_type_id":"10696000000000047",<br />&nbsp;"field_category":"image",<br />&nbsp;"field_label":"Signature",<br />&nbsp;"is_mandatory":true,<br />&nbsp;"page_no":0,<br />&nbsp;"document_id":"10696000000009027",<br />&nbsp;"field_name":"Signature",<br />&nbsp;"y_value":71.73397,<br />&nbsp;"action_id":"10696000000010023",<br />&nbsp;"width":22.689075,<br />&nbsp;"field_type_name":"Signature",<br />&nbsp;"description_tooltip":"",<br />&nbsp;"x_value":71.59664,<br />&nbsp;"height":2.375297<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_id":"10696000000009038",<br />&nbsp;"field_type_id":"10696000000000059",<br />&nbsp;"text_property":{<br />&nbsp;"is_italic":false,<br />&nbsp;"is_underline":false,<br />&nbsp;"font_color":"000000",<br />&nbsp;"font_size":11,<br />&nbsp;"is_read_only":false,<br />&nbsp;"is_bold":false,<br />&nbsp;"font":"Roboto"<br />&nbsp;},<br />&nbsp;"field_category":"textfield",<br />&nbsp;"field_label":"Full
+                name",<br />&nbsp;"name_format":"FULL_NAME",<br />&nbsp;"is_mandatory":true,<br />&nbsp;"default_value":"",<br />&nbsp;"page_no":0,<br />&nbsp;"document_id":"10696000000009027",<br />&nbsp;"field_name":"Full
+                name",<br />&nbsp;"y_value":75.65209,<br />&nbsp;"action_id":"10696000000010023",<br />&nbsp;"width":16.470589,<br />&nbsp;"field_type_name":"Name",<br />&nbsp;"description_tooltip":"",<br />&nbsp;"x_value":73.778885,<br />&nbsp;"height":1.543943<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"field_id":"10696000000009039",<br />&nbsp;"field_type_id":"10696000000000057",<br />&nbsp;"text_property":{<br />&nbsp;"is_italic":false,<br />&nbsp;"is_underline":false,<br />&nbsp;"font_color":"000000",<br />&nbsp;"font_size":11,<br />&nbsp;"is_read_only":false,<br />&nbsp;"is_bold":false,<br />&nbsp;"font":"Roboto"<br />&nbsp;},<br />&nbsp;"field_category":"datefield",<br />&nbsp;"field_label":"Sign
+                Date",<br />&nbsp;"is_mandatory":true,<br />&nbsp;"time_zone_offset":330,<br />&nbsp;"page_no":0,<br />&nbsp;"document_id":"10696000000009027",<br />&nbsp;"time_zone":"Asia/Kolkata",<br />&nbsp;"field_name":"Sign
+                Date",<br />&nbsp;"y_value":79.09739,<br />&nbsp;"action_id":"10696000000010023",<br />&nbsp;"width":16.470589,<br />&nbsp;"date_format":"MMM
+                dd yyyy",<br />&nbsp;"field_type_name":"Date",<br />&nbsp;"description_tooltip":"",<br />&nbsp;"x_value":73.109245,<br />&nbsp;"height":1.543943<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"recipient_name":"Shawn",<br />&nbsp;"recipient_phonenumber":"",<br />&nbsp;"recipient_countrycode":""<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"ishost":false,<br />&nbsp;"verify_recipient":false,<br />&nbsp;"role":"Role
+                2",<br />&nbsp;"action_id":"10696000000010065",<br />&nbsp;"action_type":"APPROVER",<br />&nbsp;"private_notes":"",<br />&nbsp;"recipient_email":"hailee@zylker.com",<br />&nbsp;"signing_order":2,<br />&nbsp;"fields":[<br />&nbsp;<br />&nbsp;],<br />&nbsp;"recipient_name":"Hailee",<br />&nbsp;"recipient_phonenumber":"",<br />&nbsp;"recipient_countrycode":""<br />&nbsp;}<br />&nbsp;]<br />&nbsp;},<br />&nbsp;"message":"Template
+                has been retrieved",<br />&nbsp;"status":"success"<br />&nbsp;}
+              </div>
+            </li>
+          </ul>
+          <a></a>
+          <p>
+            To fetch the action ID from the response returned, execute the
+            following script.
+          </p>
+          <div>
+            <pre>
+&nbsp;<span>res </span><span>= </span><span>&lt;response&gt;</span><span>.get</span><span>(</span><span>"templates"</span><span>)</span><span>.get</span><span>(</span><span>"actions"</span><span>)</span><span>;</span>
+&nbsp;<span>for each </span><span>var </span><span>in </span><span>res</span>
+&nbsp;<span>{</span>
+&nbsp;<span>info </span><span>var</span><span>.get</span><span>(</span><span>"action_id"</span><span>)</span><span>;</span>
+&nbsp;<span>}</span></pre>
+          </div>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>Zoho Sign integration tasks</a></li>
+            <li><a>Connections</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

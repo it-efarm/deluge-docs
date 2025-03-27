@@ -1,0 +1,112 @@
+<div class="help-content-panel">
+  <div>
+    <div><ul></ul></div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>previousWeekDay()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>previousWeekDay()</strong> function takes an
+              <strong>inputDate</strong>&nbsp;and returns the previous
+              week's&nbsp;date&nbsp;that falls on the&nbsp;specified
+              <strong>inputDay</strong>. For example, to get the previous
+              week's&nbsp;date that falls on a&nbsp;<strong>Monday</strong>,
+              specify the <strong>inputDate</strong> as zoho.currentDate
+              and&nbsp;<strong>inputDay</strong> as Monday.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>TEXT</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>&lt;</span><span>inputDate</span><span>&gt;</span><span>.previousWeekDay</span><span>(</span><span>&lt;</span><span>inputDay</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>previousWeekDay</span><span>(</span><span>&lt;</span><span>inputDate</span><span>&gt;</span>, <span>&lt;</span><span>inputDay</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>DATE-TIME</td>
+                    <td>Variable which will contain the returned date.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;inputDate&gt;</td>
+                    <td>DATE-TIME</td>
+                    <td>The input start date.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;inputDay&gt;</td>
+                    <td>TEXT</td>
+                    <td>
+                      <p>
+                        The text that represents the day on which the required
+                        date falls.
+                      </p>
+                      <p><strong>Allowed Values:</strong></p>
+                      <ul>
+                        <li>Sunday</li>
+                        <li>Monday</li>
+                        <li>Tuesday</li>
+                        <li>Wednesday</li>
+                        <li>Thursday</li>
+                        <li>Friday&nbsp;</li>
+                        <li>Saturday</li>
+                      </ul>
+                      <div>
+                        <strong>Note:</strong> This function is not related to
+                        business days. inputDay param can take
+                        <strong>any day including weekends</strong> and return
+                        the next immediate date that falls on the specified day.
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example&nbsp;</h2>
+            <div>
+              <pre><span>info </span><span>zoho</span><span>.currentdate</span><span>.previousWeekDay</span><span>(</span><span>"Monday"</span><span>)</span><span>; </span><span>//Considering current date is 21-Jul-2021, it returns 19-Jul-2021 </span>&nbsp;
+ &nbsp;
+<span>inputDate </span><span>= </span><span>'21-Jul-2021'</span><span>; </span><span>//Is a Wednesday</span>&nbsp;
+<span>info </span><span>inputDate</span><span>.previousWeekDay</span><span>(</span><span>"Wednesday"</span><span>)</span><span>; </span><span>//Returns 14-Jul-2021</span>&nbsp;
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Date-time built-in functions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,393 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>SDP Cloud integration tasks</a></li>
+        <li><a>SDP Cloud Invoke URL</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>SDP Cloud Invoke URL</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note: </strong>This task can be executed only in SDP
+              Cloud.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.sdp.invokeUrl</strong> task allows you to utilize
+              the&nbsp;<a>API endpoints</a> provided by SDP Cloud to access and
+              modify your data.
+            </p>
+            <div>
+              <strong>Note: </strong>This task works the same as&nbsp;<a
+                >invokeUrl task</a
+              >
+              (an HTTP client), except:&nbsp;
+              <ul>
+                <li>
+                  It can only be executed from the same SDP Cloud account whose
+                  data you need to access. Hence, authentication
+                  headers&nbsp;are not needed to perform the API call.
+                </li>
+                <li>
+                  Only SDP Cloud's API endpoints can be invoked using this task,
+                  hence the domain name&nbsp;can be omitted while providing the
+                  API URL.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>response </span><span>= </span><span>invokeUrl
+<span>[</span>&nbsp;
+&nbsp;<span>url</span><span>: </span><span>&lt;</span><span>url_value</span><span>&gt;</span>&nbsp;
+&nbsp;<span>type</span><span>: </span><span>[&lt;</span><span>type_value&gt;]</span>&nbsp;
+&nbsp;<span>headers</span><span>: </span><span>[&lt;</span><span>headers_value&gt;]</span>&nbsp;
+&nbsp;<span>content-type</span><span>: </span><span>[&lt;</span><span>content_type_value&gt;]</span>&nbsp;
+&nbsp;<span>parameters</span><span>: </span><span>[&lt;parameters_value</span><span>&gt;]</span>&nbsp;
+&nbsp;<span>detailed</span><span>: </span><span>[&lt;</span><span>detailed_value&gt;]</span></span>&nbsp;
+&nbsp;<span>response-format</span><span>: </span><span>[&lt;</span><span>response_format_value&gt;]</span>&nbsp;
+&nbsp;<span>response-decoding</span><span>: </span><span>[&lt;</span><span>encoding_format_value&gt;]</span>&nbsp;
+<span>];</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p>
+                        <span>KEY-VALUE</span>/ <span>FILE</span>/
+                        <span>TEXT</span>/ <span>LIST</span>
+                      </p>
+                    </td>
+                    <td>
+                      The variable that will contain the response returned by
+                      SDP Cloud.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;url_value&gt;</p>
+                      <p>&nbsp;</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The request URL as specified in <a>SDP Cloud API</a>.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;type_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>Constant</td>
+                    <td>
+                      <p>The HTTP request method.</p>
+                      <p><strong>Allowed values:</strong></p>
+                      <ul>
+                        <li>GET</li>
+                        <li>POST</li>
+                        <li>PUT</li>
+                        <li>PATCH</li>
+                        <li>DELETE</li>
+                      </ul>
+                      <p><strong>Default value:</strong> GET</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;headers_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td><p>The attributes or the header values.</p></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;content_type_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The type of content that needs to be sent in the body of
+                        the HTTP request.
+                      </p>
+                      <p>
+                        <strong>Allowed values:</strong> Any valid content type.
+                        Eg, multipart/form-data,
+                        application/x-www-form-urlencoded, application/json,
+                        etc.
+                      </p>
+                      <p><strong>Default value:</strong></p>
+                      <ul>
+                        <li>
+                          <strong>application/x-www-form-urlencoded</strong>, if
+                          the body is <span>KEY-VALUE</span>.
+                        </li>
+                        <li>
+                          <strong>text/plain</strong>, if the body is
+                          <span>TEXT</span>.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;parameters_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <span>TEXT</span>/<span>FILE</span>/
+                      <span>KEY-VALUE</span>
+                    </td>
+                    <td>
+                      <p>The body of the request.</p>
+                      <p>
+                        <strong
+                          >Send various types of request body using
+                          invokeUrl:</strong
+                        >
+                      </p>
+                      <ul>
+                        <li>
+                          <strong>Raw:</strong><br /><span>TEXT</span> data to
+                          this parameter will be sent as raw type.<br />&nbsp;
+                        </li>
+                        <li>
+                          <strong>x-www-form-urlencoded:</strong><br /><span
+                            >KEY-VALUE</span
+                          >
+                          data to this parameter will be sent as
+                          <strong>x-www-form-urlencoded</strong>
+                          type.<br />&nbsp;
+                        </li>
+                        <li>
+                          <strong>Form-data:</strong><br /><span
+                            >KEY-VALUE</span
+                          >
+                          data to this parameter will be sent as multipart
+                          form-data type, if the value of
+                          the&nbsp;<strong>content-type</strong>&nbsp;parameter
+                          is specified
+                          as&nbsp;<strong>multipart/form-data</strong>.<br /><br /><strong
+                            >Note:
+                          </strong>
+                          <ul>
+                            <li>
+                              If the value of the content-type parameter is not
+                              specified
+                              as&nbsp;<strong>multipart/form-data</strong>, the
+                              KEY-VALUE data is treated
+                              as&nbsp;<strong>x-www-form-urlencoded</strong>&nbsp;type.
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <strong>Binary:</strong><br /><span>FILE</span> data
+                          is sent as binary type.<br /><br /><strong
+                            >Note:
+                          </strong>
+                          <ul>
+                            <li>
+                              The value of the
+                              <strong>&lt;content-type&gt;</strong
+                              >&nbsp;parameter must be specified
+                              as&nbsp;<strong>application/octet-stream</strong>,
+                              to recognize that the body is sent as binary type.
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;detailed_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      <p>
+                        This parameter decides if a detailed response needs to
+                        be returned.
+                      </p>
+                      <p><strong>Allowed values:&nbsp;</strong></p>
+                      <ul>
+                        <li>
+                          <strong>true</strong> - returns response code (HTTP
+                          status code), header response, and response content as
+                          KEY-VALUE.
+                        </li>
+                        <li>
+                          <strong>false</strong> - returns the response content.
+                        </li>
+                      </ul>
+                      <p><strong>Default value:</strong> false</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;response_format_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>Constant</td>
+                    <td>
+                      <p>
+                        If this parameter is supplied with the value
+                        -&nbsp;<strong>FILE</strong>, the response is converted
+                        and returned as a FILE object.
+                      </p>
+                      <p><strong>Allowed values:</strong> FILE</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;encoding_format_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The character encoding scheme with which the response
+                        returned needs to be decoded.
+                      </p>
+                      <p>
+                        <strong>Allowed values:</strong> Click&nbsp;<a>here</a>
+                        to find the list of allowed values to this parameter.
+                      </p>
+                      <p><strong>Default value:</strong> UTF-8</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following example utilizes the&nbsp;<a
+                >SDP Cloud's API endpoint</a
+              >
+              to add a file fetched from cloud as an attachment to the request
+              of ID -&nbsp;<strong>3173000000203001</strong>:
+            </p>
+            <div>
+              <pre><span>// Fetch a file from cloud</span>
+&nbsp;<span>pdf_file</span><span> = </span><span>invokeurl</span>
+&nbsp;<span>[</span>
+&nbsp;&nbsp;<span>url</span><span>: </span><span>"http://www.africau.edu/images/default/sample.pdf"</span>
+&nbsp;&nbsp;<span>type</span><span>: GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;<span>// Create a map to hold the API parameters</span>
+&nbsp;<span>paramsMap</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>paramsMap</span><span>.put</span><span>(</span><span>"filename"</span><span>, </span><span>pdf_file</span><span>)</span><span>;</span>
+&nbsp;<span>paramsMap</span><span>.put</span><span>(</span><span>"addtoattachment"</span><span>, </span><span>"true"</span><span>)</span><span>;</span>
+&nbsp;<span>// Perform SDP invokeUrl task to upload and associate file to a request</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sdp</span><span>.invokeurl</span>
+&nbsp;<span>[</span>
+&nbsp;&nbsp;<span>url</span><span>: </span><span>"/api/v3/requests/3173000000203001/_uploads"</span>
+&nbsp;&nbsp;<span>type</span><span>: </span><span>POST</span>
+&nbsp;&nbsp;<span>parameters</span><span>: </span><span>paramsMap</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;<span>info</span><span> response</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by SDP Cloud.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>paramsMap</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the
+                      parameters required by the API.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>pdf_file</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>FILE</span>&nbsp;variable that holds the file
+                      that needs to be added as attachment.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response for the example provided will be returned
+                in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"response_status": [<br />&nbsp;{<br />&nbsp;"status_code":
+                  2000,<br />&nbsp;"status": "success"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"files":
+                  [<br />&nbsp;{<br />&nbsp;"request": {<br />&nbsp;"id":
+                  "3173000000203001"<br />&nbsp;},<br />&nbsp;"size": "3028",<br />&nbsp;"content_type":
+                  "application/pdf",<br />&nbsp;"module": "Request",<br />&nbsp;"file_id":
+                  "5001",<br />&nbsp;"name": "sample.pdf",<br />&nbsp;"content_url":
+                  "/requests/3173000000203001/uploads/5001",<br />&nbsp;"id":
+                  "3173000000206001"<br />&nbsp;}<br />&nbsp;]<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>SDP Cloud Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+              <li>
+                To do more using SDP Cloud API,&nbsp;<a>these help pages</a>
+                might help.
+              </li>
+              <li>You can find the possible error codes&nbsp;<a>here</a>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

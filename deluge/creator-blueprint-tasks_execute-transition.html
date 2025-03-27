@@ -1,0 +1,382 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Creator Blueprint Tasks</a></li>
+        <li><a>Execute Transition</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Execute Transition</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Example 1: To perform the transition</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a>Use Case Scenario</a>
+                  <ul>
+                    <li><a>Scenario 1</a></li>
+                  </ul>
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Note:&nbsp;</strong></p>
+              <ul>
+                <li>This task is only applicable to Zoho Creator.</li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>thisapp.blueprint.executeTransition</strong> task lets
+              you perform any succeeding transition in a blueprint stage.
+            </p>
+            <div>
+              <p><strong>Note:&nbsp;</strong></p>
+              <ul>
+                <li>
+                  This task cannot be executed if the transitions have already
+                  been executed manually from the report.
+                </li>
+                <li>
+                  If the condition criteria is set for the transition, that
+                  needs to be fulfilled to perform this task.
+                </li>
+                <li>
+                  When you perform this task, the stage will be changed to the
+                  succeeding stage of the executed transition.
+                </li>
+                <li>
+                  The maximum number of blueprint statements that can be
+                  executed in one function is 50.
+                </li>
+                <li>
+                  Blueprint will be associated only after the event completes
+                  for records created using the insert record task. To execute a
+                  transition, you can use make use of schedule workflows.
+                </li>
+              </ul>
+            </div>
+            <h2>​<a></a>Syntax</h2>
+            <div>
+              <pre><span>thisapp.blueprint.executeTransition</span><span>(</span><span>&lt;</span><span>form_link_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>blueprint_link_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>transition_link_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>recordID</span><span>&gt;</span><span>)</span><span>;</span>
+                                                                                                </pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>Params</strong></th>
+                    <th><strong>Data type</strong></th>
+                    <th><strong>Description</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;form_link_name&gt;</td>
+                    <td><span>&nbsp;TEXT</span></td>
+                    <td>
+                      <p>
+                        The link name of the form associated with the blueprint.
+                      </p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <ul>
+                          <li>
+                            Link names of applications, forms, reports, and
+                            fields in your account can be
+                            <a>viewed on the reference page</a> (listed in
+                            brackets).
+                          </li>
+                          <li>
+                            You can also fetch link names from the URL while
+                            accessing the form. The URL is in the format:
+                            app.zohocreator.com/appbuilder/&lt;application_owner&gt;/&lt;application_name&gt;/#Form:<strong
+                              >&lt;form_link_name&gt;</strong
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;blueprint_link_name&gt;</td>
+                    <td><span>&nbsp;TEXT</span></td>
+                    <td>
+                      <p>
+                        The link name of the blueprint in which this task will
+                        be performed.
+                      </p>
+                      <div>
+                        <strong>Note: </strong>You can get the link name of
+                        blueprint under Blueprint properties.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;transition_link_name&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The link name of the transition in the blueprint to be
+                        executed.&nbsp;
+                      </p>
+                      <div>
+                        <strong>Note:</strong> To get the transition link name,
+                        you can click the respective transition and view it in
+                        the right pane.&nbsp;
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;recordID&gt;</td>
+                    <td><span>&nbsp;NUMBER</span></td>
+                    <td>
+                      The ID of the record in which this task will be performed.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1: To perform the transition</h2>
+            <p>
+              The following example executes the delivery transition of the
+              blueprint order management form.
+            </p>
+            <div>
+              <pre><span>thisapp.blueprint.executeTransition</span><span>(</span><span>"orderManagement"</span><span>,</span> <span>"orderFlow"</span><span>,</span> <span>"delivered"</span><span>,</span> <span>input.ID</span><span>)</span><span>;</span>
+                                                                                                </pre>
+            </div>
+            <p>Where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"orderManagement"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the form associated with the blueprint.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"orderFlow"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the blueprint.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"delivered"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the transition
+                      link name that needs to be executed.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>ID</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the ID of the
+                      record on which this task to be performed
+                    </div>
+                  </div>
+                  <div><div>&nbsp;</div></div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Scenario 1</h2>
+            <p>
+              Let's look at an online skill training management application,
+              with the <em>Registration</em> form for trainee registration and
+              the <em>Institution details</em> form for collecting institution
+              details. The <em>Institution details</em> form is linked to the
+              <em>Registration</em> form, with institution name as a lookup. The
+              registration form is associated in the blueprint with stages and
+              transitions, as shown below.
+            </p>
+            <p><img /></p>
+            <p>
+              Consider a scenario where 20 students from the same institution
+              applied for robotics and automation training. All of these
+              students will undergo the training during the same time period, so
+              the process of registration and fee payment will be the same for
+              all and the institution will register and pay their fee. Instead
+              of executing the
+              <strong>Registered and fee paid</strong> transition in the
+              blueprint individually for all these students, we can execute
+              these transitions for all students of this institution at once by
+              configuring a workflow with the
+              <strong>thisapp.blueprint.executeTransition</strong> task as a
+              <a>action</a> in the Institution details form's report. When you
+              click this action item from the record of the desired institution
+              in report, the transitions
+              <strong>Registered and fee paid</strong> in the blueprint will be
+              executed for all students of the institution in Registration
+              form's report.
+            </p>
+            <div>
+              <pre><span>//fetch records of the students based on institution</span>&nbsp;
+                                                                                                <span>Records</span> <span>=</span> <span>Registration</span> <span>[</span><span>ID</span> <span>==</span> <span>input.ID</span><span>]</span><span>;</span>&nbsp;
+                                                                                                <span>//execute transition for fetched records.</span>&nbsp;
+                                                                                                <span>for each</span> <span>data</span> <span>in</span> <span>Records</span>&nbsp;
+                                                                                                <span>{</span>&nbsp;
+                                                                                                <span>thisapp.blueprint.executeTransition</span><span>(</span><span>"Registration"</span><span>,</span> <span>"Training"</span><span>,</span> <span>"Registered and fee paid"</span><span>,</span> <span>data.ID</span><span>)</span><span>;</span>&nbsp;
+                                                                                                <span>}</span>
+                                                                                                </pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Change Stage</a></li>
+              <li><a>Understand blueprint</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.0103886"><iframe></iframe></div>
+</div>

@@ -1,0 +1,261 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>User roles &amp; properties tasks</a></li>
+        <li><a>Portal User Tasks</a></li>
+        <li><a>Assign profile to portal user</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Assign profile to portal user</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>Note:</p>
+              <ul>
+                <li>This task is applicable only to Zoho Creator.</li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;deluge task&nbsp;assigns a specified profile to
+              specified customer portal user.&nbsp;
+            </p>
+            <h2><a></a>Return</h2>
+            <p>
+              This task returns a MAP value in the format
+              {"profileName":"&lt;specified_profile&gt;","screenName":"&lt;specified_email&gt;"}
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <p>
+                <span
+                  >&lt;variable&gt; =
+                  thisapp.portal.assignUserInProfile(&lt;email_ID&gt;,
+                  &lt;profile_name&gt;);</span
+                >
+              </p>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Param</th>
+                    <th>Explanation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p>&lt;variable&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><p>Variable which will hold the returned value.</p></td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;email_ID&gt;</span></td>
+                    <td>
+                      <p>
+                        Email id of the customer portal user to whom the profile
+                        must be assigned.
+                      </p>
+                      <p>Points to note for this parameter:</p>
+                      <ul>
+                        <li>
+                          You can specify multiple email addresses in a list
+                          format.&nbsp;
+                        </li>
+                        <li>
+                          If the specified customer portal user does not exist,
+                          the new user will be added with the specified
+                          profile.&nbsp;&nbsp;
+                        </li>
+                        <li>
+                          You can view the email addresses of existing customer
+                          portal users in&nbsp;the application from the&nbsp;<a
+                            >Customer Portal page</a
+                          >.
+                        </li>
+                      </ul>
+                      <p>
+                        Applicable data types are List and
+                        <strong>String</strong>.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;p<span>rofile_name</span>&gt;</td>
+                    <td>
+                      <p>
+                        Name of the profile which needs to be assigned to the
+                        specified customer portal user.
+                      </p>
+                      <p>Points to note for this parameter:</p>
+                      <ul>
+                        <li>
+                          If the specified profile does not exist, execution of
+                          the script will be stopped during runtime and an error
+                          message will be displayed.&nbsp;
+                        </li>
+                        <li>
+                          You can view the existing customer portal profiles in
+                          the <a>Customer Portal Permissions page</a>.
+                        </li>
+                      </ul>
+                      <p>Data type is <strong>String</strong>.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              A sample snippet assigning "Customer" profile to a customer portal
+              user.
+            </p>
+            <div>
+              thisapp.portal.assignUserInProfile("john@zillum.com", "Read");
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

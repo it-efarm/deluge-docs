@@ -1,0 +1,111 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Number functions</a></li>
+        <li><a>truncate</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>truncate</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>truncate</strong>&nbsp;function&nbsp;returns the input
+              decimal truncated to the specified number of places to the left or
+              right&nbsp;of the decimal point.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>
+                <a><span>DECIMAL</span></a>
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>number</span><span>&gt;</span><span>.truncate</span><span>(</span><span>&lt;</span><span>digits</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>DECIMAL</span></td>
+                    <td>Variable that will hold the truncated value.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;number&gt;</td>
+                    <td><span>DECIMAL</span></td>
+                    <td>Variable that holds the input decimal value.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;digits&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>number of digits that need to be truncated.</p>
+                      <p><strong>Note:</strong></p>
+                      <ul>
+                        <li>
+                          If a positive value is supplied, this function will
+                          truncate the specified number of places to the right
+                          of the decimal point.
+                        </li>
+                        <li>
+                          If zero is supplied, this function will discard the
+                          right side of the decimal point&nbsp;and return only
+                          the integer value
+                        </li>
+                        <li>
+                          If a negative value is supplied, this
+                          function&nbsp;will truncate the specified number of
+                          places to the left of the decimal point. That is, it
+                          will discard the right side of the decimal point and
+                          fill the specified number of places to the left of the
+                          decimal point with zeros.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>number</span> <span>=</span> <span>25.125432</span> <span>;</span>
+&nbsp;<span>info </span><span>number</span>.<span>truncate</span><span>(</span><span>2</span><span>)</span><span>;</span> <span>// returns 25.12
+​</span>
+&nbsp;<span>number</span> <span>=</span> <span>9789.852</span> <span>;</span>
+&nbsp;<span>info </span><span>number</span>.<span>truncate</span><span>(</span><span>0</span><span>)</span><span>;</span> <span>// returns 9789</span>
+​
+&nbsp;<span>number</span> <span>=</span> <span>9789.852</span> <span>;</span>
+&nbsp;<span>info </span><span>number</span>.<span>truncate</span><span>(</span><span>-2</span><span>)</span><span>;</span> <span>// returns 9700</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

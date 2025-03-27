@@ -1,0 +1,99 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>toCollection</a></li>
+        <li><a>Type conversion functions</a></li>
+        <li><a>toCollection</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>toCollection</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>toCollection</strong>&nbsp;function takes
+              an&nbsp;<strong>expression</strong>&nbsp;as an argument, and
+              returns a collection.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>COLLECTION</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression</span><span>&gt;</span><span>.toCollection</span><span>(</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>COLLECTION</span></td>
+                    <td>
+                      The variable which will contain the converted collection.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;expression&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      The text that needs to be converted to a collection.
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <ul>
+                          <li>
+                            If the text contains key-value pairs, the collection
+                            behaves like a <a>map</a>.
+                          </li>
+                          <li>
+                            If the text contains values, other than key-value
+                            pairs, the collection behaves like a <a>list</a>.
+                          </li>
+                          <li>
+                            This function can act on <a>map</a> and
+                            <a>list</a> datatypes alsoand convert them into a
+                            collection
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>products</span><span> = </span> <span>"{company:Zoho, product:Deluge}"</span><span>;</span>
+&nbsp;<span>info </span><span>products</span><span>.toCollection</span><span>(</span><span>)</span><span>; </span><span>// Returns the collection as a key-value pair - {"product":"Creator","company":"Zoho"}</span></pre>
+              <pre>&nbsp;<span>products</span><span> = </span> <span>"{company, Zoho, product, Deluge}"</span><span>;</span>
+&nbsp;<span>info </span><span>products</span><span>.toCollection</span><span>(</span><span>)</span><span>; </span><span>// Returns the collection as a list - "product,Creator,company,Zoho"</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,143 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>getDateTime</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>getDateTime</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>getDateTime</strong> function takes a
+              <strong>date-time or text</strong> value as an argument, and
+              returns a formatted date-time value in a presentable format.
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  This function returns the formatted date-time as a
+                  <strong>text</strong> value.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>
+                <a><span>TEXT</span></a>
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>dateTimeValue</span><span>&gt;</span><span>.getDateTime</span><span>(</span><span>[</span><span>&lt;</span><span>format</span><span>&gt;</span><span>]</span><span>, <span>[</span></span><span>&lt;</span><span>show_seconds</span><span>&gt;</span><span>]</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>getDateTime</span><span>(</span><span>&lt;</span><span>dateTimeValue</span><span>&gt;</span><span>,</span> <span>[</span><span>&lt;</span><span>format</span><span>&gt;</span><span>]</span><span>,</span> <span>[</span><span>&lt;</span><span>show_seconds</span><span>&gt;</span><span>)</span><span>]</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      Variable which will contain the formatted date value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;dateTimeValue&gt;</td>
+                    <td><span>DATE-TIME</span>/<span>TEXT</span></td>
+                    <td>
+                      <p>The value which has to be formatted.</p>
+                      <div>
+                        <p><strong>Note</strong>:&nbsp;</p>
+                        <ul>
+                          <li>
+                            In services other than Zoho Creator, the value of
+                            this parameter&nbsp;can be entered either as a
+                            <a>text</a> or as a <a>date-time</a>&nbsp;value.
+                          </li>
+                          <li>
+                            In Zoho Creator, the value of this
+                            parameter&nbsp;can be entered only as a
+                            <a>date-time</a> value.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;format&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>
+                        The format in which the date-time value must be
+                        represented. 12 for 12-hour format and 24 for 24-hour
+                        format. Takes 12-hour format by default if not
+                        specified.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;show_seconds&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      <p>
+                        A value of true displays seconds (if present in the
+                        source text or date). A value of false hides seconds.
+                        Takes false by default if not specified.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre><span>currentDate</span> <span>=</span> <span>'17-Jan-2018 10:10:37'</span><span>;</span>
+<span>info </span><span>currentDate</span><span>.getDateTime</span><span>(</span><span>12</span><span>,</span> <span>true</span><span>)</span><span>;</span> <span>// Returns 17th January 2018,10:10:37 AM</span>
+</pre>
+            </div>
+            <div>
+              <pre><span>currentDate</span> <span>=</span> <span>'17-Jan-2018 09:00:59'</span><span>;</span>
+<span>info </span><span>currentDate</span><span>.getDateTime</span><span>(</span><span>)</span><span>;</span> <span>// Returns 17th January 2018,09:00 AM</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

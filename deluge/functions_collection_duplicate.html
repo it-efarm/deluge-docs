@@ -1,0 +1,100 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>duplicate</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>duplicate</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>duplicate</strong>&nbsp;function returns the elements
+              present in the given start index (inclusive) and end index (non
+              inclusive). If the indices are not specified, it duplicates and
+              returns the given <a>collection</a> of elements.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>LIST</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.duplicate</span><span>(</span><span>&lt;</span><span>startIndex</span><span>&gt;</span><span>,</span>  <span>&lt;</span><span>endIndex</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>LIST</span></td>
+                    <td>Variable which will hold the returned list.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;collectionVariable&gt;</td>
+                    <td><span>COLLECTION</span></td>
+                    <td>
+                      Variable from which the elements in the specified indices
+                      will be returned.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;startIndex&gt;</p>
+                      <p>&lt;endIndex&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>
+                        The start and end indices&nbsp;of the elements which
+                        needs to be duplicated.
+                      </p>
+                      <p>Index starts from 0.</p>
+                      <p>
+                        If the value for endIndex is greater&nbsp;than the list
+                        size, a runtime error will be encountered.
+                      </p>
+                      <p>
+                        If the indices are not specified, the function
+                        duplicates and returns the entire list.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>products1</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span><span>,</span> <span>"CRM"</span><span>,</span> <span>"Books"</span><span>)</span><span>;</span>
+&nbsp;<span>info </span><span>products1</span><span>.duplicate</span><span>(</span> <span>0</span><span>,</span> <span>1</span><span>)</span><span>;</span> <span>// Returns "Creator"</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

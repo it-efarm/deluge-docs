@@ -1,0 +1,256 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Mail integration tasks</a></li>
+        <li><a>Get Message from Zoho Mail</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Message from Zoho Mail</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note: </strong>This task is applicable to all Zoho
+              services, except Zoho Creator.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.mail.getMessage</strong> task is used to retrieve
+              details of an email from Zoho Mail.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.mail.getMessage</span><span>(</span><span>&lt;</span><span>message_id</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The response that represents the folder name,
+                            sender, from address, cc, bcc, subject and content
+                            of the email.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;message_id&gt;</p></td>
+                        <td><span>NUMBER</span></td>
+                        <td>
+                          <p>
+                            The ID of the email whose details will be retrieved.
+                          </p>
+                          <p>
+                            <strong>Note: </strong>You can get the message_id
+                            from the Zoho Mail URL. The URL is in the following
+                            format:<br />https://mail.zoho.com/zm/#mail/folder/&lt;folder_id&gt;/p/<strong
+                              >&lt;message_id&gt;</strong
+                            >
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;<strong>&nbsp;</strong></p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                The scope&nbsp;required for this task as
+                                mentioned by Zoho Mail&nbsp;API is
+                                <strong>messages</strong>.
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script retrieves details of the specified email in
+              Zoho Mail:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.mail.getMessage</span><span>(</span><span>6729326000000548039</span>,<span> "mail_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      folder name, sender, from address, cc, bcc, subject and
+                      content of the email.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>6729326000000548039</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the ID of the
+                      email whose details will be retrieved.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"mail_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the link name of
+                      Zoho Mail OAuth connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response will be returned in the following format:
+                <div>
+                  <p>
+                    &nbsp; &nbsp;{<br />&nbsp; &nbsp;"CC":"",<br />&nbsp;
+                    &nbsp;"BCC":"",<br />&nbsp; &nbsp;"RDT":"Fri, 07 Jul 2017
+                    11:52:31 +0530",<br />&nbsp;
+                    &nbsp;"SENTTIMEINMILLIS":"1499432506000",<br />&nbsp;
+                    &nbsp;"FOLDERNAME":"India-all",<br />&nbsp;
+                    &nbsp;"SENDER":"organic@zylker.com",<br />&nbsp;
+                    &nbsp;"NT":0,<br />&nbsp;
+                    &nbsp;"INREPLYTO":"&lt;15d1b9be3c3.d18d561f9228.8036482621812440414@zylker.com&gt;",<br />&nbsp;
+                    &nbsp;"STATUS2ID":0,<br />&nbsp;
+                    &nbsp;"MAILID":"&lt;15d1ba3cd78.124070c079319.3563819432306205449@zylker.com&gt;",<br />&nbsp;
+                    &nbsp;"PRIORITY":3,<br />&nbsp;
+                    &nbsp;"FROM":"organic@zylker.com",<br />&nbsp;
+                    &nbsp;"SHRINKED":false,<br />&nbsp; &nbsp;"ISAUTH":true,<br />&nbsp;
+                    &nbsp;"MA":0,<br />&nbsp; &nbsp;"SENTTIME":"Fri, 07 Jul 2017
+                    11:31:46 +0530",<br />&nbsp;
+                    &nbsp;"REFHEADER":"&lt;15d1b9be3c3.d18d561f9228.8027309768891440414@zylker.com&gt;",<br />&nbsp;
+                    &nbsp;"SUBJECT":"Organic store will open only at 4 pm
+                    today.",<br />&nbsp;
+                    &nbsp;"TO":"&amp;quot;team@zylker.com&amp;quot;&amp;lt;team@zylker.com&amp;gt;",<br />&nbsp;
+                    &nbsp;"CONTENT":"&lt;meta /&gt;&lt;div&gt;&lt;div
+                    style=\"font-size: 10.0pt;font-family: Verdana , Arial ,
+                    Helvetica , sans-serif;\"&gt;&lt;div&gt;&lt;br
+                    /&gt;&lt;\/div&gt;&lt;div&gt;&lt;br
+                    /&gt;&lt;\/div&gt;&lt;div
+                    class=\"zmail_extra\"&gt;&lt;div&gt;&lt;div&gt;&lt;br
+                    /&gt;&lt;\/div&gt;&lt;\/div&gt;&lt;div&gt;&lt;br
+                    /&gt;&lt;\/div&gt;&lt;blockquote style=\"border-left: 1.0px
+                    solid rgb(204,204,204);padding-left: 6.0px;margin: 0 0 0
+                    5.0px;\"&gt;&lt;div&gt;&lt;div style=\"font-size:
+                    10.0pt;font-family: Verdana , Arial , Helvetica ,
+                    sans-serif;\"&gt;&lt;div&gt;&lt;br
+                    /&gt;&lt;\/div&gt;&lt;div&gt;Hi All, &lt;br
+                    /&gt;&lt;\/div&gt;&lt;div&gt;This is to inform you that
+                    organic store will open only at 4 pm today. Please plan your
+                    purchases accordingly.&lt;br
+                    /&gt;&lt;\/div&gt;&lt;div&gt;&lt;br
+                    /&gt;&lt;\/div&gt;&lt;div&gt;&lt;br
+                    /&gt;&lt;\/div&gt;&lt;div&gt;With Kindly Regards&lt;br
+                    /&gt;&lt;\/div&gt;&lt;div&gt;&lt;br
+                    /&gt;&lt;\/div&gt;&lt;div&gt;Organic Team&lt;br
+                    /&gt;&lt;\/div&gt;&lt;\/div&gt;&lt;\/div&gt;&lt;\/blockquote&gt;&lt;\/div&gt;&lt;div&gt;&lt;br
+                    /&gt;&lt;\/div&gt;&lt;\/div&gt;&lt;\/div&gt;",<br />&nbsp;
+                    &nbsp;"UUID":"358c12e5-77a7-4120-b6f7-2a007b09ddd7",<br />&nbsp;
+                    &nbsp;"RETURNPATH":"&lt;organic@zylker.com&gt;"<br />}
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p><strong>Success Response for a mail containing attachments</strong></p>
+      <div>
+        <p>
+          &nbsp; &nbsp;{<br />&nbsp;&nbsp;&nbsp;"RR":-1,<br />&nbsp;&nbsp;&nbsp;"MSGINTEG":"{\"8\":[{\"SES\":0,\"SSS\":0,\"HSM\":false,\"MEL\":1}]}",<br />&nbsp;&nbsp;&nbsp;"HASINLINE":false,<br />&nbsp;&nbsp;&nbsp;"ATSIZE":"[422107,93658]",<br />&nbsp;&nbsp;&nbsp;"NT":0,<br />&nbsp;&nbsp;&nbsp;"MAILID":"&lt;1727e29835f.be5e20a36825.3764880084713656439@zylker.com&gt;",<br />&nbsp;&nbsp;&nbsp;"PRIORITY":3,<br />&nbsp;&nbsp;&nbsp;"FROM":"dinesh@zylker.com",<br />&nbsp;&nbsp;&nbsp;"M":"1591254565082116773",<br />&nbsp;&nbsp;&nbsp;"SPAMDATA":"{\"ISAUTH\":true,\"ALERT_EMAILLIST\":[],\"AAM\":[],\"TRUSTED_DOMAIN\":\"zylker.com\",\"IS_PHISHING_MARKED\":false}",<br />&nbsp;&nbsp;&nbsp;"NEWATT":"[{\"st\":0,\"attType\":1,\"e\":\"1591254565084432773\",\"part\":\"138105488653440090\",\"fn\":\"Image&nbsp;in&nbsp;24&nbsp;slide&nbsp;of&nbsp;Introduction&nbsp;to&nbsp;Deluge&nbsp;-&nbsp;Zoho&nbsp;Inspire&nbsp;2020.png\",\"l\":[],\"fmt\":\"png\",\"fs\":\"422107\",\"ft\":101,\"et\":1,\"p\":\"138105473493440090\",\"inline\":false,\"size\":\"422107\",\"u\":\"52987684-a632-11ea-9246-0cc47ab0ac94\",\"appId\":\"0\",\"name\":\"Image&nbsp;in&nbsp;24&nbsp;slide&nbsp;of&nbsp;Introduction&nbsp;to&nbsp;Deluge&nbsp;-&nbsp;Zoho&nbsp;Inspire&nbsp;2020.png\",\"tn\":false,\"Id\":\"138105473493440090\",\"id\":\"138105473493440090\",\"shT\":0},{\"st\":0,\"attType\":1,\"e\":\"1591254565082116773\",\"part\":\"138105473494420000\",\"fn\":\"Image&nbsp;in&nbsp;24&nbsp;slide&nbsp;of&nbsp;Introduction&nbsp;to&nbsp;Deluge&nbsp;-&nbsp;Zoho&nbsp;Inspire&nbsp;2020&nbsp;(1).png\",\"l\":[],\"fmt\":\"png\",\"fs\":\"93658\",\"ft\":101,\"et\":1,\"p\":\"138105473494420000\",\"inline\":false,\"size\":\"93658\",\"u\":\"5298768e-a632-11ea-9246-0cc47ab0ac94\",\"appId\":\"0\",\"name\":\"Image&nbsp;in&nbsp;24&nbsp;slide&nbsp;of&nbsp;Introduction&nbsp;to&nbsp;Deluge&nbsp;-&nbsp;Zoho&nbsp;Inspire&nbsp;2020&nbsp;(1).png\",\"tn\":false,\"Id\":\"138105473494420000\",\"id\":\"138105473494420000\",\"shT\":0}]",<br />&nbsp;&nbsp;&nbsp;"ISAUTH":true,<br />&nbsp;&nbsp;&nbsp;"ATNAME":"[\"Image&nbsp;in&nbsp;24&nbsp;slide&nbsp;of&nbsp;Introduction&nbsp;to&nbsp;Deluge&nbsp;-&nbsp;Zoho&nbsp;Inspire&nbsp;2020.png\",\"Image&nbsp;in&nbsp;24&nbsp;slide&nbsp;of&nbsp;Introduction&nbsp;to&nbsp;Deluge&nbsp;-&nbsp;Zoho&nbsp;Inspire&nbsp;2020&nbsp;(1).png\"]",<br />&nbsp;&nbsp;&nbsp;"R":"1591254564584",<br />&nbsp;&nbsp;&nbsp;"PHONE_NUMBERS":"[\"9999-999-999\",\"044-6699-7070\"]",<br />&nbsp;&nbsp;&nbsp;"DELIVEREDTO":"dinesh@zylker.com",<br />&nbsp;&nbsp;&nbsp;"MA":0,<br />&nbsp;&nbsp;&nbsp;"SENTTIME":"Thu,&nbsp;04&nbsp;Jun&nbsp;2020&nbsp;12:39:18&nbsp;+0530",<br />&nbsp;&nbsp;&nbsp;"CONTENT":"&lt;meta&nbsp;/&gt;&lt;div&gt;&lt;div&nbsp;style=\"font-family:&nbsp;Verdana,&nbsp;Arial,&nbsp;Helvetica,&nbsp;sans-serif;font-size:&nbsp;10.0pt;\"&gt;&lt;div&gt;&lt;br&nbsp;/&gt;&lt;\/div&gt;&lt;div&nbsp;id=\"\"&gt;&lt;div&gt;&lt;div&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;Calibri,&nbsp;Verdana,&nbsp;Arial,&nbsp;sans-serif;\"&gt;&lt;span&nbsp;class=\"x_-1507915643size\"&nbsp;style=\"font-size:&nbsp;16.0px;\"&gt;&lt;span&gt;Best,&lt;\/span&gt;&lt;\/span&gt;&lt;\/span&gt;&lt;br&nbsp;/&gt;&lt;\/div&gt;&lt;div&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;georgia,&nbsp;\"times&nbsp;new&nbsp;roman\",&nbsp;times,&nbsp;serif;\"&gt;&lt;span&nbsp;class=\"x_-1507915643size\"&nbsp;style=\"font-size:&nbsp;16.0px;\"&gt;&lt;span&gt;Dino&lt;\/span&gt;&lt;\/span&gt;&lt;\/span&gt;&lt;br&nbsp;/&gt;&lt;\/div&gt;&lt;div&gt;&lt;span&nbsp;class=\"x_-1507915643size\"&nbsp;style=\"font-size:&nbsp;16.0px;\"&gt;(Zoho&nbsp;Deluge&lt;\/span&gt;&amp;nbsp;&lt;span&nbsp;class=\"x_-1507915643size\"&nbsp;style=\"font-size:&nbsp;18.0px;\"&gt;&lt;b&gt;&lt;span&gt;&lt;u&gt;&lt;span&nbsp;class=\"x_-1507915643colour\"&nbsp;style=\"color:&nbsp;rgb(102,102,102);\"&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;\"courier&nbsp;new\",&nbsp;courier,&nbsp;monospace,&nbsp;sans-serif;\"&gt;Te&lt;\/span&gt;&lt;\/span&gt;&lt;\/u&gt;&lt;\/span&gt;&lt;u&gt;&lt;span&nbsp;class=\"x_-1507915643colour\"&nbsp;style=\"color:&nbsp;rgb(102,102,102);\"&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;\"courier&nbsp;new\",&nbsp;courier,&nbsp;monospace,&nbsp;sans-serif;\"&gt;chnical&amp;nbsp;Writ&lt;\/span&gt;&lt;\/span&gt;&lt;\/u&gt;&lt;span&gt;&lt;span&nbsp;class=\"x_-1507915643colour\"&nbsp;style=\"color:&nbsp;rgb(102,102,102);\"&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;\"courier&nbsp;new\",&nbsp;courier,&nbsp;monospace,&nbsp;sans-serif;\"&gt;&lt;u&gt;er&lt;\/u&gt;)&lt;\/span&gt;&lt;\/span&gt;&lt;\/span&gt;&lt;\/b&gt;&lt;\/span&gt;&lt;br&nbsp;/&gt;&lt;\/div&gt;&lt;div&gt;&lt;span&nbsp;class=\"x_-1507915643size\"&nbsp;style=\"font-size:&nbsp;16.0px;\"&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;\"comic&nbsp;sans&nbsp;ms\";\"&gt;&lt;u&gt;Home&lt;\/u&gt;&amp;nbsp;&lt;\/span&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;Verdana,&nbsp;Arial,&nbsp;Helvetica,&nbsp;sans-serif;\"&gt;:&nbsp;6374&lt;\/span&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;\"comic&nbsp;sans&nbsp;ms\";\"&gt;-900-258&lt;\/span&gt;&lt;\/span&gt;&lt;br&nbsp;/&gt;&lt;\/div&gt;&lt;div&gt;&lt;span&nbsp;class=\"x_-1507915643size\"&nbsp;style=\"font-size:&nbsp;16.0px;\"&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;\"comic&nbsp;sans&nbsp;ms\";\"&gt;&lt;u&gt;Office&lt;\/u&gt;&amp;nbsp;&lt;\/span&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;georgia,&nbsp;\"times&nbsp;new&nbsp;roman\",&nbsp;times,&nbsp;serif;\"&gt;:&nbsp;&lt;\/span&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;\"comic&nbsp;sans&nbsp;ms\";\"&gt;044-6699-7070&lt;\/span&gt;&lt;span&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;Verdana,&nbsp;Arial,&nbsp;Helvetica,&nbsp;sans-serif;\"&gt;&amp;nbsp;&lt;\/span&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;Calibri,&nbsp;Verdana,&nbsp;Arial,&nbsp;sans-serif;\"&gt;&lt;u&gt;&lt;i&gt;ext&lt;\/i&gt;&lt;\/u&gt;&amp;nbsp;&lt;\/span&gt;&lt;\/span&gt;&lt;span&nbsp;class=\"x_-1507915643font\"&nbsp;style=\"font-family:&nbsp;\"comic&nbsp;sans&nbsp;ms\";\"&gt;1603&lt;\/span&gt;&lt;\/span&gt;&lt;br&nbsp;/&gt;&lt;\/div&gt;&lt;div&gt;&lt;br&nbsp;/&gt;&lt;\/div&gt;&lt;\/div&gt;&lt;div&gt;&lt;br&nbsp;/&gt;&lt;\/div&gt;&lt;\/div&gt;&lt;br&nbsp;/&gt;&lt;br&nbsp;/&gt;&lt;\/div&gt;&lt;br&nbsp;/&gt;&lt;\/div&gt;",<br />&nbsp;&nbsp;&nbsp;"SENDMAILTYPE":2,<br />&nbsp;&nbsp;&nbsp;"UUID":"007db78d-3fc1-4155-41b6-0b1c1e4a882b",<br />&nbsp;&nbsp;&nbsp;"CID":"1591254605355410001",<br />&nbsp;&nbsp;&nbsp;"CC":"",<br />&nbsp;&nbsp;&nbsp;"BCC":"",<br />&nbsp;&nbsp;&nbsp;"RDT":"Thu,&nbsp;04&nbsp;Jun&nbsp;2020&nbsp;12:39:24&nbsp;PM&nbsp;+0530",<br />&nbsp;&nbsp;&nbsp;"SENTTIMEINMILLIS":"1591279758000",<br />&nbsp;&nbsp;&nbsp;"FOLDERNAME":"Personal",<br />&nbsp;&nbsp;&nbsp;"SENDER":"dinesh",<br />&nbsp;&nbsp;&nbsp;"INREPLYTO":"",<br />&nbsp;&nbsp;&nbsp;"STATUS2ID":0,<br />&nbsp;&nbsp;&nbsp;"ATPATH":"[\"1591254565082116773_attach_138105473493440090\",\"1591254565082116773_attach_138105473494420000\"]",<br />&nbsp;&nbsp;&nbsp;"CALTYPE":0,<br />&nbsp;&nbsp;&nbsp;"ATSTORE":"[\"1591254565082116773\",\"1591254565082116773\"]",<br />&nbsp;&nbsp;&nbsp;"TID":"0",<br />&nbsp;&nbsp;&nbsp;"SHOWDISPLAYNAME":true,<br />&nbsp;&nbsp;&nbsp;"SHRINKED":false,<br />&nbsp;&nbsp;&nbsp;"SUBJECT":"test",<br />&nbsp;&nbsp;&nbsp;"TO":"\"Dinesh&nbsp;Dadi\"&lt;dinesh@zylker.com&gt;",<br />&nbsp;&nbsp;&nbsp;"SMT":2,<br />&nbsp;&nbsp;&nbsp;"RETURNPATH":"&lt;dinesh@zylker.com&gt;"<br />}
+        </p>
+      </div>
+      <div>
+        <div>
+          <p><strong>Failure Response</strong></p>
+          <ul>
+            <li>
+              The failure response for incorrect message ID will be returned in
+              the following format:
+              <div>
+                <p>
+                  {&nbsp;&nbsp;<br />&nbsp; &nbsp;"message":"No data
+                  available",<br />&nbsp; &nbsp;"status":"failure"<br />}
+                </p>
+              </div>
+            </li>
+          </ul>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>Zoho Mail Integration Tasks</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

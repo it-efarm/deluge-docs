@@ -1,0 +1,301 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>XML &amp; JSON functions</a></li>
+        <li><a>get vs getJson</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <p>​</p>
+      <div>
+        <div>
+          <h1>Difference between getJson and get</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The major difference between <strong>getJson</strong> and
+              <strong>get</strong> functions is the type of data on which the
+              two functions work. The getJson function is meant to be performed
+              on TEXT type&nbsp;which is in json or key-value format. The get
+              function on the other hand can work on key-value collections and
+              index-value collections.&nbsp;
+            </p>
+            <p>
+              The&nbsp;<strong>getJSON</strong>&nbsp;function retrieves values
+              from a&nbsp;JSON formatted text&nbsp;or a key-value collection
+              using a&nbsp;key. The&nbsp;<strong>get</strong>&nbsp;function
+              retrieves values from a key-value collection or an index-value
+              collection using either an index or a key.
+            </p>
+            <h2><a></a>Syntax for getJson</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span> = </span> <span>&lt;</span><span>json_or_map_text</span><span>&gt;</span><span>.getJson</span><span>(</span><span>&lt;</span><span>key</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <h2>Syntax for get</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span> = </span> <span>&lt;</span><span>map_or_list</span><span>&gt;</span><span>.get</span><span>(</span><span>&lt;</span><span>key_or_index</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>Variable which will contain the returned value.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;json_or_map_text&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The text in json or key-value format from which the
+                        specified key's value will be returned.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;map&gt;</p>
+                      <p>(also known as key-value)</p>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>
+                        The key-value collection from which the specified key's
+                        value will be returned.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;key&gt;</td>
+                    <td>
+                      <span>TEXT </span> for getJson<br /><br /><span
+                        >ANY TYPE&nbsp;</span
+                      >for get
+                    </td>
+                    <td>
+                      <p>The key whose value will be returned.</p>
+                      <p>
+                        If the specified key is not found, null value will be
+                        returned.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;list&gt;</p>
+                      <p>(also known as index-value)</p>
+                    </td>
+                    <td><span>INDEX-VALUE</span></td>
+                    <td>
+                      <p>
+                        The index-value collection from which the the specified
+                        index's value will be returned.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;index&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>
+                        The index whose value will be returned.<br /><br />​Index
+                        starts from 0.
+                      </p>
+                      <p>
+                        <strong>Note:&nbsp;</strong>If the specified index does
+                        not exist, a runtime error will be encountered.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              1) The below example retrieves the ID of an employee from a JSON
+              text. The backslashes are <a>escape characters</a> for quotation
+              marks in the text, which tell&nbsp;the system that they are not to
+              be considered as the&nbsp;standard beginning and ending quotations
+              of the text.
+            </p>
+            <div>
+              <pre>&nbsp;<span>employeeDetail</span><span> = </span><span>"{\"response\" : {\"employee\": {\"id\" : \"EMP-001\", \"role\" : \"Developer\"}}}"</span><span>;</span>   
+
+&nbsp;<span>info </span><span>employeeDetail</span><span>.getJSON</span><span>(</span><span>"response"</span><span>)</span><span>.getJSON</span><span>(</span><span>"employee"</span><span>)</span><span>.getJSON</span><span>(</span><span>"id"</span><span>)</span><span>;</span> <span>  // returns EMP-001
+
+</span></pre>
+            </div>
+            &nbsp;
+            <p>
+              2) The below example retrieves the IDs of all employees in a form
+              of a Collection from a JSON.
+            </p>
+            <div>
+              <pre>&nbsp;<span>resp</span> <span> = </span>  <span>{"data" : [{"Id":1, "firstname":"John", "lastName":"Day"},  {"Id":2, "firstname":"Patricia","lastname":"Boyle"}]}</span><span>;</span>
+
+&nbsp;<span>data</span> <span> = </span> <span>resp</span><span>.getJson</span><span>(</span><span>"data"</span><span>)</span><span>;</span>
+&nbsp;<span>employeeList</span> <span> = </span>  <span>data</span><span>.toJSONList</span><span>(</span><span>)</span><span>;</span>
+
+&nbsp;<span>idList</span> <span> = </span> <span>Collection</span><span>(</span><span>)</span><span>;</span>
+
+&nbsp;<span>for each </span> <span>employee </span> <span>in </span> <span>employeeList</span>
+&nbsp;<span>{</span>
+  &nbsp;<span>idList</span><span>.insert</span><span>(</span><span>employee</span><span>.getJson</span><span>(</span><span>"Id"</span><span>)</span><span>)</span><span>;</span>
+&nbsp;<span>}</span>
+
+&nbsp;<span>info </span><span>idList</span><span>;</span> <span>   //returns 1,2</span></pre>
+            </div>
+            &nbsp;
+            <p>
+              3) The below example retrieves the values of the 'mobileID' key
+              from all collections in the list.
+            </p>
+            <div>
+              <pre><span>resp</span> <span>=</span> <span>{</span><span>"data"</span> <span>:</span> <span>[</span><span>{</span><span>"Id"</span><span>:</span><span>{</span><span>"mobileID"</span> <span>:</span> <span>1001</span><span>,</span> <span>"laptopID"</span> <span>:</span> <span>2002</span><span>}</span><span>,</span> <span>"firstname"</span><span>:</span><span>"John"</span><span>,</span> <span>"lastName"</span><span>:</span><span>"Day"</span><span>}</span><span>,</span>  <span>{</span><span>"Id"</span><span>:</span><span>{</span><span>"mobileID"</span> <span>:</span> <span>3003</span><span>,</span> <span>"laptopID"</span> <span>:</span> <span>4004</span><span>}</span><span>,</span> <span>"firstname"</span><span>:</span><span>"Patricia"</span><span>,</span><span>"lastname"</span><span>:</span><span>"Boyle"</span><span>}</span><span>]</span><span>}</span><span>;</span>
+
+&nbsp;<span>data</span> <span>=</span> <span>resp</span><span>.getJson</span><span>(</span><span>"data"</span><span>)</span><span>;</span>
+&nbsp;<span>employeeList</span> <span>=</span> <span>data</span><span>.toJSONList</span><span>(</span><span>)</span><span>;</span>
+
+&nbsp;<span>idList</span> <span>=</span> <span>Collection</span><span>(</span><span>)</span><span>;</span>
+
+&nbsp;<span>for each</span> <span>employee</span> <span>in</span> <span>employeeList</span>
+&nbsp;<span>{</span>
+    &nbsp;<span>idList</span><span>.insert</span><span>(</span><span>employee</span><span>.getJson</span><span>(</span><span>"Id"</span><span>)</span><span>.get</span><span>(</span><span>"mobileID"</span><span>)</span><span>)</span><span>;</span>
+&nbsp;<span>}</span>
+
+&nbsp;<span>info</span> <span>idList</span><span>;</span>    <span>   //returns 1001, 3003</span>​​</pre>
+            </div>
+            &nbsp;
+            <p>
+              4) The below example retrieves the values from a key-value
+              collection based on the specified key.
+            </p>
+            <div>
+              <pre><span>mapVar</span> <span> = </span> <span>{</span><span>"Product"</span> <span>:</span> <span>"Creator"</span><span>,</span> <span>"Company"</span> <span>:</span> <span>"Zoho"</span><span>}</span><span>;</span>
+
+&nbsp;<span>boolVal</span> <span> = </span> <span>mapVar</span><span>.get</span><span>(</span><span>"creator"</span><span>)</span><span>;</span>             <span>   //returns null</span>
+&nbsp;<span>newBoolVal</span> <span>=</span> <span>mapVar</span><span>.get</span><span>(</span><span>"Product"</span><span>)</span><span>;</span>      <span>   //returns "Creator"</span></pre>
+            </div>
+            &nbsp;
+            <p>
+              5) The below example retrieves an element based on the specified
+              index.
+            </p>
+            <div>
+              <pre><span>listVar</span> <span>=</span> <span>{</span><span>"Creator"</span><span>,</span> <span>"CRM"</span><span>,</span> <span>{</span><span>"Projects"</span><span>,</span> <span>"Reports"</span><span>}</span><span>}</span><span>;</span>
+
+&nbsp;<span>elementValue</span> <span>=</span> <span>listVar</span><span>.get</span><span>(</span><span>2</span><span>)</span><span>;</span>                            <span>   //returns {"Projects", "Reports"}</span></pre>
+            </div>
+            <p>
+              <br />6) The below sample snippet is&nbsp;executed from Zoho
+              Creator. &nbsp;
+            </p>
+            <div>
+              <pre>resp <span>=</span>  <span>zoho</span><span>.crm</span><span>.getRecords</span><span>(</span><span>"Leads"</span><span>);</span>
+</pre>
+            </div>
+            <p>
+              It <a>retrieves records from Zoho CRM</a> in the following LIST
+              format.
+            </p>
+            <div>
+              <p>
+                {<br />&nbsp; &nbsp;"Owner":{<br />&nbsp; &nbsp; &nbsp;
+                "name":"Dinesh",<br />&nbsp; &nbsp; &nbsp;
+                "id":"4504261000000512001",<br />&nbsp; &nbsp; &nbsp;
+                "email":"dinesh@zylker.com"<br />&nbsp; &nbsp;},<br />&nbsp;
+                &nbsp;"Company":"Rangoni Of Florence",<br />&nbsp;
+                &nbsp;"Email":"christopher-maclead@zylker.com",<br />&nbsp;
+                &nbsp;"Description":null,<br />&nbsp;
+                &nbsp;"$currency_symbol":"$",<br />&nbsp;
+                &nbsp;"Rating":null,<br />&nbsp; &nbsp;"$review_process":{<br />&nbsp;
+                &nbsp; &nbsp; "approve":false,<br />&nbsp; &nbsp; &nbsp;
+                "reject":false,<br />&nbsp; &nbsp; &nbsp; "resubmit":false<br />&nbsp;
+                &nbsp;},<br />&nbsp; &nbsp;"Website":"http://www.zylker.com",<br />&nbsp;
+                &nbsp;"Twitter":"@zylker",<br />&nbsp;
+                &nbsp;"Salutation":"Mr.",<br />&nbsp;
+                &nbsp;"Last_Activity_Time":"2020-06-12T18:05:43+05:30",<br />&nbsp;
+                &nbsp;"First_Name":"Christopher",<br />&nbsp;
+                &nbsp;"Full_Name":"Mr. Christopher Maclead (Sample)",<br />&nbsp;
+                &nbsp;"Lead_Status":"Lost Lead",<br />&nbsp;
+                &nbsp;"Industry":"Service Provider",<br />&nbsp;
+                &nbsp;"Record_Image":"b5be64b25cdb3bbca08d2e2ebd46390d2e00641ea87f7d5083a00acd8094cf3a2ed1da5eea5f2f355bdbd506ed82998e0ceb37fb40086177ec0aac5c1b5e6ebf2b8781a945c03a316fc094ba132f7666",<br />&nbsp;
+                &nbsp;"Modified_By":{<br />&nbsp; &nbsp; &nbsp;
+                "name":"Dinesh",<br />&nbsp; &nbsp; &nbsp;
+                "id":"4504261000000512001",<br />&nbsp; &nbsp; &nbsp;
+                "email":"dinesh@zylker.com"<br />&nbsp; &nbsp;},<br />&nbsp;
+                &nbsp;"$review":null,<br />&nbsp; &nbsp;"$state":"save",<br />&nbsp;
+                &nbsp;"Skype_ID":"christopher-maclead",<br />&nbsp;
+                &nbsp;"$converted":false,<br />&nbsp;
+                &nbsp;"$process_flow":false,<br />&nbsp;
+                &nbsp;"Phone":"555-555-5555",<br />&nbsp; &nbsp;"Street":"375 St
+                Rt",<br />&nbsp; &nbsp;"Zip_Code":"11953",<br />&nbsp;
+                &nbsp;"id":"4504261000000200722",<br />&nbsp;
+                &nbsp;"Email_Opt_Out":false,<br />&nbsp;
+                &nbsp;"$approved":true,<br />&nbsp; &nbsp;"Designation":"VP
+                Accounting",<br />&nbsp; &nbsp;"$approval":{<br />&nbsp; &nbsp;
+                &nbsp; "delegate":false,<br />&nbsp; &nbsp; &nbsp;
+                "approve":false,<br />&nbsp; &nbsp; &nbsp; "reject":false,<br />&nbsp;
+                &nbsp; &nbsp; "resubmit":false<br />&nbsp; &nbsp;},<br />&nbsp;
+                &nbsp;"Modified_Time":"2020-05-27T12:49:08+05:30",<br />&nbsp;
+                &nbsp;"Created_Time":"2020-05-27T12:48:31+05:30",<br />&nbsp;
+                &nbsp;"$converted_detail":{
+              </p>
+              <p>
+                &nbsp; &nbsp;},<br />&nbsp; &nbsp;"$editable":true,<br />&nbsp;
+                &nbsp;"City":"Middle Island",<br />&nbsp;
+                &nbsp;"No_of_Employees":null,<br />&nbsp;
+                &nbsp;"Mobile":"555-555-5555",<br />&nbsp;
+                &nbsp;"$orchestration":false,<br />&nbsp;
+                &nbsp;"Last_Name":"Maclead (Sample)",<br />&nbsp;
+                &nbsp;"$in_merge":false,<br />&nbsp; &nbsp;"State":"NY",<br />&nbsp;
+                &nbsp;"Lead_Source":"Cold Call",<br />&nbsp;
+                &nbsp;"Country":"United States",<br />&nbsp; &nbsp;"Tag":[
+              </p>
+              <p>
+                &nbsp; &nbsp;],<br />&nbsp; &nbsp;"Created_By":{<br />&nbsp;
+                &nbsp; &nbsp; "name":"Dinesh Dinesh",<br />&nbsp; &nbsp; &nbsp;
+                "id":"4504261000000512001",<br />&nbsp; &nbsp; &nbsp;
+                "email":"dinesh@zylker.com"<br />&nbsp; &nbsp;},<br />&nbsp;
+                &nbsp;"Fax":null,<br />&nbsp; &nbsp;"Annual_Revenue":850000,<br />&nbsp;
+                &nbsp;"Secondary_Email":null<br />}
+              </p>
+            </div>
+            <p>
+              The above LIST is iterated and the get function is used to
+              retrieve values from a nested collection.
+            </p>
+            <div>
+              <pre><span>for each</span> <span> rec </span> <span>in</span> <span> resp </span>
+&nbsp;<span> {</span>
+&nbsp;<span>  info</span> <span> rec</span><span>.get</span><span>(</span><span>"Owner"</span><span>)</span><span>.get</span><span>(</span><span>"name"</span><span>)</span><span>;</span>
+&nbsp;<span> }</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

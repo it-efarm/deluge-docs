@@ -1,0 +1,361 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sign Integration Tasks</a></li>
+        <li><a>Upload document</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <p>​</p>
+      <div>
+        <div>
+          <h1>Create document to Zoho Sign</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Create a document with single file</a></li>
+                    <li>
+                      <a
+                        >Create a document with multiple files and provide a
+                        request name</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.sign.createDocument</strong> task is used to
+              upload a document to Zoho Sign. This task is based on the
+              <a>Zoho Sign API - Create document</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt; </span><span>= </span><span>zoho</span><span>.sign.createDocument</span><span>(</span><span>&lt;</span><span>files</span><span>&gt;</span><span>, </span><span>&lt;</span><span>data_map&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params&gt;</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The response returned by Zoho Sign that contains
+                            document information, creation, and ownership
+                            information.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;files&gt;</p></td>
+                        <td>
+                          <p><span>FILE</span> / <span>LIST</span></p>
+                        </td>
+                        <td>
+                          <p>The files that will be&nbsp;uploaded.</p>
+                          <div>
+                            <strong>Note:</strong>&nbsp;In Zoho Creator, the
+                            size of the&nbsp;input files
+                            individually&nbsp;cannot be more than
+                            <strong>50 MB</strong>.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;data_map&gt;</p>
+                          <p>&nbsp;</p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Other optional information that can be provided
+                            while&nbsp;uploading&nbsp;a document.
+                          </p>
+                          <div>
+                            <strong>Note:</strong>
+                            <ul>
+                              <li>
+                                The keys to this param need to be given as
+                                specified in <a>Zoho Sign API</a>.
+                              </li>
+                              <li>
+                                To skip this param, specify an empty map.&nbsp;
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in<a>
+                                  Zoho Sign API document</a
+                                >
+                                while creating the connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1: Create a document with single file</h2>
+            <p>The following script&nbsp;uploads a file&nbsp;to Zoho Sign:</p>
+            <div>
+              <pre>
+&nbsp;<span>// Fetch file from cloud</span>
+&nbsp;<span>pdf_file</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span>url</span><span>: </span><span>"http://www.africau.edu/images/default/sample.pdf"</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span>type</span><span>: </span><span>GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create an empty map to skip the &lt;data_map&gt; parameter</span>
+&nbsp;<span>dataMap</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Perform create document task to upload the file to Zoho Sign</span>
+&nbsp;<span>response</span><span> = </span> <span>zoho</span><span>.sign</span><span>.createDocument</span><span>(</span><span>pdf_file</span>, <span>dataMap</span>, <span>"sign_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents file
+                      ID, document ID and other relevant information.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>pdf_file</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>FILE</span>&nbsp;variable that holds the
+                      file that will be uploaded.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>dataMap</span>
+</pre>
+                    </div>
+                    <div>
+                      The empty&nbsp;<span>KEY-VALUE</span>&nbsp;variable to
+                      skip the &lt;data_map&gt; parameter.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"sign_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;that represents the link
+                      name of the Zoho Sign connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Create a document with multiple files</h2>
+            <p>
+              The following script&nbsp;uploads two&nbsp;files as a single
+              document to Zoho Sign:
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Fetch files from cloud</span>
+&nbsp;<span>file1</span> <span>=</span> <span>invokeurl</span>
+&nbsp;<span>[</span>
+&nbsp;<span>url</span> <span>:</span><span>"http://www.africau.edu/images/default/sample.pdf"</span>
+&nbsp;<span>type</span> <span>:GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;<span>file2</span> <span>=</span> <span>invokeurl</span>
+&nbsp;<span>[</span>
+&nbsp;<span>url</span> <span>:</span><span>"https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"</span>
+&nbsp;<span>type</span> <span>:GET</span>
+&nbsp;<span>]</span><span>;
+</span>
+&nbsp;<span>// Create a list to store the files that will be uploaded</span>
+&nbsp;<span>filesList</span> <span>=</span> <span>list</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>filesList</span><span>.add</span><span>(</span><span>file1</span><span>)</span><span>;</span>
+&nbsp;<span>filesList</span><span>.add</span><span>(</span><span>file2</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create a map to store request name</span>
+&nbsp;<span>dataMap</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>dataMap</span><span>.put</span><span>(</span><span>"requests"</span><span>,</span> <span>{</span><span>"request_name"</span><span>:</span><span>"My request"</span><span>}</span><span>)</span><span>;</span>
+&nbsp;<span>requestMap</span> <span>=</span><span>map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>requestMap</span><span>.put</span><span>(</span><span>"data"</span><span>, </span><span>dataMap</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Perform create document task to upload the files</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sign</span><span>.createDocument</span><span>(</span><span>filesList</span><span>, </span><span>requestMap</span>, <span>"sign_oauth_connection"</span><span>)</span><span>;</span>
+
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>filesList</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>LIST</span>&nbsp;that holds the files that will
+                      be uploaded.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>requestMap</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>KEY-VALUE</span>&nbsp;variable that holds
+                      the file name of the request.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"sign_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;that represents the link
+                      name of the Zoho Sign connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response will be returned in the following format:
+                <div>
+                  &nbsp; &nbsp;{&nbsp;&nbsp;<br />&nbsp; &nbsp;"code":0,<br />&nbsp;
+                  &nbsp;"requests":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                  "request_status":"draft",<br />&nbsp; &nbsp; &nbsp;
+                  "owner_email":"john@zylker.com",<br />&nbsp; &nbsp; &nbsp;
+                  "created_time":1512383208303,<br />&nbsp; &nbsp; &nbsp;
+                  "document_ids":[&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                  &nbsp;{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  &nbsp; "document_name":"christmas.pdf",<br />&nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; "document_order":"0",<br />&nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "total_pages":1,<br />&nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  "document_id":"2131000000010001"<br />&nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp;}<br />&nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp;
+                  &nbsp; "notes":"",<br />&nbsp; &nbsp; &nbsp;
+                  "self_sign":false,<br />&nbsp; &nbsp; &nbsp;
+                  "owner_id":"2131000000002003",<br />&nbsp; &nbsp; &nbsp;
+                  "description":"",<br />&nbsp; &nbsp; &nbsp;
+                  "request_url":"https://sign.zoho.com/zs#/requests/request/new/2131000000010007?internal=true",<br />&nbsp;
+                  &nbsp; &nbsp; "request_name":"yyy.pdf",<br />&nbsp; &nbsp;
+                  &nbsp; "modified_time":1512383208303,<br />&nbsp; &nbsp;
+                  &nbsp; "is_deleted":false,<br />&nbsp; &nbsp; &nbsp;
+                  "expiration_days":15,<br />&nbsp; &nbsp; &nbsp;
+                  "in_process":false,<br />&nbsp; &nbsp; &nbsp;
+                  "is_sequential":false,<br />&nbsp; &nbsp; &nbsp;
+                  "request_type_name":"Others",<br />&nbsp; &nbsp; &nbsp;
+                  "owner_first_name":"John",<br />&nbsp; &nbsp; &nbsp;
+                  "request_id":"2131000000010007",<br />&nbsp; &nbsp; &nbsp;
+                  "request_type_id":"2131000000000135",<br />&nbsp; &nbsp;
+                  &nbsp; "owner_last_name":"T",<br />&nbsp; &nbsp; &nbsp;
+                  "actions":[&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; ],<br />&nbsp;
+                  &nbsp; &nbsp; "sign_percentage":0<br />&nbsp; &nbsp;},<br />&nbsp;
+                  &nbsp;"message":"Document has been added",<br />&nbsp;
+                  &nbsp;"status":"success"<br />}
+                </div>
+              </li>
+            </ul>
+            <p>
+              To get the Zoho Sign <strong>request ID</strong> of the uploaded
+              file, execute the following script:
+            </p>
+            <div>
+              <pre><span>info </span><span>&lt;</span><span>response</span><span>&gt;</span><span>.get</span><span>(</span><span>"requests"</span><span>)</span><span>.get</span><span>(</span><span>"request_id"</span><span>)</span>.<span>toLong</span><span>()</span><span>;</span>
+</pre>
+            </div>
+            <p>
+              To get the Zoho Sign <strong>document ID</strong> of the uploaded
+              file, execute the following script:
+            </p>
+            <div>
+              <pre><span>info </span><span>&lt;</span><span>response</span><span>&gt;</span><span>.get</span><span>(</span><span>"requests"</span><span>)</span><span>.get</span><span>(</span><span>"document_ids"</span><span>)</span><span>.get</span><span>(</span><span>0</span><span>)</span><span>.get</span><span>(</span><span>"document_id"</span><span>)</span>.<span>toLong</span><span>()</span><span>;</span>
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Sign integration tasks</a></li>
+              <li><a>Connections</a></li>
+              <li><a>Zoho Sign API error codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

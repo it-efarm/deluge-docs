@@ -1,0 +1,324 @@
+<div class="help-content-panel">
+  <div>
+    <div><ul></ul></div>
+  </div>
+  <div>
+    <div>
+      <p>​</p>
+      <div>
+        <div>
+          <h1>Update record in Zoho Billing</h1>
+          <div>
+            <div>
+              <h4>Table of Contents<span>Up</span></h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2>Overview</h2>
+            <p>
+              This task is used to update a record in Zoho Billing using the
+              record ID.&nbsp;This task is based on
+              <a>Zoho Billing&nbsp;API</a> &lt;ModuleName&gt; -&gt; Update
+              a&nbsp;&lt;ModuleName&gt;.
+            </p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho.billing.update</span><span>(</span><span>&lt;</span><span>moduleName</span><span>&gt;</span><span>, </span><span>&lt;</span><span>organization_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_ID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>data_map</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Params&nbsp;</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;&nbsp;</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      is the variable which will hold the response returned by
+                      Zoho Billing.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;module_name&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      is the name of the module in Zoho Billing&nbsp;where the
+                      record&nbsp;will be updated.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;organization_id&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Org id of the organization in which the record will be
+                        updated.
+                      </p>
+                      <div>
+                        <strong>Note:</strong> Learn how to fetch organization
+                        ID from the&nbsp;<a>UI</a> and from&nbsp;the response
+                        of&nbsp;<a>zoho.billing.getOrganization</a> task.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;record_ID&gt;</p>
+                      <p>&nbsp;</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>ID of the record which will be updated.</p>
+                      <p>
+                        Learn how to fetch the record ID after
+                        <a>creating</a> or <a>fetching</a> records.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;data_map&gt;</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>
+                        Key-value pairs with key as the field name in Zoho
+                        Billing and value as its updated value.
+                      </p>
+                      <p>
+                        To learn about the field names, <a>click here</a> and go
+                        to&nbsp;<modulename
+                          >-&gt; Update a &lt;ModuleName&gt;<modulename
+                          ></modulename
+                        ></modulename>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;connection&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        specifies the link name of the Zoho Billing connection.
+                      </p>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of
+                            <a>stopping new authtoken generation</a>,&nbsp;a
+                            Zoho OAuth connection with appropriate scopes is
+                            mandatory in order for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter until you manually delete the authtoken
+                            from <a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes mentioned in
+                            <a>Zoho Billing API</a> while creating the
+                            connection.
+                          </li>
+                          <li>
+                            Refer to <a>this&nbsp;post</a> for the list of Zoho
+                            services that support the connections page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>Example: Update record&nbsp;in Zoho Billing</h2>
+            <p>
+              When the following script gets executed, the specified
+              record&nbsp;is updated in the "Subscriptions" module in Zoho
+              Books.
+            </p>
+            <div>
+              <pre>&nbsp;<span>values</span> = <span>Map()</span>;
+&nbsp;<span>values</span>.<span>put</span>(<span>"plan_code", 101</span>);
+&nbsp;
+&nbsp;<span>response </span><span>= </span><span>zoho.billing.update</span><span>(</span><span>"Subscriptions"</span><span>, </span><span>"66XXXX66"</span><span>, </span><span>"52849000000170032"</span><span>, </span><span>values</span><span>, </span><span>"billing_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>MAP</span>&nbsp;variable&nbsp;that&nbsp;holds
+                      the response returned by the Zoho Billing API
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>values</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>MAP</span>&nbsp;variable&nbsp;which
+                      hold&nbsp;key value pairs required to update&nbsp;a
+                      subscription
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Subscriptions"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module in
+                      which the record that will be updated
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"66XXXXX66"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the organization
+                      ID of the Zoho Billing account in which the record that
+                      will be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>"52849000000170032"</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      is a <span>TEXT</span>&nbsp;that represents the ID of the
+                      record that will be updated
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"billing_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the Billing connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>Sample Response</h2>
+            <p>
+              The following is a sample&nbsp;<strong>success</strong> response:
+            </p>
+            <div>
+              {&nbsp;&nbsp;<br />&nbsp; &nbsp;"message":"Subscription has been
+              updated successfully.",<br />&nbsp;
+              &nbsp;"subscription":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+              "subscription_id":"115888000000047005",<br />&nbsp; &nbsp; &nbsp;
+              "payment_terms":0,<br />&nbsp; &nbsp; &nbsp; "interval":1,<br />&nbsp;
+              &nbsp; &nbsp; "product_id":"115888000000037018",<br />&nbsp;
+              &nbsp; &nbsp; "payment_terms_label":"Due on Receipt",<br />&nbsp;
+              &nbsp; &nbsp; "next_billing_at":"2015-04-10",<br />&nbsp; &nbsp;
+              &nbsp; "product_name":"zoho",<br />&nbsp; &nbsp; &nbsp;
+              "current_term_starts_at":"2015-03-10",<br />&nbsp; &nbsp; &nbsp;
+              "customer":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"payment_terms":0,<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"payment_terms_label":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"zcrm_account_id":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"shipping_address":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; "zip":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; "fax":"",<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; "street":"",<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              "state":"",<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              "country":"",<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              "city":""<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},<br />&nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp;"first_name":"",<br />&nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp;"display_name":"ram",<br />&nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp;"email":"ram.s@gmail.com",<br />&nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp;"company_name":"",<br />&nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp;"zcrm_contact_id":"",<br />&nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp;"last_name":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"customer_id":"115888000000046001",<br />&nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp;"billing_address":{&nbsp;&nbsp;<br />&nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "zip":"",<br />&nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; "fax":"",<br />&nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; "street":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; "state":"",<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; "country":"",<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; "city":""<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br />&nbsp;
+              &nbsp; &nbsp; },<br />&nbsp; &nbsp; &nbsp;
+              "interval_unit":"months",<br />&nbsp; &nbsp; &nbsp;
+              "updated_time":"2015-03-10T11:06:10+0530",<br />&nbsp; &nbsp;
+              &nbsp; "current_term_ends_at":"2015-04-10",<br />&nbsp; &nbsp;
+              &nbsp; "amount":1000,<br />&nbsp; &nbsp; &nbsp;
+              "salesperson_name":"",<br />&nbsp; &nbsp; &nbsp;
+              "name":"zoho-monthly",<br />&nbsp; &nbsp; &nbsp;
+              "reference_id":"",<br />&nbsp; &nbsp; &nbsp;
+              "salesperson_id":"",<br />&nbsp; &nbsp; &nbsp;
+              "currency_symbol":"Rs.",<br />&nbsp; &nbsp; &nbsp;
+              "activated_at":"2015-03-10",<br />&nbsp; &nbsp; &nbsp;
+              "currency_code":"INR",<br />&nbsp; &nbsp; &nbsp;
+              "custom_fields":"[]",<br />&nbsp; &nbsp; &nbsp;
+              "child_invoice_id":"115888000000046015",<br />&nbsp; &nbsp; &nbsp;
+              "status":"live",<br />&nbsp; &nbsp; &nbsp; "addons":"[]",<br />&nbsp;
+              &nbsp; &nbsp; "last_billing_at":"2015-03-10",<br />&nbsp; &nbsp;
+              &nbsp; "contactpersons":[&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp;{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; "phone":"",<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              "email":"ram.s@gmail.com",<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; "zcrm_contact_id":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; "contactperson_id":"115888000000046003",<br />&nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "mobile":""<br />&nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp;}<br />&nbsp; &nbsp; &nbsp; ],<br />&nbsp;
+              &nbsp; &nbsp; "expires_at":"",<br />&nbsp; &nbsp; &nbsp;
+              "plan":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"tax_name":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"setup_fee":0,<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"price":1000,<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"tax_type":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"name":"monthly",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"tax_id":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"quantity":1,<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"tax_percentage":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;"plan_code":"monthly"<br />&nbsp; &nbsp; &nbsp; },<br />&nbsp;
+              &nbsp; &nbsp; "created_time":"2015-03-10T11:00:18+0530",<br />&nbsp;
+              &nbsp; &nbsp; "taxes":"[]",<br />&nbsp; &nbsp; &nbsp;
+              "auto_collect":false<br />&nbsp; &nbsp;},<br />&nbsp;
+              &nbsp;"code":0<br />}
+            </div>
+            <p>The following is a sample <strong>failure</strong> response:</p>
+            <div>
+              {&nbsp;&nbsp;<br />&nbsp; &nbsp;"message":"The action&nbsp;is not
+              allowed for this profile as there are no changes made in the plan
+              or addons.",<br />&nbsp; &nbsp;"code":26005<br />}
+            </div>
+            <h2>Related Links</h2>
+            <ul>
+              <li><a>Zoho Billing API</a></li>
+              <li><a>Zoho Billing error codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,207 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>addBusinessDay</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>addBusinessDay()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>addBusinessDay()</strong> function takes
+              <strong>dateTimeValue</strong> and
+              <strong>numberOfBusinessDays</strong> as arguments. It returns the
+              dateTimeValue after adding the specified number of business days
+              to it.
+            </p>
+            <div>
+              <p>
+                <strong>Note:</strong> Monday to Friday, irrespective of any day
+                being a holiday,&nbsp;are considered as business days.
+              </p>
+            </div>
+            <p>
+              The date-time value will be returned in the format specified in
+              Application Settings.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Date-Time</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>&lt;</span><span>dateTimeValue</span><span>&gt;</span><span>.addBusinessDay</span><span>(</span><span>&lt;</span><span>numberOfBusinessDays</span><span>&gt;</span><span>,</span> <span>[&lt;</span><span>weekends</span><span>&gt;]</span><span>,</span> <span>[&lt;</span><span>holidays</span><span>&gt;]</span><span>)</span><span>;</span>
+</pre>
+            </div>
+          </div>
+          <p>(OR)</p>
+          <div>
+            <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>addBusinessDay</span><span>(</span><span>&lt;</span><span>dateTimeValue</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>numberOfBusinessDays</span><span>&gt;</span><span>,</span> <span>[&lt;</span><span>weekends</span><span>&gt;]</span><span>,</span> <span>[&lt;</span><span>holidays</span><span>&gt;]</span><span>)</span><span>;</span>
+</pre>
+          </div>
+        </div>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>Parameter</strong></td>
+                <td><strong>Data type</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+              <tr>
+                <td>variable</td>
+                <td>DATE-TIME</td>
+                <td>
+                  Variable which will contain the returned date-time value.
+                </td>
+              </tr>
+              <tr>
+                <td>dateTimeValue</td>
+                <td><span>DATE-TIME</span></td>
+                <td>
+                  <p>
+                    The date-time value to which the specified number of
+                    business days will be added.
+                  </p>
+                  <p>
+                    The date-time value can be specified without a time value,
+                    in which case 00:00:00 will be taken as the default time
+                    value.
+                  </p>
+                  <p>
+                    If the hour value is specified as 24 or more, the date-time
+                    value be reset to 00:00:00. If the minutes value is
+                    specified as 60 or more, the mm:ss value will be reset to
+                    00:00, if the seconds value is specified as 60 or more, the
+                    ss value will be reset to 00.
+                  </p>
+                  <p>A runtime error will be encountered if:</p>
+                  <ul>
+                    <li>
+                      the hour value, or minute value, or second value, is
+                      specified in more than 2 digits.
+                    </li>
+                    <li>
+                      the date value exceeds the number of days in that month.
+                    </li>
+                    <li>an incorrect month value is specified.</li>
+                    <li>the year value has more than 4 digits.</li>
+                  </ul>
+                  <p>
+                    Refer <a>this help document</a> to learn about the supported
+                    date-time formats.
+                  </p>
+                  <div>
+                    <p>Note:&nbsp;</p>
+                    <ul>
+                      <li>
+                        In services other than Zoho Creator, the value of this
+                        parameter&nbsp;can be entered either as a <a>text</a> or
+                        as a <a>date-time</a>&nbsp;value.
+                      </li>
+                      <li>
+                        In Zoho Creator, the value of this parameter&nbsp;can be
+                        entered only as a <a>date-time</a> value.
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>numberOfBusinessDays</td>
+                <td><span>NUMBER</span></td>
+                <td>
+                  <p>
+                    The number of business days to be added to dateTimeValue.
+                  </p>
+                  <p>
+                    A negative number will return the given date-time value as
+                    it is.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>weekends<br />(optional)</td>
+                <td>
+                  <span>COLLECTION<br />(OF TEXT)</span>
+                </td>
+                <td>
+                  <p>
+                    The list of weekends that should be considered while adding
+                    business days.
+                  </p>
+                  <div>
+                    <p><strong>Note</strong></p>
+                    <ul>
+                      <li>
+                        By default, the weekends list is&nbsp;<strong
+                          >{Saturday, Sunday}</strong
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>holidays<br />(optional)</td>
+                <td>
+                  <span>COLLECTION<br />(OF DATES)</span>
+                </td>
+                <td>
+                  <p>
+                    The list of holidays that should be considered while adding
+                    business days.
+                  </p>
+                  <div>
+                    <p><strong>Note</strong></p>
+                    <ul>
+                      <li>
+                        <strong>​</strong>If no holidays are provided, any day
+                        (except weekends) will be considered a working day.
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h2><a></a>Examples</h2>
+        <div>
+          <span>currentDate</span> = '15-Mar-2019';&nbsp; &nbsp; &nbsp; &nbsp;
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>// is a Friday</span
+          ><br /><span>newDate = currentDate.addBusinessDay</span
+          >(1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //
+          returns '18-Mar-2019' which is Monday
+        </div>
+      </div>
+      <p>&nbsp;</p>
+      <div>
+        <span>newDate = zoho.currentdate.addBusinessDay</span>(5, {"Sunday"},
+        {'25-May-2020'});&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><span
+          >// assuming the current date is 23-May-2020, this task returns
+          '30-May-2020'</span
+        >
+      </div>
+      <p>&nbsp;</p>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

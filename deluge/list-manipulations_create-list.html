@@ -1,0 +1,252 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>List Manipulations</a></li>
+        <li><a>Create List</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create list</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>create list&nbsp;</strong>deluge task is used to
+              declare a <a>list</a> variable.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <p><span>To declare a list variable</span></p>
+            <div>
+              <span><span>&lt;variable&gt;</span></span
+              ><span><span> = List();</span></span
+              >​
+            </div>
+            <p>
+              <span
+                >To declare a list variable with a string element, or list
+                elements</span
+              >
+            </p>
+            <div>
+              <span><span>&lt;variable&gt;</span></span
+              ><span><span>&nbsp;= List( </span></span
+              ><span><span>&lt;value&gt;</span></span
+              ><span><span> );</span></span>
+            </div>
+            <p><span>To create a list with elements</span></p>
+            <div>
+              <span><span>&lt;variable&gt;</span></span
+              ><span><span> = {</span></span
+              ><span><span>&lt;element1&gt;</span></span
+              ><span><span>, </span></span
+              ><span><span>&lt;element2&gt;</span></span
+              ><span><span>, </span></span
+              ><span><span>&lt;element3&gt;</span></span
+              ><span><span> ...... </span></span
+              ><span><span>&lt;elementN&gt;</span></span
+              ><span><span>}&nbsp;;</span></span>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span><span>&lt;variable&gt;</span></span>
+                    </td>
+                    <td><p>Variable which will hold the list elements.</p></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;value&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>Applicable data types are Text and&nbsp;List.</p>
+                      <p>
+                        Only one string value can be specified at a time. If the
+                        text value has a comma, words (or empty strings) on
+                        either side of the comma will be considered as
+                        individual list elements.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;element&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>Elements to be added to the list.</p>
+                      <p>
+                        The elements can either be enclosed in curly
+                        brackets({}) or square brackets([]).
+                      </p>
+                      <p>
+                        Elements of&nbsp;different data-types can be
+                        accommodated in the same list. All data-types are
+                        applicable.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              1) The following sample snippet creates a list variable named
+              "colors", and adds the elements "red","blue" and "green" to it.
+            </p>
+            <div>colors = {"red","blue", "green"};</div>
+            <p>
+              2) The following sample snippet creates a list variable "listVar"
+              and adds the elements 1(an integer) and "Harry"(string) to it.
+            </p>
+            <div>
+              listVar=list();<br />listVar.add(1);<br />listVar.add("Harry");
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

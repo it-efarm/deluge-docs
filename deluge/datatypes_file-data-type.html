@@ -1,0 +1,171 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Data types</a></li>
+        <li><a>File</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <pre>&nbsp;</pre>
+      <div>
+        <div>
+          <h1>File data type</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li><a>Example 1: Fetch files using invokeUrL task</a></li>
+                    <li><a>Example 2: Integration with Zoho Sign</a></li>
+                  </ul>
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              Recognizing the importance of files in Zoho products, Deluge
+              implements FILE as a unique type of data. Files in Deluge must be
+              fetched from the web or cloud service. It doesn't operate on
+              offline files. There are several built-in functions called
+              <a>File functions</a> that operate on FILE datatype. The following
+              are the ways you can bring files into Deluge scripting:
+            </p>
+            <ol>
+              <li>
+                Use <a>invoke URL</a> or <a>get URL</a> to fetch files from web.
+              </li>
+              <li>
+                Use <a>invoke URL</a> to fetch files stored in any Zoho or
+                third-party services.
+              </li>
+              <li>
+                Use <a>integration tasks</a> that return a file as response.
+                Example: <a>zoho.writer.mergeAndDownload</a>
+              </li>
+              <li>
+                Use Zoho Creator <a>fetch record</a> task or
+                <a>input.&lt;expression&gt;</a> to fetch values uploaded in file
+                type fields like "file upload", "image", "video", "audio", and
+                "signature" fields. This is applicable only for Zoho Creator.
+              </li>
+            </ol>
+            <p>
+              Irrespective of the format, all the files fetched using any of the
+              above-mentioned methods, except the "fetch records" task and
+              "input" keyword, are treated as
+              <strong>file objects (or FILE data type).</strong>
+            </p>
+            <p>
+              For example, be it a .pdf format file or a .jpeg format file, both
+              are categorized under FILE data type. The files fetched using the
+              "fetch records" task and "input" keyword are not considered as
+              FILE data type, and hence <a>file functions</a> cannot be applied
+              on them. However, such files can be used in integration tasks (for
+              example in <a>attach file crm task</a>), or in the
+              <a>send mail</a> task to send as a file attachment, or to assign
+              the file as a value to another Zoho Creator file field.
+            </p>
+            <h2><a></a>Example 1: Fetch files using invokeUrl task</h2>
+            <div>
+              <pre><span>// to fetch file from the cloud using <a>invokeUrl</a> task</span>
+ &nbsp;<span>file_variable</span> <span> = </span> <span>invokeUrl</span>
+ &nbsp;<span>[</span>
+  &nbsp;<span>url</span><span>:</span> <span>"https://sample-videos.com/img/Sample-png-image-100kb.png"</span>
+  &nbsp;<span>type</span><span>:</span> <span>GET</span>
+ &nbsp;<span>]</span><span>;</span>
+</pre>
+            </div>
+            <p>Where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>file_variable</span></pre>
+                    </div>
+                    <div>
+                      is the <span>FILE</span> variable which holds the fetched
+                      file.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"https://sample-videos.com/img/Sample-png-image-100kb.png"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the URL of the
+                      file that needs to be fetched
+                    </div>
+                  </div>
+                  <div><div>&nbsp;</div></div>
+                </div>
+              </div>
+            </div>
+            <h2><a>Example 2: Integration with Zoho Sign</a></h2>
+            <p>
+              The following script downloads the specified document from
+              <a>Zoho Sign</a> using its request ID:
+            </p>
+            <div>
+              <pre><span>file_variable</span> <span> = </span> <span>zoho</span><span>.sign</span><span>.downloadDocument</span><span>(</span><span>2131000000002069</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>Where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>file_variable</span></pre>
+                    </div>
+                    <div>
+                      is the <span>FILE</span> that represents the downloaded
+                      file.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>2131000000002069</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the request ID
+                      of the document that will be downloaded.
+                    </div>
+                  </div>
+                  <div><div>&nbsp;</div></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <strong>Note:&nbsp;</strong>
+              <ul>
+                <li>
+                  See <a>this page</a> to find the built-in functions applicable
+                  to Number data type.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Data Types</a></li>
+              <li><a>File Functions</a></li>
+              <li><a>Invoke URL</a></li>
+              <li><a>Integration Tasks</a></li>
+              <li><a>Fetch Records</a></li>
+              <li><a>Send Mail</a></li>
+              <li><a>Attach File - Zoho CRM task</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,408 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Invoice Integration Tasks</a></li>
+        <li><a>Fetch Records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get records from Zoho Invoice</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to fetch records from&nbsp;Zoho Invoice.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.invoice.getRecords</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>org_ID</span><span>&gt;</span><span>, </span><span>&lt;search_map&gt;</span><span>, &lt;searchText&gt;, &lt;sortColumn&gt;, </span><span>&lt;connection&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;&nbsp;</span></p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the response returned by Zoho Invoice. It
+                            represents the values of the record fetched from the
+                            specified module.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;module_name&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the Zoho Invoice's module from which the
+                            records need&nbsp;to be fetched.
+                          </p>
+                          <p>Following are the applicable&nbsp;modules.</p>
+                          <div>
+                            <table>
+                              <tbody>
+                                <tr>
+                                  <td>Contacts</td>
+                                  <td>Invoices</td>
+                                  <td>Customer Payments</td>
+                                  <td>Items</td>
+                                </tr>
+                                <tr>
+                                  <td>Estimates</td>
+                                  <td>Expenses</td>
+                                  <td>ExpenseCategory</td>
+                                  <td>
+                                    <p>Projects</p>
+                                    <p>
+                                      (applicable to all Zoho services except
+                                      Zoho Creator)
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;org_ID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the <a>org&nbsp;ID</a>&nbsp;of the account
+                            from where the records will be fetched.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;search_map&gt;</span></p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p>
+                            <span>KEY-VALUE&nbsp;</span>(data type applicable
+                            for all Zoho services except&nbsp;Zoho Creator)
+                          </p>
+                          <p>TEXT&nbsp;</p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the values based on which the records will
+                            be filteres.&nbsp;
+                          </p>
+                          <p>
+                            <strong
+                              >When the param is used as
+                              &nbsp;key-value:</strong
+                            ><br /><a>Click here</a>&nbsp;and go to
+                            &lt;moduleName&gt; -&gt; list &lt;moduleName&gt;.
+                            All query params listed there are applicable as keys
+                            with the required values.
+                          </p>
+                          <p>
+                            <strong>When the param is used as a string:</strong
+                            ><br /><a>Click here</a>&nbsp;and go to
+                            &lt;moduleName&gt; -&gt; list &lt;moduleName&gt;
+                            -&gt; filter_by for more information on the
+                            applicable values for this param.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;searchText&gt;</span></p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>TEXT</td>
+                        <td>
+                          <br />Search for records based on field values.<br /><br /><a
+                            >Click here</a
+                          >&nbsp;and go to &lt;moduleName&gt; -&gt; list
+                          &lt;moduleName&gt; -&gt; search_text for more
+                          information on the applicable values for this param.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;sortColumn&gt;</span></p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>TEXT</td>
+                        <td>
+                          <br />Sort the records based on a field.&nbsp;<br /><br />Value
+                          for this param will vary depending on the
+                          module.&nbsp;<br /><br /><a>Click here</a>&nbsp;and go
+                          to &lt;moduleName&gt; -&gt; list &lt;moduleName&gt;
+                          -&gt; sort_column for more information on the
+                          applicable values for this param.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connection&gt;*</span></p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>specifies the name of the connection.</p>
+                          <p>
+                            *<u><strong>Note:</strong></u
+                            >&nbsp;This&nbsp;param is not supported when used in
+                            Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2>​​<a></a>Example 1</h2>
+            <p>
+              The following script fetches records from the Zoho Invoice module
+              - <strong>Items</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.invoice.getRecords</span><span>(</span><span>"Items"</span><span>,</span><span> "53XXXXXX"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"Items"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT </span>that represents the module from
+                      which the records need to be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"53XXXXXX"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the organization
+                      ID of the Zoho Invoice account from which the records
+                      need&nbsp;to be fetched
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>​​<a></a>Example 2</h2>
+            <p>
+              The following script fetches records from the Zoho Invoice module
+              - <strong>Items</strong>. Also, it filters the records to fetch
+              only those with invoice status - <strong>Status.Active</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>search_map</span><span> = </span><span>{</span><span>"filter_by"</span><span>:</span><span>"Status.Active"</span><span>}</span><span>;</span>
+
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.invoice.getRecords</span><span>(</span><span>"Items"</span><span>,</span><span> "53XXXXXX"</span><span>,</span><span> search_map</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span> search_map </span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      search values
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span> filter_by&nbsp;</span>
+
+<span> Status.Active&nbsp;</span>
+</pre>
+                    </div>
+                    <div>
+                      are the <span>TEXT</span> that represents the query params
+                      specified in Zoho Invoice's <a>API</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>​​<a></a>Example 3</h2>
+            <p>
+              The following script fetches records from the Zoho Invoice module
+              - <strong>Items</strong>. Also, it searches the records to fetch
+              only those with the item name - <strong>Pendrive</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>search_map</span><span> = </span><span>{</span><span>"name"</span><span>:</span><span>"Pendrive"</span><span>}</span><span>;</span>
+
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.invoice.getRecords</span><span>(</span><span>"Items"</span><span>,</span><span> "53XXXXXX"</span><span>,</span><span> search_map</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span> search_map </span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      search values
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span> name&nbsp;</span>
+
+<span> Pendrive</span>
+</pre>
+                    </div>
+                    <div>
+                      are the <span>TEXT</span> that represents the query params
+                      specified in Zoho Invoice's <a>API</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p>The following is a sample <strong>success response</strong></p>
+            <ul>
+              <li>
+                The success response returned is of the following format.
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 0,<br />&nbsp;&nbsp;"message":
+                  "success",<br />&nbsp;&nbsp;"page_context": {<br />&nbsp;&nbsp;"per_page":
+                  200,<br />&nbsp;&nbsp; "sort_column": "rate",<br />&nbsp;&nbsp;"applied_filter":
+                  "Status.All",<br />&nbsp;&nbsp;"has_more_page": false,<br />&nbsp;&nbsp;"page":
+                  1,<br />&nbsp;&nbsp;"report_name": "Items",<br />&nbsp;&nbsp;"sort_order":
+                  "A",<br />&nbsp;&nbsp;"search_criteria": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"comparator":
+                  "equal",<br />&nbsp;&nbsp;"column_name": "name",<br />&nbsp;&nbsp;"search_text":
+                  "Pendrive"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"items":
+                  [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"created_time":
+                  "2019-01-02T19:33:12+0530",<br />&nbsp;&nbsp;"reorder_level":
+                  "",<br />&nbsp;&nbsp;"last_modified_time":
+                  "2019-02-09T14:34:43+0530",<br />&nbsp;&nbsp;"item_id":
+                  "30870XXXXXXXXXXXXX",<br />&nbsp;&nbsp;"tax_name": "",<br />&nbsp;&nbsp;"is_linked_with_zohocrm":
+                  true,<br />&nbsp;&nbsp;"purchase_rate": 400.0,<br />&nbsp;&nbsp;"description":
+                  "",<br />&nbsp;&nbsp;"item_name": "02-Mar-2018 06:03:12",<br />&nbsp;&nbsp;"has_attachment":
+                  false,<br />&nbsp;&nbsp;"source": "api",<br />&nbsp;&nbsp;"zcrm_product_id":
+                  "23033XXXXXXXXXXXXX",<br />&nbsp;&nbsp;"tax_id": "",<br />&nbsp;&nbsp;"purchase_description":
+                  "",<br />&nbsp;&nbsp;"image_name": "",<br />&nbsp;&nbsp;"unit":
+                  "",<br />&nbsp;&nbsp;"product_type": "goods",<br />&nbsp;&nbsp;"rate":
+                  350.0,<br />&nbsp;&nbsp;"name": "Pendrive",<br />&nbsp;&nbsp;"tax_percentage":
+                  0,<br />&nbsp;&nbsp;"sku": "",<br />&nbsp;&nbsp;"status":
+                  "active"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"created_time":
+                  "2018-03-02T19:35:43+0530",<br />&nbsp;&nbsp;"reorder_level":
+                  "",<br />&nbsp;&nbsp;"last_modified_time":
+                  "2018-06-29T14:34:44+0530",<br />&nbsp;&nbsp;"item_id":
+                  "30870XXXXXXXXXXXXX",<br />&nbsp;&nbsp;"tax_name": "",<br />&nbsp;&nbsp;"is_linked_with_zohocrm":
+                  true,<br />&nbsp;&nbsp;"purchase_rate": 600.0,<br />&nbsp;&nbsp;"description":
+                  "",<br />&nbsp;&nbsp;"item_name": "02-Mar-2018 06:05:43",<br />&nbsp;&nbsp;"has_attachment":
+                  false,<br />&nbsp;&nbsp;"source": "api",<br />&nbsp;&nbsp;"zcrm_product_id":
+                  "23033XXXXXXXXXXXXX",<br />&nbsp;&nbsp;"tax_id": "",<br />&nbsp;&nbsp;"purchase_description":
+                  "",<br />&nbsp;&nbsp;"image_name": "",<br />&nbsp;&nbsp;"unit":
+                  "",<br />&nbsp;&nbsp;"product_type": "goods",<br />&nbsp;&nbsp;"rate":
+                  500.0,<br />&nbsp;&nbsp;"name": "Pendrive",<br />&nbsp;&nbsp;"tax_percentage":
+                  0,<br />&nbsp;&nbsp;"sku": "",<br />&nbsp;&nbsp;"status":
+                  "active"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p>
+              To fetch the IDs of the records, execute the following snippet:
+            </p>
+            <div>
+              var1 = &lt;response_variable&gt;.get("&lt;module_name&gt;");<br />//
+              example for &lt;module_name&gt; is contacts<br />for each var2 in
+              var1<br />&nbsp; {<br />&nbsp; &nbsp; info
+              var2.get("&lt;module_name&gt;_id").toLong();<br />&nbsp; &nbsp;//
+              example for &lt;module_name&gt;_id is contact_id<br />&nbsp; }
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned due to invalid
+                  <strong>organization ID</strong> is of the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"code":6041,<br />&nbsp;"message":"This
+                  user is not associated with the
+                  CompanyID/CompanyName:63XX."<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned returned due to invalid
+                  <strong>search parameter</strong> is of the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"code":2,<br />&nbsp;"message":"Invalid
+                  value passed for filter_by"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Invoice API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

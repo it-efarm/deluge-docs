@@ -1,0 +1,115 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Variables</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h1>Variables</h1>
+      <div>
+        <h4>
+          Table of Contents<span><span>Up</span></span>
+        </h4>
+        <ul>
+          <li><a>Overview</a></li>
+          <li><a>How is a variable useful?</a></li>
+          <li><a>Variables in Deluge</a></li>
+          <li><a>Things to keep in mind</a></li>
+        </ul>
+      </div>
+      <h2><a></a>Overview</h2>
+      <p>
+        A variable is the address of a temporary value in the computer memory.
+      </p>
+      <p>
+        Every time we declare a variable with a value, it gets stored in a
+        certain address in RAM. And the variable name is the usual way to refer
+        to the stored value.
+      </p>
+      <h2><a></a>How is a variable useful?</h2>
+      <p>
+        Variables don't just act as virtual addresses for information, but they
+        also allow us to manipulate its value as the program runs.<br /><br />There
+        may be times when you&nbsp;need to use a particular&nbsp;value in
+        multiple places in a code. In such cases you can declare a variable once
+        and use it wherever required. If there is an update required to that
+        value, you do not have to&nbsp;update it in multiple places in
+        the&nbsp;code,&nbsp;instead you can just
+        update&nbsp;the&nbsp;variable.&nbsp;
+      </p>
+      <p>
+        For example, imagine you have this calculation
+        <strong>1+1+1</strong> which you use in multiple places in your code:
+      </p>
+      <p>
+        When you have to update the calculation, for example, changing it to
+        <strong>1*2*3</strong>,&nbsp;you will need to update the calculation in
+        all instances in the code. Instead, you can assign the original
+        calculation to a variable, and then simply update the calculation just
+        once in the variable:
+      </p>
+      <div>math = 1+1+1;<br />math = 1*2*3;</div>
+      <p>
+        One change to the definition of a variable is much easier than searching
+        for ‘1+1+1’ and replacing it with ‘1*2*3'.&nbsp;Therefore, the load of
+        multiple database calls to retrieve the same information is
+        negated&nbsp;using a variable which is stored&nbsp;once and used
+        wherever needed.
+      </p>
+      <p>
+        Variables also provide a way of labelling data with a descriptive name,
+        so our programs can be understood more clearly by the reader and
+        ourselves.
+      </p>
+      <h2><a></a>Variables in Deluge</h2>
+      <p>
+        Variables in Deluge&nbsp;are dynamically-typed. Unlike other languages,
+        users don't have to declare the data type of the variable before using
+        it.&nbsp;
+      </p>
+      <p>
+        The variables in Deluge do not have a global scope, i.e, they
+        can&nbsp;be utilized only in the action script where they are declared.
+      </p>
+      <p>
+        Typically, assignment of values to variables happens either at the top
+        of a script (if the variable is used widely)&nbsp;or as close to where
+        it is used. This helps readability and maintenance of code. The variable
+        is on the left,&nbsp;followed by an equal sign, and again followed by
+        the item being assigned, as shown below:
+      </p>
+      <div>tax = 0.1;</div>
+      <h2><a></a>Things to keep in mind:</h2>
+      <ul>
+        <li>
+          Variable names can begin with upper case letters, lower case
+          letters,&nbsp;or underscore (_) and can contain upper case letters,
+          lower case letters, numbers, and underscore(_).
+        </li>
+        <li>
+          Variable names cannot have spaces. Use an underscore(_) where you need
+          spaces.
+        </li>
+        <li>
+          Variable names are case-sensitive. "var" and "Var" will be considered
+          as 2 different variable names.
+        </li>
+        <li>
+          Use full words instead of cryptic abbreviations while declaring a
+          variable. It makes it easier to understand the code.
+        </li>
+        <li>
+          Reserved keywords like <strong>true</strong>, <strong>false</strong>,
+          <strong>null</strong>, <strong>void</strong> and&nbsp;<strong
+            >return</strong
+          >
+          cannot be declared as variables.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

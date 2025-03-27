@@ -1,0 +1,241 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Desk Integration Tasks</a></li>
+        <li><a>Move a ticket</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Move a&nbsp;ticket in Zoho Desk</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>This task is used to move a ticket to a specified department.</p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span> = </span> <span>zoho</span><span>.desk.ticket.move</span><span>(</span><span>&lt;</span><span>orgID</span><span>&gt;, </span><span>&lt;</span><span>ticket_ID</span><span>&gt;, </span><span>&lt;</span><span>department_ID</span><span>&gt;, </span>&lt;<span>connection</span><span>&gt;</span>)<span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies variable which will hold the response
+                            returned by Zoho Desk.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;orgID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the organization ID&nbsp;of the account in
+                            which the ticket will be moved. This can be found in
+                            Zoho Desk Settings &gt; Developer Space &gt;
+                            API.&nbsp;&nbsp;<br /><br /><img />
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;ticket_ID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the ID of the record in the tickets module
+                            that&nbsp;will be moved.
+                          </p>
+                          <p>
+                            Learn how to fetch the record ID
+                            after&nbsp;<a>creating</a>&nbsp;or&nbsp;<a>fetching</a>&nbsp;records.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;department_ID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the ID of the department to which the
+                            record will be moved.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connection&gt;</span></p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>specifies the name of the <a>connection</a>.</p>
+                          <p>
+                            The scope which needs&nbsp;to be selected is&nbsp;
+                            &nbsp;<br />-&nbsp;Desk.tickets.UPDATE&nbsp;
+                          </p>
+                          <p>
+                            <strong>*Note</strong>:&nbsp;This is a mandatory
+                            param when used in&nbsp;<a>Zoho Creator</a>.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script moves the ticket with record ID -
+              <strong>XXXXXXXXXXXXX55001</strong> to the department with ID -
+              <strong>XXXXXXXXXXXXX65044</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.desk.ticket.move</span><span>(</span><span>641XXXXXX</span><span>, </span><span>16XXXXXXXXXXXXX001</span><span>, </span><span>16XXXXXXXXXXXXX044</span><span>, </span><span>"desk_connection"</span><span><span>)</span><span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the variable which will hold the&nbsp;response returned
+                      by Zoho Desk
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>641XXXXXX</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the
+                      organization ID
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>16XXXXXXXXXXXXX001</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the ID of the
+                      record in tickets module that needs to be moved to the
+                      specified department
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>16XXXXXXXXXXXXX044</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the ID of the
+                      department to which the record needs to be moved
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"desk_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned for incorrect or non-existent
+                  organization ID is of the following format.
+                </p>
+                <div>
+                  &nbsp; &nbsp;{<br />&nbsp;
+                  &nbsp;"errorCode":"UNPROCESSABLE_ENTITY",<br />&nbsp;
+                  &nbsp;"message":"The value passed for the 'orgId' parameter is
+                  invalid."<br />&nbsp; &nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned for incorrect or non-existent
+                  ticket ID is of the following format.
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"errorCode":"FORBIDDEN",<br />&nbsp;&nbsp;"message":"You
+                  are not authorized to access this resource."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned for incorrect or non-existent
+                  department ID is of the following format.
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"errorCode":"INTERNAL_SERVER_ERROR",<br />&nbsp;&nbsp;"message":"An
+                  internal server error occurred while performing this
+                  operation."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Desk API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

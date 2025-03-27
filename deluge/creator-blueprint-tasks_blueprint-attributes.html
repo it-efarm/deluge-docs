@@ -1,0 +1,197 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Creator Blueprint Tasks</a></li>
+        <li><a>Blueprint Attributes</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Blueprint Attributes</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Blueprint Attributes</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Example 1: Fetch the active blueprint records and
+                        update</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 2: Fetch records with specific blueprint name
+                        and change&nbsp;their&nbsp;stage</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 3: Fetch records with specific blueprint stage
+                        and perform&nbsp;the transition</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Use Case Scenario</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              Blueprint attributes are used to get details of the blueprint,
+              such as the name, current stage, and status associated with the
+              specified record in a report.
+            </p>
+            <h2>Blueprint Attributes</h2>
+            <p>
+              The table below lists the blueprint attributes and the values
+              returned by them.
+            </p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Attributes</th>
+                    <th>Return Type</th>
+                    <th>Returns</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>input.Blueprint.Name</td>
+                    <td>&nbsp; &nbsp; &nbsp;<span>TEXT</span></td>
+                    <td>
+                      Display name of the blueprint associated with the
+                      specified record.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>input.Blueprint.Current_Stage</td>
+                    <td>&nbsp; &nbsp; &nbsp;<span>TEXT</span></td>
+                    <td>
+                      Present stage of the blueprint in the specified record.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>input.Blueprint.Status</td>
+                    <td>&nbsp; &nbsp; &nbsp;<span>TEXT</span></td>
+                    <td>
+                      Status of the blueprint (Active/ Completed/ Suspended) in
+                      the specified record.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <p><strong>Note:&nbsp;</strong></p>
+              <ul>
+                <li>
+                  Blueprint attributes are applicable for all workflow events.
+                </li>
+                <li>
+                  <p>
+                    You can use blueprint attributes in fetched
+                    <a>collection variable</a> with the
+                    <a>fetch records</a> task. Refer to the syntax below.&nbsp;
+                  </p>
+                  <div>
+                    <pre><span>&lt;</span><span>collection_variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>form_link_name</span><span>&gt;</span><span>[</span><span>&lt;</span><span>criteria</span><span>&gt;</span><span>]</span><span>.Blueprint.</span><span>&lt;</span><span>attribute</span><span>&gt;</span><span>;</span></pre>
+                  </div>
+                </li>
+                <li>
+                  <p>
+                    Blueprint attributes can be used as criteria in conditional
+                    statements and in fetching records. Refer to the syntax
+                    below.&nbsp;
+                  </p>
+                  <div>
+                    <pre><span>&lt;</span><span>collection_variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>form_link_name</span><span>&gt;</span><span>[</span><span>Blueprint.Current_Stage</span> <span>&lt;</span><span>operator</span><span>&gt;</span> <span>&lt;</span><span>expression</span><span>&gt;</span><span>]</span><span>;</span></pre>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <h2>Example 1: Fetch the active blueprint records and update</h2>
+            <p>
+              The following example fetches the status of the blueprint
+              associated with the specified record in a report and updates the
+              specified field.
+            </p>
+            <div>
+              <pre><span>variable</span> <span>=</span> <span>task</span><span>[</span><span>ID</span> <span>!=</span> <span>0</span><span>]</span><span>;</span> <span>//fetch the status blueprint in all records.</span>&nbsp;
+<span>for each</span> <span>record</span> <span>in</span> <span>variable</span> <span>//Update the due date, if the blueprint is active in the record</span>&nbsp;
+<span>{</span>&nbsp;
+<span>if</span> <span>(</span><span>record.Blueprint.Status</span> <span>=</span> <span>"Active"</span><span>)</span>&nbsp;
+<span>{</span>&nbsp;
+<span>dueDate</span> <span>=</span> <span>'10-Mar-2023'</span><span>;</span>
+<span>}</span>&nbsp;
+<span>}</span></pre>
+            </div>
+            <h2>
+              Example 2:&nbsp;Fetch records with specific blueprint name and
+              change their stage
+            </h2>
+            <p>
+              The following example fetches the name of the blueprint associated
+              with the specified record in a report and
+              <a>changes its blueprint stage</a>.
+            </p>
+            <div>
+              <pre><span>// Fetch the specified record </span>&nbsp;
+<span>variable</span> <span>=</span> <span>client</span><span>[</span><span>Blueprint.Name</span> <span>=</span> <span>"New_client"</span><span>]</span><span>;</span>&nbsp;
+<span>for each</span> <span>record</span> <span>in</span> <span>variable</span>&nbsp;
+<span>{</span>&nbsp;
+<span>updateStatus</span> <span>=</span> <span>thisapp.blueprint.changeStage</span><span>(</span><span>"client"</span><span>,</span> <span>"New_client"</span><span>,</span> <span>"Pending"</span><span>,</span> <span>record.ID</span><span>)</span><span>;</span>&nbsp;
+<span>}</span></pre>
+            </div>
+            <h2>
+              Example 3:&nbsp;Fetch records with specific blueprint stage and
+              perform the transition
+            </h2>
+            <p>
+              The following example fetches the records with the specified
+              blueprint stage and <a>executes the specified transition</a>.
+            </p>
+            <div>
+              <pre><span>variable</span> <span>=</span> <span>orders</span><span>[</span><span>Blueprint.Currentstage</span> <span>=</span> <span>"Out for delivery"</span><span>]</span><span>;</span>
+<span>for each</span> <span>order</span> <span>in</span> <span>variable</span>
+<span>{</span>
+<span>performTransition</span> <span>=</span>  <span>thisapp.blueprint.executeTransition</span><span>(</span><span>"orders"</span><span>,</span> <span>"delivery process"</span><span>,</span><span>"update delivery date"</span><span>,</span> <span>orders.ID</span><span>)</span><span>;</span>
+<span>}</span></pre>
+            </div>
+            <h2>Use Case Scenario</h2>
+            <p>
+              Let's take an order management application with the orders form
+              associated with the blueprint order_status. Consider a scenario
+              where the user wants to display the count of orders delivered on
+              that day, given the condition that if the blueprint reaches the
+              final delivered stage, the delivery date will be automatically
+              recorded in a delivered_date field in the orders form. The
+              below-mentioned code counts the records in the delivered stage of
+              the blueprint. You can populate this number in the desired place
+              in your application, like panels in pages.
+            </p>
+            <div>
+              <pre><span>orders_delivered</span> <span>=</span> <span>orders</span><span>[</span><span>delivered_date</span> <span>==</span> <span>zoho.currentdate</span> <span>&amp;&amp;</span> <span>Blueprint.Current_Stage</span> <span>==</span> <span>"delivered"</span><span>]</span><span>.count</span><span>()</span><span>;</span></pre>
+            </div>
+            <h2>Related Links</h2>
+            <ul>
+              <li><a>Creator Blueprint Tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

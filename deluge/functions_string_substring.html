@@ -1,0 +1,150 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>substring</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>subString</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>subString</strong> function takes
+              <strong>source_text</strong>, <strong>start_index</strong>, and
+              <strong>end_index</strong> as arguments. It returns a piece of
+              text containing characters between the specified indices
+              (including the start_index and <strong>excluding</strong> the
+              end_index).
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>Index starts from 0</li>
+                <li>
+                  The <strong>start_index</strong> and/or
+                  <strong>end_index</strong> should not exceed the length of the
+                  <strong>source_text</strong>. If it exceeds, an error will be
+                  encountered during execution.
+                </li>
+                <li>
+                  The <strong>end_index</strong> must be greater than or equal
+                  to the&nbsp;<strong>start_index</strong>, failing which an
+                  error will be encountered during runtime.
+                </li>
+                <li>
+                  If <strong>start_index</strong> and
+                  <strong>end_index</strong> are the same, then the function
+                  will return an empty text.
+                </li>
+                <li>
+                  You can use the <a>subText</a> or <a>mid</a> function to
+                  perform the same operation as the subString function.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>TEXT</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>source_text</span><span>&gt;</span><span>.subString</span><span>(</span><span>&lt;</span><span>start_index</span><span>&gt;</span><span>,</span> <span>[</span><span>&lt;</span><span>end_index</span><span>&gt;</span><span>])</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>subString</span><span>(</span><span>&lt;</span><span>source_text</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>start_index</span><span>&gt;</span><span>,</span> <span>[</span><span>&lt;</span><span>end_index</span><span>&gt;</span><span>])</span><span>;</span>
+</pre>
+            </div>
+          </div>
+          <p>where,</p>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>Parameter</strong></td>
+                  <td><strong>Data type</strong></td>
+                  <td><strong>Description</strong></td>
+                </tr>
+                <tr>
+                  <td>&lt;variable&gt;</td>
+                  <td><span>TEXT</span></td>
+                  <td>Variable which contains the returned text.</td>
+                </tr>
+                <tr>
+                  <td>&lt;source_text&gt;</td>
+                  <td><span>TEXT</span></td>
+                  <td>
+                    The source of text on which
+                    <strong>subString</strong> function is effected.
+                  </td>
+                </tr>
+                <tr>
+                  <td>&lt;start_index&gt;</td>
+                  <td><span>NUMBER</span></td>
+                  <td>
+                    <p>
+                      The index starting from which the characters in the source
+                      text will be returned.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>&lt;end_index&gt;</p>
+                    <p>&nbsp;(optional)</p>
+                  </td>
+                  <td><span>NUMBER</span></td>
+                  <td>
+                    <p>
+                      The index until which the characters in the source text
+                      will be returned. If omitted, the rest of the text (from
+                      the start index) will be returned.
+                    </p>
+                    <p>
+                      If a negative value is specified, this param will be
+                      ignored and rest of the text (from the start index) will
+                      be returned.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2><a></a>Examples</h2>
+          <div>
+            <pre><span>sourceText</span> <span>=</span> <span>"Welcome to Zoho Deluge"</span><span>;</span>&nbsp;
+<span>newText</span> <span>=</span> <span>sourceText</span><span>.subString</span><span>(</span><span>11</span><span>,</span> <span>22</span><span>)</span><span>;</span>&nbsp;
+<span>info</span> <span>newText</span><span>;</span> <span>// returns Zoho Deluge</span>&nbsp;
+
+<span>Email_Data</span> <span>=</span> <span>"Email: jack@zylker.com"</span><span>;</span>&nbsp;
+<span>Email</span> <span>=</span> <span>Email_Data</span><span>.subString</span><span>(</span><span>7</span><span>)</span><span>;</span>&nbsp;
+<span>info</span> <span>Email</span><span>;</span>   <span>// returns jack@zylker.com</span>&nbsp;
+
+<span>Date_Time_Data</span> <span>=</span> <span>"15-Aug-1947 12:00:00"</span><span>;</span>&nbsp;
+<span>Date</span> <span>=</span> <span>Date_Time_Data</span><span>.subString</span><span>(</span><span>0</span><span>,</span><span>11</span><span>)</span><span>;</span>&nbsp;
+<span>info</span> <span>Date</span><span>;</span>    <span>// returns 15-Aug-1947</span>
+</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

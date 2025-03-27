@@ -1,0 +1,262 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho CRM integration tasks</a></li>
+        <li><a>Update Record in Zoho CRM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Update Record in Zoho CRM</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              This&nbsp;task updates the values of a particular record using its
+              ID in the specified module of Zoho CRM.
+            </p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>=</span> <span>zoho.</span><span>crm.updateRecord</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_ID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_value</span><span>&gt;</span><span>, </span><span>&lt;</span><span>options_map</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Params&nbsp;</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;&nbsp;</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      specifies the response returned<span>&nbsp;</span>by Zoho
+                      CRM. It represents the record's creation and modification
+                      details against the API names of the respective fields.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;module_Name&gt;<strong>&nbsp;</strong></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      specifies the <a>API name</a> of the Zoho CRM module where
+                      the records will be updated
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;record_Id&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>
+                        specifies the ID of the record that will be updated.
+                      </p>
+                      <p>
+                        Learn how to fetch the ID of a record
+                        after&nbsp;<a>creating</a>&nbsp;,
+                        <a>searching</a>&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;record_value&gt;</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>
+                        specifies the input map with key as each field's
+                        <a>API name</a> and its updated value.
+                      </p>
+                      <p>
+                        For ex:&nbsp;<strong>{"Last_name":"Zoho CRM"}</strong>
+                      </p>
+                      <p>
+                        <strong>Note:&nbsp;</strong>Refer&nbsp;<a>this page</a
+                        >&nbsp;for&nbsp;field names&nbsp;in each module.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;options_map&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>Represents other options data(like trigger).</p>
+                      <p>
+                        This param can be used to selectively allow&nbsp;the
+                        execution of scripts(if any) when the record is updated.
+                      </p>
+                      <p>
+                        Applicable key is&nbsp;<strong>trigger</strong>, and
+                        applicable values
+                        are&nbsp;<strong>workflow</strong>,&nbsp;<strong>approval,</strong>&nbsp;<strong
+                          >blueprint, </strong
+                        >and <strong>orchestration</strong>.&nbsp;
+                      </p>
+                      <p>
+                        When this param is specified, the mentioned values will
+                        get executed. When this param is not specified, only
+                        approvals, blueprints, and&nbsp;orchestration will get
+                        executed by default.&nbsp;To restrict all the scripts
+                        from getting executed, specify empty list as value to
+                        the "trigger" key.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;connection&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>specifies the name of the <a>connection</a></p>
+                      <p>
+                        <strong>Note:</strong> The field &lt;connection&gt; is
+                        not employed in Zoho Creator.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>Example</h2>
+            <p>
+              The following script updates the record with ID -
+              <strong>23033XXXXXXXXXXXXXX</strong> of the Zoho CRM module -
+              <strong>Leads</strong>.
+            </p>
+            <div>
+              <pre><span>leadinfo </span><span>= </span>
+<span>{</span>
+  <span>"Company"</span><span>:</span><span>"Zylker", </span>
+  <span>"Last_Name"</span><span>:</span><span>"Stewart", </span>
+  <span>"Phone"</span><span>:</span><span>"9876XXXXXX",</span>
+  <span>"Email"</span><span>:</span><span>"stewart@zylker.com"</span>
+    <span>}</span><span>;</span>&nbsp;
+<span>response </span><span>= </span><span>zoho</span><span>.crm.updateRecord</span><span>(</span><span>"Leads"</span><span>,</span><span>23033XXXXXXXXXXXXXX</span><span>,leadinfo</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <pre><span>leadinfo</span></pre>
+                </div>
+                <div>
+                  is the <span>KEY-VALUE</span> input, where the keys are the
+                  <a>API names</a> of Zoho CRM fields.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>response</span></pre>
+                </div>
+                <div>
+                  is the <span>KEY-VALUE&nbsp;</span>response returned by Zoho
+                  CRM. It represents the creation and modification details of
+                  the updated record.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Leads"</span></pre>
+                </div>
+                <div>
+                  is the <span>TEXT</span> that represents the
+                  <strong>API name</strong> of the Zoho CRM module where the
+                  record needs to be updated.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>23033XXXXXXXXXXXXXX</span></pre>
+                </div>
+                <div>
+                  is the <span>NUMBER</span> that represents the ID of the
+                  record that needs to be updated.
+                </div>
+              </div>
+            </div>
+            <h2>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>The success response returned is of the following format:</p>
+                <div>
+                  {&nbsp;&nbsp;<br />&nbsp;
+                  &nbsp;"Modified_Time":"2018-03-26T15:17:39+05:30",<br />&nbsp;
+                  &nbsp;"Modified_By":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                  "name":"Ben",<br />&nbsp; &nbsp; &nbsp;
+                  "id":"29383XXXXXXXXXXXXXX"<br />&nbsp; &nbsp;},<br />&nbsp;
+                  &nbsp;"Created_Time":"2018-03-26T14:39:28+05:30",<br />&nbsp;
+                  &nbsp;"id":"29383XXXXXXXXXXXXXX",<br />&nbsp;
+                  &nbsp;"Created_By":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                  "name":"Ben",<br />&nbsp; &nbsp; &nbsp;
+                  "id":"29383XXXXXXXXXXXXXX"<br />&nbsp; &nbsp;}<br />}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <div>
+              <p>
+                <strong>Note: </strong>The sample for a few common failure cases
+                is given below. For all possible errors, please refer to the
+                <a>Zoho CRM API documentation</a>.
+              </p>
+            </div>
+            <ul>
+              <li>
+                <p>
+                  The failure response for incorrect or non-existent record ID
+                  will be returned in the following format:
+                </p>
+                <div>
+                  {&nbsp;&nbsp;<br />&nbsp; &nbsp;"code": "INVALID_DATA",<br />&nbsp;
+                  &nbsp;"details": {},<br />&nbsp; &nbsp;"message": "the id
+                  given seems to be invalid",<br />&nbsp; &nbsp;"status":
+                  "error"<br />&nbsp; &nbsp;}<br />&nbsp;
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for incorrect or non-existent module name
+                  will be returned in the following format:
+                </p>
+                <div>
+                  {&nbsp;&nbsp;<br />&nbsp; &nbsp;"code": "INVALID_MODULE",<br />&nbsp;
+                  &nbsp;"details": {},<br />&nbsp; &nbsp;"message": "the module
+                  name given seems to be invalid",<br />&nbsp; &nbsp;"status":
+                  "error"<br />&nbsp; &nbsp;}<br />&nbsp;
+                </div>
+              </li>
+            </ul>
+            <h2>Related Links</h2>
+            <ul>
+              <li><a>Zoho CRM API</a></li>
+              <li><a>API names of Zoho CRM modules and fields</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

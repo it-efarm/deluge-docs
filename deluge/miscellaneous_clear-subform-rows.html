@@ -1,0 +1,230 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Subform Tasks</a></li>
+        <li><a>Clear rows in Subform</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Clear rows in Subform</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note</strong>: This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>This task is used to dynamically delete subform rows.&nbsp;</p>
+            <div>
+              <p>
+                <strong>Note:</strong> It is currently not possible to delete
+                selected rows in a subform. This task deletes all rows present
+                in a subform.
+              </p>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span>input.<span>&lt;subForm_linkName&gt;</span>.clear();</span>
+            </div>
+          </div>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span>&lt;subForm_linkName&gt;</span></td>
+                  <td>
+                    Link name of the subform from which the rows will be deleted
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <p>Note:</p>
+            <ul>
+              <li>
+                When using a blank form as a subform, this task deletes all the
+                rows in the subform. Data in the deleted rows cannot be
+                retrieved.
+              </li>
+              <li>
+                When using an existing form as a subform, this task deletes the
+                subform rows from the parent form, however the records are kept
+                intact in the the child form.
+              </li>
+            </ul>
+          </div>
+          <h2>This task can be used in the following events</h2>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>When a record is Created</strong></td>
+                </tr>
+                <tr>
+                  <td>On Load</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On Validate</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td>On Success</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td>On User input</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Subform on add row</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Subform on delete row</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td><strong>When a record is Created or Edited</strong></td>
+                </tr>
+                <tr>
+                  <td>On Load</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On Validate</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td>On Success</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td>On User input</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Subform on add row</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Subform on delete row</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td><strong>When a record is Edited</strong></td>
+                </tr>
+                <tr>
+                  <td>On Load</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On Validate</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td>On Success</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td>On User input</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On Update</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Subform on add row</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Subform on delete row</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td><strong>When a record is Deleted</strong></td>
+                </tr>
+                <tr>
+                  <td>On Validate</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td>On Success</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Other workflow events</strong></td>
+                </tr>
+                <tr>
+                  <td>On a scheduled date</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td>During approval process</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td>During payment process</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td>In a Custom Function</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td>In an Action item in report</td>
+                  <td><span>No</span><br />&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2><a></a>Example</h2>
+          <p>
+            1) Let's say we have a subform field named "Items". We need to be
+            able to delete the subform rows by checking the Decision box field
+            type "Clear rows". The following snippet (written in the On User
+            Input section of the Decision box field ) can be used in this
+            scenario:
+          </p>
+          <div>input.Items.clear();<br />&nbsp;</div>
+          <p>
+            2) This task can be used to clear subform rows in&nbsp;<a
+              >fetched records</a
+            >. Let's say we have an <strong>Employees</strong>&nbsp;form with
+            "Job Experience" subform field and "Date" field.The following
+            snippet can be used to delete the subform rows in records which
+            have&nbsp;the current date value in the Date field:
+          </p>
+          <div>
+            ​fetchedRecords&nbsp;= Employees&nbsp;[ Date == today&nbsp;];<br />for
+            each rec&nbsp;in fetchedRecords&nbsp;<br />{<br />rec.Job_Experience.clear();<br />}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,644 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Creator Integration Tasks</a></li>
+        <li><a>Get Records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Records</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a>Example 1: Fetch records from the specified report</a>
+                    </li>
+                    <li><a>Example 2: Search using criteria</a></li>
+                    <li><a>Example 3: Fetch first 100 records</a></li>
+                    <li>
+                      <a>Example 4: Search using criteria - Lookup field</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <p><a> </a></p>
+            <h2>Overview</h2>
+            <p>
+              The&nbsp;<strong>zoho.creator.getRecords</strong> task is used to
+              fetch records from the specified report of the&nbsp;Zoho Creator
+              application.
+            </p>
+            <div>
+              <strong>Note:</strong> This integration task is based on the Zoho
+              Creator V2 API - <a>Get Records</a>.
+            </div>
+            <p><a> </a></p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho</span><span>.creator</span><span>.getRecords</span><span>(</span><span>&lt;</span><span>owner_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>app_link_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>report_link_name</span><span>&gt;</span><span>, <span>&lt;</span></span><span>criteria</span><span>&gt;</span><span>, </span><span>&lt;</span><span>from_index</span><span>&gt;</span><span>, </span><span>&lt;</span><span>limit</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection_link_name</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data Type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;variable&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>Variable that will hold&nbsp;the returned response.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;owner_name&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Name of the owner of the app from which the records
+                        need&nbsp;to be fetched.
+                      </p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <p>
+                          Name of the application owner can be fetched
+                          in&nbsp;the following ways:
+                        </p>
+                        <ul>
+                          <li>
+                            From the URL of the application while editing or
+                            accessing it. The URL is in the
+                            format:&nbsp;app.zohocreator.com/appbuilder/<strong>&lt;application_owner&gt;</strong>/...
+                          </li>
+                          <li>
+                            By using the&nbsp;<a>system variable</a
+                            >&nbsp;-&nbsp;<strong>zoho.adminuser</strong>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;app_link_name&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Link name of the application from which the records need
+                        to be fetched.
+                      </p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <p>
+                          Link name&nbsp;of the application can be fetched
+                          in&nbsp;the following ways:
+                        </p>
+                        <ul>
+                          <li>
+                            From the URL of the application while editing or
+                            accessing it. The URL is in the
+                            format:&nbsp;app.zohocreator.com/appbuilder/&lt;application_owner&gt;/<strong>&lt;application_name&gt;</strong>/...
+                          </li>
+                          <li>
+                            By using the <a>system variable</a>&nbsp;-&nbsp;
+                            <strong>zoho.appname</strong>
+                          </li>
+                          <li>
+                            Link names of applications, reports, and fields in
+                            your&nbsp;account can also be&nbsp;<a
+                              >viewed on the&nbsp;reference page</a
+                            >&nbsp;(listed in brackets).
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;report_link_name&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Link name of the report&nbsp;from which the records need
+                        to be fetched.
+                      </p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <ul>
+                          <li>
+                            Link names of applications, reports, and fields in
+                            your account can be
+                            <a>viewed on the reference page</a>&nbsp;(listed in
+                            brackets).
+                          </li>
+                          <li>
+                            You can also fetch link names from the URL while
+                            accessing the report. The URL is in the
+                            format:&nbsp;app.zohocreator.com/appbuilder/&lt;application_owner&gt;/&lt;application_name&gt;/#Report:<strong
+                              >&lt;report_link_name&gt;</strong
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;criteria&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The condition based on which the records need to be
+                        fetched.
+                      </p>
+                      <div>
+                        <p><strong>Note:&nbsp;</strong></p>
+                        <ul>
+                          <li>
+                            Click <a>here</a> to learn more about defining
+                            criteria.
+                          </li>
+                          <li>
+                            To fetch records without criteria, provide
+                            an&nbsp;<strong>empty text</strong>&nbsp;as its
+                            value.
+                          </li>
+                          <li>
+                            If your search condition contains hard-coded string
+                            value, it needs to be enclosed in double-quotes
+                            escaped with backslashes. For example, the search
+                            condition, "Task_Name==Service Task" should be
+                            provided as "Task_Name==<strong>\"</strong>Service
+                            Task<strong>\"</strong>".
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;from_index&gt;</p></td>
+                    <td>
+                      <p><span>NUMBER</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Starting index of the records (that meet the criteria)
+                        from where the records need to be retrieved.
+                      </p>
+                      <p>
+                        <strong>Start index:</strong>&nbsp;1<strong
+                          >&nbsp;</strong
+                        >
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;limit&gt;</p></td>
+                    <td>
+                      <p><span>NUMBER</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        <br />Number of records need to be fetched<br /><br /><strong
+                          >Maximum limit:</strong
+                        >&nbsp;200 records
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;connection_link_name&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>Name of the Zoho Creator <a>connection</a>.&nbsp;</p>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of&nbsp;<a
+                              >stopping new authtoken generation</a
+                            >,&nbsp;a Zoho OAuth connection with appropriate
+                            scopes is mandatory&nbsp;for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter unless the authtoken is manually
+                            deleted&nbsp;from&nbsp;<a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes as mentioned in<a>
+                              Zoho Creator Get Records API document</a
+                            >
+                            while creating the connection.
+                          </li>
+                          <li>
+                            Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                            list of Zoho services that support the connections
+                            page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <h2><a></a>Example 1: Fetch records from the specified report</h2>
+        <p>
+          The following example fetches&nbsp;records without a specified
+          condition,&nbsp;start index, or record limit from Zoho Creator:
+        </p>
+        <div>
+          <pre><span>response </span><span>= </span><span>zoho</span><span>.creator</span><span>.getRecords</span><span>(</span><span>"Shawn"</span><span>,</span><span>"Task_Management"</span><span>, </span><span>"All_Tasks"</span><span>, </span><span>""</span><span>, </span><span>1</span><span>, </span><span>200</span><span>, </span><span>"creator_oauth_connection"</span><span>)</span><span>;</span></pre>
+        </div>
+        <p>where:</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>response</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>KEY-VALUE</span> variable that holds the
+                  response of the task
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Shawn"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the name of
+                  the application owner.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Task_Management"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the link name
+                  of the&nbsp;application.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"All_Tasks"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the link name
+                  of the report.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"creator_oauth_connection"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the link name
+                  of the Zoho Creator OAuth connection created with required
+                  scopes.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2><a></a>Example 2: Search using criteria</h2>
+        <p>
+          Assume that we have a form with the two fields -
+          <strong>Task_Name</strong> (Single Line Field Type) and
+          <strong>Task_Description</strong> (Single Line Field Type) in the
+          application -&nbsp;<strong>Task_Management.</strong>&nbsp;The
+          following example fetches the records that hold&nbsp;the value -
+          <strong>ServiceTask</strong> against&nbsp;the
+          <strong>Task_Name</strong> field from the report -
+          <strong>All_Tasks</strong>.
+        </p>
+        <div>
+          <pre><span>response </span><span>= </span><span>zoho</span><span>.creator</span><span>.getRecords</span><span>(</span><span>"John"</span><span>,</span><span>"Task_Management"</span><span>,</span><span>"All_Tasks"</span><span>,</span><span>"Task_Name == \"ServiceTask\""</span><span>, </span><span>1</span><span>, </span><span>200</span><span>, </span><span>"creator_oauth_connection"</span><span>)</span><span>;</span></pre>
+        </div>
+        <p>where:</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>response</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>KEY-VALUE</span> variable that holds the
+                  response of the task
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"John"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the name of
+                  the application owner.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Task_Management"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the link name
+                  of the&nbsp;application.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"All_Tasks"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the link name
+                  of the report.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Task_Name == \"ServiceTask\""</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the criteria
+                  to search for records.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2><a></a>Example 3: Fetch first 100 records</h2>
+        <p>
+          The following example fetches the first 100 records from the specified
+          report of your Zoho Creator application:
+        </p>
+        <div>
+          <pre><span>response </span><span>= </span><span>zoho</span><span>.creator</span><span>.getRecords</span><span>(</span><span>"Shawn"</span><span>,</span><span>"Task_Management"</span><span>,</span><span>"All_Tasks"</span><span>,</span><span>""</span><span>,</span><span>1</span><span>,</span><span>100</span><span>, </span><span>"creator_oauth_connection"</span><span>)</span><span>;</span></pre>
+        </div>
+        <p>where:</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>response</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>KEY-VALUE</span> variable that holds the
+                  response of the task
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Shawn"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the name of
+                  the application owner.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Task_Management"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the link name
+                  of the&nbsp;application.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"All_Tasks"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the link name
+                  of the report.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>""</span></pre>
+                </div>
+                <div>
+                  The empty&nbsp;<span>TEXT</span> value that represents the
+                  records need to be fetched without any criteria.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>1</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>NUMBER</span> value that represents the
+                  starting index of the records that need to be fetched.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>100</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>NUMBER</span> value that represents the number
+                  of records that need to be fetched.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2>
+          <a></a>Example 4: Search using criteria with&nbsp;a lookup field
+        </h2>
+        <p>
+          Assume that we have a form with a lookup field&nbsp;-
+          <strong>Department</strong> (Lookup Field Type) which refers to
+          the&nbsp;form -&nbsp;<strong>Department. </strong>The
+          <strong>Department</strong> form&nbsp;contains a field
+          -&nbsp;<strong>Name&nbsp;</strong>(single line field
+          type)<strong>.</strong>&nbsp;The following example&nbsp;fetches the
+          records from the report -
+          <strong>All_Employees&nbsp;</strong>if&nbsp;the looked up
+          record&nbsp;holds&nbsp;the value - <b>Electrical </b>against the field
+          -<strong> Name</strong><b>&nbsp;</b>.
+        </p>
+        <div>
+          <pre><span>response </span><span>= </span><span>zoho</span><span>.creator</span><span>.getRecords</span><span>(</span><span>"Tony"</span><span>,</span><span>"Employee_Management"</span><span>,</span><span>"All_Employees"</span><span>,</span><span>"Department.Name == \"Electrical\""</span><span>, </span><span>1</span><span>, </span><span>200</span><span>, </span><span>"creator_oauth_connection"</span><span>)</span><span>;</span></pre>
+        </div>
+        <p>where:</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>response</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>KEY-VALUE</span> variable that holds the
+                  records fetched from the specified report.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Tony"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the
+                  application owner's name.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Employee_Management"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the
+                  application's link name.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"All_Employees"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the report's
+                  link name.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Department.Name == \"Electrical\""</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the condition
+                  to search the records. <strong>Department</strong> is the link
+                  name of the looked up form and <strong>Name</strong> is the
+                  link name of the field present in the Department form.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p><a> </a></p>
+        <h2>Response Format</h2>
+        <strong>Success Response</strong>
+        <ul>
+          <li>
+            <p>
+              The successful response will be returned in the following format:
+            </p>
+            <div>
+              {​<br />&nbsp;"code": 3000,​<br />&nbsp;"data": [​<br />&nbsp;{​<br />&nbsp;"Task_Name":
+              "Priority Task",​<br />&nbsp;"Task_Description": "I need help
+              installing my air conditioner",​<br />&nbsp;"ID":
+              "3605445000000075003"​<br />&nbsp;},​<br />&nbsp;{​<br />&nbsp;"Task_Name":
+              "Support Ticket1",​<br />&nbsp;"Task_Description": "Toaster
+              Configurations",​<br />&nbsp;"ID": "3605445000000065010"​<br />&nbsp;}​<br />&nbsp;]​<br />&nbsp;}
+            </div>
+          </li>
+        </ul>
+        <a> </a> To get the IDs of the fetched&nbsp;records, execute the
+        following snippet:
+        <div>
+          <pre>&nbsp;<span>records</span><span> = </span><span>response</span><span>.get</span><span>(</span><span>"data"</span><span>)</span><span>;</span>
+&nbsp;<span>for each</span><span> var </span><span>in </span><span>records</span>
+&nbsp;<span>{</span>
+&nbsp;<span>info</span><span> var</span><span>.get</span><span>(</span><span>"ID"</span><span>)</span><span>;</span>
+&nbsp;<span>}</span>
+</pre>
+        </div>
+        <strong>Failure Response</strong>
+        <ul>
+          <li>
+            <p>
+              The failure response for incorrect or non-existent application
+              name will be returned in the following format
+            </p>
+            <div>
+              &nbsp;{<br />&nbsp;"code": 2892,<br />&nbsp;"message": "No
+              application named &lt;application_name&gt; found. Please check and
+              try again."<br />}
+            </div>
+          </li>
+          <li>
+            <p>
+              The failure response for incorrect owner name will be returned in
+              the following format
+            </p>
+            <div>
+              &nbsp;{<br />&nbsp;"code": 1110,<br />&nbsp;"message": "No
+              workspace named &lt;owner_name&gt; found. Please enter a valid
+              workspace value."<br />}
+            </div>
+          </li>
+          <li>
+            <p>
+              The failure response for incorrect or non-existent report name
+              will be returned in the following format
+            </p>
+            <div>
+              &nbsp;{<br />&nbsp;"code": 2894,<br />&nbsp;"message": "No report
+              named &lt;report_link_name&gt; found. Please check and try
+              again.""<br />}
+            </div>
+          </li>
+        </ul>
+        <p><a> </a></p>
+        <h2>Related Links</h2>
+        <ul>
+          <li><a>Zoho Creator - Get Records API document</a></li>
+          <li>
+            <a>Zoho Creator API - Possible error messages and status codes</a>
+          </li>
+          <li>
+            <a
+              ><span
+                >Fetch the text value to which a specified key is mapped</span
+              ></a
+            >
+          </li>
+          <li>
+            <a><span>Get values from fetched records</span></a>
+          </li>
+          <li>
+            <a><span>Creator API Link Names</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

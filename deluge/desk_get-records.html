@@ -1,0 +1,386 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Desk Integration Tasks</a></li>
+        <li><a>Fetch records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch records from Zoho Desk</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to fetch&nbsp;records from the specified
+              Zoho Desk module.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.desk.getRecords</span><span>(</span><span>&lt;</span><span>orgId</span><span>&gt;, </span><span>&lt;</span><span>module_name</span><span>&gt;,</span> <span>&lt;</span><span>fromIndex</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>limit</span><span>&gt;</span><span>, <span>&lt;</span><span>query_value</span><span>&gt;, </span>&lt;<span>connection</span><span>&gt;</span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Variable which will hold the&nbsp;response returned
+                            by Zoho Desk. It represents the list of records
+                            fetched.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;orgId&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the organization ID&nbsp;of the account
+                            from which the records will be fetched. This can be
+                            found in Zoho Desk Settings &gt; Developer Space
+                            &gt; API.&nbsp;&nbsp;<br /><br /><img />
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span
+                              >&lt;module_name&gt;<strong>&nbsp;</strong></span
+                            >
+                          </p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the module from which the records
+                            will&nbsp;be fetched.
+                          </p>
+                          <p>
+                            <span
+                              >The following is the list of supported
+                              modules.</span
+                            >
+                          </p>
+                          <ul>
+                            <li><p>Agents</p></li>
+                            <li><p>Departments</p></li>
+                            <li><p>Tickets</p></li>
+                            <li><p>Contacts</p></li>
+                            <li><p>Accounts</p></li>
+                            <li><p>Tasks</p></li>
+                            <li><p>Products</p></li>
+                            <li><p>Contracts</p></li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;from&gt;</span></p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the index of the record from which the
+                            records will&nbsp;be fetched.
+                          </p>
+                          <div>
+                            <strong>Note:&nbsp;</strong>
+                            <ul>
+                              <li>
+                                This is a mandatory param when used in&nbsp;Zoho
+                                Creator.
+                              </li>
+                              <li>The default value for this param is 1</li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;limit&gt;</span></p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the number of records which will be
+                            fetched.
+                          </p>
+                          <div>
+                            <strong>Note:&nbsp;</strong>
+                            <ul>
+                              <li>
+                                This is a mandatory param when used in&nbsp;Zoho
+                                Creator.
+                              </li>
+                              <li>The default value for this param is 10</li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;query_value&gt;</span></p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Query to include secondary information related to
+                            the selected module.
+                          </p>
+                          <p>
+                            To learn about the applicable values,&nbsp;<a
+                              >click here</a
+                            >&nbsp;and go to &lt;ModuleName&gt; -&gt; List
+                            all&nbsp;&lt;ModuleName&gt;
+                          </p>
+                          <p>
+                            To ignore the secondary information, specify empty
+                            map.&nbsp;<br />For ex:&nbsp;{ "" : "" }&nbsp;
+                          </p>
+                          <div>
+                            <strong>Note:&nbsp;</strong>This is a mandatory
+                            param when used in&nbsp;Zoho Creator.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connection&gt;</span></p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>specifies the name of the <a>connection</a></p>
+                          <p>
+                            The scopes which need&nbsp;to be selected
+                            are:&nbsp;&nbsp;<br />- Desk.basic.READ&nbsp;<br />-
+                            Desk.tasks.READ&nbsp;<br />-
+                            Desk.tickets.READ&nbsp;<br />-
+                            Desk.settings.READ&nbsp;<br />-
+                            Desk.contacts.READ&nbsp;
+                          </p>
+                          <div>
+                            <strong>Note:&nbsp;</strong>This is a mandatory
+                            param when used in&nbsp;Zoho Creator.
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script fetches all the records from Zoho Desk module
+              - <strong>Contacts</strong>.
+            </p>
+            <div>
+              <pre><span>queryValue</span><span> = </span><span>{</span><span>""</span><span>:</span><span>""</span><span>}</span><span>;</span>&nbsp;
+<span>response </span><span>= </span><span>zoho</span><span>.desk.getRecords</span><span>(</span><span>641XXXXXX</span><span>, </span><span>"contacts"</span><span>, </span><span>1</span><span>, </span><span>10</span><span>, </span><span>queryValue</span><span>, </span><span>"desk_connection"</span><span><span>)</span><span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      variable which will hold the response returned by Zoho
+                      Desk. It represents the list of all the records fetched
+                      from the specified Zoho Desk module.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>641XXXXXX</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the
+                      organization ID.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"contacts"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      module from which the records need to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>1</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the start index
+                      from which the records are to be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>10</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the number of
+                      records to be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"desk_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>The success response returned is of the following format.</p>
+                <div>
+                  &nbsp; &nbsp;{<br />&nbsp; &nbsp;"data": [<br />&nbsp;
+                  &nbsp;{<br />&nbsp; &nbsp;"firstName": "Ben",<br />&nbsp;
+                  &nbsp;"lastName": "Williams",<br />&nbsp; &nbsp;"email":
+                  "ben@zylker.com",<br />&nbsp; &nbsp;"secondaryEmail": null,<br />&nbsp;
+                  &nbsp;"mobile": null,<br />&nbsp; &nbsp;"phone": "+1 678 XXX
+                  XXXX",<br />&nbsp; &nbsp;"type": null,<br />&nbsp;
+                  &nbsp;"ownerId": "168XXXXXXXXXXXX005",<br />&nbsp;
+                  &nbsp;"accountId": "168XXXXXXXXXXXX097",<br />&nbsp;
+                  &nbsp;"photoURL": null,<br />&nbsp; &nbsp;"zohoCRMContact":
+                  {<br />&nbsp; &nbsp;"id": "230XXXXXXXXXXXXX044",<br />&nbsp;
+                  &nbsp;"type": "new"<br />&nbsp; &nbsp;},<br />&nbsp;
+                  &nbsp;"customerHappiness": {<br />&nbsp;
+                  &nbsp;"badPercentage": "0",<br />&nbsp; &nbsp;"okPercentage":
+                  "0",<br />&nbsp; &nbsp;"goodPercentage": "0"<br />&nbsp;
+                  &nbsp;},<br />&nbsp; &nbsp;"webUrl":
+                  "https://desk.zoho.com/support/smith/ShowHomePage.do#Contacts/dv/bf5c8fXXXXXXXXXXXXXXXXX411872c0a55fabae67fb0",<br />&nbsp;
+                  &nbsp;"id": "168XXXXXXXXXXXX001"<br />&nbsp; &nbsp;},<br />&nbsp;
+                  &nbsp;{<br />&nbsp; &nbsp;"firstName": Tom,<br />&nbsp;
+                  &nbsp;"lastName": "Lewis",<br />&nbsp; &nbsp;"email":
+                  tom@zylker.com,<br />&nbsp; &nbsp;"secondaryEmail": null,<br />&nbsp;
+                  &nbsp;"mobile": null,<br />&nbsp; &nbsp;"phone": "+1 678 XXX
+                  XXXX",<br />&nbsp; &nbsp;"type": null,<br />&nbsp;
+                  &nbsp;"ownerId": "168XXXXXXXXXXXX002",<br />&nbsp;
+                  &nbsp;"accountId": null,<br />&nbsp; &nbsp;"photoURL":
+                  null,<br />&nbsp; &nbsp;"zohoCRMContact": {<br />&nbsp;
+                  &nbsp;"id": "230XXXXXXXXXXXXX020",<br />&nbsp; &nbsp;"type":
+                  "contacts"<br />&nbsp; &nbsp;},<br />&nbsp;
+                  &nbsp;"customerHappiness": {<br />&nbsp;
+                  &nbsp;"badPercentage": "0",<br />&nbsp; &nbsp;"okPercentage":
+                  "0",<br />&nbsp; &nbsp;"goodPercentage": "0"<br />&nbsp;
+                  &nbsp;},<br />&nbsp; &nbsp;"webUrl":
+                  "https://desk.zoho.com/support/smith/ShowHomePage.do#Contacts/dv/bf5c8fXXXXXXXXXXXXXXXXX6519df7cc50d48844902f0",<br />&nbsp;
+                  &nbsp;"id": "168XXXXXXXXXXXX040"<br />&nbsp; &nbsp;}<br />&nbsp;
+                  &nbsp;]<br />&nbsp; &nbsp;}<br />&nbsp; &nbsp;oURL": null,<br />&nbsp;
+                  &nbsp;"webUrl":
+                  "https://desk.zoho.com/support/smith/ShowHomePage.do#Contacts/dv/bf5c8fXXXXXXXXXXXXXXXXX6519df7cc50d48844902f0",<br />&nbsp;
+                  &nbsp;"id": "168XXXXXXXXXXXX001"<br />&nbsp; &nbsp;}<br />&nbsp;
+                  &nbsp;]<br />&nbsp; &nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p>
+              To fetch the ID of records from the response, use the following
+              snippet:
+            </p>
+            <div>
+              var1 = &lt;response_variable&gt;.getJson("data");&nbsp;<br />var2
+              = var1.toJsonList();&nbsp;<br />for each var3 in var2&nbsp;<br />&nbsp;
+              {&nbsp;<br />&nbsp; &nbsp; info var3.getJson("id");&nbsp;<br />&nbsp;
+              }
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned for incorrect or non-existent
+                  organization ID is of the following format.
+                </p>
+                <div>
+                  &nbsp; &nbsp;{<br />&nbsp;
+                  &nbsp;"errorCode":"UNPROCESSABLE_ENTITY",<br />&nbsp;
+                  &nbsp;"message":"The value passed for the 'orgId' parameter is
+                  invalid."<br />&nbsp; &nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned for an incorrect or non-existent
+                  record ID is of the following format.
+                </p>
+                <div>
+                  &nbsp; &nbsp;{<br />&nbsp;
+                  &nbsp;"errorCode":"URL_NOT_FOUND",<br />&nbsp;
+                  &nbsp;"message":"The URL you requested could not be found."<br />&nbsp;
+                  &nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related links</h2>
+            <ul>
+              <li><a>Zoho Desk API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

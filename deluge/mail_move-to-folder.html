@@ -1,0 +1,290 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Mail integration tasks</a></li>
+        <li><a>Move to folder in Zoho Mail</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Move to folder in Zoho Mail</h1>
+          <div>
+            <div>
+              <h4>
+                Table of Contents<span><span>Up</span></span>
+              </h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Example 1: Move an email to a folder using folder ID</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 2: Move an email to a folder using folder
+                        path</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note: </strong>This task is applicable to all Zoho
+              services, except Zoho Creator.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.mail.moveToFolder</strong>&nbsp;task is used
+              to&nbsp;move an email from one folder to another in Zoho Mail.
+              This task is based on a Zoho Mail API.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt; </span><span>= </span><span>zoho</span><span>.mail.moveToFolder</span><span>(</span><span>&lt;</span><span>message_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>folder_id&gt;/</span><span>&lt;</span><span>folder_path</span><span>&gt;</span>, <span>&lt;</span><span>connection&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td><p>The status of the executed task.</p></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;message_id&gt;<strong>&nbsp;</strong></p>
+                        </td>
+                        <td><span>NUMBER</span></td>
+                        <td>
+                          <p>
+                            The ID of the email that will be moved to the
+                            specified folder.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> You can get the
+                            message_id&nbsp; from the Zoho Mail URL. The URL is
+                            in the following format:<br />https://mail.zoho.com/zm/#mail/folder/&lt;folder_id&gt;/p/<strong
+                              >&lt;message_id&gt;</strong
+                            >
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;folder_id&gt;/</p>
+                          <p>&lt;folder_path&gt;</p>
+                        </td>
+                        <td><span>NUMBER</span>/ <span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The ID or path of the folder into which the email
+                            will be moved.
+                          </p>
+                          <p><strong>Note:</strong></p>
+                          <ul>
+                            <li>
+                              You can get the folder_id from the Zoho Mail URL.
+                              The URL is in the following format:<br />https://mail.zoho.com/zm/#mail/folder/<strong>&lt;folder_id&gt;</strong>/p/&lt;message_id&gt;<br />(or)<br />You
+                              can get the folder_id by using the
+                              <strong>get folders</strong> task. Click
+                              <a>here</a> to learn more about it.
+                            </li>
+                            <li>
+                              The <strong>folder_id </strong>must be provided as
+                              NUMBER and <strong>folder_path</strong> must be
+                              provided as TEXT.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The link name of the Zoho Mail <a>connection</a>
+                          </p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                The scope&nbsp;required for this task as
+                                mentioned by Zoho Mail&nbsp;API is:
+                                <strong>folders</strong>&nbsp;
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              The following script moves an email to the folder of ID -
+              <strong>6729326000000008021</strong> in Zoho Mail:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.mail.moveToFolder</span><span>(</span><span>6729326000001837113</span>,<span> 6729326000000008021</span>,<span> "mail_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>KEY-VALUE</span>&nbsp;response that
+                      represents the status of the executed task.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>6729326000001837113</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>NUMBER</span>&nbsp;that represents the ID
+                      of the email that needs to be moved to the specified
+                      folder.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>6729326000000008021</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span>&nbsp;that represents the&nbsp;ID
+                      of the folder into which the email&nbsp;needs to be moved.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"mail_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;that represents the&nbsp;link
+                      name of the Zoho Mail connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2</h2>
+            <p>
+              The following script moves an email to the folder with path -
+              <strong>/inbox/folder1</strong> in Zoho Mail:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.mail.moveToFolder</span><span>(</span><span>6729326000001837113, </span><span>"/inbox/folder1"</span>,<span> "mail_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"/inbox/folder1"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;that represents the&nbsp;path
+                      of the folder into which the email&nbsp;needs to be moved.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"mail_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;that represents the&nbsp;link
+                      name of the Zoho Mail connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response will be returned in the following format:
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"message":"Action moveMessage
+                  is successful",<br />&nbsp;&nbsp;"status":"success"<br />&nbsp;&nbsp;}
+                  <p>&nbsp;</p>
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                The failure response will be returned in the following format:
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"message":"Error while
+                  processing the request! Folder does not exist",<br />&nbsp;&nbsp;"status":"failure"<br />}
+                  <p>&nbsp;</p>
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Mail Integration Tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,135 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>hoursBetween</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>hoursBetween</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>hoursBetween</strong>&nbsp;function takes two
+              date-time values as arguments and returns the number of hours
+              between them.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Number</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>&lt;</span><span>startDateTimeValue</span><span>&gt;</span><span>.hoursBetween</span><span>(</span><span>&lt;</span><span>endDateTimeValue</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+          </div>
+          <p>(OR)</p>
+          <div>
+            <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>hoursBetween</span><span>(</span><span>&lt;</span><span>startDateTimeValue</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>endDateTimeValue</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+          </div>
+        </div>
+        <p>where:</p>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>Parameter</strong></td>
+                <td><strong>Data type</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+              <tr>
+                <td>variable</td>
+                <td><span>NUMBER</span></td>
+                <td>
+                  The number of hours between the specified start and end
+                  date-time values,
+                </td>
+              </tr>
+              <tr>
+                <td>startDateTimeValue</td>
+                <td><span>DATE-TIME</span></td>
+                <td>The starting date-time value.</td>
+              </tr>
+              <tr>
+                <td>endDateTimeValue</td>
+                <td><span>DATE-TIME</span></td>
+                <td>The ending date-time value.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <strong>Note:</strong>
+          <ul>
+            <li>
+              Please refer <a>this help document</a> to learn about the
+              supported date-time formats.
+            </li>
+            <li>
+              This function does not calculate the minutes and seconds
+              difference between the start and end time.
+            </li>
+            <li>
+              If the start date-time is larger than the end date-time, the
+              function returns a <strong>negative</strong> value.
+            </li>
+            <li>
+              A runtime error will be encountered if:
+              <ul>
+                <li>Date value exceeds the number of days in that month.</li>
+                <li>Incorrect month value is specified.</li>
+                <li>Incorrect year value is specified.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <h2><a></a>Example 1</h2>
+        <p>
+          The following example&nbsp;returns the number of hours between the
+          given time values&nbsp;- <strong>'18-Dec-2019 09:00:00'</strong> and
+          <strong>'19-Dec-2019 10:00:00'</strong>, i.e., it returns
+          <strong>25</strong>.
+        </p>
+        <div>
+          <pre><span>start_time</span><span> = </span><span>'18-Dec-2019 09:00:00'</span><span>;</span>&nbsp;
+<span>end_time</span><span> = </span><span>'19-Dec-2019 10:00:00'</span><span>;</span>&nbsp;
+<span>total_hours</span><span> = </span><span>hoursBetween</span><span>(</span><span>start_time</span><span>, </span><span>end_time</span><span>)</span><span>;</span>&nbsp;
+<span>// The value of total_hours is 25</span>
+</pre>
+        </div>
+        <h2>Example 2</h2>
+        <p>
+          The following example&nbsp;returns the number of hours between the
+          given time values&nbsp;- <strong>'18-Dec-2019 07:00:00'</strong> and
+          <strong>'18-Dec-2019 08:59:59'</strong>, i.e., it returns <b>1 </b>as
+          the minutes and seconds difference will not be calculated.
+        </p>
+        <div>
+          <pre><span>start_time</span><span> = </span><span>'18-Dec-2019 07:00:00'</span><span>;</span>&nbsp;
+<span>end_time</span><span> = </span><span>'18-Dec-2019 08:59:59'</span><span>;</span>&nbsp;
+<span>total_hours</span><span> = </span><span>hoursBetween</span><span>(</span><span>start_time</span><span>, </span><span>end_time</span><span>)</span><span>;</span>&nbsp;
+<span>// The value of total_hours is 1</span>
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

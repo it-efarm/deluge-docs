@@ -1,0 +1,506 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Client Functions</a></li>
+        <li><a>Enable | Disable</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Enable | Disable</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Example 1</a></li>
+                    <li><a>Example 2</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a>Use Case Scenarios</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Scenario 1: Enabling field in a job application form</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>Disable&nbsp;</strong>deluge task disables a specified
+              field on&nbsp;the form. The disabled field will be grayed out, and
+              the user will not be able to add data to&nbsp;that field.
+            </p>
+            <p>
+              The <strong>Enable</strong> deluge task reverses the Disable
+              action and re-enables a disabled&nbsp;field for users to fill it
+              out in the form.
+            </p>
+            <div>
+              <p><strong>Note</strong>:</p>
+              <ul>
+                <li>
+                  To disable fields for a set of users, you can define&nbsp;<a
+                    >field permissions</a
+                  >.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <p><strong>DISABLE</strong></p>
+            <ul>
+              <li>
+                <span>To disable a <strong>Mainform field</strong>.</span>
+              </li>
+            </ul>
+            <div>
+              <pre><span>disable</span> <span>&lt;</span><span>field_link_name</span><span>&gt;</span><span>;</span></pre>
+            </div>
+            <div>&nbsp;</div>
+            <ul>
+              <li>
+                <span>To disable a <strong>Subform field</strong></span>
+              </li>
+            </ul>
+            <div>
+              <pre><span>disable</span> <span>&lt;</span><span>subform_link_name</span><span>&gt;</span><span>.</span><span>&lt;</span><span>subform_field_link_name</span><span>&gt;</span><span>;</span></pre>
+            </div>
+            <div>&nbsp;</div>
+            <ul>
+              <li>
+                <span
+                  >To disable the <strong>Subform field in a</strong>
+                  <strong>specific subform row</strong>. This syntax can only be
+                  used in subform actions such as addition of row, deletion of
+                  row and user input of a subform field.</span
+                >
+              </li>
+            </ul>
+            <div>
+              <pre><span>disable</span> <span>row.</span><span>&lt;</span><span>subform_field_link_name</span><span>&gt;</span><span>;</span></pre>
+            </div>
+            <p><strong>ENABLE</strong></p>
+            <ul>
+              <li>
+                <span>To enable a <strong>Mainform field</strong>.</span>
+              </li>
+            </ul>
+            <div>
+              <pre><span>enable</span> <span>&lt;</span><span>field_link_name</span><span>&gt;</span><span>;</span></pre>
+            </div>
+            <div>&nbsp;</div>
+            <ul>
+              <li>
+                <span>To enable a <strong>Subform field</strong></span>
+              </li>
+            </ul>
+            <div>
+              <pre><span>enable</span> <span>&lt;</span><span>subform_link_name</span><span>&gt;</span><span>.</span><span>&lt;</span><span>subform_field_link_name</span><span>&gt;</span><span>;</span></pre>
+            </div>
+            <div>&nbsp;</div>
+            <ul>
+              <li>
+                <span
+                  >To enable the <strong>Subform field in a</strong>
+                  <strong>specific subform row</strong>. This syntax can only be
+                  used in subform actions such as addition of row, deletion of
+                  row and user input of a subform field.</span
+                >
+              </li>
+            </ul>
+            <div>
+              <pre><span>enable</span> <span>row.</span><span>&lt;</span><span>subform_field_link_name</span><span>&gt;</span><span>;</span></pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Param</th>
+                    <th>Explanation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span
+                        >&lt;field_link_name&gt;, &lt;subform_link_name&gt;
+                        &amp; &lt;subform_field_link_name&gt;</span
+                      >
+                    </td>
+                    <td>
+                      <p>
+                        Link name of the field which needs to be disabled or
+                        re-enabled.
+                      </p>
+                      <p>Points to keep in mind for this parameter:</p>
+                      <ul>
+                        <li>
+                          Since the <strong>Autonumber</strong> field type is
+                          not displayed in a form, it cannot be specified in
+                          this task.
+                        </li>
+                        <li>
+                          For composite field types like
+                          <strong>Name</strong> and <strong>Address</strong>,
+                          the action of disabling/enabling the main field will
+                          be applied to all its subfields, by
+                          default.&nbsp;&nbsp;To enable/disable&nbsp;a
+                          particular subfield&nbsp;you must specify it along
+                          with the main field, for example:
+                          <strong>disable&nbsp;Name.last_name;</strong>
+                        </li>
+                        <li>
+                          The action of&nbsp;disabling/enabling the
+                          <strong>Section</strong> field type is not supported.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <center>
+                        <p><strong>When a record is Created</strong></p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong>When enabling/disabling a field in a form</strong>
+                    </td>
+                    <td>
+                      <strong>When enabling/disabling a subform field</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>In Form Actions</strong></td>
+                    <td><strong>In Subform Actions</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On user input of a subform field</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <p>
+                          <strong>When a record is Created or Edited</strong>
+                        </p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong>When enabling/disabling a field in a form</strong>
+                    </td>
+                    <td>
+                      <strong>When enabling/disabling a subform field</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>In Form Actions</strong></td>
+                    <td><strong>In Subform Actions</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On user input of a subform field</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <p><strong>When a record is Edited</strong></p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong>When enabling/disabling a field in a form</strong>
+                    </td>
+                    <td>
+                      <strong>When enabling/disabling a subform field</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>In Form Actions</strong></td>
+                    <td><strong>In Subform Actions</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On user input of a subform field</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Update</td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <p><strong>When a record is Deleted</strong></p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong>When enabling/disabling a field in a form</strong>
+                    </td>
+                    <td>
+                      <strong>When enabling/disabling a subform field</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>In Form Actions</strong></td>
+                    <td><strong>In Subform Actions</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <p><strong>Other workflow events</strong></p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong>When enabling/disabling a field in a form</strong>
+                    </td>
+                    <td>
+                      <strong>When enabling/disabling a subform field</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>In Form Actions</strong></td>
+                    <td><strong>In Subform Actions</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <ul>
+              <li>The following snippet disables the "Total Amount" field.</li>
+            </ul>
+            <div>
+              <pre><span>disable</span> <span>Total_Amount</span><span>;</span></pre>
+            </div>
+            <h2><a></a>Example 2</h2>
+            <ul>
+              <li>
+                The following snippet disables the cost field in the subform of
+                the order placement form.
+              </li>
+            </ul>
+            <div>
+              <pre><span>disable</span> <span>row.cost</span><span>;</span></pre>
+            </div>
+            <h2><a></a>Scenario 1: Enabling field in a job application form</h2>
+            <p>
+              Consider a job application form where there is a decision box
+              field to distinguish the experienced and fresher candidates
+              category. Based on the user input of the decision box field, the
+              number field to record the years of experience will be enabled or
+              disabled. If the candidate selects the category as experienced,
+              the number field wiI ll be enabled to to get work experience.
+            </p>
+            <div>
+              <pre><span>if</span> <span>(</span> <span>category</span> <span>==</span> <span>"experienced"</span><span>)</span>&nbsp;
+<span>{</span>&nbsp;
+<span>enable</span> <span>experience_in_years</span><span>;</span>&nbsp;
+<span>}</span>&nbsp;
+<span>else</span>&nbsp;
+<span>{</span>&nbsp;
+<span>disable</span> <span>experience_in_years</span><span>;</span>&nbsp;
+<span>}</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

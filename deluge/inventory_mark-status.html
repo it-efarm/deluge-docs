@@ -1,0 +1,267 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Inventory Integration Tasks</a></li>
+        <li><a>Mark status in Zoho Inventory</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Mark status in Zoho Inventory</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2>Overview</h2>
+            <p>
+              The <strong>zoho.inventory.markStatus</strong> task is used to
+              change the status field with one of the allowed values in the
+              specified Zoho Inventory module.
+            </p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.inventory.markStatus</span><span>(</span><span>&lt;</span><span>module</span><span>&gt;</span>, <span>&lt;</span><span>org_id</span><span>&gt;</span>, <span>&lt;</span><span>record_id&gt;</span>, <span>&lt;</span><span>status&gt;</span>, <span>[&lt;</span><span>connection&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <p>&nbsp;</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>&lt;response&gt;</td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>The status of the executed task.</td>
+                      </tr>
+                      <tr>
+                        <td>&lt;module&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The name of the Zoho Inventory module in which the
+                            status field's value will be changed.
+                          </p>
+                          <p><strong>Allowed Values:</strong></p>
+                          <ul>
+                            <li>SalesOrders</li>
+                            <li>ShipmentOrders</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;org_id&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The organization ID of the account in which the
+                            value of the status field will be changed.
+                          </p>
+                          <div>
+                            <strong>Note:</strong> Learn how to fetch
+                            organization ID from the&nbsp;<a>UI</a> and
+                            from&nbsp;the response of&nbsp;<a
+                              >zoho.inventory.getOrganization</a
+                            >
+                            task.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;record_id&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The ID of the record whose status needs to be
+                            changed.
+                          </p>
+                          <div>
+                            <strong>Note: </strong>Learn how to fetch the ID of
+                            a record after&nbsp;<a>creating</a> or&nbsp;<a
+                              >fetching</a
+                            >
+                            it.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;status&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The status value. The following table lists the
+                            allowed status values for each module:
+                          </p>
+                          <p><strong>Module Name - Allowed values</strong></p>
+                          <ul>
+                            <li>SalesOrders - void</li>
+                            <li>ShipmentOrders - delivered</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <div>
+                            <strong>*Note:</strong>&nbsp;This parameter is
+                            mandatory in&nbsp;<strong>Zoho Cliq</strong>.
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2>Example</h2>
+            <p>
+              The following script sets the status of the specified record to
+              <strong>void</strong>, in the Zoho Inventory module -
+              <strong>SalesOrders</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.inventory.markStatus</span><span>(</span><span>"SalesOrders"</span>, <span>"59XXXX43"</span>, <span>"528XXXXXXXXXXX043"</span>, <span>"void"</span>, <span>"inventory_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> that represents the status of
+                      the executed task.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"SalesOrders"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the module name.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"59XXXX43"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the
+                      organization ID of the Zoho Inventory account.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"528XXXXXXXXXXX043"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the record ID
+                      whose status needs to be changed.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"void"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the status
+                      value.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"inventory_connection"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the connection
+                      name.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 0,<br />&nbsp;&nbsp;"message":
+                  "The status of the Sales order has been changed to Void.",<br />&nbsp;&nbsp;"data":
+                  {<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned for incorrect or non-existent
+                  organization ID will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 6041,<br />&nbsp;&nbsp;"message":
+                  "This user is not associated with the CompanyID/CompanyName:
+                  58XXXX50."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned for incorrect or non-existent
+                  record ID will be returned in the&nbsp;following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 1002,<br />&nbsp;&nbsp;"message":
+                  "Sales Order does not exist."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned for supplying unallowed status
+                  value will be returned in the following format.
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 5,<br />&nbsp;&nbsp;"message":
+                  "Invalid URL Passed"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2>Related Links</h2>
+            <ul>
+              <li><a>Zoho Inventory Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

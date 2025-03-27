@@ -1,0 +1,115 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>Reverse</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Reverse()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>reverse()</strong> function takes an
+              <strong>inputText</strong> and returns a text
+              whose&nbsp;characters are in reverse order.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>TEXT</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>&lt;</span><span>inputText</span><span>&gt;</span><span>.reverse</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>reverse</span><span>(</span><span>&lt;</span><span>inputText</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>TEXT</td>
+                    <td>Variable which will contain the returned text.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;inputText&gt;</td>
+                    <td>TEXT</td>
+                    <td>
+                      The input text whose characters will be returned in
+                      reverse order.<span> </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <div>
+              <pre><span> inputText </span><span>= </span><span>"Zoho Creator" </span><span>; </span>
+&nbsp;<span>outputText </span><span>= </span><span>reverse </span><span>( </span><span>inputText </span><span>) </span><span>; </span>
+&nbsp;<span>info </span><span>outputText </span><span>; </span><span>// Returns "rotaerC ohoZ" </span>
+</pre>
+            </div>
+            <h2>Example 2</h2>
+            <div>
+              <pre>&nbsp;<span>inputText </span><span>= </span><span>"level" </span><span>; </span>
+&nbsp;<span>outputText </span><span>= </span><span>reverse </span><span>( </span><span>inputText </span><span>) </span><span>; </span>
+&nbsp;<span>if </span><span>( </span><span>inputText </span><span>== </span><span>outputText </span><span>) </span>
+&nbsp;<span>{ </span>
+&nbsp;<span>info </span><span>"Palindrome" </span><span>; </span> 
+&nbsp;<span>} </span>
+&nbsp;<span>else  </span>
+&nbsp;<span>{ </span>
+&nbsp;<span>info </span><span>"Not a Palindrome" </span><span>; </span>
+&nbsp;<span>} </span>
+&nbsp;<span>// Returns "Palindrome" </span>
+</pre>
+            </div>
+            <h2>Example 3</h2>
+            When an input that is not a text is supplied to the reverse()
+            function, it converts the input value as text in the backend and
+            returns a reversed output text.
+            <div>
+              <pre>&nbsp;<span>inputList </span><span>= </span><span>{ </span><span>1 </span><span>, </span><span>2 </span><span>, </span><span>13 </span><span>} </span><span>; </span><span>// Input is of List datatype </span>
+&nbsp;<span>outputText </span><span>= </span><span>reverse </span><span>( </span><span>inputList </span><span>) </span><span>; </span><span>// Returns 31, 2, 1 </span>
+&nbsp;<span>info </span><span>outputText </span><span>; </span><span>// Output is of Text datatype </span>
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Text built-in functions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

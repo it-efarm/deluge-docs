@@ -1,0 +1,332 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>List Manipulations</a></li>
+        <li><a>Create list of specific data type</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create list of specific data type</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              Create&nbsp;<a>list</a> variables which hold elements of a
+              particular data type only.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <p><span>To declare a string list variable</span></p>
+            <div>
+              <span><span>&lt;variable&gt;</span></span
+              ><span><span> = List:String();</span></span>
+            </div>
+            <p><span>To declare a Bigint list variable</span></p>
+            <div>
+              <span><span>&lt;variable&gt;</span></span
+              ><span><span> = List:Int();</span></span>
+            </div>
+            <p><span>To declare a Decimal&nbsp;list variable</span></p>
+            <div>
+              <span><span>&lt;variable&gt;</span></span
+              ><span><span> = List:Float();</span></span>
+            </div>
+            <p><span>To declare a Timestamp list variable</span></p>
+            <div>
+              <span><span>&lt;variable&gt;</span></span
+              ><span><span> = List:date();</span></span>
+            </div>
+            <p><span>To declare a Boolean list variable</span></p>
+            <div>
+              <span><span>&lt;variable&gt;</span></span
+              ><span><span> = List:Bool();</span></span>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span><span>&lt;variable&gt;</span></span>
+                    </td>
+                    <td><p>Variable which will hold the list elements.</p></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>Points to keep in mind for each type of list</h2>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Data type of the list&nbsp; &nbsp; &nbsp; &nbsp;</th>
+                    <th>Points to keep in mind</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Text</td>
+                    <td>
+                      <p>
+                        Text elements must be enclosed in single or double
+                        quotes.&nbsp;
+                      </p>
+                      <p>
+                        Number and Decimal elements can be specified without the
+                        quotes, which will be converted into text data-type by
+                        default.
+                      </p>
+                      <p>
+                        Date-time elements must be enclosed in single quotes,
+                        which will be converted into text data-type by default.
+                      </p>
+                      <p>
+                        Boolean values must be specified with or without
+                        single/double quotes, which will be converted into text
+                        data-type by default.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Number</td>
+                    <td>
+                      <p>
+                        Only whole numbers&nbsp;must be specified with or
+                        without single/double quotes.
+                      </p>
+                      <p>
+                        If any other data-type is specified, an error will
+                        displayed during runtime.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Date-time</td>
+                    <td>
+                      <p>
+                        Date-time values must be specified in single or double
+                        quotes.
+                      </p>
+                      <p>
+                        You can specify numbers without quotes, where the number
+                        1 stands for the date-time value&nbsp;31-Dec-1969
+                        16:00:00, and every increase in 1000 will add 1 second
+                        to the date-time value, and every decrease in 1000 will
+                        subtract 1 second from the date-time value. So, the
+                        number 1000 will return a date-time value
+                        of&nbsp;31-Dec-1969 16:00:01.
+                      </p>
+                      <p>
+                        Specifying number or text elements in single/double
+                        quotes will return an error during run-time.
+                      </p>
+                      <p>
+                        If the time value is not specified, 00:00:00 will be set
+                        as the time value by default.
+                      </p>
+                      <p>
+                        You can specify any valid date-time format, which will
+                        get converted into the&nbsp;format selected in
+                        application settings.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Boolean&nbsp;&nbsp;</td>
+                    <td>
+                      <p>
+                        You must only specify Boolean values 'True' or 'False'
+                        with or without single/double quotes.
+                      </p>
+                      <p>
+                        Any other value within quotes will display an error
+                        during runtime.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Decimal&nbsp;&nbsp;</td>
+                    <td>
+                      <p>
+                        You can&nbsp;specify numeric values with or without
+                        single/double quotes.
+                      </p>
+                      <p>
+                        Date-time values can be specified in single quotes,
+                        which will get converted into the equivalent numerical
+                        value. The&nbsp;date-time value 31-Dec-1969 16:00:00
+                        stands for the&nbsp;number 1, and every increase in 1
+                        second will add 1000 to the number, and every decrease
+                        in 1 second will subtract 1000 from the number.&nbsp;So,
+                        the date-time value of 31-Dec-1969 16:00:01 will return
+                        the&nbsp;number 1000.&nbsp;
+                      </p>
+                      <p>
+                        If any other data-type is specified, an error will
+                        displayed during runtime.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              1) The following sample snippet adds the equivalent numerical
+              value of the specified date to the list:
+            </p>
+            <div>
+              var = List:float();<br />var.add('1-Jan-2019');&nbsp; &nbsp;
+              &nbsp;// adds&nbsp;1546329600000
+            </div>
+            <p>
+              2) The following sample snippet adds the number '1' as a string
+              value to the list.
+            </p>
+            <div>listVar=list:String();<br />listVar.add(1);</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

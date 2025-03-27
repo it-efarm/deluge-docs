@@ -1,0 +1,407 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Subform Tasks</a></li>
+        <li><a>Insert rows in Subform</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Insert rows in Subform</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Example 1: Autopopulate subform fields on load of the
+                        form</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 2: Insert records fetched from one subform to
+                        another</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note</strong>: This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This task is used to dynamically insert&nbsp;rows into a
+              subform.&nbsp;
+            </p>
+            <div>
+              <p>
+                <strong>Note</strong>: This task not supported for custom
+                sorting enabled subforms.
+              </p>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span
+                >// declaring&nbsp;the row<br /><span>&lt;row1&gt;</span> =
+                <span>&lt;mainForm_linkName&gt;</span
+                >.<span>&lt;subForm_linkName&gt;</span>();<br /><br />//
+                assigning values for various subform fields in the&nbsp;row<br /><span
+                  >&lt;row1&gt;</span
+                >.<span>&lt;field_linkName&gt;</span> =
+                <span>&lt;value&gt;</span>;<br /><span>&lt;row1&gt;</span>.<span
+                  >&lt;field_linkName&gt;</span
+                >
+                = <span>&lt;value&gt;</span>;<br /><br />// declaring another
+                row (declare as many rows as required)<br /><span
+                  >&lt;row2&gt;</span
+                >
+                =
+                <span>&lt;mainForm_linkName&gt;</span
+                >.<span>&lt;subForm_linkName&gt;</span>();<br /><br />//
+                assigning values for various subform fields in the row<br /><span
+                  >&lt;row2&gt;</span
+                >.<span>&lt;field_linkName&gt;</span> =
+                <span>&lt;value&gt;</span>;<br /><span>&lt;row2&gt;</span>.<span
+                  >&lt;field_linkName&gt;</span
+                >
+                = <span>&lt;value&gt;</span>;<br /><br />// declare a variable
+                to hold the collection of rows<br /><span
+                  >&lt;variable&gt;</span
+                >
+                = Collection();</span
+              ><br /><span>&lt;variable&gt;</span><span>.insert( </span
+              ><span>&lt;row1&gt;</span><span>, </span><span>&lt;row2&gt;</span
+              ><span>
+                );<br /><br />// insert the rows into the subform through the
+                variable<br />input.<span>&lt;subForm_linkName&gt;</span>.insert(<font
+                  >&nbsp;</font
+                ></span
+              ><span>&lt;variable&gt;</span><span><font>&nbsp;</font>);</span>
+            </div>
+          </div>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span>&lt;rowN&gt;</span></td>
+                  <td>Variable to represent an individual row</td>
+                </tr>
+                <tr>
+                  <td><span>&lt;mainForm_linkName&gt;</span></td>
+                  <td>
+                    Link name of the parent form in which the subform exists
+                  </td>
+                </tr>
+                <tr>
+                  <td><span>&lt;subForm_linkName&gt;</span></td>
+                  <td>
+                    Link name of the subform in which the rows will be added
+                  </td>
+                </tr>
+                <tr>
+                  <td><span>&lt;field_linkName&gt;</span></td>
+                  <td>Link name of the subform field</td>
+                </tr>
+                <tr>
+                  <td><span>&lt;value&gt;</span></td>
+                  <td>Value that will be assigned to the subform field</td>
+                </tr>
+                <tr>
+                  <td><span>&lt;variable&gt;</span></td>
+                  <td>Variable to hold a collection of rows</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <p>Note:</p>
+            <ul>
+              <li>
+                This task can be used to assign values to subform fields
+                while&nbsp;adding or updating&nbsp;records using Deluge scripts.
+                For example, the following snippet assigns values to subform
+                fields while using the add record task:
+                <div>
+                  <span
+                    >&lt;row1&gt; =
+                    &lt;mainForm_linkName&gt;.&lt;subForm_linkName&gt;();<br />&lt;row1&gt;.&lt;field_linkName&gt;
+                    = &lt;value&gt;;<br /><br />&lt;rows&gt;&nbsp;=
+                    collection();<br />&lt;rows&gt;.insert(&lt;row1&gt;);<br /><br />&lt;variable&gt;
+                    = insert into &lt;mainForm_linkName&gt;<br />[<br />&nbsp;
+                    &nbsp; &lt;subForm_linkName&gt; = &lt;rows&gt;<br />];</span
+                  >
+                </div>
+              </li>
+              <li>
+                If the script execution encounters an issue while the process of
+                inserting rows is underway, the behavior of this task will be as
+                follows:
+                <ul>
+                  <li>
+                    Script written in On Load and On User Input: Rows that have
+                    been inserted will remain so, and the remaining rows will
+                    not be inserted
+                  </li>
+                  <li>
+                    Script written in On Validate and On Success: None of the
+                    rows will be inserted.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <h2>This task can be used in the following events</h2>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>When a record is Created</strong></td>
+                </tr>
+                <tr>
+                  <td>On Load</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On Validate</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On Success</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On User input</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Subform on add row</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Subform on delete row</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td><strong>When a record is Created or Edited</strong></td>
+                </tr>
+                <tr>
+                  <td>On Load</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On Validate</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On Success</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On User input</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Subform on add row</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Subform on delete row</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td><strong>When a record is Edited</strong></td>
+                </tr>
+                <tr>
+                  <td>On Load</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On Validate</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On Success</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On User input</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>On Update</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Subform on add row</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Subform on delete row</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td><strong>When a record is Deleted</strong></td>
+                </tr>
+                <tr>
+                  <td>On Validate</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td>On Success</td>
+                  <td><span>No</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Other workflow events</strong></td>
+                </tr>
+                <tr>
+                  <td>On a scheduled date</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>During approval process</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>During payment process</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>In a Custom Function</td>
+                  <td><span>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>In an Action item in report</td>
+                  <td><span>Yes</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2>
+            <a></a>Example 1: Autopopulate subform fields on load of the form
+          </h2>
+          <p>
+            Let's say we have a <strong>Products</strong> form that has a
+            subform field <strong>Items</strong>. The subform has fields "Item
+            Name", "Quantity", and "Price". We need to populate&nbsp;the subform
+            fields "Item Name" and "Quantity" with values "Laptop" and 1
+            respectively. The following snippet (written in the On Load section)
+            can be used in this scenario:
+          </p>
+          <div>
+            <pre><span>row1</span> <span>=</span> <span>Products</span><span>.Items</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>row1</span><span>.Item_Name</span> <span>=</span> <span>"Laptop"</span><span>;</span>&nbsp;
+<span>row1</span><span>.Quantity</span> <span>=</span> <span>1</span><span>;</span>&nbsp;
+<span>input</span><span>.Items</span><span>.insert</span><span>(</span><span>row1</span><span>)</span><span>;</span>
+</pre>
+          </div>
+          <h2>
+            <a></a>Example 2: Insert records fetched from one subform to another
+          </h2>
+          <p>
+            The following script fetches the subform record in the form - form1
+            and inserts the record in the subform of the form - form2:
+          </p>
+          <div>
+            <pre><span>// Create a variable to store fetched records from the form1</span>&nbsp;
+<span>fetch_records</span> <span>=</span> <span>form1</span><span>[</span><span>ID</span> <span>!=</span> <span>0</span><span>]</span><span>;</span>&nbsp;
+<span>for each</span> <span>entry</span> <span>in</span> <span>fetch_records</span>&nbsp;
+ <span>{</span>&nbsp;
+ <span>fetch_subform1</span> <span>=</span> <span>entry</span><span>.subform1</span><span>;</span>&nbsp;
+ <span>//Create a collection to store the data of each record in subform1</span>&nbsp;
+ <span>rows_collection</span> <span>=</span> <span>collection</span><span>(</span><span>)</span><span>;</span>&nbsp;
+ <span>for each</span> <span>data</span> <span>in</span> <span>fetch_subform1</span>&nbsp;
+      <span>{</span>&nbsp;
+        <span>row1</span> <span>=</span> <span>form2</span><span>.subform2</span><span>(</span><span>)</span><span>;</span>&nbsp;
+        <span>row1</span><span>.Product_Name</span> <span>=</span> <span>data</span><span>.Product</span><span>;</span>&nbsp;
+        <span>row1</span><span>.Qty</span> <span>=</span> <span>data</span><span>.Quantity</span><span>;</span>&nbsp;
+        <span>rows_collection</span><span>.insert</span><span>(</span><span>row1</span><span>)</span><span>;</span>&nbsp;
+     <span>}</span> &nbsp;
+<span>//Use <a>Add Records</a> task to insert the fetched subform1 values stored in the collection - row_collection in the subform2 in form2</span>&nbsp;
+ <span>response</span> <span>=</span> <span>insert</span> <span>into</span> <span>form2</span>&nbsp;
+ <span>[</span>&nbsp;
+    <span>subform2</span> <span>=</span> <span>rows_collection</span>&nbsp;
+ <span>]</span><span>;</span>&nbsp;
+ <span>}</span></pre>
+          </div>
+          <p>where:</p>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <pre><span>form1</span></pre>
+                  </div>
+                  <div>
+                    is the <span>TEXT</span> that represents the link name of
+                    the parent form where the subform records needs to be
+                    fetched.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>subform1</span></pre>
+                  </div>
+                  <div>
+                    is the <span>TEXT</span> that represents the link name of
+                    the subform where the records needs to be fetched.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>form2</span></pre>
+                  </div>
+                  <div>
+                    is the <span>TEXT</span> that represents the link name of
+                    the parent form where the subform records needs to be
+                    inserted.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>subform2</span></pre>
+                  </div>
+                  <div>
+                    is the <span>TEXT</span> link name of the subform that needs
+                    to be inserted with fetched records.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>rows_collection</span></pre>
+                  </div>
+                  <div>
+                    is the <span>Collection</span> that stores the fetched
+                    records from subform1.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

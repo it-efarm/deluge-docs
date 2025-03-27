@@ -1,0 +1,334 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Recruit integration tasks</a></li>
+        <li><a>Create record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Add record&nbsp;in Zoho Recruit</h1>
+          <div>
+            <div>
+              <h4>
+                Table of Contents<span><span>Up</span></span>
+              </h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The zoho.recruit.addRecord task is used to create records in Zoho
+              Recruit. This task is based on the
+              <a>Zoho Recruit API - Add records</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho.recruit.addRecord</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>data_map</span><span>&gt;, &lt;duplicate_check&gt;</span><span>, &lt;workflow_trigger&gt;</span>,<span> &lt;connection&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td>KEY-VALUE</td>
+                        <td><p>Response returned by Zoho Recruit.</p></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;</p></td>
+                        <td>TEXT</td>
+                        <td>
+                          <p>
+                            Name of the module in which the record will be
+                            created.
+                          </p>
+                          <p>Following are the applicable&nbsp;modules:</p>
+                          <ul>
+                            <li>Candidates</li>
+                            <li>JobOpenings</li>
+                            <li>Contacts</li>
+                            <li>Clients</li>
+                            <li>Interviews</li>
+                            <li>Custom Modules</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;data_map&gt;</p></td>
+                        <td>KEY-VALUE</td>
+                        <td>
+                          <p>
+                            Fields&nbsp;and their values to create the record
+                            with the required data.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> Keys and values should be
+                            specified as given in the&nbsp;<a
+                              >Zoho Recruit API</a
+                            >.&nbsp;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;duplicate_check&gt;</td>
+                        <td>NUMBER</td>
+                        <td>
+                          <br /><strong>Allowed values: </strong>0,1,2
+                          <ul>
+                            <li>
+                              If the param is supplied with 1, it will throw an
+                              error if the same record already exists.&nbsp;
+                            </li>
+                            <li>
+                              If the param is supplied with 2,&nbsp;it will
+                              search and update the record if it already
+                              exists.&nbsp;
+                            </li>
+                            <li>
+                              If the param is supplied with 0, the record will
+                              be added as a new record.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;workflow_trigger&gt;</td>
+                        <td>BOOLEAN</td>
+                        <td>
+                          <ul>
+                            <li>
+                              If this param is supplied with
+                              <strong>true</strong>, all the&nbsp;<a
+                                >workflows configured</a
+                              >
+                              for the specified module will be triggered for the
+                              current record.
+                            </li>
+                            <li>
+                              If this param is supplied with
+                              <strong>false</strong>, no workflow&nbsp;will be
+                              triggered.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>TEXT</td>
+                        <td>
+                          <p>
+                            The link name of the Zoho Recruit <a>connection</a>.
+                          </p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in
+                                <a>Zoho Recruit&nbsp;- Add records API</a> while
+                                creating the connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Create a record in Candidates module</h2>
+            <p>
+              The following script creates a record in the "Candidates" module
+              in Zoho Recruit.
+            </p>
+            <div>
+              <pre>&nbsp;<span>candidatesMap </span><span>= </span><span>Map();</span>
+&nbsp;<span>candidatesMap</span><span>.put</span><span>(</span><span>"Last name","Richard"</span><span>)</span><span>;</span>
+&nbsp;<span>candidatesMap</span><span>.put</span><span>(</span><span>"Email","richard@zoho.com"</span><span>)</span><span>;</span>
+&nbsp;<span>candidatesMap</span><span>.put</span><span>(</span><span>"Mobile","+91 998877665"</span><span>)</span><span>;</span>
+&nbsp;<span>candidatesMap</span><span>.put</span><span>(</span><span>"Experience in years","5"</span><span>)</span><span>;</span>
+&nbsp;<span>candidatesMap</span><span>.put</span><span>(</span><span>"Current Job Title","Assistant Manager"</span><span>)</span><span>;</span>
+&nbsp;<span>candidatesMap</span><span>.put</span><span>(</span><span>"Skill Set","MCA"</span><span>)</span><span>;</span>
+&nbsp;<span>candidatesMap</span><span>.put</span><span>(</span><span>"Experience Details","Working in UTS for 5 years"</span><span>)</span><span>;</span>
+
+&nbsp;<span>response</span><span>=</span> <span>zoho.recruit.addRecord</span><span>(</span><span>"Candidates", </span><span>candidatesMap, </span><span>0</span>,<span> false</span>,<span> "recruit_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>candidatesMap</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      is a&nbsp;<span>KEY-VALUE</span>&nbsp;that holds
+                      the&nbsp;values of the new record that will be created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>&nbsp;<span>"Last name"</span>
+&nbsp;<span>"Email"</span>
+&nbsp;<span>"Mobile"</span>
+&nbsp;<span>"Experience in years"</span>
+&nbsp;<span>"Current Job Title"</span>
+&nbsp;<span>"Skill Set"</span>
+&nbsp;<span>"Experience Details"</span>
+</pre>
+                    </div>
+                    <div>
+                      are&nbsp;<span>TEXT</span>&nbsp;keys that represent
+                      the&nbsp;label names of fields in Zoho Recruit which will
+                      constitute the record.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>&nbsp;<span>"Richard"</span>
+&nbsp;<span>"richard@zoho.com"</span>
+&nbsp;<span>"+91 9988776655"</span>
+&nbsp;<span>"Assistant Manager"</span>
+&nbsp;<span>"MCA"</span>
+&nbsp;<span>"Working in UTS for 5 years"</span>
+</pre>
+                    </div>
+                    <div>
+                      are&nbsp;<span>TEXT</span>&nbsp;values that represents the
+                      values&nbsp;of fields in Zoho Recruit which will
+                      constitute the record.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>"Candidates"</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module in
+                      which the record will be created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>0</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that indicates that the record
+                      will be added as a new record<span>.</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>false</span>
+</pre>
+                    </div>
+                    <div>
+                      is a&nbsp;<span>BOOLEAN</span>&nbsp;that indicates&nbsp;no
+                      workflow will be triggered.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>"recruit_connection"</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p>
+              The following is a sample&nbsp;<strong>success</strong> response:
+            </p>
+            <div>
+              <p>
+                {&nbsp;&nbsp;<br />&nbsp; &nbsp;"message":"Record(s) added
+                successfully",<br />&nbsp; &nbsp;"Created Time":"2015-11-19
+                18:04:55",<br />&nbsp; &nbsp;"Modified
+                By”:”john”,”Id":"1687000000116001",<br />&nbsp; &nbsp;"Modified
+                Time":"2015-11-19 18:04:55",<br />&nbsp; &nbsp;"&nbsp;
+                &nbsp;Created By”:”john”<br />}
+              </p>
+            </div>
+            <p>
+              To get the ID of the newly created record, execute the following
+              script:
+            </p>
+            <div>
+              &lt;variable&gt; = &lt;response_variable&gt;.get("Id").toLong();
+            </div>
+            <p>
+              The <strong>failure</strong> response returned, when mandatory
+              params are not specified,&nbsp;is of the following format:
+            </p>
+            <div>
+              <p>
+                {&nbsp;&nbsp;<br />&nbsp; &nbsp;"message" :" Unable to populate
+                data, please check if mandatory value is entered correctly.",<br />&nbsp;
+                &nbsp;"code":"4401"<br />}
+              </p>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Recruit API</a></li>
+              <li><a>Zoho Recruit - Add records API document</a></li>
+              <li><a>Zoho Recruit API - Possible error codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

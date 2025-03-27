@@ -1,0 +1,202 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>workDaysList</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>workDaysList</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>workDaysList</strong>&nbsp;function lists workdays
+              between two given dates.&nbsp;
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  This function allows for defining weekends, holiday lists.
+                </li>
+                <li>
+                  The end date has to be greater than or equal to the start
+                  date.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>
+                <span><a>COLLECTION</a></span>
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>start_date</span><span>&gt;</span><span>.workDaysList</span><span>(</span>&lt;<span>end_date</span><span>&gt;</span><span>,</span><span>&lt;</span><span>weekends_list</span><span>&gt;</span><span>,</span><span>&lt;</span><span>holiday_list</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>
+                      <span><a>COLLECTION</a></span>
+                    </td>
+                    <td>
+                      <a>Variable</a> which will contain the collection of work
+                      days between two given dates.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;start_date&gt;</td>
+                    <td>
+                      <span><a>DATE-TIME</a></span
+                      >/<span><a>TEXT</a></span>
+                    </td>
+                    <td>
+                      <p>
+                        The date-time value from which the list of workdays
+                        should be calculated.
+                      </p>
+                      <div>
+                        <p><strong>Note</strong>:&nbsp;</p>
+                        <ul>
+                          <li>
+                            In services other than Zoho Creator, the value of
+                            this parameter&nbsp;can be entered either as a
+                            <a>text</a> or as a <a>date-time</a>&nbsp;value.
+                          </li>
+                          <li>
+                            In Zoho Creator, the value of this
+                            parameter&nbsp;can be entered only as a
+                            <a>date-time</a> value.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;end_date&gt;</td>
+                    <td>
+                      <span><a>DATE-TIME</a></span
+                      >/<span><a>TEXT</a></span>
+                    </td>
+                    <td>
+                      <p>
+                        The date-time value until which the list of workdays
+                        should be calculated.
+                      </p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <ul>
+                          <li>
+                            If end_date is lesser than the start_date, then an
+                            empty value will be returned.
+                          </li>
+                          <li>
+                            In services other than Zoho Creator, the value of
+                            this parameter&nbsp;can be entered either as a
+                            <a>text</a> or as a <a>date-time</a>&nbsp;value.
+                          </li>
+                          <li>
+                            In Zoho Creator, the value of this
+                            parameter&nbsp;can be entered only as a
+                            <a>date-time</a> value.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;weekends_list&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <span><a>COLLECTION</a></span>
+                    </td>
+                    <td>
+                      <p>
+                        The list of date values (weekends) that should be
+                        considered while listing work days.
+                      </p>
+                      <div>
+                        <p>
+                          <strong>Note:</strong> By default, the weekends list
+                          is <strong>{Saturday, Sunday}</strong>
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;holidays_list&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <span><a>COLLECTION</a></span>
+                    </td>
+                    <td>
+                      <p>
+                        The list of holidays that should be considered while
+                        listing work days.
+                      </p>
+                      <div>
+                        <p>
+                          <strong>Note</strong>: If no holidays are provided,
+                          any day (except weekends) will be considered a working
+                          day.
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              The below example lists all the work days between Jan 1, 2020 to
+              Jan 6, 2020.&nbsp;
+            </p>
+            <div>
+              <pre>&nbsp;<span>start_date</span><span>=</span> <span>"1-Jan-2020"</span><span>;</span>
+&nbsp;<span>end_date</span> <span>=</span> <span>"6-Jan-2020"</span><span>;</span>
+&nbsp;<span>work_days </span><span>= </span> <span>start_date</span><span>.workDaysList</span><span>(</span><span>end_date</span><span>,</span> <span>{</span><span>"Saturday"</span><span>,</span><span>"Sunday"</span><span>}</span><span>,</span><span>{</span><span>"02-Jan-2020"</span><span>,</span><span>"03-Jan-2020"</span><span>}</span><span>)</span><span>; <span>// work_days is assigned the value 'Wed Jan 01 00:00:00 PST 2020,Mon Jan 06 00:00:00 PST 2020,Tue Jan 07 00:00:00 PST 2020'</span></span>
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Add business hour</a></li>
+              <li><a>Work days between</a></li>
+              <li><a>Add business day</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

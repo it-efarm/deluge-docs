@@ -1,0 +1,901 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Data Access</a></li>
+        <li><a>Add record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Add records</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Things to keep in mind</a></li>
+                <li>
+                  <a>Applicable data-type and expression for each field</a>
+                </li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  This task is applicable only to <strong>Zoho Creator.</strong>
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>add record</strong> deluge task creates a new record
+              with given values in the specified form.
+            </p>
+            <h2><a></a>Return</h2>
+            <p>
+              This task returns the ID of the created record. It is of
+              <strong>NUMBER</strong> data type.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre>&nbsp;<span>&lt;</span><span>variable</span><span>&gt;</span>&nbsp; <span>=</span>&nbsp; <span>insert</span>&nbsp;<span>into</span>&nbsp;<span>&lt;</span><span>form_link_name</span><span>&gt;</span>
+&nbsp;<span>[</span>
+    &nbsp;<span>&lt;</span><span>field_link_name</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression</span><span>&gt;</span>
+    &nbsp;<span>&lt;</span><span>field_link_name</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression</span><span>&gt;</span>
+    &nbsp;<span>&lt;</span><span>field_link_name</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression</span><span>&gt;</span>
+&nbsp;<span>]</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Explanation</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;variable&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p>Variable holding the ID of the new record.</p>
+                      <p>
+                        When this param is not specified, the semicolon (;) is
+                        not mandatory at the end of the syntax.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;&lt;form_link_name&gt;</td>
+                    <td>
+                      Link name of the form in which the record will be created.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;field_link_name&gt;</td>
+                    <td>
+                      <p>
+                        Link name of the field for which the value is specified.
+                      </p>
+                      <ul>
+                        <li>
+                          All mandatory fields must be specified. All other
+                          fields are optional.
+                        </li>
+                        <li>
+                          The system will automatically assign value to the
+                          Added User system field based on the login user.
+                        </li>
+                        <li>
+                          Signature, Subform and Add Notes field types cannot be
+                          specified
+                        </li>
+                        <li>
+                          Auto Number field type, Formula field type, and System
+                          fields such as Added Time, Added location, Added IP
+                          Address, Modified Time, Modified location, and
+                          Modified IP Address should not be specified. Zoho
+                          Creator will set values for them automatically.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;expression&gt;</td>
+                    <td>
+                      <p>
+                        Value to be assigned to the field. You can directly
+                        specify a value, or you can specify an expression, i.e.
+                        a combination of values, constants, variables,
+                        operators, functions and so on, which evaluates to a
+                        value.
+                      </p>
+                      <p>
+                        Refer this <a>document</a> to know the data type of
+                        values each field type can hold.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Things to keep in mind</h2>
+            <ul>
+              <li>
+                Scripts written in the&nbsp;<strong>On Validate</strong>
+                and&nbsp;<strong>On Success</strong> workflow section of the
+                form specified in "Add Record" task will not be executed.
+              </li>
+              <li>
+                If a field is not specified in the "Add Record" task, and that
+                field has&nbsp;"Initial value" property defined, the value will
+                be assigned to that field by default.
+              </li>
+              <li>
+                If "No Duplicate Values" is selected, and a duplicate value is
+                specified in the "Add Record" task, the script execution will
+                fail.
+              </li>
+            </ul>
+            <h2><a></a>Applicable data type and expression for each field</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Field Type</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Points to note</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Name</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        You must specify only the link name of the "Name" field
+                        when assigning it a value copied from another "Name"
+                        field.
+                      </p>
+                      <p>
+                        In all other cases, you have to give the values for its
+                        sub-fields separately as given below:
+                      </p>
+                      <p>
+                        <strong>&lt;field&gt;.prefix</strong>: denotes the
+                        "prefix" field.
+                      </p>
+                      <p>
+                        <strong>&lt;field&gt;.first_name</strong>: denotes the
+                        "first_name" field.
+                      </p>
+                      <p>
+                        <strong>&lt;field&gt;.last_name</strong>: denotes the
+                        "last_name" field.
+                      </p>
+                      <p>
+                        <strong>&lt;field&gt;.suffix</strong>: denotes the
+                        "suffix" field.
+                      </p>
+                      <p>
+                        You can add the above mentioned sub-fields even if they
+                        are not selected in the field's property.
+                      </p>
+                      <p><strong>Note:</strong></p>
+                      <ul>
+                        <li>
+                          If more than one Name fields are present in the form,
+                          the link names of the subsequent name sub fields will
+                          be appended by a number starting from 1. So, if we
+                          take the example of the subfield
+                          <strong>&lt;field&gt;.prefix</strong>, the link name
+                          of the first such field will be
+                          <strong>&lt;field&gt;.prefix</strong>, the link name
+                          of the second such field will be
+                          <strong>&lt;field&gt;.prefix1</strong>, the link name
+                          of the third such field will be
+                          <strong>&lt;field&gt;.prefix2</strong>, and so on.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The format of the specified email address must be valid.
+                        If the format of the specified email address is invalid,
+                        execution will be stopped during runtime.
+                      </p>
+                      <p>
+                        The number of characters in the value should not exceed
+                        the length specified in the "Character maximum" field
+                        property. If it exceeds, execution will be stopped
+                        during run-time.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        You must specify only the link name of the "Address"
+                        field when assigning it a value copied from another
+                        "Address" field.
+                      </p>
+                      <p>
+                        In all other cases, you have to give values for its
+                        sub-fields separately as given below:
+                      </p>
+                      <p>
+                        <strong>&lt;field&gt;.address_line_1</strong>: denotes
+                        the "Address Line 1" field.
+                      </p>
+                      <p>
+                        <strong>&lt;field&gt;.address_line_2</strong>: denotes
+                        the "Address Line 2" field.
+                      </p>
+                      <p>
+                        <strong>&lt;field&gt;.district_city</strong>: denotes
+                        the "City / District" field.
+                      </p>
+                      <p>
+                        <strong>&lt;field&gt;.state_province</strong>: denotes
+                        the "State / Province" field.
+                      </p>
+                      <p>
+                        <strong>&lt;field&gt;.postal_Code</strong>: denotes the
+                        "Postal Code" field.
+                      </p>
+                      <p>
+                        <strong>&lt;field&gt;.country</strong>: denotes the
+                        "Country" field.
+                      </p>
+                      <p>
+                        <strong>&lt;field&gt;.longitude</strong>: denotes the
+                        "longitude" field.
+                      </p>
+                      <p>
+                        <strong>&lt;field&gt;.latitude</strong>: denotes the
+                        "latitude" field.
+                      </p>
+                      <p>
+                        You can add the above mentioned sub-fields even if they
+                        are not selected in the field's property.
+                      </p>
+                      <p>Note:</p>
+                      <ul>
+                        <li>
+                          If more than one address fields are present in the
+                          form, the link names of the subsequent address sub
+                          fields will be appended by a number starting from 1.
+                          So, if we take the example of the subfield
+                          <strong>&lt;field&gt;.country</strong>, the link name
+                          of the first such field will be
+                          <strong>&lt;field&gt;.country</strong>, the link name
+                          of the second such field will be
+                          <strong>&lt;field&gt;.country1</strong>, the link name
+                          of the third such field will be
+                          <strong>&lt;field&gt;.country2</strong>, and so on.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Phone</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Value can be specified with or without the country code,
+                        even if the&nbsp;"Country code options" and "Default
+                        country code" field properties are not selected.
+                      </p>
+                      <p>
+                        Special characters like (), and - are supported to
+                        accept different phone number formats of various
+                        countries.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Single Line</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      The number of characters in the value should not exceed
+                      the length specified in the "Character maximum" field
+                      property. If it exceeds, execution will be stopped during
+                      run-time.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Multi Line</td>
+                    <td><span>TEXT</span></td>
+                    <td>The value can be plain text of maximum 64 kb size.</td>
+                  </tr>
+                  <tr>
+                    <td>Number</td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      If the number of digits specified in the value exceeds the
+                      length specified in the "Max Digits" field property, the
+                      extra digits will be trimmed from the right.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Date</td>
+                    <td><span>DATE-TIME</span></td>
+                    <td>
+                      <p>
+                        All days in a week can be specified as value,
+                        irrespective of the selected days in "Allowed Days"
+                        property.
+                      </p>
+                      <p>Time value, if specified, will not get added.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Time</td>
+                    <td><span>TIME</span></td>
+                    <td>
+                      <p>
+                        Values ranging from 0 to 23 hours will be accepted for
+                        24-hour format. Values ranging from 0 to 12 hours will
+                        be accepted for 12-hour format.
+                      </p>
+                      <p>Date value, if specified, will not get added.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Drop Down</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        You can specify a new choice apart from pre-defined
+                        choices even if the "Allow Other Choice" field
+                        property&nbsp;is not selected.
+                      </p>
+                      <p>
+                        If a new choice is specified as the value, it only gets
+                        saved in the record and is not added as a&nbsp;new
+                        choice to be selected from the form UI. And that choice
+                        cannot be retrieved back if modified.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Radio</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        You can specify a new choice apart from existing
+                        choices&nbsp;even if the "Allow Other Choice" field
+                        property&nbsp;is not selected.
+                      </p>
+                      <p>
+                        If a new choice is specified as the value, it only gets
+                        saved in the record and is not added as a&nbsp;new
+                        choice to be selected from the form UI.&nbsp;And that
+                        choice cannot be retrieved back if modified.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Multi Select</td>
+                    <td><span>LIST</span></td>
+                    <td>
+                      <p>
+                        You can specify a new choice&nbsp;apart from the
+                        pre-defined choices.
+                      </p>
+                      <p>
+                        If a new choice is specified as the value, it only gets
+                        saved in the record and is not added as a&nbsp;new
+                        choice to be selected from the form UI.&nbsp;And that
+                        choice cannot be retrieved back if modified.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Checkbox</td>
+                    <td><span>LIST</span></td>
+                    <td>
+                      <p>
+                        You can specify a new choice apart from the pre-defined
+                        choices.
+                      </p>
+                      <p>
+                        If a new choice is specified as the value, it only gets
+                        saved in the record and is not added as a&nbsp;new
+                        choice to be selected from the form UI.&nbsp;And that
+                        choice cannot be retrieved back if modified.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Decision box</td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      <p>
+                        You can specify the value as
+                        <strong>True</strong>&nbsp;or <strong>False</strong>,
+                        with or without double quotes.
+                      </p>
+                      <p>
+                        If any other value is specified, execution will be
+                        stopped during run time.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Rich Text</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      There is no limit to the number or type of characters that
+                      can be specified as the value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>URL</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Value can&nbsp;be specified in any of the the following
+                        formats:
+                      </p>
+                      <ul>
+                        <li>
+                          <strong>HTML text format</strong>: &lt;a
+                          <strong>href</strong>= \"&lt;URL&gt;\"
+                          <strong>title</strong> = \"&lt;TITLE&gt;\"
+                          <strong>target</strong> =
+                          \"_blank\"&gt;&lt;<strong>linkname</strong>&gt;&lt;/a&gt;&nbsp;<br />where:
+                          title, link name and target are optional params<br />&nbsp;
+                        </li>
+                        <li>
+                          <strong>Plain text format:</strong>&nbsp;URL as such
+                          can be provided as a text enclosed with double quotes.
+                        </li>
+                      </ul>
+                      <p>
+                        <strong>Note:</strong>&nbsp;Plain text format can be
+                        used only in the "On success", "On create", "On edit",
+                        and "On create or edit" workflow events.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Image</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Value must be specified in the following format (title,
+                        linkname and target are optional params) :
+                      </p>
+                      <p>
+                        &lt;a <strong>href</strong>= \"http://&lt;LINKNAME&gt;\"
+                        <strong>title</strong> =\"&lt;TITLE&gt;\"
+                        <strong>target</strong> = \"_blank\"&gt;&lt;img
+                        <strong>src</strong> = \"&lt;URL&gt;\"
+                        <strong>title</strong>
+                        =\"&lt;TITLE&gt;\"&gt;&lt;/img&gt;&lt;/a&gt;
+                      </p>
+                      <p>
+                        You must specify the image url as the value, even if the
+                        "Browse Options -Link" field property is not selected.
+                      </p>
+                      <p>The link must be that of a public image.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Percent</td>
+                    <td><span>DECIMAL</span></td>
+                    <td>
+                      <p>
+                        If the number of digits specified in the value exceeds
+                        the length specified in the "Max Digits" field property,
+                        the extra digits will be trimmed from the right.
+                      </p>
+                      <p>
+                        If the specified decimal points exceed the number
+                        specified in "Decimal Points" field property, the extra
+                        decimal points will be trimmed from the right.&nbsp;
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Currency</td>
+                    <td><span>DECIMAL</span></td>
+                    <td>
+                      <p>
+                        If the number of digits specified in the value exceeds
+                        the value specified in the "Max Digits" field property,
+                        the extra digits will be trimmed from the right.
+                      </p>
+                      <p>
+                        If the specified decimal points exceed the number
+                        specified in "Decimal Points" field property, the extra
+                        decimal points will be trimmed from the right.&nbsp;
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Decimal</td>
+                    <td><span>DECIMAL</span></td>
+                    <td>
+                      <p>
+                        If the number of digits specified in the value exceeds
+                        the value specified in the "Max Digits" field property,
+                        the extra digits will be trimmed from the right.
+                      </p>
+                      <p>
+                        If the specified decimal points exceed the number
+                        specified in "Decimal Points" field property, the extra
+                        decimal points will be trimmed from the right.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Date-Time</td>
+                    <td><span>DATE-TIME</span></td>
+                    <td>
+                      <p>
+                        All days and hours can be specified as value,
+                        irrespective of the selected days and hours in "Allowed
+                        Days" and "Allowed Hours" property.
+                      </p>
+                      <p>
+                        If time value is not specified, 00:00:00 will be set as
+                        the time value.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Lookup</p>
+                      <p>(Display type - Dropdown/Radio Button)</p>
+                    </td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>
+                        You must specify the record ID of the lookup form as the
+                        value.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>Lookup</p>
+                      <p>(Display type - Multi Select/Checkbox)</p>
+                    </td>
+                    <td><span>LIST</span></td>
+                    <td>
+                      You must specify the record ID of the lookup form as the
+                      value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>File Upload</td>
+                    <td><span>FILE UPLOAD</span></td>
+                    <td>
+                      Only a file value fetched from another
+                      <strong>File Upload</strong> field type should be
+                      specified as a value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Audio</td>
+                    <td><span>AUDIO</span></td>
+                    <td>
+                      Only an audio file value fetched from another
+                      <strong>Audio</strong> field type should be specified as a
+                      value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Video</td>
+                    <td><span>VIDEO</span></td>
+                    <td>
+                      Only a video file value fetched from
+                      another&nbsp;<strong>Video</strong>&nbsp;field type should
+                      be specified as a value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Users</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        You can specify username of any user or developer added
+                        in your current app.
+                      </p>
+                      <p>
+                        You can view the list of users and developers in your
+                        account by navigating to Settings &gt; Users.&nbsp;From
+                        this page, you can also add more users and developers to
+                        your account.
+                      </p>
+                      <p>
+                        If you enter an incorrect username, execution will be
+                        stopped during run-time.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Integration (Zoho CRM)</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        You must specify the record ID in the selected module as
+                        the value.&nbsp;If you enter an incorrect
+                        ID,&nbsp;execution will be stopped during
+                        run-time.&nbsp;&nbsp;
+                      </p>
+                      <p>
+                        Learn how to fetch the ID of a record
+                        after&nbsp;<a>creating</a>&nbsp;it&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Integration (Zoho Recruit)</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        You must specify the record ID in the selected module as
+                        the value. If you enter an incorrect ID,&nbsp;execution
+                        will be stopped during run-time.
+                      </p>
+                      <p>
+                        Learn how to fetch the ID of a record
+                        after&nbsp;<a>creating</a>&nbsp;it&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Integration (Salesforce)</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        You must specify the record ID in the selected module as
+                        the value. If you enter an incorrect ID,&nbsp;execution
+                        will be stopped during run-time.
+                      </p>
+                      <p>
+                        Learn how to fetch the ID of a record
+                        after&nbsp;<a>creating</a>&nbsp;it&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Integration (Zoho Books)</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        You must specify the record ID in the selected module as
+                        the value. If you enter an incorrect ID,&nbsp;execution
+                        will be stopped during run-time.
+                      </p>
+                      <p>
+                        Learn how to fetch the ID of a record
+                        after&nbsp;<a>creating</a>&nbsp;it&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Integration (Quickbooks)</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        You must specify the record ID in the selected module as
+                        the value. If you enter an incorrect ID,&nbsp;execution
+                        will be stopped during run-time.
+                      </p>
+                      <p>
+                        Learn how to fetch the ID of a record
+                        after&nbsp;<a>creating</a>&nbsp;it&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              The following example inserts the defined values in the specified
+              fields:
+            </p>
+            <div>
+              <pre>&nbsp;<span>insert</span> <span>into</span> <span>Events</span> <span><span> // Events is the form link name</span></span>
+&nbsp;<span>[</span>
+    &nbsp;<span>Added_User</span> <span>=</span> <span>zoho</span><span>.loginuser</span>
+    &nbsp;<span>Name</span><span>.prefix</span> <span>=</span> <span>"Mr"</span>
+    &nbsp;<span>Name</span><span>.first_name</span> <span>=</span> <span>"Harry"</span>
+    &nbsp;<span>Name</span><span>.last_name</span> <span>=</span> <span>"John"</span>
+    &nbsp;<span>Name</span><span>.suffix</span> <span>=</span> <span>"Jr"</span>
+    &nbsp;<span>Email</span> <span>=</span> <span>"harry.john@abc.com"</span>
+    &nbsp;<span>Address</span><span>.address_line_12</span> <span>=</span> <span>"Zoho Corporation"</span>
+    &nbsp;<span>Address</span><span>.address_line_22</span> <span>=</span> <span>"4141 Hacienda Drive"</span>
+    &nbsp;<span>Address</span><span>.district_city2</span> <span>=</span> <span>"Pleasanton"</span>
+    &nbsp;<span>Address</span><span>.state_province2</span> <span>=</span> <span>"California"</span>
+    &nbsp;<span>Address</span><span>.postal_code2</span> <span>=</span> <span>"94588"</span>
+    &nbsp;<span>Address</span><span>.country2</span> <span>=</span> <span>"USA"</span>
+    &nbsp;<span>Address</span><span>.longitude2</span> <span>=</span> <span>"30.219231"</span>
+    &nbsp;<span>Address</span><span>.latitude2</span> <span>=</span> <span>"-97.750838"</span>
+    &nbsp;<span>Phone</span> <span>=</span> <span>"+18778344428"</span>
+    &nbsp;<span>Event_name</span> <span>=</span> <span>"Workshops"</span> <span><span>// Event_name is a single line field type</span></span>
+    &nbsp;<span>Event_details</span> <span>=</span> <span>"Workshops will be held for Zoho Creator as part of a two day program"</span> <span><span>// Event_details is a multi line field type</span></span>
+    &nbsp;<span>Number_of_attendees</span> <span>=</span> <span>350</span> <span><span>// Number_of_attendees is a number field type</span></span>
+    &nbsp;<span>Date_of_registration</span> <span>=</span> <span>'05-Jul-2018'</span> <span><span>// Date_of_registration is a date field type </span></span>
+    &nbsp;<span>Type_of_workshop</span> <span>=</span> <span>"Free"</span> <span><span>// Type_of_workshop is a drop-down field type</span></span>
+    &nbsp;<span>Event_approval</span> <span>=</span> <span>"Pending"</span> <span><span>// Project_approval is a radio field type</span></span>
+    &nbsp;<span>Venue</span> <span>=</span> <span>{</span><span>"USA"</span><span>,</span> <span>"Australia"</span><span>}</span> <span><span>// Venue is a multi-select field type</span></span>
+    &nbsp;<span>Required_equipment</span> <span>=</span> <span>{</span><span>"iPhone"</span><span>,</span> <span>"Macbook"</span><span>,</span> <span>"AppleTV"</span><span>}</span> <span><span>// Required_equipment is a checkbox field type</span></span>
+    &nbsp;<span>Read_privacy_policy</span> <span>=</span> <span>True</span> <span><span>// Read_privacy_policy is a decision field type</span></span>
+    &nbsp;<span>Rich_Text</span> <span>=</span> <span>"Harry John"</span>
+    &nbsp;<span>Registration_url</span> <span>=</span> <span>"www.zoho.com/register"</span> <span><span>// Registration_url is a url field type</span></span>
+    &nbsp;<span>Previous_year_turnout</span> <span>=</span> <span>99.2</span> <span><span>// Previous _year_turnout is a percent field type</span></span>
+    &nbsp;<span>Event_expense</span> <span>=</span> <span>5000</span> <span><span>// Event_expense is a currency field type</span></span>
+    &nbsp;<span>Decimal</span> <span>=</span> <span>100.4</span>
+    &nbsp;<span>Event_start_date</span> <span>=</span> <span>'04-Jul-2018 08:00:00'</span> <span><span>// Event_start_date is a date-time field type</span></span>
+    &nbsp;<span>Lookup_Dropdown</span> <span>=</span> <span>"1754388000001023025"</span>
+    &nbsp;<span>Lookup_Checkbox</span> <span>=</span> <span>{</span><span>"1754388000001023025"</span><span>,</span> <span>"1754388000001029087"</span><span>}</span>
+    &nbsp;<span>Script</span> <span>=</span> <span>rec</span><span>.Audio</span> <span><span>// Script is an audio field type and rec is a fetched record</span></span>
+    &nbsp;<span>Dry_run</span> <span>=</span> <span>rec</span><span>.Video</span> <span><span>// Dry_run is a video field type and rec is a fetched record</span></span>
+    &nbsp;<span>Event_emcee</span> <span>=</span> <span>"jameswilliams"</span> <span><span>// Event_emcee is a users field type</span></span>
+    &nbsp;<span>Zoho_CRM</span> <span>=</span> <span>"00190000010bRIMAA2"</span> <span><span>// Zoho_CRM is an integration field type</span></span>
+    &nbsp;<span>]</span><span>;</span></pre>
+            </div>
+            <h2>Example 2</h2>
+            <p>
+              The following example inserts the defined values in the specified
+              fields and returns the ID of the inserted record:
+            </p>
+            <div>
+              <pre><span>response</span> <span>=</span> <span>insert</span> <span>into</span> <span>Add_Product</span>&nbsp;
+<span>[</span>&nbsp;
+    <span>Product_Name</span> <span>=</span> <span>"Book"</span>&nbsp;
+    <span>Selling_Price</span> <span>=</span> <span>150</span>&nbsp;
+    <span>Product_Code</span> <span>=</span> <span>1120</span>&nbsp;
+    <span>In_Stock</span> <span>=</span> <span>20</span>&nbsp;
+<span>]</span><span>;</span>&nbsp;
+<span>info</span> <span>response;</span> <span>//Response 435913XXXXXXX490014</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

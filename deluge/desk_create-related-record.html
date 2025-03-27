@@ -1,0 +1,346 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Desk Integration Tasks</a></li>
+        <li><a>Create Related Record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create related record in Zoho Desk</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to create a record in a sub module
+              belonging to a record in a parent module in Zoho Desk.&nbsp;&nbsp;
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.desk.createRelatedRecord</span><span>(</span><span>&lt;</span><span>orgId</span><span>&gt;, </span><span>&lt;sub_</span><span>module</span><span>&gt;, </span><span>&lt;</span><span>parent_module</span><span>&gt;, </span><span>&lt;record</span><span>_id</span><span>&gt;, </span><span>&lt;</span><span>record_value</span><span>&gt;, </span><span>&lt;</span><span>connection</span><span>&gt;</span>)<span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            variable which will contain&nbsp;the response
+                            returned by Zoho Desk. It represents the values of
+                            the record created.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;orgId&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the organization ID&nbsp;of the account in
+                            which the record will be created. This can be found
+                            in Zoho Desk Settings &gt; Developer Space &gt;
+                            API.&nbsp;&nbsp;<br /><br /><img />
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span
+                              >&lt;sub_module&gt;<strong>&nbsp;</strong></span
+                            >
+                          </p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>specifies the name of the sub module.</p>
+                          <p>This task&nbsp;allows you to create:</p>
+                          <ul>
+                            <li><p>timeEntry based on a ticket</p></li>
+                            <li><p>timeEntry based on a task</p></li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;parent_module&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the name of the module in which a related
+                            record needs to be created.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;record_id&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>specifies the ID of the parent record.</p>
+                          <p>
+                            Learn how to fetch the record ID
+                            after&nbsp;<a>creating</a>,&nbsp;<a>searching</a>&nbsp;or&nbsp;<a>fetching</a>&nbsp;records.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;record_value&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the values of the record that needs to be
+                            created.
+                          </p>
+                          <p>
+                            To learn about the mandatory fields,&nbsp;<a
+                              >click here</a
+                            >&nbsp;and go to &lt;ModuleName&gt; -&gt; Create
+                            &lt;ModuleName&gt;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connection&gt;</span></p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>specifies the name of the <a>connection</a>.</p>
+                          <p>
+                            The scopes which need&nbsp;to be selected
+                            are:&nbsp;&nbsp;<br />- Desk.tickets.CREATE&nbsp;<br />-
+                            Desk.tasks.CREATE&nbsp;
+                          </p>
+                          <p>
+                            <strong>*Note:</strong>&nbsp;This is a mandatory
+                            param when used in&nbsp;<a>Zoho Creator</a>.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script creates a new record in the
+              module&nbsp;-&nbsp;<strong>timeEntry</strong> related to the
+              record in the parent module - <strong>tasks</strong>&nbsp;of ID -
+              <strong>168XXXXXXXXXXXX043,</strong>&nbsp;with the
+              values&nbsp;-&nbsp;<strong>168XXXXXXXXXXXXX005</strong>&nbsp;and
+              <strong>2019-02-16T07:38:48.000Z</strong>&nbsp;&nbsp;for the
+              fields
+              -&nbsp;<strong>createdBy</strong>&nbsp;and&nbsp;<strong>executedTime&nbsp;</strong>respectively.
+            </p>
+            <div>
+              <pre><span>recordValue </span><span>= </span><span>{ </span><span>"createdBy" </span><span>: </span><span>"168XXXXXXXXXXXXX005"</span><span>,</span><span>"executedTime"</span><span>:</span><span>"2019-02-16T07:38:48.000Z"</span><span>}</span><span>;</span>&nbsp;
+<span>response </span><span>= </span><span>zoho</span><span>.desk.createRelatedRecord</span><span>(</span><span>641XXXXXX</span><span>,</span><span>"timeEntry"</span><span>,</span><span>"tasks"</span><span>,</span><span>168XXXXXXXXXXXXX043</span><span>,</span><span>recordValue</span><span>, </span><span>"desk_connection"</span><span><span>)</span><span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      variable which will hold the&nbsp;response returned by
+                      Zoho Desk. It represents the values of the record created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>641XXXXXX</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the
+                      organization ID.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"timeEntry"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      Zoho Desk module in which the record needs to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"tasks"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the parent module
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>168XXXXXXXXXXXXX043</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the ID of
+                      parent record
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>recordValue</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      values of the record that needs to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>&nbsp;<span>"createdBy"</span>
+&nbsp;<span>"executedTime"</span></pre>
+                    </div>
+                    <div>
+                      are the <span>TEXT</span> keys that represent the
+                      attribute names as given in the <a>Zoho Desk API</a>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"desk_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response returned is of the following format. It
+                  represents the values of the related record created in the
+                  submodule.
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"customFields": {<br />&nbsp;&nbsp;"bugTimeLogID":
+                  null,<br />&nbsp;&nbsp;"Date and Time Completed":
+                  null&nbsp;&nbsp;<br />},<br />&nbsp;&nbsp;"ownerId":
+                  "168XXXXXXXXXXXX005",<br />&nbsp;&nbsp;"requestChargeType":
+                  "Customer Service",<br />&nbsp;&nbsp;"executedTime":
+                  "2019-02-16T07:38:48.000Z",<br />&nbsp;&nbsp;"hoursSpent":
+                  "0",<br />&nbsp;&nbsp;"minutesSpent": "0",<br />&nbsp;&nbsp;"secondsSpent":
+                  "0",<br />&nbsp;&nbsp;"agentCostPerHour": null,<br />&nbsp;&nbsp;"additionalCost":
+                  null,<br />&nbsp;&nbsp;"totalCost": "0.0",<br />&nbsp;&nbsp;"description":
+                  null,<br />&nbsp;&nbsp;"requestId": null,<br />&nbsp;&nbsp;"createdTime":
+                  "2019-02-26T04:19:24.000Z",<br />&nbsp;&nbsp;"createdBy":
+                  "168XXXXXXXXXXXX005",<br />&nbsp;&nbsp;"departmentId":
+                  "168XXXXXXXXXXXX907",<br />&nbsp;&nbsp;"parent": {<br />&nbsp;&nbsp;"associatedTicketId":
+                  "null",<br />&nbsp;&nbsp;"id": "168XXXXXXXXXXXX043",<br />&nbsp;&nbsp;"type":
+                  "TASKS"&nbsp;&nbsp;<br />},<br />&nbsp;&nbsp;"invoiceId":
+                  null,<br />&nbsp;&nbsp;"id": "168XXXXXXXXXXXX001",<br />&nbsp;&nbsp;"taskId":
+                  "168XXXXXXXXXXXX043"&nbsp;&nbsp;<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+          </div>
+          <p><strong>Failure Response</strong></p>
+          <ul>
+            <li>
+              <p>
+                The failure response returned for incorrect or non-existent
+                organization ID is of the following format.
+              </p>
+              <div>
+                &nbsp; &nbsp;{<br />&nbsp;
+                &nbsp;"errorCode":"UNPROCESSABLE_ENTITY",<br />&nbsp;
+                &nbsp;"message":"The value passed for the 'orgId' parameter is
+                invalid."<br />&nbsp; &nbsp;}
+              </div>
+            </li>
+            <li>
+              <p>
+                The failure response returned for incorrect or non-existent
+                record ID is of the following format.
+              </p>
+              <div>
+                &nbsp; &nbsp;{<br />&nbsp; &nbsp;"errorCode":"URL_NOT_FOUND",<br />&nbsp;
+                &nbsp;"message":"The URL you requested could not be found."<br />&nbsp;
+                &nbsp;}
+              </div>
+            </li>
+            <li>
+              <p>
+                The failure response returned for missing mandatory field in
+                recordValue is of the following format.
+              </p>
+              <div>
+                &nbsp; &nbsp;{<br />&nbsp; &nbsp;"errorCode":"INVALID_DATA",<br />&nbsp;
+                &nbsp;"message":"The data is invalid due to validation
+                restrictions",<br />&nbsp;
+                &nbsp;"errors":[{"fieldName":"/subject","errorType":"missing"}]}
+              </div>
+            </li>
+          </ul>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>Zoho Desk API</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,285 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Inventory Integration Tasks</a></li>
+        <li><a>Get Records From Zoho Inventory</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Records From Zoho Inventory</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a>Fetch all the records from the contacts module</a>
+                    </li>
+                    <li>
+                      <a
+                        >Fetch only the records that satisfy the specified
+                        criteria</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.inventory.getRecords</strong> task fetches the
+              records from the specified module of Zoho Inventory.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.inventory.getRecords</span><span>(</span><span>&lt;</span><span>module</span><span>&gt;</span>, <span>&lt;</span><span>org_id</span><span>&gt;</span>, <span>[&lt;</span><span>criteria_map&gt;]</span>, <span>[&lt;</span><span>connection&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <p>&nbsp;</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details of the list of all the records that will
+                            be fetched from the specified Zoho Inventory module.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The module from which the records need to be
+                            fetched.
+                          </p>
+                          <p><strong>Allowed Values:</strong></p>
+                          <ul>
+                            <li>Contacts</li>
+                            <li>PurchaseOrders</li>
+                            <li>Bills</li>
+                            <li>SalesOrders</li>
+                            <li>CompositeItems</li>
+                            <li>Items</li>
+                            <li>Invoices</li>
+                            <li>Packages (not supported in Zoho Creator)</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;org_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The&nbsp;organization ID of the account from which
+                            the records need to be fetched.&nbsp;
+                          </p>
+                          <div>
+                            <strong>Note:</strong> Learn how to fetch
+                            organization ID from the&nbsp;<a>UI</a> and
+                            from&nbsp;the response of&nbsp;<a
+                              >zoho.inventory.getOrganization</a
+                            >
+                            task.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;criteria_map&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The search criteria. The keys to this parameter are
+                            provided as specified in the&nbsp;<a
+                              >Zoho Inventory API</a
+                            >.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <div>
+                            <strong>Note:</strong>&nbsp;This parameter is not
+                            applicable to&nbsp;<strong>Zoho Creator</strong
+                            >&nbsp;and mandatory in&nbsp;<strong
+                              >Zoho Cliq</strong
+                            >.
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 1: Fetch all records from the specified module
+            </h2>
+            <p>
+              The following script fetches all the records from the Zoho
+              Inventory module -&nbsp;<strong>Invoice:</strong>
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.inventory.getRecords</span><span>(</span><span>"invoices"</span>, <span>"58XXXX49"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Inventory. It represents the details of the records that
+                      will be fetched from the specified Zoho Inventory module.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"invoice"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the module from
+                      which the records need to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"58XXXX49"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the
+                      organization ID of the account from which the records need
+                      to be fetched.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 2: Fetch all the records that satisfy the specified
+              criteria
+            </h2>
+            <p>
+              The following script fetches the records from the Zoho Inventory
+              module -&nbsp;<strong>Invoices</strong> that have the value
+              -&nbsp;<strong>Kate</strong> in the field
+              -&nbsp;<strong>customer_name</strong>:
+            </p>
+            <div>
+              <pre>&nbsp;<span>query_param</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>query_param</span><span>.</span><span>put</span><span>(</span><span>"customer_name"</span>,<span> "Kate"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.inventory.getRecords</span><span>(</span><span>"invoices"</span>, <span>"58XXXX49"</span>, <span>query_param</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>query_param</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the query
+                      values.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code":0,<br />&nbsp;&nbsp;"message":"success",<br />&nbsp;&nbsp;"invoices":<br />&nbsp;&nbsp;[<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"invoice_id":"4787XXXXXXXXX9051",<br />&nbsp;&nbsp;"ach_payment_initiated":false,<br />&nbsp;&nbsp;"zcrm_potential_id":"",<br />&nbsp;&nbsp;"zcrm_potential_name":"",<br />&nbsp;&nbsp;"customer_name":"Kate",<br />&nbsp;&nbsp;"customer_id":"4787XXXXXXXXX8022",<br />&nbsp;&nbsp;"company_name":"",<br />&nbsp;&nbsp;"status":"draft",<br />&nbsp;&nbsp;"color_code":"",<br />&nbsp;&nbsp;"current_sub_status_id":"",<br />&nbsp;&nbsp;"current_sub_status":"draft",<br />&nbsp;&nbsp;"invoice_number":"INV-000002",<br />&nbsp;&nbsp;"reference_number":"",<br />&nbsp;&nbsp;"date":"2019-08-29",<br />&nbsp;&nbsp;"due_date":"2019-08-29",<br />&nbsp;&nbsp;"due_days":"",<br />&nbsp;&nbsp;"currency_id":"4787XXXXXXXXX0099",<br />&nbsp;&nbsp;"schedule_time":"",<br />&nbsp;&nbsp;"currency_code":"INR",<br />&nbsp;&nbsp;"is_pre_gst":false,<br />&nbsp;&nbsp;"tax_source":"",<br />&nbsp;&nbsp;"template_type":"",<br />&nbsp;&nbsp;"no_of_copies":1,<br />&nbsp;&nbsp;"show_no_of_copies":true,<br />&nbsp;&nbsp;"is_viewed_by_client":false,<br />&nbsp;&nbsp;"has_attachment":false,<br />&nbsp;&nbsp;"client_viewed_time":"",<br />&nbsp;&nbsp;"type":"invoice",<br />&nbsp;&nbsp;"project_name":"",<br />&nbsp;&nbsp;"total":1850.0,<br />&nbsp;&nbsp;"balance":1850.0,<br />&nbsp;&nbsp;"created_time":"2019-08-29T17:15:03+0530",<br />&nbsp;&nbsp;"last_modified_time":"2019-08-29T17:15:03+0530",<br />&nbsp;&nbsp;"is_emailed":false,<br />&nbsp;&nbsp;"reminders_sent":0,<br />&nbsp;&nbsp;"last_reminder_sent_date":"",<br />&nbsp;&nbsp;"payment_expected_date":"",<br />&nbsp;&nbsp;"last_payment_date":"",<br />&nbsp;&nbsp;"custom_fields":[],<br />&nbsp;&nbsp;"custom_field_hash":{},<br />&nbsp;&nbsp;"template_id":"",<br />&nbsp;&nbsp;"documents":"",<br />&nbsp;&nbsp;"salesperson_id":"",<br />&nbsp;&nbsp;"salesperson_name":"",<br />&nbsp;&nbsp;"shipping_charge":0.0,<br />&nbsp;&nbsp;"adjustment":0.0,<br />&nbsp;&nbsp;"write_off_amount":0.0,<br />&nbsp;&nbsp;"exchange_rate":0.0<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"invoice_id":"4787XXXXXXXXX9018",<br />&nbsp;&nbsp;"ach_payment_initiated":false,<br />&nbsp;&nbsp;"zcrm_potential_id":"",<br />&nbsp;&nbsp;"zcrm_potential_name":"",<br />&nbsp;&nbsp;"customer_name":"Shawn",<br />&nbsp;&nbsp;"customer_id":"4787XXXXXXXXX8001",<br />&nbsp;&nbsp;"company_name":"",<br />&nbsp;&nbsp;"status":"draft",<br />&nbsp;&nbsp;"color_code":"",<br />&nbsp;&nbsp;"current_sub_status_id":"",<br />&nbsp;&nbsp;"current_sub_status":"draft",<br />&nbsp;&nbsp;"invoice_number":"INV-000001",<br />&nbsp;&nbsp;"reference_number":"",<br />&nbsp;&nbsp;"date":"2019-08-29",<br />&nbsp;&nbsp;"due_date":"2019-08-29",<br />&nbsp;&nbsp;"due_days":"",<br />&nbsp;&nbsp;"currency_id":"4787XXXXXXXXX0099",<br />&nbsp;&nbsp;"schedule_time":"",<br />&nbsp;&nbsp;"currency_code":"INR",<br />&nbsp;&nbsp;"is_pre_gst":false,<br />&nbsp;&nbsp;"tax_source":"",<br />&nbsp;&nbsp;"template_type":"",<br />&nbsp;&nbsp;"no_of_copies":1,<br />&nbsp;&nbsp;"show_no_of_copies":true,<br />&nbsp;&nbsp;"is_viewed_by_client":false,<br />&nbsp;&nbsp;"has_attachment":false,<br />&nbsp;&nbsp;"client_viewed_time":"",<br />&nbsp;&nbsp;"type":"invoice",<br />&nbsp;&nbsp;"project_name":"",<br />&nbsp;&nbsp;"total":1550.0,<br />&nbsp;&nbsp;"balance":1550.0,<br />&nbsp;&nbsp;"created_time":"2019-08-29T17:11:13+0530",<br />&nbsp;&nbsp;"last_modified_time":"2019-08-29T17:11:13+0530",<br />&nbsp;&nbsp;"is_emailed":false,<br />&nbsp;&nbsp;"reminders_sent":0,<br />&nbsp;&nbsp;"last_reminder_sent_date":"",<br />&nbsp;&nbsp;"payment_expected_date":"",<br />&nbsp;&nbsp;"last_payment_date":"",<br />&nbsp;&nbsp;"custom_fields":[],<br />&nbsp;&nbsp;"custom_field_hash":{},<br />&nbsp;&nbsp;"template_id":"",<br />&nbsp;&nbsp;"documents":"",<br />&nbsp;&nbsp;"salesperson_id":"",<br />&nbsp;&nbsp;"salesperson_name":"",<br />&nbsp;&nbsp;"shipping_charge":0.0,<br />&nbsp;&nbsp;"adjustment":0.0,<br />&nbsp;&nbsp;"write_off_amount":0.0,<br />&nbsp;&nbsp;"exchange_rate":0.0<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"page_context":<br />&nbsp;&nbsp;{"page":1,<br />&nbsp;&nbsp;"per_page":200,<br />&nbsp;&nbsp;"has_more_page":false,<br />&nbsp;&nbsp;"report_name":"Invoices",<br />&nbsp;&nbsp;"applied_filter":"Status.All",<br />&nbsp;&nbsp;"sort_column":"created_time",<br />&nbsp;&nbsp;"sort_order":"D"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"instrumentation":<br />&nbsp;&nbsp;{"query_execution_time":116,<br />&nbsp;&nbsp;"request_handling_time":530,<br />&nbsp;&nbsp;"response_write_time":170,<br />&nbsp;&nbsp;"page_context_write_time":1<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p>
+              To fetch the IDs of the records, execute the following snippet:
+            </p>
+            <div>
+              var =
+              &lt;response_variable&gt;.get("&lt;module_name&gt;");&nbsp;<br />//
+              example for &lt;module_name&gt; is invoices<br />for each var1 in
+              var<br />&nbsp; {&nbsp;<br />&nbsp; &nbsp; info
+              var1.get("&lt;module_name&gt;_id");&nbsp;<br />&nbsp; &nbsp;//
+              example for &lt;module_name&gt;_id is invoice_id&nbsp;<br />&nbsp;
+              }
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for incorrect organization ID will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 6041,<br />&nbsp;&nbsp;"message":
+                  "This user is not associated with the CompanyID/CompanyName:
+                  58XXXX50."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Inventory Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

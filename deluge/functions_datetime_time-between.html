@@ -1,0 +1,166 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>timeBetween</a></li>
+        <li><a>Time Functions</a></li>
+        <li><a>timeBetween</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>timeBetween</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>timeBetween</strong> function calculates the time
+              difference between two given <a>date-time</a> values.
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  The difference in represented in
+                  <strong>HH:mm:ss</strong> format. <strong>HH:</strong> in case
+                  of differences in just the hour. <strong>HH:mm:</strong> in
+                  case of differences in just the hour and minute.
+                </li>
+                <li>End time has to be greater than start time.</li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>
+                <a><span>TEXT</span></a>
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>start_time</span><span>&gt;</span><span>.timeBetween</span><span>(</span><span>&lt;</span><span>end_time</span><span>&gt;</span><span>)</span><span>;</span>
+                                </pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>&nbsp;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>
+                      <a><span>TEXT</span></a>
+                    </td>
+                    <td>
+                      <a>Variable</a> which will contain the difference in time.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;start_time&gt;</td>
+                    <td>
+                      <a><span>DATE-TIME</span></a
+                      >/<a><span>TEXT</span></a>
+                    </td>
+                    <td>
+                      The time from which time difference should be calculated.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;end_time&gt;</span></td>
+                    <td>
+                      <a><span>DATE-TIME</span></a
+                      >/<a><span>TEXT</span></a>
+                    </td>
+                    <td>
+                      The time upto which time difference should be calculated.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <p>
+                Following are to be considered while calculating time
+                difference:
+              </p>
+              <ul>
+                <li>
+                  The <strong>hour (HH)</strong> value must be in the range 0
+                  through 23. If it falls outside the range, it will be
+                  defaulted to 0.
+                </li>
+                <li>
+                  The <strong>minute (mm)</strong> value must be in the range 0
+                  through 59. If it falls outside the range, it will be
+                  defaulted to 0.
+                </li>
+                <li>
+                  The <strong>second (ss)</strong> value must be in the range 0
+                  through 59. If it falls outside the range, it will be
+                  defaulted to 0.
+                </li>
+                <li>
+                  If the time difference is more than a day, it is converted
+                  into elapsed number of hours. For instance, a&nbsp;time
+                  difference of 1 day and 10 hours would be treated as 34 hours.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>start </span><span>= </span><span>"6-Jan-2020 10:10:12"</span><span>;</span>
+ <span>end </span><span>= </span><span>'7-Jan-2020 11:20:12'</span><span>;</span>
+ <span>difference </span><span>= </span><span>start.timeBetween</span><span>(</span><span>end</span><span>)</span><span>;</span> <span>// difference is assigned the value '25:10:2'</span>
+                                </pre>
+            </div>
+            <p>
+              The above script will not work for Zoho Creator due to a
+              behavioural difference. Creator accepts only date-time values,
+              whereas other services accept both text and date-time values. The
+              below script will work for all services (including Creator).
+            </p>
+            <div>
+              <pre>&nbsp;<span>start </span><span>= '</span><span>6-Jan-2020 10:10:12'</span><span>;</span>
+ <span>end </span><span>= </span><span>'7-Jan-2020 11:20:12'</span><span>;</span>
+ <span>difference </span><span>= </span><span>start.timeBetween</span><span>(</span><span>end</span><span>)</span><span>;</span> <span>// difference is assigned the value '25:10:2'</span>
+                                </pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Time data type</a></li>
+              <li><a>Time functions</a></li>
+              <li><a>Date-time functions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

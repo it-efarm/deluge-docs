@@ -1,0 +1,135 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>List functions</a></li>
+        <li><a>rank</a></li>
+        <li><a>Number functions</a></li>
+        <li><a>rank</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>rank</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>rank</strong> function operates on a
+              <strong>collection</strong> of numerical values. It sorts them in
+              descending order (by default) and returns the rank (order) of the
+              requested element in that order.
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  The&nbsp;numerical values should be available inside a
+                  collection.
+                </li>
+                <li>
+                  Invoking the rank function on values other than numbers or
+                  decimals will result in a runtime error.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>NUMBER</span> / <span>DECIMAL</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>collection</span><span>&gt;</span><span>.rank</span><span>(</span><span>&lt;</span><span>number</span><span>&gt;</span><span>, </span><span><span>[</span><span>&lt;</span><span>sort_order</span><span>&gt;</span><span>]</span></span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      Variable which contains the rank of the requested element.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;numberCollection&gt;</td>
+                    <td><span>COLLECTION</span></td>
+                    <td>The collection of numerical values.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;number&gt;</td>
+                    <td><span>NUMBER</span> / <span>DECIMAL</span></td>
+                    <td>
+                      The numerical value for which the rank has to be
+                      determined.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &lt;sort_order&gt;
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      The rank is determined based on elements sorted in the
+                      descending order by default. This parameter is used to
+                      reverse the sorting order.
+                      <p>
+                        This parameter takes
+                        <strong
+                          >"asc"<strong>
+                            (case-insensitive) as a value.</strong
+                          ></strong
+                        >
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>
+              <strong
+                ><strong><a></a></strong></strong
+              >Examples
+            </h2>
+            <div>
+              <pre>&nbsp;<span>marks</span> <span>=</span> <span>Collection</span><span>(</span><span>300</span><span>,</span><span>455</span><span>,</span><span>124</span><span>,</span><span>926</span><span>,</span><span>780</span><span>)</span><span>;</span>
+&nbsp;<span>order</span> <span>=</span> <span>marks</span><span>.rank</span><span>(</span><span>300</span><span>)</span><span>;</span> <span>// the variable order is assigned the value 4</span>
+
+&nbsp;<span>marks</span> <span>=</span> <span>Collection</span><span>(</span><span>120.12</span><span>,</span><span>65</span><span>,</span><span>300.46</span><span>,</span><span>600.25</span><span>,</span><span>80.5</span><span>)</span><span>;</span>
+&nbsp;<span>order</span> <span>=</span> <span>marks</span><span>.rank</span><span>(</span><span>80.5</span><span>, </span><span>"asc"</span><span>)</span><span>;</span> <span>// the variable order is assigned the value 2 as the elements are sorted in ascending order</span>
+
+&nbsp;<span>marks</span> <span>=</span> <span>Collection</span><span>(</span><span>120.12</span><span>,</span><span>65</span><span>,</span><span>300.46</span><span>,</span><span>600.25</span><span>,</span><span>80.5</span><span>)</span><span>;</span>
+&nbsp;<span>order</span> <span>=</span> <span>marks</span><span>.rank</span><span>(</span><span>100</span><span>)</span><span>;</span> <span>// A run-time error ('List contains invalid(TEXT) entries hence' can not be cast to 'valid list and perform desired operations') will be thrown as there is no such element</span></pre>
+            </div>
+            <h2><a></a>Related Examples</h2>
+            <ul>
+              <li><a>Number Functions</a></li>
+              <li><a>List Functions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

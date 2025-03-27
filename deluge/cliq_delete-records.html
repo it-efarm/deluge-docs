@@ -1,0 +1,293 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Cliq Integration Tasks</a></li>
+        <li><a>Delete records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Delete Records</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Example 1: Delete the records that satisfy static
+                        criteria</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 2: Delete the records that satisfy dynamic
+                        criteria</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note</strong>: This task is applicable to all Zoho
+                Services except Zoho Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to delete records from a
+              <a>Zoho Cliq database</a> based on a specified criteria.
+            </p>
+            <p>This task is based on Zoho Cliq API - <a>Delete a record.</a></p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.cliq.deleteRecords</span><span>(</span><span>&lt;</span><span>database_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>query_text</span><span>&gt;, &lt;connection&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;variable&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      specifies the variable which will hold the&nbsp;response
+                      returned by Zoho Cliq.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;database_name&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        specifies the <a>unique name</a> of the database from
+                        which the records will be deleted.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;query_text&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>specifies the query parameters.</p>
+                      <p>
+                        <a>Click here</a> to find the list of operators that can
+                        be used in the search criteria.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;connection&gt;</p></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      specifies the link name of the Zoho
+                      Cliq&nbsp;<a>connection</a>.
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of&nbsp;<a
+                              >stopping new authtoken generation</a
+                            >,&nbsp;a Zoho OAuth connection with appropriate
+                            scopes is mandatory&nbsp;for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter unless the authtoken is manually
+                            deleted&nbsp;from&nbsp;<a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes as mentioned in&nbsp;Zoho Cliq
+                            API - <a>Delete a record</a>.
+                          </li>
+                          <li>
+                            Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                            list of Zoho services that support the connections
+                            page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>
+              <a></a>Example 1: Delete the records that satisfy static criteria
+            </h2>
+            <p>
+              The following example deletes all the records from the Zoho Cliq
+              database - <strong>availabilitydatabase</strong> that has the
+              value - <strong>false</strong> in the column -
+              <strong>availability</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response_map</span><span> = </span><span>zoho</span><span>.cliq.deleteRecords</span><span>(</span><span>"availabilitydatabase"</span><span>,</span><span>"availability==false"</span><span>,</span><span> "cliq_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response_map</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> returned by Zoho Cliq. It
+                      represents the status of the executed task.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"availabilitydatabase"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the unique name
+                      of the database from which the records need to be deleted
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"availability==false"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the criteria
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"cliq_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 2: Delete the records that satisfy dynamic criteria
+            </h2>
+            <p>
+              Write the below script in the message handler of your Bot
+              configuration to delete records from the Zoho Cliq database -
+              <strong>availabilitydatabase</strong> that has the value specified
+              by the user in the column - <strong>name</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>dynamic_value</span><span> = </span><span>message</span><span>;</span>
+&nbsp;<span>query_text</span><span> = </span><span>"name=="</span><span> + </span><span>dynamic_value</span><span>;</span>
+&nbsp;<span>response_map</span><span> = </span><span>zoho</span><span>.cliq.deleteRecords</span><span>(</span><span>"availabilitydatabase"</span><span>, </span><span>query_text</span><span>,</span><span> "cliq_connection"</span><span>)</span><span>;</span>
+&nbsp;<span>response</span><span>.</span><span>put</span><span>(</span><span>"text"</span><span>, </span><span>response_map</span><span>)</span><span>;</span>
+&nbsp;<span>return</span><span> response</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response_map</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> returned by Zoho Cliq. It
+                      represents the status of the executed task.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>dynamic_value</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> variable that holds the user
+                      specified value of the column - name
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>query_text</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> variable that holds the search
+                      criteria
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"cliq_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>The success response returned is of the following format</p>
+                <div>&nbsp;{"status":"SUCCESS"}</div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned for an
+                  <strong>incorrect database name</strong> is of the following
+                  format
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"status":"FAILURE",<br />&nbsp;"message":"Uh-oh!
+                  Looks like availabilitydata does not exist.",<br />&nbsp;"code":"platform_storage_database_not_found"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Cliq API</a></li>
+              <li>Common error codes can be <a>viewed here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

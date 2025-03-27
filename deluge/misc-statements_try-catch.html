@@ -1,0 +1,326 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Miscellaneous</a></li>
+        <li><a>Try-Catch</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <p>​</p>
+      <div>
+        <div>
+          <h1>Try-Catch</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Exception variable attributes</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Example 1: Fetch line number and error message using
+                        try catch</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 2: Send mail details to the support team in
+                        case an error occurred during price calculation of an
+                        order</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>try-catch</strong> statements are used as "exception
+              handlers" that can test Deluge scripts for run-time errors, and
+              perform required actions if any errors are found. The exception
+              handler is established by enclosing deluge code, which you think
+              might throw an error, in the <strong>Try</strong> block. The Try
+              block is immediately followed by a <strong>Catch</strong> block
+              which contains code to be executed if any errors are thrown in the
+              Try block.&nbsp;If no errors are found, the Catch block is simply
+              ignored and is not executed.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>try</span>&nbsp;
+<span>{</span>&nbsp;
+<span>&lt;</span><span>code</span><span>&gt;</span><span>//Run code here. Enclose Deluge script that might throw an error.</span>&nbsp;
+<span>}</span>&nbsp;
+<span>catch</span><span>(</span><span>&lt;exception_variable&gt;</span><span>)</span>&nbsp;
+<span>{</span>&nbsp;
+<span>&lt;</span><span>code</span><span>&gt;</span><span>//Handle errors here. Write Deluge script to perform any action if errors are found in Try block.</span>&nbsp;
+<span>}</span>&nbsp;
+</pre>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Exception variable attributes</h2>
+            <p>
+              The &lt;exception_variable&gt; holds the error message and line
+              number of the statement that caused the error. To fetch individual
+              components, the following 2 attributes can be used:
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Syntax</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &lt;variable&gt; = &lt;exception_variable&gt;.lineNo;
+                    </td>
+                    <td>
+                      Fetches the line number of the statement that caused the
+                      error.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &lt;variable&gt; = &lt;exception_variable&gt;.message;
+                    </td>
+                    <td>Fetches the error message.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              In the following example, there are only 3 items available in the
+              list, however, the next statement tries to fetch the item at index
+              10.&nbsp;Hence, an error will be thrown. The thrown error is
+              captured in the catch block and .
+            </p>
+            <div>
+              <pre><span>try</span>&nbsp;
+<span>{</span>&nbsp;
+<span>products </span><span>= </span><span>{</span><span>"Creator"</span><span>,</span><span>"CRM"</span><span>,</span><span>"Cliq"</span><span>}</span><span>;</span>&nbsp;
+<span>products </span><span>= </span><span>products</span><span>.get</span><span>(</span><span>10</span><span>)</span><span>;</span>&nbsp;
+<span>products</span><span>.add</span><span>(</span><span>"Sheet"</span><span>)</span><span>;</span>&nbsp;
+<span>}</span>&nbsp;
+<span>catch</span><span>(</span><span>e</span><span>)</span>&nbsp;
+<span>{</span>&nbsp;
+<span>info </span><span>e</span><span>.lineNo</span><span>; </span><span>// Displays line number of the statement that caused the error</span>&nbsp;
+<span>info </span><span>e</span><span>.message</span><span>; </span><span>// Displays the error message</span>&nbsp;
+<span>info </span><span>e</span><span>; </span><span>// Displays both line number and error message</span>&nbsp;
+<span>}</span>
+</pre>
+            </div>
+            <p>
+              Here, the value stored in the exception variable -
+              <strong>e</strong> is:
+              <strong
+                >Error at line : 6, Given index 10 is greater than the list
+                size</strong
+              >
+            </p>
+            <h2><a></a>Example 2</h2>
+            <p>
+              Typically data used are stored and fetched from Zoho products,
+              however,&nbsp;let's assume the order placed&nbsp; by a customer is
+              stored in the collection variable - <strong>order</strong>. The
+              inventory details of products available are stored in the
+              collection variable - <strong>products</strong>. If there is any
+              problem with price calculation or stock updation, an email needs
+              to be sent to the support team. In the following example, the
+              order quantity is fetched incorrectly and stored as an empty
+              value&nbsp;in the <strong>order</strong> variable. Here, an error
+              will be returned and the script execution of the
+              <strong>try</strong> block will be terminated. The returned error
+              is&nbsp;captured and sent as an email to
+              <strong>support@zylker.com </strong>using the
+              <strong>catch</strong> block.
+            </p>
+            <div>
+              <pre><span>try</span>&nbsp;
+<span>{</span>&nbsp;
+<span>//Price calculation block</span>&nbsp;
+<span>order </span><span>= </span><span>{</span><span>"item"</span><span>:</span><span>"Candy"</span><span>,</span><span>"quantity"</span><span>:</span><span>""</span><span>}</span><span>; </span><span>//An empty value is assigned to the quantity key</span>&nbsp;
+<span>products</span><span>=</span><span>{</span><span>{</span><span>"item"</span><span>:</span><span>"Candy"</span><span>,</span><span>"stock"</span><span>:</span><span>50</span><span>,</span><span>"price"</span><span>:100</span><span>,</span><span>"vendor-email"</span><span>:</span><span>"candy-vendor@zylker.com"</span><span>}</span><span>,</span><span>{</span><span>"item"</span><span>:</span><span>"Cookies"</span><span>,</span><span>"stock"</span><span>:</span><span>50</span><span>,</span><span>"price"</span><span>:75</span><span>,</span><span>"vendor-email"</span><span>:</span><span>"cookie-vendor@zylker.com"</span><span>}</span><span>}</span><span>;</span>&nbsp;
+<span>for each </span><span>product </span><span>in </span><span>products</span>&nbsp;
+<span>{</span>&nbsp;
+    <span>if</span><span>(</span><span>product</span><span>.get</span><span>(</span><span>"item"</span><span>) </span><span>== </span><span>order</span><span>.get</span><span>(</span><span>"item"</span><span>)</span><span>)</span>&nbsp;
+    <span>{</span>&nbsp;
+<span>total_price </span><span>= </span><span>product</span><span>.get</span><span>(</span><span>"price"</span><span>)</span><span>*</span><span>(</span><span>order</span><span>.get</span><span>(</span><span>"quantity"</span><span>)</span><span>.toLong</span><span>(</span><span>)</span><span>)</span><span>;</span><span>//Error occurs at this statement because this calculation cannot be performed with an empty quantity value</span>&nbsp;
+​
+<span>total_price_including_tax </span><span>= </span><span>total_price </span><span>+ </span><span>(</span><span>total_price*0</span><span>.05</span><span>)</span><span>;</span>&nbsp;
+<span>product</span><span>.put</span><span>(</span><span>"stock"</span><span>,</span><span>product</span><span>.get</span><span>(</span><span>"stock"</span><span>) </span><span>- </span><span>order</span><span>.get</span><span>(</span><span>"quantity"</span><span>)</span><span>.toLong</span><span>(</span><span>)</span><span>)</span><span>;</span>&nbsp;
+<span>}</span>&nbsp;
+<span>break</span><span>;</span>&nbsp;
+<span>}</span>&nbsp;
+&nbsp;
+<span>}</span>&nbsp;
+<span>catch</span><span>(</span><span>e</span><span>)</span>&nbsp;
+<span>{</span>&nbsp;
+
+<span>//Error returned by the try block is stored in the variable - e</span>&nbsp;
+<span>//Send an email to support@zylker.com with the details about the error occurred</span>&nbsp;
+<span>sendmail</span>&nbsp;
+<span>[</span> &nbsp;
+    <span>from</span><span>:</span><span>zoho</span><span>.loginuserid</span>&nbsp;
+    <span>to</span><span>:</span><span>"support@zylker.com"</span>&nbsp;
+    <span>subject</span><span>:</span><span>"Something went wrong while processing the order"</span>&nbsp;
+    <span>message</span><span>:</span><span>"&lt;div&gt;An error occurred during price calculation or inventory updation. Please check ASAP.&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Error details&amp;nbsp;&lt;/b&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Error Message: "</span><span>+</span><span>e</span><span>.message</span><span>+</span><span>"&lt;/div&gt;&lt;div&gt;Line Number: "</span><span>+</span><span>e</span><span>.lineNo</span><span>+</span><span>"&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;"</span>&nbsp;
+<span>]</span>&nbsp;
+
+<span>}</span>&nbsp;
+
+<span>// Periodic inventory check</span>&nbsp;
+<span>// This block will be executed irrespective of if an error is captured in the try catch block. Therefore the function execution will not be hindered because of runtime errors occurred within <strong>try</strong> block</span>. 
+<span>for each </span><span>product </span><span>in </span><span>products</span>&nbsp;
+<span>{</span>&nbsp;
+    <span>if</span><span>(</span><span>product</span><span>.get</span><span>(</span><span>"stock"</span><span>)</span><span>&lt;</span><span>50</span><span>)</span>&nbsp;
+<span>{</span>&nbsp;
+    <span>sendmail</span>&nbsp;
+    <span>[</span> &nbsp;
+        <span>from</span><span>:</span><span>zoho</span><span>.loginuserid</span>&nbsp;
+        <span>to</span><span>:</span><span>product</span><span>.get</span><span>(</span><span>"vendor-email"</span><span>)</span>&nbsp;
+        <span>subject</span><span>:</span><span>"Refill request"</span>&nbsp;
+        <span>message</span><span>:</span><span>"&lt;div&gt;We're running out of stock. Please refill.&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Product details: &lt;/b&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Name: "</span><span>+</span><span>product</span><span>.get</span><span>(</span><span>"item"</span><span>)</span><span>+</span><span>"&lt;br&gt;&lt;/div&gt;&lt;div&gt;Quantity: 500&lt;/div&gt;"</span>&nbsp;
+    <span>]</span>&nbsp;
+    <span>}</span>&nbsp;
+    <span>}</span>&nbsp;
+&nbsp;
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

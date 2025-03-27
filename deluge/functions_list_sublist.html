@@ -1,0 +1,109 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>List functions</a></li>
+        <li><a>subList</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>subList()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>subList()</strong> function takes
+              <strong>listVariable</strong> , <strong>start_index</strong> and
+              end_index as arguments. It returns the list containing elements
+              between the specified indices (including the start_index and
+              <strong>excluding</strong> the end_index).
+            </p>
+            <div><strong>Note</strong>: Index starts from 0.</div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>List</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; = <span>&lt;listVariable&gt;</span>.subList(
+              <span>&lt;start_index&gt;</span>,
+              <span>&lt;end_index&gt;</span> );
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>Variable which will contain the returned list.</td>
+                    <td>LIST</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;listVariable&gt;</span></td>
+                    <td>The list from which the elements will be returned.</td>
+                    <td>LIST</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;start_index&gt;</span></td>
+                    <td>
+                      <p>
+                        The index starting from which the elements will be
+                        returned from the list.
+                      </p>
+                      <p>
+                        If a negative value is specified, an error will be
+                        encountered during runtime.
+                      </p>
+                    </td>
+                    <td>NUMBER</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;end_index&gt;</span></td>
+                    <td>
+                      <p>
+                        The index till which the elements will be returned from
+                        the string. If omitted, the rest of the list will be
+                        returned.
+                      </p>
+                      <p>
+                        The end_index should not exceed the count of elements in
+                        the list. If it does, an error will be encountered
+                        during runtime.
+                      </p>
+                    </td>
+                    <td>NUMBER</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              listVar= {1, 2, 3, 4};<br />newListVar= listVar.subList(0, 3);
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // returns {1, 2, 3}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

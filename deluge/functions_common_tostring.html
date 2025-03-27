@@ -1,0 +1,348 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>toString</a></li>
+        <li><a>Time Functions</a></li>
+        <li><a>toString</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>toString</a></li>
+        <li><a>Type conversion functions</a></li>
+        <li><a>toString</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>toString</h1>
+          <div>
+            <h4>Table of Contents</h4>
+            <ul>
+              <li><a>Overview</a></li>
+              <li><a>Return Type</a></li>
+              <li><a>Syntax</a></li>
+              <li><a>Examples</a></li>
+            </ul>
+          </div>
+          <h2><a></a>Overview</h2>
+          <p>
+            The <strong>toString</strong> function takes an
+            <strong>expression </strong>as input and returns it as
+            <strong>text</strong>.
+          </p>
+          <div>
+            <p><strong>Note</strong>:</p>
+            <ul>
+              <li>
+                If the expression is of type <strong>date-time</strong>, you can
+                specify two optional arguments,
+                <strong>dateTimeFormat</strong> and <strong>timeZone</strong>,
+                additionally. The function will return a DATE-TIME expression in
+                the specified dateTimeFormat, converted into the specified time
+                zone.
+              </li>
+              <li>
+                If the expression is of
+                type&nbsp;<strong>number&nbsp;</strong>(milliseconds), you can
+                specify two optional arguments,
+                <strong>dateTimeFormat</strong> and <strong>timeZone</strong>,
+                additionally. The function will return a corresponding DATE-TIME
+                expression in the specified dateTimeFormat, converted into the
+                specified time zone. This is currently applicable to all Zoho
+                services except Zoho Creator.
+              </li>
+              <li>
+                In services other than Zoho Creator, you can either
+                input&nbsp;expression of DATE-TIME datatype or a TEXT in
+                date-time format&nbsp;in order for the
+                <strong>dateTimeFormat</strong> and
+                <strong>timeZone</strong> parameters to take
+                action.&nbsp;However, in Zoho Creator, the input should strictly
+                be an expression of DATE-TIME&nbsp;datatype, inputting a TEXT
+                value in date-time format will simply return the given value
+                as-is.
+              </li>
+              <li>
+                In Zoho Creator, if the function fails to recognize the
+                date-time value, it will simply return the given value in text
+                format. In other services, an error message will be displayed.
+              </li>
+              <li>
+                We are working on unifying&nbsp;the differences in
+                behavior&nbsp;between Zoho Creator and other services.
+              </li>
+            </ul>
+          </div>
+          <h2><a></a>Return Type</h2>
+          <ul>
+            <li><span>TEXT</span></li>
+          </ul>
+          <h2><a></a>Syntax</h2>
+          <div>
+            <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression</span><span>&gt;</span><span>.toString</span><span>(</span><span>&lt;</span><span>dateTimeFormat</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>timeZone</span><span>&gt;</span><span>)</span><span>;</span></pre>
+          </div>
+          <p>(OR)</p>
+          <div>
+            <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>toString</span><span>(</span><span>&lt;</span><span>expression</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>dateTimeFormat</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>timeZone</span><span>&gt;</span><span>)</span><span>;</span></pre>
+          </div>
+          <p>(OR)​</p>
+          <div>
+            <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression</span><span>&gt;</span><span>.toText</span><span>(</span><span>&lt;</span><span>dateTimeFormat</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>timeZone</span><span>&gt;</span><span>)</span><span>;</span></pre>
+          </div>
+          <p>(OR)</p>
+          <div>
+            <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>toText</span><span>(</span><span>&lt;</span><span>expression</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>dateTimeFormat</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>timeZone</span><span>&gt;</span><span>)</span><span>;</span></pre>
+          </div>
+          <p>where,</p>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>Parameter</strong></td>
+                  <td><strong>Data type</strong></td>
+                  <td><strong>Description</strong></td>
+                </tr>
+                <tr>
+                  <td>&lt;variable&gt;</td>
+                  <td><span>TEXT</span></td>
+                  <td>Variable which will contain the returned value.</td>
+                </tr>
+                <tr>
+                  <td>&lt;expression&gt;</td>
+                  <td><span>ALL DATA TYPES</span></td>
+                  <td>The expression which will be returned in text format.</td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>&lt;dateTimeFormat&gt;</p>
+                    <p>(optional)</p>
+                  </td>
+                  <td><span>TEXT</span></td>
+                  <td>
+                    <p>
+                      The format in which the date time value will be returned.
+                    </p>
+                    <div>
+                      <p><strong>Note:</strong></p>
+                      <ul>
+                        <li>
+                          Applicable only when the given expression is of
+                          <strong>date-time</strong>&nbsp;or
+                          <strong>number</strong> data type. The number type is
+                          currently supported in all services except Zoho
+                          Creator.
+                        </li>
+                        <li>
+                          Within this param, you can only specify&nbsp;<a
+                            >date-time literals</a
+                          >
+                          which represent the respective components of a date or
+                          time value. Text can be quoted in single quotes to
+                          avoid interpretation. If any other value apart from
+                          date-time literals are specified without single
+                          quotes, the function will return null.
+                        </li>
+                        <li>
+                          If this param is not specified, the date-time value
+                          will be returned in a format specified in application
+                          settings.
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>&lt;timeZone&gt;</p>
+                    <p>(optional)</p>
+                  </td>
+                  <td><span>TEXT</span></td>
+                  <td>
+                    <p>
+                      Time zone in which the date-time value will be returned.
+                    </p>
+                    <div>
+                      <p><strong>Note:</strong></p>
+                      <ul>
+                        <li>
+                          Applicable only when the given expression is of
+                          <strong>date-time</strong> data type.&nbsp;The number
+                          type is currently supported in all services except
+                          Zoho Creator.
+                        </li>
+                        <li>
+                          Value must be specified exactly as given in the
+                          <a>TZ database name</a>.
+                        </li>
+                        <li>
+                          If this param is not specified, the function will
+                          consider the time zone specified in application
+                          settings.
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3><a></a>Applicable Date-Time Literals</h3>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>Letter</strong></td>
+                  <td><strong>Date and Time Component</strong></td>
+                </tr>
+                <tr>
+                  <td>G&nbsp;</td>
+                  <td>Era designator</td>
+                </tr>
+                <tr>
+                  <td>y</td>
+                  <td>
+                    <p>Calendar year</p>
+                    <p><u>Examples:</u></p>
+                    <p>y - 2019</p>
+                    <p>yy -19</p>
+                    <p>yyy&nbsp; - 2019</p>
+                    <p>
+                      dateValue&nbsp;= '29-Dec-2019';<br />info
+                      dateValue.toString("yyyy"); // returns 2019
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Y</td>
+                  <td>
+                    <p>Week year</p>
+                    <p><u>Examples:</u></p>
+                    <p>Y - 2019</p>
+                    <p>YY -19</p>
+                    <p>YYY&nbsp; - 2019</p>
+                    <p>
+                      <span>dateValue</span><span>&nbsp;= '29-Dec-2019';</span
+                      ><br /><span>info dateValue</span
+                      ><span>.toString("YYYY");&nbsp;</span
+                      ><span>// returns 2020</span>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>M</td>
+                  <td>
+                    <p>Month in year</p>
+                    <p><u>Examples:</u></p>
+                    <p>M - 1</p>
+                    <p>MM - 01</p>
+                    <p>MMM - Jan<br /><br />MMMM - January</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>w</td>
+                  <td>Week in year</td>
+                </tr>
+                <tr>
+                  <td>W</td>
+                  <td>Week in month</td>
+                </tr>
+                <tr>
+                  <td>D</td>
+                  <td>Day in year</td>
+                </tr>
+                <tr>
+                  <td>d</td>
+                  <td>Day in month</td>
+                </tr>
+                <tr>
+                  <td>F</td>
+                  <td>Day of week in month</td>
+                </tr>
+                <tr>
+                  <td>E</td>
+                  <td>
+                    <p>Day name in week</p>
+                    <p><u>Examples:</u></p>
+                    <p>E - Tue</p>
+                    <p>EEEE - Tuesday</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>u</td>
+                  <td>Day number of week</td>
+                </tr>
+                <tr>
+                  <td>a</td>
+                  <td>am/pm marker</td>
+                </tr>
+                <tr>
+                  <td>H</td>
+                  <td>Hour in day (0-23)</td>
+                </tr>
+                <tr>
+                  <td>k</td>
+                  <td>Hour in day (1-24)</td>
+                </tr>
+                <tr>
+                  <td>K</td>
+                  <td>Hour in am/pm (0-11)</td>
+                </tr>
+                <tr>
+                  <td>h</td>
+                  <td>Hour in am/pm (1-12)</td>
+                </tr>
+                <tr>
+                  <td>m</td>
+                  <td>Minute in hour</td>
+                </tr>
+                <tr>
+                  <td>s</td>
+                  <td>Second in minute</td>
+                </tr>
+                <tr>
+                  <td>S</td>
+                  <td>Millisecond</td>
+                </tr>
+                <tr>
+                  <td>z</td>
+                  <td>General time zone</td>
+                </tr>
+                <tr>
+                  <td>Z</td>
+                  <td>RFC time zone</td>
+                </tr>
+                <tr>
+                  <td>X</td>
+                  <td>ISO 8601 time zone</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2><a></a>Examples</h2>
+          <div>
+            <pre><span>marks</span> <span>=</span> <span>100</span><span>;</span>
+<span>info </span><span>toString</span><span>(</span><span>marks</span><span>)</span><span>;</span> <span>// Returns 100</span>
+</pre>
+          </div>
+          <div>
+            <pre><span>dateValue</span> <span>=</span> <span>'01-Jan-2019 10:15:30'</span><span>;</span>
+<span>info </span><span>toString</span><span>(</span><span>dateValue</span><span>,</span> <span>"MMM dd, yy 'at' hh:mm:ss, E"</span><span>,</span> <span>"Europe/Moscow"</span><span>)</span><span>;</span> 
+<span>// Returns Jan 01, 19 at 07:45:30, Fri</span>
+</pre>
+          </div>
+          <div>
+            <pre><span>milliValue</span> <span>=</span> <span>1596719471334</span><span>;</span>
+<span>info </span><span>toString</span><span>(</span><span>milliValue</span><span>,</span> <span>"MMM dd, yy 'at' hh:mm:ss, E"</span><span>,</span> <span>"Europe/Moscow"</span><span>)</span><span>;</span> 
+<span>// Returns Aug 06, 20 at 03:41:11, Thu</span>
+</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

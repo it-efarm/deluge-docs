@@ -1,0 +1,197 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Connect integration tasks</a></li>
+        <li><a>Get post</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get a&nbsp;post</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a> </a>Overview</h2>
+            <p>
+              This task&nbsp;is used to fetch the contents of a specified post.
+            </p>
+            <h2><a> </a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho.connect.getPost</span><span>(</span><span>&lt;<span>scopeID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>streamID</span><span>&gt;</span>, </span><span>&lt;</span><span>connectionName</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Description</strong></td>
+                        <td><strong>Data type</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the variable which will&nbsp;hold the returned
+                            response.
+                          </p>
+                          <p>
+                            The response will contain group names and group IDs
+                            under a particular network
+                          </p>
+                        </td>
+                        <td>KEY-VALUE</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;scopeID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the variable that represents the
+                            <a>Scope ID</a> of the network where the&nbsp;post
+                            exists.
+                          </p>
+                          <p>
+                            You can also fetch the scope&nbsp;ID from
+                            the&nbsp;<a>response</a>&nbsp;of myNetworks task.
+                          </p>
+                        </td>
+                        <td>NUMBER</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;streamID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the&nbsp;variable that represents the
+                            <a>Stream ID</a> of the post.
+                          </p>
+                          <p>
+                            You can&nbsp;fetch the stream ID from
+                            the&nbsp;<a>response</a>&nbsp;of addPost task.
+                          </p>
+                        </td>
+                        <td>NUMBER</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connectionName&gt;</span></p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p>
+                            is the&nbsp;name of the Zoho
+                            connect&nbsp;<a>connection</a>.
+                          </p>
+                          <p>
+                            <strong>*Note</strong>: This param is not applicable
+                            to Zoho Creator and mandatory in Zoho Cliq.
+                          </p>
+                        </td>
+                        <td>TEXT</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                ​
+              </div>
+            </div>
+            <h2><a> </a>Example</h2>
+            <p>
+              The contents of a post with Stream ID
+              <strong>105000209401145</strong> is fetched in the example below.
+            </p>
+            <div>
+              <pre><span>postDetails </span>= <span>zoho.connect.getPost</span><span>(</span><span>105000017039001</span><span>, </span><span>105000209401145</span><span>)<span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>postDetails</span></pre>
+                    </div>
+                    <div>
+                      is a variable that holds the message content and the
+                      related details of the post
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>105000017039001</span></pre>
+                    </div>
+                    <div>
+                      is a&nbsp;value that represents the Scope ID of the
+                      network
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>105000209401145</span></pre>
+                    </div>
+                    <div>
+                      is a value that represents the Stream ID of the post
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a> </a>Sample Response</h2>
+            <ul>
+              <li>
+                Following is a response when the post details are retrieved.
+              </li>
+            </ul>
+            <div>
+              {"post":<br />{"partitionId":"105000207776548",<br />"plainContent":"Tomorrow
+              will be a holiday",<br />"networkName":"Trading Corporation",<br />"richContent":"Tomorrow
+              will be a holiday",<br />"isPrivate":"false",<br />"title":"Announcement",<br />"partitionType":"2",<br />"url":"https://connect.zoho.com/portal/intranet/stream/105000209401145",<br />"partitionName":"Test
+              Group",<br />"createdBy":{"profileUrl":"https://connect.zoho.com/portal/intranet/profile/12345",<br />"isBot":"false",<br />"isGuest":"false",<br />"imageUrl":"https://contacts.zoho.com/file?t=user&amp;ID=12345&amp;fs=thumb",<br />"name":"Test
+              User",<br />"timeZone":"Asia/Kolkata",<br />"language":"en",<br />"emailId":"testuser@zohocorp.com",<br />"id":"12345"},<br />"createdTime":"2018-05-03T10:20+0000",<br />"attachmentCount":"0",<br />"networkId":"105000017039001",<br />"id":"105000209401145"},<br />"status":"success"}
+            </div>
+            &nbsp;
+            <ul>
+              <li>
+                The response returned is <strong>null</strong> when the Scope ID
+                supplied is incorrect.&nbsp;
+              </li>
+              <li>
+                The response returned when an incorrect Stream ID is supplied is
+                provided below.
+              </li>
+            </ul>
+            <div>
+              {"reason":"This post has been deleted.",<br />"status":"failure"}
+            </div>
+            <h2><a> </a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Connect API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

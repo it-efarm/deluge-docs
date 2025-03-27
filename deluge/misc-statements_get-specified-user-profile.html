@@ -1,0 +1,242 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>User roles &amp; properties tasks</a></li>
+        <li><a>App User Tasks</a></li>
+        <li><a>Fetch profile name of app user</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch profile name of app user</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;deluge task fetches the profile name of a specified
+              user.
+            </p>
+            <h2><a></a>Return</h2>
+            <p>
+              This task returns the profile name of a specified user. Data type
+              is TEXT.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <p>
+                <span
+                  ><span>&lt;variable&gt;</span> =
+                  thisapp.permissions.profileForUser(<span>&lt;userDetail&gt;</span>);</span
+                >
+              </p>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Param</th>
+                    <th>Explanation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p>
+                        <span><span>&lt;variable&gt;</span></span>
+                      </p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td><p>Variable which will hold the returned value.</p></td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;userDetail&gt;</span></td>
+                    <td>
+                      <p>
+                        <strong>Email ID</strong> or
+                        the&nbsp;<strong>Username</strong>&nbsp;of the user
+                        whose profile name will be returned.&nbsp;<br /><br />Points
+                        to note for this parameter:&nbsp;
+                      </p>
+                      <ul>
+                        <li>
+                          You can view the email addresses and users names of
+                          existing users&nbsp;in your account from the&nbsp;<a
+                            >Account Setup</a
+                          >
+                          page, and the existing users&nbsp;in your application
+                          from the&nbsp;<a>Users page</a>.&nbsp;
+                        </li>
+                        <li>
+                          If you find an email address in place of a username in
+                          the users page, it is due to that user not being
+                          registered with Zoho. Once the users create an account
+                          with Zoho, they will be assigned a username.&nbsp;
+                        </li>
+                        <li>
+                          If the user is not found, this function will return an
+                          empty text.
+                        </li>
+                      </ul>
+                      <p>Data type is Text.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              A sample snippet to fetch the profile name of a user with email
+              address "john@zillum.com".
+            </p>
+            <div>
+              profileName =
+              thisapp.permissions.profileForUser("john@zillum.com");
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,272 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Client Functions</a></li>
+        <li><a>Select | Deselect</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Select | Deselect</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>Note:</p>
+              <ul>
+                <li>This task is applicable only to Zoho Creator.</li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>Select&nbsp;</strong>deluge task&nbsp;selects a
+              specified choice in a single-select, multi-select or a lookup
+              field.
+            </p>
+            <p>
+              The <strong>Deselect</strong> deluge task deselects
+              a&nbsp;specified choice(previously selected)&nbsp;in a
+              single-select,&nbsp;multi-select or a lookup field.
+            </p>
+            <div>
+              <p>Note:</p>
+              <ul>
+                <li>
+                  If a choice is selected using the assignment operator '=', and
+                  another choice is selected&nbsp;using the select task, the
+                  assignment operator will&nbsp;overwrite the select task.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <p><span>To select a choice</span></p>
+            <div>
+              <span
+                ><span>&lt;field_link_name&gt;</span
+                >.select(<span>&lt;expression&gt;</span>);</span
+              >
+            </div>
+            <p><span>To deselect a selected choice</span></p>
+            <div>
+              <span
+                ><span>&lt;field_link_name&gt;</span>.deselect(<span
+                  >&lt;expression&gt;</span
+                ><span>)</span>;</span
+              >
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span><span>&lt;field_link_name&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        Link name of the field in which choices need to be
+                        selected or deselected.
+                      </p>
+                      <p>Only the following field types can be specified:</p>
+                      <ul>
+                        <li>Radio</li>
+                        <li>Drop Down</li>
+                        <li>Multi Select</li>
+                        <li>Checkbox</li>
+                        <li>Lookup (all Display Types are supported)</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;expression&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>Choice(s) to be selected or deselected.</p>
+                      <p>Important points to remember for this param:</p>
+                      <ul>
+                        <li>
+                          You must specify a single value for Radio and Drop
+                          Down fields. If you specify a list variable containing
+                          multiple values, the last value in the list will be
+                          selected.
+                        </li>
+                        <li>
+                          You can specify a new value if "Allow Other Choice"
+                          property of the field has been enabled. If this
+                          property has not been enabled and a new choice is
+                          specified, the choice gets ignored.
+                        </li>
+                        <li>
+                          You can directly&nbsp;specify&nbsp;a value, or you can
+                          also specify an expression, i.e. a combination of
+                          values, constants, variables, operators, functions and
+                          so on, which evaluates to a value&nbsp;or a list
+                          variable.
+                        </li>
+                        <li>
+                          For a lookup field, the record ID in the lookup form
+                          must be specified. If any other value apart from the
+                          record ID is specified, an error will encountered
+                          during runtime.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>No</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              In the following example, if no color has been selected from the
+              options in "Color selection" field, the option "White" gets
+              selected automatically.
+            </p>
+            <div>
+              if(Color_selection ==null)<br />{<br />Color_selection.select("White");<br />}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

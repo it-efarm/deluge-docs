@@ -1,0 +1,642 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Connect integration tasks</a></li>
+        <li><a>Add a post</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Add a&nbsp;post</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a> </a>Overview</h2>
+            <p>
+              This task can be used to post to a group in Zoho Connect. The user
+              gets to post <strong>a status, an event,&nbsp;and a task</strong>.
+            </p>
+            <h2><a> </a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho.connect.addPost</span><span>(</span><span>&lt;<span>type</span><span>&gt;</span><span>, </span><span>&lt;</span><span>scopeID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>partitionID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>contentMap</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connectionName</span><span>&gt;</span><span>)</span><span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Parameter</td>
+                        <td>Description</td>
+                        <td>Data type</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the variable which will hold returned repsonse.
+                          </p>
+                          <p>
+                            The response will contain&nbsp;the message status
+                            and the <a>Stream ID</a> of the posted message
+                          </p>
+                        </td>
+                        <td>KEY-VALUE</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;type&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the variable that denotes the type of the post.
+                          </p>
+                          <p>Applicable values for this parameter are:</p>
+                          <ul>
+                            <li>status</li>
+                            <li>event</li>
+                            <li>task</li>
+                          </ul>
+                        </td>
+                        <td>TEXT</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;scopeID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the variable which&nbsp;represents the
+                            <a>Scope ID</a> of the network where the message
+                            will be posted.
+                          </p>
+                          <p>
+                            You can also fetch the scope&nbsp;ID from
+                            the&nbsp;<a>response</a>&nbsp;of myNetworks task.
+                          </p>
+                        </td>
+                        <td>NUMBER</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;partitionID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the variable which represents the
+                            <a>Partition ID</a> of the network where the message
+                            will be posted.
+                          </p>
+                          <p>
+                            You can also fetch the partition ID from
+                            the&nbsp;<a>response</a>&nbsp;of myGroups&nbsp;task.
+                          </p>
+                        </td>
+                        <td>NUMBER</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;contentMap&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the variable which will&nbsp;hold
+                            the&nbsp;contents of the post.
+                          </p>
+                          <p>
+                            Applicable keys are specified in the table below.
+                          </p>
+                        </td>
+                        <td>KEY-VALUE</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connectionName&gt;</span></p>
+                          <p><span>(optional)*</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the&nbsp;name of the Zoho
+                            connect&nbsp;<a>connection</a>.
+                          </p>
+                          <p>
+                            <strong>*Note</strong>: This param is not applicable
+                            to Zoho Creator and mandatory in Zoho Cliq.
+                          </p>
+                        </td>
+                        <td>TEXT</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>
+                  ​<u><strong>Applicable keys for contentMap param</strong></u>
+                </p>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>To post a status</strong></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Key name</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Maximum length</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>message*</td>
+                        <td>HTML Text</td>
+                        <td>25000</td>
+                        <td>
+                          <p>
+                            Content to be posted as Status(Supports basic Html
+                            tags which are supported in editor)
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>title</td>
+                        <td>TEXT</td>
+                        <td>300</td>
+                        <td><p>Title of the status</p></td>
+                      </tr>
+                      <tr>
+                        <td>linkUrl</td>
+                        <td>TEXT</td>
+                        <td>500</td>
+                        <td><p>Url to be posted as link Info</p></td>
+                      </tr>
+                      <tr>
+                        <td><strong>To post an event</strong></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Key name</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Maximum length</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>eventTitle*</td>
+                        <td>Text</td>
+                        <td>250</td>
+                        <td><p>Title of the event</p></td>
+                      </tr>
+                      <tr>
+                        <td>eventDesc</td>
+                        <td>Text</td>
+                        <td>1000</td>
+                        <td><p>Description of the event</p></td>
+                      </tr>
+                      <tr>
+                        <td>eventLocation</td>
+                        <td>Text</td>
+                        <td>250</td>
+                        <td><p>Location of the event</p></td>
+                      </tr>
+                      <tr>
+                        <td>invitedUsers</td>
+                        <td>Text</td>
+                        <td>2000</td>
+                        <td><p>CSV of user email Ids - to invite user</p></td>
+                      </tr>
+                      <tr>
+                        <td>invitedUserIds</td>
+                        <td>JSONArray</td>
+                        <td>2000</td>
+                        <td><p>Json Array of zuid - to invite user</p></td>
+                      </tr>
+                      <tr>
+                        <td>invitedGroupIds</td>
+                        <td>JSONArray</td>
+                        <td>2000</td>
+                        <td>
+                          <p>Json Array of partitionId - to invite group</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>startDate*</td>
+                        <td>Text</td>
+                        <td>100</td>
+                        <td>
+                          <p>
+                            Start date of event in "yyyy-MM-dd HH:mm" format
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>endDate*</td>
+                        <td>Text</td>
+                        <td>100</td>
+                        <td>
+                          <p>end date of event in "yyyy-MM-dd HH:mm" format</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>allDay</td>
+                        <td>Boolean</td>
+                        <td>-</td>
+                        <td><p>whether the event is All day or not</p></td>
+                      </tr>
+                      <tr>
+                        <td><strong>To post a task</strong></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Key name</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Maximum length</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>taskTitle*&nbsp;</p>
+                          <p>**Task can create inside board only</p>
+                        </td>
+                        <td>Text</td>
+                        <td>250&nbsp;</td>
+                        <td>Title of the task</td>
+                      </tr>
+                      <tr>
+                        <td>taskDesc</td>
+                        <td>Text</td>
+                        <td>500</td>
+                        <td><p>Description of the task</p></td>
+                      </tr>
+                      <tr>
+                        <td>sectionId</td>
+                        <td>Number</td>
+                        <td>250</td>
+                        <td><p>Id of the section inside a board</p></td>
+                      </tr>
+                      <tr>
+                        <td>priority</td>
+                        <td>None|Low|Medium|High</td>
+                        <td>-</td>
+                        <td><p>Priority of the task</p></td>
+                      </tr>
+                      <tr>
+                        <td>assignedUsers</td>
+                        <td>Text</td>
+                        <td>2000</td>
+                        <td>
+                          <p>
+                            CSV of user email Ids - to assign user(if empty task
+                            creator will be assigned by default)
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>assignedUserIds</td>
+                        <td>JSONArray</td>
+                        <td>2000</td>
+                        <td>
+                          <p>
+                            Json Array of zuid - to assign user(if empty task
+                            creator will be assigned by default)
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>dueDate</td>
+                        <td>Text</td>
+                        <td>200</td>
+                        <td><p>due date of event in "yyyy-MM-dd" format</p></td>
+                      </tr>
+                      <tr>
+                        <td>clearDueDate</td>
+                        <td>Boolean</td>
+                        <td>-</td>
+                        <td><p>to remove due date</p></td>
+                      </tr>
+                      <tr>
+                        <td>isCompleted</td>
+                        <td>Boolean</td>
+                        <td>-</td>
+                        <td>
+                          <p>
+                            to complete a task (will work in update task alone)
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>isReopen</td>
+                        <td>Boolean</td>
+                        <td>-</td>
+                        <td>
+                          <p>
+                            to reopen a completed task (will work in update task
+                            alone)
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>frequency</td>
+                        <td>Number</td>
+                        <td>-</td>
+                        <td>
+                          <p>
+                            Allowed values : 0,1,2,3 {0 - Daily ,1 - Weekly, 2 -
+                            Monthly, 3 - Yearly}
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>howOftenRepetition</td>
+                        <td>Number</td>
+                        <td>-</td>
+                        <td><p>Allowed values 1 to 30</p></td>
+                      </tr>
+                      <tr>
+                        <td>dayOfWeek</td>
+                        <td>Number</td>
+                        <td>-</td>
+                        <td>
+                          <p>Mandatory for&nbsp;WEEKLY repetition.</p>
+                          <p>
+                            Allowed values : 1,2,3,4,5,6,7 {1 - Sunday to 7 -
+                            Saturday}
+                          </p>
+                          <p>
+                            Multiple day for week repetition can be done by
+                            comma separated values
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>dayOfMonth</td>
+                        <td>Number</td>
+                        <td>-</td>
+                        <td>
+                          <p>
+                            Mandatory for&nbsp;MONTHLY
+                            and&nbsp;YEARLY&nbsp;repetition
+                          </p>
+                          <p>Allowed values 1 to 31.&nbsp;</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>monthOfYear</td>
+                        <td>Number</td>
+                        <td>-</td>
+                        <td>
+                          <p>Used in YEARLY&nbsp;repetition</p>
+                          <p>
+                            Allowed values 0 to 11.&nbsp; 0 - January to 11 -
+                            December
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>repeatEndDate</td>
+                        <td>Text</td>
+                        <td>200</td>
+                        <td>Repetition End Date in "yyyy-MM-dd" format</td>
+                      </tr>
+                      <tr>
+                        <td>clearRepetition</td>
+                        <td>Boolean</td>
+                        <td>-</td>
+                        <td>To stop repetition</td>
+                      </tr>
+                      <tr>
+                        <td>reminderTime</td>
+                        <td>Text</td>
+                        <td>200</td>
+                        <td>Reminder Time in&nbsp;"yyyy-MM-dd HH:mm" format</td>
+                      </tr>
+                      <tr>
+                        <td>remindAll</td>
+                        <td>Boolean</td>
+                        <td>-</td>
+                        <td>
+                          Whether to remind All and remind current user alone
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>clearReminder</td>
+                        <td>Boolean</td>
+                        <td>-</td>
+                        <td>To remove reminder</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong
+                            >To map a third party entity with connect
+                            entity</strong
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><strong>Key name</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Maximum length</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>tpEntityId</td>
+                        <td>Text</td>
+                        <td>250</td>
+                        <td>Third part ID (example - task id from Trello)</td>
+                      </tr>
+                      <tr>
+                        <td>tpMetaDetails</td>
+                        <td>JSONObject</td>
+                        <td>5000</td>
+                        <td>Third part details</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>&nbsp;</p>
+              </div>
+            </div>
+            <h2><a> </a>Example</h2>
+            <p>
+              Consider the below example where the user can post a status to a
+              group using the post type, Scope ID, Partition ID, the message to
+              be posted (message title being optional)
+            </p>
+            <div>
+              <pre><span>contentMap </span>= <span><span>{</span><span>"message":"This is a test message"</span><span>, </span><span>"title":"This is a test title"</span><span>}</span>
+<span>postDetails </span>= <span>zoho.connect.addPost</span><span>(</span><span>"status"</span><span>, </span><span>105000017039001</span><span>, </span><span>105000207776548</span><span>, </span><span>contentMap</span><span>)<span>;</span></span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>postDetails</span></pre>
+                    </div>
+                    <div>
+                      is a variable which will hold the returned response
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>status</span></pre>
+                    </div>
+                    <div>
+                      is a&nbsp;<span>STRING</span>&nbsp;value that represents
+                      the type of the post
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>105000017039001</span></pre>
+                    </div>
+                    <div>
+                      is a&nbsp;<span>BIGINT</span>&nbsp;variable that
+                      represents the Scope ID of the network
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>105000207776548</span></pre>
+                    </div>
+                    <div>
+                      is a&nbsp;<span>BIGINT</span>&nbsp;variable that
+                      represents the Partition ID of the group
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>contentMap</span></pre>
+                    </div>
+                    <div>
+                      is a&nbsp;<span>MAP</span>&nbsp;variable that represents
+                      message content to be posted to the group
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              Additionally, users can post stuff from third party services. For
+              example, a tweet in twitter can be posted in Connect using a third
+              party message id and metadata of the post content.
+            </p>
+            <p>
+              This is to facilitate integration and to allow the user to assign
+              a custom ID (different from those of ZOHO Connect posts) for easy
+              identification and retrieval. The syntax remains the same as
+              zoho.connect.addPost(), the only change being in the contentMap
+              with additional (optional) parameters
+            </p>
+            <p>
+              This third party message can be retrieved using both the Stream ID
+              and the Third Party Entity Id (custom) of the message
+            </p>
+            <p>
+              Consider below the example where a tweet about the inventory
+              details of a stationery store is being posted in ZOHO Connect
+            </p>
+            <div>
+              <pre><span>metaDetails </span>= <span><span>{</span><span>"Charts":"4"</span><span>, </span><span>"Books":"10</span><span>}</span><span>;</span>
+<span>contentMap </span>= <span><span>{</span><span>"message":"Stock Details of Stationery Store"</span><span>, </span><span>"title":"Stationery Store"</span><span>, </span><span>"tpEntityId":"TPEntity001"</span><span>, </span><span>"tpMetaDetails":</span><span>metaDetails </span><span>}</span><span>;</span>
+<span>postDetails </span>= <span>zoho.connect.addPost</span><span>(</span><span>"status"</span><span>, </span><span>105000017039001</span><span>, </span><span>105000207776548</span><span>, </span><span>contentMap</span><span>)</span><span>;</span></span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>metaDetails</span></pre>
+                    </div>
+                    <div>
+                      is a <span>JSONObject</span> variable that represents the
+                      third party message content to be posted
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>tpEntityId</span></pre>
+                    </div>
+                    <div>
+                      is a <span>STRING</span> variable that represents the
+                      third party ID of the message to be posted
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>TPEntity001</span></pre>
+                    </div>
+                    <div>
+                      is a <span>STRING</span> value that represents an
+                      alphanumeric, user-defined third party ID of the message
+                      to be posted
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>tpMetaDetails</span></pre>
+                    </div>
+                    <div>
+                      is a <span>JSON Object</span> variable that represents the
+                      third party message content
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a> </a>Sample Response</h2>
+            <ul>
+              <li>Following is a sample success response:</li>
+            </ul>
+            <div>{"id":"105000209424697",<br />"status":"success" }</div>
+            <ul>
+              <li>To fetch the stream ID, use the following snippet:</li>
+            </ul>
+            <div>info &lt;response_variable&gt;.get("id");</div>
+            <ul>
+              <li>
+                The response returned is <strong>null</strong> when the Scope ID
+                supplied is incorrect
+              </li>
+              <li>
+                The response returned when an incorrect Partition ID is supplied
+                is provided below
+              </li>
+            </ul>
+            <div>
+              {"reason":"Something went wrong. Please try after sometime.",<br />"status":"failure"}
+            </div>
+            <ul>
+              <li>
+                The following error message is encountered when the
+                <strong>message content</strong> is not supplied in the
+                contentMap required to post a message.
+              </li>
+            </ul>
+            <div>
+              {"reason":"Post content should not be empty.",<br />"status":"failure"}
+            </div>
+            <h2><a> </a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Connect API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

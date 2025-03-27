@@ -1,0 +1,98 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Map functions</a></li>
+        <li><a>toMap</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>toMap</a></li>
+        <li><a>Type conversion functions</a></li>
+        <li><a>toMap</a></li>
+        <li><a>XML &amp; JSON functions</a></li>
+        <li><a>toMap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>toMap</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>toMap</strong> function takes a
+              <strong>JSON formatted text</strong> as an argument, and returns a
+              key-value pair.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>KEY-VALUE</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>json_text</span><span>&gt;</span><span>.toMap</span><span>(</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      The variable which will contain the converted key-value
+                      pairs.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;json_text&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      The JSON formatted text that needs to be converted to
+                      key-value pairs.
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <ul>
+                          <li>
+                            If the text is not in JSON format, a runtime error
+                            will be thrown.
+                          </li>
+                          <li>
+                            The size of the text&nbsp;should be lesser
+                            than<strong> 5 MB</strong>.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>products</span><span> = </span> <span>"{company:Zoho, product:Creator}"</span><span>;</span>
+&nbsp;<span>info </span><span>products</span><span>.toMap</span><span>(</span><span>)</span><span>; </span><span>// Returns the key-value pair {"product":"Creator","company":"Zoho"}</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

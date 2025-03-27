@@ -1,0 +1,191 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Mail integration tasks</a></li>
+        <li><a>Get labels from Zoho Mail</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get labels from Zoho Mail</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note: </strong>This task is applicable to all Zoho
+              services, except Zoho Creator.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.mail.getLabels</strong> task is used to retrieve
+              all the label names from your Zoho Mail account.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.mail.getLabels</span><span>(</span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The response that represents the color, id, and name
+                            of each label.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;<strong>&nbsp;</strong></p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                The scope&nbsp;required for this task as
+                                mentioned by Zoho Mail&nbsp;API is
+                                <strong>tags</strong>.
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>The following script retrieves all labels from Zoho Mail:</p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.mail.getLabels</span><span>(</span><span>"mail_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      details of the labels fetched from Zoho Mail.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"mail_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the link name of
+                      Zoho Mail oauth connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  <p>
+                    &nbsp;&nbsp;{<br />"COLOR":"#FFD700",<br />&nbsp;
+                    &nbsp;"ID":6729326000000008027,<br />&nbsp;
+                    &nbsp;"NAME":"Notification"<br />},<br />{&nbsp;&nbsp;<br />"COLOR":"#FFD700",<br />&nbsp;
+                    &nbsp;"ID":6729326000000008029,<br />&nbsp;
+                    &nbsp;"NAME":"NewsLetter"<br />},<br />{&nbsp;<br />"COLOR":"#FFD700",<br />&nbsp;
+                    &nbsp;"ID":6729326000000008031,<br />&nbsp;
+                    &nbsp;"NAME":"Blog"<br />}
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <a></a> &nbsp; &nbsp;
+            <p>
+              To fetch the <strong>IDs of the tags</strong> from the success
+              response obtained, execute the following snippet:
+            </p>
+            <div>
+              <pre>&nbsp;<span>for each</span><span> var </span>in<span> &lt;response_variable&gt;</span>
+&nbsp;{
+&nbsp;<span>info </span><span>var</span>.<span>get</span>(<span>"ID"</span>);
+&nbsp;}
+</pre>
+            </div>
+            &nbsp; &nbsp;
+            <p>
+              To fetch the <strong>names of the tags</strong> from the success
+              response obtained, execute the following snippet:
+            </p>
+            <div>
+              <pre>&nbsp;<span>for each</span><span> var </span>in<span> &lt;response_variable&gt;</span>
+&nbsp;{
+&nbsp;<span>info </span><span>var</span>.<span>get</span>(<span>"NAME"</span>);
+&nbsp;}
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Mail Integration Tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

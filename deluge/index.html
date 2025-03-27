@@ -1,0 +1,1040 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Introduction to Deluge</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h2>Overview</h2>
+          <p>
+            <strong>Deluge</strong>, or Data Enriched Language for the Universal
+            Grid Environment, is an online scripting language integrated with
+            Zoho services. It enables users to add logic to their applications
+            incrementally, making it more powerful and robust.&nbsp;
+          </p>
+          <p>
+            UI-based actions like point-and-click are limited in their scope.
+            After a certain point, if we want something to be very complex, we
+            need custom scripts to perform custom actions.&nbsp;Deluge can make
+            that possible. For example, if you only need to collect data in an
+            app like Zoho Creator, which is straightforward, you can do it using
+            drag-and-drop. However, if you want to do more than that, say send
+            an email on form submission,&nbsp;fetch data or update data, or any
+            other similar action, then you would need Deluge.
+          </p>
+          <p>
+            Deluge is Zoho's proprietary language, and is built by Zoho.&nbsp;
+          </p>
+          <h2>Is Deluge a programming language or a scripting language?</h2>
+          <p>Deluge is a scripting language.</p>
+          <p>
+            A programming language, in a nutshell, is a sequence of instructions
+            to enable the computer to do something. It's like writing down the
+            steps it takes to do something. These instructions are written in a
+            programming language, and the stuff that these instructions
+            manipulate&nbsp;is different types of data, like numbers or words.
+          </p>
+          <p>
+            A scripting language, on the other hand, is a form of programming
+            language that is used to create scripts or bits of code. Most
+            commonly, scripting languages are written to facilitate enhanced
+            features of websites. For example, when you search something on
+            Google, the results are dynamic. This is because of scripts. The
+            Google search itself is processed on the server (or, in other words,
+            done using a programming language) but it's enhanced with features
+            like dynamic auto-suggest using scripts that run on the user's
+            browser.&nbsp;
+          </p>
+          <p>
+            When compared to programming languages, scripting languages are easy
+            to learn and use, and do not require much programming knowledge or
+            experience. Complex tasks can be performed in relatively few steps
+            using scripts, unlike programming languages, which are generally
+            lengthy. Apart from these basic differences, there are a few
+            technical differences as well, but what makes a programming language
+            or a scripting language has nothing to do with
+            technicalities.&nbsp;A scripting language is available to the user
+            at runtime, and allows the user to direct the behavior of the main
+            program. And that is precisely what Deluge is, to Zoho Services.
+          </p>
+          <p>
+            In a programming language, you write a large number other things
+            apart from the custom action you are trying to achieve. Basically,
+            there are a lot of dependencies you need to work out to trigger your
+            custom action. In a scripting language like Deluge, you simply write
+            the script for the action that you want to achieve. This is because
+            we have already taken care of the dependencies.
+          </p>
+          <p>
+            Deluge is our own scripting language, which you can use to write
+            logic and automate actions across multiple Zoho applications.
+          </p>
+          <h2>Where can you use Deluge?</h2>
+          <p>
+            Over forty Zoho Products currently support Deluge, which are listed
+            in the table below. When an action happens in one of these Zoho
+            applications, it can trigger a&nbsp;Deluge script that does some
+            workflow action for us.
+          </p>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <th><strong>Category</strong></th>
+                  <td><strong>Deluge supported products</strong></td>
+                </tr>
+                <tr>
+                  <th><strong>Sales</strong></th>
+                  <td>
+                    <ul>
+                      <li><a>Zoho CRM</a></li>
+                      <li><a>Zoho Bookings</a></li>
+                      <li><a>Bigin</a></li>
+                      <li><a>Zoho Forms</a></li>
+                      <li><a>SalesIQ</a></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th><strong>Services</strong></th>
+                  <td>
+                    <ul>
+                      <li><a>FSM</a> &nbsp;</li>
+                      <li><a>Zoho Desk</a></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th><strong>IT Solutions</strong></th>
+                  <td>
+                    <ul>
+                      <li><a>Service Desk Plus</a></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th><strong>Collaboration</strong></th>
+                  <td>
+                    <ul>
+                      <li><a>Zoho Mail</a></li>
+                      <li><a>Zoho Cliq</a> &nbsp;</li>
+                      <li><a>Zoho Writer</a> &nbsp;</li>
+                      <li><a>Zoho Voice</a> &nbsp;</li>
+                      <li><a>Zoho Sheet</a> &nbsp;</li>
+                      <li><a>Zoho Connect</a> &nbsp;</li>
+                      <li><a>Zoho Workdrive</a> &nbsp;</li>
+                      <li><a>Zoho Tables</a></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th><strong>Finance</strong></th>
+                  <td>
+                    <ul>
+                      <li><a>Zoho Books</a></li>
+                      <li><a>Zoho Invoice</a></li>
+                      <li><a>Zoho Inventory</a></li>
+                      <li><a>Zoho Billing</a></li>
+                      <li><a>Zoho Payroll</a></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th><strong>Project Management</strong></th>
+                  <td>
+                    <ul>
+                      <li><a>Zoho Projects</a></li>
+                      <li><a>Zoho Sprints</a></li>
+                      <li><a>Zoho BugTracker</a></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th><strong>HR Operations</strong></th>
+                  <td>
+                    <ul>
+                      <li><a>Zoho People</a></li>
+                      <li><a>Zoho Recruit</a></li>
+                      <li><a>Zoho Expense</a></li>
+                      <li><a>Zoho Workerly</a></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th><strong>Developer Platform</strong></th>
+                  <td>
+                    <ul>
+                      <li><a>Zoho Creator</a></li>
+                      <li><a>Zoho Flow</a></li>
+                      <li><a>Zoho QEngine</a></li>
+                      <li><a>Zoho RPA</a></li>
+                      <li><a>CRM-Platform</a></li>
+                      <li><a>Zoho IOT</a></li>
+                      <li><a>Qntrl</a></li>
+                      <li><a>Sigma</a></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th><strong>Marketing</strong></th>
+                  <td>
+                    <ul>
+                      <li><a>Zoho Survey</a></li>
+                      <li><a>Zoho Sites</a></li>
+                      <li><a>Zoho Backstage</a></li>
+                      <li><a>Zoho Commerce</a></li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <th><strong>AI</strong></th>
+                  <td>
+                    <ul>
+                      <li><a>Zia Platform</a></li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Generally, you'll be using Deluge to manipulate data in some way,
+            such as creating or updating a record, or deleting a record that
+            exists in other Zoho or external applications. You can also choose
+            when that action happens. We have already defined all the events
+            across Zoho applications in which you can trigger Deluge scripts.
+            The following image displays a few sample events in which Deluge
+            functions can be triggered.<br />​<img />
+          </p>
+          <h2>Unique features of Deluge Scripting</h2>
+          <ul>
+            <li>
+              <strong>Automation</strong>​: Perform automated tasks, like
+              sending automated text messages to employees when visitors arrive
+              to meet them,&nbsp;or an automated email notification when your
+              stock is running low. You can also perform calculations.&nbsp;For
+              example, If the total cart value exceeds a particular amount, you
+              can automatically apply a discount and calculate the total
+              cost.&nbsp;This is one of the most common use cases.<br />&nbsp;
+            </li>
+            <li>
+              <strong>Integration:&nbsp;</strong>Perform seamless integration
+              between Zoho services, or between your Zoho service and any other
+              third party service. For example, when a new candidate is
+              short-listed in Zoho Recruit, data can be automatically pushed to
+              the Zoho Calendar account of the HR representative who is going to
+              interview the candidate. Alternatively, take the example of Zoho
+              Bug tracker, which is a product used to track issues and bugs. All
+              the bugs found can be pushed to Zoho Desk, which is another
+              Zoho&nbsp;product to track customer tickets.&nbsp;This integration
+              is not only limited to Zoho Products. Using Deluge, you can make
+              API calls to any other applicable external service.<br />&nbsp;
+            </li>
+            <li>
+              <strong>User-friendly Syntax:&nbsp;</strong>The Deluge Script
+              syntax is easy to read and understand. The process of creating
+              powerful application is fun, easy, and quick.<br />&nbsp;
+            </li>
+            <li>
+              <strong>Code is Data:&nbsp;</strong>Deluge Script has no concrete
+              syntax. The syntax you see is just a "skin". The actual code is
+              stored as abstract syntax (i.e. a whole bunch of tables) in the
+              database. In future, users will be able to generate the same code
+              in their own favorable syntax. For example, Sam can edit the code
+              in the standard Deluge syntax, while Lucy can edit the same code
+              in her preferred Perl syntax.<br />&nbsp;
+            </li>
+            <li>
+              <strong>Query Integrated Language:&nbsp;</strong>Deluge Script
+              bridges the gap between the program logic written in a high-level
+              programming language and the data that it operates upon. It brings
+              the expressiveness of SQL closer to the core application
+              logic.&nbsp;This means the query is integrated at the language
+              levels.
+            </li>
+            <li>
+              <strong>Built-in functions:&nbsp;</strong>Execute pre-built
+              functions to perform common actions with different functions
+              available exclusively for different data-types.
+            </li>
+          </ul>
+          <h2>Use cases of Deluge in various Zoho Services</h2>
+          <p>
+            The following table lists a few popular use cases across various
+            Zoho services. Additionally, there are endless Deluge tasks and
+            functions you can perform depending on your requirement.
+          </p>
+          <div>
+            <p>
+              <strong>Note</strong>:
+              <a>Learn about integration tasks for various Zoho services</a>.
+            </p>
+          </div>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Zoho Service</th>
+                  <th>Use Cases</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Zoho Creator</strong>:&nbsp;‌A low-code platform
+                    that empowers users to rapidly create robust,
+                    enterprise-grade applications with minimal coding expertise.
+                    It allows businesses to design, deploy, and manage custom
+                    workplace tools for both web and mobile within a single,
+                    unified platform.
+                  </td>
+                  <td>
+                    <p>
+                      Deluge enhances Zoho Creator by combining simplicity and
+                      power. It allows citizen-developers to build sophisticated
+                      business applications while offering advanced scripting
+                      capabilities for developers to customize and
+                      scale.&nbsp;&nbsp;<br /><br />Zoho Creator utilises Deluge
+                      to automate, customize, and extend application
+                      functionality using minimal scripting wherever required.
+                      Its power lies in how it enables logic-driven workflows,
+                      seamless integrations, and dynamic user experiences,
+                      making Zoho Creator adaptable for various business
+                      needs.&nbsp;<br /><br />Some of its key features are
+                      listed below with sample use cases:&nbsp;&nbsp;
+                    </p>
+                    <ul>
+                      <li>
+                        <p>
+                          <strong>Workflow Automation</strong>: Automates
+                          repetitive tasks like sending email notifications,
+                          updating records, or scheduling events.&nbsp;
+                        </p>
+                        <p>
+                          Example: In an inventory management app, track stock
+                          levels, manage suppliers, and automate the assignment
+                          of storage locations for incoming stock using deluge
+                          workflows.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Custom Field Behavior</strong>: Dynamically
+                          control form fields by showing, hiding, or setting
+                          values based on user inputs.&nbsp;
+                        </p>
+                        <p>
+                          Example: In an event management app, display
+                          additional &nbsp; &nbsp; fields when "Premium
+                          Membership" of a client is selected in a form.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Real-time Validation</strong>: Ensures data
+                          integrity by validating user inputs during submission.
+                        </p>
+                        <p>
+                          Example: In an order management app, process customer
+                          or ders, manage shipping, track payments, and validate
+                          details &nbsp; by preventing duplicate entries for
+                          email addresses or phone numbers.&nbsp;
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Third-party Integrations</strong>: Connects
+                          Zoho Creator with external APIs and services to extend
+                          functionality.
+                        </p>
+                        <p>
+                          Example: Sync inventory data with an external ERP
+                          system or fetch live currency exchange rates.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Dynamic Calculations</strong>: Perform complex
+                          calculations and update results in real-time.
+                        </p>
+                        <p>
+                          Example: In a sales management app, calculate the
+                          total value, including discounts and taxes,
+                          dynamically on a sales form.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>Custom Widgets and Pages</strong>: Use Deluge
+                          scripts to fetch and display data dynamically in
+                          custom pages. Also, build interactive dashboards with
+                          data pulled from various sources.
+                        </p>
+                        <p>
+                          Examples:&nbsp;<br />1. Build an interactive dashboard
+                          that shows total sales, top-selling products, and
+                          recent orders using data aggregated from your sales
+                          app.&nbsp;
+                        </p>
+                        <p>
+                          2. Combine Deluge logic with embedded HTML/JS for
+                          visual elements like graphs or charts, creating an
+                          intuitive and actionable interface.
+                        </p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho People</strong>:&nbsp;‌An online Human Resource
+                    Management System to manage all your employee data from one
+                    place.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        HR updates status of candidates in Candidates Form.
+                        Details of selected candidates are pushed to a form
+                        called&nbsp;Confirmation Form.
+                      </li>
+                      <li>
+                        Details submitted in Travel Form can be used to insert
+                        records into Manage Travel Forms. For example, details
+                        of employees traveling to the US will be pushed to
+                        Manage US Travel Form.
+                      </li>
+                      <li>
+                        Employees update travel expenses of different cities
+                        in&nbsp;Travel form. When the employee ends the trip,
+                        the total cost is calculated and updated in the
+                        reimbursement form,&nbsp;which they can use to claim the
+                        reimbursement.‌
+                      </li>
+                      <li>
+                        Use schedulers to send reports such as attendance
+                        reports or leave reports at the end of every month to
+                        managers.
+                      </li>
+                      <li>
+                        Trigger emails to selected candidates when the status is
+                        changed to Selected.‌
+                      </li>
+                      <li>
+                        Update assets count update as and when assets are
+                        provided to employees.
+                      </li>
+                      <li>
+                        Update the leave balance of employees when they apply
+                        for leave.
+                      </li>
+                      <li>
+                        Update Available Leave at the end of every month, after
+                        adding the required number of leaves.‌
+                      </li>
+                      <li>
+                        Integration with Zoho Recruit to push job openings.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Cliq</strong>:&nbsp;‌A team communication app
+                    which enables workplace conversations and workflows in one
+                    single place.
+                  </td>
+                  <td>
+                    <p>
+                      In Zoho Cliq's developer platform, users can build
+                      low-code apps or extensions with minimal programming
+                      knowledge using Deluge (a scripting language) to
+                      centralize and bring all data right where users
+                      collaborate.&nbsp;<br /><br /><a>Widgets</a> allow you to
+                      build interactive modular interfaces directly within the
+                      Cliq app. They can display lists of data and images,
+                      enabling users to act on that data. Widgets can be pinned
+                      as primary modules on the Cliq mobile home screen. By
+                      building workflows into widgets, you can automate
+                      processes like shift and knowledge management, as well as
+                      cafeteria, parking, and visitor management for your users
+                      within Cliq.<br /><br /><a>Bots</a> offer a conversational
+                      interface to address inquiries from your employees,
+                      clients, and field workers. They can also serve as an
+                      interface for receiving alerts and notifications from your
+                      tool.<br /><br />You can quickly pull up some information
+                      or open a <a>form</a> using <a>slash commands</a> and make
+                      messages in any chat actionable using
+                      <a>message actions</a> powered by <a>functions</a> and
+                      <a>connections</a> that help your tool integrate with
+                      third party applications as well.<br /><br /><a
+                        >Schedulers</a
+                      >
+                      automate various daily tasks, including retrieving your
+                      to-do list from your note-taking app and sharing it in
+                      your bot, or fetching recent marketing campaign reports
+                      and posting them in the #marketing channel.<br /><br />And
+                      to top it all off, your tools are powered by
+                      <a>databases</a> that securely store, update, and sync
+                      your data.
+                    </p>
+                    <ul>
+                      <li>
+                        Weekend Books :&nbsp;Notify the book to read&nbsp;for
+                        the weekend, based on&nbsp;reading habits and gamify it.
+                      </li>
+                      <li>
+                        Image Converter : Convert images to a specified format.‌
+                      </li>
+                      <li>
+                        Analytic Products (Survey Monkey, Marketo, Tableau, SAP
+                        Analytics, Ruler Analytics): Pull up reports of past
+                        surveys conducted, or create a brand new survey, right
+                        from Cliq. Funnel insights and data reports into a Cliq
+                        channel. Get your traffic sources and conversions, and
+                        track your website's leads.
+                      </li>
+                      <li>
+                        GoToWebinar : Setup webinars, send emails, and manage
+                        attendees list from within Cliq.
+                      </li>
+                      <li>
+                        JIRA ServiceDesk : Assign and reassign tickets, add
+                        comments on a ticket in Cliq, and update it in Jira.
+                      </li>
+                      <li>
+                        Groove: Improve your team's performance by getting
+                        ticket updates in Cliq and resolving them.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho CRM</strong>:&nbsp;‌A unified platform that
+                    helps you juggle multiple business activities efficiently.
+                    It's designed to help you sell, market, analyze, manage
+                    better and collaborate with customers and employees.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        When a record (a lead, for example) is created, tasks
+                        can be assigned to sales reps based on the user's
+                        region.
+                      </li>
+                      <li>
+                        In appointment scenarios, trigger rules based on
+                        date-time fields. Example - Trigger notifications.
+                      </li>
+                      <li>
+                        When product quantity falls below a certain limit, a
+                        mail can be triggered to the admin.
+                      </li>
+                      <li>
+                        Trigger SMS reminders to people who registered for an
+                        event.
+                      </li>
+                      <li>
+                        Configure functions that trigger according to a
+                        schedule. For example, send monthly reports on deals
+                        closed, deals lost, potentials,&nbsp;and more.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Billing</strong>:&nbsp;‌Zoho Billing is a
+                    subscription billing platform that manages complex billing
+                    cycles, oversee customer subscriptions, automate invoicing
+                    and payment collection, manage failed payment retries and
+                    analyzes your business growth
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Charge late fee for subscribers.</li>
+                      <li>
+                        Send reports like lost opportunities, churned
+                        subscriptions, under risk, and about to expire trial
+                        subscriptions.
+                      </li>
+                      <li>
+                        Schedule subscriptions to get cancelled on a particular
+                        date.
+                      </li>
+                      <li>
+                        Prevent contact duplication with existing leads in Zoho
+                        CRM.
+                      </li>
+                      <li>
+                        Send SMS reminders for your subscription business.
+                      </li>
+                      <li>
+                        Cancel subscriptions on non payment after an expected
+                        payment date (date based workflow).
+                      </li>
+                      <li>
+                        Use scripting in Approval workflows. For example, set
+                        billing date from the date of approval, instead of the
+                        date of subscription.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho SalesIQ</strong>:&nbsp;‌An advanced tool for
+                    tracking website visitors and providing live chat support to
+                    customers.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        <strong>Widgets</strong>: Deluge can be used to create
+                        custom Widgets in SalesIQ. Widgets are user interfaces
+                        that display information from third-party applications
+                        related to a conversation, a Visitor, or any other app
+                        data that the user wishes to bring inside SalesIQ.
+                      </li>
+                      <li>
+                        <strong>Plugs</strong>: Plugs can be created in SalesIQ
+                        using Deluge. Plugs are reusable custom function
+                        snippets that can be used in SalesIQ's codeless bot.
+                        These plugs provide flexibility to the user by offering
+                        access to endless functionalities and use cases, such as
+                        OTP verification, external third-party integration,
+                        custom logic implementation, and more.
+                      </li>
+                      <li>
+                        <strong>Forms</strong>: Using Deluge, SalesIQ users can
+                        create forms that can be displayed inside widgets. These
+                        forms allow users to create, update, or manipulate
+                        customer-related data in real-time. Additionally, forms
+                        can trigger custom actions or automate workflows based
+                        on user input, making them powerful tools for customer
+                        interaction.
+                      </li>
+                      <li>
+                        <strong>Scripting Bot</strong>: Zoho SalesIQ allows you
+                        to create automated chat interactions tailored to your
+                        business needs. You can customize responses, collect
+                        data, trigger workflows, and guide customers through
+                        predefined processes—all without human intervention.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Orchestly:&nbsp;‌</strong>Orchestly is business
+                    process workflow management software that helps automate,
+                    orchestrate, and manage your business processes.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        ‌Update your company’s website automatically with the
+                        number of open job positions after a candidate is
+                        selected in the recruitment process.<br />&nbsp;
+                      </li>
+                      <li>
+                        Calculate the total time spent by a user on each stage,
+                        and email a detailed summary to the client for
+                        billing.<br />&nbsp;
+                      </li>
+                      <li>
+                        Integrate Orchestly with a calendar application, and
+                        send interview invites to the shortlisted
+                        candidates.&nbsp;<br />&nbsp;
+                      </li>
+                      <li>
+                        Integrate Orchestly with Jira to add a job in Orchestly
+                        for every project created in Jira.&nbsp;&nbsp;
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Survey</strong>:&nbsp;‌Zoho Survey provides a
+                    user-friendly interface for creating customized surveys to
+                    help you start gathering customer feedback right away.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        ‌Set a trigger to create a support ticket in Zoho Desk
+                        when a bad review comes in.<br />&nbsp;
+                      </li>
+                      <li>
+                        Send a thank you email every time a response is
+                        submitted.
+                      </li>
+                      <li>
+                        Create a lead in Zoho CRM, if survey results indicate
+                        customer interest.
+                      </li>
+                      <li>
+                        Update data in integrated Zoho services. For example,
+                        update Status to Interested after a customer survey is
+                        complete. Update contact details in Zoho Campaigns after
+                        a survey is complete.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Projects</strong>:&nbsp;‌‌Zoho Projects is a
+                    cloud-based project management solution designed for small
+                    and midsize companies.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        ‌‌When an issue is escalated, its project manager can be
+                        notified via an SMS, an email, or a Zoho Chat using
+                        custom functions.<br />&nbsp;
+                      </li>
+                      <li>
+                        When an issue's severity is updated, a relevant comment
+                        can be added to it via a custom function.<br />&nbsp;
+                      </li>
+                      <li>
+                        Zoho apps can be integrated with third party apps in a
+                        custom function.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Invoice</strong>:&nbsp;‌Invoicing software
+                    built for small businesses and freelancers, made to help you
+                    send invoices, track the status of each invoice,
+                    automatically send payment reminders to customers, and
+                    receive payments online.e.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        Apply a 10% discount if invoice total exceeds a certain
+                        amount.
+                      </li>
+                      <li>
+                        Add a 5% late&nbsp;fee when an invoice becomes overdue.
+                      </li>
+                      <li>
+                        Provide a discount on the next invoice if payment of
+                        current invoice is made before the due date.
+                      </li>
+                      <li>
+                        Automatically set due date for an invoice as 10 days
+                        before the event date (that is entered via a custom
+                        field).
+                      </li>
+                      <li>
+                        Automatically cancel an estimate if it's not accepted
+                        within 10 days from the date of creation.
+                      </li>
+                      <li>
+                        Extend due date by 7 days if the customer pays 50% of
+                        the invoice amount on or before the initial due date.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Desk</strong>:&nbsp;‌Help desk software that
+                    gives you the ability to manage your customer support
+                    activities efficiently.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        Send an automatic reply when a ticket gets created in
+                        non-business hours.
+                      </li>
+                      <li>
+                        Assign tickets to agents or stamp a timezone based on
+                        the ticket creation time.
+                      </li>
+                      <li>
+                        Dynamically add followers to tickets based on the ticket
+                        properties.
+                      </li>
+                      <li>
+                        Dynamically associate a ticket with an account based on
+                        the domain in email of contact.
+                      </li>
+                      <li>Prioritize tickets based on sales probability.</li>
+                      <li>Integrations:</li>
+                      <li>
+                        Add a new contact or update an existing one in Zoho CRM,
+                        when a contact or a ticket is created in Zoho Desk. This
+                        way you can keep the contacts database in perfect sync
+                        between tapps. This also allows your sales team to stay
+                        abreast of the support requirements of their leads,
+                        contacts, and accounts from within the Zoho CRM
+                        account.<br />&nbsp;
+                      </li>
+                      <li>
+                        Add a new account or update an existing one in Zoho CRM,
+                        when an account is created or modified in Zoho Desk, or
+                        when a new ticket is created in Zoho Desk. This way you
+                        can keep the accounts database in perfect sync between
+                        the apps.<br />&nbsp;
+                      </li>
+                      <li>Push tasks from Desk to Projects.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Bug Tracker</strong>:&nbsp;‌An online bug
+                    tracker and issue tracking software that helps you track and
+                    fix bugs efficiently.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        ‌When a bug is escalated, its project manager can be
+                        notified via an SMS, email, or Zoho Chat using custom
+                        functions.<br />When a bug's severity is updated, a
+                        relevant comment can be added to the bug via a custom
+                        function.
+                      </li>
+                      <li>
+                        Trigger email to a non-project user when a bug is
+                        closed. (Bugs submitted by external users via Web to Bug
+                        form reporter emails are stored in a custom field).
+                        Custom function can be used to retrieve specified field
+                        value and place it as the To address in an email when
+                        bug is closed.
+                      </li>
+                      <li>
+                        Send reports on the timeline of bug status changes (on
+                        hold, ready to ship, etc.). Custom function can be used
+                        to get the current time when specified status change
+                        occurs, and store it in a custom date field. Later on
+                        those, date fields can be used in the report.
+                      </li>
+                      <li>
+                        Bugs information to be pushed to Analytics Database, in
+                        which some fields are configured with limits (bug title
+                        to not exceed 100 characters). In such cases, custom
+                        functions can be used to retrieve bug details and do the
+                        required processing (truncate bug title to 100
+                        characters, in this case) and push them to Analytics
+                        database via web hooks.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Mail</strong>:&nbsp;‌A collaborative business
+                    communication platform that is a blend of the classic email
+                    and modern collaborative tools such as comments, likes, and
+                    sharing.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        ‌Create a lead in Zoho CRM if the TO address is the
+                        sales mail ID.
+                      </li>
+                      <li>
+                        Fetch email content and post it in a chat, channel, or
+                        bot of Zoho Cliq.‌
+                      </li>
+                      <li>
+                        Automatically send a reply to an email based on its
+                        subject using sendmail task.
+                      </li>
+                      <li>Filter mail based on DELIVEREDTO.</li>
+                      <li>
+                        Set tags. If the mail subject is "Build update", set tag
+                        as Notification.
+                      </li>
+                      <li>Move emails to a folder.</li>
+                      <li>Create a new folder.</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Books</strong>:&nbsp;‌A cloud-based smart
+                    accounting software which takes care of all your accounting
+                    needs.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Convert a sales order to invoice\</li>
+                      <li>Record payment automatically on an invoice.</li>
+                      <li>Automatically mark a draft invoice as sent.‌</li>
+                      <li>
+                        Apply discount if a sales order exceeds a certain limit
+                      </li>
+                      <li>
+                        Charge an invoice when it is created from a recurring
+                        invoice.
+                      </li>
+                      <li>
+                        Extend the due date of the invoice if they pay 50%
+                        before due date.
+                      </li>
+                      <li>
+                        Add a 10% late fee when an invoice becomes overdue.
+                      </li>
+                      <li>
+                        Bring contact level custom field values to transactions.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Inventory</strong>:&nbsp;‌‌An online
+                    cloud-based application to meet all your order management
+                    needs.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        ‌Create package and shipment records for offline sales
+                        orders.<br />&nbsp;
+                      </li>
+                      <li>Convert a sales order to invoice.</li>
+                      <li>
+                        ‌Send mail to vendors whenever you receive goods, or
+                        regarding the remaining goods you are yet to receive.
+                      </li>
+                      <li>
+                        Notify team through Cliq channel whenever a sales order
+                        is created.‌
+                      </li>
+                      <li>Calculate total item weight for sales orders.</li>
+                      <li>
+                        Apply a preset credit card charge to a sales order.
+                      </li>
+                      <li>
+                        Apply discounts to sales orders based on various
+                        factors.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Sheet</strong>:&nbsp;‌‌An application that can
+                    be used to create, edit, and share spreadsheets online.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        ‌Find simple interest based on the values recorded in
+                        the spreadsheet.<br />&nbsp;
+                      </li>
+                      <li>
+                        Populate the spreadsheet with the lead data fetched from
+                        Zoho CRM based on email address recorded in a cell.<br />&nbsp;
+                      </li>
+                      <li>
+                        Fetch and populate task lists from Zoho projects, and
+                        apply conditional formatting to highlight the cells that
+                        have the value 'High' in priority column.&nbsp;
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Recruit</strong>:&nbsp;‌‌An Applicant Tracking
+                    System (ATS) and recruitment software built to manage
+                    recruiting processes across staffing agencies and corporate
+                    companies in an efficient manner.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        Periodically send notifications about idle candidates or
+                        job openings.
+                      </li>
+                      <li>
+                        Send notifications to all candidates regarding the
+                        interview on the next day.
+                      </li>
+                      <li>
+                        Screen resumes based on custom criteria. For example,
+                        automatically categorize the candidates as unqualified
+                        if phone number or email field is left
+                        empty,&nbsp;or&nbsp;categorize the candidates as
+                        rejected if the skill set field is left empty.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Connect</strong>:&nbsp;‌Zoho Connect is a team
+                    collaboration application that allows you to keep your
+                    workplace communication organized.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        Notify in Cliq or Slack whenever an event is created.‌
+                      </li>
+                      <li>
+                        Format the data that needs to posted into the format
+                        specified by Zoho Connect.
+                      </li>
+                      <li>
+                        Whenever a post is made from Trello, for example, a new
+                        task can be created in both Zoho Connect and Zoho
+                        Projects.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Zoho Flow</strong>:&nbsp;‌Zoho Flow is an
+                    integration platform that connects cloud applications. It
+                    helps you set up workflows to automate information exchange
+                    among the apps you use.
+                  </td>
+                  <td>
+                    <ul>
+                      <li>
+                        Fetch a deal with multiple items from Zoho CRM and
+                        calculate estimate.
+                      </li>
+                      <li>
+                        Get purchase order from Zoho books and create tasks in
+                        Zoho Project.
+                      </li>
+                      <li>
+                        Fetch all the tasks from one of the previous task list
+                        from Zoho Projects and create a new task.
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

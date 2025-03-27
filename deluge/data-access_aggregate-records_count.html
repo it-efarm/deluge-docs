@@ -1,0 +1,276 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Data Access</a></li>
+        <li><a>Aggregate functions on fetched records</a></li>
+        <li><a>Count</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Count</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Things to keep in mind</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>Note:</p>
+              <ul>
+                <li>This task is applicable only to Zoho Creator.</li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>count</strong>&nbsp;function in the&nbsp;"aggregate
+              records" deluge task returns the count of values(including empty
+              strings) a specified field holds, from records fetched using a
+              criteria.
+            </p>
+            <p>
+              String field types (except Users, Name, Address, and Integration)
+              and the Radio field type, if saved without a value are stored with
+              an empty string, and hence will return the count of the empty
+              strings as well.
+            </p>
+            <p>
+              The Name and Address fields must be specified without its
+              subfields.
+            </p>
+            <p>
+              Multi Select, Dropdown, Radio, and Checkbox field types will
+              return the count of selected choices.
+            </p>
+            <p>
+              When the field is not specified, it simply returns the count of
+              fetched records.
+            </p>
+            <p>The criteria is mandatory.</p>
+            <h2><a></a>Return</h2>
+            <p>The data-type of the returned value is Number.</p>
+            <h2><a></a>Syntax</h2>
+            <p>
+              <span
+                >&lt;variable&gt; = <span>&lt;form_link_name&gt;</span>
+                <span>[&lt;criteria&gt;]</span><span>.count(</span
+                ><span>&lt;field_link_name&gt;</span><span>)</span>;</span
+              >
+            </p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span>&lt;variable&gt;</span></td>
+                    <td>Variable which will hold the returned value.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;form_link_name&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        Link name of the form from which the records will be
+                        fetched.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>
+                        <span><span>&lt;criteria&gt;</span></span>
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        <a>Criteria</a> based on which the records will be
+                        fetched.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>count(&lt;field_link_name&gt;)</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        Link name of the field to which the
+                        <strong>count</strong> function will be applied.
+                      </p>
+                      <p>
+                        This function can be applied to any Zoho Creator field
+                        type.
+                      </p>
+                      <p>
+                        The <strong>&lt;field_link_name&gt;</strong> param is
+                        optional.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Things to keep in mind</h2>
+            <ul>
+              <li>
+                If you wish to fetch all records of the specified form, use the
+                following script as criteria:
+                <div>[id != 0]</div>
+                <br />It is advisable to fetch all records only when absolutely
+                needed. Fetching all records generates a load resulting in
+                performance issues.
+              </li>
+            </ul>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script returns the count of values of "phone number"
+              field&nbsp;from the Employees form.
+            </p>
+            <div>
+              EmployeeDetails = Employees [ ID != 0 ].count(phone_number);
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

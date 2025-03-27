@@ -1,0 +1,124 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>totalYears</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>totalYears()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong> totalYears() </strong>function takes
+              <strong>startDateTimeValue</strong> and
+              <strong>endDateTimeValue</strong> as arguments. It returns the
+              number of years between the given date-time values.
+            </p>
+            <div>
+              <strong>Note:</strong>&nbsp;The difference between
+              <a>yearsBetween</a> function and totalYears function is that the
+              yearsBetween function considers a year as 365&nbsp;days.<br /><br />For
+              example, let's say the start date is specified as
+              <strong>02-Jan-2020</strong> and the end date is specified as
+              <strong>01-Jan-2021</strong>. The year 2020 is a leap year and
+              hence it contains 366 days. In this case, the yearsBetween
+              function&nbsp;<strong>returns 1</strong> and the&nbsp;totalYears
+              function <strong>returns 0</strong>. This is because
+              the&nbsp;<strong>yearsBetween</strong> function considers that a
+              year always contains 365 days whereas&nbsp;the&nbsp;<strong
+                >totalYears</strong
+              >
+              function also takes leap years into consideration.
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>Number</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span>&lt;</span><span>variable</span><span>&gt; </span>=<span>
+                &lt;</span
+              ><span>startDateTimeValue</span><span>&gt;.</span
+              ><span>totalYears</span><span>(&lt;</span
+              ><span>endDateTimeValue</span><span>&gt;)</span>;
+            </div>
+            <p>(OR)</p>
+            <div>
+              <span>&lt;</span><span>variable</span><span>&gt; </span>=
+              <span>totalYears</span><span>(&lt;</span
+              ><span>startDateTimeValue</span><span>&gt;,&lt;</span
+              ><span>endDateTimeValue</span><span>&gt;)</span>;
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>Variable which will contain the returned number.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;startDateTimeValue&gt;</td>
+                    <td><span>DATE TIME</span></td>
+                    <td><p>The starting date-time value.</p></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;endDateTimeValue&gt;</td>
+                    <td><span>DATE TIME</span></td>
+                    <td><p>The ending date-time value.</p></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <p>A runtime error will be encountered if:</p>
+              <ul>
+                <li>
+                  the date value exceeds the number of days in that month.
+                </li>
+                <li>an incorrect month value is specified.</li>
+                <li>the year value has more than 4 digits.</li>
+                <li>
+                  Please refer <a>this help document</a> to learn about the
+                  supported date-time formats.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre><span>startDate </span><span>= </span><span>'1-Jan-2019'</span><span>;</span>&nbsp;
+<span>endDate </span><span>= </span><span>'31-Dec-2019'</span><span>;</span>&nbsp;
+<span>newStartDate </span><span>= </span><span>'1-Jan-2019'</span><span>;</span>&nbsp;
+<span>newEndDate </span><span>= </span><span>'1-Jan-2020'</span><span>;</span>&nbsp;
+<span>numberOfYears </span><span>= </span><span>totalYears</span><span>(</span><span>startDate</span><span>,</span><span>endDate</span><span>)</span><span>;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>// returns 0</span>&nbsp;
+<span>numOfYears </span><span>= </span><span>totalYears</span><span>(</span><span>newStartDate</span><span>,</span><span>newEndDate</span><span>)</span><span>;</span>&nbsp;&nbsp;<span>// returns 1</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,88 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Utilities</a></li>
+        <li><a>urlEncode</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>urlEncode()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>urlEncode()</strong> function takes a
+              <strong>text</strong> as an argument, and returns it after
+              encoding it.
+            </p>
+            <div>
+              <strong>Note:</strong> The difference between this function and
+              <a>encodeUrl()</a> function is that this function returns the
+              space character as <strong>%20</strong>, and encodeUrl() function
+              returns the space character as <strong>+</strong>.
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Text</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; =
+              zoho.encryption.urlEncode(&nbsp;<span>&lt;string&gt;&nbsp;</span>);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>Variable which will contain the returned value.</td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;string&gt;</span></td>
+                    <td>
+                      <p>The&nbsp;text to be encoded.</p>
+                      <p>
+                        Except TEXT, all other data types will return
+                        null.&nbsp;
+                      </p>
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              urlString =
+              zoho.encryption.urlEncode("https://www.zoho.com/creator");<br />//
+              returns "http%3A%2F%2Fwww.zoho.com%2Fcreator"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

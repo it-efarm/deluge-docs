@@ -1,0 +1,231 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>subMinutes</a></li>
+        <li><a>Time Functions</a></li>
+        <li><a>subMinutes</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>subMinutes</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>subMinutes</strong> function takes a
+              <strong>date-time</strong> or <strong>time</strong> value and
+              <strong>numberOfMins</strong> as arguments. It returns the
+              date-time or time value after subtracting the specified number of
+              minutes from it.
+            </p>
+            <div>
+              <strong>Note: </strong> The date-time value will be returned in
+              the format specified in application settings.
+            </div>
+            <h2><a></a>Return Type</h2>
+            <p>
+              The return type of the function depends on the value it acts upon.
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Value</strong></td>
+                    <td><strong>Data Type</strong></td>
+                  </tr>
+                  <tr>
+                    <td>date-time</td>
+                    <td><span>DATE-TIME</span></td>
+                  </tr>
+                  <tr>
+                    <td>time</td>
+                    <td><span>TIME</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>dateTimeValue</span><span>&gt;</span><span>.subMinutes</span><span>(</span><span>&lt;</span><span>numberOfMins</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>subMinutes</span><span>(</span><span>&lt;</span><span>dateTimeValue</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>numberOfMins</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>timeValue</span><span>&gt;</span><span>.subMinutes</span><span>(</span><span>&lt;</span><span>numberOfMins</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>subMinutes</span><span>(</span><span>&lt;</span><span>timeValue</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>numberOfMins</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>DATE-TIME</span>/<span>TIME</span></td>
+                    <td>
+                      Variable which will contain the calculated date-time or
+                      time value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &lt;dateTimeValue&gt;
+                      <p>(if the value is <strong>date-time</strong>)</p>
+                    </td>
+                    <td><span>DATE-TIME</span></td>
+                    <td>
+                      <p>
+                        The date-time value from which the specified number of
+                        minutes should be subtracted.
+                      </p>
+                      <p>
+                        The date-time value can be specified without a time
+                        value, in which case 00:00:00 will be taken as the
+                        default time value.
+                      </p>
+                      <p>
+                        If the hour value is specified as 24 or more, the
+                        date-time value be reset to 00:00:00. If the minutes
+                        value is specified as 60 or more, the mm:ss value will
+                        be reset to 00:00, if the seconds value is specified as
+                        60 or more, the ss value will be reset to 00.
+                      </p>
+                      <p>A runtime error will be encountered if:</p>
+                      <ul>
+                        <li>
+                          the hour value, or minute value, or second value, is
+                          specified in more than 2 digits.
+                        </li>
+                        <li>
+                          the date value exceeds the number of days in that
+                          month.
+                        </li>
+                        <li>an incorrect month value is specified.</li>
+                        <li>the year value has more than 4 digits.</li>
+                      </ul>
+                      <p>
+                        Refer <a>date-time data type</a> to learn more about
+                        date-time data type.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &lt;timeValue&gt;
+                      <p>(if the value is <strong>time</strong>)</p>
+                    </td>
+                    <td><span>TIME</span></td>
+                    <td>
+                      <p>
+                        The time value from which the specified number of
+                        minutes&nbsp;should be subtracted.
+                      </p>
+                      <p>
+                        <strong
+                          >Time data type is currently supported only in Zoho
+                          Creator</strong
+                        >
+                      </p>
+                      <p>
+                        TIME values are represented in the formats -
+                        <strong>hh:mm:ss a</strong> (12-hour format) and
+                        <strong>HH:mm:ss</strong> (24-hour format)
+                      </p>
+                      <p>A runtime error will be encountered if:</p>
+                      <ul>
+                        <li>
+                          Declared time values cannot skip either the seconds
+                          part or seconds and minutes parts altogether. In the
+                          event the value does not conform to the supported time
+                          formats, an error message will be thrown.
+                        </li>
+                        <li>
+                          TIME values in no way should fall outside the 24 hour
+                          range. A value declared like "23:59:60" would throw an
+                          error.
+                        </li>
+                        <li>
+                          Operations (like addHour, subMinutes) on TIME values
+                          which result in a value outside the 24-hour range will
+                          also result in an error.
+                        </li>
+                      </ul>
+                      <p>
+                        Refer <a>time data type</a> to learn more about time
+                        data type.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;numberOfMins&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>
+                        The number of minutes to be subtracted from the
+                        date-time or time value.
+                      </p>
+                      <p>
+                        A negative number will add the specified number of
+                        minutes from the date-time or time value.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>Date-Time Examples:</p>
+            <div>
+              <pre>&nbsp;<span>currentDate</span> <span>=</span> <span>'02-Jan-2019'</span><span>;</span>
+&nbsp;<span>info </span><span>currentDate</span><span>.subMinutes</span><span>(</span><span>1</span><span>)</span><span>;</span> <span>// Returns '01-Jan-2019 23:59:00'</span></pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>currentDate</span> <span>=</span> <span>'01-Jan-2019 23:59:10'</span><span>;</span>
+&nbsp;<span>info </span><span>currentDate</span><span>.subMinutes</span><span>(</span><span>2</span><span>)</span><span>;</span> <span>// Returns '01-Jan-2019 23:57:10'</span>
+</pre>
+            </div>
+            <p>Time Examples (only for Creator):</p>
+            <div>
+              <pre><span>// The below code tries to add hours to a "time" value beyond the 24-hour range</span> 
+&nbsp;<span>timeValue</span> <span>=</span> <span>'00:00:00'</span><span>;</span>
+&nbsp;<span>info </span><span>timeValue</span><span>.subMinutes</span><span>(-</span><span>4</span><span>)</span><span>;</span> <span>// Returns '00:04:00'</span></pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>currentTime</span> <span>=</span> <span>'13:15:10'</span><span>;</span>
+&nbsp;<span>info </span><span>currentTime</span><span>.subMinutes</span><span>(</span><span>1</span><span>)</span><span>;</span> <span> // Returns '13:14:10'</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

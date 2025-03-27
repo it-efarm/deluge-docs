@@ -1,0 +1,150 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>File Functions</a></li>
+        <li><a>getFileName</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get File Name</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong>&nbsp;
+              <ul>
+                <li>
+                  This function is applicable to <strong>all</strong> Zoho
+                  services.
+                </li>
+                <li>
+                  In&nbsp;<strong>Zoho Creator</strong>, this function can only
+                  be applied on files fetched using the <a>invokeUrl</a> task
+                  and not on the files&nbsp;fetched from Zoho Creator fields. To
+                  fetch name of the file&nbsp;uploaded in the file upload field,
+                  use&nbsp;<a>actualName</a>.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>getFileName</strong> task is used to get the name of
+              the specified file.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>&lt;</span><span>file_object</span><span>&gt;</span><span>.getFileName</span><span>(</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the response returned by the
+                            <strong>getFileName</strong> task. It represents the
+                            name of the file.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;file_object&gt;</p></td>
+                        <td>
+                          <p><span>FILE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the&nbsp;file object whose name has to be
+                            fetched.<br /><strong>Note: </strong>The file can be
+                            fetched from the cloud using the
+                            <a>invokeUrl</a> task.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script returns the name of the file that the
+              variable - <strong>fileVariable</strong> holds.
+            </p>
+            <div>
+              <pre>&nbsp;<span>// to fetch file from the cloud using invokeUrl task</span>
+&nbsp;<span>fileVariable</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;<span> url</span><span>: </span><span>"https://sample-videos.com/img/Sample-png-image-100kb.png"</span>
+&nbsp;<span> type</span><span>: </span><span>GET</span>
+&nbsp;<span>];</span></pre>
+            </div>
+            &nbsp;
+            <div>
+              <pre>&nbsp;<span>// to fetch the name of the file
+<span>response</span><span> = </span><span>fileVariable</span><span>.getFileName</span><span>(</span><span>)</span><span>;</span> // returns </span><span>Sample-png-image-100kb.png</span>
+<span>
+</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> response returned by the
+                      getFileName task. It represents the name of the specified
+                      file.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>fileVariable</span></pre>
+                    </div>
+                    <div>
+                      is the <span>FILE</span> variable that holds the file
+                      whose name needs to be fetched
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Invoke URL</a></li>
+              <li><a>File Methods</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

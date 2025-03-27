@@ -1,0 +1,408 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Share documents</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Share Documents in Zoho Writer</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Share a document with one user</a></li>
+                    <li><a>Share a document with a list of users</a></li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.writer.shareDocument</strong> task is used to
+              share a Zoho Writer document owned or co-owned by you with other
+              users.
+            </p>
+            <div>
+              <strong>Note:</strong> On average, it takes about a minute to
+              index a file/folder after it is created or updated. This indexing
+              time can increase if the queue size increases.&nbsp; You will not
+              get the expected result if&nbsp;you execute
+              zoho.writer.shareDocument task before the document you need to
+              share is indexed.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.writer.shareDocument</span><span>(</span><span>&lt;</span><span>document_id</span><span>&gt;</span>, <span>&lt;</span><span>email_id</span><span>&gt;</span>, <span>&lt;</span><span>role</span><span>&gt;</span>, <span>&lt;</span><span>type</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <p>&nbsp;</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The response returned by Zoho Writer. It represents
+                            the details of the user who shares the document and
+                            with whom the document is shared, and the status of
+                            the executed task.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;document_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The ID of the document that will be shared.<br />The
+                            document ID can be obtained from the open URL of the
+                            document that will be shared. The URL is in the
+                            following format:<br />https://writer.zoho.com/writer/open/<strong
+                              >&lt;document_id&gt;</strong
+                            >
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;email_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT/ LIST</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The&nbsp;email&nbsp;address of the user with whom
+                            the document will be shared.
+                          </p>
+                          <div>
+                            <strong>Note:</strong> The maximum number of
+                            email&nbsp;addresses that can be specified
+                            is&nbsp;<strong>10</strong>.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;role&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The role of the user with whom the document is
+                            shared.
+                          </p>
+                          <p>
+                            The allowed values for this parameter are as
+                            follows:
+                          </p>
+                          <ul>
+                            <li>
+                              <strong>viewer</strong> -&nbsp;Users will be able
+                              to read the document.
+                            </li>
+                            <li>
+                              <strong>commenter</strong> -&nbsp;Users will be
+                              able to read and add comments in the document.
+                            </li>
+                            <li>
+                              <strong>editor</strong> -&nbsp;Users will be able
+                              to read and edit the document.
+                            </li>
+                            <li>
+                              <strong>co_owner</strong> -&nbsp;Users will be
+                              able to read, edit, and share the document.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;type&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The visibility of the document.</p>
+                          <p><strong>Allowed values:</strong></p>
+                          <ul>
+                            <li>
+                              <strong>personal</strong> - Only the collaborators
+                              of the document can view your document.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Scopes applicable for this task:&nbsp;<strong
+                                  >ZohoWriter.DocumentEditor</strong
+                                >
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1: Share a document with one user</h2>
+            <p>
+              The following script shares the specified document with the user
+              -&nbsp;<strong>shawn@zylker.com</strong>&nbsp;while assigning the
+              role -&nbsp;<strong>co_owner</strong>.
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.writer.shareDocument</span><span>(</span><span>"al296XXXXXXXXXXXXXXXXXXXXXXXXXXXa516c"</span>, <span>"shawn@zylker.com"</span>, <span>"co_owner"</span>, <span>"personal"</span>, <span>"writer_oauth_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Writer.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"al296XXXXXXXXXXXXXXXXXXXXXXXXXXXa516c"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the ID of the
+                      document that will be shared.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"shawn@zylker.com"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;that represents the
+                      email&nbsp;address of the user with whom the document will
+                      be shared.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"co_owner"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;that represents the role
+                      assigned to the user with whom the document will be
+                      shared. With co_owner as the value for role parameter, the
+                      specified user can view, edit, and share the shared
+                      document.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"personal"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;that represents the
+                      visibility of the shared document. Here, only the document
+                      collaborators can view it.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"writer_oauth_connection"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the name of the
+                      <a>connection</a>.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Share a document with a list of users</h2>
+            <p>
+              The following script shares the specified document with the all
+              the users in the list
+              -&nbsp;<strong>collaborators_list</strong>&nbsp;while assigning
+              the role -&nbsp;<strong>editor</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>collaborators_list</span><span> = </span><span>List</span><span>()</span><span>;</span>
+&nbsp;<span>collaborators_list</span><span>.</span><span>add</span><span>(</span><span>"shawn@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;<span>collaborators_list</span><span>.</span><span>add</span><span>(</span><span>"mike.n@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.writer.shareDocument</span><span>(</span><span>"al296XXXXXXXXXXXXXXXXXXXXXXXXXXXa516c"</span>, <span>collaborators_list</span>, <span>"viewer"</span>, <span>"personal"</span>, <span>"writer_oauth_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>collaborators_list</span></pre>
+                    </div>
+                    <div>
+                      The <span>LIST&nbsp;</span>variable that holds the
+                      email&nbsp;addresses of all the users with whom the
+                      document will be shared.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"editor"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the role
+                      assigned to the user with whom the document will be
+                      shared. With&nbsp;editor as the value for role parameter,
+                      the specified user can view and edit the shared document.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"success": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"email_id":
+                  "shawn@zylker.com",<br />&nbsp;&nbsp;"role": "viewer",<br />&nbsp;&nbsp;"user_id":
+                  "53XXXX53",<br />&nbsp;&nbsp;"time_ms": 1563964827313,<br />&nbsp;&nbsp;"shared_by":
+                  {<br />&nbsp;&nbsp;"email_id": "charlie.p@zylker.com",<br />&nbsp;&nbsp;"profile_photo":
+                  "https://contacts.zoho.com/file?t=user&amp;ID=58XXXX70&amp;fs=thumb",<br />&nbsp;&nbsp;"user_id":
+                  "58XXXX70",<br />&nbsp;&nbsp;"display_name": "Charlie"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"time":
+                  "2019-07-24T10:40:27Z",<br />&nbsp;&nbsp;"type":
+                  "personal",<br />&nbsp;&nbsp;"status": true<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"email_id":
+                  "mike.n@zylker.com",<br />&nbsp;&nbsp;"role": "viewer",<br />&nbsp;&nbsp;"user_id":
+                  "53XXXX53",<br />&nbsp;&nbsp;"time_ms": 1563964827378,<br />&nbsp;&nbsp;"shared_by":
+                  {<br />&nbsp;&nbsp;"email_id": "charlie.p@zylker.com",<br />&nbsp;&nbsp;"profile_photo":
+                  "https://contacts.zoho.com/file?t=user&amp;ID=58XXXX70&amp;fs=thumb",<br />&nbsp;&nbsp;"user_id":
+                  "58XXXX70",<br />&nbsp;&nbsp;"display_name": "Charlie"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"time":
+                  "2019-07-24T10:40:27Z",<br />&nbsp;&nbsp;"type":
+                  "personal",<br />&nbsp;&nbsp;"status": true<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"failure":
+                  [<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response will be returned in the following format
+                  for improper&nbsp;document ID:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"message":
+                  "Request URL not configured properly. Please check and try
+                  again",<br />&nbsp;&nbsp;"documentation_url":
+                  "https://www.zoho.com/writer/help/api/v1/general-errors.html",<br />&nbsp;&nbsp;"response_generated_time":
+                  1563961624177,<br />&nbsp;&nbsp;"request_url":
+                  "https://writer.zoho.com/api/v1/documents//collaboration",<br />&nbsp;&nbsp;"errorcode":
+                  "R2008"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response when you try to share a document that is
+                  not owned or co-owned by you will be returned in the following
+                  format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {
+                  &nbsp;&nbsp;"message": "Permission denied. You are not
+                  authorized to perform this operation.",
+                  &nbsp;&nbsp;"documentation_url":
+                  "https://www.zoho.com/writer/help/api/v1/general-errors.html",
+                  &nbsp;&nbsp;"response_generated_time": 1563961602526,
+                  &nbsp;&nbsp;"request_url":
+                  "https://writer.zoho.com/api/v1/documents/al296XXXXXXXXXXXXXXXXXXXXXXXX6964add/collaboration",
+                  &nbsp;&nbsp;"errorcode": "R5010" &nbsp;&nbsp;} &nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response will be returned in the following format
+                  when you try to share the document with more than 10 users:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"message":
+                  "You seem to have used the supported parameters multiple
+                  times.",<br />&nbsp;&nbsp;"documentation_url":
+                  "https://www.zoho.com/writer/help/api/v1/general-errors.html",<br />&nbsp;&nbsp;"response_generated_time":
+                  1564648109086,<br />&nbsp;&nbsp;"request_url":
+                  "https://writer.zoho.com/api/v1/documents/al296XXXXXXXXXXXXXXXXXXXXXXXX6964add/collaboration",<br />&nbsp;&nbsp;"errorcode":
+                  "R2004"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Writer integration tasks</a></li>
+              <li><a>Connections</a></li>
+              <li><a>Zoho Writer API - Possible error responses</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

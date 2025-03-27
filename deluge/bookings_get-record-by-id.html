@@ -1,0 +1,245 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Bookings integration tasks</a></li>
+        <li><a>Get record by ID from Zoho Bookings</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get record by ID from Zoho Bookings</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to fetch a record from the&nbsp;specified
+              module using its ID.
+            </p>
+            <p>This task is based on <a>Zoho Bookings API</a>.</p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.bookings.getRecordById</span><span>(</span><span>&lt;</span><span>module</span><span>&gt;</span>,<span> &lt;</span><span>record_id</span><span>&gt;</span>,<span> &lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>Variable which will hold the returned response.</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module&gt;&nbsp;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The name of the module from which the record will to
+                            be fetched.
+                          </p>
+                          The applicable modules are:
+                          <ul>
+                            <li>Resources</li>
+                            <li>Staff</li>
+                            <li>Workspaces</li>
+                            <li>Services</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;record_id&gt;</p></td>
+                        <td><span>NUMBER</span></td>
+                        <td>
+                          <p>The ID of the record&nbsp;that will be fetched.</p>
+                          <div>
+                            <strong>Note:</strong>
+                            <ul>
+                              <li>
+                                You can get the ID of the record from the URL.
+                                For example, the URL of a record in
+                                the&nbsp;<strong>resources</strong> module is in
+                                the following format:<br />https://bookings.zoho.com/#/app/manage-business/resource/<strong>&lt;record_id&gt;</strong>/resource-info
+                              </li>
+                              <li>
+                                You can also use the <a>invoke URL</a> task to
+                                fetch records from the required module. Visit
+                                <a>Zoho Bookings API help</a> and navigate to
+                                the details of the required module. The response
+                                will contain the IDs of all the records in the
+                                module, which can be extracted as illustrated in
+                                this <a>sample snippet</a>.&nbsp;
+                              </li>
+                              <li>
+                                You can also
+                                use&nbsp;<strong>zoho.bookings.getRelatedRecords</strong>&nbsp;task
+                                to fetch records from Services, Staff, and
+                                Resources module and then the IDs of those
+                                records can be extracted as illustrated
+                                <a>here</a>.
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;connection&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes while creating the
+                                connection.
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script fetches the record with ID
+              -&nbsp;<strong>3883XXXXXXXXXXX7032</strong>&nbsp;from the module
+              -&nbsp;<strong>services</strong>:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.bookings.getRecordById</span><span>(</span><span>"services"</span>, <span>3883XXXXXXXXXXX7032</span>, <span>"bookings_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The variable which holds the response in&nbsp;<span
+                        >KEY-VALUE</span
+                      >
+                      format.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"services"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      module.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>3883XXXXXXXXXXX7032</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the ID of the
+                      record that needs to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"bookings_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response returned will be returned in the following
+                format:
+                <div>
+                  &nbsp;{<br />&nbsp;"response": {<br />&nbsp;"returnvalue":
+                  {<br />&nbsp;"data": [<br />&nbsp;{<br />&nbsp;"duration": "60
+                  mins",<br />&nbsp;"buffertime": "10 mins",<br />&nbsp;"price":
+                  "1500",<br />&nbsp;"name": "Technical counseling",<br />&nbsp;"currency":
+                  "INR",<br />&nbsp;"id": "3883XXXXXXXXXXX7032"<br />&nbsp;}<br />&nbsp;]<br />&nbsp;},<br />&nbsp;"status":
+                  "success"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                The failure response for an invalid or non-existent record ID
+                will be returned in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"response": {<br />&nbsp;"returnvalue":
+                  {<br />&nbsp;"mesage": "There is no active service for the
+                  criteria",<br />&nbsp;"status": "failure"<br />&nbsp;},<br />&nbsp;"status":
+                  "success"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Bookings API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

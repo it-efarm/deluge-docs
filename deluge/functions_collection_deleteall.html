@@ -1,0 +1,92 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>deleteAll</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>deleteAll</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>deleteAll</strong> function deletes specified
+              elements, or specified values (along with the keys) from a
+              <a>collection</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <p>To delete values along with the keys:</p>
+            <div>
+              <pre><span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.deleteAll</span><span>(</span><span>&lt;</span><span>valuesList</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <p>To delete elements:</p>
+            <div>
+              <pre><span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.deleteAll</span><span>(</span><span>&lt;</span><span>elementsList</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;collectionVariable&gt;</td>
+                    <td><span>COLLECTION</span></td>
+                    <td>
+                      <p>
+                        The variable from which key value pairs or elements will
+                        be deleted.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;valuesList&gt;</td>
+                    <td><span>LIST</span></td>
+                    <td>
+                      <p>Values which will be deleted along with the keys.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;elementsList&gt;</td>
+                    <td><span>LIST</span></td>
+                    <td><p>Element which will be deleted.</p></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>products</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span><span>,</span> <span>"CRM"</span><span>,</span> <span>"Campaigns"</span><span>)</span><span>;</span>   
+&nbsp;<span>products</span><span>.deleteAll</span><span>(</span><span>{</span><span>"CRM"</span><span>,</span> <span>"Campaigns"</span><span>}</span><span>)</span><span>;</span> <span>// deletes the specified elements from the collection</span></pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>productVersion</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span> <span>:</span> <span>5</span><span>,</span> <span>"CRM"</span> <span>:</span> <span>2</span><span>)</span><span>;</span>   
+&nbsp;<span>productVersion</span><span>.deleteAll</span><span>(</span><span>{</span><span>2</span><span>}</span><span>)</span><span>;</span> <span>// deletes the specified key along with its value from the collection</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

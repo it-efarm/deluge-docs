@@ -1,0 +1,142 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>File Functions</a></li>
+        <li><a>setCharset</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Set Charset</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong>&nbsp;This function&nbsp;is applicable to
+              <strong>all</strong> Zoho services. In&nbsp;<strong
+                >Zoho Creator</strong
+              >, this function can be applied only on files fetched using the
+              <a>invokeUrl</a> task and not on the files&nbsp;fetched from Zoho
+              Creator fields.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>setCharset</strong> task is used to set a Charset to a
+              file object. The file will be encoded with the specified Charset
+              while sending in a HTTP request using&nbsp;<a>invoke URL</a> task.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>file_variable</span><span>&gt;</span><span>.setCharSet</span><span>(</span><span>&lt;</span><span>charset</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;file_variable&gt;</p></td>
+                        <td>
+                          <p><span>FILE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the&nbsp;file object to which the charset
+                            will be set.<br /><strong>Note: </strong>The file
+                            can be fetched from the cloud using the
+                            <a>invokeUrl</a> task.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;charset&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The Charset that needs to be set to the file.<br /><strong
+                              >Allowed values:</strong
+                            >
+                            Click&nbsp;<a>here</a> to find the list of supported
+                            Charsets.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following example sets the Charset -&nbsp;<strong
+                >UTF-16</strong
+              >
+              to the file fetched from the web:
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;<span> url</span><span>: </span><span>"http://www.africau.edu/images/default/sample.pdf"</span>
+&nbsp;<span> type</span><span>: </span><span>GET</span>
+&nbsp;<span>];</span></pre>
+            </div>
+            <div>
+              <pre><span>
+&nbsp;<span>response</span><span>.</span><span>setCharSet</span><span>(</span><span>"UTF-16"</span><span>)</span><span>;</span></span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>FILE</span> for which the Charset needs to be
+                      specified.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"UTF-16"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the Charset.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>File Methods</a></li>
+              <li><a>Invoke URL</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

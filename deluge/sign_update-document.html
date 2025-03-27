@@ -1,0 +1,352 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sign Integration Tasks</a></li>
+        <li><a>Update document in Zoho Sign</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Update document in&nbsp;Zoho Sign</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a>Insert a new file into a Zoho Sign&nbsp;document</a>
+                    </li>
+                    <li>
+                      <a
+                        >Add recipients to the specified&nbsp;Zoho Sign
+                        document</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.sign.updateDocument</strong> task is used to
+              update a document in Zoho Sign. This task is based on the
+              <a>Zoho Sign API - Update Document</a>.
+            </p>
+            <div>
+              <strong>Note:</strong> This task can be used to update only the
+              Zoho Sign documents that are in <strong>draft</strong> status.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt; </span><span>= </span><span>zoho</span><span>.sign.updateDocument</span><span>(</span><span>&lt;</span><span>document_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>values_map&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params&gt;</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The response returned by Zoho Sign that contains the
+                            information of the updated document.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;document_id&gt;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The ID of the document that will be&nbsp;updated.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;values_map&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            New values of the document that will be updated.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> The keys to this param need
+                            to be given as specified in <a>Zoho Sign API</a>.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The link name of the Zoho
+                            Sign&nbsp;<a>connection</a>.
+                          </p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in&nbsp;<a
+                                  >Zoho Sign API document</a
+                                >
+                                while creating the connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 1: Insert a new file into a Zoho Sign&nbsp;document
+            </h2>
+            <p>
+              The following script&nbsp;inserts&nbsp;a file&nbsp;to the
+              specified Zoho Sign document:
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Fetch file from cloud</span>
+&nbsp;<span>pdf_file</span><span> = </span><span>invokeUrl </span>
+&nbsp;<span>[</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span>url</span><span>: </span><span>"http://www.africau.edu/images/default/sample.pdf"</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span>type</span><span>: </span><span>GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Construct a map to hold </span>
+&nbsp;<span>values_map</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>values_map</span><span>.put</span><span>(</span><span>"file"</span><span>, </span><span>pdf_file</span><span>)</span><span>;</span>
+
+&nbsp;<span>// Perform update document task to insert the file to the Zoho Sign document</span>
+&nbsp;<span>info </span><span>zoho</span><span>.sign</span><span>.updateDocument</span><span>(</span><span>10696000000040001</span><span>, </span><span>values_map</span><span>)</span><span>;</span>
+
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that
+                      represents&nbsp;information of the updated document.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>10696000000040001</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the ID of the
+                      document that needs to be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>values_map</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the file
+                      that needs to be inserted into the Zoho Sign document.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 2: Add recipients to the specified Zoho Sign
+              document
+            </h2>
+            <p>
+              The following script&nbsp;adds the specified recipient to
+              the&nbsp;specified&nbsp;Zoho Sign document:
+            </p>
+            <div>
+              <pre><span> recipient1</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>recipient1</span><span>.put</span><span>(</span><span>"recipient_name"</span><span>,</span><span>"Hailee"</span><span>)</span><span>;</span>
+&nbsp;<span>recipient1</span><span>.put</span><span>(</span><span>"recipient_email"</span><span>,</span><span>"hailee@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;<span>recipient1</span><span>.put</span><span>(</span><span>"action_type"</span><span>,</span><span>"VIEW"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>recipient2</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>recipient2</span><span>.put</span><span>(</span><span>"recipient_name"</span><span>,</span><span>"Kate"</span><span>)</span><span>;</span>
+&nbsp;<span>recipient2</span><span>.put</span><span>(</span><span>"recipient_email"</span><span>,</span><span>"kate@zylker.com"</span><span>)</span><span>;</span>
+&nbsp;<span>recipient2</span><span>.put</span><span>(</span><span>"action_type"</span><span>,</span><span>"SIGN"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>recipient_list</span><span> = </span><span>List</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>recipient_list</span><span>.add</span><span>(</span><span>recipient1</span><span>)</span><span>;</span>
+&nbsp;<span>recipient_list</span><span>.add</span><span>(</span><span>recipient2</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>actions_map</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>actions_map</span><span>.put</span><span>(</span><span>"actions"</span><span>, </span><span>recipient_list</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>request_map</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>request_map</span><span>.put</span><span>(</span><span>"requests"</span><span>, </span><span>actions_map</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>field_map</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>field_map</span><span>.put</span><span>(</span><span>"data"</span><span>, </span><span>request_map</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sign</span><span>.updateDocument</span><span>(</span><span>120761000000039013</span><span>, </span><span>field_map</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>field_map</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>KEY-VALUE</span>&nbsp;variable that holds
+                      the details of the recipient that need to be inserted in
+                      the Zoho Sign document. This&nbsp;variable is constructed
+                      just like how it is expected to be in the<a>
+                        Zoho Sign update document API page</a
+                      >.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response will be returned in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"code": 0,<br />&nbsp;"requests": {<br />&nbsp;"request_status":
+                  "draft",<br />&nbsp;"notes": "",<br />&nbsp;"attachments":
+                  [<br />&nbsp;<br />&nbsp;],<br />&nbsp;"reminder_period":
+                  5,<br />&nbsp;"owner_id": "10696000000009003",<br />&nbsp;"description":
+                  "",<br />&nbsp;"request_name": "sample_test1243",<br />&nbsp;"modified_time":
+                  1588835162035,<br />&nbsp;"is_deleted": false,<br />&nbsp;"expiration_days":
+                  15,<br />&nbsp;"is_sequential": false,<br />&nbsp;"owner_first_name":
+                  "Shawn",<br />&nbsp;"request_view_url":
+                  "https://sign.zoho.com/zs#/request/viewer/10696000000038001?internal=true",<br />&nbsp;"sign_percentage":
+                  0,<br />&nbsp;"owner_email": "shawn@zylker.com",<br />&nbsp;"created_time":
+                  1580808869623,<br />&nbsp;"email_reminders": true,<br />&nbsp;"document_ids":
+                  [<br />&nbsp;{<br />&nbsp;"document_name": "sample.pdf",<br />&nbsp;"document_size":
+                  2953,<br />&nbsp;"document_order": "0",<br />&nbsp;"total_pages":
+                  2,<br />&nbsp;"document_id": "10696000000038002"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"document_name":
+                  "dummy.pdf",<br />&nbsp;"document_size": 13227,<br />&nbsp;"document_order":
+                  "1",<br />&nbsp;"total_pages": 1,<br />&nbsp;"document_id":
+                  "10696000000038005"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"document_name":
+                  "sample.pdf",<br />&nbsp;"document_size": 2953,<br />&nbsp;"document_order":
+                  "2",<br />&nbsp;"total_pages": 2,<br />&nbsp;"document_id":
+                  "10696000000049001"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"self_sign":
+                  false,<br />&nbsp;"request_edit_url":
+                  "https://sign.zoho.com/zs#/request/new/10696000000038001?internal=true",<br />&nbsp;"request_url":
+                  "https://sign.zoho.com/zs#/request/new/10696000000038001?internal=true",<br />&nbsp;"in_process":
+                  false,<br />&nbsp;"validity": -1,<br />&nbsp;"request_type_name":
+                  "Others",<br />&nbsp;"request_id": "10696000000038001",<br />&nbsp;"request_type_id":
+                  "10696000000000187",<br />&nbsp;"owner_last_name": "Shawn",<br />&nbsp;"actions":
+                  [<br />&nbsp;{<br />&nbsp;"verify_recipient": false,<br />&nbsp;"is_bulk":
+                  false,<br />&nbsp;"action_id": "10696000000049032",<br />&nbsp;"action_type":
+                  "VIEW",<br />&nbsp;"recipient_email": "shawn@zylker.com",<br />&nbsp;"signing_order":
+                  -1,<br />&nbsp;"send_completed_document": true,<br />&nbsp;"recipient_name":
+                  "Shawn",<br />&nbsp;"allow_signing": false,<br />&nbsp;"action_status":
+                  "NOACTION",<br />&nbsp;"recipient_phonenumber": "",<br />&nbsp;"recipient_countrycode":
+                  ""<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"verify_recipient":
+                  false,<br />&nbsp;"action_type": "SIGN",<br />&nbsp;"recipient_email":
+                  "shawn@zylker.com",<br />&nbsp;"send_completed_document":
+                  true,<br />&nbsp;"allow_signing": true,<br />&nbsp;"recipient_phonenumber":
+                  "",<br />&nbsp;"is_bulk": false,<br />&nbsp;"action_id":
+                  "10696000000049016",<br />&nbsp;"signing_order": -1,<br />&nbsp;"fields":
+                  [<br />&nbsp;<br />&nbsp;],<br />&nbsp;"recipient_name":
+                  "Shawn",<br />&nbsp;"action_status": "NOACTION",<br />&nbsp;"recipient_countrycode":
+                  ""<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"verify_recipient":
+                  false,<br />&nbsp;"is_bulk": false,<br />&nbsp;"action_id":
+                  "10696000000049042",<br />&nbsp;"action_type": "VIEW",<br />&nbsp;"recipient_email":
+                  "hailee@zylker.com",<br />&nbsp;"signing_order": -1,<br />&nbsp;"send_completed_document":
+                  true,<br />&nbsp;"recipient_name": "Shawn",<br />&nbsp;"allow_signing":
+                  false,<br />&nbsp;"action_status": "NOACTION",<br />&nbsp;"recipient_phonenumber":
+                  "",<br />&nbsp;"recipient_countrycode": ""<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"attachment_size":
+                  0<br />&nbsp;},<br />&nbsp;"message": "Document has been
+                  updated",<br />&nbsp;"status": "success"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                The failure response for incorrect document ID will be returned
+                in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"code":4003,<br />&nbsp;"message":"Access
+                  to view the document is denied",<br />&nbsp;"status":"failure"<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                The failure response when this task is used to upload a file to
+                a document that is already sent for signing will be returned in
+                the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"code":2005,<br />&nbsp;"message":"Unable
+                  to upload the document",<br />&nbsp;"status":"failure"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Sign integration tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

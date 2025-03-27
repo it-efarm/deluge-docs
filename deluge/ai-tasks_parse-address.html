@@ -1,0 +1,225 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Artificial Intelligence Tasks</a></li>
+        <li><a>Parse Address</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Parse Address</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Parse an address</a></li>
+                    <li><a>Parse a list of addresses</a></li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.ai.parseAddress</strong> ask is used to split the
+              given address into individual components, such as: road, house,
+              city, and district.
+            </p>
+            <div>
+              <strong>Note:&nbsp;</strong>
+              <ul>
+                <li>This task only supports&nbsp;<strong>English</strong>.</li>
+                <li>
+                  The prediction results may not be accurate, which is also the
+                  case with any AI prediction. However, we are working on making
+                  it better.
+                </li>
+                <li>
+                  The prediction results are dynamic. The same script may
+                  produce different outcomes at different times based on how
+                  much the machine has learned.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.ai.parseAddress</span><span>(</span><span>&lt;</span><span>address</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the individual components of an address and
+                        the status of the executed task
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;address&gt;</p></td>
+                    <td>
+                      <p><span>TEXT / LIST</span></p>
+                    </td>
+                    <td>
+                      <p>Specifies the addresses that need to be examined</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              The following script analyzes the&nbsp;<strong
+                >given address</strong
+              >
+              and divides&nbsp;it into individual components.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.ai.parseAddress</span><span>(</span><span>"Estancia IT Park, GST Road, Vallancherry Village, Chengalpattu, Kanchipuram district, Tamil Nadu 603202"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      individual components of the address, and the status of
+                      the executed task.&nbsp;<br /><br />Here, the individual
+                      components returned are:
+                      <ul>
+                        <li>
+                          <strong>"road":</strong> "gst road vallancherry
+                          village"
+                        </li>
+                        <li><strong>"city":</strong> "chengalpattu"</li>
+                        <li>
+                          <strong>"state_district":</strong> "kanchipuram
+                          district"
+                        </li>
+                        <li><strong>"postcode":</strong> "603202"</li>
+                        <li><strong>"state":</strong> "tamil nadu"</li>
+                        <li><strong>"house":</strong> "estancia it park"</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Estancia IT Park, GST Road, Vallancherry Village, Chengalpattu, Kanchipuram district, Tamil Nadu 603202"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the address that
+                      needs to be examined.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2</h2>
+            <p>
+              The following script analyzes&nbsp;<strong
+                >the list of addresses</strong
+              >
+              and divides it into individual components.
+            </p>
+            <div>
+              <pre>&nbsp;<span>address_var </span><span>=</span><span> List</span><span>()</span><span>;</span>
+&nbsp;<span>address_var</span><span>.</span><span>add</span><span>(</span><span>"Estancia IT Park, GST Road, Vallancherry Village, Chengalpattu, Kanchipuram district, Tamil Nadu 603202"</span><span>)</span><span>;</span>
+&nbsp;<span>address_var</span><span>.</span><span>add</span><span>(</span><span>"6800 Burleson Rd Building 310, Suite 200, Austin, TX 78744, USA"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.ai.parseAddress</span><span>(</span><span>address_var</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>address_var</span></pre>
+                    </div>
+                    <div>
+                      The <span>LIST</span> variable that holds the addresses
+                      that need to be examined.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response returned will be returned in the
+                  following format.
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"data": {<br />&nbsp;"items": [<br />&nbsp;{<br />&nbsp;"road":
+                  "gst road vallancherry village",<br />&nbsp;"city":
+                  "chengalpattu",<br />&nbsp;"state_district": "kanchipuram
+                  district",<br />&nbsp;"postcode": "603202",<br />&nbsp;"state":
+                  "tamil nadu",<br />&nbsp;"house": "estancia it park"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"country":
+                  "usa",<br />&nbsp;"unit": "suite 200",<br />&nbsp;"road":
+                  "burleson rd building",<br />&nbsp;"city": "austin",<br />&nbsp;"postcode":
+                  "78744",<br />&nbsp;"house_number": "310",<br />&nbsp;"state":
+                  "tx"<br />&nbsp;}<br />&nbsp;]<br />&nbsp;},<br />&nbsp;"message":
+                  "OK",<br />&nbsp;"status": 200<br />&nbsp;}
+                </div>
+                &nbsp;
+                <p><strong>Failure Response</strong></p>
+                <ul>
+                  <li>
+                    <p>
+                      The failure response returned for an empty address value
+                      will be in the following format:
+                    </p>
+                    <div>
+                      &nbsp;{<br />&nbsp;"message":
+                      "EMPTY_VALUE_NOT_ALLOWED",<br />&nbsp;"status": 400<br />&nbsp;}
+                    </div>
+                  </li>
+                </ul>
+                &nbsp;
+                <h2><a></a>Related Links</h2>
+                <ul>
+                  <li><a>AI tasks</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

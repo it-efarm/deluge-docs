@@ -1,0 +1,431 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Projects integration tasks</a></li>
+        <li><a>Update Records in Zoho Projects</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Update Records in Zoho Projects</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Example 1: Update priority&nbsp;field in the tasks
+                        module</a
+                      >
+                    </li>
+                    <li>
+                      <a>Example 2: Update a custom field in the bugs module</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The&nbsp;<strong>zoho.projects.update&nbsp;</strong>task updates
+              the specified record with new values in Zoho Projects.
+            </p>
+            <div>
+              <strong>Note:</strong> For security reasons, if you execute Zoho
+              Projects integration tasks for more than 100 times under 2
+              minutes, you will be restricted to execute any Zoho Projects
+              integration task for the next 30 mins.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.projects.update</span><span>(</span><span>&lt;</span><span>portal</span><span>&gt;</span><span>, </span><span>&lt;</span><span>project_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>module</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>data_map</span><span>&gt;</span><span>, </span><span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details of the records that will be updated in
+                            the specified Zoho Projects module.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;portal&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>TEXT/ NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>The name or ID of the portal.</p>
+                          <p>
+                            <strong>Note: </strong>You can get the name or ID of
+                            the portal using the&nbsp;<strong
+                              >get portals</strong
+                            >
+                            task. Click&nbsp;<a>here</a> to learn more about it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;project_id&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>The ID of the project.</p>
+                          <p>
+                            <strong>Note: </strong>You can get project_id using
+                            the <strong>get project details</strong> task.
+                            Click&nbsp;<a>here</a> to learn more about it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The name of the module in which the record will be
+                            updated.
+                          </p>
+                          <p><strong>Allowed values:</strong></p>
+                          <ul>
+                            <li>milestones</li>
+                            <li>taskLists</li>
+                            <li>tasks</li>
+                            <li>bugs</li>
+                            <li>logs</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;record_id&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>The ID of the record that needs to be updated.</p>
+                          <p>
+                            <strong>Note: </strong>You can get record_id using
+                            the&nbsp;<strong>get records</strong> task.
+                            Click&nbsp;<a>here</a> to learn more about it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;data_map&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The parameters, as specified in the Zoho Projects
+                            API. The API documents for all the allowed modules
+                            are listed below:
+                          </p>
+                          <ul>
+                            <li><a>milestones</a></li>
+                            <li><a>taskLists</a></li>
+                            <li><a>tasks</a></li>
+                            <li><a>bugs</a></li>
+                            <li><a>logs</a></li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the&nbsp;<a>connection</a>.</p>
+                          <p>
+                            <strong>Note: </strong>This parameter is applicable
+                            to all Zoho services that have&nbsp;connections
+                            support, except Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 1: Update priority&nbsp;field in the tasks module
+            </h2>
+            <p>
+              The following script updates the specified record with new values
+              in Zoho Projects:
+            </p>
+            <div>
+              <pre>&nbsp;<span>values_map</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>values_map</span><span>.</span><span>put</span><span>(</span><span>"priority"</span><span>, </span><span>"High"</span><span>)</span><span>;</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.projects.update</span><span>(</span><span>"zylker"</span><span>, </span><span>548XXXXXXXXXXX771</span><span>, </span><span>"tasks"</span><span>, </span><span>548XXXXXXXXXXX019</span><span>, </span><span>values_map</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Projects. It represents the details of the task that will
+                      be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"zylker"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      portal.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>548XXXXXXXXXXX771</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the ID of the
+                      project.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"tasks"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      module in which the record will be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>548XXXXXXXXXXX019</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the ID of the
+                      record that needs to be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>values_map</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the new
+                      values.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Update a custom field in the bugs module</h2>
+            <p>
+              The following script updates a custom field&nbsp;in the specified
+              record with new values in Zoho Projects:
+            </p>
+            <div>
+              <pre><span> custom_field</span><span> = </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>custom_field</span><span>.put</span><span>(</span><span>"NCHAR1"</span><span>,</span><span>"Software development"</span><span>)</span><span>;</span>
+
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.projects</span><span>.update</span><span>(</span><span>"zylker"</span><span>, </span><span>63XXXXXXXXXXXX781</span><span>, </span><span>"bugs"</span><span>, </span><span>648XXXXXXXXXXX159</span>, <span>custom_field</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Projects. It represents the details of the bugs that will
+                      be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"zylker"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      portal.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>63XXXXXXXXXXX781</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the ID of the
+                      project.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"bugs"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      module in which the record will be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>648XXXXXXXXXXX159</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the ID of the
+                      record that needs to be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"NCHAR1"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> key that represents the column name
+                      of the custom field. You can get the unique column name of
+                      the required custom field using this
+                      <a>Zoho Projects API</a>. Refer <a>invoke URL</a> to learn
+                      how to make API calls using Deluge.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>custom_field</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the new
+                      values of the custom field.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"fieldsNotPermitted": "",<br />&nbsp;&nbsp;"tasks":
+                  [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"milestone_id":
+                  "548XXXXXXXXXXX092",<br />&nbsp;&nbsp;"link": {<br />&nbsp;&nbsp;"timesheet":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX771/tasks/548XXXXXXXXXXX019/logs/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"self":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/zylker/projects/548XXXXXXXXXXX771/tasks/548XXXXXXXXXXX019/"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"is_comment_added":
+                  false,<br />&nbsp;&nbsp;"duration": "0",<br />&nbsp;&nbsp;"last_updated_time_long":
+                  1566303491257,<br />&nbsp;&nbsp;"is_forum_associated":
+                  false,<br />&nbsp;&nbsp;"details": {<br />&nbsp;&nbsp;"owners":
+                  [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"name": "Unassigned"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"id":
+                  548XXXXXXXXXXX019,<br />&nbsp;&nbsp;"key": "OR1-T7",<br />&nbsp;&nbsp;"created_person":
+                  "Shawn",<br />&nbsp;&nbsp;"created_time_long":
+                  1566298139609,<br />&nbsp;&nbsp;"created_time":
+                  "08-20-2019",<br />&nbsp;&nbsp;"is_reminder_set": false,<br />&nbsp;&nbsp;"is_recurrence_set":
+                  false,<br />&nbsp;&nbsp;"created_time_format": "08-20-2019
+                  04:18:59 PM",<br />&nbsp;&nbsp;"subtasks": false,<br />&nbsp;&nbsp;"work":
+                  "0:00",<br />&nbsp;&nbsp;"isparent": false,<br />&nbsp;&nbsp;"duration_type":
+                  "days",<br />&nbsp;&nbsp;"work_type": "work_hrs_per_day",<br />&nbsp;&nbsp;"task_followers":
+                  {<br />&nbsp;&nbsp;"FOLUSERS": "",<br />&nbsp;&nbsp;"FOLLOWERSIZE":
+                  -1,<br />&nbsp;&nbsp;"FOLLOWERS": [<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"completed":
+                  false,<br />&nbsp;&nbsp;"priority": "High",<br />&nbsp;&nbsp;"created_by":
+                  "58131170",<br />&nbsp;&nbsp;"percent_complete": "0",<br />&nbsp;&nbsp;"last_updated_time":
+                  "08-20-2019",<br />&nbsp;&nbsp;"name": "Draft Documents",<br />&nbsp;&nbsp;"id_string":
+                  "548XXXXXXXXXXX019",<br />&nbsp;&nbsp;"last_updated_time_format":
+                  "08-20-2019 05:48:11 PM",<br />&nbsp;&nbsp;"tasklist": {<br />&nbsp;&nbsp;"name":
+                  "General",<br />&nbsp;&nbsp;"id": "548XXXXXXXXXXX003"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"order_sequence":
+                  3,<br />&nbsp;&nbsp;"status": {<br />&nbsp;&nbsp;"name":
+                  "Open",<br />&nbsp;&nbsp;"id": "548XXXXXXXXXXX001",<br />&nbsp;&nbsp;"type":
+                  "open",<br />&nbsp;&nbsp;"color_code": ""<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for invalid project ID or record ID will
+                  be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"code":
+                  6404,<br />&nbsp;&nbsp;"message": "Resource Not Found"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for invalid portal name will be returned
+                  in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"code":
+                  6504,<br />&nbsp;&nbsp;"message": "Domain Not Available"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for invalid portal ID will be returned in
+                  the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"code":
+                  6500,<br />&nbsp;&nbsp;"message": "General Error"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Projects Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+              <li><a>invoke URL</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

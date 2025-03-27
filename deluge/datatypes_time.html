@@ -1,0 +1,119 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Data types</a></li>
+        <li><a>Time</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Time data type</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>time</strong> datatype represents time values in both
+              12-hour and 24-hour formats. This data type works independently of
+              a date value.
+            </p>
+            <div>
+              <p><strong>Note</strong>:</p>
+              <ul>
+                <li>
+                  Time data type is currently
+                  <strong>supported only in Zoho Creator</strong>.
+                </li>
+                <li>Time values must be enclosed within single quotes.</li>
+                <li>
+                  Time values range between '<strong>12:00:00 AM'</strong> to
+                  <strong>'11:59:59 PM'</strong> for 12-hour format.
+                </li>
+                <li>
+                  Time values range between <strong>'00:00:00'</strong> to
+                  <strong>'23:59:59'</strong> for 24-hour format.
+                </li>
+                <li>
+                  A time value <strong>should</strong> be defined with all the
+                  three components - hours, minutes and seconds in place (AM/PM
+                  in case of 12-hour format).
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Example</h2>
+            <div>
+              <pre>&nbsp;<span>available_from</span> <span> = </span> <span>'19:00:00'</span><span>;</span>
+&nbsp;<span>closing_at</span> <span> = </span> <span>'06:00:00 PM'</span><span>;</span></pre>
+            </div>
+            <h2>Supported Time formats</h2>
+            <ul>
+              <li><strong>hh:mm:ss a</strong> (12-hour format)</li>
+              <li><strong>HH:mm:ss</strong> (24-hour format)</li>
+            </ul>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  Declared time values cannot skip either the seconds part or
+                  seconds and minutes parts altogether. In the event the value
+                  does not conform to the supported time formats, an error
+                  message will be thrown.
+                </li>
+                <li>
+                  However time values without the seconds (<strong
+                    >hh:mm</strong
+                  >
+                  or <strong>HH:mm</strong>)&nbsp;or without the minutes and
+                  seconds (<strong>hh</strong> or <strong>HH</strong>)&nbsp;part
+                  assigned to <strong>TIME fields</strong> will be accepted by
+                  defaulting the missing components. For example, "<strong
+                    >10 AM</strong
+                  >" assigned to a TIME field will be treated as '<strong
+                    >10:00:00 AM</strong
+                  >'&nbsp;and "<strong>18:15</strong>" will be treated as
+                  "<strong>18:15:00</strong>".
+                </li>
+                <li>
+                  Care should be exercised while declaring a value like "<strong
+                    >15 minutes and 12 seconds</strong
+                  >". Declaring this value as "<strong>15:12</strong>" would be
+                  read as "<strong>15:12:00</strong>". It should be declared as
+                  "<strong>00:15:12</strong>" and "<strong>10 seconds</strong>"
+                  should be declared like "<strong>00:00:10</strong>".
+                </li>
+                <li>
+                  TIME&nbsp;values in no way should fall outside the 24 hour
+                  range. A value declared like "<strong>23:59:60</strong>" would
+                  throw an error.
+                </li>
+                <li>
+                  Operations (like <strong>addHour</strong>,
+                  <strong>subMinutes</strong>) on TIME values which result in a
+                  value outside the 24-hour range will also result in an error
+                </li>
+                <li>
+                  See <a>date time functions</a> to find the built-in functions
+                  applicable to time data type.
+                </li>
+                <li>
+                  See <a>Zoho Creator fields</a> to know which Zoho Creator
+                  field types are of time data type.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

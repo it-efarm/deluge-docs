@@ -1,0 +1,99 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>deleteKey</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>deleteKey</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>deleteKey</strong>&nbsp;function deletes an
+              element based on a specified index, or a specified key along with
+              its value in a&nbsp;<a>collection</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <p>To delete a key-value pair based on the key:</p>
+            <div>
+              <pre><span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.deleteKey</span><span>(</span><span>&lt;</span><span>key</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>(OR)</p>
+            <p>To delete an element&nbsp;based on its&nbsp;index:</p>
+            <div>
+              <pre><span>&lt;collectionVariable&gt;</span>.deleteKey( <span>&lt;elementIndex&gt;</span><span>&nbsp;</span>);</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;collectionVariable&gt;</td>
+                    <td><span>COLLECTION</span></td>
+                    <td>
+                      <p>
+                        The variable in which a key value pair will be deleted.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;key&gt;</td>
+                    <td>-</td>
+                    <td>
+                      <p>The key which will be deleted along with the value.</p>
+                      <p>
+                        No action is taken if the specified key is not found.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;elementIndex&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>The index of the element which will be deleted.</p>
+                      <p>
+                        If the specified index is not found, a runtime error
+                        will be encountered.
+                      </p>
+                      <p>Index starts from 0.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>productVersion</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span> <span>:</span> <span>5</span><span>,</span> <span>"CRM"</span> <span>:</span> <span>2</span><span>)</span><span>;</span>
+&nbsp;<span>productVersion</span><span>.deleteKey</span><span>(</span><span>"CRM"</span><span>)</span><span>;</span> <span>// deletes the specified key along with its value</span></pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>products</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span><span>,</span> <span>"CRM"</span><span>,</span> <span>"Campaigns"</span><span>)</span><span>;</span>
+&nbsp;<span>products</span><span>.deleteKey</span><span>(</span><span>1</span><span>)</span><span>;</span> <span>// deletes the element "CRM"</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

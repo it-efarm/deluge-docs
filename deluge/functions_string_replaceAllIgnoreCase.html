@@ -1,0 +1,158 @@
+<div class="help-content-panel">
+  <div>
+    <div><ul></ul></div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>ReplaceAllIgnoreCase()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>replaceAllIgnoreCase()</strong> function
+              searches&nbsp;<strong>all</strong>
+              <strong>the&nbsp;occurrences</strong> of
+              <strong>searchText</strong> in the <strong>inputText</strong> and
+              replaces them with the <strong>replacementText</strong>. If the
+              <strong>searchText</strong> is not found, this function returns
+              the <strong>inputText</strong> as it is.
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  This task performs a case-insensitive search. In order to
+                  perform a case-sensitive search, use the
+                  <a>replaceAll</a>&nbsp;built-in function.
+                </li>
+                <li>
+                  The size of each input and output parameter of this
+                  function&nbsp;can individually be up to&nbsp;<strong
+                    >300 KB</strong
+                  >.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>TEXT</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>&lt;</span><span>inputText</span><span>&gt;</span><span>.replaceAllIgnoreCase</span><span>(</span><span>&lt;</span><span>searchText</span><span>&gt;</span><span>, </span><span>&lt;</span><span>replacementText</span><span>&gt;</span><span>, </span><span>&lt;</span><span>boolean</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>replaceAllIgnoreCase</span><span>(</span><span>&lt;</span><span>inputText</span><span>&gt;</span><span>, </span><span>&lt;</span><span>searchText</span><span>&gt;</span><span>, </span><span>&lt;</span><span>replacementText</span><span>&gt;</span><span>, </span><span>&lt;</span><span>boolean</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>TEXT</td>
+                    <td>Variable which will contain the returned text.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;inputText&gt;</td>
+                    <td>TEXT</td>
+                    <td>
+                      The text in which all occurrences of
+                      <strong>searchText</strong> will be replaced with
+                      <strong>replacementText</strong>.<span> </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;searchText&gt;</td>
+                    <td>TEXT</td>
+                    <td>
+                      <p>
+                        <br />All occurrences of this
+                        <strong>searchText</strong>&nbsp;will be replaced with
+                        <strong>replacementText</strong>&nbsp;in the
+                        <strong>inputText</strong>.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;replacementText&gt;</td>
+                    <td>TEXT</td>
+                    <td>
+                      This <strong>replacementText</strong> will replace all
+                      occurrences of <strong>searchText</strong> in the
+                      <strong>inputText</strong>.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;boolean&gt;</td>
+                    <td>TEXT</td>
+                    <td>
+                      <p><strong>Applicable values:</strong> true or false.</p>
+                      <p>
+                        By default, the replaceAllIgnoreCase() function supports
+                        regular expression (i.e) it will not find and replace
+                        the special characters like $ in the input text.
+                      </p>
+                      <p>
+                        This parameter can be used to specify if the regular
+                        expression is to be supported or escaped.
+                      </p>
+                      <ul>
+                        <li>
+                          The value true denotes escaping the regular
+                          expression.
+                        </li>
+                        <li>
+                          The value false denotes supporting the regular
+                          expression. By default, the value is taken as "false".
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example&nbsp;</h2>
+            <p>
+              The following example searches for the text - ZOHO in the
+              <strong>inputText</strong> and replaces all of its
+              occurrences&nbsp;with <strong>Z</strong>.&nbsp;
+            </p>
+            <div>
+              <pre>&nbsp;<span>inputText </span><span>= </span><span>"Zoho Creator, Zoho Desk, Zoho CRM"</span><span>;</span>
+&nbsp;<span>newText </span><span>= </span><span>replaceAllIgnoreCase</span><span>(</span><span>inputText</span><span>,</span><span>"ZOHO "</span><span>,</span><span>"Z"</span><span>)</span><span>;</span><span> // returns "ZCreator, ZDesk, ZCRM"</span>
+&nbsp;<span>info </span><span>newText</span><span>;</span>
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>ReplaceAllIgnoreCase</a></li>
+              <li><a>Text built-in functions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

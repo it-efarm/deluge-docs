@@ -1,0 +1,175 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Projects integration tasks</a></li>
+        <li><a>Get Portals From Zoho Projects</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Portals From Zoho Projects</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The&nbsp;<strong>zoho.projects.getPortals</strong>&nbsp;task
+              fetches the details of all your portals in Zoho Projects.
+            </p>
+            <div>
+              <strong>Note:</strong> For security reasons, if you execute Zoho
+              Projects integration tasks for more than 100 times under 2
+              minutes, you will be restricted to execute any Zoho Projects
+              integration task for the next 30 mins.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.projects.getPortals</span><span>(</span><span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details of all your portals in Zoho projects.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the&nbsp;<a>connection</a>.</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script fetches the details of all the portals in
+              Zoho Projects:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.projects.getPortals</span><span>()</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Projects. It represents the details of all your portals in
+                      Zoho projects.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"login_id": "58XXXX70",<br />&nbsp;&nbsp;"portals":
+                  [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"trial_enabled":
+                  true,<br />&nbsp;&nbsp;"gmt_time_zone": "(GMT 5:30) India
+                  Standard Time",<br />&nbsp;&nbsp;"project_count": {<br />&nbsp;&nbsp;"active":
+                  1<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"role": "admin",<br />&nbsp;&nbsp;"avail_user_count":
+                  24,<br />&nbsp;&nbsp;"is_crm_partner": false,<br />&nbsp;&nbsp;"link":
+                  {<br />&nbsp;&nbsp;"project": {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/58572595/projects/"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"bug_plan":
+                  "Enterprise",<br />&nbsp;&nbsp;"locale": {<br />&nbsp;&nbsp;"country":
+                  "United States",<br />&nbsp;&nbsp;"code": "en_US",<br />&nbsp;&nbsp;"language":
+                  "English"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"layouts": {<br />&nbsp;&nbsp;"projects":
+                  {<br />&nbsp;&nbsp;"module_id": "548XXXXXXXXXXX005"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"tasks":
+                  {<br />&nbsp;&nbsp;"module_id": "548XXXXXXXXXXX001"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"new_user_plan":
+                  true,<br />&nbsp;&nbsp;"available_projects": -1,<br />&nbsp;&nbsp;"default":
+                  true,<br />&nbsp;&nbsp;"id": 58XXXX95,<br />&nbsp;&nbsp;"bug_plural":
+                  "Issues",<br />&nbsp;&nbsp;"is_new_plan": true,<br />&nbsp;&nbsp;"plan":
+                  "Enterprise",<br />&nbsp;&nbsp;"percentage_calculation":
+                  "based_on_status",<br />&nbsp;&nbsp;"settings": {<br />&nbsp;&nbsp;"business_hours":
+                  {<br />&nbsp;&nbsp;"business_end": 1440,<br />&nbsp;&nbsp;"business_start":
+                  0<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"default_dependency_type":
+                  "finish-start",<br />&nbsp;&nbsp;"working_days": [<br />&nbsp;&nbsp;"Sunday",<br />&nbsp;&nbsp;"Monday",<br />&nbsp;&nbsp;"Tuesday",<br />&nbsp;&nbsp;"Wednesday",<br />&nbsp;&nbsp;"Thursday",<br />&nbsp;&nbsp;"Friday",<br />&nbsp;&nbsp;"Saturday"<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"timelog_period":
+                  {<br />&nbsp;&nbsp;"log_future_time": {<br />&nbsp;&nbsp;"allowed":
+                  false<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"log_past_time":
+                  {<br />&nbsp;&nbsp;"allowed": true<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"time_zone":
+                  "Asia/Kolkata",<br />&nbsp;&nbsp;"startday_of_week":
+                  "sunday",<br />&nbsp;&nbsp;"task_date_format":
+                  "MM-dd-yyyy",<br />&nbsp;&nbsp;"timesheet": {<br />&nbsp;&nbsp;"is_timesheet_approval_enabled":
+                  false,<br />&nbsp;&nbsp;"default_billing_status":
+                  "Billable"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"holidays":
+                  [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"is_budget_enabled":
+                  false,<br />&nbsp;&nbsp;"company_name": "Zylker",<br />&nbsp;&nbsp;"date_format":
+                  "MM-dd-yyyy hh:mm aaa",<br />&nbsp;&nbsp;"has_budget_permission":
+                  true<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"is_display_taskprefix":
+                  true,<br />&nbsp;&nbsp;"bug_singular": "Issue",<br />&nbsp;&nbsp;"trial_end_time":
+                  1566412200000,<br />&nbsp;&nbsp;"is_display_projectprefix":
+                  true,<br />&nbsp;&nbsp;"project_prefix": "TE-",<br />&nbsp;&nbsp;"is_time_log_restrcition_enabled":
+                  false,<br />&nbsp;&nbsp;"max_user_count": 25,<br />&nbsp;&nbsp;"extensions":
+                  {<br />&nbsp;&nbsp;"locations": {<br />&nbsp;&nbsp;"app_settings":
+                  "548XXXXXXXXXXX161",<br />&nbsp;&nbsp;"issue_tab":
+                  "548XXXXXXXXXXX165",<br />&nbsp;&nbsp;"task_tab":
+                  "548XXXXXXXXXXX163",<br />&nbsp;&nbsp;"attachment_picker":
+                  "548XXXXXXXXXXX171",<br />&nbsp;&nbsp;"top_band":
+                  "548XXXXXXXXXXX169",<br />&nbsp;&nbsp;"project_tab":
+                  "548XXXXXXXXXXX167"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"trial_daystogo":
+                  10,<br />&nbsp;&nbsp;"profile_id": 548XXXXXXXXXXX320,<br />&nbsp;&nbsp;"name":
+                  "zylker",<br />&nbsp;&nbsp;"id_string": "58XXXX95"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Projects Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

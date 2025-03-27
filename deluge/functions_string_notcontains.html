@@ -1,0 +1,143 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>List Manipulations</a></li>
+        <li><a>notContains</a></li>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>notContains</a></li>
+        <li><a>Functions which return a boolean value</a></li>
+        <li><a>notContains - text function</a></li>
+        <li><a>Map functions</a></li>
+        <li><a>notContains</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>notContains</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>notContains()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>notContains()</strong> function takes
+              <strong>inputValue</strong> and
+              <strong>searchValue</strong>&nbsp;as arguments. It returns
+              <strong>true</strong> if the inputValue&nbsp;does not contain the
+              searchValue. Otherwise, it returns <strong>false</strong>.
+            </p>
+            <div>
+              <p>
+                <strong>Note:</strong> This function performs a case-sensitive
+                search.
+              </p>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Boolean</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> = <span>&lt;</span><span>inputValue</span><span>&gt;</span>.notContains( <span>&lt;</span><span>searchValue</span><span>&gt;</span> )<span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>Parameter</strong></th>
+                    <th><strong>Data type</strong></th>
+                    <th><strong>Description</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      Variable which will contain the boolean value, true or
+                      false
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;inputValue&gt;</td>
+                    <td>
+                      <span>TEXT</span>/ <span>LIST</span>/ <span>MAP</span>/
+                      <span>COLLECTION</span>
+                    </td>
+                    <td>The value which may contain the searchValue.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;searchValue&gt;</td>
+                    <td><span>Any datatype</span></td>
+                    <td>The value to be searched for, in the input value.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>/*The notContains() function on TEXT input value*/</span>
+&nbsp;<span>products </span><span>= </span><span>"Zoho Creator"</span><span>;</span>
+&nbsp;<span>boolVal</span> <span>= </span><span>products.notContains</span><span>(</span><span>"Creator"</span><span>)</span><span>;</span> 
+&nbsp;<span>info boolVal</span><span>;</span><span> // returns false</span>
+&nbsp;
+&nbsp;<span>/*The notContains() function performs a case-sensitive search*/</span>
+&nbsp;<span>products </span><span>= </span><span>"Zoho Creator"</span><span>;</span>
+&nbsp;<span>boolVal </span><span>= </span><span>products.notContains</span><span>(</span><span>"CREATOR"</span><span>)</span><span>;</span>
+&nbsp;<span>info boolVal</span><span>;</span><span> // returns true</span>
+&nbsp;
+&nbsp;<span>/*The notContains() function on LIST*/</span>
+&nbsp;<span>products </span><span>= </span><span>List</span><span>()</span><span>;</span>
+&nbsp;<span>products.add</span><span>(</span><span>"Creator"</span><span>)</span><span>;</span>
+&nbsp;<span>products.add</span><span>(</span><span>"CRM"</span><span>)</span><span>;</span>
+&nbsp;<span>products.add</span><span>(</span><span>"Cliq"</span><span>)</span><span>;</span>
+&nbsp;<span>boolVal </span><span>= </span><span>products.notContains</span><span>(</span><span>"Books"</span><span>)</span><span>;</span> 
+&nbsp;<span>info boolVal</span><span>;</span><span> // returns true</span>
+&nbsp;
+&nbsp;<span>/*The notContains() function on MAP input value*/</span>
+&nbsp;<span>product_details </span><span>= </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>product_details</span><span>.put</span><span>(</span><span>"product"</span><span>,</span> <span>"Creator"</span><span>)</span><span>;</span>
+&nbsp;<span>product_details</span><span>.put</span><span>(</span><span>"subscription"</span><span>,</span> <span>"yearly"</span><span>)</span><span>;</span>
+&nbsp;<span>boolVal </span><span>= </span><span>product_details.notContains</span><span>(</span><span>"price"</span><span>)</span><span>;</span>
+&nbsp;<span>info boolVal</span><span>;</span><span> // returns true</span>
+&nbsp;
+&nbsp;<span>/*The notContains() function on index-value Collection*/</span>
+&nbsp;<span>products </span><span>= </span><span>Collection</span><span>()</span><span>;</span>
+&nbsp;<span>products.insert</span><span>(</span><span>"Creator"</span><span>)</span><span>;</span>
+&nbsp;<span>products.insert</span><span>(</span><span>"CRM"</span><span>)</span><span>;</span>
+&nbsp;<span> boolVal </span><span>= </span><span>products.notContains</span><span>(</span><span>"Cliq"</span><span>)</span><span>;</span>
+&nbsp;<span>info boolVal</span><span>;</span><span> // returns true</span>
+&nbsp;
+&nbsp;<span>/*The notContains() function on key-value collection*/</span>
+&nbsp;<span>product_details </span><span>= </span><span>Collection</span><span>()</span><span>;</span>
+&nbsp;<span>product_details.insert</span><span>(</span><span>"product"</span><span>,</span> <span>"Creator"</span><span>)</span><span>;</span>
+&nbsp;<span>product_details.insert</span><span>(</span><span>"subscription"</span><span>,</span> <span>"yearly"</span><span>)</span><span>;</span>
+&nbsp;<span>boolVal </span><span>= </span><span>product_details.notContains</span><span>(</span><span>"subscription"</span><span>)</span><span>;</span>
+&nbsp;<span>info boolVal</span><span>;</span><span> // returns false</span>
+&nbsp;
+
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

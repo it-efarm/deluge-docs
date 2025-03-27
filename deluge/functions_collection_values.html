@@ -1,0 +1,79 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>values</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>values</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>values</strong>&nbsp;function returns the values (from
+              key value pairs), or elements, present in a <a>collection</a>.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>LIST</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.values</span><span>(</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>LIST</span></td>
+                    <td>Variable which will hold the returned list.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;collectionVariable&gt;</td>
+                    <td><span>COLLECTION</span></td>
+                    <td>
+                      The variable from which the values or elements will be
+                      returned.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>productVersion</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span> <span>:</span> <span>5</span><span>,</span> <span>"CRM"</span> <span>:</span> <span>2</span><span>,</span> <span>"Mail"</span> <span>:</span> <span>8</span><span>)</span><span>;</span>
+&nbsp;<span>info </span> <span>productVersion</span><span>.values</span><span>(</span> <span>)</span><span>; </span><span>// Returns 5, 2, 8</span></pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>products</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span><span>,</span> <span>"CRM"</span><span>,</span> <span>"Mail"</span><span>)</span><span>;</span>
+&nbsp;<span>info </span> <span>products</span><span>.values</span><span>(</span> <span>)</span><span>;</span> <span>// Returns "Creator", "CRM", "Mail"</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

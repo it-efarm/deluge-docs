@@ -1,0 +1,272 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Cliq Integration Tasks</a></li>
+        <li><a>Edit Message</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Edit Message</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li>​<a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> This task is applicable to all Zoho
+                Services, except Zoho Creator.
+              </p>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              This&nbsp;task is used to <a>edit a message</a>&nbsp;in Zoho Cliq.
+            </p>
+            <p>This task is based on Zoho Cliq API - <a>Edit a message</a>.</p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.cliq.editMessage</span><span>(</span><span>&lt;</span><span>chat_ID</span><span>&gt;</span>, <span>&lt;</span><span>message_ID&gt;</span>, &lt;<span>updated_message&gt;, &lt;connection&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;variable&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        is the variable which will hold the&nbsp;response
+                        returned by Zoho Cliq.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;chat_id&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span> (or) <span>NUMBER</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        is the <a>chat ID</a> of the recipient's chat in which
+                        the message to be updated exists.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;message_id&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>is the ID of the message which will be updated.</p>
+                      <p>
+                        The message ID can be retrieved by clicking on the three
+                        dotted icon for the message in Zoho Cliq and copying the
+                        message URL.<br /><img /><br />Sample message
+                        URL:&nbsp;<br />https://cliq.zoho.com/chats/<strong>&lt;chatID&gt;</strong>/messages/<strong
+                          >&lt;messageID&gt;</strong
+                        ><br /><br />The ID of a message can also be retrieved
+                        by creating a&nbsp;<a>Message Action</a> with the
+                        following script:
+                      </p>
+                      <div>info message.get("id");</div>
+                      ​
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;updated_message&gt;</p></td>
+                    <td>
+                      <p>
+                        <span>TEXT<br />KEY-VALUE</span>
+                      </p>
+                    </td>
+                    <td>
+                      <p>
+                        is the updated message.<br /><br />Key-value must be in
+                        the format: {"text" : "&lt;updated_message&gt;"}. When
+                        using key-value format, an additional key "notify_edit"
+                        can be used to notify the chat recipient of the edit.
+                      </p>
+                      <p>
+                        The different types of content that can be posted in a
+                        chat window can be found <a>here</a>.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;connection&gt;</p></td>
+                    <td><span>TEXT</span>&nbsp;</td>
+                    <td>
+                      specifies the link name of the Zoho
+                      Cliq&nbsp;<a>connection</a>.
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of&nbsp;<a
+                              >stopping new authtoken generation</a
+                            >,&nbsp;a Zoho OAuth connection with appropriate
+                            scopes is mandatory&nbsp;for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter unless the authtoken is manually
+                            deleted&nbsp;from&nbsp;<a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes as mentioned in&nbsp;Zoho Cliq
+                            API - <a>Edit a message</a>.
+                          </li>
+                          <li>
+                            Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                            list of Zoho services that support the connections
+                            page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script posts a message <strong>Hello</strong>, in
+              the chat window of the intended recipient.
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.editMessage</span><span>(</span><span>"22306xxxxxxxxxx6126"</span><span>,</span><span>"159xxxxxxxx97_3354xxxxxxxx396"</span><span>,</span><span>"Hello"</span><span>, </span><span>"cliq_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(or)</p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.editMessage</span><span>(</span><span>"22306xxxxxxxxxx6126"</span><span>,<span>"159xxxxxxxx97_3354xxxxxxxx396"</span><span>,</span></span><span>{</span><span>"text"<span>:</span><span>"Hello"</span><span>}</span><span>, </span><span>"cliq_connection"</span><span>)</span><span>;</span>
+</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is a <span>KEY-VALUE</span> response returned by Zoho
+                      Cliq, that represents the status of the executed task
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"22306xxxxxxxxxx6126"</span></pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> that represents the chat ID of the
+                      recipient
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>""159xxxxxxxx97_3354xxxxxxxx396""</span></pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> that represents the ID of the
+                      message which will be edited
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"text"</span></pre>
+                    </div>
+                    <div>
+                      is the key of <span>TEXT</span> data type which represents
+                      the updated message
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Hello"</span></pre>
+                    </div>
+                    <div>is the updated&nbsp;<span>TEXT</span> message</div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"cliq_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <ul>
+              <li>
+                <p>
+                  The <strong>success response</strong> returned is of the
+                  following format.
+                </p>
+                <div><span>{"status":"success"}</span></div>
+              </li>
+              <br />
+              <li>
+                <p>
+                  The <strong>failure response</strong> returned due to
+                  incorrect chat ID is of the following format.
+                </p>
+                <div><span>{"code":"operation_failed"}</span></div>
+              </li>
+              <br />
+              <li>
+                <p>
+                  The <strong>failure response</strong> returned due to
+                  incorrect message ID is of the following format.
+                </p>
+                <div>
+                  <span
+                    >{"message":"Sorry, we couldn't process your request due to
+                    a technical error. Please try again
+                    later.","code":"operation_failed"}</span
+                  >
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Cliq API</a></li>
+              <li><a>Zoho Cliq API Error Codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

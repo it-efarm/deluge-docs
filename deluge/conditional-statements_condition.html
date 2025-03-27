@@ -1,0 +1,519 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Conditions</a></li>
+        <li><a>Conditional statements</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Conditional statements</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              Conditional statements examine&nbsp;specified criteria, and act in
+              one way if the criteria are met, or in another way if the criteria
+              are not met.
+            </p>
+            <p>
+              The criteria is mandatory for all conditional statements except
+              the "else" conditional statement. The "else" conditional statement
+              does not accept any criteria.
+            </p>
+            <p><a>Learn more about criteria.</a></p>
+            <p>
+              The following are the variants&nbsp;of
+              conditional&nbsp;statements:
+            </p>
+            <ul>
+              <li>
+                <strong>if</strong>
+                <p>
+                  Validates given criterion&nbsp;and performs specified actions
+                  if the criterion&nbsp;is met. The&nbsp;"If"
+                  conditional&nbsp;statement can be followed by "else if" and
+                  "else" conditional&nbsp;statements(not mandatory). If the
+                  criterion&nbsp;is not met, the actions are skipped, and the
+                  program moves on to the next task.
+                </p>
+              </li>
+              <li>
+                <strong>​</strong><strong>else if</strong>
+                <p>
+                  The "else if" conditional&nbsp;statement is always preceded by
+                  an "if" conditional&nbsp;statement. It executes given
+                  statements when the preceding "if" conditional&nbsp;statement
+                  fails and the "else if" criterion is met.&nbsp;If the "else
+                  if" criterion is also not met, the actions are skipped, and
+                  the program moves on to the next task.
+                </p>
+              </li>
+              <li>
+                <strong>else</strong>
+                <p>
+                  The "else" conditional&nbsp;statement is always preceded by an
+                  "if"&nbsp;or an "else if" conditional&nbsp;statement. It
+                  executes given statements when the preceding "if" and "else
+                  if" conditional&nbsp;statements fail. The "else" statement, if
+                  present,&nbsp;must always be the last in a set of conditional
+                  statements, i.e, it must not be followed by the "if" or the
+                  "else if" condition in that set of statements.
+                </p>
+              </li>
+              <li>
+                <strong>conditional if</strong>.
+                <p>
+                  The "conditional if"&nbsp;statement takes two values, and
+                  returns the first value if&nbsp;the specified
+                  criterion&nbsp;is met, or&nbsp;returns the second value if the
+                  criterion&nbsp;is not met.
+                </p>
+              </li>
+              <li>
+                <strong>if null</strong>.
+                <p>
+                  The "ifNull"<strong>&nbsp;</strong>statement takes two
+                  expressions. It evaluates expression1 for null values. If
+                  expression1 resolves to null, it returns expression2. If
+                  expression1 does not resolve to null, it returns expression1.
+                </p>
+              </li>
+            </ul>
+            <p>
+              As mentioned above, the first three&nbsp;condition&nbsp;statements
+              can be used in association with each other,&nbsp;as demonstrated
+              below:
+            </p>
+            <ul>
+              <li>
+                <strong
+                  >A conditional&nbsp;statement with single criterion and single
+                  action</strong
+                >&nbsp;- The following deluge script contains a single&nbsp;"if"
+                conditional&nbsp;statement. It can be used when there is a need
+                to specify only one criterion. If the criterion&nbsp;is met, the
+                given actions are executed, else the actions are skipped.
+                <div>
+                  <span
+                    ><span>if</span
+                    ><span>(&lt;criteria&gt;)&nbsp; &nbsp;&nbsp;</span
+                    ><br />{<br /><span>&lt;actions&gt;</span><br />}</span
+                  >
+                </div>
+              </li>
+              <li>
+                <strong
+                  >Conditional statements with a single criterion&nbsp;and
+                  two&nbsp;actions</strong
+                >&nbsp;- The following deluge script contains
+                two&nbsp;conditional&nbsp;statements. It can be used when there
+                is a need to perform two different actions based on whether a
+                criterion&nbsp;is met or not.&nbsp;If the criterion&nbsp;is met,
+                the first set of actions are executed, else the second set of
+                actions&nbsp;are executed.
+                <div>
+                  <span
+                    ><span>if</span>(&lt;criteria&gt;)<br />{<br /><span
+                      >&lt;actions&gt;</span
+                    ><br />}<br /><span>else</span><br />{<br /><span
+                      >&lt;actions&gt;</span
+                    ><br />}</span
+                  >
+                </div>
+              </li>
+              <li>
+                <strong
+                  >Conditional statements with two criteria and
+                  two&nbsp;actions</strong
+                >&nbsp;- The following deluge script contains
+                two&nbsp;conditional&nbsp;statements. It can be used when there
+                is a need to perform two different actions based on whether
+                specified&nbsp;criteria are met or not.&nbsp;If the first
+                criterion&nbsp;is met, the first set of actions are executed, or
+                if the second criterion is met, the second set of actions are
+                executed. If both the criteria are not met, both the actions are
+                skipped.
+                <div>
+                  <span
+                    ><span>if</span>(&lt;criteria&gt;)<br />{<br /><span
+                      >&lt;actions&gt;</span
+                    ><br />}<br /><span>else if</span
+                    >(&lt;criteria&gt;)<br />{<br /><span>&lt;actions&gt;</span
+                    ><br />}</span
+                  >
+                </div>
+              </li>
+              <li>
+                <strong
+                  >Conditional&nbsp;statements with multiple criteria&nbsp;and
+                  multiple actions</strong
+                >
+                -&nbsp;The following deluge script contains multiple
+                conditional&nbsp;statements. It can be used when there is a need
+                to perform different actions based on whether the various set of
+                criteria&nbsp;are met or not. The actions are executed for the
+                criterion&nbsp;which is met. If no criteria&nbsp;are met, the
+                "else" actions are executed. If no "else" actions are specified,
+                all the actions are skipped.
+                <div>
+                  <span
+                    >if(&lt;criteria&gt;)<br />{<br /><span
+                      >&lt;actions&gt;</span
+                    ><br />}<br /><span>else if</span
+                    >(&lt;criteria&gt;)<br />{<br /><span>&lt;actions&gt;</span
+                    ><br />}<br /><span>else if</span
+                    >(&lt;criteria&gt;)<br />{<br /><span>&lt;actions&gt;</span
+                    ><br />}<br /><span>else</span><br />{<br /><span
+                      >&lt;actions&gt;</span
+                    ><br />}</span
+                  >
+                </div>
+                <p><strong>(or)</strong></p>
+                <div>
+                  <span
+                    ><span>if</span>(&lt;criteria&gt;)<br />{<br /><span
+                      >&lt;actions&gt;</span
+                    ><br />}<br /><span>else if</span
+                    >(&lt;criteria&gt;)<br />{<br /><span>&lt;actions&gt;</span
+                    ><br />}<br /><span>else if</span
+                    >(&lt;criteria&gt;)<br />{<br /><span>&lt;actions&gt;</span
+                    ><br />}<br /><span>else if</span
+                    >(&lt;criteria&gt;)<br />{<br /><span>&lt;actions&gt;</span
+                    ><br />}</span
+                  >
+                </div>
+              </li>
+              <li>
+                <strong>Conditional statements evaluating null</strong>&nbsp;-
+                The following deluge script contains
+                two&nbsp;conditional&nbsp;statements. It can be used when there
+                is a need to perform two different actions based on whether
+                specified&nbsp;criteria are met or not.&nbsp;If the first
+                criterion&nbsp;is met, the first set of actions are executed, or
+                if the second criterion is met, the second set of actions are
+                executed. If both the criteria are not met, both the actions are
+                skipped.
+                <div>
+                  <span>&lt;variable&gt; =&nbsp;</span><span>ifNull</span
+                  ><span>(&lt;expression1&gt;, &lt;expression2&gt;);</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <h2><a></a>Syntax</h2>
+          <p>
+            <span><strong>if statement:</strong></span>
+          </p>
+          <div>
+            <span
+              ><span>if</span> (&lt;criteria&gt;)<br />{<br /><span
+                >&lt;actions&gt;</span
+              ><br />}</span
+            >
+          </div>
+          <p>
+            <span><strong>else if statement:</strong></span>
+          </p>
+          <div>
+            <span
+              ><span>if (criteria)<br />{<br />&lt;actions&gt;<br />}</span
+              ><br /><span>else if</span> (criteria)<br />{<br /><span
+                >&lt;actions&gt;</span
+              ><br />}</span
+            >
+          </div>
+          <p>
+            <span><strong>else statement:</strong></span>
+          </p>
+          <div>
+            <span
+              ><span>if (criteria)<br />{<br />&lt;actions&gt;<br />}</span
+              ><br /><span>else</span><br />{<br /><span>&lt;actions&gt;</span
+              ><br />}</span
+            >
+          </div>
+          <p>
+            <a></a><span><strong>conditional if statement:</strong></span>
+          </p>
+          <div>
+            <span
+              ><span>&lt;variable&gt;</span> = if (<span>&lt;criteria&gt;</span>
+              , <span>&lt;success_value&gt;</span>,
+              <span>&lt;failure_value&gt;</span>);&nbsp;</span
+            >
+          </div>
+          <p>
+            <span><strong>ifNull statement:</strong></span>
+          </p>
+          <div>
+            <span
+              ><span>&lt;variable&gt;</span>&nbsp;= ifNull
+              (<span>&lt;expression1&gt;</span>&nbsp;,&nbsp;<span>&lt;expression2&gt;</span>);&nbsp;</span
+            >
+          </div>
+        </div>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Param</th>
+                <th>Explanation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span><span>&lt;criteria&gt;</span></span>
+                </td>
+                <td>
+                  <p>
+                    <a>Criteria</a> based on which the actions will be executed.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span><span>&lt;actions&gt;</span></span>
+                </td>
+                <td>
+                  <p>
+                    Action(s) to be executed when specified criteria are
+                    met.&nbsp;
+                  </p>
+                  <p>You can also use deluge tasks here.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span><span>&lt;variable&gt;</span></span>
+                </td>
+                <td>Variable holding the returned value.</td>
+              </tr>
+              <tr>
+                <td>
+                  <span><span>&lt;success_value&gt;</span></span>
+                </td>
+                <td>
+                  <p>
+                    The value specified here will be returned if the criterion
+                    is met.
+                  </p>
+                  <p>
+                    You can directly specify a value, or you can also specify an
+                    expression, i.e. a combination of values, constants,
+                    variables, operators, functions and so on, which evaluates
+                    to a value.
+                  </p>
+                  <p>
+                    You can also specify any statements that return a value, for
+                    example - another conditional statement.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span><span>&lt;failure_value&gt;</span></span>
+                </td>
+                <td>
+                  <p>
+                    The value specified here will be returned if&nbsp;the
+                    criterion is not met.
+                  </p>
+                  <p>
+                    You can directly specify a value, or you can also specify an
+                    expression, i.e. a combination of values, constants,
+                    variables, operators, functions and so on, which evaluates
+                    to a value.
+                  </p>
+                  <p>
+                    You can also specify any statements that return a value, for
+                    example - another conditional statement.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h2>In Zoho Creator, this task can be used in the following events</h2>
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <td><strong>When a record is Created</strong></td>
+              </tr>
+              <tr>
+                <td>On Load</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Validate</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Success</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On User input</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>Subform on add row</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>Subform on delete row</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td><strong>When a record is Created or Edited</strong></td>
+              </tr>
+              <tr>
+                <td>On Load</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Validate</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Success</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On User input</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>Subform on add row</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>Subform on delete row</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td><strong>When a record is Edited</strong></td>
+              </tr>
+              <tr>
+                <td>On Load</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Validate</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Success</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On User input</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>Subform on add row</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>Subform on delete row</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td><strong>When a record is Deleted</strong></td>
+              </tr>
+              <tr>
+                <td>On Validate</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>On Success</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td><strong>Other workflow events</strong></td>
+              </tr>
+              <tr>
+                <td>On a scheduled date</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>During approval process</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>During payment process</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>In a Custom Function</td>
+                <td><span>Yes</span></td>
+              </tr>
+              <tr>
+                <td>In an Action item in report</td>
+                <td><span>Yes</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h2><a></a>Examples</h2>
+        <p>
+          1. The following sample sinppet uses the conditional statements to
+          display a relevant message.
+        </p>
+        <div>
+          if(zoho.currentdate.weekday()==7)&nbsp;<br />{<br />info "Today is a
+          Holiday";<br />}<br />else if(zoho.currentDate.weekday()==6)<br />{<br />info
+          "Today is a half working day";<br />}<br />else<br />{<br />info
+          "Today is a working day";<br />}
+        </div>
+        <p>
+          2. The following sample snippet uses the conditional statement to
+          check if a specified book is available or yet to arrive. Books and
+          OrderedBooks are form names, BookName and Book_Name are&nbsp;fields in
+          those&nbsp;forms.
+        </p>
+        <div>
+          inputBook="bloodline";<br />bookRecords= Books[ BookName == inputBook
+          ];<br />yetToArrive=OrderedBooks[Book_Name==inputBook];<br />if(bookRecords.count()&gt;0)<br />{<br />info
+          inputBook +"&nbsp;is present";<br />}<br />else if(yetToArrive.count()
+          &gt; 0)<br />{<br />info inputBook + "is yet to arrive";<br />}
+        </div>
+        <p>
+          3. The following sample snippet alerts the user to check the
+          Accept_Agreement decision box before submitting the form in
+          <strong>Zoho Creator</strong>.
+        </p>
+        <div>
+          if(!(input.Accept_Agreement))<br />{<br />alert "Please Accept the
+          agreement and press submit";<br />cancel submit;<br />}
+        </div>
+        <p>
+          4. The following snippet reads the tenth element in the nameList. If
+          the name is not null, it returns the name. If the name is null, it
+          returns the text, "Not found".
+        </p>
+        <div>name = ifNull(nameList.get(10),"Not found");</div>
+      </div>
+      <p>This is equivalent to writing like the below.</p>
+      <div>
+        if(nameList.get(10)==null)<br />{<br />name = "Not Found";<br />}<br />else<br />{<br />name
+        = nameList.get(10);<br />}
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

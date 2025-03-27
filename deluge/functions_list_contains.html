@@ -1,0 +1,106 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Functions which return a boolean value</a></li>
+        <li><a>contains - list function</a></li>
+        <li><a>List functions</a></li>
+        <li><a>contains</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>contains()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>contains()</strong> function takes
+              <strong>listVariable</strong> and
+              <strong>searchElement</strong> as arguments. It returns true if
+              listVariable contains the searchElement. Otherwise, returns false.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Boolean</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; =<span> &lt;listVariable&gt;</span>.contains(
+              <span>&lt;searchElement&gt;</span> );
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>
+                      Variable which will contain the returned boolean value.
+                    </td>
+                    <td>BOOLEAN</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;listVariable&gt;</span></td>
+                    <td>
+                      The list variable in which the element will be searched
+                      for.
+                    </td>
+                    <td>LIST</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;searchElement&gt;</span></td>
+                    <td>
+                      The element to be searched for in the list variable.
+                    </td>
+                    <td>ALL DATA TYPES</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              listVar = {1, "2", "Zoho", "Creator", {"version":5}, {"India",
+              "USA", "Australia"}};<br />a =
+              listVar.contains("1");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+              &nbsp; //returns
+              false&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />b =
+              listVar.contains(2); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //returns
+              false<br />c =
+              listVar.contains("zoho");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              //returns false<br />d =
+              listVar.contains("Creator");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              //returns true<br />e = listVar.contains("version"); &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //returns false<br />f =
+              listVar.contains({"Version" : 5}); &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp; //returns false<br />g =
+              listVar.contains({"India"});&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              //returns false
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

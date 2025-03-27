@@ -1,0 +1,142 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>File Functions</a></li>
+        <li><a>setFileType</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Set File Type</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong>&nbsp;This function is applicable to all
+              Zoho services except&nbsp;<strong>Zoho Creator.</strong>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>setFileType</strong> task is used to set the specified
+              file type to a file object. The file will be treated as the
+              specified type while sending&nbsp;an HTTP request using
+              the&nbsp;invoke URL task.
+            </p>
+            <div>
+              <strong>Note:</strong>&nbsp;If the actual file type and the
+              assigned file type are incompatible, there might be issues when
+              the user tries to open the file because this function does not
+              actually convert the existing file type to the specified type.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>file_variable</span><span>&gt;</span><span>.setFileType</span><span>(</span><span>&lt;</span><span>type</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;file_variable&gt;</p></td>
+                        <td>
+                          <p><span>FILE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The file for which the file type needs to be
+                            specified.
+                          </p>
+                          <p>
+                            <strong>Note:</strong>&nbsp;Only the files fetched
+                            using the invoke URL task can be used.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;type&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The file type that needs to be set to the file
+                            object.
+                          </p>
+                          <p>
+                            <strong>Allowed values:</strong> Any valid file type
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following example sets the Type -&nbsp;<strong>pdf</strong> to
+              the file fetched from the web:
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;<span> url</span><span>: </span><span>"http://www.africau.edu/images/default/sample.pdf"</span>
+&nbsp;<span> type</span><span>: </span><span>GET</span>
+&nbsp;<span>];</span>
+&nbsp;
+&nbsp;<span>response</span><span>.setFileType</span><span>(</span><span>"pdf"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>FILE</span> for which the file type needs to be
+                      specified.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"pdf"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the file type.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>File Methods</a></li>
+              <li><a>Invoke URL</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,91 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>containsValue</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>containsValue</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>containsValue</strong> function checks if a specified
+              value is present in a <a>collection</a>. It returns
+              <strong>true</strong> if the value is present in the collection.
+              Otherwise, it returns <strong>false</strong>.
+            </p>
+            <div>
+              <p>
+                <strong>Note:</strong> This function performs a case sensitive
+                search.
+              </p>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>BOOLEAN</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.containsValue</span><span>(</span><span>&lt;</span><span>value</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      Variable which will hold the returned boolean value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;collectionVariable&gt;</td>
+                    <td>
+                      <p><span>COLLECTION</span></p>
+                    </td>
+                    <td>The variable in which the value will be looked for.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;value&gt;</td>
+                    <td>Any Data Type</td>
+                    <td>
+                      <p>The value to be searched for in the collection.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>productVersion</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span> <span>:</span> <span>5</span><span>,</span> <span>"CRM"</span> <span>:</span> <span>2</span><span>,</span> <span>"Mail"</span> <span>:</span> <span>8</span><span>)</span><span>;</span>
+&nbsp;<span>info </span><span>productVersion</span><span>.containsValue</span><span>(</span><span>2</span><span>)</span><span>;</span> <span><span>// Returns true</span></span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

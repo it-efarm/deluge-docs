@@ -1,0 +1,187 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Miscellaneous</a></li>
+        <li><a>getFieldNames</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>getFieldNames()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Example 1: Fetch field link name</a></li>
+                    <li>
+                      <a
+                        >Example 2: Fetch display name of Zoho Creator fields
+                        using API</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note: </strong>This help page is applicable only to Zoho
+              Creator
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>getFieldNames()</strong> function returns the link
+              names of all the fields in a form.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>LIST</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span><span>&lt;variable&gt;</span> = getFieldNames();</span
+              ><br />// this syntax is not applicable to&nbsp;custom functions
+            </div>
+            <p>(OR)</p>
+            <div>
+              <span
+                ><span>&lt;variable&gt;</span> =
+                <span>&lt;collectionVariable&gt;</span>.getFieldNames();</span
+              >
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span><span>&lt;variable&gt;</span></span>
+                    </td>
+                    <td>
+                      Variable which will contain the returned list of field
+                      link names.
+                    </td>
+                    <td>LIST</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;collectionVariable&gt;</span></span>
+                    </td>
+                    <td>
+                      A <a>collection variable</a> which holds records fetched
+                      using the <a>fetch records</a> task.
+                    </td>
+                    <td>--</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1: Fetch field link name</h2>
+            <p>
+              The following snippet fetches records based on a given criteria
+              and then extracts the field link names from a record in the
+              collection.
+            </p>
+            <div>
+              <pre>&nbsp;<span>collectionVar</span><span> = </span><span>Registrations</span><span>[</span><span>Email</span><span> == </span><span>"john@zylker.com"</span><span>]</span><span>;</span>
+&nbsp;<span>fieldNames</span><span> = </span><span>collectionVar</span><span>.getFieldNames</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <h2>
+              <a></a>Example 2: Fetch display name of Zoho Creator fields using
+              API
+            </h2>
+            <p>
+              The following script fetches the display names of all the fields
+              from the Zoho Creator form - <strong>form1</strong> of the
+              application - <strong>app1:</strong>
+            </p>
+            <div>
+              <pre>&nbsp;<span>appLinkName</span><span> = </span><span>"app1"</span><span>;</span>
+&nbsp;<span>formLinkName</span><span> = </span><span>"form1"</span><span>;</span>
+&nbsp;<span>authtoken</span><span> = </span><span>"54927XXXXXXXXXXXXXXXXXXXXXX924e3"</span><span>;</span>
+&nbsp;<span>url</span><span> = </span><span>"https://creator.zoho.com/api/json/"</span><span> + </span><span>appLinkName </span><span>+ </span><span>"/"</span><span>+ </span><span>formLinkName</span><span> + </span><span>"/fields?authtoken="</span><span> + </span><span>authtoken</span><span>;</span>
+&nbsp;<span>response </span><span>= </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;<span>url</span><span>: </span><span>url</span>
+&nbsp;<span>type</span><span>: </span><span>GET</span>
+&nbsp;<span>]</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the display
+                      name of all the fields of the specified form.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>url</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents
+                      <a>Zoho Creator API URL</a> that lists all field names.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>appLinkName</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> variable that holds the link name of
+                      the application from which the field names need to be
+                      fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>formLinkName</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> variable that holds the link name of
+                      the form whose fields need to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>authtoken</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the authtoken of the
+                      Zoho Creator account from which the field names need to be
+                      fetched.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

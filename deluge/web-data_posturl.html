@@ -1,0 +1,207 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>postUrl</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>postUrl</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note: </strong>It is recommended to use <a>invoke URL</a>,
+              since this task will be deprecated.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>post url</strong>&nbsp;deluge task corresponds to
+              a&nbsp;<a>HTTP POST</a>&nbsp;request.&nbsp;It is normally
+              supported by services to perform&nbsp;write operation like adding
+              or updating data.
+            </p>
+            <div>
+              <strong>Note:</strong> The returned response can have a maximum
+              size of 50 mb. If this limit is crossed, a runtime error will be
+              encountered.
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Text</li>
+              <li>Key-value</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <p>
+              To get the response in text or key-value format depending on the
+              boolean value:
+            </p>
+            <div>
+              &lt;variable&gt; = postUrl(
+              <span>&lt;stringUrl&gt;</span>,&nbsp;<span>&lt;body&gt;</span
+              ><span>,</span><span> </span><span>&lt;boolean&gt;</span
+              ><span>&nbsp;</span>);
+            </div>
+            <p>(OR)</p>
+            <p>To post along with the header:</p>
+            <div>
+              &lt;variable&gt; = postUrl(
+              <span>&lt;stringUrl&gt;</span>,&nbsp;<span>&lt;body&gt;</span
+              ><span>, </span><span>&lt;headerMap&gt;</span><span>,</span
+              ><span> </span><span>&lt;boolean&gt;</span><span>&nbsp;</span>);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p>&lt;variable&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>Variable which will contain the returned response.</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;stringUrl&gt;</span></td>
+                    <td><span>TEXT</span></td>
+                    <td><p>The url which will return the response.</p></td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;body&gt;</span></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>Data to be posted.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;headerMap&gt;</span></p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>Variable holding header values as key-value pairs.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;boolean&gt;</span></p>
+                      <p><span>(optional)</span></p>
+                    </td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      <p>
+                        Value 'true'&nbsp;will return a simple response content
+                        as&nbsp;text.
+                      </p>
+                      <p>
+                        Value 'false' will return the response code (http status
+                        code), and response content as&nbsp;key-value.
+                      </p>
+                      <p>Default value is true.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              Lets say we have a Zoho
+              Creator&nbsp;application&nbsp;<strong>App1</strong>&nbsp;with a
+              form named "Form1" with fields "Name1" , "Email1" and "Phone1".
+              And, we have another
+              application&nbsp;<strong>App2</strong>&nbsp;with a form named
+              "Form2" with fields "Name2", "Email2" and "Phone2". When a record
+              is added to Form1, the same record needs to be added automatically
+              to Form2. To achieve this we can use the following snippet in the
+              On Success workflow of Form1.
+            </p>
+            <div>
+              <pre>&nbsp;<span>headers</span> <span>=</span> <span>map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>headers</span><span>.put</span><span>(</span><span>"content-type"</span><span>,</span> <span>"application/x-www-form-urlencoded"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>myMap</span> <span>=</span> <span>map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>myMap</span><span>.put</span><span>(</span><span>"authtoken"</span><span>,</span> <span>"&lt;your_API_key&gt;"</span><span>)</span><span>;</span>
+&nbsp;<span>myMap</span><span>.put</span><span>(</span><span>"scope"</span><span>,</span> <span>"creatorapi"</span><span>)</span><span>;</span>
+&nbsp;<span>myMap</span><span>.put</span><span>(</span><span>"Name2"</span><span>,</span> <span>input</span><span>.Name1</span><span>)</span><span>;</span>
+&nbsp;<span>myMap</span><span>.put</span><span>(</span><span>"Email2"</span><span>,</span> <span>input</span><span>.Email1</span><span>)</span><span>;</span>
+&nbsp;<span>myMap</span><span>.put</span><span>(</span><span>"Phone2"</span><span>,</span> <span>input</span><span>.Phone1</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>resp</span> <span>=</span> <span>postUrl</span><span>(</span><span>"https://creator.zoho.com/api/&lt;appowner&gt;/json/App2/form/Form2/record/add/"</span><span>,</span> <span>myMap</span><span>,</span> <span>headers</span><span>)</span><span>;</span></pre>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <strong>Success Response</strong>
+            <p>
+              The success response when the last parameter is set to
+              <strong>false</strong> will be returned in the following format:
+            </p>
+            <div>
+              &nbsp;{<br />&nbsp;"responseText": {<br />&nbsp;"formname": [<br />&nbsp;"Coupon",<br />&nbsp;{<br />&nbsp;"operation":
+              [<br />&nbsp;"add",<br />&nbsp;{<br />&nbsp;"values": {<br />&nbsp;"ID":
+              3893272000000187003<br />&nbsp;},<br />&nbsp;"status":
+              "Success"<br />&nbsp;}<br />&nbsp;]<br />&nbsp;}<br />&nbsp;]<br />&nbsp;},<br />&nbsp;"responseHeader":
+              {<br />&nbsp;"date": "Fri, 31 Jul 2020 07:48:17 GMT",<br />&nbsp;"server":
+              "ZGS",<br />&nbsp;"content-length": "103",<br />&nbsp;"expires":
+              "Thu, 01 Jan 1970 00:00:00 GMT",<br />&nbsp;"x-frame-options":
+              "DENY",<br />&nbsp;"pragma": "no-cache",<br />&nbsp;"strict-transport-security":
+              "max-age=63072000",<br />&nbsp;"set-cookie":
+              "JSESSIONID=CF0D0B4B9FB7B00C1685B5BB5630331A; Path=/; Secure;
+              HttpOnly",<br />&nbsp;"x-content-type-options": "nosniff",<br />&nbsp;"x-xss-protection":
+              "1",<br />&nbsp;"content-disposition":
+              "attachment;filename=\"RestApi.json\"",<br />&nbsp;"content-type":
+              "text;charset=UTF-8",<br />&nbsp;"connection": "keep-alive",<br />&nbsp;"cache-control":
+              "no-cache"<br />&nbsp;},<br />&nbsp;"responseCode": 200<br />&nbsp;}
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <p>
+              The failure response when the last parameter is set to
+              <strong>false</strong> will be returned in the following format:
+            </p>
+            <div>
+              &nbsp;{<br />&nbsp;"responseText": {<br />&nbsp;"errorlist": {<br />&nbsp;"error":
+              [<br />&nbsp;{<br />&nbsp;"code": 2892,<br />&nbsp;"appName":
+              "App2",<br />&nbsp;"message": "Specified application name is not
+              valid.Provide a correct one."<br />&nbsp;}<br />&nbsp;]<br />&nbsp;}<br />&nbsp;},<br />&nbsp;"responseHeader":
+              {<br />&nbsp;"date": "Fri, 31 Jul 2020 07:15:54 GMT",<br />&nbsp;"server":
+              "ZGS",<br />&nbsp;"content-length": "132",<br />&nbsp;"expires":
+              "Thu, 01 Jan 1970 00:00:00 GMT",<br />&nbsp;"x-frame-options":
+              "DENY",<br />&nbsp;"pragma": "no-cache",<br />&nbsp;"strict-transport-security":
+              "max-age=63072000",<br />&nbsp;"set-cookie":
+              "JSESSIONID=031ECD1F4BBFF7AB0A2F36729D54D5E0; Path=/; Secure;
+              HttpOnly",<br />&nbsp;"x-content-type-options": "nosniff",<br />&nbsp;"x-xss-protection":
+              "1",<br />&nbsp;"content-disposition":
+              "attachment;filename=\"RestApi.json\"",<br />&nbsp;"content-type":
+              "text;charset=UTF-8",<br />&nbsp;"connection": "keep-alive",<br />&nbsp;"cache-control":
+              "no-cache"<br />&nbsp;},<br />&nbsp;"responseCode": 200<br />&nbsp;}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

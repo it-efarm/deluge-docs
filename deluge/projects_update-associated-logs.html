@@ -1,0 +1,350 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Projects integration tasks</a></li>
+        <li><a>Update Associated Logs in Zoho Projects</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Update Associated Logs in Zoho Projects</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The&nbsp;<strong>zoho.projects.updateAssociateLogs&nbsp;</strong>task
+              updates the time log associated with the specified record in Zoho
+              Projects.
+            </p>
+            <div>
+              <strong>Note:</strong> For security reasons, if you execute Zoho
+              Projects integration tasks for more than 100 times under 2
+              minutes, you will be restricted to execute any Zoho Projects
+              integration task for the next 30 mins.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.projects.updateAssociateLogs</span><span>(</span><span>&lt;</span><span>portal</span><span>&gt;</span><span>, </span><span>&lt;</span><span>project_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>log_record_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>module</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>values</span><span>&gt;</span><span>, </span><span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details of the time logs that will be updated
+                            and the status of the executed task.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;portal&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>TEXT/ NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>The name or ID of the portal.</p>
+                          <p>
+                            <strong>Note: </strong>You can get the name or ID of
+                            the portal using the&nbsp;<strong
+                              >get portals</strong
+                            >
+                            task. Click&nbsp;<a>here</a> to learn more about it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;project_id&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>The ID of the project.</p>
+                          <p>
+                            <strong>Note: </strong>You can get project_id using
+                            the <strong>get project details</strong> task.
+                            Click&nbsp;<a>here</a> to learn more about it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;log_record_id&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The record ID of the time log that needs to be
+                            updated.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> You can get the ID of the
+                            record using the&nbsp;get records task.
+                            Click&nbsp;<a>here</a> to learn more about it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The name of the module in which the time log will be
+                            updated.
+                          </p>
+                          <p><strong>Allowed values:</strong></p>
+                          <ul>
+                            <li>tasks</li>
+                            <li>bugs</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;record_id&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The ID of the record to which the time log is
+                            associated.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> You can get the ID of the
+                            record using the&nbsp;get records task.
+                            Click&nbsp;<a>here</a> to learn more about it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;values&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The values of the new time log that needs to be
+                            created. The keys to this parameter are provided as
+                            specified in the&nbsp;Zoho Projects&nbsp;API. The
+                            API documents for all the allowed modules are listed
+                            below:
+                          </p>
+                          <ul>
+                            <li><a>tasks</a></li>
+                            <li><a>bugs</a></li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the&nbsp;<a>connection</a>.</p>
+                          <p>
+                            <strong>Note: </strong>This parameter is applicable
+                            to all Zoho services that have connections support,
+                            except Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following example creates a time log with the specified values
+              and associates it with the task of ID
+              -&nbsp;<strong>548XXXXXXXXXXX885</strong>:
+            </p>
+            <div>
+              <pre>&nbsp;<span>new_value</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>new_value</span><span>.</span><span>put</span><span>(</span><span>"date"</span><span>, </span><span>"07-11-2019"</span><span>)</span><span>;</span>
+&nbsp;<span>new_value</span><span>.</span><span>put</span><span>(</span><span>"bill_status"</span><span>, </span><span>"Non Billable"</span><span>)</span><span>;</span>
+&nbsp;<span>new_value</span><span>.</span><span>put</span><span>(</span><span>"hours"</span><span>, </span><span>"01:15"</span><span>)</span><span>;</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.projects.updateAssociateLogs</span><span>(</span><span>"zylker"</span><span>, </span><span>548XXXXXXXXXXX771</span><span>, </span><span>548XXXXXXXXXXX001</span><span>, </span><span>"tasks"</span><span>, </span><span>548XXXXXXXXXXX885</span><span>, </span><span>new_value</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Projects.&nbsp; It represents the details of the time log
+                      that will be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"zylker"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      portal.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>548XXXXXXXXXXX771</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the project ID.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>548XXXXXXXXXXX001</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the record ID of
+                      the time log that needs to be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"tasks"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      module in which the time log will be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>548XXXXXXXXXXX885</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the ID of the
+                      record to which the time log is associated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>new_value</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the new
+                      values of the time log.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"timelogs": {<br />&nbsp;&nbsp;"tasklogs":
+                  [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"created_time_long":
+                  1566220176747,<br />&nbsp;&nbsp;"hours": 1,<br />&nbsp;&nbsp;"notes":
+                  "",<br />&nbsp;&nbsp;"owner_name": "Shawn",<br />&nbsp;&nbsp;"created_time_format":
+                  "08-19-2019 06:39:36 PM",<br />&nbsp;&nbsp;"minutes": 15,<br />&nbsp;&nbsp;"total_minutes":
+                  75,<br />&nbsp;&nbsp;"owner_id": "58131170",<br />&nbsp;&nbsp;"approval_status":
+                  "Approved",<br />&nbsp;&nbsp;"link": {<br />&nbsp;&nbsp;"self":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/test24/projects/548XXXXXXXXXXX771/tasks/548XXXXXXXXXXX885/logs/548XXXXXXXXXXX001/"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"last_modified_date":
+                  "08-20-2019",<br />&nbsp;&nbsp;"log_date_long":
+                  1562869799000,<br />&nbsp;&nbsp;"bill_status": "Non
+                  Billable",<br />&nbsp;&nbsp;"last_modified_time_long":
+                  1566286952823,<br />&nbsp;&nbsp;"last_modified_time_format":
+                  "08-20-2019 01:12:32 PM",<br />&nbsp;&nbsp;"task": {<br />&nbsp;&nbsp;"name":
+                  "task 1",<br />&nbsp;&nbsp;"id_string":
+                  "548XXXXXXXXXXX885",<br />&nbsp;&nbsp;"id":
+                  548XXXXXXXXXXX885<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"log_date":
+                  "07-11-2019",<br />&nbsp;&nbsp;"id_string":
+                  "548XXXXXXXXXXX001",<br />&nbsp;&nbsp;"id":
+                  548XXXXXXXXXXX001,<br />&nbsp;&nbsp;"created_date":
+                  "08-19-2019",<br />&nbsp;&nbsp;"log_date_format": "07-11-2019
+                  11:59:59 PM",<br />&nbsp;&nbsp;"hours_display": "01:15"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for invalid Project ID or log record ID
+                  will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"code":
+                  6404,<br />&nbsp;&nbsp;"message": "Resource Not Found"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for invalid portal name will be returned
+                  in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"code":
+                  6504,<br />&nbsp;&nbsp;"message": "Domain Not Available"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for invalid portal ID will be returned in
+                  the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"code":
+                  6500,<br />&nbsp;&nbsp;"message": "General Error"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>&nbsp;</li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Projects Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

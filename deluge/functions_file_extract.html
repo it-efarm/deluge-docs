@@ -1,0 +1,137 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>File Functions</a></li>
+        <li><a>extract</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>extract</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong>&nbsp;This function is applicable to
+              <strong>all</strong> Zoho services. In&nbsp;<strong
+                >Zoho Creator</strong
+              >, this function can be applied only on files fetched using the
+              <a>invokeUrl</a> task and not on the files&nbsp;fetched from Zoho
+              Creator fields.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>extract</strong>&nbsp;function extracts the contents
+              of a zipped file fetched from the cloud.&nbsp;
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  The extracted response is a <a>collection</a> with the name of
+                  the extracted file as the key and the corresponding file
+                  object as the value.
+                </li>
+                <li>
+                  If the file used for extraction is not a zip or if the zip is
+                  empty, an empty collection is returned
+                </li>
+                <li>
+                  This function cannot extract content from a zip file that is
+                  protected with password.
+                </li>
+                <li>
+                  In Zoho Creator, this function can return response of size
+                  upto <strong>500KB</strong> and in other Zoho services that
+                  support Deluge, it can return upto&nbsp;<strong>3 MB</strong>.
+                  If the size exceeds the limit, the function throws an error.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>
+                <a><span>COLLECTION</span></a>
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>zip_file</span><span>&gt;</span><span>.extract</span><span>()</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>
+                      <a><span>COLLECTION</span></a>
+                    </td>
+                    <td>
+                      <a>Variable</a> which will contain the extracted files.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;zip_file&gt;</td>
+                    <td><span>FILE OBJECT</span></td>
+                    <td>The zip file whose contents need to be retrieved.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              The below example fetches a zip file from cloud and extracts the
+              individual files inside it.&nbsp;
+            </p>
+            <div>
+              <pre>&nbsp;<span>zip</span> <span>=</span> <span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;&nbsp;&nbsp;    <span>url</span> <span>:</span><span>"https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-zip-file.zip"</span>
+&nbsp;&nbsp;&nbsp;    <span>type :</span> <span> GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;<span>file_collection</span> <span>=</span> <span>zip.extract</span><span>()</span><span>; 
+</span><span>&nbsp;// The response will be a collection like the below. It may appear that the key and value are the same but the key is TEXT type and the value is a FILE OBJECT.
+&nbsp;{
+&nbsp;"sample.txt":"sample.txt"
+&nbsp;}
+</span></pre>
+            </div>
+            <p>
+              Below is a sample snippet which uploads the extracted files from a
+              zip into a workdrive folder.
+            </p>
+            <div>
+              <pre>&nbsp;<span>for each </span> <span>file </span> <span>in </span> <span>file_collection</span>
+&nbsp;<span>{</span>
+&nbsp;&nbsp;&nbsp;<span>zoho</span><span>.workdrive.uploadFile</span><span>(</span><span>file</span><span>,</span><span>"imhze9e3df8XXXXXXXXXd44ff2c"</span><span>,</span><span>file.</span><a><span>getFileName</span></a><span>()</span><span>,</span><span>true</span><span>,</span><span>"work"</span><span>)</span><span>;</span>
+&nbsp;<span>}</span> </pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>File Methods</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

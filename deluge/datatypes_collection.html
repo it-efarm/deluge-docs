@@ -1,0 +1,375 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Data types</a></li>
+        <li><a>Collection</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Collection data type</h1>
+          <div>
+            <div>
+              <h4>Table of Contents<span>Up</span></h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Types</a></li>
+                <li><a>Create a collection</a></li>
+                <li><a>Insert data into a collection</a></li>
+                <li><a>Retrieve data from a collection</a></li>
+                <li><a>Iterate through a collection</a></li>
+                <li><a>List/Map vs Collection</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                Note: Collection data type is not to be confused with a
+                collection variable. To learn about a collection variable, which
+                is used to hold a collection of records in Zoho Creator, refer
+                to <a>this page</a>.
+              </p>
+            </div>
+            <h2>Overview</h2>
+            <p>
+              <strong>Collection</strong> allows you to store, insert, retrieve,
+              delete, and manipulate a group of data.
+            </p>
+            <p>
+              The values in a collection can be of any basic data type. Or, the
+              values themselves could be collections.
+            </p>
+            <h2><a></a>Types</h2>
+            <p>
+              The following two types are the broad classification of
+              collection.
+            </p>
+            <ul>
+              <li>
+                <p><strong>Index-value collection</strong></p>
+                <p>
+                  The index-value collection holds the data in an ordered
+                  manner, i.e., it retains the order in which the values are
+                  inserted. The order is marked by a value positioning entity,
+                  index.
+                </p>
+                <p>
+                  The <strong>indexes</strong> are numbers that identify values
+                  in a collection. The index of the first value in a collection
+                  is always 0 and the subsequent values are 1, 2, 3, and so
+                  forth. Note that for a collection that has "n" number of
+                  elements, the indexes range from 0 to (n-1).
+                </p>
+                <p><strong>Example</strong></p>
+                <p>
+                  The following collection has 3 values. Therefore, the index
+                  starts from 0 and extends up to 2.
+                </p>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Index</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Value</strong></td>
+                        <td>Shawn</td>
+                        <td>Alan</td>
+                        <td>Kate</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>
+                  The index of Shawn, Alan, and Kate are 0, 1, and 2
+                  respectively.
+                </p>
+              </li>
+              <li>
+                <p><strong>Key-value collection</strong></p>
+                <p>
+                  The key-value collection does not hold values in an ordered
+                  manner. Instead, the values are identified by their associated
+                  keys. The&nbsp;keys must be unique. If a new value is inserted
+                  with an existing key, it will overwrite the existing value.
+                </p>
+                <div>
+                  <strong>Note: </strong>Both keys and values can be of any data
+                  type.
+                </div>
+                <p><strong>Example</strong></p>
+                <p>
+                  The following collection contains three values, each
+                  identified by its respective key.
+                </p>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Key</strong></td>
+                        <td>Name</td>
+                        <td>Gender</td>
+                        <td>Company</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Value</strong></td>
+                        <td>Shawn</td>
+                        <td>Male</td>
+                        <td>Zoho</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>
+                  The values - Shawn, Male, and Zoho are identified by the keys
+                  - Name, Gender, and Company respectively. Here, the values are
+                  arranged in no particular order, but each value is associated
+                  with its respective key.
+                </p>
+              </li>
+            </ul>
+            <div>
+              <strong>Note</strong>: The collection size is limited to 25,000
+              elements for Zoho Creator and 50,000 elements for other services.
+              Ensure your data stays within these limits.
+            </div>
+            <h2><a></a>Create a collection</h2>
+            <p>The following is the syntax to create an empty collection.</p>
+            <div>
+              <pre>&nbsp;<span>&lt;</span><span>collection_variable</span><span>&gt;</span> <span>=</span> <span>Collection</span><span>()</span><span>;</span></pre>
+            </div>
+            <p>
+              The following is the syntax to create a collection and initialize
+              it with values.
+            </p>
+            <div>
+              <pre>&nbsp;<span>&lt;</span><span>collection_variable</span><span>&gt;</span> <span>=</span> <span>Collection</span><span>(</span><span>&lt;</span><span>values</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p><strong>Example 1: Create an index-value collection</strong></p>
+            <p>
+              The following example creates an index-value collection with the
+              values - <strong>Mobile phone</strong> and
+              <strong>Laptop</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>gadgets</span><span> = </span><span>Collection</span><span>(</span><span>"Mobile phone"</span><span>,</span><span>"Laptop"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>
+              Here, the values - Mobile phone and Laptop are identified by the
+              indexes - 0 and 1 respectively.
+            </p>
+            <p><strong>Example 2: Create a key-value collection</strong></p>
+            <p>
+              The following example creates a key-value collection with the
+              key-value pairs - <strong>"Name":"Shawn"</strong> and
+              <strong>"Gender":"Male"</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>details</span><span> = </span><span>Collection</span><span>(</span><span>"Name"</span><span>:</span><span>"Shawn"</span><span>,</span><span>"Gender"</span><span>:</span><span>"Male"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>
+              Here, the values - Shawn and Male are identified by the keys -
+              Name and Gender respectively.
+            </p>
+            <h2><a></a>Insert data into a collection</h2>
+            <p>
+              The built-in function - <strong>insert</strong> can be used to add
+              one or more values into an existing collection. The following is
+              the syntax to insert new values into a collection.
+            </p>
+            <div>
+              <pre>&nbsp;<span>&lt;</span><span>collection_variable</span><span>&gt;</span><span>.</span><span>insert</span><span>(</span><span>&lt;</span><span>new_value</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>
+              <strong
+                >Example 1: Insert values into an index-value collection</strong
+              >
+            </p>
+            <p>
+              The following example inserts the values -
+              <strong>"Hard disk"</strong> and <strong>"Camera"</strong> into
+              the collection - <strong>gadgets</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>gadgets</span><span>.</span><span>insert</span><span>(</span><span>"Hard disk"</span><span> , </span><span>"Camera"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>
+              <strong
+                >Example 2: Insert values into a key-value collection</strong
+              >
+            </p>
+            <p>
+              The following example inserts the key-value pair -
+              <strong>"Company":"Zoho"</strong> into the collection -
+              <strong>details</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>details</span><span>.</span><span>insert</span><span>(</span><span>"Company"</span><span>:</span><span>"Zoho"</span><span>)</span><span>;</span></pre>
+            </div>
+            <h2><a></a>Retrieve data from a collection</h2>
+            <p>
+              The built-in function - <strong>get</strong> can be used to fetch
+              the required value from a collection. The following is the syntax
+              to get the required value from a collection.
+            </p>
+            <div>
+              <pre>&nbsp;<span>&lt;</span><span>value</span><span>&gt;</span><span> = </span><span>&lt;</span><span>collection_variable</span><span>&gt;</span><span>.</span><span>get</span><span>(</span><span>&lt;</span><span>index/key</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>
+              <strong
+                >Example 1: Fetch values from a index-value collection</strong
+              >
+            </p>
+            <p>
+              The following example fetches the first value from the collection
+              - <strong>gadgets</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>value</span><span> = </span><span>gadgets</span><span>.</span><span>get</span><span>(</span><span>0</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>
+              <strong
+                >Example 2: Fetch values from a key-value collection</strong
+              >
+            </p>
+            <p>
+              The following example fetches the value associated with the key -
+              <strong>"Name"</strong> from the collection -
+              <strong>details</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>value</span><span> = </span><span>details</span><span>.</span><span>get</span><span>(</span><span>"Name"</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <strong>Note: </strong>Click <a>here</a> for other built-in
+              functions to manipulate the data stored in a collection.
+            </div>
+            <h2><a></a>Iterate through a collection</h2>
+            <p>
+              The <a>for each</a> task allows you to traverse the entire
+              collection and&nbsp;inspect each&nbsp;value one after the other.
+              This functionality lets you perform similar operations to a group
+              of values with a relatively lesser lines of code.
+            </p>
+            <p>
+              The following example uses the <strong>for each</strong> task to
+              find the sum of all the values in a collection of numbers.
+            </p>
+            <div>
+              <pre>&nbsp;<span>// initializes the variable - sum with the value - 0</span>
+&nbsp;<span>sum</span><span> = </span><span>0</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Creates an index-value collection initialized with NUMBER values</span>
+&nbsp;<span>collection_variable</span><span> = </span><span>Collection</span><span>(</span><span>1,2,3</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Iterates through the collection created</span>
+&nbsp;<span>for each</span>&nbsp;<span>value</span>&nbsp;in&nbsp;<span>collection_variable</span>
+&nbsp;<span>{</span>
+&nbsp;<span>// Performs addition operation</span>
+&nbsp;<span>sum</span><span> = </span><span>sum</span><span> + </span><span>value</span><span>;</span>
+&nbsp;<span>}</span>
+&nbsp;
+&nbsp;<span>info </span><span>sum</span><span>;</span>&nbsp;<span>// Displays the sum value, 6</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>sum</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> variable that holds the aggregated
+                      total of all the values in the collection.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>collection_variable</span></pre>
+                    </div>
+                    <div>
+                      The <span>INDEX-VALUE</span> variable that holds the list
+                      of values whose sum needs to be calculated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>value</span></pre>
+                    </div>
+                    <div>
+                      The <strong>iteration variable</strong>. It holds every
+                      value in the collection, one at a time.<br />In other
+                      words, the iteration variable -
+                      <strong>value</strong> holds the first value on the first
+                      iteration, the second value on the second iteration, and
+                      so forth.<br />The number of iterations is the number of
+                      values present in the collection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>List/Key-Value vs Collection</h2>
+            <p>
+              When a variable is declared as a <a>LIST</a> data type or a
+              <a>Key-Value</a> data type, it can only hold values that are
+              applicable to that particular data type. For example, a list
+              variable can only hold elements, and a Key-Value variable can only
+              hold key-value pairs.
+            </p>
+            <p>
+              However, both list and Key-Value data types are fundamentally a
+              collection of values, in the sense that, a list data type holds a
+              collection of elements, and a Key-Value data type holds a
+              collection of key-value pairs. Consequently, there are built-in
+              functions that are common to both the data types, but are
+              maintained as two different sets of functions. For example, the
+              put() map function is used to insert a key-value pair in a
+              Key-Value variable, and the add() list function is used to insert
+              an element in a list variable.
+            </p>
+            <p>
+              To make things easier, we have come up with the "collection" data
+              type, where one can simply declare a collection variable, and use
+              it to store either elements or key-value pairs. Note that each
+              collection variable at a time can act only as a list variable
+              containing elements, or as a Key-Value variable containing
+              key-value pairs. It cannot contain elements and key-value pairs
+              together in a single collection. We also have a set of built-in
+              functions relevant to the collection data type, which can be
+              applied to the collection variable irrespective of it holding list
+              values or Key-Value values. For example, the insert() collection
+              function can be used to insert a key-value pair or an element,
+              depending on the collection variable holding key-value pairs or
+              elements.
+            </p>
+            <div>
+              <p><strong>Note:&nbsp;</strong></p>
+              <ul>
+                <li>
+                  See <a>this page</a> to find the built-in functions applicable
+                  to Collection data type.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Built-in functions for collection</a></li>
+              <li><a>For each task</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,93 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Utilities</a></li>
+        <li><a>encodeUrl</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>encodeUrl()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>encodeUrl()</strong>&nbsp;function
+              takes&nbsp;<strong>urlExpression</strong>&nbsp;as an argument and
+              encodes "all space characters" and other characters disallowed in
+              a URL string, and returns the encoded string.
+            </p>
+            <p>
+              This function can be used in getURL(), postURL() and openURL()
+              Deluge tasks to encode the URL params and then pass the encoded
+              URL string.
+            </p>
+            <div>
+              <strong>Note:</strong> The difference between this function and
+              <a>urlEncode()</a> function is that this function returns the
+              space character as <strong>+</strong>, and urlEncode() function
+              returns the space character as <strong>%20</strong>.
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Text</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; = encodeUrl(&nbsp;<span
+                >&lt;urlExpression&gt; )</span
+              >;
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>
+                      Variable which will contain the returned encoded url.
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;string&gt;</span></td>
+                    <td>The expression which will be encoded.</td>
+                    <td>TEXT</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <p>
+                myURL =
+                "http://www.zoho.com/zohotest?name=John&amp;country=Australia&amp;age=101";<br />​myEncodedURL
+                = encodeUrl(myURL);<br /><br />//returns&nbsp;http%3A%2F%2Fwww.zoho.com%2Fzohotest%3Fname%3DJohn%26country%3DAustralia%26age%3D101
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

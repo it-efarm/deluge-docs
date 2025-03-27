@@ -1,0 +1,238 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Mark or revert final documents</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Mark or Revert Final Documents in Zoho Writer</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.writer.documents.MarkAsFinal</strong
+              ><b>&nbsp;</b>task enables or disables editing in the document.
+              This task is based on the
+              <a>Zoho Writer Mark/Revert Final Document API</a>.
+            </p>
+            <div>
+              <strong>Note:&nbsp;</strong>Applicable to all services except Zoho
+              Creator.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.documents</span><span>.MarkAsFinal</span><span>(</span><span>&lt;</span><span>document_id</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>markAsFinal</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><strong>Params</strong></td>
+                      <td><strong>Data type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                    <tr>
+                      <td>&lt;response&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        The response returned by Zoho Writer. It represents
+                        whether the document has been marked as final or not.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;document_id&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>
+                          The ID of the document for which editing needs to be
+                          enabled/disabled.
+                        </p>
+                        <p>
+                          The document ID can be obtained from the URL of the
+                          document which needs to be marked or reverted as
+                          final.
+                        </p>
+                        <p>
+                          The URL is in the following format:
+                          https://writer.zoho.com/writer/open/<strong
+                            >&lt;document_id&gt;</strong
+                          >
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;markAsFinal&gt;</td>
+                      <td><span>BOOLEAN</span></td>
+                      <td>
+                        <p>
+                          1. If you would like to mark the document as final,
+                          pass the value as <strong>true.</strong>
+                        </p>
+                        <p>
+                          2. If you would like to revert the document from
+                          final, pass the value as <strong>false</strong
+                          ><b>.</b>
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;connection&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>The <a>connection</a>'s link name.</p>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            <p>
+                              To prevent<a> new authtoken generation</a
+                              >&nbsp;and ensure new integration tasks (created
+                              after the deadline specified in the post) work as
+                              expected, a Zoho OAuth connection with appropriate
+                              scopes is mandatory. Existing integration tasks
+                              will continue to work, with or without the
+                              connections parameter, until you manually delete
+                              the authtoken from <a>Zoho Accounts</a>.
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              Add relevant scopes from the&nbsp;<a
+                                >Zoho Writer API</a
+                              >
+                              when creating the connection.
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              Refer to <a>this post</a> for a list of Zoho
+                              services that support the Connections page.
+                            </p>
+                          </li>
+                          <li>
+                            <p><a>Learn more about connections</a></p>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h2><a></a> Example</h2>
+              <p>
+                The following script disables editing in the given Writer
+                document.
+              </p>
+              <div>
+                <pre><span>document_id</span> <span>=</span> <span>"h36bc2a6c50b2754a405880c1d1679a5f5be9"</span><span>;</span>
+<span>markAsFinal</span> <span>=</span> <span>"true"</span><span>;</span>  <span>//true|false</span>
+<span>response</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.documents</span><span>.MarkAsFinal</span><span>(</span><span>document_id</span><span>,</span> <span>markAsFinal</span><span>,</span> <span>"writer_oauth_connection"</span><span>)</span><span>;</span>
+<span>info</span> <span>response</span><span>;</span>
+</pre>
+              </div>
+              <p>where:</p>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <div>
+                        <pre><span>response</span></pre>
+                      </div>
+                      <div>
+                        The <span>KEY-VALUE</span> response returned by Zoho
+                        Writer.
+                        <span>
+                          It represents whether the document has been marked
+                          final or not.</span
+                        >
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <pre><span>"h36bc2a6c50b2754a405880c1d1679a5f5be9"</span></pre>
+                      </div>
+                      <div>
+                        The&nbsp;<span>TEXT</span>&nbsp;that represents the ID
+                        of the document in Zoho Writer.
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <pre><span>"true"</span></pre>
+                      </div>
+                      <div>
+                        The&nbsp;<span>TEXT</span>&nbsp;that represents whether
+                        the documents needs to be marked final.
+                      </div>
+                    </div>
+                    <div>
+                      <div>
+                        <pre><span>"writer_oauth_connection"</span></pre>
+                      </div>
+                      <div>
+                        The&nbsp;<span>TEXT</span>&nbsp;that represents the name
+                        of the <a>connection</a>.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h2><a></a>Response Format</h2>
+                <div>
+                  <pre><span>{</span>
+  <span>"result"</span><span>:</span> <span>"success"</span><span>,</span>
+  <span>"message"</span><span>:</span> <span>"The document has been marked as final."</span>
+<span>}</span>
+</pre>
+                </div>
+                <h2><a></a>Related Links</h2>
+                <ul>
+                  <li><a>Zoho Writer integration tasks</a></li>
+                  <li><a>Connections</a></li>
+                  <li>
+                    <a
+                      >Zoho Writer - Mark or Revert Final Document API
+                      document</a
+                    >​
+                  </li>
+                  <li><a>Zoho Writer API - Possible error responses</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

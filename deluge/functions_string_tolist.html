@@ -1,0 +1,110 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>List functions</a></li>
+        <li><a>toList</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>toList</a></li>
+        <li><a>Type conversion functions</a></li>
+        <li><a>toList</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>toList</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>toList </strong>function takes
+              <strong>source text</strong> and a <strong>separator</strong> as
+              arguments. The source text is tokenised using the separator. All
+              tokens are then converted into a list.
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  Text values punctuated by the separator&nbsp;will be the
+                  list's elements.
+                </li>
+                <li>
+                  If a&nbsp;<strong>separator</strong>&nbsp;is not provided or
+                  if the provided separator does not appear in the source text,
+                  the <strong>entire source text</strong> is returned as a
+                  single element of a list.
+                </li>
+                <li>
+                  If <strong>separators</strong> appear&nbsp;consecutively in
+                  the source text, all empty occurrences will be empty
+                  elements&nbsp;of the list.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>LIST</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>source_text</span><span>&gt;</span><span>.toList</span><span>(</span><span>&lt;</span><span>separator</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>LIST</span></td>
+                    <td>Variable which will contain the returned List.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;source_text&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      The piece of text with separators that needs to converted
+                      to a list.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;separator&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      The separator literal which would punctuate the different
+                      elements in the source text.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>products</span> <span> = </span> <span>"ZohoCreator/ZohoCRM"</span><span>;</span>
+&nbsp;<span>productList</span> <span> = </span> <span>products</span><span>.toList</span><span>(</span><span>"/"</span><span>)</span><span>;</span>
+&nbsp;<span>info </span><span>productList</span><span>;</span> <span>// Returns ZohoCreator,ZohoCRM</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

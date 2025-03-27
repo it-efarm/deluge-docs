@@ -1,0 +1,366 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Client Functions</a></li>
+        <li><a>Add | Append</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Add | Append</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Use Cases</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>Add&nbsp;</strong>deluge task&nbsp;replaces all the
+              existing choices in a single-select,&nbsp;multi-select field or a
+              lookup field type with specified choices.
+            </p>
+            <p>
+              The <strong>Append</strong> deluge task appends specified choices
+              to the existing choices in a single-select, multi-select or a
+              lookup field type.
+            </p>
+            <div>
+              <p>Note:</p>
+              <ul>
+                <li>
+                  Only the first <strong>add</strong> command in each script
+                  action will remove the previous choices
+                </li>
+                <li>The same choice cannot be added or appended twice</li>
+                <li>
+                  It is advisable to use the <a><strong>clear</strong></a> task
+                  before using the <strong>add</strong> task, to make sure the
+                  choices are cleared before the new choices are added.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <p><span>To add items</span></p>
+            <div>
+              <span
+                ><span>&lt;field_link_name&gt;</span
+                >:ui.add(<span>&lt;expression&gt;</span>);</span
+              >
+            </div>
+            <p><span>To append items</span></p>
+            <div>
+              <span
+                ><span>&lt;field_link_name&gt;</span>:ui.append(<span
+                  >&lt;expression&gt;</span
+                ><span>)</span>;</span
+              >
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span><span>&lt;field_link_name&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        Link name of the&nbsp;field to which choices need to be
+                        added or appended.
+                      </p>
+                      <p>Only the following field types can be specified:</p>
+                      <ul>
+                        <li>Radio</li>
+                        <li>Drop Down</li>
+                        <li>Multi Select</li>
+                        <li>Checkbox</li>
+                        <li>Lookup (all Display Types are supported)</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;expression&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>Choice(s) to be added or appended to the field.</p>
+                      <p>Points to keep in mind for&nbsp;this param:</p>
+                      <ul>
+                        <li>
+                          You can directly specify&nbsp;a single&nbsp;value, or
+                          to add/append more than one choice you can specify a
+                          list variable containing the choices.&nbsp;You can
+                          also specify an expression, i.e. a combination of
+                          values, constants, variables, operators, functions and
+                          so on, which evaluates to a value&nbsp;or a list
+                          variable.
+                        </li>
+                        <li>
+                          For a lookup field, the ID of a record in the lookup
+                          form must be specified. If any other value apart from
+                          the record ID is specified, an error will encountered
+                          during runtime
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>No</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              In the following example, "colors" is a form field of drop-down
+              type. "Get_Bright_Colors" is a decision-box field type, which when
+              checked, adds one set of colors to the "colors" field and adds
+              another set if unchecked.
+            </p>
+            <div>
+              <pre><span>if</span><span>(</span><span>Get_Bright_Colors</span><span>)</span>&nbsp;
+<span>{</span>&nbsp;
+<span>addColors </span><span>= </span><span>{</span><span>"white"</span><span>, </span><span>"orange"</span><span>, </span><span>"yellow"</span><span>};</span>&nbsp;
+<span>}</span>&nbsp;
+<span>else</span>&nbsp;
+<span>{</span>&nbsp;
+<span>addColors </span><span>= </span><span>{</span><span>"Brown"</span><span>, </span><span>"Black"</span><span>, </span><span>"Grey"</span><span>}</span><span>;</span>&nbsp;
+<span>}</span>&nbsp;
+<span>clear</span><span> colors</span><span>;</span>&nbsp;
+<span>colors</span><span>:ui</span><span>.add</span><span>(</span><span>addColors</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <h2>Example 2</h2>
+            <p>
+              If "product" is drop-down field with options "Zoho CRM", "Zoho
+              Creator" and "Zoho Desk", the following script appends "Zoho Cliq"
+              to the options. The "product" field will then have "Zoho CRM",
+              "Zoho Creator", "Zoho Desk" and "Zoho Cliq" as the choices.
+            </p>
+            <div>
+              <pre><span>product</span><span>:ui</span><span>.append</span><span>(</span><span>"Zoho Cliq"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <h2>Example 3: Dynamically populate values of a picklist</h2>
+            <p>Let's assume:</p>
+            <ul>
+              <li>
+                <strong>Countries</strong> form stores the name of the
+                <strong>Countries</strong>.
+              </li>
+              <li>
+                <strong>States</strong> form stores the name of the states for
+                the respective Countries.&nbsp;
+              </li>
+              <li>
+                <strong>Registration</strong> form consists of fields to store
+                user information.
+              </li>
+            </ul>
+            <p>
+              The goal is to populate picklist entries for
+              <strong>States</strong> field dynamically, based on the selected
+              country. To add the picklist dynamically, you can either set a
+              filter as shown <a>here</a>, or add the following script in the
+              <strong>On User Input</strong> action of
+              <strong>Countries</strong> field in the&nbsp;<strong
+                >Registration Form</strong
+              >.
+            </p>
+            <div>
+              <pre><span>clear </span><span>States</span><span>;</span>&nbsp;
+<span>statelist </span><span>= </span><span>States</span><span>[</span><span>Country_Name </span><span>== </span><span>input</span><span>.Countries</span><span>] </span><span>sort </span><span>by </span><span>State</span><span>;</span>&nbsp;
+<span>States</span><span>:ui</span><span>.add</span><span>(</span><span>statelist</span><span>.ID</span><span>.getall</span><span>(</span><span>)</span><span>)</span><span>;</span>&nbsp;
+</pre>
+            </div>
+            <div>
+              <strong>Note:</strong>
+              <ul>
+                <li>
+                  The UI.append task does not implicitly clear the old items and
+                  hence you need to explicitly invoke the <a>clear task</a>.
+                </li>
+                <li>
+                  If <strong>Items</strong> field is a lookup or dropdown field
+                  and does not contain the value passed to the append task, the
+                  append operation will fail.
+                </li>
+              </ul>
+            </div>
+            <h2>
+              Example 4: Dynamically populate values of&nbsp;picklist in subform
+            </h2>
+            <p>Let's assume:</p>
+            <ul>
+              <li>
+                <strong>Products</strong> for store product details with
+                <strong>product code </strong>and<strong> category.</strong>
+              </li>
+              <li>
+                Subform of the <strong>Orders</strong> form consists of fields
+                to store order details
+              </li>
+            </ul>
+            <p>
+              The goal is to populate the <strong>Items</strong> picklist in the
+              subform based on the selected <strong>category</strong>.&nbsp;To
+              add the picklist dynamically, you can either set a filter as
+              shown&nbsp;<a>here</a>, or add the following script in
+              the&nbsp;<strong>On User Input</strong>&nbsp;action
+              of&nbsp;<strong>Category</strong>&nbsp;field in the&nbsp;<strong
+                >subform </strong
+              >of Orders form.
+            </p>
+            <div>
+              <pre><span>itemlist </span><span>= </span><span>Products</span><span>[</span><span>Category </span><span>== </span><span>row</span><span>.Category</span><span>] </span><span>sort </span><span>by </span><span>Product_Code</span><span>;</span> &nbsp;
+<span>clear </span><span>row</span><span>.Items</span><span>;</span> &nbsp;
+<span>row</span><span>.Items</span><span>:UI</span><span>.append</span><span>(</span><span>itemlist</span><span>.Product_Code</span><span>.getall</span><span>(</span><span>)</span><span>)</span><span>;</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

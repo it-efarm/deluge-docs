@@ -1,0 +1,181 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Connect integration tasks</a></li>
+        <li><a>Delete post</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Delete a post</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a> </a>Overview</h2>
+            <p>
+              This task is used to delete a post added using the
+              <a>addPost</a> task.
+            </p>
+            <h2><a> </a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho.connect.deletePost</span><span>(</span><span>&lt;<span>scopeID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>streamID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connectionName</span><span>&gt;</span><span>)</span><span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Parameter</td>
+                        <td>Description</td>
+                        <td>Data type</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is a variable which will hold the returned response.
+                          </p>
+                        </td>
+                        <td>KEY-VALUE</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;scopeID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the <a>Scope ID</a> of the network in
+                            which the post to be deleted exists.
+                          </p>
+                          <p>
+                            You can also fetch the&nbsp;scope&nbsp;ID&nbsp;from
+                            the&nbsp;<a>response</a>&nbsp;of myNetworks task.
+                          </p>
+                        </td>
+                        <td>NUMBER</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;streamID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the <a>Stream ID</a> of the post which
+                            will be deleted.
+                          </p>
+                          <p>
+                            You can&nbsp;fetch the stream ID from
+                            the&nbsp;<a>response</a>&nbsp;of addPost task.
+                          </p>
+                        </td>
+                        <td>NUMBER</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connectionName&gt;</span></p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p>
+                            is the&nbsp;name of the Zoho
+                            connect&nbsp;<a>connection</a>.
+                          </p>
+                          <p>
+                            <strong>*Note</strong>: This param is not applicable
+                            to Zoho Creator and mandatory in Zoho Cliq.
+                          </p>
+                        </td>
+                        <td>TEXT</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a> </a>Example</h2>
+            <p>
+              The below example illustrates the deletion of a post using the
+              Scope ID of the network, whose Stream ID is
+              <strong>105000210987123</strong>
+            </p>
+            <div>
+              <pre><span>postDetails </span>= <span>zoho.connect.deletePost</span><span>(</span><span>105000017039001</span><span>, </span><span>105000210987123</span><span>)<span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>postDetails</span></pre>
+                    </div>
+                    <div>
+                      is a variable which will contain the returned response
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>105000017039001</span></pre>
+                    </div>
+                    <div>
+                      is a value that represents the Scope ID of the network
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>105000210987123</span></pre>
+                    </div>
+                    <div>
+                      is a&nbsp;value that represents the Stream ID of the post
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a> </a>Sample Response</h2>
+            <ul>
+              <li>
+                Following is the response when the post is successfully deleted:
+                <div>{"status":"success"}</div>
+              </li>
+              <li>
+                The response returned is <strong>null</strong> when the Scope ID
+                supplied is incorrect
+              </li>
+              <li>
+                The response below is obtained when an incorrect Stream ID is
+                supplied
+                <div>
+                  {"reason":"This post has been deleted.",<br />"status":"failure"}
+                </div>
+              </li>
+            </ul>
+            <h2><a> </a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Connect API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

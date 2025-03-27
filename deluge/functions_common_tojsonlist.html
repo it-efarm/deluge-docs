@@ -1,0 +1,113 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>List functions</a></li>
+        <li><a>toJSONList</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>toJSONList</a></li>
+        <li><a>Type conversion functions</a></li>
+        <li><a>toJSONList</a></li>
+        <li><a>XML &amp; JSON functions</a></li>
+        <li><a>toJSONList</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>toJSONList</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>toJSONList</strong>&nbsp;function takes a
+              <strong>text JSON&nbsp;array</strong>&nbsp;as an argument, and
+              returns it as a list.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>LIST</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>json_text</span><span>&gt;</span><span>.toJSONList</span><span>(</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>LIST</span></td>
+                    <td>
+                      Variable which will contain the converted JSON list.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;json_text&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The text JSON array which needs to be converted to JSON
+                        List.
+                      </p>
+                      <p><strong>Note:</strong></p>
+                      <ul>
+                        <li>
+                          If the text is not in JSON format, a runtime error
+                          will be thrown.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              The example below retrieves a value inside
+              <strong>Collection</strong> from a JSON.
+            </p>
+            <div>
+              <pre>&nbsp;<span>json_text </span><span>= </span> <span>"{Name:'Lia Shelton', OrderNo:[343,443,577]}"</span><span>;</span>
+&nbsp;<span>orderNo </span><span>= </span> <span>json_text</span><span>.getJSON</span><span>(</span><span>"OrderNo"</span><span>)</span><span>;</span>
+&nbsp;<span>info </span><span>orderNo</span><span>.toJSONList</span><span>(</span><span>)</span><span>; </span><span>// Returns 343,443,577</span></pre>
+            </div>
+          </div>
+          <p>
+            The example below retrieves IDs of all employees in the form of
+            a&nbsp;<strong>Collection</strong>&nbsp;from a JSON.
+          </p>
+          <div>
+            <pre>&nbsp;<span>response</span> <span> = </span>  <span>"{\"data\" : [{\"id\":1, \"firstname\":\"John\", \"lastName\":\"Day\"},  {\"id\":2, \"firstname\":\"Patricia\",\"lastname\":\"Boyle\"}]}"</span><span>;</span>
+&nbsp;<span>data</span> <span>=</span> <span>response</span><span>.getJSON</span><span>(</span><span>"data"</span><span>)</span><span>;</span>
+&nbsp;<span>json_list</span> <span> = </span><span>data</span><span>.toJSONList</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>id_list</span> <span> = </span><span>List</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>for each</span><span> item </span><span>in </span><span>json_list</span>
+&nbsp;<span>{</span>
+   &nbsp;<span>id_list</span><span>.add</span><span>(</span><span>item</span><span>.getJSON</span><span>(</span><span>"id"</span><span>)</span><span>)</span><span>;</span>
+&nbsp;<span>}</span>
+&nbsp;<span>info </span><span>id_list</span><span>;</span> <span>// Returns 1,2</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,143 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Connect integration tasks</a></li>
+        <li><a>Fetch networks</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch networks</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a> </a>Overview</h2>
+            <p>
+              This&nbsp;task is used to fetch&nbsp;the list of networks to which
+              the user is associated.
+            </p>
+            <h2><a> </a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho.</span><span>connect.</span><span>myNetworks</span><span>(</span>&lt;<span>connectionName</span><span>&gt;</span>)<span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Parameter</th>
+                        <th>Description</th>
+                        <th>Data type</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the&nbsp;variable which will&nbsp;hold&nbsp;the
+                            returned response.
+                          </p>
+                        </td>
+                        <td>KEY-VALUE</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connectionName&gt;</span></p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p>
+                            is the&nbsp;name of the Zoho connect
+                            <a>connection</a>.
+                          </p>
+                          <p>
+                            <strong>*Note</strong>: This param is not applicable
+                            to Zoho Creator and mandatory in Zoho Cliq.
+                          </p>
+                        </td>
+                        <td>TEXT</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a> </a>Example</h2>
+            <p>
+              The following snippet can be used&nbsp;to fetch the list of
+              networks you are associated with.
+            </p>
+            <div>
+              <pre><span>networkDetails </span><span>= </span><span>zoho</span><span>.connect</span><span>.myNetworks</span><span>(</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>networkDetails</span></pre>
+                    </div>
+                    <div>is a variable which will hold&nbsp;the response.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a> </a>Sample Response</h2>
+            <p>Following is a sample&nbsp;success response:</p>
+            <div>
+              {"networks": [<br />"{\"name\":\"ManageEngine
+              PitStop\",\"id\":\"12913000000002002\"}",<br />"{\"name\":\"Creator
+              Certified Developers\",\"id\":\"23392000000002002\"}",<br />"{\"name\":\"DC
+              Partner Network\",\"id\":\"34630000000002002\"}",<br />"{\"name\":\"ManageEngine
+              ADSolutions\",\"id\":\"19687000000002002\"}",<br />"{\"name\":\"Zoho
+              Books Advisors\",\"id\":\"23476000000002002\"}"<br />],"emailId":"testuser@zohocorp.com"<br />}
+            </div>
+          </div>
+          <p>
+            To&nbsp;fetch the network IDs (or the scope IDs), use the following
+            snippet:
+          </p>
+          <div>
+            &lt;variable&gt;&nbsp;=
+            &lt;response_variable&gt;.get("networks");<br />for each
+            &lt;loop_variable&gt;&nbsp;in &lt;variable&gt;<br />{<br />info
+            &lt;loop_variable&gt;.get("id");<br />}
+          </div>
+          <p>
+            <strong>Note</strong>: The <strong>network id</strong> (also
+            referred to as the <strong>Scope ID</strong>) returned by the
+            response above is what would be used in almost every ZOHO Connect
+            integration task. Alternatively, the user can get the
+            <a>Scope ID</a> from the settings of a group which is under the
+            corresponding network.
+          </p>
+          <h2><a> </a>Related Links</h2>
+          <ul>
+            <li><a>Zoho Connect API</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

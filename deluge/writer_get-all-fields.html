@@ -1,0 +1,230 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Get all fields</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get All Fields in Zoho Writer</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.writer.getAllFields </strong>task is used to
+              fetch all the fields present in a Zoho Writer document. This task
+              is based on the <a>Zoho Writer Get All Fields API</a>.
+            </p>
+            <div>
+              <strong>Note:&nbsp;</strong>Applicable to all services except Zoho
+              Creator.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.</span><span>getAllFields</span><span>(</span><span>&lt;</span><span>document_id</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span>
+
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><strong>Params</strong></td>
+                      <td><strong>Data type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                    <tr>
+                      <td>&lt;response&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        The response returned by Zoho Writer. It represents the
+                        list of all fields inserted into the specified document.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;document_id&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>
+                          The ID of the document from which the fields need to
+                          be fetched.
+                        </p>
+                        <p>
+                          The document ID can be obtained from the URL of the
+                          document from which the fields need to be fetched.
+                        </p>
+                        <p>
+                          The URL is in the following format:<br />https://writer.zoho.com/writer/open/<strong
+                            >&lt;document_id&gt;</strong
+                          >
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;connection&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>The<a>&nbsp;connection</a>'s link name.</p>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            <p>
+                              To prevent
+                              <a>new authtoken generation</a
+                              >&nbsp;and&nbsp;ensure new integration tasks
+                              (created after the deadline specified in the post)
+                              work as expected, a Zoho OAuth&nbsp;connection
+                              with appropriate scopes is mandatory. Existing
+                              integration tasks will continue to work, with or
+                              without the connections parameter, until you
+                              manually delete the authtoken from
+                              <a>Zoho Accounts</a>.
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              Add relevant scopes from the&nbsp;<a
+                                >Zoho Writer API</a
+                              >
+                              when creating the connection.
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              Refer to <a>this post</a> for a list of Zoho
+                              services that support the Connections page.
+                            </p>
+                          </li>
+                          <li>
+                            <p><a>Learn more about connections</a></p>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>&nbsp;</p>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script fetches all the fields in a given Writer
+              document.
+            </p>
+            <div>
+              <pre><span>response</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.</span><span>getAllFields</span><span>(</span><span>"al296XXXXXXXXXXXXXXXXXXXXXXXXXXXa516c"</span><span>,</span> <span>"writer_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+          </div>
+          <p>where:</p>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <pre><span>response</span></pre>
+                  </div>
+                  <div>
+                    The <span>KEY-VALUE</span> response returned by Zoho Writer.
+                    It represents the number of fields fetched and their
+                    respective metadata.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>"al296XXXXXXXXXXXXXXXXXXXXXXXXXXXa516c"</span></pre>
+                  </div>
+                  <div>
+                    The <span>TEXT</span> that represents the ID of the document
+                    in Zoho Writer.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>"writer_oauth_connection"</span></pre>
+                  </div>
+                  <div>
+                    The&nbsp;<span>TEXT</span> that represents the name of the
+                    <a>connection</a>.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2><a></a>Response Format</h2>
+        <div>
+          <pre><span>{</span>
+  <span>merge</span> <span>:</span> <span>[</span>
+    <span>{</span><span>'id'</span><span>:</span><span>'Name'</span><span>,</span><span>'display_name'</span><span>:</span><span>'Name'</span><span>,</span><span>'type'</span><span>:</span><span>'text'</span><span>}</span><span>,</span>
+    <span>{</span><span>'id'</span><span>:</span><span>'Email'</span><span>,</span><span>'display_name'</span><span>:</span><span>'Email'</span><span>,</span><span>'type'</span><span>:</span><span>'email'</span><span>}</span><span>,</span>
+    <span>{</span><span>'id'</span><span>:</span><span>'Products'</span><span>,</span><span>'display_name'</span><span>:</span><span>'Products'</span><span>,</span><span>'type'</span><span>:</span><span>'related_list'</span><span>,</span> 
+        <span>fields</span><span>:</span><span>[</span>
+            <span>{</span><span>'id'</span><span>:</span><span>'Products.Products_name'</span><span>,</span><span>'display_name'</span><span>:</span><span>'Products.Products Name'</span><span>,</span><span>'type'</span><span>:</span><span>'text'</span><span>}</span><span>,</span>      
+            <span>{</span><span>'id'</span><span>:</span><span>'Products.Products_code'</span><span>,</span><span>'display_name'</span><span>:</span><span>'Products.Products Code'</span><span>,</span><span>'type'</span><span>:</span><span>'number'</span><span>}</span><span>,</span>
+        <span>{</span><span>'id'</span><span>:</span><span>'Products.Products_category'</span><span>,</span><span>'display_name'</span><span>:</span><span>'Products.Products Category'</span><span>,</span><span>'type'</span><span>:</span><span>'text'</span><span>}</span>
+            <span>]</span>
+    <span>}</span><span>,</span>
+    <span>{</span><span>'id'</span><span>:</span><span>'Mobile'</span><span>,</span><span>'display_name'</span><span>:</span><span>'Mobile'</span><span>,</span><span>'type'</span><span>:</span><span>'number'</span><span>}</span><span>,</span>
+    <span>.</span><span>.</span><span>.</span><span>.</span><span>.</span>
+    <span>]</span><span>,</span>  
+ <span>sign</span><span>:</span> <span>{</span>
+    <span>"Recipient1"</span><span>:</span> <span>{</span>
+        <span>"job_title"</span><span>:</span> <span>""</span> 
+        <span>"Agree_term_and_conditions"</span><span>:</span> <span>""</span>
+    <span>}</span>
+    <span>"Recipient2"</span><span>:</span> <span>{</span>
+        <span>"company_name"</span><span>:</span> <span>""</span><span>,</span>
+        <span>"Address"</span><span>:</span> <span>""</span>
+    <span>}</span>
+<span>}</span>
+<span>}</span>
+</pre>
+        </div>
+        <h2><a></a>Related Links</h2>
+        <ul>
+          <li><a>Zoho Writer integration tasks</a></li>
+          <li><a>Connections</a></li>
+          <li><a>Zoho Writer:&nbsp;Get All Fields API document</a>​</li>
+          <li><a>Zoho Writer API:&nbsp;Possible error responses</a></li>
+        </ul>
+      </div>
+      <quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

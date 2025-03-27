@@ -1,0 +1,198 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Artificial Intelligence Tasks</a></li>
+        <li><a>Analyse Sentiment</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Analyse Sentiment</h1>
+          <div>
+            <p>
+              <strong>Note:&nbsp;</strong> The response format for this task has
+              been modified to give a varied and more enhanced response.
+              Refactor your scripts to suit the new response type before
+              <strong>7th June, 2024</strong>. An underscore(_) will be placed
+              in your existing scripts to help you identify the places where
+              this task has been currently used. For instance the underscore
+              will be placed as below,
+            </p>
+            <p><strong>zoho.ai._analyseSentiment(&lt;sentence&gt;);</strong></p>
+          </div>
+        </div>
+        <div>
+          <div>
+            <h4>Table of Contents</h4>
+            <ul>
+              <li><a>Description</a></li>
+              <li><a>Syntax</a></li>
+              <li><a>Example</a></li>
+              <li><a>Response Format</a></li>
+              <li><a>Limitations</a></li>
+              <li><a>Related Links</a></li>
+            </ul>
+          </div>
+          <h2><a></a>Description</h2>
+          <p>
+            The <strong>zoho.ai.analyseSentiment</strong> task interprets the
+            given piece of text&nbsp;to predict if it shows anger,
+            disappointment, sarcasm, neutral, happy, or extremely happy emotion.
+          </p>
+          <div>
+            <p><strong>Note:&nbsp;</strong></p>
+            <ul>
+              <li>This task only supports&nbsp;<strong>English</strong>.</li>
+              <li>
+                The prediction results may not be accurate, which is also the
+                case with any AI prediction. However, we are working on
+                improving this.
+              </li>
+              <li>
+                The prediction results are dynamic. The same script may produce
+                different outcomes at different times based on how much the
+                machine has learned.
+              </li>
+            </ul>
+          </div>
+          <h2>​<a></a>Syntax</h2>
+          <div>
+            <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.ai.analyseSentiment</span><span>(</span><span>&lt;</span><span>sentence</span><span>&gt;</span><span>)</span><span>;</span>          </pre>
+          </div>
+          <p>where:</p>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th><strong>Params</strong></th>
+                  <th><strong>Data type</strong></th>
+                  <th><strong>Description</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&lt;response&gt;</td>
+                  <td><span>KEY-VALUE</span></td>
+                  <td>
+                    Specifies the predicted sentiment in the given sentence
+                  </td>
+                </tr>
+                <tr>
+                  <td>&lt;sentence&gt;</td>
+                  <td><span>TEXT</span></td>
+                  <td>
+                    Specifies the piece of text whose sentiment needs to be
+                    interpreted
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2><a></a>Example</h2>
+          <p>
+            The following script interprets the sentiment of the given text
+            -&nbsp;<strong>The session was intriguing</strong>.
+          </p>
+          <div>
+            <pre><span>response</span><span> = </span><span>zoho</span><span>.ai.analyseSentiment</span><span>(</span><span>"The session was intriguing."</span><span>)</span><span>;</span>          </pre>
+          </div>
+          <p>where:</p>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <pre><span>response</span></pre>
+                  </div>
+                  <div>
+                    The <span>KEY-VALUE</span> response that represents the
+                    predicted sentiment in the given sentence. Here, the
+                    predicted&nbsp;emotion is&nbsp;<strong>neutral</strong>.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>"The session was intriguing."</span></pre>
+                  </div>
+                  <div>
+                    The <span>TEXT</span> that represents the piece of text that
+                    needs to be interpreted
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2><a></a>Response Format</h2>
+          <p><strong>Success Response</strong></p>
+          <ul>
+            <li>
+              <p>
+                The old success response for the above mentioned script will be
+                returned in the following format.
+              </p>
+              <div>
+                &nbsp;{<br />&nbsp; "Prediction":"Neutral",<br />&nbsp;
+                "Probability":{"Neutral":"80%","Negative":"10%","Positive":"10%"}}<br />&nbsp;},
+              </div>
+            </li>
+            <li>
+              <p>
+                The new success response for the above mentioned script will be
+                returned in the following format.
+              </p>
+              <div>
+                &nbsp;{<br />&nbsp; "data":[{"Text":"The session was
+                intriguing.","Emotion":"Neutral"}]<br />&nbsp;},
+              </div>
+            </li>
+          </ul>
+          <div>
+            <p>
+              <strong>Note:&nbsp;</strong> The other possible responses for this
+              task will be
+            </p>
+            <ul>
+              <li>Anger</li>
+              <li>Disappointment</li>
+              <li>Sarcasm</li>
+              <li>Neutral</li>
+              <li>Happy</li>
+              <li>Extremely Happy</li>
+            </ul>
+          </div>
+          <p><strong>Failure Response</strong></p>
+          <ul>
+            <li>
+              <p>
+                The failure response returned for an empty input text will
+                remain the same and in the following format.
+              </p>
+              <div>
+                &nbsp;{<br />&nbsp;"Error Message ":"FAILED"<br />&nbsp;}
+              </div>
+            </li>
+          </ul>
+          <h2><a></a>Limitations</h2>
+          <ul>
+            <li>
+              For sentiment analysis, you can enter only up to a maximum input
+              of <strong>30 words</strong>. If you have a longer text, we
+              recommend finding sentiment for each sentence and averaging out
+              the sentiment.
+            </li>
+          </ul>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>AI tasks</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

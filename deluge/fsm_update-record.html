@@ -1,0 +1,239 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho FSM integration tasks</a></li>
+        <li><a>Update Record in Zoho FSM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Update Record in Zoho FSM</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              You can update a record of a module using the
+              <strong>zoho.fsm.updateRecord()</strong> Deluge task.
+            </p>
+            <p>
+              This task is based on <a>Zoho FSM API </a>-&gt; &lt;Module&gt;
+              APIs -&gt; Edit&nbsp;&lt;ModuleName&gt;
+            </p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>=</span> <span>zoho.</span><span>fsm.updateRecord</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_ID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_details</span><span>&gt;</span><span>, </span><span>&lt;</span><span>optional_data_map</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Params&nbsp;</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;&nbsp;</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      is the response returned<span>&nbsp;</span>by Zoho FSM.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;module_Name&gt;<strong>&nbsp;</strong></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        is the <a>API name</a> of the Zoho FSM module where the
+                        records will be updated.
+                      </p>
+                      <p>
+                        The API names of the modules are:&nbsp;<br />Assets,
+                        Companies, Contacts, Estimates, Requests,
+                        &nbsp;Scheduled_Maintenances, Service_And_Parts,
+                        Service_Appointments, Time_Off, Work_Orders
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;record_Id&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>
+                        is the unique ID of the record you want to retrieve.
+                      </p>
+                      <p>
+                        <strong>Note: </strong>Learn how to fetch the ID of a
+                        record
+                        after&nbsp;<a>creating</a>&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;record_value&gt;</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>
+                        is the input map details of the record that needs to be
+                        inserted into the module.
+                      </p>
+                      <p>
+                        <strong>Note: </strong>To learn about the mandatory
+                        fields, click <a>here</a> and navigate to &lt;Module&gt;
+                        APIs -&gt; Edit &lt;ModuleName&gt;
+                      </p>
+                      <p>&nbsp;</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;optional_data_map&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>
+                        is a parameter to pass any additional values. If you
+                        want to ignore this parameter, supply an empty map.
+                      </p>
+                      <p>
+                        <strong>Note:</strong> To learn about the optional
+                        parameters, click <a>here</a> and navigate to
+                        &lt;Module&gt; APIs -&gt; Edit &lt;ModuleName&gt;
+                      </p>
+                      <p>&nbsp;</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;connection&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        is the name of the <a>connection</a>&nbsp;created for
+                        Zoho FSM.
+                      </p>
+                      <p>
+                        <strong>Note:</strong> Add relevant scopes as mentioned
+                        in <a>Zoho FSM API</a> -&gt; &lt;Module&gt; -&gt; Edit
+                        &lt;ModuleName&gt;.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>Example</h2>
+            <p>
+              The following script updates the record with ID -
+              <strong>23033XXXXXXXXXXXXXX</strong> of the Zoho FSM module -
+              <strong>Requests</strong>.
+            </p>
+            <div>
+              <pre><span>emptyMap </span><span>= </span><span>Map</span><span>()</span><span>;</span>&nbsp;
+&nbsp;
+<span>newRecordInfo </span><span>= </span><span>Map</span><span>()</span><span>;</span>&nbsp;
+<span>newRecordInfo</span><span>.put</span><span>(</span><span>"Priority"</span><span>, </span><span>"High"</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+<span>response </span><span>= </span><span>zoho.fsm.updateRecord</span><span>(</span><span>"Requests"</span><span>, </span><span>1439XXXXXXXXXXXX</span><span>, </span><span>newRecordInfo</span><span>, </span><span>emptyMap</span><span>, </span><span>"fsm_connection"</span><span>)</span><span>;</span>&nbsp;
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <pre><span>newRecordInfo</span></pre>
+                </div>
+                <div>
+                  is the <span>KEY-VALUE</span> input&nbsp;with details of the
+                  record that will be updated in the module.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>response</span></pre>
+                </div>
+                <div>
+                  is the <span>KEY-VALUE&nbsp;</span>response returned by Zoho
+                  FSM.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Requests"</span></pre>
+                </div>
+                <div>
+                  is the <span>TEXT</span> that represents the
+                  <strong>API name</strong> of the Zoho FSM module where the
+                  record will be updated.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>23033XXXXXXXXXXXXXX</span></pre>
+                </div>
+                <div>
+                  is the <span>NUMBER</span> that represents the ID of the
+                  record that will be updated.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"fsm_connection"</span></pre>
+                </div>
+                <div>
+                  is the <span>TEXT</span> that represents the link name of the
+                  connection created for Zoho FSM.
+                </div>
+              </div>
+            </div>
+            <h2>Response Format</h2>
+            <p>
+              The following is a <strong>success response</strong> when a record
+              is updated in Zoho FSM.
+            </p>
+            <div>
+              {<br />&nbsp;&nbsp;"data": [<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"code":
+              "SUCCESS",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"details":
+              {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Modified_Time":
+              "2022-05-16T00:48:58-07:00",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Modified_By":
+              {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":
+              "Mary Cooper",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000161001"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Created_Time":
+              "2022-05-12T03:42:38-07:00",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000185139",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Created_By":
+              {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":
+              "Mary Cooper",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000161001"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"message":
+              "record updated",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status":
+              "success"<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />}
+            </div>
+            <h2>Related Links</h2>
+            <ul>
+              <li><a>Zoho FSM API</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

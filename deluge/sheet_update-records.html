@@ -1,0 +1,461 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sheet Integration Tasks</a></li>
+        <li><a>Update record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Update Records in Zoho Sheet</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a>Update records that satisfy the specified criteria</a>
+                    </li>
+                    <li>
+                      <a
+                        >Update only the first record that satisfies the
+                        specified criteria</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.sheet.updateRecords</strong> task is used to
+              update rows that satisfy the specified criteria with new values in
+              Zoho Sheet. This task is based on the
+              <a>Zoho Sheet API - Update records in worksheet</a>.
+            </p>
+            <div>
+              <strong>Note:</strong> On average, it takes about a minute to
+              index a file/folder after it is created or updated. This indexing
+              time can increase if the queue size increases.&nbsp; You will not
+              get the expected result if&nbsp;you execute
+              zoho.sheet.updateRecords task before the Zoho Sheet file you need
+              to update is indexed.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.sheet.updateRecords</span><span>(</span><span>&lt;</span><span>resource_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>worksheet_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>criteria</span><span>&gt;</span><span>, </span><span>&lt;</span><span>data_map</span><span>&gt;</span><span>, </span><span>&lt;</span><span>optional_map</span><span>&gt;</span>, <span>&lt;</span><span>connection&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details of the updated records and&nbsp;status
+                            of the executed task.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;resource_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The ID of the Zoho Sheet file in which the records
+                            need to be updated.
+                          </p>
+                          <p>
+                            <strong>Note: </strong>The resource_id can be
+                            obtained from the URL of the Zoho sheet file. The
+                            URL is in&nbsp;the following format:
+                          </p>
+                          <p>
+                            https://sheet.zoho.com/sheet/open/<strong>&lt;resource_id&gt;</strong>/sheets/&lt;worksheet_name&gt;<br />/ranges/&lt;cell_range&gt;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;worksheet_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The name of the worksheet in which the rows need to
+                            be updated.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;criteria&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          The search criteria that need to be satisfied by the
+                          records for them to be updated. To update all
+                          available rows without criteria, supply an empty text
+                          to this param.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;data_map&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          The new values of the rows that need to be updated.
+                          Keys to this param must be supplied with column names.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;optional_map&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          Any additional parameters supported by the
+                          <a>Zoho Sheet API</a> can be utilized using
+                          &lt;optional_map&gt;. The keys to this param need to
+                          be supplied with column names.<br /><br />To ignore
+                          querying using this param, supply an empty map.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Scopes required for this task as mentioned in
+                                API docs -
+                                <strong
+                                  >ZohoSheet.dataAPI.UPDATE,
+                                  ZohoSheet.dataAPI.READ</strong
+                                >.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div>
+              <strong>Note: </strong>The resource_id and worksheet_name
+              parameters can be obtained from the URL of the Zoho sheet file.<br /><br /><strong
+                >URL format:</strong
+              >
+              https://sheet.zoho.com/sheet/open/<strong>&lt;resource_id&gt;</strong>/sheets/<strong
+                >&lt;worksheet_name&gt;</strong
+              ><br />/ranges/&lt;cell_range&gt;
+            </div>
+            <h2>
+              <a></a>Example 1: Update records that satisfy the specified
+              criteria
+            </h2>
+            <p>
+              The following script updates the records of the worksheet -
+              <strong>Sheet1</strong> of the Zoho Sheet file with ID -
+              <strong>eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41:</strong>
+            </p>
+            <div>
+              <pre>&nbsp;<span>new_values</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>new_values</span><span>.</span><span>put</span><span>(</span><span>"Priority"</span>, <span>"High"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>queryData</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sheet.updateRecords</span><span>(</span><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span>, <span>"Sheet1"</span>, <span>"\"User Count\"&gt;=200"</span>, <span>new_values</span>, <span>queryData</span>, <span>"sheet_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Sheet. It represents the updated records&nbsp;and the
+                      status of the executed task.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the ID of the Zoho
+                      Sheet file.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Sheet1"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      worksheet in which the records need to be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"\"User Count\"&gt;=200"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the search criteria.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>new_values</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the new
+                      values of the records that need to be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"\"Priority\""</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the column name of
+                      the records whose values need to be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"\"High\""</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the new value.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>queryData</span></pre>
+                    </div>
+                    <div>
+                      The empty&nbsp;<span>KEY-VALUE</span> variable used to
+                      skip the &lt;query_map&gt; parameter
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"sheet_connection"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> variable that represents the link
+                      name of the sheet connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 2: Update only the first record that satisfies the
+              specified criteria
+            </h2>
+            <p>
+              The following script updates the first row that satisfies the
+              criteria - <strong>"\"User Count\"&gt;=200"</strong> in the
+              worksheet - <strong>Sheet1</strong> of the Zoho Sheet file with ID
+              - <strong>eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41:</strong>
+            </p>
+            <div>
+              <pre>&nbsp;<span>new_values</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>new_values</span><span>.</span><span>put</span><span>(</span><span>"\"Priority\""</span>,<span>"\"High\""</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>query_value</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>query_value</span><span>.</span><span>put</span><span>(</span><span>"first_match_only"</span>,<span>"true"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sheet.updateRecords</span><span>(</span><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span>, <span>"Sheet1"</span>, <span>"\"User Count\"&gt;=200"</span>, <span>new_values</span>, <span>query_value</span>, <span>"sheet_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>query_value</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the query
+                      parameters.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"first_match_only"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> parameters as given in the
+                      <a>Zoho Sheet API</a>. If the value against the key -
+                      first_match_only is true, it updates only the first row
+                      that matches the specified condition.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <strong>Note: </strong>
+              <ul>
+                <li>
+                  If the values of the &lt;data_map&gt; and &lt;optional_map&gt;
+                  contain text entries (from the sheet), they need to be
+                  enclosed in double-quotes escaped by backslashes.<br /><br /><strong
+                    >Example:</strong
+                  >
+                  Name = John Watson is provided as
+                  <strong>\"</strong>Name<strong>\"</strong> =
+                  <strong>\"</strong>John Watson<strong>\"</strong>.
+                </li>
+                <li>
+                  The following operators can be used to update rows that
+                  satisfy multiple criteria:
+                  <ol>
+                    <li>
+                      <strong>and</strong> - Used between two criteria&nbsp;to
+                      fetch the rows that satisfy both conditions.<br /><br /><strong
+                        >Example:</strong
+                      >&nbsp;The value - "\"Lead Source\"=\"Trade Show\"
+                      <strong>and</strong> \"User Count\"&gt;200" against the
+                      key - <strong>criteria</strong> in &lt;query_map&gt;,
+                      updates all the rows that have the value -
+                      <strong>Trade Show</strong> in the column&nbsp;-
+                      <strong>Lead Source</strong> and have a value greater than
+                      <strong>200</strong> in the column -
+                      <strong>User Count</strong>.
+                    </li>
+                    <li>
+                      <strong>or</strong> - Used between two criteria to fetch
+                      the rows that satisfy either or both&nbsp;conditions.<br /><br /><strong
+                        >Example:</strong
+                      >&nbsp;The value -&nbsp;"\"Lead Source\"=\"Trade Show\"
+                      <strong>or</strong> \"User Count\"&gt;200"&nbsp;against
+                      the key -&nbsp;<strong>criteria</strong>&nbsp;in
+                      &lt;query_map&gt;, updates all the rows that either has
+                      the value - <strong>Trade Show</strong> in the
+                      column&nbsp;- <strong>Lead Source</strong> or has a value
+                      greater than <strong>200</strong> in the column -
+                      <strong>User Count</strong> or both.
+                    </li>
+                  </ol>
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the&nbsp;following
+                  format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"no_of_affected_rows":10,<br />&nbsp;&nbsp;"method":"worksheet.records.update",<br />&nbsp;&nbsp;"status":"success"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for invalid resource ID will be returned
+                  in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The workbook
+                  does not exists",<br />&nbsp;&nbsp;"error_code": 2862<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for an incorrect or non-existent
+                  worksheet name will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The sheet
+                  does not exists",<br />&nbsp;&nbsp;"method":
+                  "worksheet.jsondata.append",<br />&nbsp;&nbsp;"error_code":
+                  2863,<br />&nbsp;&nbsp;"status": "failure"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for invalid criteria will be returned in
+                  the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "Mentioned
+                  criteria is not valid",<br />&nbsp;&nbsp;"method":
+                  "worksheet.records.fetch",<br />&nbsp;&nbsp;"error_code":
+                  2895,<br />&nbsp;&nbsp;"status": "failure"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Sheet integration tasks</a></li>
+              <li><a>Zoho Sheet - Possible errors</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,238 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>List Manipulations</a></li>
+        <li><a>Remove index</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Remove elements based on index</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>remove index&nbsp;</strong>deluge task&nbsp;removes an
+              element&nbsp;from a list based on a specified index, and returns
+              that element.
+            </p>
+            <p>
+              Index refers to the position of elements in a list, and it starts
+              from 0. So the index of the first element in the list will be 0,
+              of the second element will be 1, and so on.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span
+                ><span>&lt;variable&gt;</span
+                ><span> = &lt;list_variable&gt;</span
+                >.remove(<span>&lt;index&gt;</span>);</span
+              >
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p>
+                        <span><span>&lt;variable&gt;</span></span>
+                      </p>
+                      <p>
+                        <span><span>(optional)</span></span>
+                      </p>
+                    </td>
+                    <td>
+                      <p>Variable which will contain the returned value.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;list_variable&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        The list variable from which an element&nbsp;has&nbsp;to
+                        be removed and returned.
+                      </p>
+                      <p>Data type is <strong>List</strong>.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;index&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        Index of the element which needs to be removed from the
+                        list and returned.
+                      </p>
+                      <p>
+                        Value should not be a negative number. If a negative
+                        number is specified, or the index is not found, a
+                        runtime error will be encountered.&nbsp;
+                      </p>
+                      <div>
+                        Value should not exceed the list size. Ideally, this
+                        limit will be list size minus 1, since index starts from
+                        0.
+                      </div>
+                      <div>&nbsp;</div>
+                      <div>Data type is <strong>Number.</strong></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>The following snippet removes "Tuesday" from the "days" list.</p>
+            <div>
+              days={"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};<br />days.remove(
+              1 );
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

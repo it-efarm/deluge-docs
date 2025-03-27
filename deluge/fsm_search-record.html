@@ -1,0 +1,244 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho FSM integration tasks</a></li>
+        <li><a>Search Records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Search Records</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              You can search records of a module using the
+              <strong>zoho.fsm.searchRecordsByField()</strong> Deluge task.
+            </p>
+            <div>
+              <p>
+                <strong>Note</strong>: This task is not applicable to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.fsm.searchRecordsByField</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>field_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>search_string</span><span>&gt;</span><span>, <span>&lt;</span><span>optionalDataMap</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td><p>is the task response returned as a map</p></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the API name of the module whose records
+                            you want to search
+                          </p>
+                          <p>
+                            Refer to the table
+                            <strong>Supported Modules and Fields</strong> on
+                            <a>this</a> page to know about the API name of the
+                            modules that support search
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;field_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the API name of the field based on which you can
+                            search records
+                          </p>
+                          <p>
+                            Refer to the table
+                            <strong>Supported Modules and Fields</strong> on
+                            <a>this</a> page to know about the API name of the
+                            fields based on which you can search records.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;search_string&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            a value with which you want to perform the search
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;optionalDataMap&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>is the parameter to pass any additional values.</p>
+                          <div>
+                            <p><strong>Note: </strong></p>
+                            <ul>
+                              <li>
+                                To learn about the optional parameters, click
+                                <a>here</a>.
+                              </li>
+                              <li>
+                                The <strong>&lt;page&gt;</strong> and
+                                <strong>&lt;per_page&gt;</strong> params must be
+                                specified to be able to specify this param.
+                                &nbsp;
+                              </li>
+                              <li>
+                                To ignore querying using this param, specify an
+                                empty map.
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>is the <a>connection</a> created for Zoho FSM</p>
+                          <div>
+                            <p>
+                              <strong>Note:</strong> Add relevant scopes as
+                              mentioned <a>here</a>.&nbsp;
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example: Search records from the Contact module</h2>
+            <p>
+              The following script fetches the first record from the Zoho FSM
+              Contacts module that matches the search for Last Name as Robins.
+            </p>
+            <div>
+              <pre><span>response</span> = <span>zoho.fsm.searchRecordsByField</span>(<span>"Contacts"</span>,<span>"Last_Name"</span>,<span>"Robins"</span>,{<span>"page"</span>:<span>1</span>,<span>"per_page"</span>:<span>1</span>}, <span>"fsm"</span>);
+<span>info</span> <span>response</span>;
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"Contacts"</span></pre>
+                    </div>
+                    <div>
+                      is the&nbsp;<span>TEXT</span>&nbsp; that represents the
+                      API name of the Zoho FSM module whose records you want to
+                      search
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Last_Name"</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      is the API name of the field on which you can perform
+                      search. It is of&nbsp;<span>TEXT</span> data type.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Robins"</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      is the &nbsp;<span>TEXT</span>&nbsp;that represents the
+                      search string
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+{<span>"page"</span>:<span>1</span>,<span>"per_page"</span>:<span>1</span>}</pre
+                      >
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span>&nbsp;variable with
+                      <span>TEXT</span> keys for sorting the fetched records
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"fsm"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the connection created for Zoho FSM.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <div>
+              <p>
+                {"data":[{"Company":null,"Owner":{"name":"Mary
+                Cooper","id":"1439000000161001","email":"betty@zylker.com"},"Email":"l.robins@zylker.com","$currency_symbol":"$","Config":null,"Tax":{"Tax_Authority_Id":null,"Tax_Percentage":7,"Tax_Exemption_Code":null,"Tax_Authority":null,"Tax_Id":"3219741000000078015","Tax_Name":"SalesTax","Tax_Exemption_Id":null,"Taxable":true},"ZBilling_Id":"3219741000000196001","Salutation":"Ms.","First_Name":"Lucy","Full_Name":"Ms.
+                Lucy Robins","Modified_By":{"name":"Mary
+                Cooper","id":"1439000000161001","email":"betty@zylker.com"},"Exchange_Rate":1,"Phone":"111-111-1111","Currency":"USD","$inactive":false,"Service_Address":null,"id":"1439000000505113","Modified_Time":"2023-04-19T14:43:37+05:30","Created_Time":"2023-04-19T14:43:37+05:30","Designation__C":null,"$editable":true,"Mobile":null,"$permissions":{"read":true,"edit":true,"delete":true},"ZBooks_Contact_Person":false,"Last_Name":"Robins","Billing_Address":null,"SecondaryEmail__C":null,"Created_By":{"name":"Mary
+                Cooper","id":"1439000000161001","email":"betty@zylker.com"}}],"info":{"per_page":1,"count":1,"page":1,"more_records":true}}
+              </p>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Connections</a></li>
+              <li><a>Zoho FSM API document</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

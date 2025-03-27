@@ -1,0 +1,106 @@
+<div class="help-content-panel">
+  <div>
+    <div><ul></ul></div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>isAscii()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>isAscii</strong><strong>()</strong> function returns
+              <strong>True</strong> if&nbsp;all characters in the input text are
+              ASCII (American Standard Code for Information Interchange).
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>TEXT</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>&lt;</span><span>inputText</span><span>&gt;</span><span>.isAscii</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>isAscii</span><span>(</span><span>&lt;</span><span>inputText</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>BOOLEAN</td>
+                    <td>
+                      The variable that will contain the result of ASCII check
+                      (true/false).
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;inputText&gt;</td>
+                    <td>TEXT</td>
+                    <td>
+                      <p>
+                        The text on which the ASCII check will be performed.
+                      </p>
+                      <div>
+                        <strong>Note:</strong>
+                        <ul>
+                          <li>
+                            This function applied on an empty text will return
+                            true.
+                          </li>
+                          <li>
+                            The size of this param can be up to
+                            <strong>300 KB.</strong>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples&nbsp;</h2>
+            <div>
+              <pre>&nbsp;<span>inputText</span> <span>=</span> <span>"Hello$World123"</span> <span>;</span>
+&nbsp;<span>info </span><span>inputText</span><span>.isAscii</span><span>(</span><span>)</span><span>;</span> <span>// Returns true </span>
+&nbsp;
+&nbsp;<span>inputText</span> <span>=</span> <span>""</span> <span>;</span>
+&nbsp;<span>info </span><span>inputText</span><span>.isAscii</span><span>(</span><span>)</span><span>;</span> <span>// Returns true </span>
+&nbsp;
+&nbsp;<span>inputText</span> <span>=</span> <span>"ß"</span> <span>;</span> 
+&nbsp;<span>info </span><span>inputText</span><span>.isAscii</span><span>(</span><span>)</span><span>;</span> <span>// Returns false </span>
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Text built-in functions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

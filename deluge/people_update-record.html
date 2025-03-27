@@ -1,0 +1,275 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho People Integration Tasks</a></li>
+        <li><a>Update Record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Update records in Zoho People</h1>
+          <div>
+            <div>
+              <h4>
+                Table of Contents<span><span>Up</span></span>
+              </h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.people.update</strong>&nbsp;task is used to
+              update a record&nbsp;in the specified Zoho People form.&nbsp;
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt; </span><span>= </span><span>zoho.people.update</span><span>(</span><span>&lt;</span><span>form_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>new_values</span><span>&gt;</span>, <span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>The details of the record that will be updated.</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;form_name&gt;<strong>&nbsp;</strong></p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The name of the Zoho People form in which the record
+                            will be updated with new values.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> Click <a>here</a> for the
+                            instructions to get the form names in Zoho People.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;new_values&gt;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The new values of the record that needs to be
+                            updated. The keys to this param are the label names
+                            of the fields in the specified form.
+                          </p>
+                          <strong>Note:</strong>
+                          <ul>
+                            <li>
+                              Click <a>here</a> for the instructions to get the
+                              field label names.
+                            </li>
+                            <li>
+                              This parameter must mandatorily have the key -
+                              <strong>recordid</strong> and the ID of the record
+                              that needs to be updated with new values as its
+                              value.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The name of the <a>connection</a> and mandatory in
+                            <strong>Zoho Cliq</strong>.
+                          </p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes as mentioned in
+                                <a>Zoho People API</a> while creating the
+                                connection.
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                            <p>&nbsp;</p>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script updates the record with ID -
+              <strong>41630XXXXX170001</strong> in the form -
+              <strong>Employee</strong>:
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Create a variable to hold the new values of the record</span>
+&nbsp;<span>param_map</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>param_map</span><span>.</span><span>put</span><span>(</span><span>"Tags"</span>,<span>"Technical Support"</span><span>)</span><span>;</span>
+&nbsp;<span>param_map</span><span>.</span><span>put</span><span>(</span><span>"recordid"</span>,<span>"41630XXXXX170001"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>//Execute the Zoho People integration task to update the specified record with new values</span>
+&nbsp;<span>response</span> <span> = </span><span>zoho.people.update</span><span>(</span><span>"P_Employee"</span>, <span>param_map</span>, <span>"people_connection"</span>)<span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"P_Employee"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the form name.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>param_map</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the new
+                      values of the record that needs to be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"recordid"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the key that is
+                      mapped with the ID of the record that needs to be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"people_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the connection name.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <strong>Success Response</strong>
+            <ul>
+              <li>
+                The success response will be returned in the following format:
+                <div>
+                  <p>
+                    {&nbsp;&nbsp;<br />&nbsp;
+                    &nbsp;"result":"{\"pkId\":\"4163000000170001\",\"message\":\"Successfully
+                    Updated\"}"<br />}
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <strong>Failure Response</strong>
+            <ul>
+              <li>
+                The&nbsp;response for incorrect or non-existent form name will
+                be&nbsp;returned in&nbsp;the following format:
+                <div>
+                  <p>
+                    {&nbsp;&nbsp;<br />&nbsp;
+                    &nbsp;"response":"{\"message\":\"Error
+                    occurred\",\"uri\":\"/api/forms/json/employ/updateRecord\",\"errors\":{\"code\":7011,\"message\":\"Form
+                    name 'employ' is invalid\"},\"status\":1}"<br />}
+                  </p>
+                </div>
+              </li>
+              <li>
+                The&nbsp;response for incorrect record ID will be&nbsp;returned
+                in&nbsp;the following format:
+                <div>
+                  <p>
+                    {&nbsp;&nbsp;<br />&nbsp; &nbsp;{<br />&nbsp;
+                    &nbsp;"response": {<br />&nbsp; &nbsp;"message": "Error
+                    occurred",<br />&nbsp; &nbsp;"uri":
+                    "/api/forms/json/P_Employee/updateRecord",<br />&nbsp;
+                    &nbsp;"errors": {<br />&nbsp; &nbsp;"code": 7039,<br />&nbsp;
+                    &nbsp;"message": {<br />&nbsp; &nbsp;"Security_Error":
+                    "Permission denied to edit record"<br />&nbsp; &nbsp;}<br />&nbsp;
+                    &nbsp;},<br />&nbsp; &nbsp;"status": 1<br />&nbsp;
+                    &nbsp;}<br />&nbsp; &nbsp;}
+                  </p>
+                </div>
+              </li>
+              <li>
+                The&nbsp;response for missing key - <strong>recordID</strong> in
+                the &lt;new_values&gt; param will be&nbsp;returned in&nbsp;the
+                following format:
+                <div>
+                  <p>
+                    {&nbsp;&nbsp;<br />&nbsp; &nbsp;"response": {<br />&nbsp;
+                    &nbsp;"message": "Error occurred",<br />&nbsp; &nbsp;"uri":
+                    "/api/forms/json/P_Employee/updateRecord",<br />&nbsp;
+                    &nbsp;"errors": {<br />&nbsp; &nbsp;"code": 7204,<br />&nbsp;
+                    &nbsp;"message": "Wrong datatype for the Parameter Input"<br />&nbsp;
+                    &nbsp;},<br />&nbsp; &nbsp;"status": 1<br />&nbsp;
+                    &nbsp;}<br />&nbsp; &nbsp;}
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho People Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

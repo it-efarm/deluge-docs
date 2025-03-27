@@ -1,0 +1,347 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Sign Document V2</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Sign Document.V2</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+              <div>
+                <p>
+                  <strong>Note</strong>: Applicable to all services except Zoho
+                  Creator
+                </p>
+              </div>
+              <h2><a></a>Description</h2>
+              <p>
+                The <strong>zoho.writer.v2.signDocument</strong> task sends a
+                document for signature and tracks its status. This task is based
+                on the <a>Zoho Writer Sign API</a>.
+              </p>
+              <h2><a></a>Syntax</h2>
+              <div>
+                <pre><span>&lt;</span><span>response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.writer.v2.signDocument</span><span>(</span><span>&lt;</span><span>document_id</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>recipients_list</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>signed_document_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>optional_settings</span><span>&gt;</span><span>,</span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+              </div>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Params</td>
+                      <td>Data type</td>
+                      <td>Description</td>
+                    </tr>
+                    <tr>
+                      <td>&lt;response&gt;</td>
+                      <td>
+                        <span>KEY-VALUE</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </td>
+                      <td>
+                        The response returned by Zoho Writer. It provides the
+                        signing status along with the signing status URL.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;document_id&gt;</td>
+                      <td>
+                        <span>TEXT</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </td>
+                      <td>
+                        The ID of the document to be sent for signature.<br />The
+                        document ID can be obtained from the document URL, which
+                        is formatted as follows:<br />https://writer.zoho.com/writer/open/&lt;document_id&gt;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;recipients_list&gt;</td>
+                      <td>
+                        <span>[</span><br /><span>{</span><br /><span
+                          >"recipient_1": "john@zylker.com",</span
+                        ><br /><span>"recipient_name": "John",</span><br /><span
+                          >"action_type":
+                          &lt;approve|sign|view|in_person_sign&gt;,</span
+                        ><br /><span>"language": "en”,</span><br /><span
+                          >“private_notes”: “Hey! Please sign this
+                          document”</span
+                        ><br /><span>},</span><br /><span>{</span><br /><span
+                          >&nbsp;"recipient_2": "amelia@zylker.com",</span
+                        ><br /><span>&nbsp;"recipient_name": "Amelia",</span
+                        ><br /><span
+                          >"action_type":
+                          &lt;approve|sign|view|in_person_sign&gt;,</span
+                        ><br /><span>"language": "fr",</span><br /><span
+                          >“verification_info": {</span
+                        ><br /><span>"type": &lt;email|sms|offline&gt;</span
+                        ><br /><span>&nbsp;}</span><br /><span>},</span
+                        ><br /><span>...</span><br /><span>]</span>
+                      </td>
+                      <td>
+                        Recipients who must sign the document in person or
+                        online, approved or viewed in the form of a JSON
+                        array.<br />You can choose the language in which the
+                        notification email will be sent to signers. It is
+                        possible to verify and provide private notes to
+                        recipients.<br />Supported languages are: Chinese(zh),
+                        Dutch(nl), English(en), French(fr), German(de),
+                        Italian(it), Japanese(ja), Polish(pl), Portuguese(pt),
+                        Russian(ru), Spanish(es), Swedish(sv).<br />You can
+                        refer to a sample JSON array <a>here</a>.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;signed_document_name&gt;</td>
+                      <td>
+                        <p>&nbsp;<span>String</span></p>
+                      </td>
+                      <td>A name for the signed document.</td>
+                    </tr>
+                    <tr>
+                      <td>&lt;optional_settings&gt;</td>
+                      <td>
+                        <span>KEY-VALUE</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </td>
+                      <td>
+                        The optional parameters you can apply to receive a
+                        signature according to your preference.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;connection&gt;</td>
+                      <td>
+                        <span>TEXT</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </td>
+                      <td>
+                        <p>The <a>connection'</a>s link name.</p>
+                        <p>&nbsp;</p>
+                        <div>
+                          <p><strong>Note</strong>:</p>
+                          <ul>
+                            <li>
+                              <p>
+                                To prevent
+                                <a>new authtoken generation</a>&nbsp;and ensure
+                                new integration tasks (created after the
+                                deadline specified in the post) work as
+                                expected, a Zoho OAuth connection with
+                                appropriate scopes is mandatory. Existing
+                                integration tasks will continue to work, with or
+                                without the connections parameter, until you
+                                manually delete the authtoken from
+                                <a>Zoho Accounts</a>.
+                              </p>
+                            </li>
+                            <li>
+                              <p>
+                                Add relevant scopes from the&nbsp;<a
+                                  >Zoho Writer API</a
+                                >
+                                when creating the connection.
+                              </p>
+                            </li>
+                            <li>
+                              <p>
+                                Refer to <a>this post</a> for a list of Zoho
+                                services that support the Connections page.
+                              </p>
+                            </li>
+                          </ul>
+                          <p><a>Learn more about connections</a></p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p><strong>Recipients</strong></p>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><strong>Parameter</strong></td>
+                      <td><strong>Type</strong></td>
+                      <td><strong>Possible Values</strong></td>
+                      <td><strong>Default Value</strong></td>
+                    </tr>
+                    <tr>
+                      <td>recipient_n</td>
+                      <td>String</td>
+                      <td>
+                        <p>recipient_1, recipient_2, ... , recipient_10</p>
+                        <div>
+                          <p>
+                            <strong>Note</strong>: A maximum of 10 recipients
+                            are currently supported.
+                          </p>
+                        </div>
+                      </td>
+                      <td>john@zylker.com</td>
+                    </tr>
+                    <tr>
+                      <td>action_type</td>
+                      <td>String</td>
+                      <td>approve/sign/view/in_person_sign &nbsp;</td>
+                      <td>sign</td>
+                    </tr>
+                    <tr>
+                      <td>language</td>
+                      <td>String</td>
+                      <td>
+                        zh / nl / en / fr / de / it / ja / pl / pt / ru / es /
+                        sv
+                      </td>
+                      <td>
+                        This option is only available to
+                        <strong>Zoho Sign Premium Plan</strong> users.<br />If
+                        you are a&nbsp;<br /><strong>Free Plan</strong> user,
+                        the notification email will be sent in your default
+                        account language.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p><merge_detail></merge_detail></p>
+            </div>
+            <p><strong>&lt;optional_settings&gt;</strong></p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Type</strong></td>
+                    <td><strong>Possible values</strong></td>
+                  </tr>
+                  <tr>
+                    <td>subject</td>
+                    <td>String</td>
+                    <td>The subject of the email.</td>
+                  </tr>
+                  <tr>
+                    <td>message</td>
+                    <td>String</td>
+                    <td>Content for the email body.</td>
+                  </tr>
+                  <tr>
+                    <td>attachments</td>
+                    <td>File Object&nbsp;</td>
+                    <td>
+                      Any attachments to the email (maximum of 3 files can be
+                      attached).
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>is_sequential</td>
+                    <td>true / false</td>
+                    <td>
+                      The order in which document singing or approval must take
+                      place.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>reminder_period</td>
+                    <td>Integer</td>
+                    <td>
+                      A reminder for signing or approving the document every 'n'
+                      days.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>expire_in</td>
+                    <td>Integer</td>
+                    <td>The document expiry date.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script sends a document for signature collection.
+            </p>
+            <div>
+              <pre><span>document_id</span> <span>=</span> <span>"f1nb************63d72"</span><span>;</span>
+                                <span>signed_document_name</span> <span>=</span> <span>"Signed_document"</span><span>;</span>
+                                <span>recipients_list</span> <span>=</span> <span>List</span><span>()</span><span>;</span>
+                                <span>recipients_map_1</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                                <span>recipients_map_1</span><span>.put</span><span>(</span><span>"recipient_1"</span><span>,</span><span>"john@zylker.com"</span><span>)</span><span>;</span>
+                                <span>recipients_map_1</span><span>.put</span><span>(</span><span>"recipient_name"</span><span>,</span><span>"john"</span><span>)</span><span>;</span>
+                                <span>recipients_map_1</span><span>.put</span><span>(</span><span>"action_type"</span><span>,</span><span>"approve"</span><span>)</span><span>;</span>
+                                <span>recipients_map_1</span><span>.put</span><span>(</span><span>"language"</span><span>,</span><span>"en"</span><span>)</span><span>;</span>
+                                <span>recipients_list.add</span><span>(</span><span>recipients_map_1</span><span>)</span><span>;</span>
+                                <span>downloadFile1</span> <span>=</span> <span>invokeurl</span>
+                                <span>[</span>
+                                <span>url</span> <span>:</span><span>"https://www.africau.edu/images/default/sample.pdf"</span>
+                                <span>type</span> <span>:GET</span>
+                                <span>]</span><span>;</span>
+                                <span>downloadFile2</span> <span>=</span> <span>invokeurl</span>
+                                <span>[</span>
+                                <span>url</span> <span>:</span><span>"https://www.africau.edu/images/default/sample.pdf"</span>
+                                <span>type</span> <span>:GET</span>
+                                <span>]</span><span>;</span>
+                                <span>attachments_list</span> <span>=</span> <span>List</span><span>()</span><span>;</span>
+                                <span>attachments_list.add</span><span>(</span><span>downloadFile1</span><span>)</span><span>;</span>
+                                <span>attachments_list.add</span><span>(</span><span>downloadFile2</span><span>)</span><span>;</span>
+                                <span>optional_settings</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                                <span>optional_settings</span><span>.put</span><span>(</span><span>"attachments"</span><span>,</span><span>attachments_list</span><span>)</span><span>;</span>
+                                <span>optional_settings</span><span>.put</span><span>(</span><span>"subject"</span><span>,</span><span>"Reg Document Sign"</span><span>)</span><span>;</span>
+                                <span>optional_settings</span><span>.put</span><span>(</span><span>"message"</span><span>,</span><span>"Please find the document to be signed here"</span><span>)</span><span>;</span>
+                                <span>optional_settings</span><span>.put</span><span>(</span><span>"is_sequential"</span><span>,</span><span>"true"</span><span>)</span><span>;</span>
+                                <span>optional_settings</span><span>.put</span><span>(</span><span>"reminder_period"</span><span>,</span><span>"1"</span><span>)</span><span>;</span>
+                                <span>optional_settings</span><span>.put</span><span>(</span><span>"expire_in"</span><span>,</span><span>"2"</span><span>)</span><span>;</span>
+                                <span>response</span> <span>=</span> <span>zoho.writer.v2.signDocument</span><span>(</span><span>document_id</span><span>,</span><span>recipients_list</span><span>,</span><span>signed_document_name</span><span>,</span><span>optional_settings</span><span>,</span><span>"writerconnection"</span><span>)</span><span>;</span>
+                                <span>info</span> <span>response</span><span>;</span>
+                                                                </pre>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response:</strong></p>
+            <p>
+              The success response will be returned in the following format:
+            </p>
+            <div>
+              <p>
+                {<br />"status": success, //or failed<br />"sign_status_url":
+                &lt;URL&gt;<br />}
+              </p>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li>
+                <p><a>Zoho Writer integration tasks</a></p>
+              </li>
+              <li>
+                <p><a>Connections</a></p>
+              </li>
+              <li>
+                <p><a>Zoho Writer: Sign API document</a></p>
+              </li>
+              <li>
+                <p><a>Zoho Writer API: Possible error responses</a></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

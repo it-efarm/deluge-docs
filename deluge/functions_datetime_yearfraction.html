@@ -1,0 +1,182 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>yearFraction</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h2>yearFraction</h2>
+      <h3>Overview</h3>
+      <p>
+        The <strong>yearFraction</strong> function returns a period of time that
+        two date values specify, in decimal format. In other words, the number
+        of days between two dates is divided by the total number of days in a
+        year, 365, to obtain the year fraction as a decimal value.
+      </p>
+      <h3>Return Type</h3>
+      <ul>
+        <li><a>DECIMAL</a></li>
+      </ul>
+      <h3>Usecase</h3>
+      <p>
+        Let's say you are running a financial institution that provides your
+        customers with personal loans. A customer wants to calculate the extent
+        to which their loan's interest will reduce after they make a part
+        payment. To calculate this, the fraction of years from the date they
+        make the part payment until the end of their tenure has to be
+        determined. The <strong>yearFraction</strong> function can be used here
+        and the revised interest rates can be further calculated.
+      </p>
+      <p><a>See how this can be implemented</a></p>
+      <h3>Syntax &nbsp;</h3>
+      <div>
+        <pre>
+&lt;<span>variable</span>&gt; = &lt;<span>date1</span>&gt;.<span>yearFraction</span>(&lt;<span>date2</span>&gt;);
+</pre
+        >
+      </div>
+      <p>where:</p>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td><strong>Parameter</strong></td>
+              <td><strong>Data Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td>&lt;variable&gt;</td>
+              <td><span>DECIMAL</span></td>
+              <td><a>Variable</a> which will contain the returned value.</td>
+            </tr>
+            <tr>
+              <td>&lt;date1&gt;</td>
+              <td><span>DATE-TIME</span></td>
+              <td>
+                The starting date-time/date value.
+                <div>
+                  <strong>Note</strong>:&nbsp;
+                  <ul>
+                    <li>
+                      When the start date is higher than the end date, the
+                      <strong>yearFraction</strong> function will nevertheless
+                      run, returning a negative value.
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>&lt;date2&gt;</td>
+              <td><span>DATE-TIME</span></td>
+              <td>The ending date-time/date value.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p><strong>Note</strong>:&nbsp;</p>
+        <ul>
+          <li>
+            When the DATE-TIME data type is used, the difference in time stamp,
+            if provided, will also be considered while returning the year
+            fraction value. If no time stamp is included, 00:00:00 will be
+            considered by default.
+          </li>
+        </ul>
+      </div>
+      <h3>Examples</h3>
+      <div>
+        <pre><span>date1</span> = <span>'17-Jan-2019'</span>;
+<span>date2</span> = <span>'29-Jan-2019'</span>;
+<span>yf</span> = <span>date1.yearFraction(date2)</span>;
+<span>info</span> <span>yf</span>;                                                           <span>// returns 0.03287671232876712</span>
+</pre>
+      </div>
+      <div>
+        <pre><span>date3</span> = <span>'24-Jun-1997'</span>;
+<span>date4</span> = <span>'24-Mar-2001 10:10:37'</span>;
+<span>yearfractionvalue</span> = <span>date3.yearFraction(date4)</span>;
+<span>info</span> <span>yearfractionvalue</span>;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;<span>// returns 3.7519608384069003</span>
+</pre>
+      </div>
+      <h3><a></a>Usecase Implementation</h3>
+      <p>
+        Say you've created a <em>Payment Management</em> application using Zoho
+        Creator, for your financial institution. A customer enters the following
+        details in the <em>Part Payment Calculation</em> form:
+      </p>
+      <ul>
+        <li>Loan ID - ****21</li>
+        <li>Date on which they want to make a part payment - 03-Apr-2020</li>
+        <li>Tenure Closure Date - 25-May-2035</li>
+      </ul>
+      <p>
+        To calculate the reduction in interest rate, the year fraction value has
+        to be found. This can be found by dividing the number of days between
+        the part payment date and tenure closure date by the total number of
+        days in a year. A workflow with the following Deluge script will help
+        you do this.
+      </p>
+      <div>
+        <pre><span>partpaymentdate</span> = <span>'03-Apr-2020'</span>;
+<span>enddate</span> = <span>'25-May-2035'</span>;
+<span>yfvalue</span> = <span>partpaymentdate.yearFraction(enddate)</span>;
+<span>info</span> <span>yfvalue</span>;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    &nbsp; &nbsp;<span>// returns decimal value 15.150684931506849</span>
+</pre>
+      </div>
+      <p>where:</p>
+      <div>
+        <div>
+          <div>
+            <div>
+              <div>
+                <pre><span>partpaymentdate</span>
+</pre>
+              </div>
+              <div>
+                <span>DATE-TIME</span> variable that denotes the date value on
+                which the part payment was made
+              </div>
+            </div>
+            <div>
+              <div>
+                <pre><span>enddate</span>
+</pre>
+              </div>
+              <div>
+                <span>DATE-TIME</span> variable that denotes the date value on
+                which the tenure ends.
+              </div>
+            </div>
+            <div>
+              <div>
+                <pre><span>yfvalue</span>
+</pre>
+              </div>
+              <div>
+                <span>TEXT</span> variable that returns the year fraction value
+                as a decimal.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+        Using this year fraction value, your financial institution can readjust
+        the EMI for the customer.
+      </p>
+      <h3>Related Links</h3>
+      <ul>
+        <li><a>DATE-TIME data type</a></li>
+        <li><a>TEXT data type</a></li>
+      </ul>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

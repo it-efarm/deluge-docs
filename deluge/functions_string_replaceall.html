@@ -1,0 +1,155 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>replaceAll</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>replaceAll()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The<strong> replaceAll()</strong> function takes
+              <strong>string</strong> , <strong>searchString</strong> , and
+              <strong>replacementString</strong> as arguments. It replaces all
+              occurrences of searchString with replacementString in the string,
+              and returns the string.
+            </p>
+            <p>
+              If searchString is not present in the string, it will return the
+              string as it is.
+            </p>
+            <div>
+              <p>
+                <strong>Note: </strong>This function performs a case-sensitive
+                search.
+              </p>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Text</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; = <span>&lt;string&gt;</span>.replaceAll(
+              <span>&lt;searchString&gt;</span>,
+              <span>&lt;replacementString&gt;</span>,
+              <span>&lt;boolean&gt; </span>);
+            </div>
+            <p>(OR)</p>
+            <div>
+              &lt;variable&gt; = replaceAll( <span>&lt;string&gt;</span>,
+              <span>&lt;searchString&gt;</span>,
+              <span>&lt;replacementString&gt;</span>,<span>
+                &lt;boolean&gt;</span
+              >
+              );
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>Variable which will contain the returned string.</td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;string&gt;</span></td>
+                    <td>
+                      <string>
+                        The string in which all occurrences of searchString will
+                        be replaced with replacementString.</string
+                      >
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;searchString&gt;</span></td>
+                    <td>
+                      <p>
+                        <br />All occurrences of this searchString will be
+                        replaced with replacementString, in the string.
+                      </p>
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;replacementString&gt;</span></td>
+                    <td>
+                      <p>
+                        <br />This replacementString will replace all
+                        occurrences of searchString in the string.
+                      </p>
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;boolean&gt;</span></td>
+                    <td>
+                      <p>
+                        <br />Applicable values: <strong>true</strong> or
+                        <strong>false</strong>.
+                      </p>
+                      <p>
+                        By default, the replaceAll() function supports regular
+                        expression (i.e) it will not find and replace the
+                        special characters like $ in the source string.
+                      </p>
+                      <p>
+                        This parameter can be used to specify if the regular
+                        expression is to be supported or escaped.
+                      </p>
+                      <ul>
+                        <li>
+                          The value <strong>true</strong> denotes escaping the
+                          regular expression.
+                        </li>
+                        <li>
+                          The value <strong>false</strong> denotes supporting
+                          the regular expression. By default, the value is taken
+                          as "false".
+                        </li>
+                      </ul>
+                    </td>
+                    <td>BOOLEAN</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              mainString="Create online database applications";<br />newText =
+              replaceAll(mainString, "online", "custom"); &nbsp; &nbsp; &nbsp;
+              &nbsp; &nbsp; &nbsp;&nbsp;<br />// returns "Create custom database
+              applications"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.013815"><iframe></iframe></div>
+</div>

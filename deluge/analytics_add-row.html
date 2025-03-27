@@ -1,0 +1,205 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Analytics integration tasks</a></li>
+        <li><a>Create a row</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create a row&nbsp;in Zoho Analytics</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to create a row&nbsp;in a table in Zoho
+              Analytics.
+            </p>
+            <p>
+              This integration task is based on the Zoho Analytics
+              API&nbsp;-&nbsp;<a>Add Row</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.reports.createRow</span><span>(</span><span>&lt;</span><span>database_name</span><span>&gt;</span>, <span>&lt;</span><span>table_name</span><span>&gt;</span>, <span>&lt;data_map</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;variable&gt;&nbsp;</p></td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>
+                        is the variable that will hold the&nbsp;response
+                        returned by Zoho Analytics.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;database_name&gt;<strong>&nbsp;</strong></p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        is the name of the database in Zoho Analytics which
+                        contains the required table.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;table_name&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      is the name of the table in which the row will be created.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;data_map&gt;</p></td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>
+                        Key-value pairs with keys as the column names, along
+                        with their corresponding values.&nbsp;<br /><br />Values
+                        must be compatible with the column data type. If not,
+                        the value will not be assigned.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;connection&gt;</p></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      specifies the name of the Zoho Analytics
+                      <a>connection</a>.
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of&nbsp;<a
+                              >stopping new authtoken generation</a
+                            >,&nbsp;a Zoho OAuth connection with appropriate
+                            scopes is mandatory&nbsp;for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter unless the authtoken is manually
+                            deleted&nbsp;from&nbsp;<a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes mentioned in&nbsp;<a
+                              >Zoho Analytics&nbsp;API document</a
+                            >&nbsp;while creating the connection.
+                          </li>
+                          <li>
+                            Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                            list of Zoho services that support the connections
+                            page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example: Create a row in Zoho Analytics</h2>
+            <p>
+              The following sample snippet creates a row in Zoho Analytics with
+              the given details.
+            </p>
+            <div>
+              rowInfo = map();<br />rowInfo.put("Region", "India");<br />rowInfo.put("Product
+              Category", "Business Process");<br />rowInfo.put("Product",
+              "Creator");<br />rowInfo.put("Customer Name", "John");<br />rowInfo.put("Sales",
+              1000);<br /><br />mapResponse = zoho.reports.createRow("Website",
+              "Search Analytics", rowInfo, "analytics_connection" );
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Param</strong></td>
+                    <td><strong>Explanation</strong></td>
+                  </tr>
+                  <tr>
+                    <td>rowinfo</td>
+                    <td>is a map variable that holds key-value pairs.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      "Region"<br />"Product Category"<br />"Product"<br />"Customer
+                      Name"<br />"Sales"
+                    </td>
+                    <td>are the column names in the table.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      India<br />Business Process<br />Creator<br />John<br />1000
+                    </td>
+                    <td>are column values.</td>
+                  </tr>
+                  <tr>
+                    <td>mapResponse</td>
+                    <td>varibale that holds the returned response.</td>
+                  </tr>
+                  <tr>
+                    <td>"Website"</td>
+                    <td>is the Database name in Zoho Analytics</td>
+                  </tr>
+                  <tr>
+                    <td>"Search Analytics"</td>
+                    <td>is the table name in Zoho Analytics</td>
+                  </tr>
+                  <tr>
+                    <td>"analytics_connection"</td>
+                    <td>is the connection link name</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p>
+              The following is a sample&nbsp;<strong>success</strong> response:
+            </p>
+            <div>
+              {&nbsp;&nbsp;<br />&nbsp; &nbsp;"Region":"India",<br />&nbsp;
+              &nbsp;"Product Category":"Business Process",<br />&nbsp;
+              &nbsp;"Product":"Creator",<br />&nbsp; &nbsp;"Customer
+              Name":"John"<br />&nbsp; &nbsp;"Sales":"1000"<br />}​
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Analytics API</a></li>
+              <li>Common error codes can be viewed&nbsp;<a>here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

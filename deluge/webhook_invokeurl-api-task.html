@@ -1,0 +1,829 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Custom integrations with any Zoho or external service</a></li>
+        <li><a>Invoke URL</a></li>
+        <li><a>invokeUrl</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h1>​invokeURL task for API calls</h1>
+      <div>
+        <div>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li><a>Example 1: Fetch a file from the web</a></li>
+                    <li>
+                      <a
+                        >Example 2: Create a contact in Zoho Books using invoke
+                        URL</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 3: Fetch the list of files from the connected
+                        Dropbox account</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 4: Upload a list of files to Candidates module
+                        of Zoho Recruit</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>invokeUrl task</strong> is an HTTP client that
+              allows you to&nbsp;<strong>access and modify:</strong>
+            </p>
+            <ul>
+              <li>web resources using HTTP calls.</li>
+              <li>
+                data of one Zoho service from another Zoho service using the URL
+                specified in its API
+              </li>
+              <li>
+                data of a third-party service&nbsp;connected to your Zoho
+                service using the URL specified in its API.&nbsp;Click&nbsp;<a
+                  >here</a
+                >
+                to learn&nbsp;how you can connect your Zoho service with a
+                third-party service using&nbsp;<strong>connections.</strong>
+              </li>
+            </ul>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  This task will throw
+                  <strong>"socket timeout error"</strong> if the web resource/
+                  API takes more than <strong>40 seconds</strong> to
+                  respond.&nbsp;<br />This means that the task will be
+                  terminated and you need to wait for a few moments before
+                  trying again.
+                </li>
+                <li>
+                  In Zoho Creator, this task can download file up to
+                  <strong>5 MB</strong>.&nbsp; Some older accounts would allow
+                  downloads up to <strong>50 MB</strong> which will eventually
+                  be reduced without affecting the existing scripts.
+                  <a>Learn more</a>.
+                </li>
+                <li>
+                  In services other than Zoho Creator,&nbsp;you
+                  can&nbsp;download Zoho domain files&nbsp;of size up
+                  to&nbsp;<strong>15&nbsp;MB</strong> and other domain files of
+                  size up to <strong>5 MB</strong>.&nbsp;
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>response </span><span>= </span><span>invokeUrl
+</span><span>[</span><span>&nbsp;
+&nbsp;</span><span>url: &lt;</span><span>url_value</span><span>&gt;</span><span>&nbsp;
+&nbsp;</span><span>type: [&lt;</span><span>type_value&gt;]</span><span>&nbsp;
+&nbsp;</span><span>headers: [&lt;</span><span>headers_value&gt;]</span><span>&nbsp;
+&nbsp;</span><span>content-type: [&lt;</span><span>content_type_value&gt;]</span><span>&nbsp;
+&nbsp;</span><span>parameters: [&lt;parameters_value</span><span>&gt;]</span><span>&nbsp;
+&nbsp;</span><span>files: [&lt;</span><span>files_value&gt;]</span><span>&nbsp;
+&nbsp;</span><span>connection: [&lt;</span><span>connection_name&gt;]</span><span>&nbsp;
+&nbsp;</span><span>detailed: [&lt;</span><span>detailed_value&gt;]</span>&nbsp;
+&nbsp;<span>response-format: [&lt;</span><span>response_format_value&gt;]</span>&nbsp;
+&nbsp;<span>response-decoding: [&lt;</span><span>encoding_format_value&gt;]</span>&nbsp;
+<span>];</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;response&gt;</td>
+                    <td>
+                      <span>KEY-VALUE</span>/ <span>FILE</span>/
+                      <span>TEXT</span>/ <span>LIST</span>
+                    </td>
+                    <td>
+                      The variable that will contain the response returned.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;url_value&gt;</p>
+                      <p>&nbsp;</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The request URL whose resources need to be accessed.
+                      </p>
+                      <div>
+                        <strong>Note:</strong> URL domains with user-created SSL
+                        certificates cannot be invoked using this task.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;type_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>Constant</td>
+                    <td>
+                      <p>The HTTP request method.</p>
+                      <p><strong>Allowed values:</strong></p>
+                      <ul>
+                        <li>GET</li>
+                        <li>POST</li>
+                        <li>PUT</li>
+                        <li>PATCH</li>
+                        <li>DELETE</li>
+                      </ul>
+                      <p><strong>Default value:</strong> GET</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;headers_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>The attributes or the header values.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;content_type_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The type of content that needs to be sent in the body of
+                        the HTTP request.
+                      </p>
+                      <p>
+                        <strong>Allowed values:</strong> Any valid content type.
+                        Eg, multipart/form-data,
+                        application/x-www-form-urlencoded, application/json,
+                        etc.
+                      </p>
+                      <p><strong>Default value:</strong></p>
+                      <ul>
+                        <li>
+                          <strong>application/x-www-form-urlencoded</strong>, if
+                          the body is <span>KEY-VALUE</span>.
+                        </li>
+                        <li>
+                          <strong>text/plain</strong>, if the body is
+                          <span>TEXT</span>.
+                        </li>
+                      </ul>
+                      <div>
+                        <strong>Note:</strong> This parameter is not applicable
+                        to Zoho Creator.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;parameters_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <span>TEXT</span>/<span>FILE</span>/
+                      <span>KEY-VALUE</span>
+                    </td>
+                    <td>
+                      <p>The body of the request.</p>
+                      <div>
+                        <strong>Note: </strong>When the type is specified as
+                        <strong>GET</strong>, the parameter value will be passed
+                        in the URL as a query parameter, rather than in the
+                        request body.
+                      </div>
+                      <p>
+                        <strong
+                          >Send various types of request body using
+                          invokeUrl:</strong
+                        >
+                      </p>
+                      <ul>
+                        <li>
+                          <strong>Raw:</strong><br /><span>TEXT</span> data to
+                          this parameter will be sent as raw type.<br />&nbsp;
+                        </li>
+                        <li>
+                          <strong>x-www-form-urlencoded:</strong><br /><span
+                            >KEY-VALUE</span
+                          >
+                          data to this parameter will be sent as
+                          <strong>x-www-form-urlencoded</strong>
+                          type.<br />&nbsp;
+                        </li>
+                        <li>
+                          <p>
+                            <strong>Form-data:</strong><br /><span
+                              >KEY-VALUE</span
+                            >
+                            data to this parameter will be sent as multipart
+                            form-data type, if the value of
+                            the&nbsp;<strong>content-type</strong>&nbsp;parameter
+                            is specified
+                            as&nbsp;<strong>multipart/form-data</strong>.<br />&nbsp;
+                          </p>
+                          <div>
+                            <p><strong>Note:&nbsp;</strong></p>
+                            <ul>
+                              <li>
+                                If the value of the content-type parameter is
+                                not specified
+                                as&nbsp;<strong>multipart/form-data</strong>,
+                                the KEY-VALUE data is treated
+                                as&nbsp;<strong>x-www-form-urlencoded</strong>&nbsp;type.
+                              </li>
+                              <li>
+                                In&nbsp;<strong>Zoho Creator</strong>, the
+                                multipart/form-data values must be specified
+                                in&nbsp;<strong>files</strong> parameter
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <p>
+                            <strong>Binary:</strong><br /><span>FILE</span> data
+                            is sent as binary type.<br />&nbsp;
+                          </p>
+                          <div>
+                            <p><strong>Note:&nbsp;</strong></p>
+                            <ul>
+                              <li>
+                                The value of the
+                                <strong>&lt;content-type&gt;</strong
+                                >&nbsp;parameter must be specified
+                                as&nbsp;<strong>application/octet-stream</strong>,
+                                to recognize that the body is sent as binary
+                                type.
+                              </li>
+                              <li>
+                                Binary type is not applicable to Zoho Creator.
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;files_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <span>FILE</span>/ <span>TEXT</span>/
+                      <span>KEY-VALUE</span>/ <span>LIST</span> of
+                      <span>FILE</span>/ <span>LIST</span> of <span>TEXT</span>/
+                      <span>LIST</span> of <span>KEY-VALUE</span>
+                    </td>
+                    <td>
+                      <p>
+                        In&nbsp;<strong>Zoho Creator</strong>, if the body of
+                        the request needs to be sent as multipart form-data, the
+                        values need to be are supplied to this parameter.
+                      </p>
+                      <div>
+                        <p><strong>Note:&nbsp;</strong></p>
+                        <ul>
+                          <li>
+                            Only the files received as the response of an
+                            invokeUrl task can be attached.
+                          </li>
+                          <li>
+                            This parameter can also be used in services other
+                            than Zoho Creator. However, to send multipart
+                            form-data from&nbsp;<strong
+                              >services&nbsp;other than Zoho Creator</strong
+                            >, we recommend that&nbsp;you supply the values as
+                            KEY-VALUE to the&nbsp;<strong>body</strong>
+                            parameter while specifying the&nbsp;<strong
+                              >content-type</strong
+                            >
+                            parameter
+                            as&nbsp;<strong>multipart/form-data</strong>.
+                          </li>
+                          <li>
+                            The <a>toFile function</a> can be used here. For
+                            example, you can take a text value in csv format and
+                            use the 'toFile' function&nbsp;to pass it as a csv
+                            file. Please note that this function is currently
+                            not applicable to Zoho Creator.
+                          </li>
+                          <li>
+                            In Zoho Creator, the input&nbsp;text that will be
+                            converted into file cannot be more than
+                            <strong>50MB</strong>.
+                          </li>
+                        </ul>
+                      </div>
+                      <p><strong>Format to send KEY-VALUE data,</strong></p>
+                      <ul>
+                        <li>
+                          <strong
+                            >If the value associated with the key is
+                            FILE:</strong
+                          >​
+                        </li>
+                      </ul>
+                      <div>
+                        &lt;variable&gt; =
+                        {<strong>"paramName"</strong>:&nbsp;&lt;key&gt;,<strong>
+                          "content"</strong
+                        >: &lt;File&gt;};
+                      </div>
+                      <ul>
+                        <li>
+                          <strong
+                            >If the value&nbsp;associated with the key is
+                            TEXT:</strong
+                          >
+                        </li>
+                      </ul>
+                      <div>
+                        &lt;variable&gt; = {<strong>"paramName":</strong>
+                        &lt;key&gt;, <strong>"content"</strong>: &lt;Text&gt;,
+                        <strong>"stringPart"</strong>: "true"};
+                      </div>
+                      <p><strong>Format to send LIST of FILE data:</strong></p>
+                      <div>
+                        &lt;File1&gt;.<strong>setParamName</strong>(&lt;FileName1&gt;);<br />&lt;File2&gt;.<strong>setParamName</strong>(&lt;FileName2&gt;);<br />list_of_files
+                        = List();<br />List.add(&lt;File1&gt;);<br />List.add(&lt;File2&gt;);
+                      </div>
+                      <p><a></a></p>
+                      <div>
+                        <strong>setParamName</strong>&nbsp;built-in function is
+                        used to set&nbsp;the specified name for the file object
+                        that needs to be sent in multipart form-data using
+                        invokeUrl. This function cannot be applied on files
+                        fetched using fetch records task or
+                        input.&lt;field_name&gt; expression.
+                      </div>
+                      <p><strong>Format to send LIST of TEXT data:</strong></p>
+                      <div>
+                        list_of_text = List();<br />List.add(&lt;Text1&gt;);<br />List.add(&lt;Text2&gt;);
+                      </div>
+                      <p>
+                        <strong>Format to send LIST of KEY-VALUE data,</strong>
+                      </p>
+                      <ul>
+                        <li>
+                          <strong>If the values to the keys are FILES:</strong>
+                        </li>
+                      </ul>
+                      <div>
+                        list_of_key_value = List();<br />list_of_key_value.add({"<strong>paramName</strong>":&nbsp;&lt;key1&gt;,
+                        "<strong>content</strong>": &lt;File1&gt;});<br />list_of_key_value.add({"<strong>paramName</strong>":&nbsp;&lt;key2&gt;,
+                        "<strong>content</strong>": &lt;File2&gt;});
+                      </div>
+                      <ul>
+                        <li>
+                          <strong
+                            >If the values to the keys are of TEXT data
+                            type:</strong
+                          >
+                        </li>
+                      </ul>
+                      <div>
+                        list_of_text = List();<br />list_of_text.add({"<strong>paramName</strong>":&nbsp;&lt;key1&gt;,
+                        "<strong>content</strong>": &lt;Text1&gt;,
+                        "<strong>stringPart</strong>": "true"});<br />list_of_text.add({"<strong>paramName</strong>":&nbsp;&lt;key2&gt;,
+                        "<strong>content</strong>": &lt;Text2&gt;,
+                        "<strong>stringPart</strong>": "true"});
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;connection_name&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>The <a>connection</a> name of the required service.</p>
+                      <div>
+                        <strong>Note: </strong>Multiple connections can be
+                        created for the same service.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;detailed_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      <p>
+                        This parameter decides if a detailed response needs to
+                        be returned.
+                      </p>
+                      <p><strong>Allowed values:&nbsp;</strong></p>
+                      <ul>
+                        <li>
+                          <strong>true</strong> - returns response code (HTTP
+                          status code), header response, and response content as
+                          KEY-VALUE.
+                        </li>
+                        <li>
+                          <strong>false</strong> - returns the response content.
+                        </li>
+                      </ul>
+                      <p><strong>Default value:</strong> false</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;response_format_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>Constant</td>
+                    <td>
+                      <p>
+                        If this parameter is supplied with the value
+                        -&nbsp;<strong>FILE</strong>, the response is converted
+                        and returned as a FILE object.
+                      </p>
+                      <p><strong>Allowed values:</strong> FILE</p>
+                      <div>
+                        <strong>Note:</strong> This parameter is not applicable
+                        to Zoho Creator.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;encoding_format_value&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The character encoding scheme with which the response
+                        returned needs to be decoded.
+                      </p>
+                      <p>
+                        <strong>Allowed values:</strong> Click&nbsp;<a>here</a>
+                        to find the list of allowed values to this parameter.
+                      </p>
+                      <p><strong>Default value:</strong> UTF-8</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1: Fetch a file from the web</h2>
+            <p>
+              The following script fetches an image from the web using its URL:
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;<span>url:</span><span> "http://www.thenonlinearpath.com/wp-content/uploads/2016/05/GoodVibesOnly.png"</span>
+&nbsp;<span>type:</span><span> GET</span>
+&nbsp;<span>]</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The<span>FILE</span> that holds the image that will be
+                      fetched from the web.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"http://www.thenonlinearpath.com/wp-content/uploads/2016/05/GoodVibesOnly.png"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;that represents the URL of the
+                      image that needs to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>GET</span></pre>
+                    </div>
+                    <div>The HTTP request method.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 2: Create a contact in Zoho Books using invoke URL
+            </h2>
+            <p>
+              The following script creates a contact with the specified values
+              in Zoho Books using the URL specified in the Zoho Books API:
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Create a map that holds the values of the new contact that needs to be created</span>
+&nbsp;<span>contact_info</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>contact_info</span><span>.</span><span>put</span><span>(</span><span>"contact_name"</span>,<span> "Shawn"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>// Format the data as specified in the Zoho Books API</span>
+&nbsp;<span>data&nbsp;</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>data</span><span>.</span><span>put</span><span>(</span><span>"JSONString"</span>,<span> contact_info</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>//&nbsp;Supply the URL and parameters to the invoke URL task</span>
+&nbsp;<span>response</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;<span>url:</span><span> "https://books.zoho.com/api/v3/contacts?organization_id=58XXXX07"</span>
+&nbsp;<span>type: POST</span>
+&nbsp;<span>parameters: data</span>
+&nbsp;<span>connection:</span><span> "books_api_connection"</span>
+&nbsp;<span>]</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"https://books.zoho.com/api/v3/contacts?organization_id=58XXXX07"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the URL specified in
+                      the <a>Zoho Books API</a> to create a contact.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>POST</span></pre>
+                    </div>
+                    <div>The HTTP request method.</div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>data</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the values
+                      of the contact that needs to be created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"books_api_connection"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the connection name.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 3: Fetch the list of files from the connected
+              Dropbox account
+            </h2>
+            <p>
+              The following script fetches all the files from the folder
+              -&nbsp;<strong>test_folder</strong> of the connected Dropbox
+              account using its API:
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Create a variable to hold the parameters that is required by Dropbox API</span>
+&nbsp;<span>raw_data</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>raw_data</span><span>.</span><span>put</span><span>(</span><span>"path"</span>,<span> "/test_folder"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>// Create a variable to hold the headers that is required by Dropbox API</span>
+&nbsp;<span>header_data&nbsp;</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>header_data</span><span>.</span><span>put</span><span>(</span><span>"Content-Type"</span>,<span> "application/json"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>// Supply the URL, parameters, and headers to the invoke URL task</span>
+&nbsp;<span>response</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;<span>url:</span><span> "https://api.dropboxapi.com/2/files/list_folder"</span>
+&nbsp;<span>type: POST</span>
+&nbsp;<span>parameters: raw_data.toString</span><span>()</span>
+&nbsp;<span>headers: header_data</span>
+&nbsp;<span>connection:</span><span> "dropbox_connection"</span>
+&nbsp;<span>]</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"https://api.dropboxapi.com/2/files/list_folder"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the URL specified in
+                      the <a>Dropbox API</a> to fetch all the files from the
+                      specified folder.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>raw_data.toString</span><span>()</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that holds the path of the folder.
+                      The&nbsp;<strong>toText</strong> is a Deluge&nbsp;built-in
+                      function that&nbsp;converts a value into TEXT data type.
+                      Click&nbsp;<a>here</a> to learn more about it.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>header_data</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the header
+                      values required by Dropbox API.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"dropbox_connection"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <strong>Note: </strong>Click&nbsp;<a>here</a> to find the list of
+              ports in which the invoke URL task can be executed.
+            </div>
+            <h2>
+              <a></a>Example 4: Upload a list of files to the Candidates module
+              of Zoho Recruit
+            </h2>
+            <p>
+              The following script attaches the&nbsp;two&nbsp;files to the
+              specified record of Zoho Recruit's Candidate module:
+            </p>
+            <div>
+              <pre><span>// Downlod the required files from web</span>&nbsp;
+<span>cv </span><span>= </span><span>invokeurl</span>&nbsp;
+<span>[</span>&nbsp;
+    <span>url:</span><span>"https://www.office.xerox.com/latest/SFTBR-04U.PDF"</span>&nbsp;
+<span>]</span><span>;</span>&nbsp;
+<span>cover_letter </span><span>= </span><span>invokeurl</span>&nbsp;
+<span>[</span>&nbsp;
+    <span>url:</span><span>"https://filesamples.com/samples/document/txt/sample1.txt"</span>&nbsp;
+<span>]</span><span>;</span>&nbsp;
+&nbsp;
+<span>// Create parameter key-value pairs</span>&nbsp;
+<span>param1 </span><span>= </span><span>{</span><span>"stringPart"</span><span>:</span><span>"true"</span><span>, </span><span>"paramName"</span><span>:</span><span>"id"</span><span>, </span><span>"content"</span><span>:</span><span>"690423000000432208"</span><span>}</span><span>;</span>&nbsp;
+<span>param2 </span><span>= </span><span>{</span><span>"stringPart"</span><span>:</span><span>"true"</span><span>, </span><span>"paramName"</span><span>:</span><span>"type"</span><span>, </span><span>"content"</span><span>:</span><span>"Resume"</span><span>}</span><span>;</span>&nbsp;
+<span>param3 </span><span>= </span><span>{</span><span>"stringPart"</span><span>:</span><span>"true"</span><span>, </span><span>"paramName"</span><span>:</span><span>"version"</span><span>, </span><span>"content"</span><span>:</span><span>"2"</span><span>}</span><span>;</span>&nbsp;
+&nbsp;
+<span>// Add the files and parameter key-value pairs to a list</span>&nbsp;
+<span>file_list </span><span>= </span><span>List</span><span>()</span><span>;</span>&nbsp;
+<span>file_list.add</span><span>(</span><span>cv</span><span>)</span><span>;</span>&nbsp;
+<span>file_list.add</span><span>(</span><span>cover_letter</span><span>)</span><span>;</span>&nbsp;
+<span>file_list.add</span><span>(</span><span>param1</span><span>)</span><span>;</span>&nbsp;
+<span>file_list.add</span><span>(</span><span>param2</span><span>)</span><span>;</span>&nbsp;
+<span>file_list.add</span><span>(</span><span>param3</span><span>)</span><span>;</span>&nbsp;
+&nbsp;
+&nbsp;
+<span>// Perform API call to upload the files to Candidate module of Zoho Recruit</span>&nbsp;
+<span>response </span><span>= </span><span>invokeurl</span>&nbsp;
+<span>[</span>&nbsp;
+    <span>url: </span><span>"https://recruit.zoho.com/recruit/private/json/Candidates/uploadFile"</span>&nbsp;
+    <span>type: </span><span>POST</span>&nbsp;
+    <span>files: file_list</span>&nbsp;
+    <span>connection: </span><span>"recruit_oauth_conection"</span>&nbsp;
+<span>]</span><span>;</span>&nbsp;
+&nbsp;
+<span>info response</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"https://recruit.zoho.com/recruit/private/json/Candidates/uploadFile"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the API URL to
+                      upload files to Zoho Recruit.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>id</span>&nbsp;
+<span>type</span>&nbsp;
+<span>version</span>&nbsp;</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> parameter keys required by Recruit
+                      API.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"recruit_oauth_connection"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response when the
+                  <strong>&lt;detailed_value&gt;</strong> param is set to true,
+                  will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;"responseText":
+                  "GoodVibesOnly.png",<br />&nbsp;&nbsp;"responseHeader": {<br />&nbsp;&nbsp;&nbsp;&nbsp;"date":
+                  "Wed, 23 Oct 2019 10:03:31 GMT",<br />&nbsp;&nbsp;&nbsp;&nbsp;"server":
+                  "Apache",<br />&nbsp;&nbsp;&nbsp;&nbsp;"content-length":
+                  "159500",<br />&nbsp;&nbsp;&nbsp;&nbsp;"expires": "Wed, 23 Oct
+                  2019 16:03:31 GMT",<br />&nbsp;&nbsp;&nbsp;&nbsp;"x-endurance-cache-level":
+                  "2",<br />&nbsp;&nbsp;&nbsp;&nbsp;"x-cache-lookup": "MISS from
+                  172.30.232.40:3128",<br />&nbsp;&nbsp;&nbsp;&nbsp;"via": "1.1
+                  172.30.232.40 (squid/4.1)",<br />&nbsp;&nbsp;&nbsp;&nbsp;"last-modified":
+                  "Wed, 04 May 2016 01:44:18 GMT",<br />&nbsp;&nbsp;&nbsp;&nbsp;"content-type":
+                  "image/png",<br />&nbsp;&nbsp;&nbsp;&nbsp;"connection":
+                  "keep-alive",<br />&nbsp;&nbsp;&nbsp;&nbsp;"x-cache": "MISS
+                  from 172.30.232.40",<br />&nbsp;&nbsp;&nbsp;&nbsp;"accept-ranges":
+                  "bytes",<br />&nbsp;&nbsp;&nbsp;&nbsp;"cache-control":
+                  "max-age=21600"<br />&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;"responseCode":
+                  200<br />&nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p>
+              To fetch the <strong>content-type</strong> from the response
+              header obtained, execute the following script:
+            </p>
+            <div>
+              <pre>&nbsp;<span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>response.get</span><span>(</span><span>"responseHeader"</span><span>)</span><span>.get</span><span>(</span><span>"content-type"</span><span>)</span> <span>;</span>
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Connections</a></li>
+              <li><a>Built-in Functions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

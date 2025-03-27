@@ -1,0 +1,113 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Logical functions</a></li>
+        <li><a>Difference between isBlank, isNull and isEmpty functions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h1>Difference between isBlank(), isNull() and isEmpty() functions</h1>
+      <p>
+        The table below lists the (boolean) values that isBlank(), isNull(),
+        isEmpty() functions return on various possible input values below.
+      </p>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td><strong>Input</strong></td>
+              <td><strong>Other Services</strong></td>
+              <td><strong>Creator</strong></td>
+            </tr>
+            <tr>
+              <td><strong>isBlank()</strong></td>
+              <td><strong>isNull()</strong></td>
+              <td><strong>isEmpty()</strong></td>
+              <td><strong>isBlank()</strong></td>
+              <td><strong>isNull()</strong></td>
+              <td><strong>isEmpty()</strong></td>
+            </tr>
+            <tr>
+              <td>
+                <p>" "</p>
+                <p>(text containing only spaces)</p>
+              </td>
+              <td>true</td>
+              <td>false</td>
+              <td>true</td>
+              <td>true</td>
+              <td>false</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td>
+                <p>""</p>
+                <p>(empty text)</p>
+              </td>
+              <td>true</td>
+              <td>true</td>
+              <td>null</td>
+              <td>true</td>
+              <td>true</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>null</td>
+              <td>false</td>
+              <td>true</td>
+              <td>null</td>
+              <td>true</td>
+              <td>true</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>
+                <p>{}</p>
+                <p>(empty list)</p>
+              </td>
+              <td>true</td>
+              <td>false</td>
+              <td>true</td>
+              <td>true</td>
+              <td>false</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>
+                <p>{" "}</p>
+                <p>(or)</p>
+                <p>{""}</p>
+                <p>(list values)</p>
+              </td>
+              <td>false</td>
+              <td>false</td>
+              <td>false</td>
+              <td>false</td>
+              <td>false</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td>
+                <p>{" " : " "}</p>
+                <p>(or)</p>
+                <p>{"" : ""}</p>
+                <p>(map values)</p>
+              </td>
+              <td>false</td>
+              <td>false</td>
+              <td>false</td>
+              <td>null</td>
+              <td>null</td>
+              <td>false</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

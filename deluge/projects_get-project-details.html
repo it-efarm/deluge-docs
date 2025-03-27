@@ -1,0 +1,198 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Projects integration tasks</a></li>
+        <li><a>Get Project Details&nbsp;From Zoho Projects</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Project Details&nbsp;From Zoho Projects</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The&nbsp;<strong>zoho.projects.getProjectDetails&nbsp;</strong>task
+              fetches&nbsp;all the projects from the specified portal in Zoho
+              Projects.
+            </p>
+            <div>
+              <strong>Note:</strong> For security reasons, if you execute Zoho
+              Projects integration tasks for more than 100 times under 2
+              minutes, you will be restricted to execute any Zoho Projects
+              integration task for the next 30 mins.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.projects.getProjectDetails</span><span>(</span><span>&lt;</span><span>portal</span><span>&gt;</span><span>, </span><span>[&lt;</span><span>status</span><span>&gt;]</span><span>, </span><span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The list of all projects from the specified portal,
+                            as well as their respective IDs and statuses.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;portal&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>TEXT/ NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The name or ID of the portal from which the project
+                            details need to be fetched.
+                          </p>
+                          <p>
+                            <strong>Note: </strong>You can get the name or ID of
+                            the portal using the&nbsp;<strong
+                              >get portals</strong
+                            >
+                            task. Click&nbsp;<a>here</a> to learn more about it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;status&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The status of the project.</p>
+                          <p><strong>Allowed values:</strong></p>
+                          <ul>
+                            <li>active - Lists all the active projects.</li>
+                            <li>archived - Lists all the archived projects.</li>
+                            <li>template - Lists all the project templates.</li>
+                          </ul>
+                          <p>
+                            <strong>Note: </strong>This parameter is applicable
+                            to all Zoho services, except Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the&nbsp;<a>connection</a>.</p>
+                          <p>
+                            <strong>Note: </strong>This parameter is applicable
+                            to all Zoho services that has connections support,
+                            except Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script fetches all the active projects from the
+              portal -&nbsp;<strong>zylker:</strong>
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.projects.getProjectDetails</span><span>(</span><span>"zylker"</span><span>, </span><span>"active"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Projects.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"zylker"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      portal from which the projects need to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"active"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the status of the
+                      project. Here, only the active projects are fetched.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"name": "ERP",<br />&nbsp;&nbsp;"id":
+                  548XXXXXXXXXXX771,<br />&nbsp;&nbsp;"status": "active"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"name":
+                  "Explore Zoho Projects!",<br />&nbsp;&nbsp;"id":
+                  5489XXXXXXXXXXX671,<br />&nbsp;&nbsp;"status": "active"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Projects Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

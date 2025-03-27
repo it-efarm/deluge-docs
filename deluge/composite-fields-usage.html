@@ -1,0 +1,679 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Composite fields and their usage in Deluge</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Composite fields and their usage in Deluge</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Using composite fields in Deluge tasks</a></li>
+                <li><a>Using composite fields with the 'input' keyword</a></li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  This document is applicable only to
+                  <strong>Zoho Creator.</strong>
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              Composite fields are those which consist of&nbsp;one main field
+              and several subfields. Take the example of&nbsp;<strong
+                >Name</strong
+              >
+              field (a composite field), which is represented by one field, but
+              has multiple subfields like First Name, Last Name, Prefix. and
+              Suffix. Similarly, we have <strong>Address</strong>,
+              <strong>URL</strong>,
+              <strong>Image</strong>,&nbsp;<strong>Users</strong>,<strong>
+                Subform</strong
+              >, and<strong> Lookup</strong>&nbsp;fields in Zoho Creator which
+              contain subfields.
+            </p>
+            <p><strong>Composite fields in Zoho Creator</strong></p>
+            <p>
+              The following is the list of all the composite fields in Zoho
+              Creator:
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Field</strong></td>
+                    <td><strong>Subfields</strong></td>
+                    <td><strong>Subfield Link Name</strong></td>
+                  </tr>
+                  <tr>
+                    <td><a>Name</a></td>
+                    <td>
+                      <ul>
+                        <li>Prefix</li>
+                        <li>First Name</li>
+                        <li>Last Name</li>
+                        <li>Suffix</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li>prefix</li>
+                        <li>first_name</li>
+                        <li>last_name</li>
+                        <li>suffix</li>
+                      </ul>
+                      <p>
+                        If more than one Name fields are present in the form,
+                        the link names of the subsequent name sub fields will be
+                        appended by a number starting from 1. So, if we take the
+                        example of the subfield&nbsp;&lt;field&gt;.prefix, the
+                        link name of the first such field will
+                        be&nbsp;&lt;field&gt;.prefix, the link name of the
+                        second such field will be&nbsp;&lt;field&gt;.prefix1,
+                        the link name of the third such field will
+                        be&nbsp;&lt;field&gt;.prefix2, and so on.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a>Address</a></td>
+                    <td>
+                      <ul>
+                        <li>Address Line 1</li>
+                        <li>Address Line 2</li>
+                        <li>City/District</li>
+                        <li>State/Province</li>
+                        <li>Postal Code</li>
+                        <li>Country</li>
+                        <li>Longitude</li>
+                        <li>Latitude</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li>address_line_1</li>
+                        <li>address_line_2</li>
+                        <li>district_city</li>
+                        <li>state_province</li>
+                        <li>postal_Code</li>
+                        <li>country</li>
+                        <li>longitude</li>
+                        <li>​latitude&nbsp;&nbsp;</li>
+                      </ul>
+                      <p>
+                        If more than one address fields are present in the form,
+                        the link names of the subsequent address sub fields will
+                        be appended by a number starting from 1. So, if we take
+                        the example of the subfield&nbsp;&lt;field&gt;.country,
+                        the link name of the first such field will
+                        be&nbsp;&lt;field&gt;.country, the link name of the
+                        second such field will be&nbsp;&lt;field&gt;.country1,
+                        the link name of the third such field will
+                        be&nbsp;&lt;field&gt;.country2, and so on. Similarly,
+                        for &lt;field&gt;address_line_1 field,&nbsp;the link
+                        name of the first such field will
+                        be&nbsp;&lt;field&gt;.address_line_1, the link name of
+                        the second such field will
+                        be&nbsp;&lt;field&gt;.address_line_11, the link name of
+                        the third such field will
+                        be&nbsp;&lt;field&gt;.address_line_12, and so on.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a>URL</a></td>
+                    <td>
+                      <ul>
+                        <li>Link Name</li>
+                        <li>Title</li>
+                      </ul>
+                    </td>
+                    <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;NA</td>
+                  </tr>
+                  <tr>
+                    <td><a>Image</a></td>
+                    <td>
+                      <ul>
+                        <li>Title&nbsp;</li>
+                        <li>URL</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li>title</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a>Users</a></td>
+                    <td>
+                      <ul>
+                        <li>User Name</li>
+                        <li>Email Address</li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li>User_name</li>
+                        <li>email</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              The main field is listed in the list of fields which can be
+              dragged and dropped on the form builder. The subfields&nbsp;are
+              listed in the main field's properties.&nbsp;
+            </p>
+            <p>
+              Apart from the fields mentioned in the table, there
+              are&nbsp;<strong>system fields</strong> and&nbsp;two
+              <strong>advanced field types </strong>(which are linked/related to
+              a different form). These fields also&nbsp;contain child
+              fields.&nbsp;
+            </p>
+            <p>
+              <strong>Advanced composite fields in Zoho Creator:</strong
+              ><br />&nbsp;
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Field</strong></td>
+                    <td><strong>Subfields</strong></td>
+                  </tr>
+                  <tr>
+                    <td><a>SubForm</a></td>
+                    <td>
+                      The&nbsp;subfields&nbsp;depend on the structure of the
+                      form being referenced.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a>Lookup</a></td>
+                    <td>
+                      The&nbsp;subfields&nbsp;depend on the structure of the
+                      form being referenced.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>​</p>
+            <p><strong>Composite system fields in Zoho Creator:</strong></p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Field</strong></td>
+                    <td><strong>Subfields</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Added User</td>
+                    <td>
+                      <ul>
+                        <li>display_name</li>
+                        <li>user_name</li>
+                        <li>first_name</li>
+                        <li>last_name</li>
+                        <li>email</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Modified User</td>
+                    <td>
+                      <ul>
+                        <li>display_name</li>
+                        <li>user_name</li>
+                        <li>first_name</li>
+                        <li>last_name</li>
+                        <li>email</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>​</p>
+            <h2><a></a>Using composite fields in Deluge tasks</h2>
+            <p>
+              <span
+                >The following Examples&nbsp;are applicable to the
+                <strong>Name</strong> and
+                <strong>Address</strong>&nbsp;composite fields:</span
+              >
+            </p>
+            <ul>
+              <li>
+                <a></a><a><strong>Add Records</strong></a
+                ><br />&nbsp;
+                <ul>
+                  <li>
+                    <p>
+                      ​<strong><u>Example:</u></strong> Creating a new record
+                      with values for Name and Address subfields.<br />​
+                    </p>
+                    <div>
+                      &lt;variable&gt;&nbsp;= insert into
+                      &lt;form_link_name&gt;<br />&nbsp; [<br />&nbsp; &nbsp;
+                      Added_User = zoho.loginuser<br />&nbsp; &nbsp;
+                      Name.first_name = &lt;value&gt;<br />&nbsp;
+                      &nbsp;&nbsp;Name.last_name = &lt;value&gt;<br />​&nbsp;
+                      &nbsp;&nbsp;Name.prefix&nbsp;= &lt;value&gt;<br />&nbsp;
+                      &nbsp; Name.suffix = &lt;value&gt;<br />&nbsp; &nbsp;
+                      Address.address_line_1 =&nbsp;&lt;value&gt;<br />&nbsp;
+                      &nbsp; Address.address_line_2 =&nbsp;&lt;value&gt;<br />&nbsp;
+                      &nbsp; Address.district_city&nbsp;=&nbsp;&lt;value&gt;<br />&nbsp;
+                      &nbsp; Address.state_province&nbsp;=&nbsp;&lt;value&gt;<br />&nbsp;
+                      &nbsp; Address.postal_Code&nbsp;=&nbsp;&lt;value&gt;<br />&nbsp;
+                      &nbsp; Address.country&nbsp;=&nbsp;&lt;value&gt;<br />&nbsp;
+                      &nbsp; Address.longitude&nbsp;=&nbsp;&lt;value&gt;<br />&nbsp;
+                      &nbsp; ​Address.latitude&nbsp;=&nbsp;&lt;value&gt;<br />&nbsp;
+                      ];
+                    </div>
+                    <p>&nbsp;</p>
+                    <div>
+                      <ul>
+                        <li>
+                          The link name of the "Name" or the "Address" field can
+                          be specified directly without the subfields only when
+                          assigning it a value <a>fetched</a> from another
+                          "Name" or "Address"&nbsp;field respectively.&nbsp;In
+                          all other cases, the values for its sub-fields must be
+                          specified individually,&nbsp;as shown in the example.
+                        </li>
+                      </ul>
+                    </div>
+                    <p>​</p>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a></a><a><strong>Fetch Records</strong></a
+                ><br />&nbsp;
+                <ul>
+                  <li>
+                    <p>
+                      ​<strong><u>Example​</u></strong
+                      >: Fetching records based on a criteria containing the
+                      first name and country subfields.
+                    </p>
+                    <div>
+                      <br />&lt;variable&gt; =
+                      &lt;form_link_name&gt;&nbsp;[(Name.first_name&nbsp;==
+                      &lt;value&gt;)&nbsp;&amp;&amp; (Address.country ==
+                      &lt;value&gt;)];
+                    </div>
+                    <p>&nbsp;</p>
+                    <div>
+                      <ul>
+                        <li>
+                          The link name of the "Name" or the "Address" field can
+                          be specified directly without the subfields only when
+                          comparing it with a
+                          value&nbsp;<a>fetched</a>&nbsp;from another "Name" or
+                          "Address"&nbsp;field respectively.&nbsp;In all other
+                          cases, the values for its sub-fields must be specified
+                          individually,&nbsp;as shown in the example.
+                        </li>
+                        <li>
+                          The&nbsp;<strong>Name</strong>&nbsp;and&nbsp;<strong>Address</strong>&nbsp;fields
+                          do not work with the&nbsp;sort by&nbsp;param while
+                          fetching records.&nbsp;<a>Learn more</a>&nbsp;on fetch
+                          records task.
+                        </li>
+                      </ul>
+                    </div>
+                    <p>​</p>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a></a><a><strong>Update Records</strong></a
+                ><br />&nbsp;
+                <ul>
+                  <li>
+                    <p>
+                      ​<strong><u>Example​</u></strong
+                      >: Fetching records based on a criteria, and
+                      updating&nbsp;the <strong>first name</strong>&nbsp;and
+                      <strong>country</strong> subfields in that record.<br />&nbsp;
+                    </p>
+                    <div>
+                      fetch_variable&nbsp;= &lt;form_link_name&gt;&nbsp;[
+                      &lt;criteria&gt; ];<br />fetch_variable.Name.first_name&nbsp;=
+                      &lt;value&gt;;<br />fetch_variable.Address.country =
+                      &lt;value&gt;;
+                    </div>
+                    <p>&nbsp;</p>
+                    <div>
+                      <ul>
+                        <li>
+                          The link name of the "Name" or the "Address" field can
+                          be specified directly without the subfields only when
+                          updating it with a value&nbsp;<a>fetched</a>&nbsp;from
+                          another "Name" or "Address"&nbsp;field
+                          respectively.&nbsp;In all other cases, the values for
+                          its sub-fields must be specified individually,&nbsp;as
+                          shown in the example.
+                        </li>
+                        <li>
+                          The update task only updates the first record in the
+                          collection. To update all the records in the
+                          collection, you can use the
+                          <a>for each</a> task.&nbsp;<a>Learn more</a>&nbsp;on
+                          update records task.
+                        </li>
+                      </ul>
+                    </div>
+                    <p>​</p>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a></a><a><strong>Delete Records</strong></a
+                ><br />&nbsp;
+                <ul>
+                  <li>
+                    <p>
+                      ​<strong><u>Example​</u></strong
+                      >: Deleting records based on a criteria containing the
+                      first name and country subfields.
+                    </p>
+                    <div>
+                      <br />delete
+                      from&nbsp;&lt;form_link_name&gt;&nbsp;[(Name.first_name&nbsp;==
+                      &lt;value&gt;)&nbsp;&amp;&amp; (Address.country ==
+                      &lt;value&gt;)];
+                    </div>
+                    <p>&nbsp;</p>
+                    <div>
+                      <ul>
+                        <li>
+                          The link name of the "Name" or the "Address" field can
+                          be specified directly without the subfields only when
+                          comparing it with a
+                          value&nbsp;<a>fetched</a>&nbsp;from another "Name" or
+                          "Address"&nbsp;field respectively.&nbsp;In all other
+                          cases, the values for its sub-fields must be specified
+                          individually,&nbsp;as shown in the example.
+                        </li>
+                        <li><a>Learn more</a>&nbsp;on delete records task.</li>
+                      </ul>
+                    </div>
+                    <p>​</p>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a></a><a><strong>Info</strong></a
+                ><br />&nbsp;
+                <ul>
+                  <li>
+                    <p>
+                      ​<strong><u>Example​</u></strong
+                      >: Displaying the values of first name and country
+                      subfields.
+                    </p>
+                    <div>
+                      <br />fetch_variable&nbsp;=&nbsp;&lt;form_link_name&gt;&nbsp;[&lt;criteria&gt;];<br />​info
+                      fetch_variable.Name.first_name;<br />info
+                      fetch_variable.Address.country;&nbsp;
+                    </div>
+                    <p>&nbsp;</p>
+                    <div>
+                      <ul>
+                        <li>
+                          It is <strong>not</strong> mandatory to specify
+                          the&nbsp;subfields when using the info task
+                          with&nbsp;<strong>Name</strong>&nbsp;or&nbsp;<strong>Address</strong>&nbsp;field.
+                          You can directly specify the fields without the
+                          subfields. Example: info.Name;
+                        </li>
+                        <li>
+                          If a collection of records are fetched, only
+                          the&nbsp;first record's value is displayed.
+                        </li>
+                        <li><a>Learn more</a>&nbsp;on the info&nbsp;task.</li>
+                      </ul>
+                    </div>
+                    <p>​</p>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <p>
+              <span
+                >The following Examples are applicable to the&nbsp;<strong
+                  >Users, Subform, </strong
+                >and&nbsp;<strong>Lookup</strong>&nbsp;composite fields:</span
+              >
+            </p>
+            <ul>
+              <li>
+                <a></a><a><strong>Fetch Records</strong></a
+                ><br />&nbsp;
+                <ul>
+                  <li>
+                    <p>
+                      ​<strong><u>Example​</u></strong
+                      >: Fetching records based on a criteria containing the
+                      Users, Subform, and lookup subfields.
+                    </p>
+                    <div>
+                      <br />&lt;variable&gt; =
+                      &lt;form_link_name&gt;&nbsp;[(&lt;Users_field&gt;.User_name&nbsp;==
+                      &lt;value&gt;)&nbsp;&amp;&amp;
+                      (&lt;Subform_field&gt;.&lt;field&gt; == &lt;value&gt;)
+                      &amp;&amp; (&lt;Lookup_field&gt;.&lt;field&gt; ==
+                      &lt;value&gt;)];
+                    </div>
+                    <p>&nbsp;</p>
+                    <div>
+                      <ul>
+                        <li>
+                          The <strong>Users&nbsp;</strong>field can have
+                          <strong>User_name</strong> or
+                          <strong>email</strong> as the subfields, both of which
+                          are not case sensitive.&nbsp;<a>Learn more</a>&nbsp;on
+                          fetch records task.
+                        </li>
+                        <li>
+                          The Users field can be directly specified without the
+                          User_name subfield in the criteria. In this case, the
+                          Users field checks with the username value, and not
+                          the email.
+                        </li>
+                        <li>
+                          The Subform field can be specified without the
+                          subfields in the criteria, in which case it must be
+                          compared with the ID of the subform record.
+                        </li>
+                        <li>
+                          The Lookup field can be specified without the
+                          subfields in the criteria, in which case it must be
+                          compared with the ID&nbsp;of the linked record.
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a></a><a><strong>Info</strong></a
+                ><br />&nbsp;
+                <ul>
+                  <li>
+                    <p>
+                      ​<strong><u>Example​</u></strong
+                      >: Displaying the subfields' values of Users, Subform, and
+                      Lookup fields.
+                    </p>
+                    <div>
+                      <br />fetch_variable&nbsp;=&nbsp;&lt;form_link_name&gt;&nbsp;[&lt;criteria&gt;];<br />​info
+                      &lt;Users_field&gt;.user_name;<br />info
+                      &lt;Users_field&gt;.email;<br />info
+                      &lt;Subform_field&gt;.&lt;field&gt;;&nbsp;<br />info
+                      &lt;Lookup_field&gt;.&lt;field&gt;;
+                    </div>
+                    <p>&nbsp;</p>
+                    <div>
+                      <ul>
+                        <li><a>Learn more</a>&nbsp;on the info&nbsp;task.</li>
+                        <li>
+                          The Users field can be directly specified without the
+                          User_name subfield. In this case, the Users field
+                          displays the username value, and not the email.
+                        </li>
+                        <li>
+                          The Subform field can be specified without the
+                          subfields, in which case it returns the IDs of the
+                          subform records.
+                        </li>
+                        <li>
+                          The Lookup field can be specified without the
+                          subfields, in which case it returns the ID&nbsp;of the
+                          linked record.
+                        </li>
+                        <li>
+                          If a collection of records are fetched, only
+                          the&nbsp;first record's value is displayed.
+                        </li>
+                      </ul>
+                    </div>
+                    <p>​</p>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <p>
+              <span
+                >The following Example&nbsp;is&nbsp;applicable to the
+                <strong>Image </strong>composite&nbsp;field:</span
+              >
+            </p>
+            <ul>
+              <li>
+                <a></a><a><strong>Info</strong></a
+                ><br />&nbsp;
+                <ul>
+                  <li>
+                    <p>
+                      ​<strong><u>Example​</u></strong
+                      >: Displaying the value&nbsp;of Image title&nbsp;subfield.
+                    </p>
+                    <div>
+                      <br />fetch_variable&nbsp;=&nbsp;&lt;form_link_name&gt;&nbsp;[&lt;criteria&gt;];<br />​info
+                      fetch_variable.&lt;Image_field&gt;.title;&nbsp;
+                    </div>
+                    <p>&nbsp;</p>
+                    <div>
+                      <ul>
+                        <li>
+                          The title subfield is case-sensitive when using it
+                          with the info task.&nbsp;<a>Learn more</a>&nbsp;on the
+                          info&nbsp;task.
+                        </li>
+                        <li>
+                          The Image field can be specified without the title
+                          subfield, in which case the value is returned in HTML
+                          text format.
+                        </li>
+                        <li>
+                          If a collection of records are fetched, only
+                          the&nbsp;first record's value is displayed.
+                        </li>
+                      </ul>
+                    </div>
+                    <p>​</p>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <h2>
+              <a></a>Using composite fields with the 'input' keyword&nbsp;
+            </h2>
+            <p>
+              The <a>input</a> keyword is generally used to access or represent
+              the value stored in a field.
+            </p>
+            <p>
+              It can be used to simply assign the value of a field to a
+              variable.&nbsp;Or to assign a value to the field. For example:
+            </p>
+            <div>
+              &lt;variable&gt; = input.Email;&nbsp;<br />input.Email
+              =&nbsp;&lt;value&gt;;
+            </div>
+            <p>Or it can be used in expressions in various deluge tasks.</p>
+            <p>
+              The following are a few points to note when using it with
+              composite fields.
+            </p>
+            <ul>
+              <li>
+                When using it with <strong>Name</strong> or
+                <strong>Address</strong> fields, it is mandatory to specify the
+                subfields. When using the country subfield, the value must be
+                one of the applicable countries in the field's properties.
+                Otherwise, the specified value will not be considered, and
+                instead will be set to null.
+              </li>
+              <li>
+                When using it with the <strong>Users</strong> field, you can
+                specify the <strong>User_name</strong> and
+                <strong>email</strong> subfields. Or you can directly specify
+                the <strong>Users</strong> field without the subfields, in which
+                case the <strong>User_name</strong> subfield is taken by
+                default. However, the value specified is considered, or is taken
+                to be true, only when the value pertains to an actual user.
+                Please note that when using the
+                <strong>User_name</strong> subfield, the username of the user
+                has to be specified, and when using the
+                <strong>email</strong> subfield, the email of the user has to be
+                specified for it to work.
+              </li>
+              <li>
+                <p>
+                  The <strong>URL</strong> field will work&nbsp;when the value
+                  is specified in a HTML format like the following:<br />&lt;a&nbsp;href=
+                  \"&lt;URL&gt;\"&nbsp;title&nbsp;=
+                  \"&lt;TITLE&gt;\"&nbsp;target&nbsp;=
+                  \"_blank\"&gt;&lt;linkname&gt;&lt;/a&gt;&nbsp;<br />where:
+                  title, link name and target are optional params&nbsp;<br />For
+                  example
+                </p>
+                <div>
+                  input.URL = "&lt;a href= \"https://www.zoho.com\" title =
+                  \"Zoho webpage\" target = \"_blank\"&gt;zoho&lt;/a&gt;";&nbsp;
+                </div>
+              </li>
+              <li>
+                Values of&nbsp;<strong>subform</strong> fields in the current
+                form can be accessed using the <a>row</a> keyword.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

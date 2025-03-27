@@ -1,0 +1,195 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Connect integration tasks</a></li>
+        <li><a>Get post using a third party ID</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get post using Third Party Id</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a> </a>Overview</h2>
+            <p>
+              This task can be used to retrieve a post details using the
+              tpEntityID&nbsp;param. The tpEntityID&nbsp;param&nbsp;can
+              be&nbsp;initially specified while creating a post using&nbsp;the
+              <a>addPost</a> task, and that post can retrieved using the current
+              task, based on the specified tpEntityID.
+            </p>
+            <h2><a> </a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho.connect.getPostByTpId</span><span>(</span>&lt;<span>scopeID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>tpEntityID</span><span>&gt;</span><span>, &lt;</span><span>connectionName</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Parameter</td>
+                        <td>Description</td>
+                        <td>Data type</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the variable which will hold the returned
+                            resonse.
+                          </p>
+                          <p>
+                            The response will contain the meta details, entity
+                            id and other information related to the third party
+                            message.
+                          </p>
+                        </td>
+                        <td>KEY-VALUE</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;scopeID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the variable which represents the
+                            <a>Scope ID</a> of the network in which the post
+                            exists.
+                          </p>
+                          <p>
+                            You can also fetch the&nbsp;scope&nbsp;ID&nbsp;from
+                            the&nbsp;<a>response</a>&nbsp;of myNetworks task.
+                          </p>
+                        </td>
+                        <td>NUMBER</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;tpEntityID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the variable which represents the value of the
+                            tpEnitityID param used while <a>creating</a> the
+                            post.
+                          </p>
+                        </td>
+                        <td>TEXT</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connectionName&gt;</span></p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p>
+                            is the&nbsp;name of the Zoho
+                            connect&nbsp;<a>connection</a>.
+                          </p>
+                          <p>
+                            <strong>*Note</strong>: This param is not applicable
+                            to Zoho Creator and mandatory in Zoho Cliq.
+                          </p>
+                        </td>
+                        <td>TEXT</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a> </a>Example</h2>
+            <p>
+              The example below illustrates how a third party message with a
+              <strong>tpEntityId</strong> (third party ID) can be used to
+              retrieve it's contents
+            </p>
+            <div>
+              <pre><span>postDetails </span>= <span>zoho.connect.getPostByTpId</span><span>(</span><span>105000017039001</span><span>, </span><span>"TPEnt001"</span><span>)<span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>postDetails</span></pre>
+                    </div>
+                    <div>
+                      is a&nbsp;variable that holds the third party message and
+                      related information
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>105000017039001</span></pre>
+                    </div>
+                    <div>
+                      is a&nbsp;value that represents the Scope ID of the
+                      network
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>105000210839094</span></pre>
+                    </div>
+                    <div>
+                      is a value that represents the tpEntityId of the third
+                      party message
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a> </a>Sample Response</h2>
+            <ul>
+              <li>Following is a sample success response:</li>
+            </ul>
+            <div>
+              {"posts":<br />["{\"tpMetaDetails\":{},<br />\"partitionId\":\"105000207776500\",<br />\"plainContent\":\"TP
+              Comment\",<br />\"networkName\":\"Trading Corporation\",<br />\"richContent\":\"TP
+              Comment\",<br />\"isPrivate\":\"false\",<br />\"title\":\"\",<br />\"partitionType\":\"2\",<br />\"url\":\"https://connect.zoho.com/portal/intranet/stream/10500021086412\",<br />\"partitionName\":\"Test
+              Group\",<br />\"createdBy\":<br />{\"profileUrl\":\"https://connect.zoho.com/portal/intranet/profile/664841234\",<br />\"isBot\":\"false\",<br />\"isGuest\":\"false\",<br />\"imageUrl\":\"https://contacts.zoho.com/file?t=user&amp;ID=664841234&amp;fs=thumb\",<br />\"name\":\"testuser\",<br />\"timeZone\":\"Asia/Kolkata\",<br />\"language\":\"en\",<br />\"emailId\":\"testuser@zohocorp.com\",<br />\"id\":\"664841234\"},<br />\"createdTime\":\"2018-05-10T08:50+0000\",<br />\"attachmentCount\":\"0\",<br />\"networkId\":\"105000017039123\",<br />\"id\":\"105000210868396\",<br />\"tpEntityId\":\"TPEnt001\"<br />}"]<br />}
+            </div>
+            &nbsp;
+            <ul>
+              <li>
+                The response returned is <strong>null</strong> when the Scope ID
+                supplied is incorrect
+              </li>
+              <li>
+                The below response returned when the third party Entity Id
+                supplied is incorrect
+              </li>
+            </ul>
+            <p>{"posts":[]}</p>
+            <h2><a> </a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Connect API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.032278"><iframe></iframe></div>
+</div>

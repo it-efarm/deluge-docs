@@ -1,0 +1,107 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>insertAll</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>insertAll</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>insertAll</strong>&nbsp;function adds a list of
+              specified elements or key-value pairs to a&nbsp;<a>collection</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <p>To insert key-value pairs:</p>
+            <div>
+              <pre><span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.insertAll</span><span>(</span><span>&lt;</span><span>keyValueList</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <p>To insert elements:</p>
+            <div>
+              <pre><span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.insertAll</span><span>(</span><span>&lt;</span><span>elementList</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;collectionVariable&gt;</td>
+                    <td><span>DECIMAL</span></td>
+                    <td>
+                      <p>
+                        The variable to which the list of key-value pairs or
+                        elements will be added.
+                      </p>
+                      <p>
+                        If the variable contains key-value pairs, this function
+                        will only accept key-value pairs as arguments. If
+                        elements are specified, a runtime error will be
+                        encountered.
+                      </p>
+                      <p>
+                        If the variable contains elements, this function will
+                        only accept elements as arguments. If key-value pairs
+                        are specified, a runtime error will be encountered.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;keyValueList&gt;</td>
+                    <td><span>LIST</span></td>
+                    <td>
+                      <p>The list of key value pairs which will be inserted.</p>
+                      <p>
+                        If a duplicate key is specified, its new value will
+                        overwrite its existing value, and the new key-value pair
+                        will not get added.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;elementList&gt;</td>
+                    <td><span>LIST</span></td>
+                    <td><p>The list of elements which will be inserted.</p></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>products</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span><span>,</span> <span>"CRM"</span><span>,</span> <span>"Campaigns"</span><span>)</span><span>;</span>
+&nbsp;<span>products</span><span>.insertAll</span><span>(</span><span>{</span><span>"Analytics"</span><span>,</span> <span>"Connect"</span><span>}</span><span>)</span><span>; </span><span>// inserts "Analytics" and "Connect" to the existing collection</span></pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>productVersion</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span> <span>:</span> <span>5</span><span>)</span><span>;
+&nbsp;<span>productVersion</span><span>.insertAll</span><span>(</span><span>{</span><span>"CRM"</span> <span>:</span> <span>5</span><span>,</span> <span>"Campaigns"</span> <span>:</span> <span>2</span><span>}</span><span>)</span><span>;</span> <span>// inserts the new key-value pairs to the existing collection</span></span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

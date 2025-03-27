@@ -1,0 +1,238 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>User roles &amp; properties tasks</a></li>
+        <li><a>App User Tasks</a></li>
+        <li><a>Fetch role of app user</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch role of app user</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;deluge task&nbsp;fetches the role&nbsp;of a specified
+              user.
+            </p>
+            <h2><a></a>Return</h2>
+            <p>
+              This task returns the role of a specified user. The
+              returned&nbsp;data-type is <strong>TEXT</strong>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <p>
+                <span
+                  ><span>&lt;variable&gt;</span> =
+                  thisapp.permissions.roleForUser(
+                  <span>&lt;userDetail&gt;</span> );</span
+                >
+              </p>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p><span>&lt;variable&gt;</span></p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><p>Variable which will hold the returned value.</p></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;userDetail&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        <strong>Email ID</strong>&nbsp;or
+                        the&nbsp;<strong>Username</strong>&nbsp;of the user
+                        whose role will be returned.&nbsp;<br /><br />Points to
+                        note for this parameter:&nbsp;
+                      </p>
+                      <ul>
+                        <li>
+                          You can view the email addresses and users names of
+                          existing users&nbsp;in your account from the&nbsp;<a
+                            >Account Setup page</a
+                          >, and the existing users&nbsp;in your application
+                          from the&nbsp;<a>Users page</a>.&nbsp;
+                        </li>
+                        <li>
+                          If you find an email address in place of a username in
+                          the users page, it is due to that user not being
+                          registered with Zoho. Once the users create an account
+                          with Zoho, they will be assigned a username.&nbsp;
+                        </li>
+                        <li>
+                          If the user is not found, this function will throw a
+                          runtime error.
+                        </li>
+                      </ul>
+                      <p>Data type is <strong>Text</strong>.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>A sample snippet&nbsp;to fetch the role&nbsp;of a user.</p>
+            <div>
+              roleName = thisapp.permissions.roleForUser("john@zillum.com");
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

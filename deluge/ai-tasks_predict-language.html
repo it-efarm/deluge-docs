@@ -1,0 +1,180 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Artificial Intelligence Tasks</a></li>
+        <li><a>Predict Language</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Predict Language</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.ai.predictLanguage</strong> task identifies the
+              language of the given piece of text.
+            </p>
+            <div>
+              <strong>Note:&nbsp;</strong>
+              <ul>
+                <li>
+                  The prediction results may not be accurate, which is also the
+                  case with any AI prediction. However, we are working on
+                  improving this.
+                </li>
+                <li>
+                  The prediction results are dynamic. The same script may
+                  produce different outcomes at different times based on how
+                  much the machine has learned.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.ai.predictLanguage</span><span>(</span><span>&lt;</span><span>sentence</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the predicted language, the prediction
+                        accuracy of the result, and the status of the executed
+                        task.<br /><strong>Note:</strong> You can find the list
+                        of supported languages&nbsp;<a>here</a>.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;sentence&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the piece of text whose language needs to be
+                        identified
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script identifies the language of the text
+              -&nbsp;<strong>Hai tout, comment ça va?</strong>.
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.ai.predictLanguage</span><span>(</span><span>"Hai tout, comment ça va?"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      predicted language, the prediction accuracy of the result,
+                      and the status of the executed task. Here, the language
+                      returned is&nbsp;<strong>French (fr)</strong>.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Hai tout, comment ça va?"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the piece of text
+                      whose language needs to be identified.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be return in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"data": {<br />&nbsp;"items": [<br />&nbsp;{<br />&nbsp;"predictionProbabilities":
+                  {<br />&nbsp;"fr": 0.9999907117029719<br />&nbsp;},<br />&nbsp;"queryValue":
+                  "Hai tout, comment ça va?"<br />&nbsp;}<br />&nbsp;]<br />&nbsp;},<br />&nbsp;"message":
+                  "OK",<br />&nbsp;"status": 200<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <div>
+              <strong>Note:&nbsp;</strong>To fetch the most probable predicted
+              language from the response, use the following script:
+            </div>
+            <div>
+              <pre><span>//Store the predicted languages from the response in a collection.</span>&nbsp;
+<span>predicted_language</span> <span>= </span><span>response</span><span>.getJson</span><span>(</span><span>"data"</span><span>)</span><span>.getJSON</span><span>(</span><span>"items"</span><span>)</span><span>.getJSON</span><span>(</span><span>"predictionProbabilities"</span><span>)</span><span>.toCollection</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>//Sort the predicted probablity values in descending and get the highest value.</span>&nbsp;
+<span>highest_probablity</span> <span>=</span> <span>predicted_language</span><span>.values</span><span>(</span><span>)</span><span>.sort</span><span>(</span><span>false</span><span>)</span><span>.get</span><span>(</span><span>0</span><span>)</span><span>;</span>&nbsp;
+<span>//Fetch the language key by matching the highest probablity value.</span>&nbsp;
+<span>info</span> <span>predicted_language</span><span>.getKey</span><span>(</span><span>highest_probablity</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for an empty input text will be returned
+                  in the following format:
+                </p>
+                <div>
+                  &nbsp;{ &nbsp;"message":"EMPTY_VALUE_NOT_ALLOWED",
+                  &nbsp;"status":400 &nbsp;}
+                </div>
+              </li>
+            </ul>
+            &nbsp;
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>AI tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,297 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>User roles &amp; properties tasks</a></li>
+        <li><a>App User Tasks</a></li>
+        <li><a>Assign profile to app user</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Assign profile to app user</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong> This task is applicable only to Zoho
+              Creator.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;deluge task&nbsp;assigns a specified profile
+              to&nbsp;specified&nbsp;users.
+            </p>
+            <div>
+              <strong>Note: </strong>If the email address does not correspond to
+              an existing user then a new user will be added and the profile
+              will be assigned.
+            </div>
+            <h2><a></a>Return</h2>
+            <p>
+              This task returns a MAP value in the format
+              {"profileName":"&lt;specified_profile&gt;","emailId":"&lt;specified_email&gt;"}
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <p>
+                <span>&lt;variable&gt;</span
+                ><span> = thisapp.permissions.assignUserInProfile(</span
+                ><span>&lt;email_ID&gt;</span><span>, </span
+                ><span>&lt;profile_name&gt;</span><span>, </span
+                ><span>&lt;notification&gt;</span><span>);</span>
+              </p>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Param</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p><span>&lt;variable&gt;</span></p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>Variable which will hold the returned value.</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;email_ID&gt;</span></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Email id of the user to whom the profile must be
+                        assigned.
+                      </p>
+                      <p>Points to note for this parameter:</p>
+                      <ul>
+                        <li>
+                          You can specify multiple email addresses in a list
+                          format.
+                        </li>
+                        <li>
+                          If the specified&nbsp;user does not exist in the app,
+                          the&nbsp;new user will be added with the specified
+                          profile.&nbsp;&nbsp;
+                        </li>
+                        <li>
+                          You can view the email addresses of existing users in
+                          you account from the <a>Account Setup page</a>, and
+                          existing users in the application from the
+                          <a>Users page</a>.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>&lt;p</span><span>rofile_name</span
+                      ><span>&gt;</span>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Name of the profile which needs to be assigned to the
+                        specified user.
+                      </p>
+                      <p>Points to note for this parameter:</p>
+                      <ul>
+                        <li>
+                          If the specified profile does not exist, execution of
+                          the script will stopped during runtime and an error
+                          message will be displayed.&nbsp;
+                        </li>
+                        <li>
+                          You can view the existing profiles in your app in the
+                          <a>Permissions page</a>.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><span>&lt;notification&gt;</span></p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      <p>
+                        Decides if an email invitation to join the organization
+                        needs to be sent when the specified email address
+                        doesn't correspond to any of the existing users. If this
+                        param is true, an invitation to join the organization
+                        will be sent to the specified email address. Otherwise,
+                        the mail will not be sent.
+                      </p>
+                      <p><strong>Default value:</strong> false</p>
+                      <div>
+                        <strong>Note:</strong>&nbsp;In Zoho Creator Custom
+                        Solutions,&nbsp;an invitation will always be sent to the
+                        specified email address irrespective of the value of
+                        this parameter.
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>1. A sample snippet assigning "Read" profile to a user.</p>
+            <div>
+              thisapp.permissions.assignUserInProfile("john@zylker.com",
+              "Read");
+            </div>
+            <p>&nbsp;</p>
+            <p>
+              2. A sample snippet assigning "Write" profile to a user and
+              sending an email notifying the same to them.
+            </p>
+            <div>
+              thisapp.permissions.assignUserInProfile("portia@zylker.com",
+              "Write", true);
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

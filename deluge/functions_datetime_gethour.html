@@ -1,0 +1,228 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>getHour</a></li>
+        <li><a>Time Functions</a></li>
+        <li><a>getHour</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>getHour</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>getHour</strong> function takes a
+              <strong>date-time</strong> or <strong>time</strong> value and
+              returns the hour value.
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  The date-time value will be returned in the format specified
+                  in application settings.
+                </li>
+                <li>
+                  The <strong>getHour</strong> function for time data-type is
+                  available only for Zoho Creator as of now.
+                </li>
+                <li>
+                  The&nbsp;<strong>hour</strong>&nbsp;function for time
+                  data-type is not available as of now.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>NUMBER</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>dateTimeValue</span><span>&gt;</span><span>.getHour</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>getHour</span><span>(</span><span>&lt;</span><span>dateTimeValue</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>timeValue</span><span>&gt;</span><span>.getHour</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>getHour</span><span>(</span><span>&lt;</span><span>timeValue</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>dateTimeValue</span><span>&gt;</span><span>.hour</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>hour</span><span>(</span><span>&lt;</span><span>dateTimeValue</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>timeValue</span><span>&gt;</span><span>.hour</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>hour</span><span>(</span><span>&lt;</span><span>timeValue</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>Variable which will contain the hours returned.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &lt;dateTimeValue&gt;
+                      <p>(if the value is <strong>date-time</strong>)</p>
+                    </td>
+                    <td><span>DATE-TIME</span></td>
+                    <td>
+                      <p>
+                        The date-time value from&nbsp;which the&nbsp;hours
+                        component should be obtained.
+                      </p>
+                      <p>
+                        The date-time value can be specified without a time
+                        value, in which case 00:00:00 will be taken as the
+                        default time value.
+                      </p>
+                      <p>
+                        If the hour value is specified as 24 or more, the
+                        date-time value be reset to 00:00:00. If the minutes
+                        value is specified as 60 or more, the mm:ss value will
+                        be reset to 00:00, if the seconds value is specified as
+                        60 or more, the ss value will be reset to 00.
+                      </p>
+                      <p>A runtime error will be encountered if:</p>
+                      <ul>
+                        <li>
+                          the hour value, or minute value, or second value, is
+                          specified in more than 2 digits.
+                        </li>
+                        <li>
+                          the date value exceeds the number of days in that
+                          month.
+                        </li>
+                        <li>an incorrect month value is specified.</li>
+                        <li>the year value has more than 4 digits.</li>
+                      </ul>
+                      <p>
+                        Refer <a>date-time data type</a> to learn more about
+                        date-time data type.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      &lt;timeValue&gt;
+                      <p>(if the value is <strong>time</strong>)</p>
+                    </td>
+                    <td><span>TIME</span></td>
+                    <td>
+                      <p>
+                        The time value from&nbsp;which the&nbsp;hours component
+                        should be obtained.
+                      </p>
+                      <p>
+                        <strong
+                          >Time data type is currently supported only in Zoho
+                          Creator</strong
+                        >
+                      </p>
+                      <p>
+                        TIME values are represented in the formats -
+                        <strong>hh:mm:ss a</strong> (12-hour format) and
+                        <strong>HH:mm:ss</strong> (24-hour format)
+                      </p>
+                      <p>A runtime error will be encountered if:</p>
+                      <ul>
+                        <li>
+                          Declared time values cannot skip either the seconds
+                          part or seconds and minutes parts altogether. In the
+                          event the value does not conform to the supported time
+                          formats, an error message will be thrown.
+                        </li>
+                        <li>
+                          TIME values in no way should fall outside the 24 hour
+                          range. A value declared like "23:59:60" would throw an
+                          error.
+                        </li>
+                        <li>
+                          Operations (like addHour, subMinutes) on TIME values
+                          which result in a value outside the 24-hour range will
+                          also result in an error.
+                        </li>
+                      </ul>
+                      <p>
+                        Refer <a>time data type</a> to learn more about time
+                        data type.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>Date-Time Examples:</p>
+            <div>
+              <pre>&nbsp;<span>currentDate</span> <span>=</span> <span>'01-Jan-2019'</span><span>;</span>
+&nbsp;<span>info </span><span>currentDate</span><span>.getHour</span><span>(</span><span>)</span><span>;</span> <span>// Returns 0</span></pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>currentDate</span> <span>=</span> <span>'01-Jan-2019 23:15:10'</span><span>;</span>
+&nbsp;<span>info </span><span>currentDate</span><span>.hour</span><span>(</span><span>)</span><span>;</span> <span>// Returns 23</span>
+</pre>
+            </div>
+            <p>Time Examples (Only for Creator):<span> </span></p>
+            <div>
+              <pre>&nbsp;<span>timeValue</span> <span>=</span> <span>'10:00:00 PM'</span><span>;</span>
+&nbsp;<span>info </span><span>timeValue</span><span>.getHour</span><span>(</span><span>)</span><span>;</span> <span>// Returns 10</span></pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>currentTime</span> <span>=</span> <span>'13:15:10'</span><span>;</span>
+&nbsp;<span>info </span><span>currentTime</span><span>.getHour</span><span>(</span><span>)</span><span>;</span> <span> // Returns 13</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

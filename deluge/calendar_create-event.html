@@ -1,0 +1,294 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Calendar integration task</a></li>
+        <li><a>Create event</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create event in Zoho Calendar</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to create an event&nbsp;in Zoho Calendar.
+            </p>
+            <p>
+              This task is based on&nbsp;<a>Zoho Calendar&nbsp;API</a
+              >&nbsp;-&gt; <a>Create new event</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho</span><span>.calendar.createEvent</span><span>(</span><span>&lt;</span><span>calendar_uid</span><span>&gt;</span><span>, </span><span>&lt;event_details_map</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;&nbsp;</span></p>
+                        </td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            Variable to hold the response returned by Zoho
+                            Calendar.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span
+                              >&lt;calendar_uid&gt;<strong>&nbsp;</strong></span
+                            >
+                          </p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The unique identifier of the calendar in which the
+                            event needs to be created.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> Click <a>here</a> to learn
+                            how to get your calendar UID.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;event_details_map&gt;</span></p>
+                        </td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The details of the event that needs to be created.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> The keys and values to this
+                            parameter should be provided as specified in the
+                            <a>Zoho Calendar API</a>.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connection&gt;</span></p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            is the link name of the Zoho Calendar&nbsp;<a
+                              >connection</a
+                            >
+                          </p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes as mentioned in&nbsp;<a
+                                  >Zoho Calendar&nbsp;API</a
+                                >
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Create an event in&nbsp;Zoho Calendar</h2>
+            <p>
+              The following script creates an event in the specified &nbsp;Zoho
+              Calendar.
+            </p>
+            <div>
+              <pre>&nbsp;<span>reminder1 </span><span>= </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>reminder1</span><span>.put</span><span>(</span><span>"action"</span><span>, </span><span>"popup"</span><span>)</span><span>;</span>
+&nbsp;<span>reminder1</span><span>.put</span><span>(</span><span>"minutes"</span><span>, </span><span>"-60"</span><span>)</span><span>;</span>
+&nbsp;<span>reminders_list </span><span>= </span><span>List</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>reminders_list</span><span>.add</span><span>(</span><span>reminder1</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>dateandtime_map </span><span>= </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>dateandtime_map</span><span>.put</span><span>(</span><span>"timezone"</span><span>, </span><span>"Asia/Calcutta"</span><span>)</span><span>;</span>
+&nbsp;<span>dateandtime_map</span><span>.put</span><span>(</span><span>"start"</span><span>, </span><span>"20200201T153000+0530"</span><span>)</span><span>;</span>
+&nbsp;<span>dateandtime_map</span><span>.put</span><span>(</span><span>"end"</span><span>, </span><span>"20200202T163000+0530"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>attendees_list </span><span>= </span><span>List</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>attendees_list</span><span>.add</span><span>(</span><span>{</span><span>"email"</span><span>:</span><span>"shawn@zylker.com"</span><span>}</span><span>)</span><span>;</span>
+&nbsp;<span>attendees_list</span><span>.add</span><span>(</span><span>{</span><span>"email"</span><span>:</span><span>"hailee@zylker.com"</span><span>}</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>eventDetails</span><span>=</span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>eventDetails</span><span>.put</span><span>(</span><span>"estatus"</span><span>, </span><span>"added"</span><span>)</span><span>;</span>
+&nbsp;<span>eventDetails</span><span>.put</span><span>(</span><span>"title"</span><span>, </span><span>"Zylker invitation"</span><span>)</span><span>;</span>
+&nbsp;<span>eventDetails</span><span>.put</span><span>(</span><span>"reminders"</span><span>, </span><span>reminders_list</span><span>)</span><span>;</span>
+&nbsp;<span>eventDetails</span><span>.put</span><span>(</span><span>"dateandtime"</span><span>, </span><span>dateandtime_map</span><span>)</span><span>;</span>
+&nbsp;<span>eventDetails</span><span>.put</span><span>(</span><span>"isallday"</span><span>, </span><span>"true"</span><span>)</span><span>;</span>
+&nbsp;<span>eventDetails</span><span>.put</span><span>(</span><span>"attendees"</span><span>, </span><span>attendees_list</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>event</span><span>=</span><span>Map</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>event</span><span>.put</span><span>(</span><span>"eventdata"</span><span>, </span><span>eventDetails</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>response </span><span>= </span><span>zoho</span><span>.calendar</span><span>.createEvent</span><span>(</span><span>"18027XXXXXXXXXXXXXXXXXXXXXX5e986"</span><span>, </span><span>event</span>, <span>"calendar_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>event</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>KEY-VALUE</span> that holds the details of
+                      the event that needs to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>reminders_list</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      The <span>LIST</span>&nbsp;variable that holds the
+                      type&nbsp;of reminders&nbsp;to be set for the event
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>dateandtime_map</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span>&nbsp;variable that holds the
+                      date and time of the event
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>attendees_list</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      The <span>LIST</span>&nbsp;variable that holds the
+                      attendees information
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"calendar_connection"</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;that represents the Zoho
+                      Calendar connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response format</h2>
+            <strong>Success Response</strong>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"events": [<br />&nbsp;{<br />&nbsp;"isprivate":
+                  false,<br />&nbsp;"reminders": [<br />&nbsp;{<br />&nbsp;"minutes":
+                  "-60",<br />&nbsp;"action": "popup"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"enable_eventmanagement":
+                  false,<br />&nbsp;"role": "organizer",<br />&nbsp;"color":
+                  "",<br />&nbsp;"attendees": [<br />&nbsp;{<br />&nbsp;"privilege":
+                  1,<br />&nbsp;"email": "shawn@zylker.com",<br />&nbsp;"attendance":
+                  1,<br />&nbsp;"status": "NEEDS-ACTION"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"privilege":
+                  4,<br />&nbsp;"email": "hanna@zylker.com",<br />&nbsp;"attendance":
+                  1,<br />&nbsp;"status": "ACCEPTED"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"calid":
+                  "34888000000002003",<br />&nbsp;"has_attachment": false,<br />&nbsp;"title":
+                  "Zylker invitation",<br />&nbsp;"createdtime":
+                  "20200109T104840Z",<br />&nbsp;"calendar_alarm": false,<br />&nbsp;"duration":
+                  "3600000",<br />&nbsp;"uid":
+                  "172835038a0f4c7b8aea094688e700ad@zoho.com",<br />&nbsp;"estatus":
+                  "added",<br />&nbsp;"organizer": "hanna@zylker.com",<br />&nbsp;"isallday":
+                  false,<br />&nbsp;"modifiedby": "hanna@zylker.com",<br />&nbsp;"etag":
+                  "1578566920936",<br />&nbsp;"caluid":
+                  "18027611702d41af8942935faab5e986",<br />&nbsp;"multiday":
+                  false,<br />&nbsp;"id": 34888000000006019,<br />&nbsp;"dateandtime":
+                  {<br />&nbsp;"timezone": "Asia/Calcutta",<br />&nbsp;"start":
+                  "20200126T153000+0530",<br />&nbsp;"end":
+                  "20200126T163000+0530"<br />&nbsp;},<br />&nbsp;"lastmodifiedtime":
+                  "20200109T104840Z"<br />&nbsp;}<br />&nbsp;]<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <strong>Failure Response</strong>
+            <ul>
+              <li>
+                <p>
+                  The failure response for incorrect Calendar UID will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"error": [<br />&nbsp;{<br />&nbsp;"description":
+                  "Calendar not found",<br />&nbsp;"message":
+                  "CALENDAR_NOTFOUND"<br />&nbsp;}<br />&nbsp;]<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Calendar&nbsp;API</a><a>​</a></li>
+              <li><a>Common response&nbsp;codes can be viewed&nbsp;here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,213 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Cliq Integration Tasks</a></li>
+        <li><a>Extension properties tasks</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Extension Properties Tasks</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li>​<a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> These&nbsp;tasks can only be used in the
+                Extension handlers available in Zoho Cliq.
+              </p>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The extension&nbsp;properties tasks are&nbsp;used to create and
+              manage <a>extension properties</a> in Zoho Cliq.<br /><br />Extensions
+              are bundles of code integrations, commands, bots, message actions,
+              functions, schedulers and databases&nbsp;combined together
+              in&nbsp;Zoho Cliq. Learn&nbsp;more about&nbsp;Zoho Cliq extensions
+              <a>here</a>.
+            </p>
+            <h2>​<a></a>Syntax</h2>
+            <p>To get the&nbsp;value assigned to a property</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.cliq.extension.getProperties</span><span>(</span><span>&lt;</span><span>property_Key</span><span>&gt;</span><span>, &lt;connection&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p><br />To set a property value</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.cliq.extension.setProperties</span><span>(</span><span>&lt;</span><span>property_KeyValue</span><span>&gt;</span><span>, &lt;connection&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p><br />To delete a property</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.cliq.extension.deleteProperty</span><span>(</span><span>&lt;</span><span>property_Key</span><span>&gt;</span>,<span> &lt;connection&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;variable&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        is the variable which will hold the&nbsp;response
+                        returned by Zoho Cliq.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;propertyKey&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span> (or) <span>LIST*</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        is the property key whose value will be returned or
+                        deleted based on the task.<br /><br />For
+                        <strong>getProperties</strong> task, the param can be of
+                        TEXT or LIST data type.
+                      </p>
+                      <p>
+                        For <strong>deleteProperty</strong> task, the param must
+                        be of TEXT data type.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;property_KeyValue&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Key&nbsp;and value to be set for an extension property.
+                      </p>
+                      <p>
+                        Properties' keys can consist only characters from a to
+                        z, and _ (underscore).
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;connection&gt;</p></td>
+                    <td><span>TEXT</span>&nbsp;</td>
+                    <td>
+                      specifies the link name of the Zoho
+                      Cliq&nbsp;<a>connection</a>.
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            The connection param is mandatory when this task is
+                            triggered from a Scheduler. In all other cases, the
+                            connection param is optional.
+                          </li>
+                          <li>
+                            While creating the connection, add the scope:
+                            <strong>ZohoCliq.Applications.ALL</strong>
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>The following are sample codes for extension property tasks:</p>
+            <div>
+              <pre><span>dataMap</span> <span>=</span> <span>{</span><span>"username"</span><span>:</span><span>"scottfisher"</span><span>}</span><span>;</span>&nbsp;
+<span>setResponse</span> <span>=</span> <span>zoho</span><span>.cliq</span><span>.extension</span><span>.setProperties</span><span>(</span><span>dataMap</span>, <span>cliq_connection</span><span>)</span><span>;</span>
+&nbsp;
+<span>getResponse</span> <span>=</span> <span>zoho</span><span>.cliq</span><span>.extension</span><span>.getProperties</span><span>(</span><span>"username"</span>, <span>cliq_connection</span><span>)</span><span>;</span>
+&nbsp;
+<span>deleteResponse</span> <span>=</span> <span>zoho</span><span>.cliq</span><span>.extension</span><span>.deleteProperty</span><span>(</span><span>"username"</span>, <span>cliq_connection</span><span>)</span><span>;</span></pre>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <ul>
+              <li>
+                <p>
+                  The sample&nbsp;<strong>success response</strong> returned by
+                  <strong>setProperties</strong> and
+                  <strong>getProperties</strong> tasks is of the following
+                  format.
+                </p>
+                <div><span>{"username":"test"}</span></div>
+              </li>
+              <br />
+              <li>
+                <p>
+                  The sample&nbsp;<strong>failure response</strong> returned by
+                  <strong>setProperties</strong> task is of the following
+                  format.
+                </p>
+                <div>
+                  <span
+                    >{"code":"extra_key_found","message":"'user@name' is an
+                    extra key in the JSON Object."}</span
+                  >
+                </div>
+              </li>
+              <br />
+              <li>
+                <p>
+                  The sample&nbsp;<strong>failure response</strong> returned by
+                  <strong>getProperties</strong>&nbsp;and
+                  <strong>deleteProperties</strong> tasks due to incorrect,
+                  non-existent, or empty property name is of the following
+                  format.
+                </p>
+                <div>
+                  <span
+                    >{"message":"The username property does not
+                    exist","code":"extension_property_does_not_exist"}</span
+                  >
+                </div>
+              </li>
+              <br />
+              <li>
+                <p>
+                  The sample&nbsp;<strong>success response</strong> returned by
+                  <strong>deleteProperties</strong> task is of the following
+                  format.
+                </p>
+                <div><span>{"status":"success"}</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h2><a></a>Related Links</h2>
+      <ul>
+        <li><a>Zoho Cliq API</a></li>
+        <li><a>Zoho Cliq API Error Codes</a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="opacity: 0.0177213"><iframe></iframe></div>
+</div>

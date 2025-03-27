@@ -1,0 +1,331 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Upload document</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Upload Document in Zoho Writer</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.writer.uploadDocument</strong> task is used to
+              upload a document to Zoho Writer. This integration task is based
+              on the <a>Zoho Writer API - Create with content</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.writer.uploadDocument</span><span>(</span><span>&lt;</span><span>content</span><span>&gt;</span>, <span>&lt;</span><span>file_name</span><span>&gt;</span>, <span>&lt;</span><span>folder_id</span><span>&gt;</span>, <span>&lt;</span><span>password</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The response returned by Zoho Writer. It represents
+                            the metadata of the uploaded document.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;content&gt;</p></td>
+                        <td>
+                          <p><span>FILE</span></p>
+                        </td>
+                        <td>
+                          <p>The document that will be uploaded.</p>
+                          <p>The supported document types are as follows:</p>
+                          <ul>
+                            <li>.doc</li>
+                            <li>.docx</li>
+                            <li>.rtf</li>
+                            <li>.odt</li>
+                            <li>.html</li>
+                            <li>.txt</li>
+                            <li>.htm</li>
+                            <li>.zdoc</li>
+                            <li>.zip</li>
+                          </ul>
+                          <div>
+                            <strong>Note:</strong>
+                            <ul>
+                              <li>
+                                The file is invoked from the cloud using
+                                the&nbsp;<a>invokeUrl</a> task.
+                              </li>
+                              <li>
+                                <strong>In Zoho Creator</strong>, the file
+                                uploaded in the&nbsp;<a>file upload field</a>
+                                can also be used as value for this parameter.
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;file_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The name in which the document will be uploaded.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;folder_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The ID of the folder in Zoho Docs into which the
+                            document will be uploaded.
+                          </p>
+                          <div>
+                            <strong>Note: </strong>The folder ID can be obtained
+                            from the URL of the required folder in Zoho docs.<br />The
+                            URL is in the following format:<br />https://docs.zoho.com/home#folder/&lt;folder_id&gt;
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;password&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The password of the (protected) file that
+                            will&nbsp;be uploaded to Zoho Writer.
+                          </p>
+                          <div>
+                            <strong>Note:&nbsp;</strong>If the file that needs
+                            to be uploaded is not password-protected, the
+                            parameter will be passed empty.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in
+                                <a>Zoho Writer API</a>&nbsp;while creating the
+                                connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script uploads the document fetched from the web to
+              Zoho Writer.
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Fetch a file from the web</span>
+&nbsp;<span>file_invoked</span><span> = </span><span>invokeUrl
+&nbsp;<span>[</span>
+&nbsp;<span>url</span><span>: </span><span>"http://homepages.inf.ed.ac.uk/neilb/TestWordDoc.doc"</span>
+&nbsp;<span>type</span><span>: </span><span>GET</span>
+&nbsp;<span>];</span>
+&nbsp;
+&nbsp;<span>// Upload&nbsp;the file to Zoho Writer</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.writer.uploadDocument</span><span>(</span><span>file_invoked</span><span>,</span><span>"sample file"</span><span>,</span><span>"al296XXXXXXXXXXXXXXXXXXXXXXXXXXXa516c"</span><span>,</span><span>""</span><span>,</span><span>"writer_oauth_connection"</span><span>)</span><span>;</span></span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>KEY-VALUE</span> response returned by Zoho
+                      Writer. It represents the metadata of the uploaded file.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>file_invoked</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>FILE</span> that represents the file that
+                      is fetched from the web using the invokeUrl task, which
+                      will be uploaded in Zoho Writer.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"sample file"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents&nbsp;how many
+                      documents need to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"al296XXXXXXXXXXXXXXXXXXXXXXXXXXXa516c"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;that represents the ID of
+                      the folder in Zoho docs into which the document will be
+                      uploaded.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"writer_oauth_connection"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the name of the
+                      connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"role": "OWNER",<br />&nbsp;&nbsp;"modified_time_ms":
+                  1563945284888,<br />&nbsp;&nbsp;"owner_id": "58XXXX70",<br />&nbsp;&nbsp;"open_url":
+                  "https://writer.zoho.com/writer/open/cvqh0XXXXXXXXXXXXXXXXXXXXXXXXXXXb35f5",<br />&nbsp;&nbsp;"is_favourite":
+                  false,<br />&nbsp;&nbsp;"document_id":
+                  "cvqh0XXXXXXXXXXXXXXXXXXXXXXXXXXXb35f5",<br />&nbsp;&nbsp;"last_opened_time_ms":
+                  1563945283271,<br />&nbsp;&nbsp;"thumbnail_url":
+                  "https://writer.zoho.com/writer/thumbnail/cvqh0XXXXXXXXXXXXXXXXXXXXXXXXXXXb35f5",<br />&nbsp;&nbsp;"type":
+                  "document",<br />&nbsp;&nbsp;"lock_info": {<br />&nbsp;&nbsp;"status":
+                  false<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"document_name":
+                  "file_name",<br />&nbsp;&nbsp;"modified_time":
+                  "2019-07-24T05:14:44Z",<br />&nbsp;&nbsp;"library_id": 1,<br />&nbsp;&nbsp;"permissions":
+                  {<br />&nbsp;&nbsp;"can_trash": true,<br />&nbsp;&nbsp;"can_share":
+                  true,<br />&nbsp;&nbsp;"can_edit": true,<br />&nbsp;&nbsp;"can_lock":
+                  true,<br />&nbsp;&nbsp;"can_org_publish": true,<br />&nbsp;&nbsp;"can_read":
+                  true,<br />&nbsp;&nbsp;"can_discard_lock": false,<br />&nbsp;&nbsp;"can_publish":
+                  true,<br />&nbsp;&nbsp;"can_delete": false,<br />&nbsp;&nbsp;"can_restore":
+                  false,<br />&nbsp;&nbsp;"can_rename": true,<br />&nbsp;&nbsp;"can_favourite":
+                  true,<br />&nbsp;&nbsp;"can_download": true,<br />&nbsp;&nbsp;"can_unlock":
+                  false<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"download_url":
+                  "https://writer.zoho.com/api/v1/download/cvqh0XXXXXXXXXXXXXXXXXXXXXXXXXXXb35f5",<br />&nbsp;&nbsp;"document_properties":
+                  "https://writer.zoho.com/api/v1/documents/cvqh0XXXXXXXXXXXXXXXXXXXXXXXXXXXb35f5",<br />&nbsp;&nbsp;"lastmodified_by":
+                  [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"email_id":
+                  "shawn.m@zylker.com",<br />&nbsp;&nbsp;"profile_photo":
+                  "https://contacts.zoho.com/file?t=user&amp;ID=58XXXX70&amp;fs=thumb",<br />&nbsp;&nbsp;"user_id":
+                  "58XXXX70",<br />&nbsp;&nbsp;"display_name": "Shawn"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"final_info":
+                  {<br />&nbsp;&nbsp;"status": false<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"created_time":
+                  "2019-07-24T05:14:43Z",<br />&nbsp;&nbsp;"parent_folder_id":
+                  "al296XXXXXXXXXXXXXXXXXXXXXXXXXXXa516c",<br />&nbsp;&nbsp;"collaboration_id":
+                  "1203XXXXXXXXXXX2220",<br />&nbsp;&nbsp;"last_opened_time":
+                  "2019-07-24T05:14:43Z",<br />&nbsp;&nbsp;"version_id":
+                  "7643XXXXXXXXXXX8022",<br />&nbsp;&nbsp;"created_by":
+                  "Shawn",<br />&nbsp;&nbsp;"version": "1.0",<br />&nbsp;&nbsp;"created_time_ms":
+                  1563945283271,<br />&nbsp;&nbsp;"preview_url":
+                  "https://writer.zoho.com/writer/preview/cvqh0XXXXXXXXXXXXXXXXXXXXXXXXXXXb35f5",<br />&nbsp;&nbsp;"creator_id":
+                  "58XXXX170",<br />&nbsp;&nbsp;"permalink":
+                  "https://docs.zoho.com/file/cvqh0XXXXXXXXXXXXXXXXXXXXXXXXXXXb35f5",<br />&nbsp;&nbsp;"status":
+                  "active"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for uploading&nbsp;unsupported file type
+                  will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"message":
+                  "The file you're trying to import&nbsp;seems to be in an
+                  unsupported content-type.",<br />&nbsp;&nbsp;"documentation_url":
+                  "https://www.zoho.com/writer/help/api/v1/general-errors.html",<br />&nbsp;&nbsp;"response_generated_time":
+                  1563953458574,<br />&nbsp;&nbsp;"request_url":
+                  "https://writer.zoho.com/api/v1/documents",<br />&nbsp;&nbsp;"errorcode":
+                  "R1008"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Writer integration tasks</a></li>
+              <li><a>Connections</a></li>
+              <li><a>InvokeUrl</a></li>
+              <li><a>Zoho Writer - Create with content API document</a></li>
+              <li><a>Zoho Writer API - Possible error responses</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

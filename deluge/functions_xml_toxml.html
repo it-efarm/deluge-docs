@@ -1,0 +1,84 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>XML &amp; JSON functions</a></li>
+        <li><a>toXml</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>toXml</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>toXml</strong>&nbsp;function takes a&nbsp;<strong
+                >JSON/MAP formatted text</strong
+              >&nbsp;as an argument, and returns it as an XML.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>TEXT</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>text</span><span>&gt;</span><span>.toXml</span><span>(</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>Variable which will contain the converted XML.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;text&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      The JSON formatted text which needs to be converted to
+                      XML.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>jsonText</span> <span>=</span> <span>"{Name:'Lia Shelton', OrderNo:[343,443,577]}"</span><span>;</span>    
+&nbsp;<span>info </span><span>jsonText</span><span>.toXML</span><span>(</span><span>)</span><span>;</span> 
+<span>&nbsp;/* returns the following XML
+&nbsp;&lt;root&gt;
+&nbsp;&lt;OrderNo&gt;343&lt;/OrderNo&gt;
+&nbsp;&lt;OrderNo&gt;443&lt;/OrderNo&gt;
+&nbsp;&lt;OrderNo&gt;577&lt;/OrderNo&gt;
+&nbsp;&lt;Name&gt;Lia Shelton&lt;/Name&gt;
+&nbsp;&lt;/root&gt;
+&nbsp;*/</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

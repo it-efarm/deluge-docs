@@ -1,0 +1,274 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Artificial Intelligence Tasks</a></li>
+        <li><a>Find Named Entities</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Find Named Entities</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a>Extract all the items that matches an entity type</a>
+                    </li>
+                    <li>
+                      <a
+                        >Extract all the items that matches a list of entity
+                        types</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.ai. findNamedEntities&nbsp;</strong>task extracts
+              the parameters relevant to the specified
+              <strong>intent </strong>from the given text. Simply put, it
+              identifies the items that fall under the specified&nbsp;entity
+              types (such as country, state, city, region, postcode,
+              and&nbsp;<a>more</a>) in the given text.&nbsp;For example, if the
+              given text is <strong>"I'm a teacher"</strong>&nbsp;and the
+              specified entity type is <strong>"occupation"</strong>, the item
+              extracted is <strong>"teacher"</strong>.
+            </p>
+            <div>
+              <strong>Note:&nbsp;</strong>
+              <ul>
+                <li>This task only supports&nbsp;<strong>English</strong>.</li>
+                <li>
+                  The prediction results may not be accurate, which is also the
+                  case with any AI prediction. However, we are working on making
+                  it better.
+                </li>
+                <li>
+                  The prediction results are dynamic. The same script may
+                  produce different outcomes at different times based on how
+                  much the machine has learned.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.ai.findNamedEntities</span><span>(</span><span>&lt;</span><span>sentence</span><span>&gt;</span>,<span>&lt;</span><span>entity_type</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the items that fall under the provided entity
+                        types and the status of the executed task
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;sentence&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the sentence from which the items need to be
+                        extracted
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;entity_types&gt;</p></td>
+                    <td>
+                      <p><span>TEXT/LIST</span></p>
+                    </td>
+                    <td>
+                      <a></a>
+                      <p>Specifies the entity types.</p>
+                      <p>The following are the allowed entity types:</p>
+                      <ul>
+                        <li>country</li>
+                        <li>state</li>
+                        <li>city</li>
+                        <li>region</li>
+                        <li>postcode</li>
+                        <li>countrycode</li>
+                        <li>person</li>
+                        <li>org</li>
+                        <li>places</li>
+                        <li>planet</li>
+                        <li>occupation</li>
+                        <li>food</li>
+                        <li>plant</li>
+                        <li>animal</li>
+                        <li>color</li>
+                        <li>element</li>
+                        <li>emoji</li>
+                        <li>chemical</li>
+                        <li>area</li>
+                        <li>skills</li>
+                        <li>degree</li>
+                        <li>iso</li>
+                        <li>team</li>
+                        <li>datetime</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              The following script extracts all the items that matches the
+              entity -&nbsp;<strong>"person"</strong> from the given text
+              -&nbsp;<strong>"Hello, I'm Shawn."</strong>, i.e, it lists all the
+              person names encountered in the specified sentence.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.ai.findNamedEntities</span><span>(</span><span>"Hello, I'm Shawn."</span>,<span>"person"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      items that fall under the specified entity type and the
+                      status of the executed task. Here, the item returned
+                      is&nbsp;<strong>Shawn</strong>.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Hello, I'm Shawn."</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the text from which
+                      the items need to be extracted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"person"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the entity type.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2</h2>
+            <p>
+              The following script extracts all the items that matches the
+              entity types carried by the collection -&nbsp;<strong
+                >entity_types</strong
+              >
+              from the given text, categorized accordingly.
+            </p>
+            <div>
+              <pre>&nbsp;<span>text </span><span>=</span><span> "Hello, I'm Shawn. My interests are data science and Internet Of Things"</span><span>;</span>
+&nbsp;<span>entity_types</span><span>=</span><span>List</span><span>()</span><span>;</span>
+&nbsp;<span>entity_types</span><span>.</span><span>add</span><span>(</span><span>"person"</span><span>)</span><span>;</span>
+&nbsp;<span>entity_types</span><span>.</span><span>add</span><span>(</span><span>"skills"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.ai.findNamedEntities</span><span>(</span><span>text</span>,<span>entity_types</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>text</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> variable that holds the text from
+                      which the items need to be extracted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>entity_types</span></pre>
+                    </div>
+                    <div>
+                      The <span>LIST</span> variable that holds the entity
+                      types.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>The success response returned is of the following format.</p>
+                <div>
+                  &nbsp;{<br />&nbsp;"data": {<br />&nbsp;"items": [<br />&nbsp;{<br />&nbsp;"skills":
+                  [<br />&nbsp;"data science",<br />&nbsp;"Internet Of
+                  Things"<br />&nbsp;],<br />&nbsp;"person": [<br />&nbsp;"Shawn"<br />&nbsp;]<br />&nbsp;}<br />&nbsp;]<br />&nbsp;},<br />&nbsp;"message":
+                  "OK",<br />&nbsp;"status": 200<br />&nbsp;}
+                </div>
+                &nbsp;
+                <p><strong>Failure Response</strong></p>
+                <ul>
+                  <li>
+                    <p>
+                      The failure response returned for an empty parameters is
+                      of the following format.
+                    </p>
+                    <div>
+                      &nbsp;{<br />&nbsp;"message":
+                      "EMPTY_VALUE_NOT_ALLOWED",<br />&nbsp;"status": 400<br />&nbsp;}
+                    </div>
+                  </li>
+                </ul>
+                &nbsp;
+                <h2><a></a>Related Links</h2>
+                <ul>
+                  <li><a>AI tasks</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

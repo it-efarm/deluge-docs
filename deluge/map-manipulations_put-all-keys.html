@@ -1,0 +1,222 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Map Manipulations</a></li>
+        <li><a>Put all keys</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Put all keys</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>put all keys&nbsp;</strong>deluge task inserts all
+              key-value pairs present in&nbsp;one
+              <a>map</a> variable(map_variable2) to another map
+              variable(map_variable1).
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span><span>&lt;map_variable1&gt;</span></span
+              ><span><span>.putAll(</span></span
+              ><span><span>&lt;map_variable2&gt;</span></span
+              ><span><span>);</span></span>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span><span>&lt;map_variable1&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        The map variable <strong>to</strong> which the key-value
+                        pairs will be added.
+                      </p>
+                      <p>Data type is <strong>Key-value</strong>.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;map_variable2&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        <map2
+                          >The map variable whose key-value pairs will be added
+                          to &lt;map_variable1&gt;</map2
+                        >
+                      </p>
+                      <p>
+                        If a duplicate&nbsp;key is specified, its new value will
+                        overwrite the existing value&nbsp;in
+                        &lt;map_variable1&gt;, and the new key-value pair will
+                        not be added.
+                      </p>
+                      <p>Data type is <strong>Key-value</strong>.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following snippets add key-value pairs present
+              in&nbsp;city_list2 to&nbsp;city_list1
+            </p>
+            <div>
+              <pre><span>city_list1</span> <span>=</span> <span>{</span><span>"Anchorage"</span><span>:</span><span>"99501"</span><span>,</span><span>"Phoenix"</span><span>:</span><span>"85001"</span><span>}</span><span>;</span>
+<span>city_list2</span> <span>=</span> <span>{</span><span>"Little Rock"</span><span>:</span><span>"72201"</span><span>,</span><span>"Beverly Hills"</span><span>:</span><span>"90213"</span><span>}</span><span>;</span>
+<span>city_list1</span><span>.putAll</span><span>(</span><span>city_list2</span><span>)</span><span>;</span>
+<span>info</span> <span>city_list1</span><span>;</span> <span>//Returns {"Anchorage":"99501","Phoenix":"85001","Little Rock":"72201","Beverly Hills":"90213"}</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

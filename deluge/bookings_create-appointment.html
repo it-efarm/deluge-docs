@@ -1,0 +1,454 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Bookings integration tasks</a></li>
+        <li><a>Create appointment in Zoho Bookings</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create appointment in Zoho Bookings</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This task is used to book an appointment with the given details.
+            </p>
+            <p>This task is based on&nbsp;<a>Zoho Bookings API</a>.</p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.bookings.createAppointment</span><span>(</span><span>&lt;</span><span>service_id</span><span>&gt;</span>, <span>&lt;</span><span>appointment_date_time</span><span>&gt;</span>, <span>&lt;</span><span>customer_details</span><span>&gt;</span>, <span>&lt;</span><span>staff_id/resource_id</span><span>&gt;</span>, <span>&lt;</span><span>time_zone</span><span>&gt;</span>, <span>&lt;</span><span>is_staff</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>Variable which will hold the returned response.</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;service_id&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The ID of the service for which the appointment will
+                            be booked.
+                          </p>
+                          <div>
+                            <p><strong>Note: </strong></p>
+                            <ul>
+                              <li>
+                                You can get the ID of the record from the URL.
+                                The URL of a record in the service module is in
+                                the following format:<br />https://bookings.zoho.com/#/app/manage-business/services/<strong>&lt;service_id&gt;</strong>/service-info
+                              </li>
+                              <li>
+                                You can also use the&nbsp;<a>invoke URL</a
+                                >&nbsp;task to fetch records from the required
+                                module. Visit&nbsp;<a>Zoho Bookings API help</a
+                                >&nbsp;and navigate to the details of the
+                                Services module for the API details. The
+                                response will contain the IDs of all the records
+                                in the module, which can be extracted as
+                                illustrated in this&nbsp;<a>sample snippet</a
+                                >.&nbsp;
+                              </li>
+                              <li>
+                                You can also
+                                use&nbsp;<strong>zoho.bookings.getRelatedRecords</strong>&nbsp;task
+                                to fetch records from the Services module and
+                                then the IDs of those records can be extracted
+                                as illustrated&nbsp;<a>here</a>.
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;appointment_date_time&gt;&nbsp;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The date and time for which the appointment will be
+                            booked.
+                          </p>
+                          <div>
+                            <p>
+                              <strong>Note:</strong> Click&nbsp;<a>here</a> to
+                              learn how to get the available slots.
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;customer_details&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>The details of the customer.</p>
+                          <div>
+                            <p>
+                              <strong>Note: </strong>The following are the
+                              allowed and&nbsp;mandatory keys to this parameter:
+                            </p>
+                            <ul>
+                              <li>
+                                <strong>name:</strong>&nbsp;name of the customer
+                              </li>
+                              <li>
+                                <strong>email:</strong>&nbsp;email address of
+                                the customer
+                              </li>
+                              <li>
+                                <strong>phone_number:</strong>&nbsp;phone number
+                                of the customer
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;staff_id/resource_id&gt;&nbsp;</p></td>
+                        <td><span>NUMBER</span></td>
+                        <td>
+                          <p>
+                            The ID of the staff or resource that will be booked.
+                          </p>
+                          <div>
+                            <p><strong>Note:&nbsp;</strong></p>
+                            <ul>
+                              <li>
+                                You can get the ID of the record from the URL.
+                                The URL of a record in the service module is in
+                                the following format:<br />https://bookings.zoho.com/#/app/manage-business/services/<strong>&lt;service_id&gt;</strong>/service-info<br />The
+                                URL of a record in
+                                the&nbsp;<strong>resources</strong>&nbsp;module
+                                is in the following format:<br />https://bookings.zoho.com/#/app/manage-business/resource/<strong>&lt;record_id&gt;</strong>/resource-info
+                              </li>
+                              <li>
+                                You can also use the&nbsp;<a>invoke URL</a
+                                >&nbsp;task to fetch records from the required
+                                module. Visit&nbsp;<a>Zoho Bookings API help</a
+                                >&nbsp;and navigate to the details of the
+                                Services or Resources module for the API
+                                details. The response will contain the IDs of
+                                all the records in the module, which can be
+                                extracted as illustrated in this&nbsp;<a
+                                  >sample snippet</a
+                                >.&nbsp;
+                              </li>
+                              <li>
+                                You can also
+                                use&nbsp;<strong>zoho.bookings.getRelatedRecords</strong>&nbsp;task
+                                to fetch records from the required module and
+                                then the IDs of those records can be extracted
+                                as illustrated&nbsp;<a>here</a>.
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;time_zone&gt;&nbsp;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The timezone in which the appointment date and time
+                            will be specified.&nbsp;
+                          </p>
+                          <div>
+                            <p>
+                              <strong>Note:</strong> Click&nbsp;<a>here</a> to
+                              learn how to extract timezone while fetching the
+                              available slots.
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;is_staff&gt;&nbsp;</p></td>
+                        <td><span>BOOLEAN</span></td>
+                        <td>
+                          <p>
+                            This parameter decides if the appointment is for
+                            a&nbsp;staff member or for a resource.
+                          </p>
+                          <p><strong>Allowed values:</strong></p>
+                          <ul>
+                            <li>
+                              <strong>true</strong> - A staff member needs to be
+                              booked.
+                            </li>
+                            <li>
+                              <strong>false</strong> - A resource needs to be
+                              booked.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes while creating the
+                                connection.
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following example creates an appointment for the service of ID
+              -&nbsp;<strong>3883XXXXXXXXXXX7032</strong> with the staff member
+              of ID
+              -&nbsp;<strong>3883XXXXXXXXXXX7008</strong>&nbsp;on&nbsp;<strong
+                >18-Oct-2019</strong
+              >
+              at&nbsp;<strong>12:15:00</strong>:
+            </p>
+            <div>
+              <pre><span>// Create a KEY-VALUE variable to hold the customer details</span>
+<span>customerDetails </span><span>= </span><span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>customerDetails</span><span>.put</span><span>(</span><span>"name"</span><span>, </span><span>"Laura"</span><span>)</span><span>;</span>
+<span>customerDetails</span><span>.put</span><span>(</span><span>"email"</span><span>, </span><span>"laura@gmail.com"</span><span>)</span><span>;</span>
+<span>customerDetails</span><span>.put</span><span>(</span><span>"phone_number"</span><span>, </span><span>"9999999999"</span><span>)</span><span>;</span>
+&nbsp;
+<span>//Execute the bookings integration task to create an appointment</span>
+<span>response</span><span> = </span><span>zoho</span><span>.bookings</span><span>.createAppointment</span><span>(</span><span>3883XXXXXXXXXXX7032</span><span>, </span><span>"18-Oct-2019 12:15:00"</span><span>, </span><span>customerDetails</span><span>, </span><span>3883XXXXXXXXXXX7008</span><span>, </span><span>"Asia/Calcutta"</span><span>, </span><span>true</span><span>, </span><span>"bookings_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The variable which holds the response in&nbsp;<span
+                        >KEY-VALUE</span
+                      >
+                      format.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>3883XXXXXXXXXXX7032</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the service ID.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"18-Oct-2019 12:15:00"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the appointment date
+                      and time.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>customerDetails</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the details
+                      of the customer.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>3883XXXXXXXXXXX7008</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the staff ID.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Asia/Calcutta"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the timezone in
+                      which the appointment date is specified.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>true</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>BOOLEAN</span> that indicates that specified ID
+                      -&nbsp;<strong>3883XXXXXXXXXXX7008</strong> belongs
+                      to&nbsp;service module.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"bookings_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The name of the connection in&nbsp;<span>TEXT</span>
+                      format
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success Response will be returned in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"response": {<br />&nbsp;"returnvalue":
+                  {<br />&nbsp;"staff_name": "\"Hailee\"",<br />&nbsp;"customer_more_info":
+                  {<br />&nbsp;},<br />&nbsp;"customer_booking_start_time":
+                  "\"2019-10-18 12:15:00\"",<br />&nbsp;"customer_contact_no":
+                  "\"9999999999\"",<br />&nbsp;"booked_on": "\"2019-10-18
+                  06:33:37\"",<br />&nbsp;"booking_id": "\"#PA-00003\"",<br />&nbsp;"workspace_id":
+                  "\"3883XXXXXXXXXXX6010\"",<br />&nbsp;"duration": "\"60
+                  mins\"",<br />&nbsp;"service_id":
+                  "\"3883XXXXXXXXXXX7032\"",<br />&nbsp;"staff_id":
+                  "\"3883XXXXXXXXXXX7008\"",<br />&nbsp;"cost_paid":
+                  "\"0.00\"",<br />&nbsp;"currency": "\"INR\"",<br />&nbsp;"workspace_name":
+                  "\"Soft skills\"",<br />&nbsp;"cost": "\"1500.00\"",<br />&nbsp;"service_name":
+                  "\"Technical counseling\"",<br />&nbsp;"time_zone":
+                  "\"\"Asia/Calcutta\"\"",<br />&nbsp;"start_time":
+                  "\"18-Oct-2019 12:15:00\"",<br />&nbsp;"due": "\"1500.0\"",<br />&nbsp;"customer_email":
+                  "\"laura@gmail.com\"",<br />&nbsp;"booking_type":
+                  "\"appointment\"",<br />&nbsp;"customer_name": "\"Laura\"",<br />&nbsp;"summary_url":
+                  "\"https://shawn24.zohobookings.com/#/customer/paperrings/invoice/joqc9ZadUNhP7fGErju%2BloZ3%2BkxbGD4W3%2BYF4QzgxBHR1osZOR1kYwVleWm37XAD\"",<br />&nbsp;"staff_email":
+                  "\"hailee@zylker.com\"",<br />&nbsp;"customer_booking_time_zone":
+                  "\"\"Asia/Calcutta\"\"",<br />&nbsp;"status":
+                  "\"upcoming\""<br />&nbsp;},<br />&nbsp;"status": "success"<br />&nbsp;}<br />}
+                </div>
+              </li>
+            </ul>
+            <a></a>
+            <p>
+              To get the booking ID of the appointment from the response
+              obtained, execute the following script:
+            </p>
+            <div>
+              <pre>&nbsp;<span>info </span><span> response</span>.<span>get</span>(<span>"response"</span>).<span>get</span>(<span>"returnvalue"</span>).<span>get</span>(<span>"booking_id"</span>);
+</pre>
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                The failure response for an
+                <strong>invalid or non-existent</strong> service ID will be
+                returned in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"response": {<br />&nbsp;"returnvalue":
+                  {<br />&nbsp;"message": "Service not found",<br />&nbsp;"status":
+                  "failure"<br />&nbsp;},<br />&nbsp;"status": "success"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                The failure response for an
+                <strong>invalid or non-existent staff/resource ID</strong> will
+                be returned in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"response": {<br />&nbsp;"returnvalue":
+                  {<br />&nbsp;"message": "Staff not found",<br />&nbsp;"status":
+                  "failure"<br />&nbsp;},<br />&nbsp;"status": "success"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                The failure response for booking an
+                <strong>unavailable slot</strong> will be returned in the
+                following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"response": {<br />&nbsp;"returnvalue":
+                  {<br />&nbsp;"message": "slot not available",<br />&nbsp;"status":
+                  "failure"<br />&nbsp;},<br />&nbsp;"status": "success"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                The failure response for
+                <strong>missing mandatory key</strong> in the
+                <strong>&lt;customer_details&gt;</strong> parameter will be
+                returned in the following format:
+                <div>
+                  {<br />&nbsp;"response": {<br />&nbsp;"returnvalue": {<br />&nbsp;"message":
+                  "customer phone_number is mandatory",<br />&nbsp;"status":
+                  "failure"<br />&nbsp;},<br />&nbsp;"status": "success"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Bookings API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

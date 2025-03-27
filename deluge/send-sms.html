@@ -1,0 +1,178 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Send notifications using Deluge</a></li>
+        <li><a>Send SMS</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Send SMS</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li><a>Send an SMS using Clickatell connection</a></li>
+                    <li>
+                      <a
+                        >Send an SMS to multiple users using Clickatell
+                        connection</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong> This task is supported in all Zoho services
+              except Zoho Creator. To send SMS from Zoho Creator, use
+              <a>Deluge's SMS integrations</a>.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The sendSms Deluge task when executed sends an SMS using the
+              connected SMS gateway service to the specified recipients. For
+              example, a Zoho Inventory user can use this task to send SMS to
+              their vendor whenever a product runs low on stock.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>sendSms
+<span>[</span>&nbsp;
+&nbsp;<span>to</span><span>: </span><span>&lt;</span><span>phone_number</span><span>&gt;</span>&nbsp;
+&nbsp;<span>message</span><span>: </span><span>&lt;</span><span>message&gt;</span>&nbsp;
+&nbsp;<span>connection</span><span>: </span><span>&lt;</span><span>connection_link_name&gt;</span>&nbsp;</span>
+&nbsp;<span>];</span>
+</pre>
+            </div>
+            <p>&nbsp;</p>
+            <p>where:</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;to&gt;<br />&nbsp;</p>
+                    </td>
+                    <td><span>TEXT</span>/ <span>LIST</span></td>
+                    <td>
+                      <p>Phone number of the receiver.</p>
+                      <p>
+                        The phone number must be in the format:&nbsp;<strong
+                          >+&lt;country_code&gt;&lt;phone_number&gt;.</strong
+                        >
+                      </p>
+                      <div>
+                        <strong>Note: </strong>
+                        <ul>
+                          <li>
+                            This param is <strong>optional</strong> while using
+                            the task with Clickatell connection and
+                            <strong>mandatory</strong> with Twilio connection.
+                          </li>
+                          <li>
+                            While using Twilio connection, "My Twilio phone
+                            number" from your Twilio account&nbsp;must be
+                            supplied as&nbsp;value to this param.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;message&gt;</p></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Contents of the message that needs to be sent to the
+                        receiver.
+                      </p>
+                      <div>
+                        <strong>Note:</strong>
+                        <ul>
+                          <li>
+                            Maximum character length allowed for Clickatell: 160
+                          </li>
+                          <li>
+                            Maximum character length allowed for Twilio: 1600
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;connection_link_name&gt;</p></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>Link name of the SMS gateway <a>connection</a>.</p>
+                      <p><strong>Supported services:</strong></p>
+                      <ul>
+                        <li>Clickatell</li>
+                        <li>Twilio</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Send an SMS using Clickatell connection</h2>
+            <p>
+              The following snippet&nbsp;sends the message - "Thanks for
+              attending the event. Hope you found it useful" to the specified
+              phone number through the Clickatell SMS gateway.&nbsp;
+            </p>
+            <div>
+              <pre><span>sendSms
+<span>[</span>&nbsp;
+&nbsp;<span>to</span><span>: </span><span>+9199XXXXXXXX</span>&nbsp;
+&nbsp;<span>message</span><span>: </span><span>"Thanks for attending the event. Hope you found it useful."</span>&nbsp;
+&nbsp;<span>connection</span><span>: </span><span>"clickatell_connection"</span>&nbsp;</span>
+&nbsp;<span>];</span>
+</pre>
+            </div>
+            <h2>
+              <a></a>Send an SMS to multiple users using Twilio&nbsp;connection
+            </h2>
+            <p>
+              The following snippet&nbsp;sends the message - "Thanks for
+              attending the event. Hope you found it useful" to the specified
+              list of phone numbers&nbsp;through the Twilio&nbsp;SMS
+              gateway.&nbsp;
+            </p>
+            <div>
+              <pre><span>// Create a collection to store all the recipients phone numbers</span>&nbsp;
+<span>recipients </span><span>= </span><span>Collection</span><span>(</span><span>)</span><span>;</span>&nbsp;
+<span>recipients</span><span>.insert</span><span>(</span><span>"+9199XXXXXXXX"</span><span>)</span><span>;</span>&nbsp;
+<span>recipients</span><span>.insert</span><span>(</span><span>"+9188XXXXXXXX"</span><span>)</span><span>;
+</span>&nbsp;
+<span>// Use sendSms task to send the specified message to all the recipients </span>&nbsp;
+<span>sendsms</span>&nbsp;
+<span>[</span>&nbsp;
+<span>from</span><span>: </span><span>+9199XXXXXXXX</span>&nbsp;
+<span>to</span><span>: recipients</span>&nbsp;
+<span>message</span><span>: </span><span>"Hello"</span>&nbsp;
+<span>connection</span><span>: </span><span>"twilio"</span>&nbsp;
+<span>]</span><span>;</span>&nbsp;
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,192 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h1>Pre-defined integrations with Zoho services</h1>
+      <h4>Table of Contents</h4>
+      <ul>
+        <li><a>Overview</a></li>
+        <li><a>What are integration tasks and when to use them?</a></li>
+        <li><a>Integration tasks' structure:</a></li>
+        <li><a>What's underneath?</a></li>
+        <li><a>Want more than the built-ins?</a></li>
+        <li><a>List of integration tasks</a></li>
+      </ul>
+      <h2><a></a>Overview</h2>
+      <p>
+        Deluge offers around&nbsp;<strong>260</strong>&nbsp;built-in
+        integrations with&nbsp;<strong>35 Zoho services.</strong>&nbsp;This
+        means you can effortlessly access and modify your data held by these
+        services from a single point without having to toggle between them.<br />Learn
+        how to <a>set up these integration tasks</a>.
+      </p>
+      <h2><a></a>What are integration tasks and when to use them?</h2>
+      <p>
+        Integration tasks facilitate transferring and synchronizing your data
+        stored across different Zoho services. They provide accessibility by
+        allowing you to fetch, modify, and delete your data. Here are a few
+        scenarios when integration tasks come handy:
+      </p>
+      <ul>
+        <li>
+          <strong>  Zoho Desk - Zoho Projects:</strong>&nbsp;You can add a
+          ticket created in Zoho Desk as a task in Zoho Projects
+          using&nbsp;<a>zoho.projects.createRecord</a>&nbsp;task.
+        </li>
+        <li>
+          <strong>Zoho Mail - Zoho Cliq:</strong>&nbsp;You can post the content
+          of all the emails received from a specified email address to one of
+          your Zoho Cliq channels
+          using&nbsp;<a>zoho.cliq.postToChannel</a>&nbsp;task.
+        </li>
+        <li>
+          <strong>Zoho CRM - Zoho Sign:</strong>&nbsp;You can download a license
+          agreement from Zoho Sign and add as attachment in Zoho CRM Deals
+          module
+          using&nbsp;<a>zoho.sign.downloadDocument</a>&nbsp;and&nbsp;<a>zoho.crm.attachFile</a>&nbsp;tasks.
+        </li>
+        <li>
+          <strong>Zoho Connect - Zoho Cliq:</strong>&nbsp;You can post a custom
+          message in a Zoho Cliq's bot whenever an event is created
+          using&nbsp;<a>zoho.cliq.postToBot</a>&nbsp;task.
+        </li>
+        <li>
+          <strong>Zoho Sheet - Zoho CRM:</strong>&nbsp;You can write formulas in
+          Zoho Sheet to auto-populate columns based on Zoho CRM data
+          using&nbsp;<a>zoho.crm.searchRecords</a>&nbsp;task.
+        </li>
+        <li>
+          <strong>Zoho Writer - Zoho People</strong>: You can share a Zoho
+          Writer document to the list of employees fetched&nbsp;from Zoho People
+          using <a>zoho.writer.shareDocument</a> and
+          <a>zoho.people.getRecords</a> tasks.
+        </li>
+      </ul>
+      <h2><a></a>Integration tasks' structure:</h2>
+      <p>
+        The syntax for integration tasks follows a certain structure and Deluge
+        editor's auto-complete feature guides you in writing them by listing the
+        supported services and actions as you type.
+      </p>
+      <div>
+        <pre><span>zoho.&lt;service&gt;.&lt;action&gt;(&lt;parameters&gt;);</span>
+</pre>
+      </div>
+      <p>Where:</p>
+      <ul>
+        <li>
+          <strong>&lt;service&gt;</strong> is the name of the service whose data
+          you need to access or modify
+        </li>
+        <li>
+          <strong>&lt;action&gt;</strong> is the integration task name that
+          describes the operation that needs to be done
+        </li>
+        <li>
+          <strong>&lt;parameters&gt;</strong>&nbsp;<service
+            ><action
+              ><parameters
+                ><service
+                  ><action
+                    ><parameters
+                      >are the comma-separated values that are required to
+                      perform the task.</parameters
+                    ></action
+                  ></service
+                ></parameters
+              ></action
+            ></service
+          >
+        </li>
+      </ul>
+      <h2><a></a>What's underneath?</h2>
+      <p>
+        <service
+          ><action
+            ><parameters
+              ><service
+                ><action
+                  ><parameters
+                    >Integration tasks serve as wrappers of the respective
+                    service's REST APIs. Simply put, integration tasks are
+                    simplified API calls. On the surface layer, you are using
+                    simple pre-defined tasks, but in the backend, we trigger the
+                    respective API calls. For example, if you execute Zoho
+                    CRM&nbsp;get records&nbsp;integration task, you are
+                    indirectly performing an API call to its&nbsp;corresponding
+                    API endpoint.
+                  </parameters></action
+                ></service
+              ></parameters
+            ></action
+          ></service
+        >
+      </p>
+      <div>
+        <strong>Note</strong>: These API calls are deducted from
+        your&nbsp;overall external calls limit that is provided for your
+        <a>Creator plan</a>.
+      </div>
+      <h2><a></a>Want more than the built-ins?</h2>
+      <p>
+        <service
+          ><action
+            ><parameters
+              ><service
+                ><action
+                  ><parameters
+                    >We have picked the most popular API endpoints from 25
+                    services and offered them as integration tasks. If you want
+                    to access the REST APIs for which Deluge does not provide
+                    wrappers, you can still do it by creating custom
+                    integrations using&nbsp;<a>invoke URL</a
+                    >&nbsp;and&nbsp;<a>connections</a>. </parameters
+                  ></action
+                ></service
+              ></parameters
+            ></action
+          ></service
+        >
+      </p>
+      <h2><a></a>List of integration tasks</h2>
+      <p>
+        The following is the list of all the available Deluge integration tasks:
+      </p>
+      <ul>
+        <li><a>SDP Cloud</a></li>
+        <li><a>Zoho Analytics</a></li>
+        <li><a>Zoho Bookings </a></li>
+        <li><a>Zoho Books </a></li>
+        <li><a>Zoho Calendar</a></li>
+        <li><a>Zoho Cliq </a></li>
+        <li><a>Zoho Connect </a></li>
+        <li><a>Zoho Creator </a></li>
+        <li><a>Zoho CRM </a></li>
+        <li><a>Zoho Desk </a></li>
+        <li><a>Zoho Docs </a></li>
+        <li><a>Zoho Inventory </a></li>
+        <li><a>Zoho Invoice </a></li>
+        <li><a>Zoho Mail </a></li>
+        <li><a>Zoho Map </a></li>
+        <li><a>Zoho Notebook </a></li>
+        <li><a>Zoho People </a></li>
+        <li><a>Zoho Projects </a></li>
+        <li><a>Zoho Recruit </a></li>
+        <li><a>Zoho Sales IQ </a></li>
+        <li><a>Zoho Sheet </a></li>
+        <li><a>Zoho Sign </a></li>
+        <li><a>Zoho Billing </a></li>
+        <li><a>Zoho WorkDrive </a></li>
+        <li><a>Zoho Writer </a></li>
+      </ul>
+    </div>
+  </div>
+  <div style="opacity: 0.0187724"><iframe></iframe></div>
+</div>

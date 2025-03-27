@@ -1,0 +1,217 @@
+<div class="help-content-panel">
+  <div>
+    <div><ul></ul></div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch record from Zoho Billing using the record ID</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2>Overview</h2>
+            <p>
+              This task is used to fetch a record&nbsp;from&nbsp;Zoho Billing by
+              specifying the record ID. This task is based on
+              <a>Zoho Billing&nbsp;API</a> &lt;ModuleName&gt; -&gt; Receive
+              a&nbsp;&lt;ModuleName&gt;.
+            </p>
+            <h2>Syntax</h2>
+            <div>
+              <span>&lt;variable&gt;</span><span> = </span
+              ><span>zoho.billing.retrieve</span><span>(</span
+              ><span>&lt;module_name&gt;</span><span>,&nbsp;</span
+              ><span>&lt;org_ID&gt;,</span><span> </span
+              ><span>&lt;record_ID&gt;,</span><span> &lt;connection&gt;);</span>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Params&nbsp;</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;variable&gt;&nbsp;</span></td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>is the response returned by Zoho Billing.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>&lt;module_name&gt;</span
+                      ><span><strong>&nbsp;</strong></span>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      is the name of the module in Zoho Billing from where the
+                      record will be fetched.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;org_id&gt;</span></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Org ID of the organization from which the record will be
+                        fetched.
+                      </p>
+                      <div>
+                        <strong>Note:</strong> Learn how to fetch organization
+                        ID from the&nbsp;<a>UI</a> and from&nbsp;the response
+                        of&nbsp;<a>zoho.billing.getOrganization</a> task.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;record_ID&gt;</span></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>ID of the record which will be fetched.</p>
+                      <p>
+                        <strong>Note:</strong> Learn how to fetch the record ID
+                        after <a>creating</a> or <a>fetching</a> records.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;connection&gt;</span></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        specifies the link name of the Zoho Billing connection.
+                      </p>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of
+                            <a>stopping new authtoken generation</a>,&nbsp;a
+                            Zoho OAuth connection with appropriate scopes is
+                            mandatory in order for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter until you manually delete the authtoken
+                            from <a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes mentioned in
+                            <a>Zoho Billing API</a> while creating the
+                            connection.
+                          </li>
+                          <li>
+                            Refer to <a>this&nbsp;post</a> for the list of Zoho
+                            services that support the connections page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>Fetch a record from Zoho Billing using the record ID</h2>
+            <p>
+              Let’s take an example of fetching&nbsp;a record from the "Hosted
+              Pages" module in Zoho Billing using the following snippet.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response </span><span>= </span><span>zoho.billing.retrieve</span><span>(</span><span>"hostedpages"</span><span>, </span><span>"10982991"</span><span>, </span><span>"1687000000116001"</span><span>, </span><span>"billing_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable returned by Zoho
+                      Billing
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"hosted pages"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span>&nbsp;that represents the module
+                      from which the record that&nbsp;will be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"10982991"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> org id of the organization from
+                      which the record will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"1687000000116001"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span>&nbsp;that represents the ID of
+                      the record that will be fetched
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"billing_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents Zoho Billing
+                      connection link name
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>Sample Response</h2>
+            <p>The following is a sample <strong>success</strong> response:</p>
+            <div>
+              {&nbsp;&nbsp;<br />&nbsp; &nbsp;"custom_fields":"[]",<br />&nbsp;
+              &nbsp;"message":"success",<br />&nbsp; &nbsp;"status":"fresh",<br />&nbsp;
+              &nbsp;"hostedpage_id":"2-1a76024dc81f1bb6dd4a78d3a5c6f2b16cf56ec5a5b67151097ba494318be79b8a3668c64f1e146cd07b01e06e3e282a",<br />&nbsp;
+              &nbsp;"action":"new_subscription",<br />&nbsp;
+              &nbsp;"expiring_time":"2015-03-10T11:53:07+0530",<br />&nbsp;
+              &nbsp;"code":0,<br />&nbsp;
+              &nbsp;"created_time":"2015-03-10T10:53:07+0530",<br />&nbsp;
+              &nbsp;"url":"https://billing.zoho.com/hostedpage/2-1a76024dc81f1bb6dd4a78d3a5c6f2b16cf56ec5a5b67151097ba494318be79b8a3668c64f1e146cd07b01e06e3e282a/checkout"<br />}
+            </div>
+            <p>The following is a sample <strong>failure response</strong>:</p>
+            <div>
+              {<br />"message":"Please specify a valid hosted page.",<br />"code":107401<br />}
+            </div>
+            <h2>Related Links</h2>
+            <ul>
+              <li><a>Zoho Billing API</a></li>
+              <li><a>Zoho Billing error codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.0244717"><iframe></iframe></div>
+</div>

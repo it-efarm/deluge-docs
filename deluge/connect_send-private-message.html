@@ -1,0 +1,185 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Connect integration tasks</a></li>
+        <li><a>Send a private message</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Send a&nbsp;private message</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a> </a>Overview</h2>
+            <p>
+              This task is used to create a private message in a specified
+              network.&nbsp;
+            </p>
+            <p>
+              As of now, the message will be visible only to the user who posted
+              it. We are developing tasks using which you will be able to add
+              users to the post.
+            </p>
+            <h2><a> </a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho.connect.sendMePrivateMessage</span><span>(</span>&lt;<span>messageContent</span><span>&gt;</span><span>, </span>&lt;<span>scopeID</span><span>&gt;</span>, <span>&lt;</span><span>connectionName</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Parameter</td>
+                        <td>Description</td>
+                        <td>Data type</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is a variable which will hold the returned response.
+                          </p>
+                          <p>
+                            <span
+                              >The response will contain&nbsp;the message status
+                              and the&nbsp;<a>Stream ID</a>&nbsp;of the posted
+                              message</span
+                            >
+                          </p>
+                        </td>
+                        <td>KEY-VALUE</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;messageContent&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is a variable which must contain the contents of the
+                            private message.
+                          </p>
+                        </td>
+                        <td>TEXT</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;scopeID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is a variable representing the <a>scope ID</a> of
+                            the network in which the private message will be
+                            posted.
+                          </p>
+                          <p>
+                            You can also fetch the scope ID from the
+                            <a>response</a> of myNetworks task.
+                          </p>
+                        </td>
+                        <td>NUMBER</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connectionName&gt;</span></p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p>
+                            is the&nbsp;name of the Zoho
+                            connect&nbsp;<a>connection</a>.
+                          </p>
+                          <p>
+                            <strong>*Note</strong>: This param is not applicable
+                            to Zoho Creator and mandatory in Zoho Cliq.
+                          </p>
+                        </td>
+                        <td>TEXT</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a> </a>Example</h2>
+            <p>
+              <span
+                >The following snippet&nbsp;posts a private message in the
+                specified network.</span
+              >
+            </p>
+            <div>
+              <pre><span>messageDetails </span>= <span>zoho.connect.sendMePrivateMessage</span><span>(</span><span>"Please call me at 4 PM"</span><span>, </span><span>105000017039001</span><span>)<span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>messageDetails</span></pre>
+                    </div>
+                    <div>
+                      is a variable which will hold the returned response
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>Please call me at 4 PM</span></pre>
+                    </div>
+                    <div>
+                      is a TEXT value that represents the message content
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>105000017039001</span></pre>
+                    </div>
+                    <div>
+                      is a value that represents the Scope ID of the network
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a> </a>Sample Response</h2>
+            <ul>
+              <li>
+                Following is a sample success response when the private message
+                is posted
+                <div>{"id":"105000209424697",<br />"status":"success"}</div>
+              </li>
+              <li>
+                The response returned is <strong>null</strong> when the Scope ID
+                supplied is incorrect.
+              </li>
+            </ul>
+            <h2><a> </a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Connect API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

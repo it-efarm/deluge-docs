@@ -1,0 +1,629 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Merge and send documents</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <p>​</p>
+      <div>
+        <div>
+          <h1>Merge and Send Documents in Zoho Writer</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Supply CSV content to the merge fields and email the
+                        new merged documents</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Supply CSV data from a URL to the merge fields and
+                        email the new merged documents</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Supply JSON content in TEXT format to the merge fields
+                        and email the new merged documents</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.writer.mergeAndSend</strong> task supplies values
+              to the&nbsp;<a>merge fields inserted</a> to a document,
+              and&nbsp;sends the new merged documents individually to the
+              specified email ID. The values of the merge fields are provided
+              from a data source of type&nbsp;<strong>CSV or JSON</strong
+              >.&nbsp;
+            </p>
+            <p>
+              This integration task is based on the
+              <a>Zoho Writer API - Merge and Email</a>.
+            </p>
+            <div>
+              <strong>Note: </strong>
+              <ul>
+                <li>
+                  The merge fields inserted into the document should be
+                  the&nbsp;<strong>column headers</strong> of a CSV data source,
+                  or the&nbsp;<strong>keys</strong> in a JSON data source.
+                </li>
+                <li>
+                  On average, it takes about a minute to index a file/folder
+                  after it is created or updated. This indexing time can
+                  increase if the queue size increases.&nbsp;You will not get
+                  the expected result if&nbsp;you execute
+                  zoho.writer.mergeAndSend&nbsp;task before the
+                  document&nbsp;you need to merge is indexed.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.writer.mergeAndSend</span><span>(</span><span>&lt;</span><span>document_id</span><span>&gt;</span>, <span>&lt;</span><span>output_format</span><span>&gt;</span>, <span>&lt;</span><span>email_id</span><span>&gt;</span>, <span>&lt;</span><span>values_map</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <p>&nbsp;</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The response returned by Zoho Writer. It represents
+                            the merge fields data of the new merged documents.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;document_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The ID of the source document that will be merged
+                            with values.
+                          </p>
+                          <p>
+                            The document ID can be obtained from the URL of the
+                            source document. The URL is in the following
+                            format:<br />https://writer.zoho.com/writer/open/<strong
+                              >&lt;document_id&gt;</strong
+                            >
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;output_format&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The output format of the new documents that will be
+                            sent through email.
+                          </p>
+                          <p>Allowed values:</p>
+                          <ul>
+                            <li>
+                              <strong>inline</strong> -&nbsp;The merged document
+                              is sent in the email body.
+                            </li>
+                            <li>
+                              <strong>pdf </strong>- The merged document is sent
+                              as an email attachment in
+                              <strong>.pdf</strong> format.
+                            </li>
+                            <li>
+                              <strong>docx&nbsp;</strong>- The merged document
+                              is sent as an email attachment in
+                              <strong>.docx</strong> format.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;email_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The email address of the recipient to whom the
+                            individual documents will be sent.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;values_map&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The values that will be supplied to the merge
+                            fields. The values can be fetched only from CSV file
+                            or JSON file/text.
+                          </p>
+                          <div>
+                            <strong>Note:</strong> The keys of this parameter
+                            should be specified as given in the
+                            <a>Zoho Writer API</a>. Applicable keys and values
+                            for CSV and JSON data as specified in Zoho Writer
+                            API:
+                            <p><strong>CSV:</strong></p>
+                            <ul>
+                              <li>
+                                Specify the file URL<br /><strong>key:</strong>
+                                merge_data_csv_url<br /><strong>value:</strong>
+                                The <span>TEXT</span> that represents the URL of
+                                the CSV file.
+                              </li>
+                              <li>
+                                Specify values stored in a file object&nbsp;<br /><strong
+                                  >key:</strong
+                                >
+                                merge_data_csv_content<br /><strong
+                                  >value:</strong
+                                >
+                                The <span>FILE</span> that contains the merge
+                                values.
+                              </li>
+                            </ul>
+                            <p><strong>JSON:</strong></p>
+                            <ul>
+                              <li>
+                                Specify the file URL<br /><strong>key:</strong>
+                                merge_data_json_url<br /><strong>value:</strong>
+                                The <span>TEXT</span> that represents the URL of
+                                the JSON file.
+                              </li>
+                              <li>
+                                Specify values stored in a file object&nbsp;<br /><strong
+                                  >key:</strong
+                                >
+                                merge_data_json_content<br /><strong
+                                  >value:</strong
+                                >
+                                The <span>FILE</span> that contains the merge
+                                values.
+                              </li>
+                              <li>
+                                Specify the text directly<br /><strong
+                                  >key:</strong
+                                >
+                                merge_data<br /><strong>value:</strong> The
+                                <span>TEXT</span>/ <span>KEY-VALUE</span> that
+                                represents the JSON value. The key for the JSON
+                                value needs to be&nbsp;<strong>"data"</strong>.
+                              </li>
+                            </ul>
+                            <p><strong>Optional keys:</strong></p>
+                            <ul>
+                              <li>
+                                Specify the subject of the email<br /><strong
+                                  >key:</strong
+                                >
+                                subject<br /><strong>value:</strong> The
+                                <span>TEXT</span> value associated with this key
+                                specifies the subject of the email that needs to
+                                be sent.
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in
+                                <a>Zoho Writer&nbsp;API</a>&nbsp;while creating
+                                the connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 1: Supply CSV content to the merge fields and email
+              the new merged documents
+            </h2>
+            <p>
+              The following script supplies the CSV data stored in the FILE
+              variable -&nbsp;<strong>csv_content</strong>&nbsp;to the merge
+              fields present in the specified documents, and sends the new
+              merged documents to the email&nbsp;address -&nbsp;<strong
+                >shawn@zylker.com:</strong
+              >
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Fetch the CSV data from the web and store it in the variable - csv_content</span>
+&nbsp;<span><strong>csv_content</strong></span><span> = </span><span> invokeurl </span>
+&nbsp;<span>[</span>
+&nbsp;<span>url</span><span> : </span><span>"http://insight.dev.schoolwires.com/HelpAssets/C2Assets/C2Files/C2ImportCalEventSample.csv"</span>
+&nbsp;<span>type</span><span> : </span><span>GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;
+&nbsp;
+&nbsp;<span>// Construct a KEY-VALUE variable to hold the merge data and subject of the email</span>
+&nbsp;<span>merge_values</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>merge_values</span><span>.</span><span>put</span><span>(</span><span>"subject"</span>, <span>"Merge and send Deluge task"</span><span>)</span><span>;</span>
+&nbsp;<span>merge_values</span><span>.</span><span>put</span><span>(</span><span><strong>"merge_data_csv_content"</strong></span>, <span><strong>csv_content</strong></span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;
+&nbsp;<span>// Perform the Merge and Send task&nbsp;</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.writer.mergeAndSend</span><span>(</span><span>"al296XXXXXXXXXXXXXXXXXXXXXXXXXXXa516c"</span>, <span>"inline"</span>, <span>"shawn@zylker.com"</span>, <span>merge_values</span>, <span>"writer_oauth_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Writer.&nbsp;It represents the merge fields data of the
+                      new merged documents.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"al296XXXXXXXXXXXXXXXXXXXXXXXXXXXa516c"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the&nbsp;document ID
+                      of the source document.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"shawn@zylker.com"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;that represents the
+                      email&nbsp;address of the recipient to whom the new
+                      documents will be sent.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>merge_value</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>KEY-VALUE</span>&nbsp;variable that holds
+                      the merge data, and the subject of the email that will be
+                      sent.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"writer_oauth_connection"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the name of the
+                      <a>connection</a>.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"merge_data_csv_content"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;key that represents the
+                      type of data source. Here, the data source is a FILE that
+                      contains&nbsp;CSV data.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>csv_content</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>FILE</span>&nbsp;variable that holds the
+                      CSV data that will be supplied to the merge fields.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <strong>Note: </strong>The CSV data is fetched from the cloud
+              using the invoke URL task. To learn more about the invokeUrl task,
+              click&nbsp;<a>here</a>.
+            </div>
+            <h2>
+              <a></a>Example 2: Supply CSV data from a URL to the merge fields
+              and email the new merged documents
+            </h2>
+            <p>
+              The following script supplies CSV values fetched from the
+              specified URL&nbsp;to the merge fields present in the specified
+              documents, and sends the new merged documents to the
+              email&nbsp;address -&nbsp;<strong>shawn@zylker.com:</strong>
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Construct a KEY-VALUE variable to hold the merge data and subject of the email</span>
+&nbsp;<span>merge_values</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>merge_values</span><span>.</span><span>put</span><span>(</span><span>"subject"</span>, <span>"Merge and send Deluge task"</span><span>)</span><span>;</span>
+&nbsp;<span>merge_values</span><span>.</span><span>put</span><span>(</span><span><strong>"merge_data_csv_url"</strong></span>, <span><strong>"http://insight.dev.schoolwires.com/HelpAssets/C2Assets/C2Files/C2ImportCalEventSample.csv"</strong></span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;
+&nbsp;<span>// Perform the Merge and Send task&nbsp;</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.writer.mergeAndSend</span><span>(</span><span>"al296XXXXXXXXXXXXXXXXXXXXXXXXXXXa516c"</span>, <span>"inline"</span>, <span>"shawn@zylker.com"</span>, <span>merge_values</span>, <span>"writer_oauth_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"merge_data_csv_url"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> key that represents the type of the
+                      data source. Here, the data source is a URL that contains
+                      CSV data.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"http://insight.dev.schoolwires.com/HelpAssets/
+C2Assets/C2Files/C2ImportCalEventSample.csv"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the URL of the
+                      data source.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 3: Supply JSON content in TEXT format to the merge
+              fields and email the new merged documents
+            </h2>
+            <p>
+              The following script supplies JSON values held by the variable
+              -&nbsp;<strong>json_text</strong> to their respective merge
+              fields, and sends the new documents to the email address -
+              shawn@zylker.com:
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Assign the JSON data in TEXT format to the variable -&nbsp;json_text</span>
+&nbsp;<span><strong>json_text</strong></span><span> = </span><span>"{\"data\":[{\"Name\":\"Shawn\",\"Age\":\"20\"},{\"Name\":\"Kate\",\"Age\":\"29\"}]}"</span><span>;</span>
+&nbsp;
+&nbsp;
+&nbsp;<span>// Construct a KEY-VALUE variable to hold the merge data and subject of the email</span>
+&nbsp;<span>merge_values</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>merge_values</span><span>.</span><span>put</span><span>(</span><span>"subject"</span>, <span>"Merge and send Deluge task"</span><span>)</span><span>;</span>
+&nbsp;<span>merge_values</span><span>.</span><span>put</span><span>(</span><span><strong>"merge_data"</strong></span>, <span><strong>json_text</strong></span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;
+&nbsp;<span>// Perform the Merge and Send task&nbsp;</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.writer.mergeAndSend</span><span>(</span><span>"al296XXXXXXXXXXXXXXXXXXXXXXXXXXXa516c"</span>, <span>"inline"</span>, <span>"shawn@zylker.com"</span>, <span>merge_values</span>, <span>"writer_oauth_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"merge_data"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> key that represents the type
+                      of&nbsp;the data source. Here, the data source is JSON
+                      data in TEXT format
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>json_text</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> variable that holds the JSON
+                      data that will be supplied to the merge fields. Here, the
+                      JSON array value needs to be associated with the
+                      key&nbsp;<strong>"data"</strong>.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"merge_report_data_url":
+                  "https://docs.zoho.com/writer/api/v1/merge/job/f0b49XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXde0e1/data",<br />&nbsp;&nbsp;"merge_report_url":
+                  "https://docs.zoho.com/writer/v1/mailmerge/job/f0b49XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXde0e1",<br />&nbsp;&nbsp;"records":
+                  [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"Event Description":
+                  "Department meeting",<br />&nbsp;&nbsp;"Category": "2",<br />&nbsp;&nbsp;"All
+                  Day Event": "N",<br />&nbsp;&nbsp;"Contact Phone":
+                  "814-555-5179",<br />&nbsp;&nbsp;"Last Date To Register":
+                  "9/2/2011",<br />&nbsp;&nbsp;"Start Time": "3:00:00 PM",<br />&nbsp;&nbsp;"Event
+                  Title": "Social Studies Dept. Meeting",<br />&nbsp;&nbsp;"Contact":
+                  "Chris Gallagher",<br />&nbsp;&nbsp;"Contact Email":
+                  "cgallagher@schoolwires.com",<br />&nbsp;&nbsp;"Maximum":
+                  "25",<br />&nbsp;&nbsp;"Start Date": "9/5/2011",<br />&nbsp;&nbsp;"No
+                  End Time": "Y",<br />&nbsp;&nbsp;"End Date": "9/5/2011",<br />&nbsp;&nbsp;"Registration":
+                  "N",<br />&nbsp;&nbsp;"End Time": "",<br />&nbsp;&nbsp;"Location":
+                  "High School",<br />&nbsp;&nbsp;"Mandatory": "N",<br />&nbsp;&nbsp;"status":
+                  "inprogress"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"Event
+                  Description": "Curriculum Meeting",<br />&nbsp;&nbsp;"Category":
+                  "2",<br />&nbsp;&nbsp;"All Day Event": "N",<br />&nbsp;&nbsp;"Contact
+                  Phone": "814-555-5179",<br />&nbsp;&nbsp;"Last Date To
+                  Register": "9/2/2011",<br />&nbsp;&nbsp;"Start Time": "6:00:00
+                  PM",<br />&nbsp;&nbsp;"Event Title": "Curriculum Meeting",<br />&nbsp;&nbsp;"Contact":
+                  "Chris Gallagher",<br />&nbsp;&nbsp;"Contact Email":
+                  "cgallagher@schoolwires.com",<br />&nbsp;&nbsp;"Maximum":
+                  "25",<br />&nbsp;&nbsp;"Start Date": "9/5/2011",<br />&nbsp;&nbsp;"No
+                  End Time": "N",<br />&nbsp;&nbsp;"End Date": "9/5/2011",<br />&nbsp;&nbsp;"Registration":
+                  "N",<br />&nbsp;&nbsp;"End Time": "8:00:00 PM",<br />&nbsp;&nbsp;"Location":
+                  "High School",<br />&nbsp;&nbsp;"Mandatory": "N",<br />&nbsp;&nbsp;"status":
+                  "inprogress"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for empty merge data will be returned in
+                  the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"error":
+                  {<br />&nbsp;&nbsp;"documentation_url":
+                  "https://www.zoho.com/writer/help/api/v1/general-errors.html",<br />&nbsp;&nbsp;"message":
+                  "Merge data not found. Please try again with proper merge
+                  data.",<br />&nbsp;&nbsp;"errorcode": "1837"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response when you try to share a document that is
+                  not owned or co-owned by you will be returned in the following
+                  format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"message":
+                  "Permission denied. You are not authorized to perform this
+                  operation.",<br />&nbsp;&nbsp;"documentation_url":
+                  "https://www.zoho.com/writer/help/api/v1/general-errors.html",<br />&nbsp;&nbsp;"response_generated_time":
+                  1563961602526,<br />&nbsp;&nbsp;"request_url":
+                  "https://writer.zoho.com/api/v1/documents/al296XXXXXXXXXXXXXXXXXXXXXXXX6964add/collaboration",<br />&nbsp;&nbsp;"errorcode":
+                  "R5010"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for incorrect email address will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"parameter_name":
+                  "recipient_email",<br />&nbsp;&nbsp;"message": "Invalid
+                  parameter values found. Please try again with supported
+                  values.",<br />&nbsp;&nbsp;"documentation_url":
+                  "https://www.zoho.com/writer/help/api/v1/general-errors.html",<br />&nbsp;&nbsp;"response_generated_time":
+                  1564637379763,<br />&nbsp;&nbsp;"request_url":
+                  "https://writer.zoho.com/writer/api/v1/documents/al296XXXXXXXXXXXXXXXXXXXXXXXXXXXb4add/merge/email",<br />&nbsp;&nbsp;"errorcode":
+                  "R2000"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for improper document ID will be returned
+                  in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"message":
+                  "Request URL not configured properly. Please check and try
+                  again",<br />&nbsp;&nbsp;"documentation_url":
+                  "https://www.zoho.com/writer/help/api/v1/general-errors.html",<br />&nbsp;&nbsp;"response_generated_time":
+                  1563961624177,<br />&nbsp;&nbsp;"request_url":
+                  "https://writer.zoho.com/api/v1/documents//collaboration",<br />&nbsp;&nbsp;"errorcode":
+                  "R2008"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response when you try to merge values to a
+                  document that you do not have permission will be returned in
+                  the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"message":
+                  "Permission denied. You are not authorized to perform this
+                  operation.",<br />&nbsp;&nbsp;"documentation_url":
+                  "https://www.zoho.com/writer/help/api/v1/general-errors.html",<br />&nbsp;&nbsp;"response_generated_time":
+                  1563961602526,<br />&nbsp;&nbsp;"request_url":
+                  "https://writer.zoho.com/api/v1/documents/al296XXXXXXXXXXXXXXXXXXXXXXXX6964add/collaboration",<br />&nbsp;&nbsp;"errorcode":
+                  "R5010"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Writer integration tasks</a></li>
+              <li><a>Invoke URL</a></li>
+              <li><a>Connections</a></li>
+              <li><a>Zoho Writer&nbsp;- Merge and Email API&nbsp;</a>​</li>
+              <li><a>Zoho Writer API - Possible error responses</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

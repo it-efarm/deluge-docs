@@ -1,0 +1,146 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Number functions</a></li>
+        <li><a>toWords</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>toWords()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>toWords()</strong> function converts the input number
+              into words.&nbsp;For example, if <strong>1000</strong>&nbsp;is
+              given as input number, the output will be returned as "one
+              thousand".&nbsp;
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>
+                <a><span>TEXT</span></a>
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;&nbsp;</span><span>=&nbsp;</span><span>&lt;</span><span>number</span><span>&gt;</span><span>.toWords</span><span>(</span><span>&lt;</span><span>language</span><span>&gt;</span><span>)</span><span>;</span>
+                                </pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;&nbsp;</span><span>=&nbsp;</span><span>toWords</span><span>(</span><span>&lt;</span><span>number</span><span>&gt;</span><span>,&nbsp;</span><span>&lt;</span><span>language</span><span>&gt;</span><span>)</span><span>;</span>
+                                </pre>
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>&lt;</span><span>variable</span><span>&gt;</span>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      The variable that will contain the converted into words.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>&lt;</span><span>number</span><span>&gt;</span>
+                    </td>
+                    <td><span>NUMBER</span>/ <span>DECIMAL</span></td>
+                    <td>
+                      <p>The input number that will be converted into words.</p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <ul>
+                          <li>
+                            A <strong>number input</strong> value can contain up
+                            to <strong>18 digits</strong>.
+                          </li>
+                          <li>
+                            The whole and decimal parts of a
+                            <strong>decimal input</strong> value can
+                            collectively be up to <strong>15 digits</strong>.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>&lt;</span><span>language</span><span>&gt;</span>
+                    </td>
+                    <td><span>NUMBER</span>/ <span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The language in which the input number will be converted
+                        into words.
+                      </p>
+                      <p><strong>Supported Languages:</strong></p>
+                      <ul>
+                        <li><strong>English UK:</strong> en-gb</li>
+                        <li><strong>English US:</strong> en-us</li>
+                        <li><strong>French:</strong> fr</li>
+                        <li><strong>German:</strong> de</li>
+                        <li><strong>Italian:</strong> it</li>
+                        <li><strong>Japanese:</strong> ja</li>
+                        <li><strong>Korean:</strong> ko</li>
+                        <li><strong>Chinese:</strong> zh</li>
+                        <li><strong>English Indian</strong>: en-in</li>
+                        <li><strong>Spanish</strong>: es</li>
+                      </ul>
+                      <p>&nbsp;</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre><span>whole_number </span><span>= </span><span>1989</span><span>;</span>&nbsp;
+<span>info </span><span>whole_number.toWords</span><span>(</span><span>"en-us"</span><span>)</span><span>; </span><span>// returns <strong>one thousand nine hundred eighty-nine</strong></span><strong>&nbsp;</strong>
+                                &nbsp;
+<span>decimal_number </span><span>= </span><span>1989.13</span><span>;</span>&nbsp;
+<span>info </span><span>decimal_number.toWords</span><span>(</span><span>"en-us"</span><span>)</span><span>; </span><span>// returns <strong>one thousand nine hundred eighty-nine point one three</strong></span><strong>&nbsp;</strong>
+                                &nbsp;
+<span>negative_number </span><span>= -</span><span>12</span><span>;</span>&nbsp;
+<span>info </span><span>negative_number.toWords</span><span>(</span><span>"en-gb"</span><span>)</span><span>; </span><span>// returns <strong>minus twelve</strong></span><strong>&nbsp;</strong>
+                                &nbsp;
+<span>to_korean </span><span>= </span><span>24</span><span>;</span>&nbsp;
+<span>info </span><span>to_korean.toWords</span><span>(</span><span>"ko"</span><span>)</span><span>; </span><span>// returns <strong>이십사</strong></span>
+                                &nbsp;
+<span>whole_number </span><span>= </span><span>10000000</span><span>;</span>&nbsp;
+<span>info </span><span>whole_number.toWords</span><span>(</span><span>"en-gb"</span><span>)</span><span>; </span><span>// returns <strong>ten million</strong>
+</span><span>                                &nbsp;
+whole_number </span><span>= </span><span>10000000</span><span>;</span><span>&nbsp;
+</span><span>info</span><span> whole_number.toWords</span><span>(</span><span>"en-in"</span><span>)</span><span>; </span><span>// returns <strong>one crore </strong></span><span>                             </span><font><span>
+                                </span></font><br><br><span>whole_number</span> <span>=</span> <span>1989</span><span>;</span>
+<span>info</span> <span>whole_number.toWords</span><span>(</span><span>"es"</span><span>)</span><span>;</span><span>; </span><span>// returns <strong>mil novecientos ochenta y nueve </strong></span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

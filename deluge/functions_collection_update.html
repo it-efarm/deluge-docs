@@ -1,0 +1,114 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>update</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>update</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>update</strong>&nbsp;function updates a specified
+              value of a key or a specified element in a&nbsp;<a>collection</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <p>To update the value of a&nbsp;key:</p>
+            <div>
+              <pre><span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.update</span><span>(</span><span>&lt;</span><span>key</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>updateValue</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <p>To update an element:</p>
+            <div>
+              <pre><span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.update</span><span>(</span><span>&lt;</span><span>elementIndex</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>updatedValue</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;collectionVariable&gt;</td>
+                    <td><span>COLLECTION</span></td>
+                    <td>
+                      <p>
+                        The variable in which the value of a key or an element
+                        will be updated.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;key&gt;</td>
+                    <td>All Data Types</td>
+                    <td>
+                      <p>The key whose value will be updated.</p>
+                      <p>
+                        If a new key is specified, the key-value pair will get
+                        added as a new pair.&nbsp;
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;elementIndex&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>
+                        The index of the element which will be updated with a
+                        new value.
+                      </p>
+                      <p>
+                        If the specified index does not exist, a runtime error
+                        will be encountered.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;updatedValue&gt;</td>
+                    <td>ALL DATA TYPES</td>
+                    <td>The value which will replace the existing value.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>products </span><span>= </span><span>collection</span><span>(</span><span>"Creator"</span><span>, </span><span>"CRM"</span><span>, </span><span>"Campaigns"</span><span>)</span><span>;</span>  
+&nbsp;<span>products</span><span>.update</span><span>(</span><span>2</span><span>, </span><span>"Analytics"</span><span>)</span><span>; </span><span>//replaces "Campaigns" with "Analytics"</span>
+&nbsp;<span>info products</span><span>;</span>
+&nbsp;<span>// Returns, Creator,CRM,Analytics</span>
+</pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>productVersion </span><span>= </span><span>collection</span><span>(</span><span>"Creator" </span><span>: </span><span>5</span><span>, </span><span>"CRM" </span><span>: </span><span>2</span><span>);</span>
+&nbsp;<span>productVersion</span><span>.update</span><span>(</span><span>"CRM", </span><span>3</span><span>)</span><span>; </span><span>// replaces the value 2 with 3</span>
+&nbsp;<span>info productVersion</span><span>;</span>
+&nbsp;<span>// Returns, {"Creator":5,"CRM":3}</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,188 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Map Integration Tasks</a></li>
+        <li><a>Reverse Geocode</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Reverse Geocode</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.map.rGeoCode</strong> task returns the address of
+              the specified GPS coordinates (latitude and longitude).
+            </p>
+            <div>
+              <strong>Note:</strong>
+              <ul>
+                <li>
+                  Zoho Maps use open-source address data. Hence, accuracy might
+                  not be on par with commercial vendors.
+                </li>
+                <li>
+                  This task cannot be used in AU domain as Zoho Maps is not
+                  available for AU users.
+                </li>
+              </ul>
+            </div>
+            <h2>​<a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.map.rGeoCode</span><span>(</span><span>&lt;</span><span>latitude</span><span>&gt;</span>, <span>&lt;</span><span>longitude</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The address of the specified location, and the status of
+                        the executed task.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;latitude&gt;</p></td>
+                    <td>
+                      <p><span>NUMBER</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The latitude of the address that needs to be obtained.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;longitude&gt;</p></td>
+                    <td>
+                      <p><span>NUMBER</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The longitude of the address that needs to be obtained.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script returns the address of the specified location
+              using its latitude and longitude:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.map.rGeoCode</span><span>(</span><span>12.8311007</span>, <span>80.0494381542286</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the address
+                      of the specified location, and the status of the executed
+                      task.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>12.8311007</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the latitude of
+                      the location whose address needs to be obtained.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>80.0494381542286</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the longitude of
+                      the location whose address needs to be obtained.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"country": "India",<br />&nbsp;"country_code":
+                  "in",<br />&nbsp;"address": "Bucket Building, Grand Southern
+                  Trunk Road, Vardhaman Nagar, Guduvancheri, Potheri,
+                  Kanchipuram district, Tamil Nadu, 603202, India","road":
+                  "Grand Southern Trunk Road",<br />&nbsp;"state_district":
+                  "Kanchipuram district",<br />&nbsp;"neighbourhood": "Vardhaman
+                  Nagar",<br />&nbsp;"postcode": "603202",<br />&nbsp;"suburb":
+                  "Guduvancheri",<br />&nbsp;"state": "Tamil Nadu",<br />&nbsp;"village":
+                  "Potheri",<br />&nbsp;"building": "Bucket Building",<br />&nbsp;"status":
+                  "success"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for an undetectable latitude and
+                  longitude values will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"error": "unable to geocode",<br />&nbsp;"status":
+                  "failure"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            &nbsp;
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Map Integration Tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

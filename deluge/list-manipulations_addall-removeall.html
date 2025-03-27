@@ -1,0 +1,239 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>List Manipulations</a></li>
+        <li><a>Add all | Remove all</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Add all | Remove all</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>add all&nbsp;</strong>deluge task&nbsp;adds all
+              elements present in one list(list2) to another list(list1).
+            </p>
+            <p>
+              The&nbsp;<strong>remove all</strong>&nbsp;deluge task&nbsp;removes
+              all elements present in one list(list2) from another list(list1).
+            </p>
+            <h2><a></a>Syntax</h2>
+            <p><span>Add all elements</span></p>
+            <div>
+              <span
+                ><span>&lt;list1&gt;</span
+                >.addall(<span>&lt;list2&gt;</span>);</span
+              >
+            </div>
+            <p><span>Remove all elements</span></p>
+            <div>
+              <span
+                ><span>&lt;list1&gt;</span
+                >.removeall(<span>&lt;list2&gt;</span>);</span
+              >
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span><span>&lt;list1&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        The list variable which the elements will&nbsp;be added
+                        to, or removed from.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;list2&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        The list variable&nbsp;containing&nbsp;the elements
+                        which have&nbsp;to be added, or removed.
+                      </p>
+                      <p>
+                        Elements of this list can be accommodated in list1 only
+                        if the latter is not restricted to a&nbsp;<a
+                          >specific data-type</a
+                        >.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              1) The following snippet results in "alldays" having the list
+              values&nbsp;{"Monday", "Tuesday", "Wednesday", "Thursday",
+              "Friday", "Saturday", "Sunday"}
+            </p>
+            <div>
+              alldays = {"Monday", "Tuesday", "Wednesday", "Thursday",
+              "Friday"};<br />weekends = {"Saturday", "Sunday"};<br />alldays.addall
+              ( weekends );
+            </div>
+            <p>
+              2) The following snippet removes "Saturday" and "Sunday" from the
+              "allDays" list. The "allDays" list will
+              then&nbsp;contain&nbsp;{"Monday", "Tuesday", "Wednesday",
+              "Thursday", "Friday"}
+            </p>
+            <div>
+              weekends = {"Saturday", "Sunday"};<br />allDays = {"Monday",
+              "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+              "Sunday"};<br />allDays.removeAll(weekends);
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

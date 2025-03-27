@@ -1,0 +1,1053 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Data Access</a></li>
+        <li><a>Fetch records</a></li>
+        <li><a>Criteria to fetch records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h2>Overview</h2>
+      <p>
+        A criteria is required when you need to fetch a collection of records.
+        Criteria&nbsp;comprises of one or more conditions separated by&nbsp;<a
+          >logical operators</a
+        >.&nbsp;
+      </p>
+      <p>
+        Conditions always evaluate to a boolean value - <strong>True</strong> or
+        <strong>False</strong>. The boolean value of the overall criteria will
+        depend on the conditions and the type of Logical Operators used to
+        connect the conditions in the criteria.
+      </p>
+      <p>
+        If the criteria is met(i.e., it evaluates to true), all the records
+        which meet the criteria will be fetched.
+      </p>
+      <h2>Syntax</h2>
+      <p>A criteria looks like the following snippet:</p>
+      <div>
+        <span
+          >(<span>&lt;condition_1&gt;</span>&nbsp;<span>&lt;logical_operator_1&gt;</span>&nbsp;<span>&lt;condition_2&gt;</span>&nbsp;&lt;<span>logical_operator_2&gt;</span>&nbsp;.....
+          <span>&lt;condition_n&gt;</span>)</span
+        >
+      </div>
+      <p>Each condition comprises of the following:</p>
+      <div>
+        <span>(</span><span>&lt;field_link_name&gt;</span><span>&nbsp;</span
+        ><span>&lt;operator&gt;</span><span>&nbsp;</span
+        ><span>&lt;expression&gt;</span><span>)</span>
+      </div>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <p>
+                  <span><span>&lt;field_link_name&gt;&nbsp;</span></span>
+                </p>
+              </td>
+              <td>
+                <p>
+                  Link name of the field whose value needs to be compared to a
+                  specified value.
+                </p>
+                <p>
+                  Only link names of fields and its related fields must be
+                  specified.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span><span>&lt;operator&gt;</span></span>
+              </td>
+              <td>
+                <p>
+                  Operator to compare field value against the specified value.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span><span>&lt;expression&gt;</span></span>
+              </td>
+              <td>
+                <p>
+                  The value to be compared with the field value. It may directly
+                  be a value,&nbsp;or an expression evaluating&nbsp;to the
+                  required value.
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>For example:</h3>
+      <div>
+        (email == "tony@zylker.com" &amp;&amp; &nbsp;phone ==
+        "+91xxxxxxxxxx")<br /><br />// 'email' and 'phone' are the form
+        fields<br />// in the example, we have 2 conditions separated by the
+        &amp;&amp; logical operator<br />// each condition has a field, an
+        operator, and the expression to be compared<br />// such conditions can
+        be used to <a>fetch records which meet the criteria</a>
+      </div>
+      <h3>
+        Applicable operators and expressions for&nbsp;Name and&nbsp;Address
+        field types.
+      </h3>
+      <p>
+        The criteria format:&nbsp;<span
+          ><span>&lt;field_link_name&gt;</span
+          >&nbsp;<span>&lt;operator&gt;</span>&nbsp;<span
+            >(&lt;expression&gt;)</span
+          ></span
+        >&nbsp;must be used to specify the following operators.
+      </p>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td>Operator</td>
+              <td>Applicable expression</td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>==</li>
+                  <li>!=</li>
+                  <li>is not</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>null</li>
+                </ul>
+                <p>
+                  It is advisable to use <a>this&nbsp;function</a> instead
+                  to&nbsp;check null values
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The criteria format:&nbsp;<span
+          ><span>&lt;field_link_name&gt;</span
+          >.<span>&lt;operator&gt;</span>&nbsp;<span
+            >(&lt;expression&gt;)</span
+          ></span
+        >&nbsp;must be used to specify the following operators.
+      </p>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td>Operator</td>
+              <td>Applicable expression</td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>contains</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    string value, or an expression that evaluates to a string
+                    value
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>isEmpty</li>
+                </ul>
+              </td>
+              <td><p>&nbsp; &nbsp; &nbsp; &nbsp;NA</p></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>
+        Applicable operators and expressions for&nbsp;Name(subfields), Email,
+        Address(subfields),&nbsp;Single Line, Multi Line, Drop down,
+        Radio,&nbsp;Formula (String), Rich Text, Phone Number, URL, Image, File
+        Upload, Audio, Video, Signature, Users, Added User, Modified User, and
+        Integration&nbsp;field types
+      </h3>
+      <p>
+        The criteria format:&nbsp;<span
+          ><span>&lt;field_link_name&gt;</span
+          >&nbsp;<span>&lt;operator&gt;</span>&nbsp;<span>&lt;expression&gt;</span>&nbsp;</span
+        >must be used to specify the following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>==</li>
+                  <li>!=</li>
+                  <li>is</li>
+                  <li>is not</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    string value, or an expression that evaluates to a string
+                    value
+                  </li>
+                  <li>string list</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>in</li>
+                  <li>not in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>string list</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The criteria format:&nbsp;<span
+          ><span>&lt;field_link_name&gt;</span
+          >.<span>&lt;operator&gt;</span>&nbsp;<span
+            >(&lt;expression&gt;)</span
+          ></span
+        >&nbsp;must be used to specify the following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>contains</li>
+                  <li>startsWith</li>
+                  <li>endsWith</li>
+                  <li>equalsIgnoreCase</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    string value, or an expression that evaluates to a string
+                    value
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>isEmpty</li>
+                </ul>
+              </td>
+              <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p>Note:</p>
+        <ul>
+          <li>
+            <span
+              >The subfields for <strong>Name</strong> field type must be
+              specified in the format:</span
+            >
+            <ul>
+              <li><span>&lt;field_link_name&gt;.prefix</span></li>
+              <li><span>&lt;field_link_name&gt;.first_name</span></li>
+              <li><span>&lt;field_link_name&gt;.last_name</span></li>
+              <li><span>&lt;field_link_name&gt;.suffix</span></li>
+            </ul>
+          </li>
+          <li>
+            <span
+              >The subfields for <strong>Address</strong> field type must be
+              specified in the format:</span
+            >
+            <ul>
+              <li><span>&lt;field_link_name&gt;.address_line_1</span></li>
+              <li><span>&lt;field_link_name&gt;.address_line_2</span></li>
+              <li><span>&lt;field_link_name&gt;.district_city</span></li>
+              <li><span>&lt;field_link_name&gt;.state_province</span></li>
+              <li><span>&lt;field_link_name&gt;.postal_code</span></li>
+              <li><span>&lt;field_link_name&gt;.country</span></li>
+              <li><span>&lt;field_link_name&gt;.longitude</span></li>
+              <li><span>&lt;field_link_name&gt;.latitude</span></li>
+            </ul>
+          </li>
+          <li>
+            If more than one Name fields are present in the form, the link names
+            of the subsequent sub fields will be appended by a number starting
+            from 1. So, if we take the example of the
+            subfield&nbsp;<strong>&lt;field&gt;.prefix</strong>,&nbsp;the link
+            name of the first such field will
+            be&nbsp;<strong>&lt;field&gt;.prefix</strong>, the link name of the
+            second such field will
+            be&nbsp;<strong>&lt;field&gt;.prefix1</strong>,&nbsp;the link name
+            of the third such field will
+            be&nbsp;<strong>&lt;field&gt;.prefix2</strong>, and so on.
+          </li>
+          <li>
+            Similarly, if more than one Address&nbsp;fields are present in the
+            form, the link names of the subsequent sub fields will be appended
+            by a number starting from 1. So, if we take&nbsp;the example
+            of&nbsp;the
+            subfield&nbsp;<strong>&lt;field&gt;.country</strong>,&nbsp;the link
+            name of the first such field will
+            be&nbsp;<strong>&lt;field&gt;.country</strong>, the link name of the
+            second such field will
+            be&nbsp;<strong>&lt;field&gt;.country1</strong>,&nbsp;the link name
+            of the third such field will
+            be&nbsp;<strong>&lt;field&gt;.country2</strong>, and so on.&nbsp;
+          </li>
+          <li>
+            For <strong>Rich Text</strong> field type, the string value must be
+            provided with the applicable html tags, if any.
+          </li>
+          <li>
+            For <strong>Phone Number</strong> field type, the string value must
+            be provided along with the country code.
+          </li>
+          <li>
+            For&nbsp;<strong>URL</strong>​ with title, linkname and target as
+            "new window". If these properties are not enabled, they can be
+            removed from the url format.
+            <ul>
+              <li>
+                <div>
+                  <span
+                    >"&lt;a href= \"&lt;URL&gt;\"&nbsp;title =
+                    \"&lt;TITLE&gt;\"&nbsp;target =
+                    \"_blank\"&gt;&lt;linkname&gt;&lt;/a&gt;"</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            For&nbsp;<strong>Image</strong>&nbsp;with linkname, title, and
+            target as "new window".&nbsp;If these properties are not enabled,
+            they can be removed from the url format.
+            <ul>
+              <li>
+                <div>
+                  <span
+                    >"&lt;a href= \"http://&lt;LINKNAME&gt;\" title
+                    =\"&lt;TITLE&gt;\" target = \"_blank\"&gt;&lt;img src =
+                    \"&lt;URL&gt;\" title
+                    =\"&lt;TITLE&gt;\"&gt;&lt;/img&gt;&lt;/a&gt;"</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            For <strong>File upload</strong> field type, the string value must
+            be in the format:
+            <ul>
+              <li>
+                <div>
+                  &lt;file-id&gt;_&lt;file-name&gt;.&lt;file-type&gt;&nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />// The file-id
+                  is a unique id assigned to each file. Execute the info
+                  statement to view the exact format of the value as stored in
+                  the database.
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            For <strong>Audio</strong> and <strong>Video</strong> field types,
+            The string value must be in the format:
+            <ul>
+              <li>
+                <div>
+                  &lt;file-id&gt;_&lt;file-size-in-bytes&gt;_&lt;file-name&gt;.&lt;file-type&gt;&nbsp;
+                  &nbsp; &nbsp;<br />// The file-id is a unique id assigned to
+                  each file.&nbsp;Execute the info statement to view the exact
+                  format of the value as stored in the database.
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            For <strong>Signature</strong> field type, The string value must be
+            in the format:
+            <ul>
+              <li>
+                <div>
+                  &nbsp;&lt;file-id&gt;_&lt;field-link-name&gt;.png&nbsp; &nbsp;
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />// The file-id
+                  is a unique id assigned to each file.&nbsp;Execute the info
+                  statement to view the exact format of the value as stored in
+                  the database.
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            For <strong>Users</strong>, <strong>Added user</strong> and
+            <strong>Modified user</strong>, you can check the list of users and
+            their email addresses from the Users section in your application. To
+            check with the email address of the users, specify
+            &lt;field_link_name&gt; in the following format:
+            <ul>
+              <li>
+                <div>
+                  &lt;field_link_name&gt;.email&nbsp;// will work only for
+                  the&nbsp;<strong>Users</strong>&nbsp;field type and for the
+                  operators:&nbsp;<strong>==</strong>,&nbsp;<strong>!=</strong>,&nbsp;<strong>is</strong>,
+                  and&nbsp;<strong>is not</strong>.
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            For <strong>Integration</strong> field type, you need to specify the
+            record id.
+          </li>
+        </ul>
+      </div>
+      <h3>
+        Applicable operators and expressions for Number, Autonumber, Percent,
+        Currency, Decimal, ID and Formula(bigint/decimal) field types
+      </h3>
+      <p>
+        The criteria format:&nbsp;<span>&lt;field_link_name&gt;</span
+        ><span>&nbsp;</span><span>&lt;operator&gt;</span><span>&nbsp;</span
+        ><span>&lt;expression&gt;</span>&nbsp;must be used to specify the
+        following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>==</li>
+                  <li>!=</li>
+                  <li>is</li>
+                  <li>is not</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    bigint/decimal value, or an expression that evaluates to a
+                    bigint/decimal value
+                  </li>
+                  <li>
+                    bigint/decimal list (or list with numerical values in
+                    quotes)
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>in</li>
+                  <li>not in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>bigint/decimal list (or list with numbers in quotes)</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>&gt;</li>
+                  <li>&lt;&nbsp;</li>
+                  <li>&gt;=&nbsp;</li>
+                  <li>&lt;=&nbsp;</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    bigint/decimal value or an expression that evaluates to a
+                    bigint/decimal value
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The criteria format:&nbsp;<span>&lt;field_link_name&gt;</span
+        ><span>.</span><span>&lt;operator&gt;</span><span>&nbsp;</span
+        ><span>(&lt;expression&gt;)</span>&nbsp;must be used to specify the
+        following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>contains</li>
+                  <li>startsWith</li>
+                  <li>endsWith</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>bigint/decimal value&nbsp;within double quotes.</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>
+        Applicable operators and expressions for Date, Date-time, Added Time and
+        Modified Time field types
+      </h3>
+      <p>
+        The criteria format:&nbsp;<span>&lt;field_link_name&gt;</span
+        ><span>&nbsp;</span><span>&lt;operator&gt;</span><span>&nbsp;</span
+        ><span>&lt;expression&gt;</span>&nbsp;must be used to specify the
+        following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>==</li>
+                  <li>!=</li>
+                  <li>is&nbsp;</li>
+                  <li>is not</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>tomorrow</li>
+                  <li>yesterday</li>
+                  <li>now</li>
+                  <li>today</li>
+                  <li>date system variables</li>
+                  <li>
+                    any date/date-time&nbsp;value or an expression that
+                    evaluates to a date/date-time value
+                  </li>
+                  <li>list of date-time values</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>not in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>list of date-time values</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    any date/date-time&nbsp;value or an expression that
+                    evaluates to a date/date-time value
+                  </li>
+                  <li>list of date-time values</li>
+                  <li>next week</li>
+                  <li>next month</li>
+                  <li>next year</li>
+                  <li>last week</li>
+                  <li>last month</li>
+                  <li>last year</li>
+                  <li>next &lt;n&gt; weeks</li>
+                  <li>next &lt;n&gt; months</li>
+                  <li>next &lt;n&gt; years</li>
+                  <li>last &lt;n&gt; weeks</li>
+                  <li>last &lt;n&gt; months</li>
+                  <li>last &lt;n&gt; years</li>
+                  <li>&lt;n&gt; weeks ago</li>
+                  <li>&lt;n&gt; months ago</li>
+                  <li>&lt;n&gt; years ago</li>
+                  <li>this week</li>
+                  <li>this month</li>
+                  <li>this year</li>
+                </ul>
+                <p>&nbsp;&lt;n&gt; stands for any valid natural number.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Applicable operators and expressions for decision box field type</h3>
+      <p>
+        The criteria format:&nbsp;<span>&lt;field_link_name&gt;</span
+        ><span>&nbsp;</span><span>&lt;operator&gt;</span><span>&nbsp;</span
+        ><span>&lt;expression&gt;</span>&nbsp;must be used to specify the
+        following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>==</li>
+                  <li>!=</li>
+                  <li>is&nbsp;</li>
+                  <li>is not</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>true</li>
+                  <li>false</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                  The decision box field type can also be specified in the
+                  following format:
+                </p>
+                <div>
+                  &lt;collection_variable&gt;&nbsp;=
+                  &lt;Form&gt;[&lt;decision_box&gt;];
+                </div>
+                &nbsp; &nbsp; &nbsp; // implies the decision box value is true
+                <div>
+                  &lt;collection_variable&gt; =
+                  &lt;Form&gt;[!&lt;decision_box&gt;];
+                </div>
+                &nbsp; &nbsp; &nbsp;// implies the decision box value is false
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>
+        Applicable operators and expressions for multi select and checkbox field
+        types
+      </h3>
+      <p>
+        The criteria format:&nbsp;<span>&lt;field_link_name&gt;</span
+        ><span>&nbsp;</span><span>&lt;operator&gt;</span><span>&nbsp;</span
+        ><span>&lt;expression&gt;</span>&nbsp;must be used to specify the
+        following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>==</li>
+                  <li>in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    a list or an expression which&nbsp;evaluates to a list&nbsp;
+                  </li>
+                </ul>
+                <p>
+                  Even if the field contains any additional&nbsp;choices apart
+                  from the choices specified in the expression, that record will
+                  be treated as matching the criteria.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>!=</li>
+                  <li>not in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    a list or an expression which evaluates to a list&nbsp;
+                  </li>
+                </ul>
+                <p>
+                  If the field contains any additional&nbsp;choices apart from
+                  the choices specified in the expression, that record will be
+                  treated as matching the criteria.
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The criteria format:&nbsp;<span>&lt;field_link_name&gt;</span
+        ><span>.</span><span>&lt;operator&gt;</span><span>&nbsp;</span
+        ><span>(&lt;expression&gt;)</span>&nbsp;must be used to specify the
+        following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>contains</li>
+                  <li>startsWith</li>
+                  <li>endsWith</li>
+                  <li>equalsIgnoreCase</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    string value, or an expression that evaluates to a string
+                    value
+                  </li>
+                </ul>
+                <p>
+                  The specified string value will not be treated as a choice,
+                  instead it will treated as string characters and all the
+                  choices containing the string characters will be treated as
+                  matching the criteria.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>isEmpty</li>
+                </ul>
+              </td>
+              <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>
+        Applicable operators and expressions for&nbsp;Lookup - Multiselect and
+        Checkbox&nbsp;field types
+      </h3>
+      <p>
+        The criteria format:&nbsp;<span
+          ><span>&lt;field_link_name&gt;</span
+          >&nbsp;<span>&lt;operator&gt;</span>&nbsp;<span>&lt;expression&gt;</span>&nbsp;</span
+        >must be used to specify the following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>==</li>
+                  <li>!=&nbsp; &nbsp;</li>
+                  <li>in</li>
+                  <li>not in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    bigint list, or an expression that evaluates to a bigint
+                    list&nbsp;
+                  </li>
+                </ul>
+                <p>You need to specify the record id.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The criteria format:&nbsp;<span
+          ><span>&lt;field_link_name&gt;</span
+          >.<span>&lt;operator&gt;</span>&nbsp;<span
+            >(&lt;expression&gt;)</span
+          ></span
+        >&nbsp;must be used to specify the following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>contains</li>
+                  <li>startsWith</li>
+                  <li>endsWith</li>
+                  <li>equalsIgnoreCase</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>bigint value within double quotes</li>
+                </ul>
+                <p>
+                  The specified value will not be treated as a choice, instead
+                  it will treated as string characters and all the choices
+                  containing the characters will be treated as matching the
+                  criteria.
+                </p>
+                <p>You need to specify record IDs as values.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>isEmpty</li>
+                </ul>
+              </td>
+              <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>
+        Applicable operators and expressions for Lookup - Drop-down and
+        Radio&nbsp;field types
+      </h3>
+      <p>
+        The criteria format:&nbsp;<span
+          ><span>&lt;field_link_name&gt;</span
+          >&nbsp;<span>&lt;operator&gt;</span>&nbsp;<span>&lt;expression&gt;</span>&nbsp;</span
+        >must be used to specify the following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>==&nbsp;</li>
+                  <li>!=</li>
+                  <li>is</li>
+                  <li>is not</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    bigint value, or an expression that evaluates to a bigint
+                    value
+                  </li>
+                  <li>bigint list</li>
+                </ul>
+                <p>You need to specify record IDs as values.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>in</li>
+                  <li>not in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>bigint list</li>
+                </ul>
+                <p>You need to specify record IDs as values.</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The criteria format:&nbsp;<span
+          ><span>&lt;field_link_name&gt;</span
+          >.<span>&lt;operator&gt;</span>&nbsp;<span
+            >(&lt;expression&gt;)</span
+          ></span
+        >&nbsp;must be used to specify the following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>contains</li>
+                  <li>startsWith</li>
+                  <li>endsWith</li>
+                  <li>equalsIgnoreCase</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    string value, or an expression that evaluates to a string
+                    value
+                  </li>
+                </ul>
+                <p>You need to specify record IDs as values.</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>isEmpty</li>
+                </ul>
+              </td>
+              <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p>
+          <strong><u>Note</u>:</strong>&nbsp;
+        </p>
+        <ul>
+          <li>
+            <strong>Lookup</strong> <strong>subfields</strong> and
+            <strong>Subform</strong> fields
+            <ul>
+              <li>
+                You can specify fields in the lookup form in the format
+                <div>
+                  &lt;lookup_field_link_name&gt;.&lt;field_link_name&gt;
+                </div>
+                and the operators and expressions must be specified based on the
+                field type of the &lt;field_link_name&gt;, as mentioned in the
+                above tables
+              </li>
+              <li>
+                You can specify fields in the Subform&nbsp;in the format
+                <div>
+                  &lt;subform_field_link_name&gt;.&lt;field_link_name&gt;
+                </div>
+                and the operators and expressions must be specified based on the
+                field type of the &lt;field_link_name&gt;, as mentioned in the
+                above tables
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Encrypted fields&nbsp;</strong>
+            <ul>
+              <li>
+                <strong>​</strong>The following are the only applicable
+                operators and built-in functions for fields whose&nbsp;<a
+                  >data encryption</a
+                >&nbsp;is enabled:<strong>&nbsp;==, !=, </strong>and<strong>
+                  isEmpty().</strong
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,280 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>File Functions</a></li>
+        <li><a>compress</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>compress</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li><a>Compress a file</a></li>
+                    <li><a>Compress more than one file</a></li>
+                    <li><a>Compress file and format them in directories</a></li>
+                  </ul>
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong>&nbsp;This function is applicable to
+              <strong>all</strong> Zoho services. In&nbsp;<strong
+                >Zoho Creator</strong
+              >, this function can be applied only on files fetched using the
+              <a>invokeUrl</a> task and not on the files&nbsp;fetched from Zoho
+              Creator fields.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>compress</strong>&nbsp;function compresses one or more
+              files into&nbsp;a single ZIP file of&nbsp;<strong>.zip</strong>
+              format.&nbsp;
+            </p>
+            <div>
+              <strong>Note:</strong>
+              <ul>
+                <li>
+                  This function cannot return a zip file of size more than
+                  <strong>2</strong>&nbsp;<strong>MB</strong>. If the size
+                  exceeds the limit an error will be thrown.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>
+                <span><a>TEXT</a></span>
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>&lt;</span><span>files</span><span>&gt;</span><span>.compress</span><span>(</span><span>[&lt;compressed_file_name&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>FILE</span></td>
+                    <td>The compressed file</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;files&gt;</td>
+                    <td>
+                      <span>FILE</span>/ <span>LIST</span>/
+                      <span>KEY-VALUE</span>
+                    </td>
+                    <td>
+                      <p>Files that need to be zipped</p>
+                      <ul>
+                        <li>
+                          If a single file needs to be compressed, it is
+                          supplied to this parameter as <span>FILE.</span>
+                        </li>
+                        <li>
+                          If more than one file needs to be compressed, they are
+                          supplied to this parameter as <span>LIST.</span>
+                        </li>
+                        <li>
+                          If the files need to be compressed and structured as
+                          directories, they are supplied to this parameter
+                          as&nbsp;<span>KEY-VALUE</span>. Its&nbsp;values
+                          can&nbsp;either be&nbsp;FILE&nbsp;representing the
+                          file to be included in&nbsp;the directory,
+                          or&nbsp;KEY-VALUE representing the directory that
+                          needs to be nested within it. To insert a file, the
+                          keys&nbsp;need to be the name of the file that needs
+                          to be compressed. To insert a&nbsp;directory, the keys
+                          need to be a TEXT representing the name of the
+                          directory that needs to be created.
+                        </li>
+                      </ul>
+                      <div>
+                        <strong>Note: </strong>To fetch&nbsp;the name of a file,
+                        you can use the&nbsp;<a>get file name</a> task
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;file_name&gt;<br /><br />​(optional)</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Name with which the compressed file needs to be returned
+                      </p>
+                      <div>
+                        <strong>Note:</strong>&nbsp;Please make sure the file
+                        name doesn't contain any restricted characters.
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1: Compress a file</h2>
+            <p>
+              The following example compresses a file fetched from cloud:&nbsp;
+            </p>
+            <div>
+              <pre>&nbsp;<span>file1</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;&nbsp;&nbsp;<span>url</span> <span>:</span><span>"http://www.africau.edu/images/default/sample.pdf"</span>
+&nbsp;&nbsp;&nbsp;<span>type :</span> <span> GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;
+&nbsp;<span>zip_file</span><span> = </span><span>file1</span><span>.compress</span><span>(</span><span>"compressed_file"</span><span>)</span><span>;</span>
+&nbsp;
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>zip_file</span></pre>
+                    </div>
+                    <div>
+                      The <span>FILE</span> that holds the compressed file.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Compress more than one file</h2>
+            <p>
+              The following example compresses a list of files&nbsp;and returns
+              a compressed .zip file:&nbsp;
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Fetch .pdf file</span>
+&nbsp;<span>file1</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;&nbsp;&nbsp;<span>url</span> <span>:</span><span>"http://www.africau.edu/images/default/sample.pdf"</span>
+&nbsp;&nbsp;&nbsp;<span>type :</span> <span> GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Fetch .jpg file</span>
+&nbsp;<span>file2</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;&nbsp;&nbsp;<span>url</span> <span>:</span><span>"https://upload.wikimedia.org/wikipedia/commons/a/a7/Blank_image.jpg"</span>
+&nbsp;&nbsp;&nbsp;<span>type :</span> <span> GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create a list to add files that need to be compressed</span>
+&nbsp;<span>filesList</span> = <span>List</span><span>()</span>;
+&nbsp;<span>filesList</span>.<span>add</span><span>(</span><span>file1</span><span>)</span>;
+&nbsp;<span>filesList</span>.<span>add</span><span>(</span><span>file2</span><span>)</span>;
+&nbsp;
+&nbsp;<span>// Perform compress function</span>
+&nbsp;<span>zip_file</span><span> = </span> <span>filesList</span><span>.compress</span><span>(</span><span>"compressed_file"</span><span>)</span><span>;</span>
+&nbsp;
+</pre>
+            </div>
+            <h2>
+              <a></a>Example 3: Compress file and format them in directories
+            </h2>
+            <p>
+              The following example compresses&nbsp;two files and arranges in
+              the structure:
+            </p>
+            <ul>
+              <li>
+                <strong>Directory 1</strong> contains&nbsp;File 1 and Directory
+                2
+              </li>
+              <li><strong>Directory 2</strong> contains File 2</li>
+            </ul>
+            <div>
+              <pre>&nbsp;<span>// Fetch .pdf file</span>
+&nbsp;<span>file1</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;&nbsp;&nbsp;<span>url</span> <span>:</span><span>"http://www.africau.edu/images/default/sample.pdf"</span>
+&nbsp;&nbsp;&nbsp;<span>type :</span> <span> GET</span>
+&nbsp;<span>]</span><span>;</span>
+
+&nbsp;<span>// Fetch .jpg file</span>
+&nbsp;<span>file2</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;&nbsp;&nbsp;<span>url</span> <span>:</span><span>"https://upload.wikimedia.org/wikipedia/commons/a/a7/Blank_image.jpg"</span>
+&nbsp;&nbsp;&nbsp;<span>type :</span> <span> GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create a map to add files in directory structure</span>
+&nbsp;<span>directory2</span> = <span>Map</span><span>()</span>;
+&nbsp;<span>directory2</span>.<span>put</span><span>(</span><span>file2.getfilename() </span>,<span>file2</span><span>)</span>;
+
+&nbsp;<span>directory1</span> = <span>Map</span><span>()</span>;
+&nbsp;<span>directory1</span>.<span>put</span><span>(</span><span>file1.getfilename() </span>,<span>file1</span><span>)</span>;
+&nbsp;<span>directory1</span>.<span>put</span><span>(</span><span>"Directory 2" </span>,<span>directory2</span><span>)</span>;
+&nbsp;
+&nbsp;<span>// Perform compress function</span>
+&nbsp;<span>zip_file</span><span> = </span> <span>directory1</span><span>.compress</span><span>(</span><span>"Directory 1"</span><span>)</span><span>;</span>
+&nbsp;
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>zip_file</span></pre>
+                    </div>
+                    <div>
+                      The <span>FILE</span> that represents the compressed file.
+                      This example returns Directory 1.zip.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>directory1</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the files
+                      that need to be compressed in the required structure.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Directory 1"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      compressed file.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>File Methods</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,459 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Merge and store V2</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Merge and Store V2 in Zoho Writer</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li>
+                  <a>Usecase</a>
+                  <ul>
+                    <li><a>Scenario 1</a></li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2>Description</h2>
+            <p>
+              The <strong>zoho.writer.v2.mergeAndStore</strong> task merges the
+              document and stores it in a specific location in Zoho WorkDrive.
+              This task is based on the
+              <a>Zoho Writer Merge and Store v2 API</a>.
+            </p>
+            <div>
+              <strong>Note:&nbsp;</strong>Applicable to all services except Zoho
+              Creator.&nbsp;<br />Creator users can use the
+              <a>Writer Merge and Store V2</a> Rest API with the invoke URL
+              method.
+            </div>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.writer.v2.mergeAndStore</span><span>(</span><span>&lt;</span><span>document_id</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>merge_detail</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>output_settings</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>optional_settings</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><strong>Params</strong></td>
+                      <td><strong>Data type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                    <tr>
+                      <td>&lt;response&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        The response returned by Zoho Writer. It represents the
+                        merged document's details such as the merge data, along
+                        with the status of the merge.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;document_id&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>
+                          The ID of the document which needs to be merged and
+                          stored in Zoho WorkDrive.
+                        </p>
+                        <p>
+                          The document ID can be obtained from the URL of the
+                          document which needs to be merged and stored in
+                          WorkDrive.
+                        </p>
+                        <p>
+                          The URL is in the following format:<br />https://writer.zoho.com/writer/open/<strong
+                            >&lt;document_id&gt;</strong
+                          >
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;merge_detail&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        &nbsp;Specify how your input for the merge will be. It
+                        can be JSON, CSV file, or a URL.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;output_settings&gt;</td>
+                      <td>
+                        {<br />'<strong>doc_name</strong>': "&lt;new document
+                        name&gt;",<br />'<strong>folder_id</strong>':
+                        "&lt;folder_id&gt;" ,<br />'<strong>output_format</strong>':
+                        "&lt;pdfform/pdf/docx&gt;",<br />'<strong>password</strong>':
+                        "&lt;*****&gt;",<br />'<strong>overwrite_existing_file</strong>':
+                        "&lt;true/false&gt;",<br />'<strong>merge_to</strong>':"&lt;separatedoc/singledoc&gt;<br />}
+                      </td>
+                      <td>
+                        <p>
+                          Pass the values for <strong>doc_name</strong>&nbsp;and
+                          <strong>folder_id</strong>&nbsp;via this parameter as
+                          a JSON.
+                        </p>
+                        <p>
+                          <strong>doc_name</strong
+                          >:<strong>&nbsp;</strong>The&nbsp;name of the merged
+                          document.
+                        </p>
+                        <p>
+                          <strong>folder_id</strong
+                          >:<strong>&nbsp;</strong>Specify the id of the folder
+                          in which you would like to store the merged document.
+                        </p>
+                        <p>
+                          <strong>output_format (optional)</strong
+                          >:<strong>&nbsp;</strong>The format in which you would
+                          like to store the merged document. Supported formats
+                          are&nbsp;<strong>PDF</strong>,&nbsp;<strong>PDFForm</strong>,
+                          and&nbsp;<strong>DOCX</strong>.
+                        </p>
+                        <p>
+                          <strong>Note</strong>: If this key is not passed, the
+                          merged documents will be stored in Writer's format
+                          (<strong>ZDOC</strong>) by default.
+                        </p>
+                        <p>
+                          <strong>password (optional)</strong
+                          >:<strong>&nbsp;</strong>Specify a password if you
+                          would like to protect the merged document. This param
+                          is applicable only for <strong>PDF</strong>&nbsp;and
+                          <strong>DOCX&nbsp;</strong>documents.
+                        </p>
+                        <p>
+                          <strong>overwrite_existing_file (optional)</strong
+                          >:<strong>&nbsp;</strong>Use this param, if you wish
+                          to replace an existing file stored in Zoho WorkDrive
+                          with the merged document.
+                        </p>
+                        <p>
+                          <strong>merge_to (optional)</strong
+                          >:<strong>&nbsp;</strong>The type of document to be
+                          created from the merge. Supported merge types are
+                          <strong>separatedoc</strong>&nbsp;and
+                          <strong>singledoc</strong>.
+                        </p>
+                        <p>
+                          <strong>separatedoc</strong>:<strong> </strong>If you
+                          would like to merge each record as a separate
+                          document.
+                        </p>
+                        <p>
+                          <strong>singledoc</strong>:<strong>&nbsp;</strong>If
+                          you would like to merge all the records as a single
+                          document.
+                        </p>
+                        <p>
+                          <strong>Note</strong>:<strong> </strong>By default, we
+                          will apply&nbsp;<strong>separatedoc </strong>as the
+                          merge type.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;optional_settings&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        &nbsp; The optional parameters you can send to merge and
+                        store according to your preference.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;connection&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>The <a>connection'</a>s link name.</p>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            <p>
+                              To prevent
+                              <a>new authtoken generation</a>&nbsp;and ensure
+                              new integration tasks (created after the deadline
+                              specified in the post) work as expected, a Zoho
+                              OAuth connection with appropriate scopes is
+                              mandatory. Existing integration tasks will
+                              continue to work, with or without the connections
+                              parameter, until you manually delete the authtoken
+                              from <a>Zoho Accounts</a>.
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              Add relevant scopes from the&nbsp;<a
+                                >Zoho Writer API</a
+                              >
+                              when creating the connection.
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              Refer to <a>this post</a> for a list of Zoho
+                              services that support the Connections page.
+                            </p>
+                          </li>
+                          <li>
+                            <p><a>Learn more about connections</a></p>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>&nbsp;</p>
+              <p>
+                You can provide the
+                <strong>merge_detail</strong>&nbsp;parameter&nbsp;in any one of
+                the below formats:
+              </p>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Key</th>
+                    <th><strong>Value</strong></th>
+                    <th><strong>Description</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>merge_data</td>
+                    <td>JSONObject</td>
+                    <td>
+                      Pass a String value
+                      through&nbsp;<strong>data</strong>&nbsp;key as JSON Array.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>merge_data_csv_content</td>
+                    <td>File</td>
+                    <td>
+                      Provide the required CSV content in your API request body.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>merge_data_json_content</td>
+                    <td>File</td>
+                    <td>
+                      Provide the required JSON&nbsp;content in your API request
+                      body.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>merge_data_csv_url</td>
+                    <td>URL</td>
+                    <td>
+                      Provide the required CSV URL in your API request body.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>merge_data_json_url</td>
+                    <td>URL</td>
+                    <td>
+                      Provide the required JSON&nbsp;URL in your API request
+                      body.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>option_settings</strong>&nbsp;parameter values:</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data Type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>sign_service_name</td>
+                    <td>String</td>
+                    <td>
+                      <p>&nbsp;</p>
+                      <p>
+                        Specify a third-party signing service name to make your
+                        merged document's signing fields compatible with.
+                      </p>
+                      <p>
+                        Possible values are
+                        <strong>zohosign, adobesign, and docusign</strong>. By
+                        default, the service will be <strong>zohosign</strong>.
+                      </p>
+                      <p>&nbsp;</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>test_mode</td>
+                    <td>Boolean (true/false)</td>
+                    <td>
+                      <p>
+                        Using this parameter, you can test the Merge APIs
+                        without consuming any credit points. The output file
+                        will contain a watermark as it is used only for testing
+                        purposes.
+                      </p>
+                      <p>
+                        Test mode limit: <strong>50 merges/day</strong> for an
+                        org.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <p><strong>Note</strong>:<strong>&nbsp;</strong></p>
+              <ul>
+                <li>
+                  To use this API, an OAuth token should be generated with the
+                  following scopes ZohoWriter.documentEditor.ALL and
+                  ZohoWriter.merge.ALL
+                </li>
+                <li>
+                  If you would like to store the documents (docx/pdf) inside a
+                  Workdrive/Docs folder, you need to include the following
+                  scopes accordingly;
+                  <ul>
+                    <li>For Workdrive - WorkDrive.Files.ALL</li>
+                    <li>For Docs - ZohoPC.files.ALL</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <h2>Example</h2>
+            <p>
+              The following script merges a document and stores it in a specific
+              folder in Zoho WorkDrive.
+            </p>
+            <div>
+              <pre><span>document_id</span> <span>=</span> <span>"po5uobda049e029d44b13a9956f6d2cedc67b"</span><span>;</span> 
+                <span>fields</span> <span>=</span> <span>Map</span><span>()</span><span>;</span> 
+                <span>fields</span><span>.put</span><span>(</span><span>"Name"</span><span>,</span> <span>"Ms.Amelia"</span><span>)</span><span>;</span>
+                <span>fields</span><span>.put</span><span>(</span><span>"Tamil"</span><span>,</span> <span>"S"</span><span>)</span><span>;</span>
+                <span>fields</span><span>.put</span><span>(</span><span>"English"</span><span>,</span> <span>"A"</span><span>)</span><span>;</span>
+                <span>fields</span><span>.put</span><span>(</span><span>"Maths"</span><span>,</span> <span>"A"</span><span>)</span><span>;</span>
+                <span>fields</span><span>.put</span><span>(</span><span>"Remark"</span><span>,</span> <span>"Good"</span><span>)</span><span>;</span>
+                <span>data_map</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>data_map</span><span>.put</span><span>(</span><span>"data"</span><span>,</span> <span>fields</span><span>)</span><span>;</span>
+                <span>merge_details</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>merge_details</span><span>.put</span><span>(</span><span>"merge_data"</span><span>,</span> <span>data_map</span><span>)</span><span>;</span>
+                <span>optional_settings</span><span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>optional_settings</span><span>.put</span><span>(</span><span>"sign_service_name"</span><span>,</span><span>"zohosign"</span><span>)</span><span>;</span>
+                <span>optional_settings</span><span>.put</span><span>(</span><span>"test_mode"</span><span>,</span> <span>"true"</span><span>)</span><span>;</span>
+                <span>output_settings</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>output_settings</span><span>.put</span><span>(</span><span>"doc_name"</span><span>,</span><span>"Student Grade"</span><span>)</span><span>;</span>
+                <span>output_settings</span><span>.put</span><span>(</span><span>"folder_id"</span><span>,</span><span>"bsa6360a78f53f***"</span><span>)</span><span>;</span>   <span>//Workdrive Folder ID  //optional</span>
+                <span>output_settings</span><span>.put</span><span>(</span><span>"output_format"</span><span>,</span><span>"pdf"</span><span>)</span><span>;</span>    <span>//docx|pdfform|pdf  //optional</span>
+                <span>output_settings</span><span>.put</span><span>(</span><span>"password"</span><span>,</span><span>"*****"</span><span>)</span><span>;</span>    <span>//optional</span>
+                <span>output_settings</span><span>.put</span><span>(</span><span>"overwrite_existing_file"</span><span>,</span><span>"true"</span><span>)</span><span>;  </span>//<span>true|false  //optional</span>
+                <span>response</span> <span>=</span> <span>zoho.writer.v2.mergeAndStore</span><span>(</span><span>document_id</span><span>,</span> <span>merge_details</span><span>,</span> <span>output_settings</span><span>,</span> <span>optional_settings</span><span>,</span> <span>"writer_oauth_connection"</span><span>)</span><span>;</span>
+                <span>info</span> <span>response</span><span>;</span></pre>
+            </div>
+            <h2>Usecase</h2>
+            <h3>
+              <a></a><strong>Scenario 1: Merge and store proposals</strong>
+            </h3>
+            <p>
+              Say you're generating a proposal for a deal in CRM. Sales team
+              generates a new proposal by merging it and saves it to a
+              particular folder in WorkDrive.
+            </p>
+            <div>
+              <pre><span>document_id</span> <span>=</span> <span>"po5uobda049e029d4r98r84304jrj32"</span><span>;</span>
+                <span>fields</span> <span>=</span> <span>Map</span><span>()</span><span>;</span> 
+                <span>fields</span><span>.put</span><span>(</span><span>"ClientName"</span><span>,</span> <span>"Zylker"</span><span>)</span><span>;</span>
+                <span>fields</span><span>.put</span><span>(</span><span>"ClientCompany"</span><span>,</span> <span>"Writer"</span><span>)</span><span>;</span>
+                <span>fields</span><span>.put</span><span>(</span><span>"price"</span><span>,</span> <span>"10000"</span><span>)</span><span>;</span>
+                <span>data_map</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>data_map</span><span>.put</span><span>(</span><span>"data"</span><span>,</span> <span>fields</span><span>)</span><span>;</span>
+                <span>merge_details</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>merge_details</span><span>.put</span><span>(</span><span>"merge_data"</span><span>,</span> <span>data_map</span><span>)</span><span>;</span>
+                <span>optional_settings</span><span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>output_settings</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>output_settings</span><span>.put</span><span>(</span><span>"doc_name"</span><span>,</span><span>"SALES PROPOSAL"</span><span>)</span><span>;</span>
+                <span>output_settings</span><span>.put</span><span>(</span><span>"folder_id"</span><span>,</span><span>"bsa6360a78f53f***"</span><span>)</span><span>;</span>   <span>//Workdrive Folder ID  //optional</span>
+                <span>output_settings</span><span>.put</span><span>(</span><span>"output_format"</span><span>,</span><span>"pdf"</span><span>)</span><span>;</span>    <span>//docx|pdfform|pdf  //optional</span>
+                <span>output_settings</span><span>.put</span><span>(</span><span>"password"</span><span>,</span><span>"*****"</span><span>)</span><span>;</span>    <span>//optional</span>
+                <span>output_settings</span><span>.put</span><span>(</span><span>"overwrite_existing_file"</span><span>,</span><span>"true"</span><span>)</span><span>;</span>    <span>//true|false  //optional</span>
+                <span>response</span> <span>=</span> <span>zoho.writer.v2.mergeAndStore</span><span>(</span><span>document_id</span><span>,</span> <span>merge_details</span><span>,</span> <span>output_settings</span><span>,</span> <span>optional_settings</span><span>,</span> <span>"writer_oauth_connection"</span><span>)</span><span>;</span>
+                <span>info</span> <span>response</span><span>;</span>
+                </pre>
+            </div>
+            <h2>Response Format</h2>
+            <div>
+              <pre><span>{</span>
+                    <span>"merge_report_data_url"</span><span>:</span> <span>"&lt;url&gt;"</span><span>,</span>
+                    <span>"merge_report_url"</span><span>:</span> <span>"&lt;url&gt;"</span><span>,</span>
+                    <span>"records"</span><span>:</span> <span>[</span>
+                        <span>{</span>
+                            <span>"data"</span><span>:</span> <span>[{</span><span>“given</span> <span>input</span> <span>merge_data”</span><span>}]</span><span>,</span>
+                            <span>"download_link"</span><span>:</span> <span>"&lt;attachment download url&gt;"</span><span>,</span>
+                            <span>"document_id"</span><span>:</span> <span>"&lt;merged doc id&gt;"</span><span>,</span>
+                            <span>"document_url"</span><span>:</span> <span>"&lt;merged doc open url&gt;"</span><span>,</span>
+                            <span>"status"</span><span>:</span> <span>"inprogress"</span>
+                        <span>}</span>
+                    <span>]</span><span>,</span>
+                    <span>"status"</span><span>:</span> <span>"inprogress"</span>
+                <span>}</span></pre>
+            </div>
+            <h2>Related Links</h2>
+            <ul>
+              <li><a>Zoho Writer integration tasks</a></li>
+              <li><a>Connections</a></li>
+              <li><a>Zoho Writer - Merge and Store v2 API document</a></li>
+              <li><a>Zoho Writer API - Possible error responses</a></li>
+            </ul>
+            <p>&nbsp;</p>
+          </div>
+        </div>
+      </div>
+      <quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

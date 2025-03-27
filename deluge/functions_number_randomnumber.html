@@ -1,0 +1,125 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Number functions</a></li>
+        <li><a>randomNumber</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>randomNumber</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>randomNumber</strong>&nbsp;function generates a random
+              number from the specified range.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>NUMBER</li>
+              <li>DECIMAL</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <p>
+              To generate a random number which falls in a specified range
+              (inclusive of both values):
+            </p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>randomNumber</span><span>(</span><span>&lt;</span><span>start_limit&gt;</span><span>,</span><span> &lt;</span><span>end_limit&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>NUMBER/DECIMAL</td>
+                    <td>
+                      Variable that will contain a random number between the
+                      specified limits.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;start_limit&gt;</span></td>
+                    <td>NUMBER/DECIMAL</td>
+                    <td>
+                      <p>
+                        The starting value of the range between which the random
+                        number needs to be generated.
+                      </p>
+                      <div>
+                        <p>
+                          <strong>Note:</strong>&nbsp;When the start limit, end
+                          limit, or both are decimals, the function returns a
+                          decimal. If both the arguments are whole numbers, the
+                          function returns a whole number.
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;end_limit&gt;</span></td>
+                    <td>NUMBER/DECIMAL</td>
+                    <td>
+                      <p>
+                        The ending value of the range&nbsp;between which the
+                        random number needs to generated.
+                      </p>
+                      <div>
+                        <p>
+                          <strong>Note:</strong>&nbsp;When the start limit, end
+                          limit, or both are decimals, the function returns a
+                          decimal. If both the arguments are whole numbers, the
+                          function returns a whole number.
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> When using the random number function,
+                please be aware that the random number generated can include the
+                start limit and any numbers or decimals in between, but it will
+                never be equal to the end limit.
+              </p>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre><span>response1 </span><span>= </span><span>randomnumber</span><span>(</span><span>1</span><span>,</span><span>3</span><span>)</span><span>;</span>    <span>//returns 1 or 2</span>
+<span>info </span><span>response1</span><span>;</span>
+<span>response2 </span><span>= </span><span>randomnumber</span><span>(</span><span>1.789</span><span>,</span><span>34.54</span><span>)</span><span>;</span>    <span>//returns a random decimal between 1.789 and 34.53</span>
+<span>info </span><span>response2</span><span>;</span>
+<span>response3 </span><span>= </span><span>randomnumber</span><span>(</span><span>5</span><span>,</span><span>123.4</span><span>)</span><span>;</span>     <span>//returns a random decimal between 5 and 123.3 </span>
+<span>info </span><span>response3</span><span>;</span>
+                </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

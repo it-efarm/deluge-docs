@@ -1,0 +1,126 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>XML &amp; JSON functions</a></li>
+        <li><a>getJSON</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>getJSON</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>getJSON</strong>&nbsp;function retrieves values
+              from a&nbsp;JSON formatted text&nbsp;or a key-value collection,
+              using a&nbsp;key.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>
+                The return type will depend on the data type of the returned
+                value.
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>input</span><span>&gt;</span><span>.getJson</span><span>(</span><span>&lt;</span><span>key</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>Any datatype</span></td>
+                    <td>
+                      Variable that holds the returned value. Datatype of this
+                      parameter depends on the type of the returned value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;input&gt;</td>
+                    <td>
+                      <span>TEXT</span><br />or<br /><span>KEY-VALUE</span>
+                    </td>
+                    <td>
+                      <p>
+                        The JSON formatted text or the key-value collection from
+                        which the specified key's value needs to be fetched.
+                      </p>
+                      <p><strong>Note:</strong></p>
+                      <ul>
+                        <li>
+                          If the input is not a JSON formatted TEXT&nbsp;or is
+                          not a KEY-VALUE collection, a runtime error will be
+                          thrown.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;key&gt;</td>
+                    <td><span>Any datatype</span></td>
+                    <td>
+                      <p>The key whose value needs to be returned.</p>
+                      <p>
+                        If the specified key is not found, null value will be
+                        returned.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              The below example retrieves the ID of an employee from a JSON.
+            </p>
+            <div>
+              <pre>&nbsp;<span>employeeDetail</span><span>=</span><span>"{\"response\" : {\"employee\": {\"id\" : \"EMP-001\", \"role\" : \"Developer\"}}}"</span><span>;</span>   
+&nbsp;<span>info </span><span>employeeDetail</span><span>.getJSON</span><span>(</span><span>"response"</span><span>)</span><span>.getJSON</span><span>(</span><span>"employee"</span><span>)</span><span>.getJSON</span><span>(</span><span>"id"</span><span>)</span><span>;</span> <span>// returns EMP-001
+
+</span></pre>
+            </div>
+            <p>
+              The below example retrieves the IDs of all employees in a form of
+              a Collection from a JSON.
+            </p>
+            <div>
+              <pre>&nbsp;<span>resp</span> <span>=</span>  <span>"{\"data\" : [{\"Id\":1, \"firstname\":\"John\", \"lastName\":\"Day\"},  {\"Id\":2, \"firstname\":\"Patricia\",\"lastname\":\"Boyle\"}]}"</span><span>;</span>
+&nbsp;<span>employeeList</span> <span>=</span> <span>resp</span><span>.getJson</span><span>(</span><span>"data"</span><span>)</span><span>;</span>
+
+&nbsp;<span>idList</span> <span>=</span> <span>Collection</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>for each </span> <span>employee </span> <span>in </span> <span>employeeList</span>
+&nbsp;<span>{</span>
+  &nbsp;<span>idList</span><span>.insert</span><span>(</span><span>employee</span><span>.getJson</span><span>(</span><span>"Id"</span><span>)</span><span>)</span><span>;</span>
+&nbsp;<span>}</span>
+&nbsp;<span>info </span><span>idList</span><span>;</span> <span>//returns 1,2</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.0221035"><iframe></iframe></div>
+</div>

@@ -1,0 +1,101 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>List functions</a></li>
+        <li><a>remove</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>remove</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>remove()</strong> function takes
+              <strong>listVariable</strong> and <strong>indexValue</strong> as
+              arguments. It removes the element in the specified indexValue from
+              the list, and returns that element.
+            </p>
+            <div><strong>Note</strong>: Index starts from 0.</div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Text</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; = <span>&lt;listVariable&gt;</span>.remove(
+              <span>&lt;indexValue&gt; </span>);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>TEXT</td>
+                    <td>Variable which will contain the returned value.</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;listVariable&gt;</span></td>
+                    <td>LIST</td>
+                    <td>
+                      The list variable from which the element will be removed
+                      and returned.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;indexValue&gt;</span></td>
+                    <td>NUMBER</td>
+                    <td>
+                      <p>
+                        The index of the element which will be removed from the
+                        list, and returned.
+                      </p>
+                      <p>
+                        Value should not be a negative number. If a negative
+                        number is specified, a runtime error will be
+                        encountered.
+                      </p>
+                      <p>
+                        Value should not exceed the list size. Ideally, this
+                        limit will be list size minus 1, since index starts from
+                        0.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>Product&nbsp;</span><span>=&nbsp;</span><span>{</span><span>"Creator"</span><span>,</span><span>"CRM"</span><span>,</span><span>"Projects"</span><span>}</span><span>;</span>
+&nbsp;<span>element&nbsp;</span><span>=&nbsp;</span><span>Product</span><span>.remove</span><span>(</span><span>1</span><span>)</span><span>;&nbsp;&nbsp;</span><span>// 'element' variable contains "CRM"</span>
+&nbsp;<span>info </span><span>Product</span><span>;&nbsp;&nbsp;</span><span>// 'Product' list contains "Creator,Projects"</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

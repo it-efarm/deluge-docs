@@ -1,0 +1,104 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>daysBetween</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h1>daysBetween</h1>
+      <h4>Table of Contents</h4>
+      <ul>
+        <li><a>Overview</a></li>
+        <li><a>Return Type</a></li>
+        <li><a>Syntax</a></li>
+        <li><a>Examples</a></li>
+      </ul>
+      <h2><a></a>Overview</h2>
+      <p>
+        The&nbsp;<strong>daysBetween&nbsp;</strong>function
+        takes&nbsp;<strong>startDateValue</strong>&nbsp;and&nbsp;<strong>endDateValue</strong>&nbsp;as
+        arguments and returns the number of days between them.
+      </p>
+      <div>
+        Note: The <a>days360()</a> function can also be used as an alternative
+        to perform the same operation since they behave in the same way.
+      </div>
+      <h2><a></a>Return Type</h2>
+      <ul>
+        <li>Number</li>
+      </ul>
+      <h2><a></a>Syntax</h2>
+      <div>
+        &lt;variable&gt; = <span> &lt;startDateValue&gt;</span>.daysBetween(
+        <span>&lt;endDateValue&gt;</span>);
+      </div>
+      <p>(OR)</p>
+      <div>
+        &lt;variable&gt; =
+        daysBetween(<span>&lt;startDateValue</span>&gt;,<span>&lt;endDateValue&gt;</span>);
+      </div>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Data type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&lt;variable&gt;</td>
+              <td>NUMBER</td>
+              <td>
+                Variable which will contain the number of days between the given
+                start and end dates.
+              </td>
+            </tr>
+            <tr>
+              <td>&lt;startDateValue&gt;</td>
+              <td>DATE-TIME</td>
+              <td><p>The starting date.</p></td>
+            </tr>
+            <tr>
+              <td>&lt;endDateValue&gt;</td>
+              <td>DATE-TIME</td>
+              <td><p>The ending date.</p></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        A runtime error will be encountered if:
+        <p>&nbsp;</p>
+        <ul>
+          <li>
+            the hour value, or minute value, or second value, is specified in
+            more than 2 digits
+          </li>
+          <li>the date value exceeds the number of days in that month.</li>
+          <li>an incorrect month value is specified.</li>
+          <li>the year value has more than 4 digits.</li>
+          <li>
+            Please refer&nbsp;<a>this help document</a>&nbsp;to learn about the
+            supported date-time formats.
+          </li>
+        </ul>
+      </div>
+      <h2><a></a>Examples</h2>
+      <div>
+        startDate = '1-Jan-2019';&nbsp;<br />endDate = '31-Dec-2019';&nbsp;<br />numberOfDays
+        = daysBetween(startDate, endDate); // returns 364&nbsp;<br />newStartDate
+        = '1-Jan-2020';&nbsp;<br />newEndDate = '31-Dec-2020';&nbsp;<br />numOfDays
+        = daysBetween(newStartDate, newEndDate); // returns 365&nbsp; &nbsp;
+        &nbsp; &nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

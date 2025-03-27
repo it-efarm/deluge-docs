@@ -1,0 +1,120 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>totalMonths</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>totalMonths()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>totalMonths()</strong> function takes
+              <strong>startDateTimeValue</strong> and
+              <strong>endDateTimeValue</strong> as arguments. It returns the
+              number of months between the given date-time values.
+            </p>
+            <div>
+              <strong>Note:</strong> The difference between totalMonths function
+              and <a>monthsBetween</a> function is that the monthsBetween
+              function considers a month as 30 days.<br /><br />For example,
+              let's say the start date is specified as
+              <strong>01-Feb-2019</strong>&nbsp;and the end date is specified as
+              <strong>01-Mar-2019.</strong>&nbsp;The February month of 2019
+              contains 28 days and hence the number of days between the
+              specified dates is 28 which is lesser than 30. Therefore, the
+              <strong>monthsBetween</strong> function&nbsp;returns 0&nbsp;and
+              the <strong>totalMonths</strong> function returns 1. This is
+              because the monthsBetween function considers that a month always
+              contains 30 days whereas the totalMonths function considers a
+              month depending on the number of days in it.
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Number</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;<span>variable</span>&gt;
+              =&nbsp;&lt;<span>startDateTimeValue</span>&gt;.<span>totalMonths</span>(&lt;<span>endDateTimeValue</span>&gt;);
+            </div>
+            <p>(OR)</p>
+            <div>
+              &lt;<span>variable</span>&gt; =
+              <span>totalMonths</span
+              >(&lt;<span>startDateTimeValue</span>&gt;,&nbsp;&lt;<span>endDateTimeValue</span>&gt;);
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>&nbsp;</p>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td><strong>Parameter</strong></td>
+              <td><strong>Data type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr></tr>
+            <tr>
+              <td>&lt;variable&gt;</td>
+              <td>NUMBER</td>
+              <td>Variable which will contain the returned number.</td>
+            </tr>
+            <tr>
+              <td>&lt;startDateTimeValue&gt;</td>
+              <td>DATE-TIME</td>
+              <td><p>The starting date-time value.</p></td>
+            </tr>
+            <tr>
+              <td>&lt;endDateTimeValue&gt;</td>
+              <td>DATE-TIME</td>
+              <td><p>The ending date-time value.</p></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <strong>Note:</strong>
+        <p>
+          The time value is not taken into account while using this function.
+        </p>
+        <p>
+          Please refer <a>this help document</a> to learn about the supported
+          date-time formats.
+        </p>
+      </div>
+      <h2><a></a>Examples</h2>
+      <div>
+        <pre><span>startDate </span><span>= </span><span>'31-Dec-1989'</span><span>;</span>&nbsp;
+<span>endDate </span><span>= </span><span>'01-Jan-1990'</span><span>;</span>&nbsp;
+<span>newEndDate </span><span>= </span><span>'01-Feb-1990'</span><span>;</span>&nbsp;
+<span>numberOfMonths </span><span>= </span><span>totalMonths</span><span>(</span><span>startDate</span><span>,</span><span>endDate</span><span>)</span><span>;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>// returns 0</span>&nbsp;
+<span>numOfMonths </span><span>= </span><span>totalMonths</span><span>(</span><span>startDate</span><span>,</span><span>newEndDate</span><span>)</span><span>;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>// returns 1</span>&nbsp;
+&nbsp;
+<span>startDate </span><span>= </span><span>'01-Feb-2020'</span><span>;</span>&nbsp;
+<span>endDate </span><span>= </span><span>'01-Mar-2020'</span><span>;</span>&nbsp;
+<span>info </span><span>totalMonths</span><span>(</span><span>startDate</span><span>,</span><span>endDate</span><span>)</span><span>;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>// returns 1</span>
+</pre>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

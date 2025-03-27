@@ -1,0 +1,147 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sign Integration Tasks</a></li>
+        <li><a>Download document</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Download document from Zoho Sign</h1>
+          <div>
+            <h4>Table of Contents</h4>
+            <ul>
+              <li><a>Overview</a></li>
+              <li><a>Syntax</a></li>
+              <li><a>Example</a></li>
+              <li><a>Related Links</a></li>
+            </ul>
+          </div>
+          <h2><a></a>Overview</h2>
+          <p>
+            The <strong>zoho.sign.downloadDocument</strong> task is used to
+            download documents from Zoho Sign.
+          </p>
+          <h2><a></a>Syntax</h2>
+          <div>
+            <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.sign.downloadDocument</span><span>(</span><span>&lt;</span><span>requestID</span><span>&gt;</span><span>,</span> <span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+          </div>
+          <p>where:</p>
+          <div>
+            <div>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><strong>Params</strong></td>
+                      <td><strong>Data Type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                    <tr>
+                      <td><p>&lt;response&gt;</p></td>
+                      <td>
+                        <p><span>FILE</span></p>
+                      </td>
+                      <td>
+                        <p>
+                          The response returned by Zoho Sign which contains the
+                          downloaded file object.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><p>&lt;requestID&gt;</p></td>
+                      <td>
+                        <p><span>NUMBER</span></p>
+                      </td>
+                      <td>
+                        <p>
+                          The request ID of the document that needs to be
+                          downloaded.
+                        </p>
+                        <p>
+                          <strong>Note: </strong>You can get the ID of the Zoho
+                          Sign request from its URL. The URL is in the format:
+                          https://sign.zoho.com/zs#/request/new/<strong
+                            >&lt;request_id&gt;</strong
+                          ><br />(or)<br />You can get the request ID from the
+                          response of
+                          <strong>zoho.sign.uploadDocument</strong> task. Click
+                          <a>here</a> to learn how to fetch request ID from the
+                          response.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>&lt;connection&gt;</p>
+                        <p>(optional)*</p>
+                      </td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>The name of the <a>connection</a>.</p>
+                        <div>
+                          <strong>*Note:</strong> This param is not applicable
+                          to <strong>Zoho Creator</strong> and mandatory in
+                          <strong>Zoho Cliq.</strong>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <h2><a></a>Example</h2>
+          <p>
+            The following script downloads the specified&nbsp;document using its
+            request ID:
+          </p>
+          <div>
+            <pre>
+<span>response</span> <span> = </span><span>zoho</span><span>.sign.downloadDocument</span><span>(</span><span>2131000000002069</span><span>)</span><span>;</span></pre>
+          </div>
+          <p>where:</p>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <pre><span>response</span>
+</pre>
+                  </div>
+                  <div>
+                    The <span>FILE&nbsp;</span>response that represents the
+                    downloaded file.
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <pre><span>2131000000002069</span>
+</pre>
+                  </div>
+                  <div>
+                    The <span>NUMBER</span> that represents the request ID of
+                    the document that needs to be downloaded.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li><a>Zoho Sign integration tasks</a></li>
+            <li><a>Connections</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

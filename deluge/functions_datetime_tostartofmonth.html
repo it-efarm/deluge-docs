@@ -1,0 +1,126 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>toStartOfMonth</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>toStartOfMonth()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>toStartOfMonth()</strong> function takes a
+              <strong>dateTimeValue</strong> as an argument, and returns the
+              starting date of the month the dateTimeValue falls in.
+            </p>
+            <p>
+              The date-time value will be returned in the format specified in
+              Application Settings.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Date-Time</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; =
+              <span>&lt;dateTimeValue&gt;</span>.toStartOfMonth();
+            </div>
+            <p>(OR)</p>
+            <div>
+              &lt;variable&gt; =
+              toStartOfMonth(<span>&lt;dateTimeValue&gt;</span>);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>
+                      Variable which will contain the returned date-time value.
+                    </td>
+                    <td>DATE-TIME</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;dateTimeValue&gt;</td>
+                    <td>
+                      <p>
+                        The starting date of the month this date-time falls in,
+                        will be returned.
+                      </p>
+                      <p>
+                        The time value is not taken into account while using
+                        this function.
+                      </p>
+                      <p>A runtime error will be encountered if:</p>
+                      <ul>
+                        <li>
+                          the specified 2 digit date value exceeds the number of
+                          days in that month.
+                        </li>
+                        <li>
+                          an incorrect month value is specified in 3 or more
+                          characters.
+                        </li>
+                      </ul>
+                      <p>The function returns a null value if:</p>
+                      <ul>
+                        <li>
+                          the month value is specified in less than 3
+                          characters.
+                        </li>
+                        <li>
+                          the hour value, or the minutes value, or the seconds
+                          value is specified in more than 2 digits.
+                        </li>
+                        <li>
+                          the date value is specified in more than 2 digits.
+                        </li>
+                        <li>the year value has more than 4 digits.</li>
+                      </ul>
+                      <p>
+                        Please refer <a>this help document</a> to learn about
+                        the supported date-time formats.
+                      </p>
+                    </td>
+                    <td>DATE TIME</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              currentDate = '15-Mar-2019 15:00:00';<br />startDate =
+              currentDate.toStartOfMonth(); &nbsp; &nbsp; &nbsp; &nbsp;
+              &nbsp;&nbsp; // returns '01-Mar-2019 00:00:00'
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

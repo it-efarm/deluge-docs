@@ -1,0 +1,86 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Utilities</a></li>
+        <li><a>urlDecode</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>urlDecode()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong> This function is available in all Zoho
+              services <strong>except</strong> Zoho Creator.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>urlDecode()</strong> function takes an
+              encoded&nbsp;<strong>text</strong> as an argument, and returns it
+              after decrypting&nbsp;it.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Text</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; =
+              zoho.encryption.urlDecode(&nbsp;<span>&lt;string&gt;&nbsp;</span>);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>Variable which will contain the returned value.</td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;string&gt;</span></td>
+                    <td>
+                      <p>The&nbsp;text to be decrypted.</p>
+                      <p>
+                        Except TEXT, all other data types will return
+                        null.&nbsp;
+                      </p>
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              urlString =
+              zoho.encryption.urlDecode("https%3A%2F%2Fwww.zoho.com");<br />//
+              returns "https://www.zoho.com"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,442 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Merge and invoke</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Merge and Invoke in Zoho Writer</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li>
+                  <a>Usecase</a>
+                  <ul>
+                    <li><a>Scenario 1</a></li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.writer.mergeAndInvoke</strong> task merges the
+              document and invokes a custom function to perform further
+              operations on it. This task is based on the
+              <a>Zoho Writer Merge and Invoke API</a>.
+            </p>
+            <div>
+              <strong>Note:&nbsp;</strong>Applicable to all services except Zoho
+              Creator.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.mergeAndInvoke</span><span>(</span><span>&lt;</span><span>document_id</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>merge_detail</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>optional_settings</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><strong>Params</strong></td>
+                      <td><strong>Data type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                    <tr>
+                      <td>&lt;response&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        The response returned by Zoho Writer. It represents the
+                        merged document's details, the output of the custom
+                        function invoked, and the merge status.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;document_id&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>
+                          The ID of the document to be merged and on which the
+                          custom function should be invoked post-merge.
+                        </p>
+                        <p>
+                          The document ID can be obtained from the URL of the
+                          document on which the custom function should be
+                          invoked post-merge.
+                        </p>
+                        <p>
+                          The URL is&nbsp;formatted as follows:<br />https://writer.zoho.com/writer/open/<strong
+                            >&lt;document_id&gt;</strong
+                          ><document_id></document_id>
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;merge_detail&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        &nbsp;Specify how your input for the merge will be. It
+                        can be JSON, CSV file, or a URL.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;optional_settings&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        The optional parameters you can send to merge and invoke
+                        custom functions according to your preference.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;connection&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>The <a>connection</a>'s link name.</p>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            <p>
+                              To prevent<a> new authtoken generation</a> and
+                              ensure new integration tasks (created after the
+                              deadline specified in the post) work as expected,
+                              a Zoho OAuth connection with appropriate scopes is
+                              mandatory. Existing integration tasks will
+                              continue to work, with or without the connections
+                              parameter, until you manually delete the authtoken
+                              from <a>Zoho Accounts</a>.
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              Add relevant scopes from the&nbsp;<a
+                                >Zoho Writer API</a
+                              >
+                              when creating the connection.
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              Refer to <a>this post</a> for a list of Zoho
+                              services that support the Connections page.
+                            </p>
+                          </li>
+                          <li>
+                            <p><a>Learn more about connections</a></p>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <p>
+              You can provide the <strong>merge_detail&nbsp;</strong>parameter
+              in any one of the below formats:
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                    <th>Description</th>
+                  </tr>
+                  <tr>
+                    <td>merge_data</td>
+                    <td>JSONObject</td>
+                    <td>
+                      Pass a String value through <strong>data</strong>&nbsp;key
+                      as JSON Array.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>merge_data_csv_content</td>
+                    <td>File</td>
+                    <td>
+                      Provide the required CSV content in your API request body.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>merge_data_json_content</td>
+                    <td>File</td>
+                    <td>
+                      Provide the required JSON&nbsp;content in your API request
+                      body.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>merge_data_csv_url</td>
+                    <td>URL</td>
+                    <td>
+                      Provide the required CSV URL in your API request body.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>merge_data_json_url</td>
+                    <td>URL</td>
+                    <td>
+                      Provide the required JSON&nbsp;URL in your API request
+                      body.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>option_settings&nbsp;</strong>parameter values:</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p><strong>Parameter</strong></p>
+                    </td>
+                    <td>
+                      <p><strong>Data Type</strong></p>
+                    </td>
+                    <td>
+                      <p><strong>Description</strong></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      output_settings
+                      <p>&nbsp;</p>
+                    </td>
+                    <td>
+                      <p>{</p>
+                      <p>
+                        '<strong>format</strong>':"&lt;pdf/docx/pdfform&gt;",
+                      </p>
+                      <p>'<strong>password</strong>': "&lt;*****&gt;",</p>
+                      <p>
+                        '<strong>merge_to</strong>':
+                        "&lt;separatedoc/singledoc&gt;,
+                      </p>
+                      <p>
+                        '<strong>filename</strong>': "&lt;new document name&gt;"
+                      </p>
+                      <p>}</p>
+                    </td>
+                    <td>
+                      <p>
+                        Using this parameter, you will be able to specify the
+                        following;
+                      </p>
+                      <p>
+                        <strong>format</strong>:<strong>&nbsp;</strong>Specify a
+                        format in which you would like to store the merged
+                        document. Supported formats are <strong>PDF</strong
+                        ><strong>, PDFFORM,&nbsp;</strong>and
+                        <strong>DOCX</strong>.
+                      </p>
+                      <p>
+                        <strong>Note</strong>: If this key is not passed, the
+                        merged documents will be stored in Writer's format
+                        (<strong>ZDOC</strong>) by default.
+                      </p>
+                      <p>
+                        <strong>password</strong>:<strong>&nbsp;</strong>Specify
+                        a password if you would like to protect the merged
+                        document. Supported formats are&nbsp;<strong>PDF</strong
+                        ><strong>, PDFFORM,&nbsp;</strong>and
+                        <strong>DOCX</strong>.
+                      </p>
+                      <p>
+                        <strong>merge_to</strong
+                        >:<strong>&nbsp;</strong>Supported merge types are
+                        <strong>separatedoc</strong> and
+                        <strong>singledoc</strong>.
+                      </p>
+                      <p>
+                        <strong>separatedoc</strong>:<strong>&nbsp;</strong>If
+                        you would like to merge each record as a separate
+                        document.
+                      </p>
+                      <p>
+                        <strong>singledoc</strong>:<strong>&nbsp;</strong>If you
+                        would like to merge all the records as a single
+                        document.
+                      </p>
+                      <p>
+                        <strong>filename</strong>:<strong>&nbsp;</strong>Specify
+                        a unique name for the merged document. This can be
+                        achieved using any one of the following ways;
+                      </p>
+                      <p>1. You can pass it has a normal string value.</p>
+                      <p>
+                        <strong>For example,&nbsp;</strong>filename =
+                        NDA_Agreement
+                      </p>
+                      <p>(OR)</p>
+                      <p>
+                        2. You can also customize the filename by passing the
+                        merge field id.
+                      </p>
+                      <p>
+                        <strong>For example,&nbsp;</strong>filename =
+                        NDA_Agreement &lt;&lt;ClientName&gt;&gt;
+                      </p>
+                      <p>Maximum length allowed: 150</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>test_mode</td>
+                    <td>Boolean (true/false)</td>
+                    <td>
+                      <p>
+                        Using this parameter, you can test the Merge APIs
+                        without consuming any credit points. The output file
+                        will contain a watermark as it is used only for testing
+                        purposes.
+                      </p>
+                      <p>
+                        Test mode limit: <strong>50 merges/day</strong
+                        ><b> </b> for an org.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2><a></a>Example</h2>
+      <p>The following script merges a document and invokes a function.</p>
+      <div>
+        <pre><span>document_id</span> <span>=</span> <span>"po5uobda049e029d44b13a9956f6d2cedc67b"</span><span>;</span> 
+
+<span>fields</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> 
+<span>fields</span><span>.put</span><span>(</span><span>"Name"</span><span>,</span> <span>"Ms.Amelia"</span><span>)</span><span>;</span>
+<span>fields</span><span>.put</span><span>(</span><span>"Tamil"</span><span>,</span> <span>"S"</span><span>)</span><span>;</span>
+<span>fields</span><span>.put</span><span>(</span><span>"English"</span><span>,</span> <span>"A"</span><span>)</span><span>;</span>
+<span>fields</span><span>.put</span><span>(</span><span>"Maths"</span><span>,</span> <span>"A"</span><span>)</span><span>;</span>
+<span>fields</span><span>.put</span><span>(</span><span>"Remark"</span><span>,</span> <span>"Good"</span><span>)</span><span>;</span>
+<span>data_map</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>data_map</span><span>.put</span><span>(</span><span>"data"</span><span>,</span> <span>fields</span><span>)</span>
+<span>merge_details</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>merge_details</span><span>.put</span><span>(</span><span>"merge_data"</span><span>,</span> <span>data_map</span><span>)</span><span>;</span>
+
+<span>optional_settings</span><span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>optional_settings</span><span>.put</span><span>(</span><span>"test_mode"</span><span>,</span> <span>"true"</span><span>)</span><span>;</span>
+
+<span>response</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.mergeAndInvoke</span><span>(</span><span>document_id</span><span>,</span> <span>merge_details</span><span>,</span> <span>optional_settings</span><span>,</span> <span>"writer_oauth_connection"</span><span>)</span><span>;</span>
+
+<span>info</span> <span>response</span><span>;</span>
+
+</pre>
+      </div>
+      <h2><a></a>Usecase</h2>
+      <h3>
+        <strong
+          ><a></a>Scenario 1: Merge documents and add to records in CRM</strong
+        >
+      </h3>
+      <p>
+        Say you're generating a holiday greeting for your customers and would
+        like to attach it to the CRM record in addition to sending it as an
+        email. You merge the document and invoke a custom function that saves it
+        as an attachment to the CRM record.
+      </p>
+      <p>
+        <strong
+          >Trigger merge and invoke task from CRM using the code below:</strong
+        >
+      </p>
+      <div>
+        <pre><span>document_id</span> <span>=</span> <span>"po5uobda049e029d44b13a9956f6d2cedc67b"</span><span>;</span> 
+
+<span>fields</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span> 
+<span>fields</span><span>.put</span><span>(</span><span>"Name"</span><span>,</span> <span>"Ms.Zylker"</span><span>)</span><span>;</span>
+<span>fields</span><span>.put</span><span>(</span><span>"Date"</span><span>,</span> <span>"20/12/2023"</span><span>)</span><span>;</span>
+<span>fields</span><span>.put</span><span>(</span><span>"Place"</span><span>,</span> <span>"Chennai"</span><span>)</span><span>;
+</span><span>fields</span><span>.put</span><span>(</span><span>"id"</span><span>,</span> <span>"4356789132570"</span><span>)</span><span>; // The id key is mandatory in your data source. Pass the CRM record's id to which the attachment needs to be added in this key.</span>&nbsp;
+
+<span>data_map</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>data_map</span><span>.put</span><span>(</span><span>"data"</span><span>,</span> <span>fields</span><span>)</span>
+<span>merge_details</span> <span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>merge_details</span><span>.put</span><span>(</span><span>"merge_data"</span><span>,</span> <span>data_map</span><span>)</span><span>;</span>
+
+<span>optional_settings</span><span>=</span> <span>Map</span><span>(</span><span>)</span><span>;</span>
+<span>optional_settings</span><span>.put</span><span>(</span><span>"test_mode"</span><span>,</span> <span>"true"</span><span>)</span><span>;</span>
+
+<span>response</span> <span>=</span> <span>zoho</span><span>.writer</span><span>.mergeAndInvoke</span><span>(</span><span>document_id</span><span>,</span> <span>merge_details</span><span>,</span> <span>optional_settings</span><span>,</span> <span>"writer_oauth_connection"</span><span>)</span><span>;</span>
+
+<span>info</span> <span>response</span><span>;</span>
+
+</pre>
+      </div>
+      <p>&nbsp;</p>
+      <p>
+        In Writer, we have a gallery named <strong>AttachFile CRM</strong> in
+        merge and invoke output actions to upload the merged document to the
+        Attachments in the Zoho CRM record.
+      </p>
+      <p><img /></p>
+      <p><img /></p>
+      <p>
+        Configure the snippet and make sure that the changes mentioned in the
+        comment are completed. Click <strong>Save</strong> &amp; link a
+        function.
+      </p>
+      <h2><a></a>Response format</h2>
+      <div>
+        <pre><span>{</span>
+    <span>"merge_report_data_url"</span><span>:</span> <span>"https://writer.zoho.com/writer/api/v1/merge/job/ba9cb8b6d826e05e26fd03c391dc4baa674281f9895988caf8420630887b5902/data"</span><span>,</span>
+    <span>"merge_report_url"</span><span>:</span> <span>"https://writer.zoho.com/writer/v1/mailmerge/job/ba9cb8b6d826e05e26fd03c391dc4baa674281f9895988caf8420630887b5902"</span><span>,</span>
+    <span>"records"</span><span>:</span> <span>[</span>
+        <span>{</span>
+            <span>"download_link"</span><span>:</span> <span>"{url}"</span><span>,</span>
+            <span>"status"</span><span>:</span> <span>"inprogress"</span>
+        <span>}</span>
+   <span>]</span><span>,</span>
+    <span>"status"</span><span>:</span> <span>"inprogress"</span>
+<span>}</span>
+</pre>
+      </div>
+      <h2><a></a>Related Links</h2>
+      <ul>
+        <li><a>Zoho Writer integration tasks</a></li>
+        <li><a>Connections</a></li>
+        <li><a>Zoho Writer - Merge and Invoke API document</a></li>
+        <li><a>Zoho Writer API - Possible error responses</a></li>
+      </ul>
+      <quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal
+      ><quillbot-extension-portal></quillbot-extension-portal>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

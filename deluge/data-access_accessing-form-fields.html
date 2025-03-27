@@ -1,0 +1,319 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Data Access</a></li>
+        <li><a>Accessing form fields using input</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Accessing form fields using "input"</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li>
+                  <a>Using composite fields with the 'input' keyword&nbsp;</a>
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> This feature is applicable only to
+                <strong>Zoho Creator</strong>.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The fields of a form can be accessed in Deluge during various
+              workflow actions. This is effected through the
+              <strong>input</strong> keyword which acts as a handle to the
+              fields in a form.
+            </p>
+            <div>
+              <p><strong>Note</strong>:</p>
+              <ul>
+                <li>
+                  By default, the&nbsp;<strong>input</strong> represents the
+                  handle to a form's fields on which a workflow action is being
+                  performed.
+                </li>
+                <li>
+                  At any given point of time, <strong>input</strong> can point
+                  to only one subForm row.
+                </li>
+                <li>
+                  <strong>input</strong>&nbsp;can point to a subForm row field.
+                  But it does not provide a handle to the exact row on which the
+                  action is being performed. <a>row</a> is used in this case.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <p>To assign&nbsp;the value of a form field to a variable.</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span>=</span><span>input</span><span>.</span><span>&lt;</span><span>field_link_name</span><span>&gt;</span><span>;</span>
+</pre>
+            </div>
+            <p>To set the value of a form field.</p>
+            <div>
+              <pre><span>input</span><span>.</span><span>&lt;</span><span>field_link_name</span><span>&gt;</span><span>=</span><span>&lt;</span><span>value</span><span>&gt;</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Param</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span>&lt;field_link_name&gt;</span></td>
+                    <td>
+                      <p>
+                        Link name of the form field whose value needs to be
+                        retrieved or set.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;variable&gt;</span></td>
+                    <td>
+                      <p>
+                        The variable which will hold the value of the desired
+                        form field.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;value&gt;</span></td>
+                    <td>
+                      <p>
+                        The value that should be assigned to the desired form
+                        field.
+                      </p>
+                      <p>This can be of any data type.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Update</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              Imagine a field&nbsp;<strong>age</strong> and a
+              <strong>concession</strong> field which tracks whether a person is
+              eligible for it. The following snippet&nbsp;sets the concession
+              eligibility field to <strong>yes</strong> if the age of the
+              passenger is greater than 60 years on a client
+              action&nbsp;(like&nbsp;<strong>On User Input</strong>).&nbsp;
+            </p>
+            <div>
+              <pre>&nbsp;<span>if</span><span>(</span><span>input</span><span>.Age</span><span>!=</span><span>null</span><span>)</span>
+&nbsp;<span>{</span>
+&nbsp;&nbsp;&nbsp;<span>input</span><span>.concession</span> <span>=</span> <span>"yes"</span><span>;</span> <span>// the passenger is now made eligible for a concession.</span>
+&nbsp;<span>}</span> </pre>
+            </div>
+            <h2>
+              <a></a>Using <a>composite fields</a> with the 'input'
+              keyword&nbsp;
+            </h2>
+            <p>
+              The following are a few points to note when using the 'input'
+              keyword with <a>composite fields</a>.
+            </p>
+            <ul>
+              <li>
+                When using it with <strong>Name</strong> or
+                <strong>Address</strong> fields, it is mandatory to specify the
+                subfields. When using the country subfield, the value must be
+                one of the applicable countries in the field's properties.
+                Otherwise, the specified value will not be considered, and
+                instead will be set to null.
+              </li>
+              <li>
+                When using it with the <strong>Users</strong> field, you can
+                specify the <strong>User_name</strong> and
+                <strong>email</strong> subfields. Or you can directly specify
+                the <strong>Users</strong> field without the subfields, in which
+                case the <strong>User_name</strong> subfield is taken by
+                default. However, the value specified is considered, or is taken
+                to be true, only when the value pertains to an actual user.
+                Please note that when using the
+                <strong>User_name</strong> subfield, the username of the user
+                has to be specified, and when using the
+                <strong>email</strong> subfield, the email of the user has to be
+                specified for it to work.
+              </li>
+              <li>
+                When using it with <strong>Added User</strong>&nbsp;or
+                <strong>Modified User</strong> system fields, you can specify
+                the&nbsp;<strong>display_name</strong>,&nbsp;<strong>user_name</strong>,&nbsp;<strong>first_name</strong>,&nbsp;<strong>last_name</strong>,
+                and <strong>email</strong> subfields.
+              </li>
+              <li>
+                The <strong>URL</strong> field will work&nbsp;when the value is
+                specified in a HTML format like the following:<br />&lt;a&nbsp;href=
+                \"&lt;URL&gt;\"&nbsp;title&nbsp;=
+                \"&lt;TITLE&gt;\"&nbsp;target&nbsp;=
+                \"_blank\"&gt;&lt;linkname&gt;&lt;/a&gt;&nbsp;<br />where:
+                title, link name and target are optional params&nbsp;<br />For
+                example
+                <div>
+                  input.URL = &lt;a href= "https://www.zoho.com" title = "Zoho
+                  webpage" target = "_blank"&gt;zoho&lt;/a&gt;
+                </div>
+              </li>
+              <li>
+                Values of&nbsp;<strong>subform</strong> fields in the current
+                form can be accessed using the <a>row</a> keyword.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h2><a></a>Related Links</h2>
+      <ul>
+        <li><a>Access subform fields using "row"</a></li>
+        <li><a>Deluge tasks for composite fields&nbsp;</a></li>
+      </ul>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

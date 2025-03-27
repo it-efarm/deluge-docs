@@ -1,0 +1,307 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Mail integration tasks</a></li>
+        <li><a>Set Tag in Zoho Mail</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Set Tag in Zoho Mail</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Example 1: Set tag to an email using tag ID</a></li>
+                    <li>
+                      <a>Example 2: Set tag to an email using tag name</a>
+                    </li>
+                    <li><a>Example 3: Set multiple tags to an email</a></li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note: </strong>This task is applicable to all Zoho
+              services, except Zoho Creator.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.mail.setTag</strong> task is used to set tags to
+              the specified email in Zoho Mail.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.mail.setTag</span><span>(</span><span>&lt;</span><span>message_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>tag</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The response that represents the status of the
+                            executed task.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;message_id&gt;<strong>&nbsp;</strong></p>
+                        </td>
+                        <td><span>NUMBER</span></td>
+                        <td>
+                          <p>
+                            The ID of the email to which the tag will be set.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;tag&gt;</p></td>
+                        <td><span>NUMBER/ LIST/ TEXT</span></td>
+                        <td>
+                          <p>
+                            The ID or the name of the tag that will be set to
+                            the specified email.
+                          </p>
+                          <p><strong>Note:</strong></p>
+                          <ul>
+                            <li>
+                              The ID of the tag needs to be specified as NUMBER,
+                              name of the tag needs to be specified as TEXT.
+                            </li>
+                            <li>
+                              Multiple tags can be set for the same email. For
+                              such a case, the tag&nbsp;IDs need to be specified
+                              as LIST of NUMBER values.
+                            </li>
+                            <li>
+                              You can get the tag names and their IDs using
+                              <strong>Get Labels</strong> task. Click
+                              <a>here</a> to learn more about it.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;<strong>&nbsp;</strong></p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                The scope&nbsp;required for this task as
+                                mentioned by Zoho Mail&nbsp;API
+                                is<strong>&nbsp;tags</strong>.
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1: Set tag to an email using tag ID</h2>
+            <p>
+              The following example sets the tag with ID&nbsp;-
+              <strong>6729326000000548039</strong>&nbsp;to the email with ID -
+              <strong>6729326000001836629</strong> in Zoho Mail:
+            </p>
+            <div>
+              <pre><span>response</span> <span> = </span><span>zoho</span><span>.mail.setTag</span><span>(</span><span>6729326000001836629,</span><span> 6729326000000548039</span>,<span> "mail_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>KEY-VALUE</span> response that represents
+                      the status of the executed task.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>6729326000001836629</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the ID&nbsp;of the
+                      email to which the tag will be set.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>6729326000000548039</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>NUMBER</span> that represents the
+                      ID&nbsp;of the tag.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"mail_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the link name of
+                      Zoho Mail oauth connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example&nbsp;2: Set tag to an email using tag name</h2>
+            <p>
+              The following example sets the tag - <strong>blog</strong> to the
+              email with ID - <strong>6729326000001836629</strong> in Zoho Mail:
+            </p>
+            <div>
+              <pre><span>response</span> <span>= </span><span>zoho</span><span>.mail.setTag</span><span>(</span><span>6729326000001836629</span>,<span> "blog"</span>,<span> "mail_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"blog"</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the ID&nbsp;of
+                      the tag.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 3: Set multiple tags to an email</h2>
+            <p>
+              The following example sets the tags specified in -
+              <strong>tag_ids</strong> to the email with ID -
+              <strong>6729326000001836629</strong> in Zoho Mail:
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Create a list variable to hold the IDs of the tags that will be set to the specified email</span>
+&nbsp;<span>tag_ids</span><span> = </span><span>List</span><span>()</span><span>;</span>
+&nbsp;<span>tag_ids</span><span>.</span><span>add</span><span>(</span><span>266980000000005034</span><span>)</span><span>;</span>
+&nbsp;<span>tag_ids</span><span>.</span><span>add</span><span>(</span><span>266980000000005036</span><span>)</span><span>;</span>
+&nbsp;<span>tag_ids</span><span>.</span><span>add</span><span>(</span><span>266980000000014001</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Execute the set tag task</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.mail.setTag</span><span>(</span><span>6729326000001836629,</span><span> tag_ids</span>,<span> "mail_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>tag_ids</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>LIST</span>&nbsp;variable that holds the IDs of
+                      the tags.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response will be returned in the following format:
+                <div>
+                  <p>
+                    &nbsp;&nbsp;{<br />&nbsp; &nbsp;"message":"Action markLabels
+                    is successful",<br />&nbsp; &nbsp;"status":"success"<br />&nbsp;
+                    &nbsp;}
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                The failure response will be returned in&nbsp;the following
+                format:
+                <div>
+                  <p>
+                    &nbsp;&nbsp;{<br />&nbsp; &nbsp;"message":"Error while
+                    processing the request! The label with label-id(s)
+                    [6729326000000008027] are not available",<br />&nbsp;
+                    &nbsp;"status":"failure"<br />&nbsp; &nbsp;}
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Mail Integration Tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

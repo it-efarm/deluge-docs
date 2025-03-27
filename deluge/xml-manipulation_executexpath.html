@@ -1,0 +1,135 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>XML manipulation</a></li>
+        <li><a>executeXpath</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>executeXpath</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Return Type</a></li>
+                <li>
+                  <a>Example 1: Use XPath to fetch value from XML file</a>
+                </li>
+                <li>
+                  <a>Example 2: Use XPath to fetch value from JSON file</a>
+                </li>
+                <li><a>Example 3: Use XPath to fetch attribute value</a></li>
+                <li><a>Example 4: Use XPath to fetch specific node</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>executeXpath()</strong> function takes
+              <strong>XML/JSON formatted text</strong> and
+              <strong>XPath</strong> as arguments, and returns the values of the
+              desired node from the text.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>TEXT</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>xml</span><span>/</span><span>json</span><span>&gt;</span><span>.executeXPath</span><span>(</span><span>&lt;</span><span>xpath</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>Variable which will contain the returned response.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;xml/json&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The XML/JSON formatted text from which the values of the
+                        selected node will be returned.
+                      </p>
+                      <div>
+                        <strong>Note:</strong> When using a json object, we have
+                        to add an additional '/root' node in the script, and the
+                        return value is embedded within tags represented by the
+                        specified key. This is illustrated in the&nbsp;examples
+                        section on this page.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;xpath&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        The path to select the required nodes in the XML/JSON
+                        formatted text.
+                      </p>
+                      <p>An invalid Xpath will return a runtime error.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1: Use XPath to fetch value from XML file</h2>
+            <div>
+              <pre><span>xmlResp </span><span>= </span><span>invokeurl </span>&nbsp;
+<span>[ </span>&nbsp;
+<span>url </span><span>: </span><span>"https://www.w3schools.com/xml/cd_catalog.xml" </span>&nbsp;
+<span>type </span><span>: </span><span>GET </span>&nbsp;
+<span>] </span><span>; </span>&nbsp;
+<span>info </span><span>xmlResp</span><span>.executexpath</span><span>(</span><span>"/CATALOG/CD/TITLE"</span><span>)</span><span>; </span> &nbsp;
+</pre>
+            </div>
+            <h2><a></a>Example 2: Use XPath to fetch value from JSON file</h2>
+            <div>
+              <pre><span>jsonResp </span><span>= </span><span>invokeurl </span>&nbsp;
+<span>[ </span>&nbsp;
+<span>url </span><span>: </span><span>"https://tools.learningcontainer.com/sample-json.json" </span>&nbsp;
+<span>type </span><span>: </span><span>GET </span>&nbsp;
+<span>] </span><span>; </span>&nbsp;
+<span>info </span><span>jsonResp</span><span>.executexpath</span><span>(</span><span>"/root/address/city"</span><span>)</span><span>; </span>&nbsp;
+<span>// returns &lt;city&gt;Surat&lt;/city&gt;</span>
+</pre>
+            </div>
+            <h2><a></a>Example 3: Use XPath to fetch attribute value</h2>
+            <div>
+              <pre><span>text </span><span>= </span><span>"&lt;a href=\"https://eg4.nic.in/jnv/DFILES/EBOOKS/IR/HarryPotter.pdf\" target=\"_blank\"&gt;Harry Potter&lt;/a&gt;"</span><span>; </span>&nbsp;
+<span>info </span><span>text</span><span>.executeXPath</span><span>(</span><span>"/a/@href"</span><span>)</span><span>.executeXpath</span><span>(</span><span>"/href/text()"</span><span>)</span><span>; </span>&nbsp;
+<span>// returns https://eg4.nic.in/jnv/DFILES/EBOOKS/IR/HarryPotter.pdf</span>&nbsp;
+</pre>
+            </div>
+            <h2><a></a>Example 4: Use XPath to fetch specific node</h2>
+            <div>
+              <pre><span>xmlString </span><span>= </span><span>"&lt;bookstore&gt;&lt;book category=\"COOKING\"&gt;&lt;title lang=\"en\"&gt;Everyday Italian&lt;/title&gt;&lt;author&gt;Giada De Laurentiis&lt;/author&gt;&lt;year&gt;2005&lt;/year&gt;&lt;price&gt;30.00&lt;/price&gt;&lt;/book&gt;&lt;book category=\"CHILDREN\"&gt;&lt;title lang=\"en\"&gt;Harry Potter&lt;/title&gt;&lt;author&gt;J K. Rowling&lt;/author&gt;&lt;year&gt;2005&lt;/year&gt;&lt;price&gt;29.99&lt;/price&gt;&lt;/book&gt;&lt;book category=\"WEB\"&gt;&lt;title lang=\"en\"&gt;Learning XML&lt;/title&gt;&lt;author&gt;Erik T. Ray&lt;/author&gt;&lt;year&gt;2003&lt;/year&gt;&lt;price&gt;39.95&lt;/price&gt;&lt;/book&gt;&lt;/bookstore&gt;"</span><span>; </span>&nbsp;
+<span>info </span><span>xmlString</span><span>.executeXPath</span><span>(</span><span>"/bookstore/book[3]"</span><span>)</span><span>.executeXPath</span><span>(</span><span>"/book/title/text()"</span><span>)</span><span>;&nbsp; 
+</span><span>//Returns the value within the &lt;title&gt; tag of the 3rd node </span>&nbsp;
+<span>// returns Learning XML</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

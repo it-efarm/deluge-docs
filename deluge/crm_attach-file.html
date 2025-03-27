@@ -1,0 +1,224 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho CRM integration tasks</a></li>
+        <li><a>Attach file</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Attach File</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              This&nbsp;task is used to attach a file to the specified record in
+              Zoho CRM.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.crm.attachFile</span><span>(</span><span>&lt;</span><span>module</span><span>&gt;</span>, <span>&lt;</span><span>record_id</span><span>&gt;</span>, <span>&lt;</span><span>file_object</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;variable&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        specifies the response message returned by Zoho CRM. It
+                        represents the record's creation and modification
+                        details against the API names of the respective fields
+                        and the status of the task.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;module&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        specifies the <a>API name</a> of the module that
+                        contains the record to which the file needs to be
+                        attached.
+                      </p>
+                      <p>
+                        Applicable modules can be found on <a>this page</a>.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;record_id&gt;</p></td>
+                    <td>
+                      <p><span>NUMBER</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        specifies the&nbsp;ID of the record to which the file
+                        needs to be attached.
+                      </p>
+                      <p>
+                        Learn how to fetch the ID of a record
+                        after&nbsp;<a>creating</a>&nbsp;it&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;file_object&gt;</p></td>
+                    <td>
+                      <p><span>FILE</span></p>
+                    </td>
+                    <td><p>specifies the attachment file.</p></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;connection&gt;</p>
+                      <p>(Optional)</p>
+                    </td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>specifies the name of the <a>connection</a></p>
+                      <p>
+                        <strong>Note: </strong>The &lt;connection&gt; field is
+                        not employed in&nbsp;Zoho Creator.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script attaches the file -
+              <strong>file_object</strong>, to the record with ID -
+              <strong>4770XXXXXXXXXX</strong> in the Zoho CRM module -
+              <strong>Leads</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>file_object</span><span> = </span><span>invokeUrl</span>
+&nbsp;<span>[</span>
+&nbsp;<span>url:</span><span> "https://assets.pcmag.com/media/images/431075-zoho-logo.jpg?width=810&amp;height=456"</span>
+&nbsp;<span>type:</span><span> GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.crm.attachFile</span><span>(</span><span>"Leads"</span><span>,</span><span>4770XXXXXXXXXX</span><span><span>,</span><span>file_object</span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      variable which holds the&nbsp;response returned by Zoho
+                      CRM, which represents the creation and modification
+                      information of the record and the status of the task.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Leads"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      module that contains the record to which the file needs to
+                      be attached
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>4770XXXXXXXXXX</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span>&nbsp;that represents the record
+                      ID
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>file_object</span></pre>
+                    </div>
+                    <div>
+                      is the <span>FILE</span>&nbsp;variable that holds the
+                      attachment file
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> The <a>invokeUrl</a> task fetches the
+                file from cloud storage.
+              </p>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>The success response returned is of the following format</p>
+                <div>
+                  &nbsp;{<br />&nbsp;"code":"SUCCESS",<br />&nbsp;"details":{"Modified_Time":"2018-12-11T12:20:45+05:30","Modified_By":{"name":"John","id":"4770XXXXXXXXXXXXXXX"},<br />&nbsp;"Created_Time":"2018-12-11T12:20:45+05:30","id":"4770XXXXXXXXXXXXXXX","Created_By":{"name":"John","id":"4770XXXXXXXXXXXXXXX"}},<br />&nbsp;"message":"attachment
+                  uploaded successfully",<br />&nbsp;"status":"success"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned for
+                  <strong>incorrect or non-existent</strong> record ID is of the
+                  following format
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"code":"INVALID_DATA",<br />&nbsp;"details":{},<br />&nbsp;"message":"the
+                  related id given seems to be invalid",<br />&nbsp;"status":"error"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho CRM API</a></li>
+              <li><a>Invoke URL</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

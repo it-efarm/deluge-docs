@@ -1,0 +1,80 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>List functions</a></li>
+        <li><a>distinct</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>distinct()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>distinct()</strong> function takes a
+              <strong>listVariable</strong> as argument, and returns the list
+              only with unique values in it.
+            </p>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>List</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>&lt;</span><span>listVariable</span><span>&gt;</span><span>.distinct</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Description</strong></td>
+                    <td><strong>Data type</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>Variable which will contain the returned list.</td>
+                    <td>LIST</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;listVariable&gt;</td>
+                    <td>
+                      The list from which only unique elements will be returned.
+                    </td>
+                    <td>LIST</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre><span> listVar </span><span>= </span><span>{</span><span>"1"</span><span>, </span><span>1</span><span>, </span><span>1</span><span>, </span><span>2</span><span>, </span><span>2</span><span>, </span><span>3</span><span>}</span><span>;</span>
+&nbsp;<span>uniqueList </span><span>= </span><span>listVar</span><span>.distinct</span><span>(</span><span>)</span><span>;</span>             
+&nbsp;<span>Info </span><span>uniqueList</span><span>;</span>
+&nbsp;<span>//returns {1, 1, 2, 3}</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,113 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>File Functions</a></li>
+        <li><a>isFile</a></li>
+        <li><a>Built-in functions</a></li>
+        <li><a>Functions which return a boolean value</a></li>
+        <li><a>isFile - type check function</a></li>
+        <li><a>Type check functions</a></li>
+        <li><a>isFile</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>isFile</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong>&nbsp;This function&nbsp;is applicable to
+              <strong>all</strong> Zoho services. In&nbsp;<strong
+                >Zoho Creator</strong
+              >, this function can be applied only on files fetched using the
+              <a>invokeUrl</a> task and not on the files&nbsp;fetched from Zoho
+              Creator fields.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>isFile</strong>&nbsp;function takes a
+              <strong>file object</strong> as an argument and returns true if it
+              is a valid file. Otherwise, it returns false.
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>The file object should be available in the cloud.</li>
+                <li>Offline files are not supported.</li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>BOOLEAN</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>file_object</span><span>&gt;</span><span>.isFile</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>isFile</span><span>(</span><span>&lt;</span><span>file_object</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+          </div>
+          <p>&nbsp;</p>
+          <p>where,</p>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td><strong>Parameter</strong></td>
+                  <td><strong>Data type</strong></td>
+                  <td><strong>Description</strong></td>
+                </tr>
+                <tr>
+                  <td>&lt;variable&gt;</td>
+                  <td>BOOLEAN</td>
+                  <td>
+                    Variable which will contain the returned boolean value.
+                  </td>
+                </tr>
+                <tr>
+                  <td>&lt;file_object&gt;</td>
+                  <td>Any datatype</td>
+                  <td>
+                    <p>The file object fetched from the cloud/web.</p>
+                    <p>
+                      Learn more about fetching files from the web <a>here</a>.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          ​
+          <h2><a></a>Examples</h2>
+          <div>
+            <pre>&nbsp;<span>file_object</span> <span>=</span> <span>invokeUrl</span>
+&nbsp;<span>[</span>
+    &nbsp;<span>url</span><span>:</span> <span>"http://www.thenonlinearpath.com/wp-content/uploads/2016/05/GoodVibesOnly.png"</span>
+    &nbsp;<span>type</span><span>:</span> <span>GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;<span>if</span><span>(</span><span>file_object</span><span>.isFile</span><span>(</span><span>)</span><span>)</span><span>{</span>
+    &nbsp;<span><span>// Do something</span></span>
+&nbsp;<span>}</span>
+</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,106 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Functions which return a boolean value</a></li>
+        <li><a>matches - text function</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>matches</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>matches()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>matches()</strong> function takes
+              <strong>string</strong> and <strong>regexString</strong> (regular
+              expression) as arguments. It compares both the strings and returns
+              <strong>True</strong> if both are found to be equal. Otherwise, it
+              returns <strong>False</strong>.
+            </p>
+            <div>
+              <strong>Note:</strong> This function performs a case-sensitive
+              comparison.
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Boolean</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt; =<span> &lt;string&gt;</span
+              >.matches(<span>&lt;regexString&gt;</span>);
+            </div>
+            <p>(OR)</p>
+            <div>
+              &lt;variable&gt; = matches( <span>&lt;string&gt;</span>,
+              <span>&lt;regexString&gt; </span>);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>
+                      Variable which will contain the boolean value, true or
+                      false.
+                    </td>
+                    <td>BOOLEAN</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;string&gt;</span></td>
+                    <td>
+                      The string to be compared with the regular expression
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;regexString&gt;</span></td>
+                    <td>
+                      The regular expression to be compared with the string.
+                    </td>
+                    <td>TEXT</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre><span>IDValue</span> <span>=</span> <span>"ID004500F"</span><span>;
+</span><span>retValue</span> <span>=</span> <span>matches</span><span>(</span><span>IDValue</span><span>,</span> <span>"[A-Z]{2}[0-9]{6}[A-Z]"</span><span>)</span><span>;</span> <span>//returns true
+
+</span><span>num</span> <span>=</span> <span>"$345.78"</span><span>;
+</span><span>ret</span> <span>=</span> <span>matches</span><span>(</span><span>num</span><span>,</span> <span>"\\$[0-9]+\\.[0-9]{2}"</span><span>)</span><span>;</span> <span>//returns true
+</span>
+<span>useremail</span> <span>=</span> <span>"jane2023@zylker.com"</span><span>;
+</span><span>format_check</span> <span>=</span> <span>matches</span><span>(</span><span>useremail</span><span>,</span><span>"[a-z 0-9]+\\@[a-z]+\\.[a-z]+"</span><span>)</span><span>;</span> <span>//returns true</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

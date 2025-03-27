@@ -1,0 +1,342 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Inventory Integration Tasks</a></li>
+        <li><a>Create Record In Zoho Inventory</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create Record in Zoho Inventory</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.inventory.createRecord</strong> task creates a
+              record in the specified module of Zoho Inventory.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.inventory.createRecord</span><span>(</span><span>&lt;</span><span>module</span><span>&gt;</span>, <span>&lt;</span><span>org_id</span><span>&gt;</span>, <span>&lt;</span><span>data_map</span><span>&gt;</span>, [<span>&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <p>&nbsp;</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details of the record that will be created in
+                            the specified module.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The module in which the record that needs to be
+                            fetched is held.
+                          </p>
+                          <p><strong>Allowed Values:</strong></p>
+                          <ul>
+                            <li>Contacts</li>
+                            <li>PurchaseOrders</li>
+                            <li>Bills</li>
+                            <li>SalesOrders</li>
+                            <li>CompositeItems</li>
+                            <li>Items</li>
+                            <li>Invoices</li>
+                            <li>Packages (not supported in Zoho Creator)</li>
+                            <li>
+                              ShipmentOrders (not supported in Zoho Creator)
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;org_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The&nbsp;organization ID of the account in which the
+                            record needs to be created.
+                          </p>
+                          <div>
+                            <strong>Note:</strong> Learn how to fetch
+                            organization ID from the&nbsp;<a>UI</a> and
+                            from&nbsp;the response of&nbsp;<a
+                              >zoho.inventory.getOrganization</a
+                            >
+                            task.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;data_map&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The values of the new record that needs to be
+                            created. The keys to this parameter are provided as
+                            specified in&nbsp;<a>Zoho Inventory API</a>.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <div>
+                            <strong>Note:</strong>&nbsp;This parameter is not
+                            applicable to&nbsp;<strong>Zoho Creator</strong> and
+                            mandatory in <strong>Zoho Cliq</strong>.
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script creates a record with the specified values in
+              the Zoho Inventory module -&nbsp;<strong>Contacts</strong>:
+            </p>
+            <div>
+              <pre>&nbsp;<span>record_value</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>record_value</span><span>.</span><span>put</span><span>(</span><span>"contact_name"</span>,<span>"Shawn"</span><span>)</span><span>;</span>
+
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.inventory.createRecord</span><span>(</span><span>"Contacts"</span>, <span>"58XXXX49"</span>, <span>record_value</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Inventory. It represents the details of the record that
+                      will be created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Contacts"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      module in which the record needs to be created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"58XXXX49"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the
+                      organization ID.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>record_value</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>KEY-VALUE</span> variable that holds the
+                      value of the new record that needs to be created.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 0,<br />&nbsp;&nbsp;"message":
+                  "The contact has been added.",<br />&nbsp;&nbsp;"contact":
+                  {<br />&nbsp;&nbsp;"contact_id": "478XXXXXXXXXXX001",<br />&nbsp;&nbsp;"contact_name":
+                  "Shawn",<br />&nbsp;&nbsp;"company_name": "",<br />&nbsp;&nbsp;"first_name":
+                  "",<br />&nbsp;&nbsp;"last_name": "",<br />&nbsp;&nbsp;"designation":
+                  "",<br />&nbsp;&nbsp;"department": "",<br />&nbsp;&nbsp;"website":
+                  "",<br />&nbsp;&nbsp;"language_code": "",<br />&nbsp;&nbsp;"language_code_formatted":
+                  "",<br />&nbsp;&nbsp;"contact_salutation": "",<br />&nbsp;&nbsp;"email":
+                  "",<br />&nbsp;&nbsp;"phone": "",<br />&nbsp;&nbsp;"mobile":
+                  "",<br />&nbsp;&nbsp;"portal_status": "disabled",<br />&nbsp;&nbsp;"is_client_review_asked":
+                  false,<br />&nbsp;&nbsp;"has_transaction": false,<br />&nbsp;&nbsp;"contact_type":
+                  "customer",<br />&nbsp;&nbsp;"customer_sub_type":
+                  "business",<br />&nbsp;&nbsp;"owner_id": "",<br />&nbsp;&nbsp;"owner_name":
+                  "",<br />&nbsp;&nbsp;"source": "api",<br />&nbsp;&nbsp;"documents":
+                  [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"twitter": "",<br />&nbsp;&nbsp;"facebook":
+                  "",<br />&nbsp;&nbsp;"is_crm_customer": false,<br />&nbsp;&nbsp;"is_linked_with_zohocrm":
+                  false,<br />&nbsp;&nbsp;"primary_contact_id": "",<br />&nbsp;&nbsp;"zcrm_account_id":
+                  "",<br />&nbsp;&nbsp;"zcrm_contact_id": "",<br />&nbsp;&nbsp;"crm_owner_id":
+                  "",<br />&nbsp;&nbsp;"payment_terms": 0,<br />&nbsp;&nbsp;"payment_terms_label":
+                  "Due On Receipt",<br />&nbsp;&nbsp;"credit_limit_exceeded_amount":
+                  0.0,<br />&nbsp;&nbsp;"currency_id": "478XXXXXXXXXXX099",<br />&nbsp;&nbsp;"currency_code":
+                  "INR",<br />&nbsp;&nbsp;"currency_symbol": "Rs.",<br />&nbsp;&nbsp;"price_precision":
+                  2,<br />&nbsp;&nbsp;"exchange_rate": "",<br />&nbsp;&nbsp;"can_show_customer_ob":
+                  true,<br />&nbsp;&nbsp;"can_show_vendor_ob": true,<br />&nbsp;&nbsp;"opening_balance_amount":
+                  0.0,<br />&nbsp;&nbsp;"opening_balance_amount_bcy": "",<br />&nbsp;&nbsp;"outstanding_ob_receivable_amount":
+                  0.0,<br />&nbsp;&nbsp;"outstanding_ob_payable_amount": 0.0,<br />&nbsp;&nbsp;"outstanding_receivable_amount":
+                  0.0,<br />&nbsp;&nbsp;"outstanding_receivable_amount_bcy":
+                  0.0,<br />&nbsp;&nbsp;"outstanding_payable_amount": 0.0,<br />&nbsp;&nbsp;"outstanding_payable_amount_bcy":
+                  0.0,<br />&nbsp;&nbsp;"unused_credits_receivable_amount":
+                  0.0,<br />&nbsp;&nbsp;"unused_credits_receivable_amount_bcy":
+                  0.0,<br />&nbsp;&nbsp;"unused_credits_payable_amount": 0.0,<br />&nbsp;&nbsp;"unused_credits_payable_amount_bcy":
+                  0.0,<br />&nbsp;&nbsp;"unused_retainer_payments": 0.0,<br />&nbsp;&nbsp;"status":
+                  "active",<br />&nbsp;&nbsp;"payment_reminder_enabled":
+                  true,<br />&nbsp;&nbsp;"is_sms_enabled": true,<br />&nbsp;&nbsp;"is_client_review_settings_enabled":
+                  false,<br />&nbsp;&nbsp;"custom_fields": [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"custom_field_hash":
+                  {<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"contact_category":
+                  "",<br />&nbsp;&nbsp;"sales_channel": "direct_sales",<br />&nbsp;&nbsp;"ach_supported":
+                  false,<br />&nbsp;&nbsp;"billing_address": {<br />&nbsp;&nbsp;"address_id":
+                  "478XXXXXXXXXXX003",<br />&nbsp;&nbsp;"attention": "",<br />&nbsp;&nbsp;"address":
+                  "",<br />&nbsp;&nbsp;"street2": "",<br />&nbsp;&nbsp;"city":
+                  "",<br />&nbsp;&nbsp;"state_code": "",<br />&nbsp;&nbsp;"state":
+                  "",<br />&nbsp;&nbsp;"zip": "",<br />&nbsp;&nbsp;"country":
+                  "",<br />&nbsp;&nbsp;"phone": "",<br />&nbsp;&nbsp;"fax":
+                  ""<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"shipping_address":
+                  {<br />&nbsp;&nbsp;"address_id": "478XXXXXXXXXXX005",<br />&nbsp;&nbsp;"attention":
+                  "",<br />&nbsp;&nbsp;"address": "",<br />&nbsp;&nbsp;"street2":
+                  "",<br />&nbsp;&nbsp;"city": "",<br />&nbsp;&nbsp;"state_code":
+                  "",<br />&nbsp;&nbsp;"state": "",<br />&nbsp;&nbsp;"zip":
+                  "",<br />&nbsp;&nbsp;"country": "",<br />&nbsp;&nbsp;"phone":
+                  "",<br />&nbsp;&nbsp;"fax": ""<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"contact_persons":
+                  [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"addresses": [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"pricebook_id":
+                  "",<br />&nbsp;&nbsp;"pricebook_name": "",<br />&nbsp;&nbsp;"default_templates":
+                  {<br />&nbsp;&nbsp;"invoice_template_id": "",<br />&nbsp;&nbsp;"invoice_template_name":
+                  "",<br />&nbsp;&nbsp;"bill_template_id": "",<br />&nbsp;&nbsp;"bill_template_name":
+                  "",<br />&nbsp;&nbsp;"estimate_template_id": "",<br />&nbsp;&nbsp;"estimate_template_name":
+                  "",<br />&nbsp;&nbsp;"creditnote_template_id": "",<br />&nbsp;&nbsp;"creditnote_template_name":
+                  "",<br />&nbsp;&nbsp;"purchaseorder_template_id": "",<br />&nbsp;&nbsp;"purchaseorder_template_name":
+                  "",<br />&nbsp;&nbsp;"salesorder_template_id": "",<br />&nbsp;&nbsp;"salesorder_template_name":
+                  "",<br />&nbsp;&nbsp;"paymentthankyou_template_id": "",<br />&nbsp;&nbsp;"paymentthankyou_template_name":
+                  "",<br />&nbsp;&nbsp;"invoice_email_template_id": "",<br />&nbsp;&nbsp;"invoice_email_template_name":
+                  "",<br />&nbsp;&nbsp;"estimate_email_template_id": "",<br />&nbsp;&nbsp;"estimate_email_template_name":
+                  "",<br />&nbsp;&nbsp;"creditnote_email_template_id": "",<br />&nbsp;&nbsp;"creditnote_email_template_name":
+                  "",<br />&nbsp;&nbsp;"purchaseorder_email_template_id": "",<br />&nbsp;&nbsp;"purchaseorder_email_template_name":
+                  "",<br />&nbsp;&nbsp;"salesorder_email_template_id": "",<br />&nbsp;&nbsp;"salesorder_email_template_name":
+                  "",<br />&nbsp;&nbsp;"paymentthankyou_email_template_id":
+                  "",<br />&nbsp;&nbsp;"paymentthankyou_email_template_name":
+                  "",<br />&nbsp;&nbsp;"payment_remittance_email_template_id":
+                  "",<br />&nbsp;&nbsp;"payment_remittance_email_template_name":
+                  ""<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"associated_with_square":
+                  false,<br />&nbsp;&nbsp;"cards": [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"checks":
+                  [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"bank_accounts": [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"vpa_list":
+                  [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"notes": "",<br />&nbsp;&nbsp;"created_time":
+                  "2019-08-29T15:51:04+0530",<br />&nbsp;&nbsp;"last_modified_time":
+                  "2019-08-29T15:51:04+0530",<br />&nbsp;&nbsp;"tags": [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"zohopeople_client_id":
+                  ""<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"instrumentation":
+                  {<br />&nbsp;&nbsp;"query_execution_time": 59,<br />&nbsp;&nbsp;"request_handling_time":
+                  1049,<br />&nbsp;&nbsp;"response_write_time": 82,<br />&nbsp;&nbsp;"page_context_write_time":
+                  0<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p>
+              To get the ID of the newly created record, execute the following
+              script:
+            </p>
+            <div>
+              &lt;variable&gt; =
+              &lt;response_variable&gt;.get("&lt;module_name&gt;").get("&lt;module_name&gt;_id")
+              ;<br />// example for &lt;module_name&gt; is contact and example
+              for &lt;module_name&gt;_id is contact_id
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for incorrect organization ID will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 6041,<br />&nbsp;&nbsp;"message":
+                  "This user is not associated with the CompanyID/CompanyName:
+                  58XXXX50."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for missing mandatory parameter will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 11,<br />&nbsp;&nbsp;"message":
+                  "The parameter JSONString is mandatory."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for duplicate values will be returned in
+                  the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 3062,<br />&nbsp;&nbsp;"message":
+                  "The customer \"Shawn\" already exists. Please specify a
+                  different name."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Inventory Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,294 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Generate Fillable Link</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Generate Fillable Link</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Usecase</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+              <div>
+                <p>
+                  <strong>Note</strong>: Applicable to all services except Zoho
+                  Creator
+                </p>
+              </div>
+              <h2><a></a>Description</h2>
+              <p>
+                The<strong> zoho.writer.generateFillableLink</strong> task
+                merges your document and generates prefilled fillable links to
+                collect data. This task is based on the Zoho Writer
+                <a>Merge and Share Fillable link API</a>.
+              </p>
+              <h2><a></a>Syntax</h2>
+              <div>
+                <pre><span>&lt;</span><span>response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.writer.generateFillableLink</span><span>(</span><span>&lt;</span><span>document_id</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>merge_detail</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>optional_settings</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span></pre>
+              </div>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><strong>Parameters</strong></td>
+                      <td><strong>Data type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                    <tr>
+                      <td>&lt;response&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        The response returned by Zoho Writer. It provides the
+                        merged document's details, fillable link for each
+                        record, and the merge status.<br />&nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;document_id&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        The document ID can be obtained from the URL of the
+                        document from which fillable links should be generated
+                        post-merge. The URL is formatted as follows:<br />https://writer.zoho.com/writer/open/&lt;document_id&gt;<br />&nbsp;
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;merge_detail&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        Specify the input for the merge: It can be JSON, CSV
+                        file, or a URL.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;optional_settings&gt;</td>
+                      <td><span>KEY-VALUE</span></td>
+                      <td>
+                        The optional parameters you can send to the merge and
+                        share fillable link task according to your preference.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>&lt;connection&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>
+                        <p>
+                          The <a>connection's</a> link name.<br /><strong
+                            >Note</strong
+                          >:
+                        </p>
+                        <ul>
+                          <li>
+                            To prevent <a>new authtoken generation</a> and
+                            ensure new integration tasks (created after the
+                            deadline specified in the post) work as expected, a
+                            Zoho OAuth connection with appropriate scopes is
+                            mandatory. Existing integration tasks will continue
+                            to work, with or without the connections parameter,
+                            until you manually delete the authtoken from
+                            <a>Zoho Accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes from the
+                            <a>Zoho Writer API</a> when creating the connection.
+                          </li>
+                          <li>
+                            Refer to <a>this post</a> for a list of Zoho
+                            services that support the Connections page.
+                          </li>
+                          <li><a>Learn more about connections.</a></li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <p>
+              You can provide the &lt;merge_detail&gt; in
+              <strong>any one</strong> of these formats:
+            </p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><p>Key</p></td>
+                    <td><p>Value</p></td>
+                    <td><p>Description</p></td>
+                  </tr>
+                  <tr>
+                    <td><p>merge_data</p></td>
+                    <td><p>JSONObject</p></td>
+                    <td>
+                      <p>
+                        Pass a string value throughthe <strong>data</strong> key
+                        as a JSON Array.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>merge_data_csv_content</p></td>
+                    <td><p>File</p></td>
+                    <td>
+                      <p>
+                        Provide the required CSV content in your API request
+                        body.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>merge_data_json_content</p></td>
+                    <td><p>File</p></td>
+                    <td>
+                      <p>
+                        Provide the required JSON content in your API request
+                        body.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>merge_data_csv_url</p></td>
+                    <td><p>URL</p></td>
+                    <td>
+                      <p>
+                        Provide the required CSV URL in your API request body.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>merge_data_json_url</p></td>
+                    <td><p>URL</p></td>
+                    <td>
+                      <p>
+                        Provide the required JSON URL in your API request body.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>&lt;optional_settings&gt;</strong><br />&nbsp;</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><p>test_mode</p></td>
+                    <td><p>Boolean (true/false)</p></td>
+                    <td>
+                      <p>
+                        Using this parameter, you can test the Merge APIs
+                        without consuming any credit points. The output file
+                        will contain a watermark as it is used only for testing
+                        purpose.
+                      </p>
+                      <p>
+                        Test mode limit: <strong>50 merges per day</strong> for
+                        an organization.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a><strong>Example</strong></h2>
+            <p>
+              The following script generate prefilled fillable links for the
+              given records
+            </p>
+            <div>
+              <pre><span>document_id</span> <span>=</span> <span>"po5uobda049e043544b13a9956f6d2cedc67b"</span><span>;</span>
+                <span>mp</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>mp</span><span>.put</span><span>(</span><span>"InvoiceNo"</span><span>,</span><span>"34267"</span><span>)</span><span>;</span>
+                <span>mp</span><span>.put</span><span>(</span><span>"InvoiceDate"</span><span>,</span><span>"24 Apr 2024"</span><span>)</span><span>;</span>
+                <span>mp</span><span>.put</span><span>(</span><span>"InvoiceAmount"</span><span>,</span><span>"$300"</span><span>)</span><span>;</span>
+                <span>data_map</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>data_map</span><span>.put</span><span>(</span><span>"data"</span><span>,</span> <span>mp</span><span>)</span><span>;</span>
+                <span>merge_detail</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>merge_detail</span><span>.put</span><span>(</span><span>"merge_data"</span><span>,</span> <span>data_map</span><span>)</span><span>;</span>
+                <span>optional_settings</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>optional_settings</span><span>.put</span><span>(</span><span>"test_mode"</span><span>,</span> <span>false</span><span>)</span><span>;</span>
+                <span>response</span> <span>=</span> <span>zoho.writer.generateFillableLink</span><span>(</span><span>document_id</span><span>,</span> <span>merge_detail</span><span>,</span> <span>optional_settings</span><span>,</span> <span>"writer_oauth_connection"</span> <span>)</span><span>;</span>
+                <span>info</span> <span>response</span><span>;</span></pre>
+            </div>
+            <h2><a></a>Usecase</h2>
+            <p>
+              Say you're generating a list of fillable form with the list of
+              service requests to a field technician. After completing each
+              request, they collect the feedback and signatudres from the
+              customer, record a brief description of the type of work carried
+              out, and save the form. After completing all of their assignments
+              for the day, the technician submits the form.
+            </p>
+            <div>
+              <pre><span>document_id</span> <span>=</span> <span>"po5uobda049e043544b13a9956f6d2cedc67b"</span><span>;</span>
+                <span>mp</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>mp</span><span>.put</span><span>(</span><span>"Service"</span><span>,</span> <span>"Laptop Request"</span><span>)</span><span>;</span>
+                <span>mp</span><span>.put</span><span>(</span><span>"Technician"</span><span>,</span> <span>"Zylker"</span><span>)</span><span>;</span>
+                <span>mp</span><span>.put</span><span>(</span><span>"Request Created"</span><span>,</span> <span>"Jan 10, 2024"</span><span>)</span><span>;</span>
+                <span>mp</span><span>.put</span><span>(</span><span>"Status"</span><span>,</span> <span>"Completed"</span><span>)</span><span>;</span>
+                <span>data_map</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>data_map</span><span>.put</span><span>(</span><span>"data"</span><span>,</span> <span>fields</span><span>)</span>
+                <span>merge_detail</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>merge_detail</span><span>.put</span><span>(</span><span>"merge_data"</span><span>,</span> <span>data_map</span><span>)</span><span>;</span>
+                <span>optional_settings</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+                <span>optional_settings</span><span>.put</span><span>(</span><span>"test_mode"</span><span>,</span> <span>false</span><span>)</span><span>;</span>
+                <span>response</span> <span>=</span> <span>zoho.writer.generateFillableLink</span><span>(</span><span>document_id</span><span>,</span> <span>merge_detail</span><span>,</span> <span>optional_settings</span><span>,</span> <span>"writer_oauth_connection"</span> <span>)</span><span>;</span>
+                <span>info</span> <span>response</span><span>;</span></pre>
+            </div>
+          </div>
+          <p><img /></p>
+          <p>&nbsp;</p>
+          <h2><a></a>Response Format</h2>
+          <p><strong>Success Response:</strong></p>
+          <p>The success response will be returned in the following format:</p>
+          <div>
+            <p>
+              {<br />"merge_report_data_url":
+              "https://writer.zoho.com/writer/api/v1/merge/job/&lt;jobId&gt;/data",<br />"merge_report_url":
+              "https://writer.zoho.com/writer/v1/mailmerge/job/&lt;jobId&gt;",<br />"records":
+              [<br />{<br />"data": {<br />"InvoiceNo": "12345",<br />"InvoiceDate":
+              "27 May 2022",<br />"InvoiceAmount": "$100",<br />"id":
+              "0e002287-7c45-4188-af9f-65*****”<br />},<br />"fillable_link":
+              "https://writer.zoho.com/writer/open/ponazfea04477109f4681a831e7177d96bc40/fill",<br />"status":
+              "inprogress"<br />}<br />],<br />"status": "inprogress"<br />}
+            </p>
+          </div>
+          <h2><a></a>Related Links</h2>
+          <ul>
+            <li>
+              <p><a>Zoho Writer integration tasks</a></p>
+            </li>
+            <li>
+              <p><a>Connections</a></p>
+            </li>
+            <li>
+              <p>
+                <a>Zoho Writer: Merge and share fillable link API document</a>
+              </p>
+            </li>
+            <li>
+              <p><a>Zoho Writer API: Possible error responses</a></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

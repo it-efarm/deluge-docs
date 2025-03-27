@@ -1,0 +1,484 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Creator Integration Tasks</a></li>
+        <li><a>Create record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create Record in Zoho Creator</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Example 1: Create a single record</a></li>
+                    <li><a>Example 2: Create multiple records</a></li>
+                  </ul>
+                </li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <p><a></a></p>
+            <h2>Overview</h2>
+            <p>
+              The&nbsp;<strong>zoho.creator.createRecord</strong>&nbsp;task&nbsp;adds&nbsp;one
+              or more records to the specified&nbsp; Zoho Creator form with the
+              given input field values.
+            </p>
+            <div>
+              <strong>Note:</strong> This integration task is based on the
+              <a>Zoho Creator - Add Records API</a>.
+            </div>
+            <p><a></a></p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho</span><span>.creator.createRecord</span><span>(</span><span>&lt;</span><span>owner_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>app_link_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>form_link_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>input_values</span><span>&gt;</span><span>, </span><span>&lt;</span><span>other_params</span><span>&gt;</span><span>, </span><span>&lt;connection&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data Type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      Variable that will hold&nbsp;the details of the records
+                      created.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;owner_name&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Name of the owner of the app in which the records will
+                        be created.
+                      </p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <p>
+                          Name of the application owner can be fetched in the
+                          following ways:
+                        </p>
+                        <ul>
+                          <li>
+                            From the URL of the application while editing or
+                            accessing it. The URL is in the
+                            format:&nbsp;app.zohocreator.com/appbuilder/<strong>&lt;application_owner&gt;</strong>/...
+                          </li>
+                          <li>
+                            By using the&nbsp;<a>system variable</a
+                            >&nbsp;-&nbsp;<strong>zoho.adminuser</strong>
+                            <ul>
+                              <li>
+                                To improve email deliverability, we will be
+                                following Gmail's updated sender email policy
+                                starting from <strong>February 1, 2024</strong>.
+                                This means that
+                                <strong>Gmail addresses </strong>cannot be used
+                                as a sender address in the
+                                <em>send mail</em> tasks.<a>Learn More</a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;app_link_name&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Link name of the application in which the records will
+                        be created.
+                      </p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <p>
+                          Link name&nbsp;of the application can be fetched in
+                          the following ways:
+                        </p>
+                        <ul>
+                          <li>
+                            From the URL of the application while editing or
+                            accessing it. The URL is in the
+                            format:&nbsp;app.zohocreator.com/appbuilder/&lt;application_owner&gt;/<strong>&lt;application_name&gt;</strong>/...
+                          </li>
+                          <li>
+                            By using the <a>system variable</a>&nbsp;-&nbsp;
+                            <strong>zoho.appname</strong>
+                          </li>
+                          <li>
+                            Link names of applications, reports, and fields in
+                            your&nbsp;account can also be&nbsp;<a
+                              >viewed on the&nbsp;reference page</a
+                            >&nbsp;(listed in brackets).
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;form_link_name&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Link name of the report&nbsp;in which the records will
+                        be created.
+                      </p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <ul>
+                          <li>
+                            Link names of applications, forms, reports, and
+                            fields in your account can be
+                            <a>viewed on the reference page</a>&nbsp;(listed in
+                            brackets).
+                          </li>
+                          <li>
+                            You can also fetch link names from the URL while
+                            accessing the form. The URL is in the
+                            format:&nbsp;app.zohocreator.com/appbuilder/&lt;application_owner&gt;/&lt;application_name&gt;/#Form:<strong
+                              >&lt;form_link_name&gt;</strong
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;input_values&gt;</td>
+                    <td><span>KEY-VALUE</span>/ <span>LIST</span></td>
+                    <td>
+                      <p>
+                        To create a single record, supply input field values as
+                        a KEY-VALUE collection. The keys to this parameter
+                        are&nbsp;the field link names and the values are their
+                        corresponding input values.
+                      </p>
+                      <p>
+                        To create more than one record,&nbsp;supply the input
+                        data as a LIST of KEY-VALUE collections. Data stored in
+                        each KEY-VALUE element&nbsp;of the&nbsp;LIST will be
+                        created as a record. The keys of these elements must be
+                        the field link names and values must be their
+                        corresponding input values.
+                      </p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <ul>
+                          <li>
+                            You can add
+                            up&nbsp;to&nbsp;<strong>200</strong>&nbsp;records at
+                            once using this task.
+                          </li>
+                          <li>
+                            Refer to the Zoho Creator
+                            <a>Add Records API document</a> for the rules and
+                            validations that your input data need to satisfy.
+                          </li>
+                          <li>
+                            Link names of&nbsp;fields in your&nbsp;account can
+                            be&nbsp;<a>viewed on the&nbsp;reference page</a
+                            >&nbsp;(listed in brackets).
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;other_params&gt;</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      <p>
+                        Other optional parameters specified in Zoho
+                        Creator&nbsp;<a>Add Records API document</a>.
+                      </p>
+                      <div>
+                        <strong>Note:</strong> To skip this parameter, provide
+                        an empty map as its value.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;connection&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Link name of the&nbsp;<a>connection</a>&nbsp;created and
+                        connected to your Zoho Creator account.&nbsp;
+                      </p>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of&nbsp;<a
+                              >stopping new authtoken generation</a
+                            >,&nbsp;a Zoho OAuth connection with appropriate
+                            scopes is mandatory&nbsp;for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter unless the authtoken is manually
+                            deleted&nbsp;from&nbsp;<a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes as mentioned in<a>
+                              Zoho Creator Add Records API document</a
+                            >
+                            while creating the connection.
+                          </li>
+                          <li>
+                            Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                            list of Zoho services that support the connections
+                            page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <h2>Syntax to create a record in the development environment</h2>
+        <div>
+          <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.creator.createRecord</span><span>(</span><span>&lt;</span><span>owner_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>app_link_name</span><span>-</span><span>development</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>form_link_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>input_values</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>other_params</span><span>&gt;</span><span>,</span> <span>&lt;connection&gt;</span><span>)</span><span>;</span></pre>
+        </div>
+        <h2><a></a>Example 1: Create a single record</h2>
+        <p>
+          The following example creates&nbsp;a record in the form - Tasks of the
+          Zoho Creator application - Task_Management:
+        </p>
+        <div>
+          <pre>&nbsp;<span>// Create a KEY-VALUE variable to hold the input record values</span>
+<span>dataMap</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>dataMap</span><span>.put</span><span>(</span><span>"Task_Name"</span><span>,</span> <span>"Priority Task"</span><span>)</span><span>;</span>
+<span>dataMap</span><span>.put</span><span>(</span><span>"Task_Description"</span><span>,</span> <span>"I need help configuring my new toaster"</span><span>)</span><span>;</span>
+<span>// Create an empty KEY-VALUE variable to skip the other_params parameter</span>
+<span>otherParams</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>//Write create records integration task to add the input data into the specified form</span>
+<span>response</span> <span>=</span> <span>zoho.creator.createRecord</span><span>(</span><span>"Shawn"</span><span>,</span> <span>"Task_Management"</span><span>,</span> <span>"Tasks"</span><span>,</span> <span>dataMap</span><span>,</span> <span>otherParams</span><span>,</span> <span>"creator_oauth_connection"</span><span>)</span><span>;</span>  </pre>
+        </div>
+        <p>where:</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>response</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>KEY-VALUE</span> variable that holds the
+                  response of the task
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Shawn"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the name of
+                  the application owner.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Task_Management"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the link name
+                  of the&nbsp;application.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Tasks"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> value that represents the link name
+                  of the form to which the record will be added.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>dataMap</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>KEY-VALUE</span> variable that holds the input
+                  values of the record to be created.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Task_Name"</span>
+<span>"Task_Description"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> values that represent&nbsp;the
+                  filed link names.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"creator_oauth_connection"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> values that represent&nbsp;the
+                  filed link names.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2><a></a>Example 2: Create multiple records</h2>
+        <p>
+          The following example creates&nbsp;two records in the form - Tasks of
+          the Zoho Creator application - Task_Management:
+        </p>
+        <div>
+          <pre>&nbsp;<span>// Create a KEY-VALUE variable to hold the input values of first record</span>
+<span>record1</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>record1</span><span>.put</span><span>(</span><span>"Task_Name"</span><span>,</span> <span>"Priority Task"</span><span>)</span><span>;</span>
+<span>record1</span><span>.put</span><span>(</span><span>"Task_Description"</span><span>,</span> <span>"I need help configuring my new toaster"</span><span>)</span><span>;</span>
+        &nbsp;
+<span>// Create a KEY-VALUE variable to hold the input values of second record</span>
+<span>record2</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>record2</span><span>.put</span><span>(</span><span>"Task_Name"</span><span>,</span> <span>"Support Ticket 1"</span><span>)</span><span>;</span>
+<span>record2</span><span>.put</span><span>(</span><span>"Task_Description"</span><span>,</span> <span>"Toaster Configurations"</span><span>)</span><span>;</span>
+        &nbsp;
+<span>// Create a LIST variable to hold the details of the records that need to be created</span>
+<span>records_list</span> <span>=</span> <span>List</span><span>()</span><span>;</span>
+<span>records_list.add</span><span>(</span><span>record1</span><span>)</span><span>;</span>
+<span>records_list.add</span><span>(</span><span>record2</span><span>)</span><span>;</span>
+<span>// Create an empty KEY-VALUE variable to skip the other_params parameter</span>
+<span>otherParams</span> <span>=</span> <span>Map</span><span>()</span><span>;</span>
+<span>//Write create records integration task to add the input data into the specified form</span>
+<span>response</span> <span>=</span> <span>zoho.creator.createRecord</span><span>(</span><span>"Shawn"</span><span>,</span> <span>"Task_Management"</span><span>,</span> <span>"Tasks"</span><span>,</span> <span>records_list</span><span>,</span> <span>otherParams</span><span>,</span> <span>"creator_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+        </div>
+        <p>where:</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <pre><span>records_list</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>LIST</span>&nbsp;variable&nbsp;that holds
+                  the&nbsp;details of the records&nbsp;to be created.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Task_Name"</span>
+                        <span>"Task_Description"</span></pre>
+                </div>
+                <div>
+                  The&nbsp;<span>TEXT</span> values that represent&nbsp;the
+                  filed link names.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p><a></a></p>
+        <h2>Response Format</h2>
+        <p><strong>Success Response</strong></p>
+        <ul>
+          <li>
+            <p>
+              The success&nbsp;response will be returned in the following
+              format:
+            </p>
+            <div>
+              &nbsp;{<br />&nbsp;"code": 3000,<br />&nbsp;"data": {<br />&nbsp;"ID":
+              "3893272000000191003"<br />&nbsp;},<br />&nbsp;"message": "Data
+              Added Successfully"<br />&nbsp;}
+            </div>
+          </li>
+        </ul>
+        <p><strong>Failure Response</strong></p>
+        <ul>
+          <li>
+            <p>
+              The failure response for incorrect or non-existent application
+              name will be returned in the following format
+            </p>
+            <div>
+              &nbsp;{<br />&nbsp;"code": 2892,<br />&nbsp;"message": "No
+              application named &lt;application_name&gt; found. Please check and
+              try again."<br />}
+            </div>
+          </li>
+          <li>
+            <p>
+              The failure response for incorrect owner name will be returned in
+              the following format
+            </p>
+            <div>
+              &nbsp;{<br />&nbsp;"code": 1110,<br />&nbsp;"message": "No
+              workspace named &lt;owner_name&gt; found. Please enter a valid
+              workspace value."<br />}
+            </div>
+          </li>
+          <li>
+            <p>
+              The failure response for incorrect or non-existent report name
+              will be returned in the following format
+            </p>
+            <div>
+              &nbsp;{<br />&nbsp;"code": 2894,<br />&nbsp;"message": "No report
+              named &lt;report_link_name&gt; found. Please check and try
+              again."<br />}
+            </div>
+          </li>
+        </ul>
+        <p><a></a></p>
+        <h2>Related Links</h2>
+        <ul>
+          <li><a>Zoho Creator - Get Records API document</a></li>
+          <li>
+            <a>Zoho Creator API - Possible error messages and status codes</a>
+          </li>
+          <li>
+            <a
+              ><span
+                >Fetch the text value to which a specified key is mapped</span
+              ></a
+            >
+          </li>
+          <li>
+            <a><span>Get values from fetched records</span></a>
+          </li>
+          <li>
+            <a><span>Creator API Link Names</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,237 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sign Integration Tasks</a></li>
+        <li><a>Get Document By ID</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get&nbsp;document by ID from&nbsp;Zoho Sign</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.sign.getDocumentById</strong>&nbsp;task is used
+              to fetch a document from Zoho Sign using its ID. This task is
+              based on the
+              <a>Zoho Sign API - Get details of a particular document</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt; </span><span>= </span><span>zoho</span><span>.sign.getDocumentById</span><span>(</span><span>&lt;</span><span>request_id</span><span>&gt;</span><span>,</span><span> </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params&gt;</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The response returned by Zoho Sign that contains the
+                            specified document's creation&nbsp;and ownership
+                            information.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;request_id&gt;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The request ID of the document that will be
+                            downloaded.<be> </be>
+                          </p>
+                          <p>
+                            <be
+                              ><strong>Note:</strong> You can get the ID of the
+                              Zoho Sign request from its URL. The URL is in the
+                              format:
+                              https://sign.zoho.com/zs#/request/new/<strong
+                                >&lt;request_id&gt;</strong
+                              >
+                              (or) You can get the request ID from the response
+                              of zoho.sign.uploadDocument task. Click
+                              <a>here</a> to learn how to fetch request ID from
+                              the response.</be
+                            >
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in<a>
+                                  Zoho Sign API document</a
+                                >
+                                while creating the connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example: Fetch a document using its request ID</h2>
+            <p>
+              The following script&nbsp;fetches the specified&nbsp;Zoho Sign
+              document:
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span> <span>zoho</span><span>.sign</span><span>.getDocumentByID</span><span>(</span><span>10696000000014007</span>,<span>"sign_oauth_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      specified document's creation and ownership information.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>10696000000014007</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>NUMBER</span>&nbsp;that represents&nbsp;the
+                      request ID of the document that will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"sign_oauth_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span>&nbsp;that represents&nbsp;the
+                      link name of Zoho Sign connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                The success response will be returned in the following format:
+                <div>
+                  {<br />&nbsp;"code": 0,<br />&nbsp;"requests": {<br />&nbsp;"request_status":
+                  "completed",<br />&nbsp;"notes": "",<br />&nbsp;"attachments":
+                  [<br />&nbsp;],<br />&nbsp;"reminder_period": 5,<br />&nbsp;"owner_id":
+                  "10696000000009003",<br />&nbsp;"description": "",<br />&nbsp;"request_name":
+                  "AddFields_take1",<br />&nbsp;"modified_time":
+                  1573465341353,<br />&nbsp;"action_time": 1573465457604,<br />&nbsp;"is_deleted":
+                  false,<br />&nbsp;"expiration_days": 15,<br />&nbsp;"is_sequential":
+                  false,<br />&nbsp;"sign_submitted_time": 1573465341406,<br />&nbsp;"owner_first_name":
+                  "shawn",<br />&nbsp;"sign_percentage": 100,<br />&nbsp;"expire_by":
+                  1574792940000,<br />&nbsp;"owner_email":
+                  "shawn.bp@zylker.com",<br />&nbsp;"created_time":
+                  1573036357477,<br />&nbsp;"email_reminders": true,<br />&nbsp;"document_ids":
+                  [<br />&nbsp;{<br />&nbsp;"document_name": "sample.pdf",<br />&nbsp;"document_size":
+                  2953,<br />&nbsp;"document_order": "0",<br />&nbsp;"total_pages":
+                  2,<br />&nbsp;"document_id": "10696000000014001"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"self_sign":
+                  false,<br />&nbsp;"in_process": false,<br />&nbsp;"validity":
+                  -1,<br />&nbsp;"request_type_name": "Others",<br />&nbsp;"request_id":
+                  "10696000000014007",<br />&nbsp;"request_type_id":
+                  "10696000000000187",<br />&nbsp;"owner_last_name": "shawn",<br />&nbsp;"actions":
+                  [<br />&nbsp;{<br />&nbsp;"verify_recipient": false,<br />&nbsp;"action_type":
+                  "SIGN",<br />&nbsp;"recipient_email":
+                  "shawn.bp@zylker.com",<br />&nbsp;"allow_signing": false,<br />&nbsp;"recipient_phonenumber":
+                  "",<br />&nbsp;"is_bulk": false,<br />&nbsp;"action_id":
+                  "10696000000016002",<br />&nbsp;"is_revoked": false,<br />&nbsp;"is_embedded":
+                  false,<br />&nbsp;"signing_order": -1,<br />&nbsp;"fields":
+                  [<br />&nbsp;{<br />&nbsp;"field_id": "10696000000016004",<br />&nbsp;"x_coord":
+                  3,<br />&nbsp;"field_type_id": "10696000000000047",<br />&nbsp;"abs_height":
+                  5,<br />&nbsp;"field_category": "image",<br />&nbsp;"field_label":
+                  "Signature",<br />&nbsp;"is_mandatory": true,<br />&nbsp;"page_no":
+                  1,<br />&nbsp;"document_id": "10696000000014001",<br />&nbsp;"field_name":
+                  "Signature",<br />&nbsp;"y_value": 0.378788,<br />&nbsp;"abs_width":
+                  18,<br />&nbsp;"action_id": "10696000000016002",<br />&nbsp;"width":
+                  2.941177,<br />&nbsp;"y_coord": 3,<br />&nbsp;"field_type_name":
+                  "Signature",<br />&nbsp;"description_tooltip": "",<br />&nbsp;"x_value":
+                  0.490197,<br />&nbsp;"height": 0.631314<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"recipient_name":
+                  "shawn",<br />&nbsp;"action_status": "SIGNED",<br />&nbsp;"recipient_countrycode":
+                  ""<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"attachment_size":
+                  0<br />&nbsp;},<br />&nbsp;"message": "Document has been
+                  retrieved",<br />&nbsp;"status": "success"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Sign integration tasks</a></li>
+              <li><a>Connections</a></li>
+              <li><a>Zoho Sign API error codes</a></li>
+              <li>
+                <a>Zoho Sign API - Get details of a particular document</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

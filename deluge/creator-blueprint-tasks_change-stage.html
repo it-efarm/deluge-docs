@@ -1,0 +1,347 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Creator Blueprint Tasks</a></li>
+        <li><a>Change Stage</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Change Stage</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Example 1: Change the stage of the blueprint</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a>Use Case Scenario</a>
+                  <ul>
+                    <li><a>Scenario 1</a></li>
+                  </ul>
+                </li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <p><strong>Note:&nbsp;</strong></p>
+              <ul>
+                <li>This task is only applicable to Zoho Creator.</li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>thisapp.blueprint.changeStage</strong> task lets you
+              change the blueprint stage of a record to a specified stage
+              without performing any transitions in-between.
+            </p>
+            <div>
+              <p><strong>Note:&nbsp;</strong></p>
+              <ul>
+                <li>
+                  This task cannot be performed, if the blueprint is not active
+                  in that specified record.
+                </li>
+                <li>
+                  The maximum number of blueprint statements that can be
+                  executed in one function is 50.
+                </li>
+                <li>
+                  Blueprint will be associated only after the event completes
+                  for records created using the insert record task. To execute a
+                  change stage, you can use make use of schedule workflows.
+                </li>
+              </ul>
+            </div>
+            <h2>​<a></a>Syntax</h2>
+            <div>
+              <pre><span>thisapp.blueprint.changeStage</span><span>(</span><span>&lt;</span><span>form_link_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>blueprint_link_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>stage_link_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>recordID</span><span>&gt;</span><span>)</span><span>;</span>
+                                </pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>Params</strong></th>
+                    <th><strong>Data type</strong></th>
+                    <th><strong>Description</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;form_link_name&gt;</td>
+                    <td><span>&nbsp;TEXT</span></td>
+                    <td>
+                      <p>
+                        The link name of the form associated with the blueprint.
+                      </p>
+                      <div>
+                        <p><strong>Note:</strong></p>
+                        <ul>
+                          <li>
+                            Link names of applications, forms, reports, and
+                            fields in your account can be
+                            <a>viewed on the reference page</a> (listed in
+                            brackets).
+                          </li>
+                          <li>
+                            You can also fetch link names from the URL while
+                            accessing the form. The URL is in the format:
+                            app.zohocreator.com/appbuilder/&lt;application_owner&gt;/&lt;application_name&gt;/#Form:<strong
+                              >&lt;form_link_name&gt;</strong
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;blueprint_link_name&gt;</td>
+                    <td><span>&nbsp;TEXT</span></td>
+                    <td>
+                      <p>
+                        The link name of the blueprint in which this task will
+                        be performed.
+                      </p>
+                      <div>
+                        <strong>Note: </strong>You can get the link name of
+                        blueprint under Blueprint properties.
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;stage_link_name&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      The link name of the stage to which the transition needs
+                      to be made. (The stage link name is the same as stage
+                      name)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;recordID&gt;</td>
+                    <td><span>&nbsp;NUMBER</span></td>
+                    <td>
+                      The ID of the record in which this task will be performed.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1: Change the stage of the blueprint</h2>
+            <p>
+              The following example changes the stage of the blueprint from the
+              <strong>ordered</strong> stage to the
+              <strong>cancelled</strong> stage in an order management form.
+            </p>
+            <div>
+              <pre><span>thisapp.blueprint.changeStage</span><span>(</span><span>"orderMangement"</span><span>,</span> <span>"orders"</span><span>,</span> <span>"cancelled"</span><span>,</span> <span>input.ID</span><span>)</span><span>;</span>
+                                </pre>
+            </div>
+            <p>Where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"orderManagement"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the form associated with the blueprint.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"orders"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the blueprint.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"cancelled"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the link name of
+                      the stage to which the current stage is being switched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>ID</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the ID of the
+                      record in which this task will be executed.
+                    </div>
+                  </div>
+                  <div><div>&nbsp;</div></div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Scenario 1</h2>
+            <p>
+              In a courier delivery management system, a package undergoes
+              several processes before delivering to the customer, including
+              packing, shipping, and despatching. These processes will be added
+              as blueprint stages. In some situations, if a customer collects
+              the couriers directly from the delivery office when the package
+              reaches the destination city, the stage
+              <em>Out for delivery</em> should be skipped to
+              <em>delivered</em> by configuring the workflow as a button in the
+              report with this task.
+            </p>
+            <div>
+              <pre><span>note</span> <span>=</span> <span>"directly picked up at hub by customer"</span><span>;</span>&nbsp;
+                                <span>thisapp.blueprint.changeStage</span><span>(</span><span>"courierMangement"</span><span>,</span> <span>"deliveryStatus"</span><span>,</span> <span>"delivered"</span><span>,</span> <span>input.ID</span><span>)</span><span>;</span>
+                                </pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Execute Transition</a></li>
+              <li><a>Understand Blueprint</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,609 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Conditions</a></li>
+        <li><a>Criteria in conditional statements</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h1>Criteria in conditional statements</h1>
+      <div>
+        <h4>Table of Contents</h4>
+        <ul>
+          <li><a>Overview</a></li>
+          <li><a>Syntax</a></li>
+          <li><a>Example</a></li>
+          <li>
+            <a>Applicable operators and expressions for TEXT expressions</a>
+          </li>
+          <li>
+            <a
+              >Applicable operators and expressions for NUMBER&nbsp;and Decimal
+              expressions</a
+            >
+          </li>
+          <li>
+            <a
+              >Applicable operators and expressions for DATE-TIME expressions</a
+            >
+          </li>
+          <li>
+            <a>Applicable operators and expressions for LIST expressions</a>
+          </li>
+        </ul>
+      </div>
+      <h2><a></a>Overview</h2>
+      <p>
+        A criteria is required when you need to execute
+        <a>conditional statements</a> like <strong>if</strong>,
+        <strong>else if</strong>, and <strong>conditional if</strong>.
+        Criteria&nbsp;comprises of one or more conditions separated by&nbsp;<a
+          >logical operators</a
+        >.&nbsp;
+      </p>
+      <p>
+        Conditions always evaluate to a boolean value
+        -&nbsp;<strong>True</strong>&nbsp;or&nbsp;<strong>False</strong>. The
+        boolean value of the overall criteria will depend on the conditions and
+        the type of Logical Operators used to connect the conditions in the
+        criteria.
+      </p>
+      <p>
+        If the criteria is met(i.e., it evaluates to true), the tasks specified
+        under the condition will be executed. If not, the tasks will be skipped.
+      </p>
+      <h2><a></a>Syntax</h2>
+      <p>A criteria looks like the following snippet:</p>
+      <div>
+        <span
+          >(<span>&lt;condition_1&gt;</span>&nbsp;<span>&lt;logical_operator_1&gt;</span>&nbsp;<span>&lt;condition_2&gt;</span>&nbsp;<span>&lt;logical_operator_2&gt;</span>&nbsp;.....
+          <span>&lt;condition_n&gt;</span>)</span
+        >
+      </div>
+      <p>
+        Each condition in the criteria can look like one&nbsp;of the following:
+      </p>
+      <ul>
+        <li>
+          <div>
+            <span
+              >(<span>&lt;expression1&gt;</span>&nbsp;<span>&lt;operator&gt;</span>&nbsp;<span>&lt;expression2&gt;</span>)</span
+            >
+          </div>
+        </li>
+      </ul>
+      <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (or)</p>
+      <ul>
+        <li>
+          <div>
+            <span>(</span><span>&lt;function_returning_boolean</span
+            ><span>&gt;</span><span>)</span>
+          </div>
+        </li>
+      </ul>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <p>
+                  <span><span>&lt;expression1&gt;</span></span>
+                </p>
+              </td>
+              <td>
+                <p>
+                  Expression whose value needs to be compared to a specified
+                  value.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td><span>&lt;function_returning_boolean&gt;</span></td>
+              <td>
+                <p><a>Functions which return a boolean value</a>.</p>
+                <p>
+                  If the function returns True, the given tasks will be
+                  executed. Else, they will be skipped.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span><span>&lt;operator&gt;</span></span>
+              </td>
+              <td>
+                <p>
+                  Operator to compare field/variable/expression value against
+                  the specified value.&nbsp;
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span><span>&lt;expression2&gt;</span></span>
+              </td>
+              <td>
+                <p>
+                  It may&nbsp;directly be a value,&nbsp;or an expression
+                  evaluating&nbsp;to the required value,&nbsp;which needs to be
+                  compared with the specified field/expression.&nbsp;
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2><a></a>Example</h2>
+      <p>This is a sample criteria in the "if"&nbsp;conditional statement:</p>
+      <div>
+        <span
+          >if ((<span>a </span><span>&gt;</span><span> </span><span>5</span>)
+          <span>&amp;&amp;</span> (<span>b</span> <span>&gt;</span
+          ><span>10</span>) <span>||</span> (<span>c</span><span> &gt;</span>
+          <span>20</span>))<br />{<br />&nbsp;
+          &nbsp;&lt;actions_to_be_executed&gt;<br />}</span
+        >
+      </div>
+      <h2>
+        <a></a>Applicable operators and&nbsp;expressions for TEXT expressions
+      </h2>
+      <p>
+        The criteria format:&nbsp;<span
+          ><span>&lt;text_expression&gt;</span
+          >&nbsp;<span>&lt;operator&gt;</span>&nbsp;<span>&lt;expression&gt;</span>&nbsp;</span
+        >must be used to specify the following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>==</li>
+                  <li>!=</li>
+                  <li>is not</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    TEXT value, or an expression that evaluates to a TEXT value
+                  </li>
+                  <li>TEXT list</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>is</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    TEXT value, or an expression that evaluates to a TEXT value
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>is not</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>any expression that evaluates to null</li>
+                </ul>
+                <p>
+                  It is advisable to use <a>isNull function</a> instead to
+                  check&nbsp;null values
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>in</li>
+                  <li>not in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>TEXT list</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2>
+        <a></a>Applicable operators and expressions for Number&nbsp;and Decimal
+        expressions
+      </h2>
+      <p>
+        The criteria format:&nbsp;<span>&lt;number/decimal_expression&gt;</span
+        ><span>&nbsp;</span><span>&lt;operator&gt;</span><span>&nbsp;</span
+        ><span>&lt;expression&gt;</span>&nbsp;must be used to specify the
+        following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>==</li>
+                  <li>!=</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    number/decimal value or an expression that evaluates to a
+                    number/decimal value
+                  </li>
+                  <li>number/decimal list</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>is</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    number/decimal value, or an expression that evaluates to a
+                    number/decimal value
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>in</li>
+                  <li>not in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>number/decimal list (or numerical values in quotes)</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>is not</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>null, or any expression that evaluates to null</li>
+                </ul>
+                <p>
+                  It is advisable to use <a>isNull function</a> instead&nbsp;to
+                  check&nbsp;null values
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>&gt;</li>
+                  <li>&lt;&nbsp;</li>
+                  <li>&gt;=</li>
+                  <li>&lt;=</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    number/decimal value, or an expression that evaluates to a
+                    number/decimal value
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2>
+        <a></a>Applicable operators and expressions for DATE-TIME expressions
+      </h2>
+      <p>
+        The criteria format:&nbsp;<span>&lt;datetime_expression&gt;</span
+        ><span>&nbsp;</span><span>&lt;operator&gt;</span><span>&nbsp;</span
+        ><span>&lt;expression&gt;</span>&nbsp;must be used to specify the
+        following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>==&nbsp;</li>
+                  <li>!=</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>tomorrow</li>
+                  <li>yesterday</li>
+                  <li>now</li>
+                  <li>today</li>
+                  <li>date <a>system variables</a></li>
+                  <li>
+                    date/date-time&nbsp;value or an expression that evaluates to
+                    a date/date-time value
+                  </li>
+                  <li>list of date-time values</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>is</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>tomorrow</li>
+                  <li>yesterday</li>
+                  <li>now</li>
+                  <li>today</li>
+                  <li>date <a>system variables</a></li>
+                  <li>
+                    date/date-time&nbsp;value or an expression that evaluates to
+                    a date/date-time value
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>is not</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>null, or any expression that evaluates to null</li>
+                </ul>
+                <p>
+                  It is advisable to use
+                  <a>this&nbsp;function</a> instead&nbsp;to check&nbsp;null
+                  values
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>in</li>
+                  <li>not in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>list of date-time values</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2><a></a>Applicable operators and expressions for LIST expressions</h2>
+      <p>
+        The criteria format:&nbsp;<span>&lt;list_expression&gt;</span
+        ><span>&nbsp;</span><span>&lt;operator&gt;</span><span>&nbsp;</span
+        ><span>&lt;expression&gt;</span>&nbsp;must be used to specify the
+        following operators.
+      </p>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Applicable expression</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ul>
+                  <li>==</li>
+                  <li>in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    a list or an expression that evaluates to a list&nbsp;
+                  </li>
+                </ul>
+                <p>
+                  Even if the expression contains any
+                  additional&nbsp;elements&nbsp;apart from the specified values,
+                  that record will&nbsp;be treated as matching the criteria.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>!=</li>
+                  <li>not in</li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    a list or an expression that evaluates to a list&nbsp;
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <p><strong>Note: (Applicable only to Zoho Creator)</strong></p>
+        <ul>
+          <li>
+            You can also specify field link name&nbsp;in place of an expression.
+            In such cases, the applicable operators&nbsp;will be&nbsp;based on
+            the data-type of the specified field (as detailed above), except for
+            the <strong>Name</strong> and <strong>Address</strong> main fields.
+          </li>
+          <li>
+            For <strong>Name</strong> and <strong>Address</strong> main fields,
+            the&nbsp;supported operators and expressions are mentioned below:
+            <ul>
+              <li>
+                <p>
+                  The criteria format:&nbsp;<span
+                    ><span>&lt;field_link_name&gt;</span
+                    >&nbsp;<span>&lt;operator&gt;</span>&nbsp;<span
+                      >(&lt;expression&gt;)</span
+                    ></span
+                  >&nbsp;must be used to specify the following operators.
+                </p>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Operator</strong></td>
+                        <td><strong>Applicable expression</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <ul>
+                            <li>==</li>
+                            <li>!=</li>
+                            <li>is not</li>
+                          </ul>
+                        </td>
+                        <td>
+                          <ul>
+                            <li>
+                              null, or any expression that evaluates to null
+                            </li>
+                          </ul>
+                          <p>
+                            It is advisable to use
+                            <a>this&nbsp;function</a> instead&nbsp;to
+                            check&nbsp;null values
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+              <li>
+                <p>
+                  ​The criteria format:&nbsp;<span
+                    ><span>&lt;field_link_name&gt;</span
+                    >.<span>&lt;operator&gt;</span>&nbsp;<span
+                      >(&lt;expression&gt;)</span
+                    ></span
+                  >&nbsp;must be used to specify the following operators.
+                </p>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Operator</strong></td>
+                        <td><strong>Applicable expression</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <ul>
+                            <li>contains</li>
+                          </ul>
+                        </td>
+                        <td>
+                          <ul>
+                            <li>
+                              TEXT value, or an expression that evaluates to a
+                              TEXT value
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <ul>
+                            <li>isEmpty</li>
+                          </ul>
+                        </td>
+                        <td><p>&nbsp; &nbsp; &nbsp; &nbsp;NA​</p></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            Field link names <strong>cannot</strong>&nbsp;be specified when the
+            conditional statement is written in
+            <strong>Custom Functions</strong> or
+            <strong>Custom Schedule Workflows</strong>.
+          </li>
+          <li>
+            You can specify fields in the lookup form in the format
+            <div>&lt;lookup_field_link_name&gt;.&lt;field_link_name&gt;</div>
+            and the applicable operators will be based on the data-type of the
+            specified field,&nbsp;as detailed above.
+          </li>
+          <li>
+            You can specify fields in the Subform&nbsp;in the format
+            <div>&lt;subform_field_link_name&gt;.&lt;field_link_name&gt;</div>
+            and the applicable operators&nbsp;will be&nbsp;based on the
+            data-type of the specified field,&nbsp;as detailed above.
+          </li>
+        </ul>
+      </div>
+      <h2>Related Links</h2>
+      <ul>
+        <li>
+          <a>Criteria while fetching a collection of records</a>
+          <ul></ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

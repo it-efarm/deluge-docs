@@ -1,0 +1,139 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho CRM Vertical Solutions Integration Tasks</a></li>
+        <li><a>Invoke Connector Task in Zoho CRM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Invoke Connector Task</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+              <p>
+                After a connector is published and associated with an extension
+                or vertical solution, it can be invoked whenever necessary. You
+                can invoke a connector using a <a>custom function.</a>For more
+                details on how to create a connector and invoke it in a custom
+                function, click <a>here.</a>
+              </p>
+              <div>
+                <strong>Note:&nbsp;</strong
+                ><span
+                  >This task can be performed only in
+                  <a>Zoho CRM Vertical Solutions</a>.</span
+                >
+              </div>
+              <h2>​<a></a>Syntax&nbsp;</h2>
+              <div>
+                <pre><span>&lt;</span><span>Response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.crm</span><span>.invokeConnector</span><span>(</span><span>"&lt;ConnectorAPI Unique Identifier&gt;"</span><span>,</span> <span>&lt;</span><span>parameterMap</span><span>&gt;</span><span>)</span><span>;</span> </pre>
+              </div>
+              <p>where:</p>
+              <div>
+                <table>
+                  <thead>
+                    <tr>
+                      <td><strong>Params</strong></td>
+                      <td><strong>Data type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><p>&lt;Response&gt;</p></td>
+                      <td>
+                        <p><span>&nbsp;KEY-VALUE</span></p>
+                      </td>
+                      <td><p>&nbsp;Indicates the task response.</p></td>
+                    </tr>
+                    <tr>
+                      <td><p>&lt;parameterMap&gt;</p></td>
+                      <td>
+                        <p><span>&nbsp;KEY-VALUE</span></p>
+                      </td>
+                      <td>
+                        <p>
+                          &nbsp;Maps any dynamic value present in the connector
+                          with user inputs.
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><p>&lt;ConnectorAPI Unique Identifier&gt;</p></td>
+                      <td>
+                        <p><span>&nbsp;KEY-VALUE</span></p>
+                      </td>
+                      <td><p>&nbsp;The connector API&nbsp;to be used.</p></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>
+                You can find details of the Connector API unique identifier in
+                the List Of APIs page (screenshot below). Navigate to this page
+                by clicking <strong>Connectors</strong> in the left pane,
+                clicking the <strong>Associated Connectors</strong> tab, then
+                clicking <strong>View All APIs</strong> for the desired
+                connector.&nbsp;
+              </p>
+              <img />
+              <p>
+                In the <em>List Of APIs</em> page, click the name of the API
+                that you want to use. The API Unique Identifier will be
+                displayed in a pop-up as shown below.
+              </p>
+              <img />
+              <h2><a></a>Example</h2>
+              <p>
+                <strong
+                  >Post data from extension or vertical solution to your third
+                  party account.</strong
+                >
+              </p>
+              <p>
+                Suppose you want to add the contacts from your extension or
+                vertical solution to Google Contacts whenever a new contact with
+                India as the mailing country is added. To achieve
+                this,&nbsp;you'll have to create a connector that integrates
+                your CRM system with Google contacts and then write a custom
+                function that executes this connector whenever particular
+                conditions are satisfied. After this is done, you need to write
+                a custom function to invoke the connector and associate the
+                custom function to a workflow rule.
+              </p>
+              <p><strong>Module:</strong> Contacts</p>
+              <p>
+                <strong>Rule Trigger:</strong> A Record Action whenever a record
+                is created
+              </p>
+              <p><strong>Rule Criteria:</strong> Mailing Country is India</p>
+              <p><strong>Actions:</strong> Call Functions</p>
+              <p>The script for the custom function to be added is:</p>
+              <div>
+                <pre><span>Fnam</span> <span>=</span> <span>input</span><span>.contact</span><span>.get</span><span>(</span><span>"First_Name"</span><span>)</span><span>;</span>
+<span>Lnam</span> <span>=</span> <span>input</span><span>.contact</span><span>.get</span><span>(</span><span>"Last_Name"</span><span>)</span><span>;</span>
+<span>mail</span> <span>=</span> <span>input</span><span>.contact</span><span>.get</span><span>(</span><span>"Email"</span><span>)</span><span>;</span>
+<span>Mob</span> <span>=</span> <span>input</span><span>.contact</span><span>.get</span><span>(</span><span>"Mobile"</span><span>)</span><span>;</span>
+<span>map</span> <span>=</span> <span>{</span><span>"Fname"</span> <span>:</span> <span>Fnam</span><span>,</span> <span>"Lname"</span> <span>:</span> <span>Lnam</span><span>,</span> <span>"Email"</span> <span>:</span> <span>mail</span><span>,</span> <span>"Mobile"</span> <span>:</span> <span>Mob</span><span>}</span><span>;</span>
+<span>response</span> <span>=</span> <span>zoho</span><span>.crm</span><span>.invokeConnector</span><span>(</span><span>"googledrive.contacts"</span><span>,</span><span>map</span><span>)</span><span>;</span>
+</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

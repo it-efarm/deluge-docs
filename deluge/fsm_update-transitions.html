@@ -1,0 +1,224 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho FSM integration tasks</a></li>
+        <li><a>Update Transitions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Update Transitions</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2>Overview</h2>
+            <p>
+              You can update the status of the record in the specified
+              transactional module using the
+              <strong>zoho.fsm.updateTransitions()</strong> Deluge task.
+            </p>
+            <p>
+              This task is based on <a>Zoho FSM API</a> -&gt; &lt;Module&gt;
+              -&gt; List &lt;ModuleName&gt; Transitions.
+            </p>
+            <div>
+              <p>
+                <strong>Note</strong>: This task is not applicable to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>zoho.fsm.updateTransitions</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>record_id</span><span>&gt;</span><span>,</span><span>&lt;</span><span>transition_details</span><span>&gt;</span><span>, </span><span>&lt;</span><span>optional_data_map</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>&lt;variable&gt;&nbsp;</td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>is the task response returned as a Map.</td>
+                      </tr>
+                      <tr>
+                        <td>&lt;module_name&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            is the API name of the module whose record's
+                            transitions you want to update.
+                          </p>
+                          <div>
+                            <p>
+                              <strong>Note</strong>: To know the API name, click
+                              <a>here</a>, navigate to &lt;Module&gt; APIs -&gt;
+                              Perform an &lt;ModuleName&gt; Transition and refer
+                              to the Request URL
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;record_id&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          is the unique ID of the record whose transitions you
+                          want to update.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;transition_details&gt;</td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          is a Map parameter to pass the details required to
+                          move the record from one status to another.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;optional_data_map&gt;</td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          is a Map parameter to pass any additional values. If
+                          you want to ignore this parameter, supply an empty
+                          map.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>&lt;connection&gt;</td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>is the <a>connection</a> created for Zoho FSM.</p>
+                          <div>
+                            <p>
+                              <strong>Note:</strong> To know the relevant
+                              scopes, click here, navigate to &lt;Module&gt;
+                              APIs -&gt; List &lt;ModuleName&gt; Transitions.
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2>Example</h2>
+            <p>
+              The following script will update the status of a record with ID
+              <strong>23033XXXXXXXXXXXXXX</strong> in the Zoho FSM module
+              <strong>Service Appointments</strong> to Cannot Complete.
+            </p>
+            <div>
+              <pre><span>emptyMap = Map();
+
+transitionInfo = Map();
+transitionInfo = {"blueprint":[{"transition_id":"2373000000169069","data":{"Notes":"Customer not present at the location"}}]};
+
+response = zoho.fsm.updateTransitions("Service_Appointments", 23033XXXXXXXXXXXXXX, transitionInfo, emptyMap, "fsm_connection");
+info response;
+
+info response;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"Service_Appointments"</span></pre>
+                    </div>
+                    <div>
+                      is the TEXT that represents the API name of the Zoho FSM
+                      module for whose record you want to update the transition
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>23033XXXXXXXXXXXXXX</span></pre>
+                    </div>
+                    <div>
+                      is the TEXT that represents the ID of the record that will
+                      be updated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>transitionInfo</span></pre>
+                    </div>
+                    <div>
+                      <p>
+                        is the KEY-VALUE input with details to update the status
+                        of the record.&nbsp;
+                      </p>
+                      <p>
+                        The <strong>transition_id</strong> is the NUMBER that
+                        represents the status to which you want to update the
+                        record. To know the transition_id, click <a>here</a>,
+                        navigate to &lt;Module&gt; APIs -&gt; List
+                        &lt;ModuleName&gt; Transitions
+                      </p>
+                      <p>
+                        The <strong>data</strong> is the KEY-VALUE input with
+                        the details of the note that need to be added when
+                        cancelling or terminating a record.
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"fsm_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the TEXT that represents the link name of the
+                      connection created for Zoho FSM.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>The response returned is of the following format:</p>
+                <div>
+                  &nbsp;{"code":"SUCCESS","details":{},"message":"Action
+                  executed
+                  successfully","actions":{"before":{},"after":{}},"status":"success"}
+                </div>
+              </li>
+            </ul>
+            <h2>Related Links</h2>
+            <ul>
+              <li><a>Connections</a></li>
+              <li><a>Zoho FSM API document</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.00445013"><iframe></iframe></div>
+</div>

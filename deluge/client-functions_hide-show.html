@@ -1,0 +1,527 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Client Functions</a></li>
+        <li><a>Hide | Show</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Hide | Show</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Example 1</a></li>
+                    <li><a>Example 2</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a>Use Case Scenarios</a>
+                  <ul>
+                    <li>
+                      <a>Scenario 1: Show/Hide a field in a review form</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>hide </strong>deluge task hides a specified field on a
+              form.
+            </p>
+            <p>
+              The <strong>show</strong> deluge task reverses the hide action and
+              unhides the&nbsp;hidden field in the&nbsp;form.
+            </p>
+            <div>
+              <p><strong>Note</strong>:</p>
+              <ul>
+                <li>
+                  To hide or show a field in a report, navigate to column
+                  properties in a&nbsp;<a>Report</a>, select the required field
+                  and click on the delete icon.
+                </li>
+                <li>
+                  To hide fields for a set of users, you can define&nbsp;<a
+                    >field permissions</a
+                  >.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <p><strong>HIDE</strong></p>
+            <ul>
+              <li>
+                <span>To hide a <strong>Mainform field</strong>.</span>
+              </li>
+            </ul>
+            <div>
+              <pre><span>hide</span> <span>&lt;</span><span>field_link_name</span><span>&gt;</span><span>;</span></pre>
+            </div>
+            <div>&nbsp;</div>
+            <ul>
+              <li>
+                <span>To hide a <strong>Subform field</strong></span>
+              </li>
+            </ul>
+            <div>
+              <pre><span>hide</span> <span>&lt;</span><span>subform_link_name</span><span>&gt;</span><span>.</span><span>&lt;</span><span>subform_field_link_name</span><span>&gt;</span><span>;</span></pre>
+            </div>
+            <div>&nbsp;</div>
+            <ul>
+              <li>
+                <span
+                  >To hide the <strong>Subform field in a</strong>
+                  <strong>specific subform row</strong>. This syntax can only be
+                  used in subform actions such as addition of row, deletion of
+                  row and user input of a subform field.</span
+                >
+              </li>
+            </ul>
+            <div>
+              <pre><span>hide</span> <span>row.</span><span>&lt;</span><span>subform_field_link_name</span><span>&gt;</span><span>;</span></pre>
+            </div>
+            <p><strong>UNHIDE</strong></p>
+            <ul>
+              <li>
+                <span>To unhide a <strong>Mainform field</strong>.</span>
+              </li>
+            </ul>
+            <div>
+              <pre><span>show</span> <span>&lt;</span><span>field_link_name</span><span>&gt;</span><span>;</span></pre>
+            </div>
+            <div>&nbsp;</div>
+            <ul>
+              <li>
+                <span>To unhide a <strong>Subform field</strong></span>
+              </li>
+            </ul>
+            <div>
+              <pre><span>show</span> <span>&lt;</span><span>subform_link_name</span><span>&gt;</span><span>.</span><span>&lt;</span><span>subform_field_link_name</span><span>&gt;</span><span>;</span></pre>
+            </div>
+            <div>&nbsp;</div>
+            <ul>
+              <li>
+                <span
+                  >To unhide the <strong>Subform field in a</strong>
+                  <strong>specific subform row</strong>. This syntax can only be
+                  used in subform actions such as addition of row, deletion of
+                  row and user input of a subform field.</span
+                >
+              </li>
+            </ul>
+            <div>
+              <pre><span>show</span> <span>row.</span><span>&lt;</span><span>subform_field_link_name</span><span>&gt;</span><span>;</span></pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Param</th>
+                    <th>Explanation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span
+                        >&lt;field_link_name&gt;, &lt;subform_link_name&gt;
+                        &amp; &lt;subform_field_link_name&gt;</span
+                      >
+                    </td>
+                    <td>
+                      <p>
+                        Link name of the field which needs to be hidden or
+                        unhidden.
+                      </p>
+                      <p>Points to keep in mind for this parameter:</p>
+                      <ul>
+                        <li>
+                          Since the <strong>Autonumber</strong> field type is
+                          not displayed in a Form, it cannot be specified in
+                          this task.
+                        </li>
+                        <li>
+                          For composite field types like
+                          <strong>Name</strong> and <strong>Address</strong>,
+                          the action of hiding/showing the main field will be
+                          applied to all its subfields&nbsp;by default. To
+                          hide/show a particular subfield&nbsp;you must specify
+                          it along with the main field, for example:
+                          <strong>hide Name.last_name;</strong>
+                        </li>
+                        <li>
+                          The action of&nbsp;hiding/showing the
+                          <strong>Section</strong> field type will be
+                          applied&nbsp;to all the fields enclosed in the
+                          section.
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <center>
+                        <p><strong>When a record is Created</strong></p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong>When hiding/unhiding a field in a form</strong>
+                    </td>
+                    <td>
+                      <strong>When hiding/unhiding a subform field</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>In Form Actions</strong></td>
+                    <td><strong>In Subform Actions</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On user input of a subform field</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <p>
+                          <strong>When a record is Created or Edited</strong>
+                        </p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong>When hiding/unhiding a field in a form</strong>
+                    </td>
+                    <td>
+                      <strong>When hiding/unhiding a subform field</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>In Form Actions</strong></td>
+                    <td><strong>In Subform Actions</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On user input of a subform field</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <p><strong>When a record is Edited</strong></p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong>When hiding/unhiding a field in a form</strong>
+                    </td>
+                    <td>
+                      <strong>When hiding/unhiding a subform field</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>In Form Actions</strong></td>
+                    <td><strong>In Subform Actions</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>On user input of a subform field</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Update</td>
+                    <td><span>No</span></td>
+                    <td>Not Applicable</td>
+                    <td>Not Applicable</td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                    <td>Not Applicable</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <p><strong>When a record is Deleted</strong></p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong>When hiding/unhiding a field in a form</strong>
+                    </td>
+                    <td>
+                      <strong>When hiding/unhiding a subform field</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>In Form Actions</strong></td>
+                    <td><strong>In Subform Actions</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <p><strong>Other workflow events</strong></p>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong>When hiding/unhiding a field in a form</strong>
+                    </td>
+                    <td>
+                      <strong>When hiding/unhiding a subform field</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>In Form Actions</strong></td>
+                    <td><strong>In Subform Actions</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <ul>
+              <li>
+                The following snippet&nbsp;hides the "Phone Number" field if the
+                selected contact mode is "Email".&nbsp;
+              </li>
+            </ul>
+            <div>
+              <pre><span>if</span><span>(</span><span>Contact_Mode</span><span>==</span><span>"Email"</span><span>)</span>&nbsp;
+<span>{</span>&nbsp;
+<span>hide</span> <span>Phone_Number</span><span>;</span>&nbsp;
+<span>}</span>&nbsp;
+<span>else</span>&nbsp;
+<span>{</span>&nbsp;
+<span>show</span> <span>Phone_Number</span><span>;</span>&nbsp;
+<span>}</span>
+                                </pre>
+            </div>
+            <h2><a></a>Example 2</h2>
+            <ul>
+              <li>
+                The following example hides the product code field in the
+                subform, if the user selects the product is not imported from a
+                third party manufacturing unit.
+              </li>
+            </ul>
+            <div>
+              <pre><span>if</span><span>(</span><span>Manufactured_by</span> <span>!=</span> <span>"third-party"</span><span>)</span>&nbsp;
+<span>{</span>&nbsp;
+<span>hide</span> <span>row.product_code</span><span>;</span>&nbsp;
+<span>}</span>&nbsp;
+<span>else</span>&nbsp;
+<span>{</span>&nbsp;
+<span>hide</span> <span>row.product_code</span><span>;</span>&nbsp;
+<span>}</span>&nbsp;
+                                </pre>
+            </div>
+            <h2><a></a>Scenario 1: Show/Hide a field in a review form</h2>
+            <p>
+              Consider a review form in an application, where there is a
+              dropdown field with choices, good, average, satisfactory and
+              other. If the user chooses the other from the dropdown, a
+              multi-line field will be shown for the user to enter his review
+              based on the user input of the dropdown field.
+            </p>
+            <div>
+              <pre><span>if</span><span>(</span><span>feedback</span> <span>==</span> <span>"other"</span><span>)</span>&nbsp;
+<span>{</span>
+<span>show</span> <span>comments</span><span>;</span>&nbsp;
+<span>}</span>&nbsp;
+<span>else</span>&nbsp;
+<span>{</span>&nbsp;
+<span>hide</span> <span>comments</span><span>;</span>&nbsp;&nbsp;
+<span>}</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

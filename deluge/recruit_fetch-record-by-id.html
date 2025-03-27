@@ -1,0 +1,209 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Recruit integration tasks</a></li>
+        <li><a>Fetch a record by ID</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get&nbsp;record&nbsp;by ID from&nbsp;Zoho Recruit&nbsp;</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>zoho.recruit.getRecordbyId</strong>&nbsp;task
+              is&nbsp;used to fetch records from&nbsp;Zoho Recruit, based on the
+              specified&nbsp;record ID. This integration task is based on
+              the&nbsp;<a>Zoho Recruit - Get Record By ID API</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable&gt; </span><span>= </span><span>zoho.recruit.getRecordbyId</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>recordID</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;&nbsp;</p></td>
+                        <td>&nbsp;<span>KEY-VALUE</span>&nbsp;</td>
+                        <td><p>Response returned by Zoho Recruit.</p></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;</p></td>
+                        <td>&nbsp;<span>TEXT</span>&nbsp;</td>
+                        <td>
+                          <p>
+                            Zoho Recruit&nbsp;module from which the record will
+                            be fetched.
+                          </p>
+                          <p><strong>Applicable&nbsp;modules:</strong></p>
+                          <ul>
+                            <li>Candidates</li>
+                            <li>Job Openings</li>
+                            <li>Contacts</li>
+                            <li>Clients</li>
+                            <li>Interviews</li>
+                            <li>Custom Module</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;recordID&gt;</p></td>
+                        <td>&nbsp;<span>NUMBER</span>&nbsp;</td>
+                        <td>
+                          <p>ID of the record that will be fetched.</p>
+                          <p>
+                            Learn how to fetch the ID of a record
+                            after&nbsp;<a>creating</a>,&nbsp;<a>searching</a>&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>TEXT</td>
+                        <td>
+                          <p>
+                            The link name of&nbsp;the Zoho Recruit connection.
+                          </p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in
+                                <a>Zoho Recruit - Get Record By ID API</a
+                                >&nbsp;while creating the connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Fetch&nbsp;record from Candidates module</h2>
+            <p>
+              The following script fetches the record with ID
+              -&nbsp;1687000000106001&nbsp;from the "Candidates" module in Zoho
+              Recruit.
+            </p>
+            <div>
+              <pre><span>response</span><span>= </span><span>zoho.recruit.getRecordById</span><span>(</span><span>"Candidates" </span>,<span>1687000000106001</span>, <span>"recruit_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"Candidates"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> that represents the module in which
+                      the record will be created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>1687000000106001</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>NUMBER</span> that represents the ID of the
+                      record that will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"recruit_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span>&nbsp;that represents the connection
+                      link name.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p>
+              The following is a
+              sample&nbsp;<strong>success</strong>&nbsp;response:
+            </p>
+            <div>
+              <p>
+                {&nbsp;&nbsp;<br />&nbsp; &nbsp;"Is Locked":"false",<br />&nbsp;
+                &nbsp;"Candidate ID":"ZR_26_CAND",<br />&nbsp;
+                &nbsp;"CANDIDATEID":"1687000000106001",<br />&nbsp; &nbsp;"Is
+                Unqualified":"false",<br />&nbsp; &nbsp;"Updated On":"2015-11-19
+                18:09:28",<br />&nbsp; &nbsp;"Created By":"dinesh.d",<br />&nbsp;
+                &nbsp;"Is Attachment Present":"true",<br />&nbsp;
+                &nbsp;"Source":"Added by User",<br />&nbsp;
+                &nbsp;"MODIFIEDBY":"1687000000077003",<br />&nbsp;
+                &nbsp;"Created Time":"2015-09-16 16:29:33",<br />&nbsp;
+                &nbsp;"Modified By":"dinesh.d",<br />&nbsp;
+                &nbsp;"SMOWNERID":"1687000000077003",<br />&nbsp;
+                &nbsp;"Candidate Status":"New",<br />&nbsp; &nbsp;"Last Activity
+                Time":"2015-11-19 18:09:28",<br />&nbsp;
+                &nbsp;"SMCREATORID":"1687000000077003",<br />&nbsp; &nbsp;"Email
+                Opt Out":"false",<br />&nbsp; &nbsp;"Is Hot
+                Candidate":"false",<br />&nbsp; &nbsp;"Last Name":"Tom &amp;
+                Jerry",<br />&nbsp; &nbsp;"Candidate Owner":"john"<br />}
+              </p>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Recruit - Get Record By ID API document</a></li>
+              <li><a>Zoho Recruit API - Possible error codes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

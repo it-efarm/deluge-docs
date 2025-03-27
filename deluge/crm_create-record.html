@@ -1,0 +1,428 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho CRM integration tasks</a></li>
+        <li><a>Create Record in Zoho CRM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create Record in Zoho CRM</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li><a>Creating a Lead in Zoho CRM</a></li>
+                    <li><a>Adding notes to a Lead</a></li>
+                    <li><a>Create a record in a Custom Module</a></li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to create a record in the specified module
+              of Zoho CRM.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.crm.createRecord</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>record_details</span><span>&gt;</span><span>, <span>&lt;</span><span>options_map</span><span>&gt;</span></span><span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the response returned by Zoho CRM. It
+                            represents the creation and modification details of
+                            the record against the API names of its respective
+                            fields.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the <a>API name</a> of the Zoho CRM
+                            module&nbsp;where the record will be added.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;record_details&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the input map with key as Zoho
+                            CRM&nbsp;field's <a>API name</a> and its required
+                            corresponding value. For example:
+                            <strong>{"Last_name": "Williams"}</strong>
+                          </p>
+                          <p>
+                            <strong>Note</strong>:&nbsp;Refer&nbsp;<a
+                              >this page</a
+                            >&nbsp;for details about mandatory fields&nbsp;in
+                            each module.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;options_map&gt;</p>
+                          <p>&nbsp; &nbsp; &nbsp;(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>Represents other options data(like trigger).</p>
+                          <p>
+                            This param can be used to selectively allow&nbsp;the
+                            execution of scripts(if any) when the record is
+                            added.
+                          </p>
+                          <p>
+                            Applicable key is&nbsp;<strong>trigger</strong>, and
+                            applicable values
+                            are&nbsp;<strong>workflow</strong>,&nbsp;<strong>approval</strong>,&nbsp;<strong>blueprint,&nbsp;</strong>and<strong>&nbsp;orchestration</strong>.&nbsp;
+                          </p>
+                          <p>
+                            When this param is specified, the mentioned values
+                            will get executed. When this param is not specified,
+                            only approvals, blueprints, and&nbsp;orchestration
+                            will get executed by default. To restrict all the
+                            scripts from getting executed, specify empty list as
+                            value to the "trigger" key.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>specifies the name of the <a>connection</a>.</p>
+                          <p>
+                            <strong>Note:</strong> The field &lt;connection&gt;
+                            is not employed in Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1: Creating a Lead in Zoho CRM</h2>
+            <p>
+              The following script creates a new record with the specified
+              values in the Zoho CRM module - <strong>Leads</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>leadinfo </span><span>= </span> <span>{</span> 
+&nbsp;&nbsp;<span>"Company" </span><span>: </span><span>"Zylker"</span>,
+&nbsp;&nbsp;<span>"Last_Name" </span><span>: </span><span>"Williams"</span>,
+&nbsp;&nbsp;<span>"Phone" </span><span>: </span><span>"+1 678 XXX XXXX"</span>,
+&nbsp;&nbsp;<span>"Email" </span><span>: </span><span>"will@zylker.com"</span>,
+&nbsp;&nbsp;<span>"PO_Box" </span><span>: </span><span>"XXXXX"</span>,
+&nbsp;&nbsp;<span>"Country" </span><span>: </span><span>"US"</span>
+&nbsp;<span>}</span><span>;</span></pre>
+              &nbsp;
+              <pre><span>response </span> <span>= </span> <span>zoho</span><span>.crm.createRecord</span><span>(</span><span>"Leads"</span><span>,</span> <span>leadinfo</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>leadinfo</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      values of the record that needs to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Company"</span>&nbsp;
+<span>"Last_Name"</span>&nbsp;
+<span>"Phone"</span>&nbsp;
+<span>"Email"</span>&nbsp;
+<span>"PO_Box"</span>&nbsp;
+<span>"Country"</span></pre>
+                    </div>
+                    <div>
+                      are the <strong>API names</strong> of Zoho CRM fields.
+                      They are of <span>TEXT</span> data type.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Leads"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the API name of
+                      the Zoho CRM module where the record will be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> response returned by Zoho
+                      CRM. It represents the creation and modification details
+                      of the record against the API names of its respective
+                      fields.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p>
+                <b>Note:</b> The following modules follow a similar process of
+                creating records, as explained in the above example:
+              </p>
+              <div>
+                <ul>
+                  <li>Leads</li>
+                  <li>Potentials</li>
+                  <li>Products</li>
+                  <li>Accounts</li>
+                  <li>Contacts</li>
+                  <li>Campaigns</li>
+                  <li>Vendors</li>
+                  <li>Cases</li>
+                </ul>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Adding notes to a Lead</h2>
+            <p>
+              The following script creates a new record in the
+              <strong>Notes</strong> submodule of the lead with ID -
+              <strong>2303XXXXXXXXXX</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>notesMap</span> <span>=</span> <span>{</span> <span>"Parent_Id"</span> <span>:</span><span>"2303XXXXXXXXXX", </span><span>"Note_Title"</span> <span>:</span><span>"Title",</span>
+&nbsp;<span>"Note_Content"</span> <span>:</span><span>"Note_Description",</span> <span>"$se_module"</span> <span>:</span> "Leads"<span>}</span><span>;</span></pre>
+              &nbsp;
+              <pre>&nbsp;<span>response</span> <span>=</span> <span>zoho</span><span>.crm.createRecord</span><span>(</span><span>"Notes"</span><span>,</span> <span>notesMap</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>notesMap</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      input values.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Parent_Id"</span>&nbsp;
+<span>"Note_Title"</span>&nbsp;
+<span>"Note_Content"</span></pre>
+                    </div>
+                    <div>
+                      are <strong>API names</strong> of Zoho CRM fields. They
+                      are of <span>TEXT</span>&nbsp;data-type.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"$se_module"</span></pre>
+                    </div>
+                    <div>
+                      is the <strong>API name</strong> of the Zoho CRM module to
+                      which the note has to be associated.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Leads"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT </span> that represents the module to
+                      which the note has to be added
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Notes"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the Zoho CRM
+                      module where the record needs to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> response returned by Zoho
+                      CRM. It represents the creation and modification details
+                      of the record created against the API names of its
+                      respective fields.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 3: Create records in a Custom Module</h2>
+            <p>
+              The following script creates a new record in Zoho CRM custome
+              module - <strong>Hotels</strong>.
+            </p>
+            <div>
+              <pre><span>custominfo</span> <span>=</span> <span>{</span> <span>"Name"</span> <span>:</span><span>"John",</span> <span>"Phone"</span> <span>:</span><span>"+1 678 XXX XXXX",</span> <span>"Email"</span> <span>:</span><span>"john@zylker.com" </span><span>}</span><span>;</span></pre>
+              &nbsp;
+              <pre><span>response</span> <span>=</span> <span>zoho</span><span>.crm.createRecord</span><span>(</span><span>"Hotels"</span><span>,</span> <span>custominfo</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>custominfo</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      input values of the record.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Name"</span>&nbsp;
+<span>"Phone"</span>&nbsp;
+<span>"Email"</span></pre>
+                    </div>
+                    <div>
+                      are API names of Zoho CRM fields. They are of
+                      <span>TEXT</span> data-type.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Hotels"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the API name of a
+                      sample Zoho CRM Custom Module.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> response returned by Zoho
+                      CRM. It represents the creation and modification details
+                      against the API name of its respective fields.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>The response returned is of the following format:</p>
+                <div>
+                  {&nbsp;&nbsp;<br />&nbsp;
+                  &nbsp;"Modified_Time":"2018-03-26T14:33:01+05:30",<br />&nbsp;
+                  &nbsp;"Modified_By":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                  "name":"Ben",<br />&nbsp; &nbsp; &nbsp;
+                  "id":"2303XXXXXXXXXX"<br />&nbsp; &nbsp;},<br />&nbsp;
+                  &nbsp;"Created_Time":"2018-03-26T14:33:01+05:30",<br />&nbsp;
+                  &nbsp;"id":"2303XXXXXXXXXX",<br />&nbsp;
+                  &nbsp;"Created_By":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                  "name":"Ben",<br />&nbsp; &nbsp; &nbsp;
+                  "id":"2303XXXXXXXXXX"<br />&nbsp; &nbsp;}<br />}
+                </div>
+              </li>
+            </ul>
+            <p>
+              To get the ID of the newly created record, execute the following
+              script:
+            </p>
+            <div>
+              &lt;variable&gt; = &lt;response_variable&gt;.get("id").toLong();
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned is of the following format. To
+                  know more about error codes, click
+                  <strong
+                    ><span><a>here</a></span></strong
+                  >.
+                </p>
+                <div>
+                  {&nbsp;&nbsp;<br />&nbsp;
+                  &nbsp;"code":"MANDATORY_NOT_FOUND",<br />&nbsp;
+                  &nbsp;"details":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                  "api_name":"Last_Name"<br />&nbsp; &nbsp;},<br />&nbsp;
+                  &nbsp;"message":"required field not found",<br />&nbsp;
+                  &nbsp;"status":"error"<br />}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho CRM API</a></li>
+              <li><a>API names of the Zoho CRM modules and fields</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

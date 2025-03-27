@@ -1,0 +1,377 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Writer Integration Tasks</a></li>
+        <li><a>Get documents</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Documents from Zoho Writer</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.writer.getDocuments</strong> task is used to
+              fetch a list of all the documents from Zoho Writer. This
+              integration task is based on the
+              <a
+                >Zoho Writer API - Get List of Documents with Specified
+                Parameters</a
+              >.
+            </p>
+            <div>
+              <strong>Note:</strong> On average, it takes about a minute to
+              index a file/folder after it is created or updated. This indexing
+              time can increase if the queue size increases.&nbsp;You will not
+              get the expected result if&nbsp;you execute
+              zoho.writer.getDocuments task before the document you need to
+              fetch is indexed.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.writer.getDocuments</span><span>(</span><span>&lt;</span><span>category</span><span>&gt;</span>, <span>&lt;</span><span>offset</span><span>&gt;</span>, <span>&lt;</span><span>limit</span><span>&gt;</span>, <span>&lt;</span><span>sort_by</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The response returned by Zoho Writer. It represents
+                            the number of documents fetched and their metadata.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;category&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The category based on which the documents are
+                            filtered and fetched.
+                          </p>
+                          <p>
+                            The possible values for the parameter
+                            -&nbsp;<strong>category</strong>&nbsp;are as
+                            follows:
+                          </p>
+                          <ul>
+                            <li>
+                              <strong>all</strong> - Fetches a list of all
+                              documents
+                            </li>
+                            <li>
+                              <strong>shared_to_me</strong> - Fetches a list of
+                              documents which are shared to you
+                            </li>
+                            <li>
+                              <strong>owned_by_me</strong> - Fetches a list of
+                              documents which are created by you
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;offset&gt;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The&nbsp;<strong>start index</strong> from which the
+                            documents will be fetched. The index value starts
+                            from 0.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;limit&gt;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The&nbsp;number of documents that will be fetched.
+                          </p>
+                          <p>
+                            <strong>Note:</strong> The maximum number of
+                            documents that can be fetched
+                            is&nbsp;<strong>100</strong>.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;sort_by&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The order in which the documents will be fetched.
+                          </p>
+                          <p>
+                            The possible values for the parameter -&nbsp;sort_by
+                            are as follows:
+                          </p>
+                          <ul>
+                            <li>
+                              <strong>created_time</strong> - Fetches the
+                              documents in the order in which&nbsp;they are
+                              created.&nbsp;The recently created document is
+                              fetched first.
+                            </li>
+                            <li>
+                              <strong>modified_time</strong> - Fetches the
+                              documents in the order of the time&nbsp;they are
+                              modified. The recently modified document is
+                              fetched first.
+                            </li>
+                            <li>
+                              <strong>lastopened_time</strong> - Fetches the
+                              documents in the order in which they were last
+                              opened.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes mentioned in
+                                <a>​Zoho Writer&nbsp;API</a>&nbsp;while creating
+                                the connection.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script fetches a list of first two recently created
+              documents&nbsp;from Zoho Writer.
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.writer.getDocuments</span><span>(</span><span>"all"</span>,<span>0</span>,<span>2</span>,<span>"created_time"</span>,<span>"writer_oauth_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Writer. It represents the number of documents fetched and
+                      their respective metadata.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>0</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the start index
+                      from which the documents will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>2</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>NUMBER</span> that represents the total
+                      number of documents that will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"created_time"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents
+                      the&nbsp;sort_by value. Here, the documents are fetched
+                      based on the order of the time in which they are created;
+                      the recently created document is fetched first.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"writer_oauth_connection"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the name of the
+                      connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"offset": 0,<br />&nbsp;&nbsp;"documents":
+                  [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"created_time":
+                  "2019-06-26T10:07:11Z",<br />&nbsp;&nbsp;"role": "OWNER",<br />&nbsp;&nbsp;"modified_time_ms":
+                  1561543705220,<br />&nbsp;&nbsp;"parent_folder_id":
+                  "folder",<br />&nbsp;&nbsp;"collaboration_id":
+                  "11867XXXXXXXXX01382",<br />&nbsp;&nbsp;"last_opened_time":
+                  "2019-06-26T10:07:12Z",<br />&nbsp;&nbsp;"open_url":
+                  "https://writer.zoho.com/writer/open/al296XXXXXXXXXXXXXXXXXXXXXXXXXXaf66a",<br />&nbsp;&nbsp;"is_favourite":
+                  false,<br />&nbsp;&nbsp;"type": "document",<br />&nbsp;&nbsp;"document_id":
+                  "al296XXXXXXXXXXXXXXXXXXXXXXXXXXaf66a",<br />&nbsp;&nbsp;"last_opened_time_ms":
+                  1561543632019,<br />&nbsp;&nbsp;"thumbnail_url":
+                  "https://writer.zoho.com/writer/thumbnail/al296XXXXXXXXXXXXXXXXXXXXXXXXXXaf66a",<br />&nbsp;&nbsp;"created_by":
+                  "John",<br />&nbsp;&nbsp;"document_name": "Integration tasks
+                  list",<br />&nbsp;&nbsp;"created_time_ms": 1561543631560,<br />&nbsp;&nbsp;"modified_time":
+                  "2019-06-26T10:08:25Z",<br />&nbsp;&nbsp;"preview_url":
+                  "https://writer.zoho.com/writer/preview/al296XXXXXXXXXXXXXXXXXXXXXXXXXaf66a",<br />&nbsp;&nbsp;"creator_id":
+                  "58XXXX70",<br />&nbsp;&nbsp;"download_url":
+                  "https://writer.zoho.com/api/v1/download/al296XXXXXXXXXXXXXXXXXXXXXXXXXaf66a",<br />&nbsp;&nbsp;"permalink":
+                  "https://docs.zoho.com/file/al296XXXXXXXXXXXXXXXXXXXXXXXXXaf66a",<br />&nbsp;&nbsp;"lastmodified_by":
+                  [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"email_id":
+                  "john@zylker.com",<br />&nbsp;&nbsp;"profile_photo":
+                  "https://contacts.zoho.com/file?t=user&amp;ID=58XXXX70&amp;fs=thumb",<br />&nbsp;&nbsp;"user_id":
+                  "58XXXX70",<br />&nbsp;&nbsp;"display_name": "John"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"status":
+                  "active"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"created_time":
+                  "2019-06-26T07:19:46Z",<br />&nbsp;&nbsp;"role": "OWNER",<br />&nbsp;&nbsp;"modified_time_ms":
+                  1561533624688,<br />&nbsp;&nbsp;"parent_folder_id":
+                  "folder",<br />&nbsp;&nbsp;"collaboration_id":
+                  "11867XXXXXXXXX16931",<br />&nbsp;&nbsp;"last_opened_time":
+                  "2019-06-26T07:19:46Z",<br />&nbsp;&nbsp;"open_url":
+                  "https://writer.zoho.com/writer/open/al296XXXXXXXXXXXXXXXXXXXXXXXXXb4add",<br />&nbsp;&nbsp;"is_favourite":
+                  false,<br />&nbsp;&nbsp;"type": "document",<br />&nbsp;&nbsp;"document_id":
+                  "al296XXXXXXXXXXXXXXXXXXXXXXXXXb4add",<br />&nbsp;&nbsp;"last_opened_time_ms":
+                  1561533586970,<br />&nbsp;&nbsp;"thumbnail_url":
+                  "https://writer.zoho.com/writer/thumbnail/al296XXXXXXXXXXXXXXXXXXXXXXXXXb4add",<br />&nbsp;&nbsp;"created_by":
+                  "John",<br />&nbsp;&nbsp;"document_name": "Document name",<br />&nbsp;&nbsp;"created_time_ms":
+                  1561533586705,<br />&nbsp;&nbsp;"modified_time":
+                  "2019-06-26T07:20:24Z",<br />&nbsp;&nbsp;"preview_url":
+                  "https://writer.zoho.com/writer/preview/al296XXXXXXXXXXXXXXXXXXXXXXXXXb4add",<br />&nbsp;&nbsp;"creator_id":
+                  "58XXXX70",<br />&nbsp;&nbsp;"download_url":
+                  "https://writer.zoho.com/api/v1/download/al296XXXXXXXXXXXXXXXXXXXXXXXXXb4add",<br />&nbsp;&nbsp;"permalink":
+                  "https://docs.zoho.com/file/al296XXXXXXXXXXXXXXXXXXXXXXXXXb4add",<br />&nbsp;&nbsp;"lastmodified_by":
+                  [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"email_id":
+                  "john@zylker.com",<br />&nbsp;&nbsp;"profile_photo":
+                  "https://contacts.zoho.com/file?t=user&amp;ID=58XXXX70&amp;fs=thumb",<br />&nbsp;&nbsp;"user_id":
+                  "58XXXX70",<br />&nbsp;&nbsp;"display_name": "John"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"status":
+                  "active"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"total_count":
+                  10,<br />&nbsp;&nbsp;"limit": 2<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The response will be returned in the following format when the
+                  offset value is higher than the number of documents present in
+                  Zoho Writer:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"offset": 10,<br />&nbsp;&nbsp;"documents":
+                  [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"total_count": 5,<br />&nbsp;&nbsp;"limit":
+                  7,<br />&nbsp;&nbsp;"message": "You don't have any documents
+                  to list."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response will be returned in the following format
+                  when you provide the limit value greater than 100:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"parameter_name":
+                  "limit",<br />&nbsp;&nbsp;"message": "The limit you've given
+                  exceeds the maximum allowed limit of 100 documents.",<br />&nbsp;&nbsp;"documentation_url":
+                  "https://www.zoho.com/writer/help/api/v1/general-errors.html",<br />&nbsp;&nbsp;"response_generated_time":
+                  1564648842968,<br />&nbsp;&nbsp;"request_url":
+                  "https://writer.zoho.com/api/v1/documents",<br />&nbsp;&nbsp;"errorcode":
+                  "R3033" &nbsp;&nbsp;<br />​&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Writer integration tasks</a></li>
+              <li><a>Connections</a></li>
+              <li>
+                <a
+                  >Zoho Writer - Get List of Documents with Specified Parameters
+                  API document</a
+                >
+              </li>
+              <li><a>Zoho Writer API - Possible error responses</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

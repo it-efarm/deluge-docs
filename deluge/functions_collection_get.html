@@ -1,0 +1,109 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>get</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>get</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>get&nbsp;</strong>function retrieves values from a
+              collection using either an index or a key.
+            </p>
+            <div><strong>Note</strong>: Index starts from 0.</div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>ANY DATA TYPE</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>collection</span><span>&gt;</span><span>.get</span><span>(</span><span>&lt;</span><span>indexValue</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p><span>​(OR)</span></p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>collection</span><span>&gt;</span><span>.get</span><span>(</span><span>&lt;</span><span>key</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>ANY DATA TYPE</span></td>
+                    <td>
+                      Variable which will contain the returned element or key.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;collection&gt;</td>
+                    <td><span>COLLECTION</span></td>
+                    <td>
+                      The collection from which the specified value or element
+                      needs to be retrieved.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;indexValue&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>The index of the element which will be returned.</p>
+                      <p>
+                        <strong>Note</strong>: The range of the index is from 0
+                        through the collection size - 1. Indices outside this
+                        range will yield a null.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;key&gt;</td>
+                    <td><span>ANY DATA TYPE</span></td>
+                    <td>The key for which the value will be returned.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>names </span> <span>= </span> <span>Collection</span><span>(</span><span>"name10"</span><span>,</span><span>"name2"</span><span>,</span><span>"name6"</span><span>,</span><span>"name1"</span><span>)</span><span>;</span>
+&nbsp;<span>first_name </span> <span>= </span> <span>names.</span><span>get</span><span>(</span><span>0</span><span>)</span><span>;</span> <span>// the value "name10" is assigned to first_name</span>
+&nbsp;<span>fifth_name </span> <span>= </span> <span>names.</span><span>get</span><span>(</span><span>4</span><span>)</span><span>;</span> <span>// Throws a run-time error - "Given index 4 is greater than the list size"
+</span>
+&nbsp;<span>names</span> <span>= </span> <span>Collection</span><span>(</span><span>"name1"</span><span>:</span><span>"John"</span><span>,</span><span>"name2"</span><span>:</span><span>"Bill"</span><span>)</span><span>;</span>
+&nbsp;<span>name </span> <span>= </span> <span>names.</span><span>get</span><span>(</span><span>"name1"</span><span>)</span><span>;</span> <span>// the value "John" is assigned to name</span>
+&nbsp;<span>name </span> <span>= </span> <span>names.</span><span>get</span><span>(</span><span>"name3"</span><span>)</span><span>;</span> <span>// returns null</span></pre>
+            </div>
+            <h2><a></a>Related links</h2>
+            <ul>
+              <li><a>Collection functions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

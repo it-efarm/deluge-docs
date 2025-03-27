@@ -1,0 +1,304 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Desk Integration Tasks</a></li>
+        <li><a>Split a ticket</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Split A Ticket In Zoho Desk</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to <a>split</a> a reply from an existing
+              ticket as a new ticket.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span> = </span> <span>zoho</span><span>.desk.ticket.split</span><span>(</span><span>&lt;</span><span>orgID</span><span>&gt;, </span><span>&lt;</span><span>ticket_ID</span><span>&gt;, </span><span>&lt;</span><span>thread_ID</span><span>&gt;, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;variable&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the variable which hold the response
+                            returned by Zoho Desk. It represents the values of
+                            the new record created.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;orgID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the organization ID&nbsp;of the account in
+                            which the ticket exists. This can be found in Zoho
+                            Desk Settings &gt; Developer Space &gt;
+                            API.&nbsp;&nbsp;<br /><br /><img /> &nbsp;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;ticket_ID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the ID of the ticket from which a thread
+                            (reply) will be split as a new ticket.
+                          </p>
+                          <p>
+                            Learn how to fetch the record ID
+                            after&nbsp;<a>creating</a>&nbsp;or&nbsp;<a>fetching</a>&nbsp;records.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;thread_ID&gt;</span></p>
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the ID of the thread (reply) that will be
+                            split as a new ticket.
+                          </p>
+                          <p>
+                            To get thread ID of a reply, use
+                            <a>zoho.desk.getRelatedRecords</a> task with the
+                            module name -&nbsp;<b>threads,&nbsp;</b>the parent
+                            module name -&nbsp;<strong>tickets</strong>, and the
+                            parent ID -
+                            <strong>&lt;ticket_Id&gt;</strong>.&nbsp;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><span>&lt;connection&gt;</span></p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>specifies the name of the <a>connection</a>.</p>
+                          <p>
+                            The scope which needs&nbsp;to be selected is:&nbsp;
+                            &nbsp;<br />-&nbsp;Desk.tickets.CREATE&nbsp;
+                          </p>
+                          <p>
+                            <strong>*Note</strong>:&nbsp;This is a mandatory
+                            param when used in&nbsp;<a>Zoho Creator</a>.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script splits a reply with thread ID -
+              <strong>168XXXXXXXXXXXX005</strong> of the ticket with ID -
+              <strong>168XXXXXXXXXXXX001</strong> into a new ticket.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.desk.ticket.split</span><span>(</span><span>641XXXXXX</span><span>, </span><span>168XXXXXXXXXXXX001</span><span>, </span><span>16XXXXXXXXXXXXX044</span><span>, </span><span>"desk_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is the variable which will hold the&nbsp;response returned
+                      by Zoho Desk. It represents the values of the new ticket
+                      created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>641XXXXXX</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the
+                      organization ID
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>1689XXXXXXXXXXXXXX</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the ID of the
+                      ticket from which a reply needs to be split as a new
+                      ticket
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>16XXXXXXXXXXXXX044</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the thread ID,
+                      i.e., the ID of the reply that needs to be split as a new
+                      ticket
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"desk_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>The success response returned is of the following format.</p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"ticketNumber": "685",<br />&nbsp;&nbsp;"modifiedTime":
+                  "2019-02-26T10:37:50.000Z",<br />&nbsp;&nbsp;"subCategory":
+                  null,<br />&nbsp;&nbsp;"statusType": "Open",<br />&nbsp;&nbsp;"subject":
+                  "Re: [## 677 ##] Ticket Updated",<br />&nbsp;&nbsp;"customFields":
+                  {<br />&nbsp;&nbsp;"Mailing Zip": null,<br />&nbsp;&nbsp;"TAM":
+                  null,<br />&nbsp;&nbsp;"Quote number": null,<br />&nbsp;&nbsp;"TestData":
+                  null,<br />&nbsp;&nbsp;"LightAgents": null,<br />&nbsp;&nbsp;"attachmentLinks":
+                  null,<br />&nbsp;&nbsp;"Contract Type": null,<br />&nbsp;&nbsp;"Serial
+                  Number": null,<br />&nbsp;&nbsp;"Mailing Country": null,<br />&nbsp;&nbsp;"Total
+                  Age": null,<br />&nbsp;&nbsp;"Start Date": null,<br />&nbsp;&nbsp;"bugID":
+                  null,<br />&nbsp;&nbsp;"PreviousTicketOwner": null,<br />&nbsp;&nbsp;"Managed
+                  Firewall": null,<br />&nbsp;&nbsp;"Manufacturer": null,<br />&nbsp;&nbsp;"Sales
+                  Lead?": "false",<br />&nbsp;&nbsp;"advisory": null,<br />&nbsp;&nbsp;"LIS
+                  Customer": null,<br />&nbsp;&nbsp;"Single Date": null,<br />&nbsp;&nbsp;"DateCF":
+                  null,<br />&nbsp;&nbsp;"Event_Scheduled": null,<br />&nbsp;&nbsp;"Office
+                  Name": null,<br />&nbsp;&nbsp;"previousClosedTime": null,<br />&nbsp;&nbsp;"Incoming
+                  Count": null,<br />&nbsp;&nbsp;"offbusinesshour": "false",<br />&nbsp;&nbsp;"SAM":
+                  null,<br />&nbsp;&nbsp;"Every issue no.": null,<br />&nbsp;&nbsp;"Setup
+                  Sub Category": null,<br />&nbsp;&nbsp;"TicketOwnerUpdatedTime":
+                  null,<br />&nbsp;&nbsp;"Every issue link": null,<br />&nbsp;&nbsp;"PotentialId":
+                  null,<br />&nbsp;&nbsp;"TestNumber": null,<br />&nbsp;&nbsp;"Ticket
+                  type": null,<br />&nbsp;&nbsp;"Invoice Number": null,<br />&nbsp;&nbsp;"Access
+                  Information": null,<br />&nbsp;&nbsp;"NewTicketNumber":
+                  null,<br />&nbsp;&nbsp;"Type of Category": null,<br />&nbsp;&nbsp;"account
+                  type": null,<br />&nbsp;&nbsp;"Service Frequency": null,<br />&nbsp;&nbsp;"SalesLead_alertSend":
+                  "false",<br />&nbsp;&nbsp;"SATcase Serial Number": null,<br />&nbsp;&nbsp;"Mailing
+                  City": null,<br />&nbsp;&nbsp;"Mailing State": null,<br />&nbsp;&nbsp;"OldTicketNumber":
+                  null,<br />&nbsp;&nbsp;"Department Responsible": null,<br />&nbsp;&nbsp;"Mailing
+                  Street": null,<br />&nbsp;&nbsp;"Model": null,<br />&nbsp;&nbsp;"TestDate":
+                  null,<br />&nbsp;&nbsp;"Outgoing Count": null,<br />&nbsp;&nbsp;"NewContact":
+                  "false"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"dueDate":
+                  null,<br />&nbsp;&nbsp;"departmentId":
+                  "168XXXXXXXXXXXX907",<br />&nbsp;&nbsp;"channel": "Email",<br />&nbsp;&nbsp;"description":
+                  null,<br />&nbsp;&nbsp;"onholdTime": null,<br />&nbsp;&nbsp;"resolution":
+                  null,<br />&nbsp;&nbsp;"sharedDepartments": [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"closedTime":
+                  null,<br />&nbsp;&nbsp;"approvalCount": "0",<br />&nbsp;&nbsp;"timeEntryCount":
+                  "0",<br />&nbsp;&nbsp;"channelRelatedInfo": null,<br />&nbsp;&nbsp;"responseDueDate":
+                  null,<br />&nbsp;&nbsp;"isDeleted": false,<br />&nbsp;&nbsp;"isTrashed":
+                  false,<br />&nbsp;&nbsp;"createdTime":
+                  "2019-02-26T10:37:50.000Z",<br />&nbsp;&nbsp;"modifiedBy":
+                  "168XXXXXXXXXXXX005",<br />&nbsp;&nbsp;"id":
+                  "168XXXXXXXXXXXX001",<br />&nbsp;&nbsp;"isResponseOverdue":
+                  false,<br />&nbsp;&nbsp;"email": "shawn@zylker.com",<br />&nbsp;&nbsp;"customerResponseTime":
+                  "2019-02-26T10:37:49.000Z",<br />&nbsp;&nbsp;"productId":
+                  null,<br />&nbsp;&nbsp;"contactId": "168XXXXXXXXXXXX001",<br />&nbsp;&nbsp;"threadCount":
+                  "1",<br />&nbsp;&nbsp;"priority": null,<br />&nbsp;&nbsp;"classification":
+                  null,<br />&nbsp;&nbsp;"assigneeId": null,<br />&nbsp;&nbsp;"commentCount":
+                  "0",<br />&nbsp;&nbsp;"taskCount": "0",<br />&nbsp;&nbsp;"accountId":
+                  null,<br />&nbsp;&nbsp;"phone": null,<br />&nbsp;&nbsp;"webUrl":
+                  "https://desk.zoho.com/support/<span>smith</span>/ShowHomePage.do#Cases/dv/bf5c8f5ad85afXXXXXXXXXXXXXXXXXXXX19abeecaa48",<br />&nbsp;&nbsp;"teamId":
+                  null,<br />&nbsp;&nbsp;"attachmentCount": "0",<br />&nbsp;&nbsp;"category":
+                  null,<br />&nbsp;&nbsp;"status": "Open"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned for incorrect or non-existent
+                  organization ID is of the following format.
+                </p>
+                <div>
+                  &nbsp; &nbsp;{<br />&nbsp;
+                  &nbsp;"errorCode":"UNPROCESSABLE_ENTITY",<br />&nbsp;
+                  &nbsp;"message":"The value passed for the 'orgId' parameter is
+                  invalid."<br />&nbsp; &nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned for incorrect or non-existent
+                  record ID is of the following format.
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"errorCode":"FORBIDDEN",<br />&nbsp;&nbsp;"message":"You
+                  are not authorized to access this resource."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Desk API</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

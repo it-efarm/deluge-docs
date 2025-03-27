@@ -1,0 +1,549 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Books integration tasks</a></li>
+        <li><a>Create record</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create records in Zoho Books</h1>
+          <div>
+            <div>
+              <h4>
+                Table of Contents<span><span> Up</span></span>
+              </h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>This&nbsp;task is used to create a record in Zoho Books.</p>
+            <p>
+              This task is based on&nbsp;<a>Zoho Books API</a>&nbsp;-&gt;
+              &lt;Module&gt; -&gt; Create &lt;ModuleName&gt;.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho</span><span>.books.createRecord</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>org_ID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>data_map</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;&nbsp;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            is the variable which will hold the response
+                            returned by Zoho Books
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;&nbsp;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            specifies the Zoho Books' module in which the record
+                            will be created.
+                          </p>
+                          <p>
+                            The applicable modules can be found in the "Request
+                            Example" section in <a>Zoho Books API</a> -&gt;
+                            &lt;Module&gt; -&gt; Create &lt;ModuleName&gt;&nbsp;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;org_ID&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            specifies the <a>organization ID</a>&nbsp;of the
+                            account in which the record will be created.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;data_map&gt;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            Input map with key as Zoho Books field's name and
+                            the required value.<br /><br />To learn about the
+                            mandatory fields,&nbsp;<a>click here</a>&nbsp;and
+                            navigate to &lt;Module&gt; -&gt; Create
+                            &lt;ModuleName&gt;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>&nbsp;</p>
+                        </td>
+                        <td>TEXT</td>
+                        <td>
+                          <p>
+                            is the name of the Zoho Books&nbsp;<a>connection</a>
+                          </p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes as mentioned in&nbsp;<a
+                                  >Zoho Books API</a
+                                >&nbsp;-&gt; &lt;Module&gt; -&gt; Create
+                                &lt;ModuleName&gt;.&nbsp;
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              1) Let's say we have a Zoho Creator form containing a field called
+              <strong>Customer_ID</strong>, and a&nbsp;subform called
+              <strong>Products</strong>. The subform contains fields
+              <strong>item_id</strong>, <strong>name</strong>,
+              <strong>rate</strong>, and&nbsp;<strong>quantity</strong>. On
+              submission of this form, an invoice must be created in Zoho Books
+              with the details specified in the subform. We can achieve this
+              using the following snippet:
+            </p>
+            <div>
+              <pre><span>listVar</span> = <span>List();
+</span>
+​//iterating each row in the subform
+<span>for each</span> <span> line</span> in <span>Products</span>
+{
+  <span>mapVar</span> = <span>map()</span>;
+  <span>mapVar</span>.<span>put</span>(<span>"item_id", line.item_id</span>);
+  <span>mapVar</span>.<span>put</span>(<span>"name", line.name</span>);
+  <span>mapVar</span>.<span>put</span>(<span>"rate", line.rate</span>);
+  <span>mapVar</span>.<span>put</span>(<span>"quantity", line.quantity</span>);
+  <span>listVar</span>.<span>add</span>(<span>mapVar</span>);
+}
+
+<span>values</span> = <span>map()</span>;
+<span>values</span>.<span>put</span>(<span>"customer_id", input.Customer_ID</span>);
+<span>values</span>.<span>put</span>(<span>"line_items", listVar</span>);
+
+<span>response</span> = <span>zoho.books.createRecord</span>(<span>"Invoices", "66XXXXX66"</span>, <span>values</span>, <span>"books_connection"</span>);</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>listVar</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>LIST</span> variable that holds the list
+                      of&nbsp;key value pairs for the line items in the invoice
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>mapVar</span>
+&nbsp;<span>values</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      are the <span>MAP</span>&nbsp;variables which
+                      hold&nbsp;key value pairs
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>"item_id"</span>
+&nbsp;<span>"name"</span>
+&nbsp;<span>"rate"</span>
+&nbsp;<span>"quantity"</span>
+&nbsp;<span>"customer_id"</span>
+&nbsp;<span>"line_items"</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      are the <span>TEXT</span> that represents the label name
+                      of the field specified in Zoho Books' <a>API</a>. Customer
+                      ID and Item ID can be viewed in the URL in Zoho Books
+                      account when you click on a record in Customers or Items
+                      modules respectively.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Invoices"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module in
+                      which the record needs to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"66XXXXX66"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the organization
+                      ID of the Zoho Books account in which the record needs to
+                      be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"books_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents Zoho Books
+                      connection name
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              2) The following script creates a new record in the Zoho Books
+              module - <strong>Contacts</strong> with the specified values.
+            </p>
+            <div>
+              <pre>&nbsp;<span>contactMap</span><span>=</span><span>map();</span>
+&nbsp;<span>contactMap</span><span>.put</span><span>(</span><span>"contact_name","Bowman and Co 3"</span><span>)</span><span>;</span>
+&nbsp;<span>contactMap</span><span>.put</span><span>(</span><span>"company_name","Bowman and Co 3"</span><span>)</span><span>;</span>
+&nbsp;<span>contactMap</span><span>.put</span><span>(</span><span>"gst_no","07CQZCD1111I4Z7"</span><span>)</span><span>;</span>
+&nbsp;<span>contactMap</span><span>.put</span><span>(</span><span>"gst_treatment","business_gst"</span><span>)</span><span>;</span>
+&nbsp;<span>contactMap</span><span>.put</span><span>(</span><span>"first_name","Will"</span><span>)</span><span>;</span>
+&nbsp;<span>contactMap</span><span>.put</span><span>(</span><span>"last_name","Smith"</span><span>)</span><span>;</span>
+&nbsp;<span>contactMap</span><span>.put</span><span>(</span><span>"contact_type","vendor"</span><span>)</span><span>;</span>
+&nbsp;<span>contactMap</span><span>.put</span><span>(</span><span>"pan_no","ABCDE1234F"</span><span>)</span><span>;</span>
+&nbsp;<span>contactMap</span><span>.put</span><span>(</span><span>"email","willsmith@bowmanfurniture.com"</span><span>)</span><span>;</span>
+&nbsp;<span>contactMap</span><span>.put</span><span>(</span><span>"phone","+1-925-921-XXXX"</span><span>)</span><span>;</span>
+&nbsp;<span>response</span><span>=</span> <span>zoho.books.createRecord</span><span>(</span><span>"Contacts", "5379XXXX"</span>, <span>contactMap</span>, <span>"books_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>contactMap</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      values of the new record that needs to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre>
+&nbsp;<span>"contact_name"</span>
+&nbsp;<span>"company_name"</span>
+&nbsp;<span>"gst_no"</span>
+&nbsp;<span>"gst_treatment"</span>
+&nbsp;<span>"tax_id"</span>
+&nbsp;<span>"first_name"</span>
+&nbsp;<span>"last_name"</span>
+&nbsp;<span>"email"</span>
+&nbsp;<span>"phone"</span>
+</pre
+                      >
+                    </div>
+                    <div>
+                      are the <span>TEXT</span> that represents the label name
+                      of the field specified in Zoho Books' <a>API</a>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Contacts"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module in
+                      which the record needs to be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"5379XXXX"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the organization
+                      ID of the Zoho Books account in which the record needs to
+                      be created
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"books_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents Zoho Books
+                      connection name
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The&nbsp;following is a sample
+                  <strong>success response</strong>:
+                </p>
+                <div>
+                  <p>
+                    {&nbsp;&nbsp;<br />&nbsp; &nbsp;"code":0,<br />&nbsp;
+                    &nbsp;"contact":{&nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp;
+                    "is_crm_customer":false,<br />&nbsp; &nbsp; &nbsp;
+                    "addresses":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "notes":"",<br />&nbsp; &nbsp; &nbsp;
+                    "documents":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "owner_id":"",<br />&nbsp; &nbsp; &nbsp;
+                    "is_linked_with_zohocrm":false,<br />&nbsp; &nbsp; &nbsp;
+                    "is_client_review_settings_enabled":false,<br />&nbsp;
+                    &nbsp; &nbsp; "pan_no":"ABCDE1234F",<br />&nbsp; &nbsp;
+                    &nbsp; "billing_address":{&nbsp;&nbsp;<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"zip":"",<br />&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;"country":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"address":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"city":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"phone":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"address_id":"14606XXXXXXXXXXXX",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"attention":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"street2":"",<br />&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;"state":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"state_code":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"fax":""<br />&nbsp; &nbsp; &nbsp; },<br />&nbsp;
+                    &nbsp; &nbsp; "default_templates":{&nbsp;&nbsp;<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"invoice_email_template_id":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"salesorder_email_template_id":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;"salesorder_template_id":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"creditnote_email_template_id":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"creditnote_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"paymentthankyou_email_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;"estimate_template_id":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"paymentthankyou_template_id":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"salesorder_email_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;"salesorder_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"invoice_email_template_name":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"creditnote_email_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;"invoice_template_id":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"paymentthankyou_email_template_id":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;"invoice_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp;"estimate_template_name":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"estimate_email_template_id":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"creditnote_template_id":"",<br />&nbsp;
+                    &nbsp; &nbsp; &nbsp;
+                    &nbsp;"paymentthankyou_template_name":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"estimate_email_template_name":""<br />&nbsp;
+                    &nbsp; &nbsp; },<br />&nbsp; &nbsp; &nbsp;
+                    "source":"api",<br />&nbsp; &nbsp; &nbsp;
+                    "outstanding_receivable_amount_bcy":0.0,<br />&nbsp; &nbsp;
+                    &nbsp; "language_code":"",<br />&nbsp; &nbsp; &nbsp;
+                    "twitter":"",<br />&nbsp; &nbsp; &nbsp;
+                    "unused_credits_receivable_amount_bcy":0.0,<br />&nbsp;
+                    &nbsp; &nbsp; "gst_no":"07CQZCD1111I4Z7",<br />&nbsp; &nbsp;
+                    &nbsp; "tax_reg_no":"ABCDE1234F",<br />&nbsp; &nbsp; &nbsp;
+                    "contact_category":"business_gst",<br />&nbsp; &nbsp; &nbsp;
+                    "associated_with_square":false,<br />&nbsp; &nbsp; &nbsp;
+                    "place_of_contact":"DL",<br />&nbsp; &nbsp; &nbsp;
+                    "contact_persons":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "pricebook_id":"",<br />&nbsp; &nbsp; &nbsp;
+                    "outstanding_receivable_amount":0.0,<br />&nbsp; &nbsp;
+                    &nbsp; "gst_treatment":"business_gst",<br />&nbsp; &nbsp;
+                    &nbsp; "created_time":"2017-11-27T14:51:44+0530",<br />&nbsp;
+                    &nbsp; &nbsp; "owner_name":"",<br />&nbsp; &nbsp; &nbsp;
+                    "custom_fields":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "vat_reg_no":"ABCDE1234F",<br />&nbsp; &nbsp; &nbsp;
+                    "unused_credits_receivable_amount":0.0,<br />&nbsp; &nbsp;
+                    &nbsp; "has_transaction":false,<br />&nbsp; &nbsp; &nbsp;
+                    "outstanding_payable_amount_bcy":0.0,<br />&nbsp; &nbsp;
+                    &nbsp; "tax_id":"14606XXXXXXXXXXXX",<br />&nbsp; &nbsp;
+                    &nbsp; "pricebook_name":"",<br />&nbsp; &nbsp; &nbsp;
+                    "price_precision":2,<br />&nbsp; &nbsp; &nbsp;
+                    "tags":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "primary_contact_id":"",<br />&nbsp; &nbsp; &nbsp;
+                    "country_code":"",<br />&nbsp; &nbsp; &nbsp;
+                    "checks":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "unused_credits_payable_amount_bcy":0.0,<br />&nbsp; &nbsp;
+                    &nbsp; "company_name":"Bowman and Co 3",<br />&nbsp; &nbsp;
+                    &nbsp; "tax_treatment":"business_gst",<br />&nbsp; &nbsp;
+                    &nbsp; "crm_owner_id":"",<br />&nbsp; &nbsp; &nbsp;
+                    "status":"active",<br />&nbsp; &nbsp; &nbsp;
+                    "cards":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "zcrm_vendor_id":"",<br />&nbsp; &nbsp; &nbsp;
+                    "contact_id":"14606XXXXXXXXXXXX",<br />&nbsp; &nbsp; &nbsp;
+                    "payment_terms":0,<br />&nbsp; &nbsp; &nbsp;
+                    "currency_code":"INR",<br />&nbsp; &nbsp; &nbsp;
+                    "outstanding_payable_amount":0.0,<br />&nbsp; &nbsp; &nbsp;
+                    "contact_type":"vendor",<br />&nbsp; &nbsp; &nbsp;
+                    "unused_credits_payable_amount":0.0,<br />&nbsp; &nbsp;
+                    &nbsp; "shipping_address":{&nbsp;&nbsp;<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"zip":"",<br />&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;"country":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"address":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"city":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"phone":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"address_id":"14606XXXXXXXXXXXX",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"attention":"",<br />&nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;"street2":"",<br />&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp;"state":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"state_code":"",<br />&nbsp; &nbsp; &nbsp; &nbsp;
+                    &nbsp;"fax":""<br />&nbsp; &nbsp; &nbsp; },<br />&nbsp;
+                    &nbsp; &nbsp; "contact_name":"Bowman and Co 3",<br />&nbsp;
+                    &nbsp; &nbsp; "website":"",<br />&nbsp; &nbsp; &nbsp;
+                    "is_client_review_asked":false,<br />&nbsp; &nbsp; &nbsp;
+                    "last_modified_time":"2017-11-27T14:51:44+0530",<br />&nbsp;
+                    &nbsp; &nbsp; "language_code_formatted":"",<br />&nbsp;
+                    &nbsp; &nbsp; "currency_symbol":"Rs.",<br />&nbsp; &nbsp;
+                    &nbsp; "ach_supported":false,<br />&nbsp; &nbsp; &nbsp;
+                    "facebook":"",<br />&nbsp; &nbsp; &nbsp;
+                    "tax_name":"GST12",<br />&nbsp; &nbsp; &nbsp;
+                    "vendor_portal_url":"",<br />&nbsp; &nbsp; &nbsp;
+                    "unused_retainer_payments":0.0,<br />&nbsp; &nbsp; &nbsp;
+                    "contact_salutation":"",<br />&nbsp; &nbsp; &nbsp;
+                    "tax_percentage":12.0,<br />&nbsp; &nbsp; &nbsp;
+                    "bank_accounts":[&nbsp;&nbsp;
+                  </p>
+                  <p>
+                    &nbsp; &nbsp; &nbsp; ],<br />&nbsp; &nbsp; &nbsp;
+                    "currency_id":"14606XXXXXXXXXXXX",<br />&nbsp; &nbsp; &nbsp;
+                    "payment_terms_label":"Due On Receipt",<br />&nbsp; &nbsp;
+                    &nbsp; "payment_reminder_enabled":true<br />&nbsp;
+                    &nbsp;},<br />&nbsp;
+                    &nbsp;"instrumentation":{&nbsp;&nbsp;<br />&nbsp; &nbsp;
+                    &nbsp; "query_execution_time":123,<br />&nbsp; &nbsp; &nbsp;
+                    "response_write_time":153,<br />&nbsp; &nbsp; &nbsp;
+                    "page_context_write_time":0,<br />&nbsp; &nbsp; &nbsp;
+                    "request_handling_time":506<br />&nbsp; &nbsp;},<br />&nbsp;
+                    &nbsp;"message":"The contact has been added."<br />}
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <p>
+              To get the ID of the newly created record, execute the following
+              script:
+            </p>
+            <div>
+              &lt;variable&gt; =
+              &lt;response_variable&gt;.get("&lt;module_name&gt;").get("&lt;module_name&gt;_id"&gt;)
+              ;<br />// example for &lt;module_name&gt; is contact and example
+              for &lt;module_name&gt;_id is contact_id
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <p>
+              The failure response returned due to
+              <strong>incorrect organization ID</strong> is of the following
+              format:
+            </p>
+            <div>
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {&nbsp;&nbsp;<br />&nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"code":6041,<br />&nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"message":"This user is
+              not associated with the CompanyID/CompanyName:537XX."<br />&nbsp;
+              &nbsp; &nbsp; &nbsp; &nbsp;}
+            </div>
+            <ul></ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li>
+                <a>Zoho Books API</a>&nbsp;-&gt; &lt;Module&gt; -&gt; Create
+                &lt;ModuleName&gt;​
+              </li>
+              <li><a>Common error codes can be viewed&nbsp;here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,228 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Cliq Integration Tasks</a></li>
+        <li><a>Post to User</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Post to User</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li>​<a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note</strong>: This task is applicable to all Zoho
+                Services except Zoho Creator.
+              </p>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              This&nbsp;task is used to post a <a>message</a> to any member in
+              your organization using their email ID or <a>ZUID</a>.
+            </p>
+            <p>
+              This task is based on Zoho Cliq API - <a>Post message to user</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.cliq.postToUser</span><span>(</span><span>&lt;</span><span>email_ID / ZUID</span><span>&gt;</span>, <span>&lt;</span><span>message</span>&gt;, <span>&lt;connection&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>Params</strong></th>
+                    <th><strong>Data type</strong></th>
+                    <th><strong>Description</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      is the variable which holds the response returned by Zoho
+                      Cliq.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;email_ID / ZUID&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      is the email ID (or) the <a>ZUID</a> of the recipient
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;message&gt;</td>
+                    <td>KEY-VALUE<br />TEXT<br />FILE<br />LIST of FILE</td>
+                    <td>
+                      <p>is the message to be posted.</p>
+                      <p>
+                        The different types of content that can be posted is
+                        found <a>here</a>.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;connection&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        specifies the link name of the Zoho
+                        Cliq&nbsp;<a>connection</a>.
+                      </p>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of&nbsp;<a
+                              >stopping new authtoken generation</a
+                            >,&nbsp;a Zoho OAuth connection with appropriate
+                            scopes is mandatory&nbsp;for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter unless the authtoken is manually
+                            deleted&nbsp;from&nbsp;<a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes as mentioned in&nbsp;Zoho Cliq
+                            API - <a>Post message to user</a>.
+                          </li>
+                          <li>
+                            Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                            list of Zoho services that support the connections
+                            page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>​</p>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script posts the message&nbsp;<strong>Hello</strong>
+              to the user&nbsp;<strong>shawn@zylker.com</strong>.
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToUser</span><span>(</span><span>"shawn@zylker.com"</span><span>,</span><span>"Hello"</span><span>,</span><span>"cliq_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(or)</p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.cliq.postToUser</span><span>(</span><span>"66667777"</span><span>,</span><span>{</span><span>"text"</span><span>:</span><span>"Hello"</span><span>})</span><span>;</span><span>
+</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is a <span>KEY-VALUE</span> response returned by Zoho
+                      Cliq, that represents the status of the executed task
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"shawn@zylker.com"</span></pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> that represents the email ID of the
+                      recipient
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"66667777"</span></pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> that represents the ZUID of the
+                      recipient
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"text"</span></pre>
+                    </div>
+                    <div>
+                      is the key of <span>TEXT</span> data type which represents
+                      the message to be posted
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Hello"</span></pre>
+                    </div>
+                    <div>is the <span>TEXT</span> message to be posted</div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"cliq_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <ul>
+              <li>
+                <p>
+                  The <strong>success response</strong> returned is of the
+                  following format.
+                </p>
+                <div>{"status":"success"}</div>
+              </li>
+              <li>
+                <p>
+                  The <strong>failure response</strong> returned for a
+                  <strong>non-existent</strong> email ID/ ZUID is of the
+                  following format.
+                </p>
+                <div>
+                  {<br />"message":"Sorry, we couldn't process your request due
+                  to a technical error. Please try again later.",<br />"code":"operation_failed"<br />}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Cliq API</a></li>
+              <li>Common error codes can be <a>viewed here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,88 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Miscellaneous</a></li>
+        <li><a>app language identifier</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>App language identification</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This task returns&nbsp;the language&nbsp;in which the application
+              is accessed. For example, if English is the
+              language&nbsp;<a>configured</a>&nbsp;for an application, the
+              returned value is "English".
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>This task is only applicable to Zoho Creator.</li>
+                <li>
+                  The same app may be used by different users in different
+                  languages. This means&nbsp;the return value of this task may
+                  vary in different accounts depending on the language in which
+                  the app is accessed.
+                </li>
+                <li>This task can be executed in all workflow events.</li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span> = </span> <span>thisapp</span><span>.localization</span><span>.language</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><strong>Parameter</strong></td>
+                      <td><strong>Data type</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                    <tr>
+                      <td>&lt;variable&gt;</td>
+                      <td><span>TEXT</span></td>
+                      <td>Variable that will hold the returned value</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              Let's say we have an application with language set to "User's
+              browser language" in <a>language settings</a>. The app owner's
+              browser language is English, and the shared user's browser
+              language is French. The following snippet assigns the value
+              "English" to 'language' field when executed in the app owner's
+              account.&nbsp;When executed in the shared user's account,
+              it&nbsp;assigns the value "French".
+            </p>
+            <div>
+              <pre><span>language</span> <span> = </span> <span>thisapp</span><span>.localization</span><span>.language</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

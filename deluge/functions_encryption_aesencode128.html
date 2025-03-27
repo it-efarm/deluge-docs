@@ -1,0 +1,187 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Encryption functions</a></li>
+        <li><a>aesEncode128</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>aesEncode128</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>aesEncode128</strong> function takes
+              <strong>encryption_key</strong>&nbsp;and
+              <strong>encryption_value</strong>&nbsp;as arguments, and returns
+              an <strong>encrypted text</strong> using AES (Advanced Encryption
+              Standard).
+            </p>
+            <div>
+              <p>
+                <strong>Note:</strong>&nbsp;The encryption is performed with 128
+                bits.
+              </p>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>TEXT</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.encryption.aesEncode128</span><span>(</span><span>&lt;</span><span>encryption_key</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>encryption_value</span><span>&gt;</span><span>, </span><span>&lt;</span><span>encryption_iv&gt;, </span><span>&lt;</span><span>iteration_count&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>Variable which will contain the encrypted text.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;encryption_key&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>The key used during encryption of the text.</p>
+                      <div>
+                        <p><strong>Note</strong>:&nbsp;</p>
+                        <ul>
+                          <li>
+                            The &lt;encryption_key&gt; needs to be used while
+                            performing <a>decryption</a>.
+                          </li>
+                          <li>
+                            The &lt;encryption_key&gt; can contain upto 16
+                            characters.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;encryption_value&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>The piece of text that needs to be encrypted.</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;encryption_iv&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        An initialization vector that offers&nbsp;stronger
+                        security for the encryption.
+                      </p>
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            This parameter should be of 16&nbsp;characters.
+                          </li>
+                          <li>
+                            The same IV number that is used
+                            for&nbsp;encryption&nbsp;should be provided while
+                            <a>decrypting</a> the encrypted text.
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;iteration_count&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      The number of times the function is repeatedly performed
+                      to produce the final encryption key. By default, this
+                      number is 0 if this parameter is not included.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>&nbsp;</p>
+            <div>
+              <p>
+                <strong>Note</strong>: For operations that have a null
+                &lt;encryption_IV&gt; input, you will encounter an execution
+                error if:
+              </p>
+              <ul>
+                <li>the size of the &lt;encryption_value&gt; exceeds 500KB.</li>
+                <li>the &lt;iteration_count&gt; exceeds&nbsp;200.</li>
+              </ul>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre><span>info </span><span>zoho.encryption.aesEncode</span>(<span>"passkey"</span>,<span>"This is a secret"</span>);               <span>// Returns "birQ6wvRvqy8IKsE0kb/Y2Mqf1oLp3yVaHDRhQjvAS5wt5ykJLM4OufE/GQoHhWy"</span>
+
+<span>encryption</span> = <span>zoho</span>.<span>encryption.aesEncode128</span>(<span>"passkey"</span>,"<span>This is a secret"</span>,<span>"a00000000000000b"</span>,<span>201</span>);
+<span>info</span> <span>encryption</span>;                         <span>//Returns "pWBt7NM4llIu0n9gES91lR5fXNaAG/mx5UNPtJY0Bv8="&gt;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>passkey</span></pre>
+                    </div>
+                    <div>This is the encryption key</div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>This is a secret</span></pre>
+                    </div>
+                    <div>This is the value to be encrypted</div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>a00000000000000b
+</span></pre>
+                    </div>
+                    <div>This is the encryption IV</div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>201
+</span></pre>
+                    </div>
+                    <div>This is the iteration count</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

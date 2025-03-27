@@ -1,0 +1,125 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>containsKey</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>containsKey</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>containsKey</strong>&nbsp;function checks if a
+              specified key or an index value is present in a <a>collection</a>.
+              It returns <strong>true</strong> if the key or the index is
+              present in the collection. Otherwise, it returns
+              <strong>false</strong>.
+            </p>
+            <div>
+              <p>
+                <strong>Note:</strong> This function performs a case sensitive
+                search.
+              </p>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>BOOLEAN</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <p>To check if a key is present in a collection:</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.containsKey</span><span>(</span><span>&lt;</span><span>key</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <p>To check if an index value is present in a collection:</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>collectionVariable</span><span>&gt;</span><span>.containsKey</span><span>(</span><span>&lt;</span><span>index</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      Variable which will hold the returned boolean value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;collectionVariable&gt;</td>
+                    <td>
+                      <p><span>COLLECTION</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The variable in which the key or the index will be
+                        looked for.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;key&gt;</td>
+                    <td>
+                      <p>
+                        <span>TEXT</span
+                        >/<span>NUMBER</span>/<span>DECIMAL</span>/<span>DATE</span>/<span
+                          >BOOLEAN</span
+                        >
+                      </p>
+                    </td>
+                    <td>
+                      <p>The key to be searched for in the collection.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;index&gt;</td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>
+                        The index value to be searched for in the collection.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>productVersion</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span> <span>:</span> <span>5</span><span>,</span> <span>"CRM"</span> <span>:</span> <span>2</span><span>,</span> <span>"Mail"</span> <span>:</span> <span>8</span><span>)</span><span>;</span>
+&nbsp;<span>info </span><span>productVersion</span><span>.containsKey</span><span>(</span><span>"CRM"</span><span>)</span><span>; </span><span>// Returns true</span></pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>productVersion</span> <span>=</span> <span>collection</span><span>(</span><span>"Creator"</span><span>,</span> <span>"CRM"</span><span>,</span> <span>"Mail"</span><span>)</span><span>;</span>
+&nbsp;<span>info </span><span>productVersion</span><span>.containsKey</span><span>(</span><span>3</span><span>)</span><span>; </span><span>// Returns false</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

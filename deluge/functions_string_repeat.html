@@ -1,0 +1,104 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>repeat</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Repeat()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>repeat()</strong> function returns a text with the
+              input text repeated for the specified number of times.
+            </p>
+            <div>
+              <strong>Note:</strong> The size of each input and output parameter
+              of this function can individually be up to 100K characters.
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>TEXT</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>&lt;</span><span>inputText</span><span>&gt;</span><span>.repeat</span><span>(</span><span>&lt;</span><span>repeatCount</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>(OR)</p>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>repeat</span><span>(</span><span>&lt;</span><span>inputText</span><span>&gt;</span><span>, </span><span>&lt;</span><span>repeatCount</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Data type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>TEXT</td>
+                    <td>Variable which will contain the returned text.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;inputText&gt;</td>
+                    <td>TEXT</td>
+                    <td>
+                      The text that will be repeated for the specified number of
+                      times
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;repeatCount&gt;</td>
+                    <td>NUMBER</td>
+                    <td>
+                      <br />The number of times the inputText will be repeated.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example&nbsp;</h2>
+            <p>
+              The following example returns a text with the input text -
+              <strong>Zoho</strong>&nbsp;repeated for 3 times.&nbsp;
+            </p>
+            <div>
+              <pre>&nbsp;<span>inputText </span><span>= </span><span>"Zoho"</span><span>; </span> 
+&nbsp;<span>outputText </span><span>= </span><span>inputText.repeat</span><span>(</span><span>3</span><span>)</span><span>; </span> 
+&nbsp;<span>info outputText</span><span>; </span><span>// Returns ZohoZohoZoho </span>
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Text built-in functions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

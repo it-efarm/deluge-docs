@@ -1,0 +1,179 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>workDaysBetween</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>workDaysBetween</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>workDaysBetween</strong>&nbsp;function returns the
+              number of&nbsp;workdays between two given dates.
+            </p>
+            <div>
+              <p><strong>Note: </strong></p>
+              <ul>
+                <li>
+                  This function allows for defining weekends, holiday lists.
+                </li>
+                <li>
+                  If end date is greater than the start date, then the number of
+                  days will be represented as a negative value.
+                </li>
+                <li>
+                  The number of days returned is exclusive of the start date.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>
+                <span><a>NUMBER</a></span>
+              </li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>start_date</span><span>&gt;</span><span>.workDaysBetween</span><span>(</span>&lt;<span>end_date</span><span>&gt;</span><span>,</span><span>&lt;</span><span>weekends_list</span><span>&gt;</span><span>,</span><span>&lt;</span><span>holiday_list</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>
+                      <span><a>NUMBER</a></span>
+                    </td>
+                    <td>
+                      <a>Variable</a> which will contain the number of workdays
+                      between two dates.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;start_date&gt;</td>
+                    <td>
+                      <span><a>DATE-TIME</a></span
+                      >/<span><a>TEXT</a></span>
+                    </td>
+                    <td>
+                      <p>
+                        The date-time value after which the number of workdays
+                        should be calculated.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;end_date&gt;</td>
+                    <td>
+                      <span><a>DATE-TIME</a></span
+                      >/<span><a>TEXT</a></span>
+                    </td>
+                    <td>
+                      <p>
+                        The date-time value until which the number of workdays
+                        should be calculated.
+                      </p>
+                      <div>
+                        <p>
+                          <strong>Note:</strong> If end_date is lesser than the
+                          start_date, then a negative value will
+                          be&nbsp;returned.
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;weekends_list&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <span><a>COLLECTION</a></span>
+                    </td>
+                    <td>
+                      <p>
+                        The list of date values (weekends) that should be
+                        considered while listing work days.
+                      </p>
+                      <div>
+                        <p>
+                          <strong>Note:</strong> By default, the weekends list
+                          is <strong>{Saturday, Sunday}</strong>
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;holidays_list&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <span><a>COLLECTION</a></span>
+                    </td>
+                    <td>
+                      <p>
+                        The list of holidays that should be considered while
+                        listing work days.
+                      </p>
+                      <div>
+                        <p>
+                          <strong>Note</strong>: If no holidays are provided,
+                          any day (except weekends) will be considered a working
+                          day.
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              The below example lists all the work days between Jan 1, 2020 to
+              Jan 6, 2020.&nbsp;
+            </p>
+            <div>
+              <pre>&nbsp;<span>start_date</span><span>=</span> <span>'1-Jan-2020'</span><span>;</span>
+&nbsp;<span>end_date</span> <span>=</span> <span>'6-Jan-2020'</span><span>;</span>
+&nbsp;<span>num_work_days </span><span>= </span> <span>start_date</span><span>.workDaysBetween</span><span>(</span><span>end_date</span><span>,</span> <span>{</span><span>"Saturday"</span><span>,</span><span>"Sunday"</span><span>}</span><span>,</span><span>{</span><span>'02-Jan-2020'</span><span>,</span><span>'03-Jan-2020'</span><span>}</span><span>)</span><span>;
+<span> //num_work_days is assigned the value 1</span></span>
+</pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Add business hour</a></li>
+              <li><a>Work days list</a></li>
+              <li><a>Add business day</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.0112"><iframe></iframe></div>
+</div>

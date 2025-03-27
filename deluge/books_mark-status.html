@@ -1,0 +1,375 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Books integration tasks</a></li>
+        <li><a>Mark Status</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Mark Status In Zoho Books</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Mark status with static value</a></li>
+                    <li><a>Mark status with dynamic value</a></li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to change the&nbsp;status field with one of
+              the allowed values in the specified Zoho Books module.
+            </p>
+            <p>
+              This task is based on&nbsp;<a>Zoho Books API</a>&nbsp;modules -
+              <a>Estimates</a> and <a>Invoices</a>.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.books.markStatus</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>,</span><span> &lt;</span><span>org_ID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_ID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>status</span><span>&gt;</span><span>,</span><span> &lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            Variable which will hold the response returned by
+                            Zoho Books.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;&nbsp;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            specifies the name of the Zoho Books&nbsp;module in
+                            which the status field's value will be changed.
+                          </p>
+                          <p>The following are the applicable modules:</p>
+                          <ul>
+                            <li><p>Estimates</p></li>
+                            <li><p>Invoices</p></li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;org_ID&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            specifies the <a>organization ID</a> of the account
+                            in which the value of the status field will be
+                            changed.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;record_ID&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            specifies the ID of the record whose status will be
+                            changed.
+                          </p>
+                          <p>
+                            Learn how to fetch the ID of a record
+                            after&nbsp;<a>creating</a>&nbsp;it&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;status&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            specifies the status value. The following table
+                            presents the allowed status values for each module:
+                          </p>
+                          <div>
+                            <table>
+                              <tbody>
+                                <tr>
+                                  <td><strong>Module Name</strong></td>
+                                  <td><strong>Allowed values</strong></td>
+                                </tr>
+                                <tr>
+                                  <td>Estimates</td>
+                                  <td>accepted<br />declined<br />sent</td>
+                                </tr>
+                                <tr>
+                                  <td>Invoices</td>
+                                  <td>void<br />sent</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            is the link name of Zoho Books&nbsp;<a
+                              >connection</a
+                            >
+                          </p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes as mentioned in&nbsp;<a
+                                  >Zoho Books API</a
+                                >&nbsp;-&gt; &lt;Module&gt; -&gt; Mark
+                                &lt;ModuleName&gt;.&nbsp;
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1: Mark status with a static value</h2>
+            <p>
+              The following script sets the status&nbsp;of the specified
+              record&nbsp;to "<strong>sent</strong>", in the Zoho Books module -
+              <strong>Invoices.</strong>
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.books.markStatus</span><span>(</span><span>"Invoices"</span><span>,</span><span>"5379XXXX"<span>,</span></span><span>"176XXXXXXXXXXXXX180"</span><span>,</span><span>"sent"</span>, <span>"books_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      is the variable which holds the
+                      <span>KEY-VALUE</span> response returned by Zoho Books
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Invoices"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module name
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"5379XXXX"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the organization
+                      ID of the Zoho Books account
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"176XXXXXXXXXXXXX180"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the record ID
+                      whose status needs to be changed
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"sent"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the status value
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"books_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the Zoho Books
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Mark status with dynamic value</h2>
+            <p>
+              The following script sets the status value as
+              "<strong>declined</strong>" if the current date is greater than 3
+              months from the creation date of the estimate. Otherwise, it sets
+              the status value as "<strong>sent</strong>".
+            </p>
+            <div>
+              <pre>&nbsp;<span>dynamic_value</span><span> = </span><span>"sent"</span><span>;</span>
+&nbsp;<span>estimate_date</span><span> = </span><span>"24-12-2018"</span><span>;</span>&nbsp;<span>//Estimate date can be fetched using the task - zoho.books.getRecordsByID</span>
+
+&nbsp;<span>if</span><span>(</span><span>zoho.currentdate</span><span> &gt; </span><span>estimate_date</span><span>.</span><span>addMonth</span><span>(</span><span>3</span><span>)</span><span>)</span>
+&nbsp;<span>{</span>
+&nbsp;<span>dynamic_value</span><span> = </span><span>"declined"</span><span>;</span>
+&nbsp;<span>}</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.books.markStatus</span><span>(</span><span>"Estimates"</span><span>, </span><span>"5379XXXX"<span>, </span></span><span>"176XXXXXXXXXXXXX180"</span><span>, </span><span>dynamic_value</span>, <span>"books_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      is the variable which holds the
+                      <span>KEY-VALUE</span> response returned by Zoho Books
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>dynamic_value</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that holds the status value
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>estimate_date</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> variable that holds the creation
+                      date of the estimate
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"books_connection"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the Zoho Books
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <ul>
+              <li>
+                <p>
+                  The following is a sample <strong>success</strong> response:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code":0,<br />&nbsp;&nbsp;"message":"Estimate
+                  status has been changed to Accepted."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <p>
+                  The <strong>failure</strong> response returned for incorrect /
+                  non-existent organization ID is of the following format.
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code":6041,<br />&nbsp;&nbsp;"message":"This
+                  user is not associated with the
+                  CompanyID/CompanyName:638XXX318."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The <strong>failure</strong> response returned for incorrect /
+                  non-existent record ID is of the following format.
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code":5,<br />&nbsp;&nbsp;"message":"Invalid
+                  URL Passed"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The <strong>failure</strong> response returned for supplying
+                  unallowed status value is of the following format.
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code":-1,<br />&nbsp;&nbsp;"message":"Resource
+                  does not exist."<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Books API</a></li>
+              <li><a>Common error codes can be viewed&nbsp;here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.0527277"><iframe></iframe></div>
+</div>

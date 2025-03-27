@@ -1,0 +1,273 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sales IQ integration tasks</a></li>
+        <li><a>Visitor session - get</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Visitor session - get</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Example 1: Fetch a session value</a></li>
+                    <li>
+                      <a>Example 2: Send email to the fetched email address</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong> This task can only be executed from Zoho
+              Sales IQ.
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The&nbsp;<strong>zoho.salesiq.visitorsession.get</strong>&nbsp;task
+              fetches&nbsp;the value temporarily stored&nbsp;by the
+              <a>zoho.salesiq.visitorsession.set</a> task. This is used when
+              your Sales IQ&nbsp;<a>Zobot</a>&nbsp;needs to use&nbsp;dynamic
+              pieces of information&nbsp;until the end of a session (chat
+              conversation).&nbsp;
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt; </span><span>= </span><span>zoho</span><span>.salesiq.visitorsession.get</span><span>(</span><span>&lt;</span><span>portal_name</span><span>&gt;</span>,<span> &lt;key</span><span>&gt;</span>,<span> </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The response returned by Zoho Sales IQ that
+                            represents the stored data.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;portal_name&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td><p>Name of your&nbsp;Zoho Sales IQ portal.</p></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;key&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>
+                            The name of the key used
+                            in&nbsp;<a>zoho.salesiq.visitorsession.set</a>&nbsp;task
+                            to store the value that needs to be fetched.&nbsp;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Scopes required for this task -&nbsp;<strong
+                                  >SalesIQ.portals.ALL, SalesIQ.visitors.ALL,
+                                  SalesIQ.visitors.READ,
+                                  SalesIQ.visitors.UPDATE</strong
+                                >
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1: Fetch a session value</h2>
+            <p>
+              The following example fetches the value stored against the key -
+              <strong>name</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span> = <span>zoho</span><span>.salesiq.visitorsession.get</span><span>(</span><span>"portal_1"</span>,<span> "name"</span>,<span> "salesIqConnection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      stored data.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"portal_1"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      portal.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"name"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;that represents the key whose
+                      data needs to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"salesIqConnection"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;that represents the link name
+                      of the connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Send email to the fetched email address</h2>
+            <p>
+              The following example sends an email&nbsp;to&nbsp;the&nbsp;address
+              of the visitor stored against the key - <strong>email</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Fetch name and email address of the visitor</span>
+&nbsp;<span>visitor_email</span><span> = </span><span><span>zoho</span><span>.salesiq</span><span>.visitorsession</span><span>.get</span><span>(</span><span>"portal_1"</span><span>,</span><span> "email"</span>,<span> "salesIqConnection"</span><span>)</span><span>.get</span><span>(</span><span>"data"</span><span>)</span><span>.get</span><span>(</span><span>"email"</span><span>)</span><span>;</span>
+&nbsp;<span>vistor_name</span><span> = </span><span>zoho</span><span>.salesiq</span><span>.visitorsession</span><span>.get</span><span>(</span><span>"portal_1"</span><span>,</span><span> "name"</span>,<span> "salesIqConnection"</span><span>)</span><span>.get</span><span>(</span><span>"data"</span><span>)</span><span>.get</span><span>(</span><span>"name"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Send email using send mail task</span>
+&nbsp;<span>sendmail</span>
+&nbsp;<span>[</span>
+&nbsp;<span>from</span><span>: zoho</span><span>.adminuserid</span>
+&nbsp;<span>to</span><span>: visitor_email</span>
+&nbsp;<span>subject</span><span>: </span><span>"Help resources"</span>
+&nbsp;<span>message</span><span>: </span><span>"Hello, "</span><span> + </span><span>visitor_name </span><span>+ </span><span>". Please find the help resources in the attachments.&lt;br&gt;Thank you,&lt;br&gt;Shawn"</span>
+&nbsp;<span>attachments</span><span>: </span><span>file</span><span>:</span><span> help_resource</span>
+&nbsp;<span>]</span><span>;</span></span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>visitor_email</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the email
+                      address of the current visitor captured using
+                      <a>zoho.salesiq.visitorsession.set</a> task.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>visitor_name</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds
+                      the&nbsp;name of the current visitor captured using
+                      <a>zoho.salesiq.visitorsession.set </a>task.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <strong>Success Response</strong>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"object": "session",<br />&nbsp;"url":
+                  "/api/v2/portal_1/visitorsessions",<br />&nbsp;"data": {<br />&nbsp;"size":
+                  "m"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <strong>Failure Response</strong>
+            <ul>
+              <li>
+                <p>
+                  The failure response for incorrect portal name will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;"error": {<br />&nbsp;"code": 1005,<br />&nbsp;"message":
+                  "Invalid portal or wrong screenname"<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Sales IQ integration tasks</a></li>
+              <li><a>Connections</a></li>
+              <li><a>Possible Zoho Sales IQ error responses</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

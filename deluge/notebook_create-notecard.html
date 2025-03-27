@@ -1,0 +1,370 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Notebook Integration Tasks</a></li>
+        <li><a>Create Notecard In Zoho Notebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create Notecard In Zoho Notebook</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Create notecard with a text content</a></li>
+                    <li><a>Create notecard with an HTML content</a></li>
+                    <li><a>Create notecard with an image content</a></li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.notebook.createNotecard</strong>&nbsp;task
+              creates a new notecard with the specified content in Zoho
+              Notebook.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.notebook.createNotecard</span><span>(</span><span>&lt;</span><span>content</span><span>&gt;</span>, <span>&lt;</span><span>type</span><span>&gt;</span>, <span>&lt;</span><span>values</span><span>&gt;</span>, <span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <p>&nbsp;</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The task execution details such as ID of the
+                            notecard that will be created, creation and
+                            modification time of notecard, and the status of the
+                            task.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;content&gt;</p></td>
+                        <td>
+                          <p><span>TEXT/ FILE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The content of the notecard that needs to be
+                            created. The content can&nbsp;be a plain text, HTML
+                            content, image (of any valid format), or PDF.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;type&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The type of content that will be specified.</p>
+                          <p><strong>Allowed Values:</strong></p>
+                          <ul>
+                            <li>
+                              <strong>text</strong> - Treats the &lt;content&gt;
+                              parameter as plain text.
+                            </li>
+                            <li>
+                              <strong>html</strong> - Executes the HTML tags
+                              present in the value of the &lt;content&gt;
+                              parameter.
+                            </li>
+                            <li>
+                              <strong>resource</strong> - Treats the value of
+                              the &lt;content&gt; parameter as FILE (image or a
+                              PDF).
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;values&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The parameters, as specified in the Zoho notebook
+                            API.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <p>
+                            <strong>Note:</strong> This parameter
+                            is&nbsp;mandatory in Zoho Creator.
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1: Create notecard with a text content</h2>
+            <p>
+              The following script creates a new notecard with the specified
+              text content:
+            </p>
+            <div>
+              <pre>&nbsp;<span>//&nbsp;Create a KEY-VALUE variable to hold version notes</span>
+&nbsp;<span>note</span><span> = </span><span>map</span><span>()</span><span>;</span>
+&nbsp;<span>note</span><span>.</span><span>put</span><span>(</span><span>"appName"</span><span>, </span><span>"Zoho CRM"</span><span>)</span><span>;</span>
+&nbsp;<span>note</span><span>.</span><span>put</span><span>(</span><span>"deviceName"</span><span>, </span><span>"Shawn's Iphone"</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>//&nbsp;Create a KEY-VALUE variable to hold the parameters specified in Zoho Notebooks API</span>
+&nbsp;<span>dataMap</span><span> = </span><span>map</span><span>()</span><span>;</span>
+&nbsp;<span>dataMap</span><span>.</span><span>put</span><span>(</span><span>"version_notes"</span><span>, </span><span>note</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>//&nbsp;Execute the integration task to create a notecard in Zoho Notebook with TEXT content</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.notebook.createNotecard</span><span>(</span><span>"Note content"</span><span>, </span><span>"text"</span><span>, </span><span>dataMap</span><span>, </span><span>"notebook_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Notebook. It represents the&nbsp;task execution details,
+                      such as the ID of the notecard that will be created,
+                      creation and modification time of the notecard, and the
+                      status of the task.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Note content"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the content of the
+                      notecard that needs to be created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"text"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> that represents the type of
+                      specified content.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>dataMap</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>KEY-VALUE</span> variable that holds the
+                      version notes.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Create notecard with an HTML content</h2>
+            <p>
+              The following script creates a new notecard with the text
+              specified in HTML format:
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Create a TEXT variable to hold the input HTML content</span>
+&nbsp;<span>htmlcontent</span><span> = </span><span>"&lt;h1&gt;New Notecard&lt;/h1&gt;&lt;p&gt;This notecard is created using Deluge task.&lt;/p&gt;</span><span>"</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create a KEY-VALUE variable to hold version notes</span>
+&nbsp;<span>note</span><span> = </span><span>map</span><span>()</span><span>;</span> 
+&nbsp;<span>note</span><span>.</span><span>put</span><span>(</span><span>"appName"</span><span>, </span><span>"Zoho CRM"</span><span>)</span><span>;</span> 
+&nbsp;<span>note</span><span>.</span><span>put</span><span>(</span><span>"deviceName"</span><span>, </span><span>"Shawn's Iphone"</span><span>)</span><span>;</span> 
+&nbsp;
+&nbsp;<span>// Create a KEY-VALUE variable to hold the parameters specified in Zoho Notebooks API</span>
+&nbsp;<span>dataMap</span><span> = </span><span>map</span><span>()</span><span>;</span> 
+&nbsp;<span>dataMap</span><span>.</span><span>put</span><span>(</span><span>"version_notes"</span><span>, </span><span>note</span><span>)</span><span>;</span> 
+&nbsp;
+&nbsp;<span>// Execute the integration task to create a notecard in Zoho Notebook with HTML content</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.notebook.createNotecard</span><span>(</span><span>htmlcontent</span><span>, </span><span>"html"</span><span>, </span> <span>dataMap</span><span>, </span><span>"notebook_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>htmlcontent</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the content of the
+                      notecard that needs to be created. Here, the content is in
+                      HTML format.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"html"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the type of
+                      specified content.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 3: Create notecard with&nbsp;an image content
+            </h2>
+            <p>
+              The following script creates a new notecard with the specified
+              image file:
+            </p>
+            <div>
+              <pre>&nbsp;<span>// Perform invoke URL task to fetch the image file with which the notecard needs to be created</span>
+&nbsp;<span>imageFile</span><span> = </span><span>invokeurl</span>
+&nbsp;<span>[</span>
+&nbsp;<span>url</span><span>:</span><span> "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz4pZuwLofV4goZVT0e2R3K5bElhWk3oMDuUgP3XT9p9d4_Tkv4g"</span>
+&nbsp;<span>type</span><span>:</span><span> GET</span>
+&nbsp;<span>]</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Create a KEY-VALUE variable to hold version notes</span>
+&nbsp;<span>note</span><span> = </span><span>map</span><span>()</span><span>;</span> 
+&nbsp;<span>note</span><span>.</span><span>put</span><span>(</span><span>"appName"</span><span>, </span><span>"Zoho CRM"</span><span>)</span><span>;</span> 
+&nbsp;<span>note</span><span>.</span><span>put</span><span>(</span><span>"deviceName"</span><span>, </span><span>"Shawn's Iphone"</span><span>)</span><span>;</span> 
+&nbsp;
+&nbsp;<span>// Create a KEY-VALUE variable to hold the parameters specified in Zoho Notebooks API</span>
+&nbsp;<span>dataMap</span><span> = </span><span>map</span><span>()</span><span>;</span> 
+&nbsp;<span>dataMap</span><span>.</span><span>put</span><span>(</span><span>"version_notes"</span><span>, </span><span>note</span><span>)</span><span>;</span> 
+&nbsp;
+&nbsp;<span>// Execute the integration task to create a notecard in Zoho Notebook with an image</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.notebook.createNotecard</span><span>(</span><span>imageFile</span>, <span>"resource"</span>, <span>dataMap</span><span>, </span><span>"notebook_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>imageFile</span></pre>
+                    </div>
+                    <div>
+                      The <span>FILE</span> variable that holds the image
+                      content of the notecard that needs to be created.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"resource"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the type of
+                      specified content.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"created_time":
+                  "2019-08-14T03:29:54-0700",<br />&nbsp;&nbsp;"notecard_id":
+                  "2cbocXXXXXXXXXXXXXXXXXXXXXXXXXXXc504b",<br />&nbsp;&nbsp;"code":
+                  201,<br />&nbsp;&nbsp;"locked_by_parent": false,<br />&nbsp;&nbsp;"color":
+                  "#E9FF9D",<br />&nbsp;&nbsp;"latitude": 0,<br />&nbsp;&nbsp;"description":
+                  " sampleText ",<br />&nbsp;&nbsp;"message": "Notecard created
+                  successfully",<br />&nbsp;&nbsp;"type": "note/mixed",<br />&nbsp;&nbsp;"is_collection":
+                  false,<br />&nbsp;&nbsp;"notebook_id":
+                  "1cbkkXXXXXXXXXXXXXXXXXXXXXXXXXXXee120",<br />&nbsp;&nbsp;"modified_time":
+                  "2019-08-14T03:29:54-0700",<br />&nbsp;&nbsp;"name":
+                  "Sample",<br />&nbsp;&nbsp;"location": "Unknown",<br />&nbsp;&nbsp;"is_parsable":
+                  false,<br />&nbsp;&nbsp;"last_accessed_time":
+                  "2019-08-14T03:29:54-0700",<br />&nbsp;&nbsp;"favorite":
+                  false,<br />&nbsp;&nbsp;"embed_resources": [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"status":
+                  "Success",<br />&nbsp;&nbsp;"longitude": 0<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for supplying incorrect value to
+                  <type>
+                    parameter will be returned in the following format:</type
+                  >
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 1901,<br />&nbsp;&nbsp;"message":
+                  "upload is not configured for the parameter attachment",<br />&nbsp;&nbsp;"status":
+                  "Failed"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for missing mandatory parameter will be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 1018,<br />&nbsp;&nbsp;"message":
+                  "version_notes should be present at least once",<br />&nbsp;&nbsp;"status":
+                  "Failed"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Connections</a></li>
+              <li><a>Invoke URL</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,281 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>User roles &amp; properties tasks</a></li>
+        <li><a>Portal User Tasks</a></li>
+        <li><a>Fetch profile name of portal user</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch profile name of portal user</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Example 1: Fetch profile name of a customer portal
+                        user</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 2: Separate customer portal users from a list
+                        of email addresses</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;deluge task fetches the profile name&nbsp;of a specified
+              customer portal user.
+            </p>
+            <h2><a></a>Return</h2>
+            <p>
+              This task returns the profile name of a specified customer portal
+              user in <strong>TEXT</strong> format.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <span
+                ><span>&lt;variable&gt;</span> = thisapp.portal.profileForUser(
+                <span>&lt;userDetail&gt;</span> );</span
+              >
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Param</th>
+                    <th>Explanation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p><span>&lt;variable&gt;</span></p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><p>Variable which will hold the returned value.</p></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;userDetail&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>
+                        <strong>Email ID</strong> or
+                        the&nbsp;<strong>Username</strong>&nbsp;of the customer
+                        portal user whose profile name will be
+                        returned.&nbsp;<br /><br />Points to note for this
+                        parameter:&nbsp;
+                      </p>
+                      <ul>
+                        <li>
+                          You can view the email addresses of customer portal
+                          users&nbsp;in your app from the&nbsp;<a
+                            >Customer Portal page</a
+                          >, and their user names from the&nbsp;<a
+                            >Customer Portal customers page</a
+                          >.&nbsp;
+                        </li>
+                        <li>
+                          If the user is not found, this function will return an
+                          empty Text.
+                        </li>
+                      </ul>
+                      <p>Data type is <strong>TEXT</strong>.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>
+              <a></a>Example 1: Fetch profile name of a customer portal user
+            </h2>
+            <p>
+              The following snippet to fetch the profile name of a customer
+              portal user.
+            </p>
+            <div>
+              <pre><span>profName </span><span>= </span><span>thisapp</span><span>.portal</span><span>.profileForUser</span><span>(</span><span>"john@zylker.com"</span><span>)</span><span>;</span></pre>
+            </div>
+            <h2>
+              <a></a>Example 2: Separate customer portal users from a list of
+              email addresses
+            </h2>
+            <p>
+              The following example returns&nbsp;the&nbsp;list of customer
+              portal users among the specified email addresses:
+            </p>
+            <div>
+              <pre>&nbsp;<span>//List of Email IDs to process</span>
+&nbsp;<span>email_list</span><span> = </span><span>{</span><span>"shawn@zylker.com"</span><span>, </span><span>"hailee@zylker.com"</span><span>, </span><span>"harry@zylker.com"</span><span>, </span><span>"kate@zylker.com"</span><span>}</span><span>;</span>
+&nbsp;
+&nbsp;<span>//List to store portal users</span>
+&nbsp;<span>portal_users</span><span> = </span><span>List</span><span>(</span><span>)</span><span>;</span>
+&nbsp;
+&nbsp;<span>// Iterate through the list of email addresses</span>
+&nbsp;<span>for each </span><span>email</span><span> in </span><span>email_list</span>
+&nbsp;<span>{</span>
+&nbsp;
+&nbsp;<span>//Check if email address is a customer portal user</span>
+&nbsp;<span>result</span><span> = </span><span>thisapp</span><span>.portal</span><span>.profileForUser</span><span>(</span> <span>email </span><span>)</span><span>;</span>
+&nbsp;<span>if</span><span>(</span><span>result </span><span>!= </span><span>""</span><span>)</span>
+&nbsp;<span>{</span>
+&nbsp;<span>portal_users</span><span>.add</span><span>(</span><span>email</span><span>)</span><span>;</span>
+&nbsp;<span>}</span>
+&nbsp;<span>}</span>
+&nbsp;<span>info </span><span>portal_users</span><span>;</span>
+</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

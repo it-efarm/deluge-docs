@@ -1,0 +1,332 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Creator V1 Integration tasks</a></li>
+        <li><a>Update Record in Zoho Creator - V1 task</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Update Record</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <strong>Note:</strong> The Creator V1 integration tasks are
+              deprecated and will work until Creator V1 APIs reach their end of
+              life on <strong>February 3rd, 2021</strong>. Click <a>here</a> for
+              Zoho Creator V2 integration tasks.
+            </div>
+            <p><a> </a></p>
+            <h2>Overview</h2>
+            <p>
+              This task is used to update a record in a specified application in
+              Zoho Creator.
+            </p>
+            <p><a> </a></p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho</span><span>.creator</span><span>.v1.updateRecord</span><span>(</span><span>&lt;</span><span>ownerName</span><span>&gt;</span><span>, </span><span>&lt;</span><span>appLinkName</span><span>&gt;</span><span>, </span><span>&lt;</span><span>formLinkName</span><span>&gt;</span><span>, </span><span>&lt;</span><span>recordID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>dataMap</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connectionlinkName</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Description</strong></td>
+                        <td><strong>Data Type</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Variable which will hold&nbsp;the returned response.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;ownerName&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is&nbsp;the name of the owner of the app in which
+                            the record will be updated.
+                          </p>
+                          <p>
+                            Name of the app owner is present in the url while
+                            editing the&nbsp;app:&nbsp;<u
+                              >creator.zoho.com/appbuilder/<strong
+                                >&lt;appOwner&gt;</strong
+                              ></u
+                            >
+                          </p>
+                          <p>
+                            App owner&nbsp;name can also be fetched&nbsp;using
+                            the&nbsp;<a>system variable</a>&nbsp;<strong
+                              >zoho.adminuser</strong
+                            >
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;appLinkName&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the link name of the application in which the
+                            record&nbsp;will be updated.
+                          </p>
+                          <p>
+                            Link names of applications, forms, and fields in
+                            your&nbsp;account can be&nbsp;<a>viewed here</a
+                            >&nbsp;(listed in brackets).
+                          </p>
+                          <p>
+                            Application Link name can also&nbsp;be fetched using
+                            the&nbsp;<a>system variable</a>&nbsp;<strong
+                              >zoho.appname</strong
+                            >
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;formLinkName&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the link name of the form&nbsp;in which the
+                            record&nbsp;will be updated.
+                          </p>
+                          <p>
+                            Link names of applications, forms, and fields in
+                            your account can be&nbsp;<a>viewed here</a
+                            >&nbsp;(listed in brackets).
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;recordID&gt;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the <a>ID of the record</a> which will be
+                            updated.
+                          </p>
+                          <p>
+                            Record IDs can be fetched after <a>creating</a> or
+                            <a>fetching</a> records.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;dataMap&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            contains field link names and their
+                            corresponding&nbsp;updated values.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connectionLinkName&gt;</p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            is the name of the Zoho
+                            Creator&nbsp;<a>connection</a>.
+                          </p>
+                          <p><strong>*Note:</strong></p>
+                          <ul>
+                            <li>
+                              The connectionLinkName is mandatory when executed
+                              in&nbsp;<strong>Zoho Cliq.</strong>
+                            </li>
+                            <li>
+                              The connection should be authtoken based. To
+                              create authtoken&nbsp;based connection with Zoho
+                              services, choose the default service
+                              -&nbsp;<strong>Zoho</strong>&nbsp;under&nbsp;<a
+                                >pick your service</a
+                              >&nbsp;in connections page.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2>Example</h2>
+            <p>
+              Let us consider the below example of updating a record in Zoho
+              Creator. Imagine that the user wants to update the Task
+              Description of an existing record having a recordID -
+              <strong>3605445000000065010</strong>
+            </p>
+            <p>
+              Assume that we have a form with the two fields -
+              <strong>Task_Name</strong> (Single Line Field Type) and
+              <strong>Task_Description</strong> (Single Line Field Type). The
+              arguments - <strong>Task_Management</strong> (Application Link
+              Name), <strong>Create_Task</strong> (F Link Name),
+              <strong>tony</strong> (Owner Name) will be supplied to the
+              updateRecord task in the following example.
+            </p>
+            <div>
+              <pre><span>dataMap </span><span>= </span><span>{</span><span>"Task_Description"</span><span>:</span><span>"Toaster Configuration"</span><span>}</span><span>;</span></pre>
+              <p><a> </a></p>
+              <pre><span>response </span><span>= </span><span>zoho</span><span>.creator.v1.updateRecord</span><span>(</span><span>"tony"</span><span>,</span><span> "Task_Management"</span><span>,</span><span> "Create_Task"</span><span>,</span><span> 3605445000000065010</span><span>,</span><span> dataMap</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      is a <span>KEY-VALUE</span> pair that holds the status of
+                      the task and of the ID of the updated record
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>tony</span></pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> value that represents the
+                      application owner's name
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>Task_Management</span></pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> value that represents the
+                      application's link name
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>Create_Task</span></pre>
+                    </div>
+                    <div>
+                      is a <span>TEXT</span> value that represents the form's
+                      link name
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>3605445000000065010</span></pre>
+                    </div>
+                    <div>
+                      is a <span>NUMBER</span> value that represents the ID of
+                      the record to be updated
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>datamap</span></pre>
+                    </div>
+                    <div>
+                      is a <span>KEY-VALUE</span> pair that represents the
+                      values required to update records
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p><a> </a></p>
+            <h2>Sample Response</h2>
+            <h3>Success</h3>
+            <p>
+              Following is a successful response received after updating a
+              record.
+            </p>
+            <div>
+              {<br />"values": {<br />"criteria":"ID==3605445000000065010",<br />"newvalues":[{"Task_Description":"Toaster
+              Configuration"}],<br />"status":"Success"<br />}
+            </div>
+            <h3>Error:</h3>
+            <p>Following is an error when the owner name is incorrect.</p>
+            <div>
+              {<br />"message":"Specified ownerName is not valid",<br />"status":"Failure"<br />}
+            </div>
+            <p>
+              Following is an error when the user tries to update a record with
+              an incorrect application name.
+            </p>
+            <div>
+              {<br />"message":"Specified application name is not valid.Provide
+              a correct one.",<br />"status":"Failure"<br />}
+            </div>
+            <p><a> </a></p>
+            <h2>Related Links</h2>
+            <ul>
+              <li>
+                To fetch the string value to which the specified key is mapped,
+                use
+                <a
+                  ><strong><span>get()</span></strong></a
+                >
+              </li>
+              <li>
+                To get values from fetched records, use
+                <a
+                  ><strong><span>getJSON()</span></strong></a
+                >
+              </li>
+              <li>
+                To get the Application Owner Name, Application Link Name, Form
+                Link Name and/ or View Link Name, please visit
+                <a
+                  ><strong><span>Creator API Link Names</span></strong></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

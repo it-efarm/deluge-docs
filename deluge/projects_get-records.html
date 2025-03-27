@@ -1,0 +1,528 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Projects integration tasks</a></li>
+        <li><a>Get Records&nbsp;From Zoho Projects</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Records&nbsp;From Zoho Projects</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a>Example 1: Fetch all records from the tasks module</a>
+                    </li>
+                    <li>
+                      <a
+                        >Example 2: Fetch the tasks whose priority is set to
+                        high</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 3: Fetch three&nbsp;tasks starting from the
+                        task index 5</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 4: Fetch the first three comments associated
+                        with a task</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The&nbsp;<strong>zoho.projects.getRecords&nbsp;</strong>task
+              fetched all the records from the specified module in Zoho
+              Projects.
+            </p>
+            <div>
+              <strong>Note:</strong>
+              <ul>
+                <li>
+                  For security reasons, if you execute Zoho Projects integration
+                  tasks for more than 100 times under 2 minutes, you will be
+                  restricted to execute any Zoho Projects integration task for
+                  the next 30 mins.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.projects.getRecords</span><span>(</span><span>&lt;</span><span>portal</span><span>&gt;</span><span>, </span><span>&lt;</span><span>project_id</span><span>&gt;</span><span>, <span>&lt;</span><span>module</span><span>&gt;</span><span>, <span>&lt;</span><span>dataMap/index</span><span>&gt;</span><span>, <span>&lt;</span><span>range</span><span>&gt;</span><span>, </span><span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></span></span></span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The details of the records fetched from the
+                            specified Zoho Projects module.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;portal&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>TEXT/ NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>The name or ID of the portal.</p>
+                          <p>
+                            <strong>Note: </strong>You can get the name or ID of
+                            the portal using the&nbsp;<strong
+                              >get portals</strong
+                            >
+                            task. Click&nbsp;<a>here</a> to learn more about it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;project_id&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>The ID of the project.</p>
+                          <p>
+                            <strong>Note: </strong>You can get project_id using
+                            the <strong>get project details</strong> task.
+                            Click&nbsp;<a>here</a> to learn more about it.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module&gt;&nbsp;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The name of the module from which the records need
+                            to be fetched.
+                          </p>
+                          <p><strong>Allowed values:</strong></p>
+                          <ul>
+                            <li>milestones</li>
+                            <li>taskLists</li>
+                            <li>tasks</li>
+                            <li>bugs</li>
+                            <li>logs</li>
+                            <li>comments</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;dataMap/index&gt;</p></td>
+                        <td>
+                          <p><span>NUMBER/&nbsp;KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The start index number from which the records need
+                            to be fetched. The index number of the records
+                            starts with&nbsp;<strong>0</strong>.
+                          </p>
+                          <p>(or)</p>
+                          <p>
+                            The parameters, as specified in the&nbsp;Zoho
+                            Projects API. The API documents for all the allowed
+                            modules are listed below:
+                          </p>
+                          <ul>
+                            <li><a>milestones</a></li>
+                            <li><a>taskLists</a></li>
+                            <li><a>tasks</a></li>
+                            <li><a>bugs</a></li>
+                            <li><a>logs</a></li>
+                            <li><a>comments from bugs module</a></li>
+                            <li>
+                              <a>comments from tasks module</a><br />&nbsp;
+                            </li>
+                          </ul>
+                          <div>
+                            <strong>Note:</strong>&nbsp;i) In Zoho Projects,
+                            <strong>comments</strong> is a submodule to the
+                            <strong>tasks</strong> and
+                            <strong>bugs</strong> module.
+                            <ul>
+                              <li>
+                                To fetch comments associated with a task, it is
+                                mandatory to specify the key -
+                                <strong>taskid</strong> and the ID of the task
+                                as its value.
+                              </li>
+                              <li>
+                                To fetch comments associated with a bug, it is
+                                mandatory to&nbsp;specify the key -
+                                <strong>bugid</strong> and the ID of the bug as
+                                its value.
+                              </li>
+                            </ul>
+                            <p>
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ii)&nbsp;To skip
+                              this param, include a 0 in its place in the
+                              syntax.
+                            </p>
+                            <p>
+                              Click <a>here</a> for an example to fetch the
+                              first three comments associated with a task.
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;range&gt;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>The number of records that need to be fetched.</p>
+                          <p><strong>Note:</strong></p>
+                          <ul>
+                            <li>
+                              You should specify the index value to be able to
+                              set range.
+                            </li>
+                            <li>
+                              <p>
+                                To skip this param, include a 0 in its place in
+                                the syntax.
+                              </p>
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The link name of the&nbsp;<a>connection</a>. A
+                            connection to Zoho Projects needs to be established
+                            in order to get records.
+                          </p>
+                          <p><strong>Note:</strong></p>
+                          <ul>
+                            <li>
+                              In view of&nbsp;<a
+                                >stopping new authtoken generation</a
+                              >,&nbsp;a Zoho OAuth connection with appropriate
+                              scopes is mandatory&nbsp;for new integration tasks
+                              (created after the deadline specified in the post)
+                              to work as expected. Existing integration tasks
+                              will continue to work with or without the
+                              connections parameter unless the authtoken is
+                              manually deleted&nbsp;from&nbsp;<a>accounts</a>.
+                            </li>
+                            <li>
+                              Add relevant scopes as mentioned in&nbsp;<a
+                                >Zoho Projects API</a
+                              >&nbsp;-&gt; &lt;Zoho
+                              Projects&gt;-&gt;&nbsp;&lt;Module&gt; -&gt; Scope.
+                            </li>
+                            <li>
+                              Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                              list of Zoho services that support the connections
+                              page.
+                            </li>
+                            <li><a>Learn more about connections</a></li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              The following script fetches all the records from the module
+              -&nbsp;<strong>tasks</strong> of the specified project and portal
+              in Zoho Projects:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.projects.getRecords</span><span>(</span><span>"zylker"</span><span>, </span><span>548XXXXXXXXXXX771</span><span>, </span><span>"tasks"</span>, <span>0</span>, <span>0</span>, <span>"projects"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Projects. It represents the details of the records
+                      fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"zylker"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      portal.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>548XXXXXXXXXXX771</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the project ID.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"tasks"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the name of the
+                      module from which the records need to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"projects"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the connection
+                      established between Creator and Projects. The scope for
+                      this connection is&nbsp;ZohoProjects.tasks.{ALL}.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2</h2>
+            <p>
+              The following script fetches all the tasks whose priority is
+              <strong>high</strong> from the specified project and portal of
+              Zoho Projects:
+            </p>
+            <div>
+              <pre>&nbsp;<span>data_map</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>data_map</span><span>.</span><span>put</span><span>(</span><span>"priority"</span><span>, </span><span>"high"</span><span>)</span><span>;</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.projects.getRecords</span><span>(</span><span>"zylker"</span><span>, </span><span>548XXXXXXXXXXX771</span><span>, </span><span>"tasks"</span><span>, </span><span>data_map</span>, <span>0</span>, <span>"projects"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>data_map</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> variable that holds the
+                      parameters as specified&nbsp;in the&nbsp;<a
+                        >Zoho Projects API</a
+                      >. Here, the parameter -&nbsp;<strong>priority</strong> is
+                      set to&nbsp;<strong>high</strong> to fetch only the tasks
+                      with high priority.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 3</h2>
+            <p>
+              The following script fetches&nbsp;<strong>3</strong> tasks
+              starting from the task index -&nbsp;<strong>5</strong> from the
+              specified project and portal of Zoho Projects:
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.projects.getRecords</span><span>(</span><span>"zylker"</span><span>, </span><span>548XXXXXXXXXXX771</span><span>, </span><span>"tasks"</span><span>, </span><span>5</span><span>, </span><span>3, "projects"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>5</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the start index
+                      from which the records need to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>3</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents how many records
+                      need to be fetched.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 4: Fetch the first three comments associated with a
+              task
+            </h2>
+            <p>
+              The following script fetches the first three comments associated
+              with the specified task from Zoho Projects:
+            </p>
+            <div>
+              <pre>&nbsp;<span>data_map</span><span> = </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;<span>data_map</span><span>.</span><span>put</span><span>(</span><span>"taskid"</span><span>, </span><span>"548XXXXXXXXXXX888"</span><span>)</span><span>;</span>
+&nbsp;<span>data_map</span><span>.</span><span>put</span><span>(</span><span>"index"</span><span>, </span><span>"1"</span><span>)</span><span>;</span>
+&nbsp;<span>data_map</span><span>.</span><span>put</span><span>(</span><span>"range"</span><span>, </span><span>"3"</span><span>)</span><span>;</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.projects.getRecords</span><span>(</span><span>"zylker"</span><span>, </span><span>548XXXXXXXXXXX771</span><span>, </span><span>"comments"</span><span>, </span><span>data_map</span>, <span>0</span>, <span>"projects"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"taskid"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;that represents the key that
+                      holds the ID of the task
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"548XXXXXXXXXXX888"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents ID of the task with
+                      which the required comments are asssociated.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"tasks": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"milestone_id":
+                  "548XXXXXXXXXXX873",<br />&nbsp;&nbsp;"link": {<br />&nbsp;&nbsp;"timesheet":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/58XXXX95/projects/548XXXXXXXXXXX7771/tasks/548XXXXXXXXXXX899/logs/"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"self":
+                  {<br />&nbsp;&nbsp;"url":
+                  "https://projects.zoho.com/restapi/portal/58XXXX95/projects/548XXXXXXXXXXX771/tasks/548XXXXXXXXXXX899/"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"is_comment_added":
+                  false,<br />&nbsp;&nbsp;"completed_time_format": "08-12-2019
+                  04:57:45 PM",<br />&nbsp;&nbsp;"duration": "0",<br />&nbsp;&nbsp;"last_updated_time_long":
+                  1565609265550,<br />&nbsp;&nbsp;"is_forum_associated":
+                  false,<br />&nbsp;&nbsp;"details": {<br />&nbsp;&nbsp;"owners":
+                  [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"name": "Unassigned"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"id":
+                  548XXXXXXXXXXX899,<br />&nbsp;&nbsp;"key": "OR1-T3",<br />&nbsp;&nbsp;"created_person":
+                  "Shawn",<br />&nbsp;&nbsp;"created_time_long":
+                  1565609245287,<br />&nbsp;&nbsp;"created_time":
+                  "08-12-2019",<br />&nbsp;&nbsp;"is_reminder_set": false,<br />&nbsp;&nbsp;"is_recurrence_set":
+                  false,<br />&nbsp;&nbsp;"created_time_format": "08-12-2019
+                  04:57:25 PM",<br />&nbsp;&nbsp;"subtasks": false,<br />&nbsp;&nbsp;"work":
+                  "0:00",<br />&nbsp;&nbsp;"isparent": false,<br />&nbsp;&nbsp;"duration_type":
+                  "days",<br />&nbsp;&nbsp;"completed_time_long":
+                  1565609265550,<br />&nbsp;&nbsp;"work_type":
+                  "work_hrs_per_day",<br />&nbsp;&nbsp;"task_followers": {<br />&nbsp;&nbsp;"FOLUSERS":
+                  "",<br />&nbsp;&nbsp;"FOLLOWERSIZE": -1,<br />&nbsp;&nbsp;"FOLLOWERS":
+                  [<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"completed":
+                  true,<br />&nbsp;&nbsp;"priority": "None",<br />&nbsp;&nbsp;"created_by":
+                  "58XXXX70",<br />&nbsp;&nbsp;"percent_complete": "100",<br />&nbsp;&nbsp;"last_updated_time":
+                  "08-12-2019",<br />&nbsp;&nbsp;"completed_time":
+                  "08-12-2019",<br />&nbsp;&nbsp;"name": "task 2",<br />&nbsp;&nbsp;"id_string":
+                  "548XXXXXXXXXXX899",<br />&nbsp;&nbsp;"last_updated_time_format":
+                  "08-12-2019 04:57:45 PM",<br />&nbsp;&nbsp;"tasklist": {<br />&nbsp;&nbsp;"name":
+                  "New task list",<br />&nbsp;&nbsp;"id": "548XXXXXXXXXXX881"<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;"order_sequence":
+                  1,<br />&nbsp;&nbsp;"status": {<br />&nbsp;&nbsp;"name":
+                  "Closed",<br />&nbsp;&nbsp;"id": "548XXXXXXXXXXX003",<br />&nbsp;&nbsp;"type":
+                  "closed",<br />&nbsp;&nbsp;"color_code": ""<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for invalid project ID will be returned
+                  in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"code":
+                  6404,<br />&nbsp;&nbsp;"message": "Resource Not Found"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for invalid portal name will be returned
+                  in the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"code":
+                  6504,<br />&nbsp;&nbsp;"message": "Domain Not Available"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for invalid portal ID will be returned in
+                  the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error": {<br />&nbsp;&nbsp;"code":
+                  6500,<br />&nbsp;&nbsp;"message": "General Error"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Projects Integration Tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,375 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Creator Integration Tasks</a></li>
+        <li><a>Get Record by ID</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Record by ID</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <p><a> </a></p>
+            <h2>Overview</h2>
+            <p>
+              The&nbsp;<strong>zoho.creator.getRecordById</strong>&nbsp;task is
+              used to fetch a record using its ID&nbsp;from the
+              specified&nbsp;Zoho Creator application.
+            </p>
+            <div>
+              <strong>Note:</strong> This integration task is based on
+              the&nbsp;<a>Get Record - Detailed view</a>&nbsp;&nbsp;Zoho Creator
+              V2 API.
+            </div>
+            <p><a> </a></p>
+            <h2>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt; </span><span>= </span><span>zoho</span><span>.creator</span><span>.getRecordById</span><span>(</span><span>&lt;</span><span>owner_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>app_link_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>report_link_name</span><span>&gt;</span><span>, &lt;</span><span>record_id</span><span>&gt;</span><span>, <span>&lt;</span></span><span>connection_link_name</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Parameter</strong></td>
+                        <td><strong>Data Type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Variable that will hold&nbsp;the details of the
+                            record fetched.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;owner_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Name of the owner of the app from which the
+                            record&nbsp;needs to be fetched.
+                          </p>
+                          <p><strong>Note:</strong></p>
+                          <p>
+                            Name of the application owner can be fetched in the
+                            following ways:
+                          </p>
+                          <ul>
+                            <li>
+                              From the URL of the application while editing or
+                              accessing it. The URL is in the
+                              format:&nbsp;app.zohocreator.com/appbuilder/<strong>&lt;application_owner&gt;</strong>/...
+                            </li>
+                            <li>
+                              By using the&nbsp;<a>system variable</a
+                              >&nbsp;-&nbsp;<strong>zoho.adminuser</strong>
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;app_link_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Link name of the application from which the
+                            record&nbsp;needs to be fetched.
+                          </p>
+                          <p><strong>Note:</strong></p>
+                          <p>
+                            Link name&nbsp;of the application can be fetched in
+                            the following ways:
+                          </p>
+                          <ul>
+                            <li>
+                              From the URL of the application while editing or
+                              accessing it. The URL is in the
+                              format:&nbsp;app.zohocreator.com/appbuilder/&lt;application_owner&gt;/<strong>&lt;application_name&gt;</strong>/...
+                            </li>
+                            <li>
+                              By using the <a>system variable</a>&nbsp;-&nbsp;
+                              <strong>zoho.appname</strong>
+                            </li>
+                            <li>
+                              Link names of applications, reports, and fields in
+                              your&nbsp;account can also be&nbsp;<a
+                                >viewed on the&nbsp;reference page</a
+                              >&nbsp;(listed in brackets).
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;report_link_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Link name of the report&nbsp;from which the
+                            record&nbsp;needs to be fetched.
+                          </p>
+                          <p><strong>Note:</strong></p>
+                          <ul>
+                            <li>
+                              Link names of applications, reports, and fields in
+                              your account can be
+                              <a>viewed on the reference page</a>&nbsp;(listed
+                              in brackets).
+                            </li>
+                            <li>
+                              You can also fetch link names from the URL while
+                              accessing the report. The URL is in the
+                              format:&nbsp;app.zohocreator.com/appbuilder/&lt;application_owner&gt;/&lt;application_name&gt;/#Report:<strong
+                                >&lt;report_link_name&gt;</strong
+                              >
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;record_id&gt;</p>
+                          ​
+                        </td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          <p>ID of the record that needs to be fetched.</p>
+                          <p>
+                            <strong>Note: </strong>You can use the<strong>
+                              zoho.creator.getRecords </strong
+                            >integration task to fetch the record ID. Click
+                            <a>here</a> for the Deluge script to extract record
+                            IDs from the returned response.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;connection_link_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Link name of the&nbsp;<a>connection</a>&nbsp;created
+                            and connected to your Zoho Creator account.&nbsp;
+                          </p>
+                          <div>
+                            <strong>Note</strong>:
+                            <ul>
+                              <li>
+                                The connection should be OAuth 2 based. To
+                                create OAuth 2 based connection with Zoho
+                                services, choose the default service - Zoho
+                                OAuth under <a>pick your service</a> in
+                                connections page.
+                              </li>
+                              <li>
+                                Make sure to add the scopes mentioned in the
+                                Zoho Creator
+                                <a>Get Record - Detailed view</a>&nbsp;API
+                                document while creating the connection.
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              The following example fetches&nbsp;the record with ID -
+              60210000000020007 from the report - All_tasks of the Zoho Creator
+              application - Task_Management
+            </p>
+            <div>
+              <pre><span>response </span><span>= </span><span>zoho</span><span>.creator</span><span>.getRecordById</span><span>(</span><span>"Shawn"</span><span>, </span><span>"Task_Management"</span><span>, </span><span>"All_Tasks"</span><span>, </span><span>60210000000020007</span><span>, </span><span>"creator_oauth_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>KEY-VALUE</span> variable that holds the
+                      response of the task
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Shawn"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> value that represents the name
+                      of the application owner.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Task_Management"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> value that represents the link
+                      name of the&nbsp;application.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"All_Tasks"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> value that represents the link
+                      name of the&nbsp;application.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>60210000000020007</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>NUMBER</span> that represents the ID of the
+                      record that need to be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"creator_oauth_connection"</span></pre>
+                    </div>
+                    <div>
+                      The&nbsp;<span>TEXT</span> value that represents the link
+                      name of the Zoho Creator OAuth connection created with
+                      required scopes.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p><a> </a></p>
+            <h2>Response Format</h2>
+            <strong>Success Response</strong>
+            <ul>
+              <li>
+                <p>
+                  The successful response will be returned in the following
+                  format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"code":3000,<br />&nbsp;"data":{<br />&nbsp;"Task_Name":"Priority
+                  Task",<br />&nbsp;"Task_Description":"I need help installing
+                  my air conditioner",<br />&nbsp;"ID":"60210000000020007",<br />&nbsp;}<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <strong>Failure Response</strong>
+            <ul>
+              <li>
+                <p>
+                  The failure response for incorrect or non-existent application
+                  name will be returned in the following format
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"code": 2892,<br />&nbsp;"message": "No
+                  application named &lt;application_name&gt; found. Please check
+                  and try again."<br />}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for incorrect owner name will be returned
+                  in the following format
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"code": 1110,<br />&nbsp;"message": "No
+                  workspace named &lt;owner_name&gt; found. Please enter a valid
+                  workspace value."<br />}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for incorrect or non-existent report name
+                  will be returned in the following format
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"code": 2894,<br />&nbsp;"message": "No
+                  report named &lt;report_link_name&gt; found. Please check and
+                  try again."<br />}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for incorrect or non-existent record ID
+                  will be returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"code": 3100,<br />&nbsp;"message": "No
+                  Data Available"<br />}
+                </div>
+              </li>
+            </ul>
+            <p><a> </a></p>
+            <h2>Related Links</h2>
+            <ul>
+              <li><a>Zoho Creator - Get Record By ID API document</a></li>
+              <li>
+                <a
+                  >Zoho Creator API - Possible error messages and status
+                  codes</a
+                >
+              </li>
+              <li>
+                To fetch the text value to which the specified key is mapped,
+                use <a><span>get()</span></a>
+              </li>
+              <li>
+                To get values from fetched records, use
+                <a><span>getJSON()</span></a>
+              </li>
+              <li>
+                To get the Application owner Name, Application link name, form
+                link Name and/ or report link name, you can&nbsp;visit
+                <a><span>Creator API Link Names</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

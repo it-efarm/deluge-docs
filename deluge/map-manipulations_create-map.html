@@ -1,0 +1,267 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Map Manipulations</a></li>
+        <li><a>Create map</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Create map</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>create map&nbsp;</strong>deluge task is used to
+              declare a <a>map</a> variable.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <p><span>To declare a map variable</span></p>
+            <div>
+              <span><span>&lt;variable&gt;</span></span
+              ><span><span> = Map();</span></span>
+            </div>
+            <p><span>To create a map variable with key value pairs</span></p>
+            <div>
+              <span><span>&lt;variable&gt;</span></span
+              ><span><span> = {</span></span
+              ><span><span>&lt;key1&gt;</span></span
+              ><span><span>:&nbsp;</span></span
+              ><span><span>&lt;value1&gt;</span></span
+              ><span><span>, </span></span><span><span>&lt;key2&gt;</span></span
+              ><span><span>: </span></span
+              ><span><span>&lt;value2&gt;</span></span
+              ><span><span> ...... </span></span
+              ><span><span>&lt;keyN&gt;</span></span
+              ><span><span>: </span></span
+              ><span><span>&lt;valueN&gt;</span></span
+              ><span><span>}&nbsp;;</span></span>
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span><span>&lt;variable&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>Variable which will hold the key-value pairs.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;key&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>Key to hold a value.</p>
+                      <p>
+                        You can directly specify a key, or a variable, or a
+                        field value in the format input.&lt;field_name&gt;,
+                        or&nbsp;an expression, i.e. a combination of values,
+                        constants, variables, operators, functions and so on.
+                      </p>
+                      <p>
+                        Keys must be unique.&nbsp;If an existing key is
+                        specified again, the newly specified value will
+                        overwrite the existing value of that key, and a new
+                        key-value pair will not be appended.
+                      </p>
+                      <p>
+                        If a date value is specified without a time value,
+                        00:00:00 will be added as the time value by default.
+                      </p>
+                      <p>Keys can be of any data-type</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span><span>&lt;value&gt;</span></span>
+                    </td>
+                    <td>
+                      <p>Value to be assigned to the key.</p>
+                      <p>
+                        You can directly specify a value, or&nbsp;a variable, or
+                        a field value in the format
+                        input.&lt;field_name&gt;,&nbsp;or&nbsp;an expression,
+                        i.e. a combination of values, constants, variables,
+                        operators, functions and so on.
+                      </p>
+                      <p>
+                        If a date value is specified without a time value,
+                        00:00:00 will be added as the time value by default.
+                      </p>
+                      <p>Values can be of any data-type.</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              1) The following snippet creates a map variable with keys as
+              "Product" and "Current Version", and values as "ZohoCreator" and 5
+              respectively.
+            </p>
+            <div>mapVal={"Product":"ZohoCreator","Current Version":5};</div>
+            <p>
+              2) The following snippet creates a map variable with a single key
+              and a list a of its values.
+            </p>
+            <div>
+              mapVal={"Products":{"Zoho Creator","Zoho Chat","Zoho CRM"}};
+            </div>
+            <p>
+              3) The following snippet creates a map variable with one key-value
+              pair and another key with list of values.
+            </p>
+            <div>
+              mapVal={"Company":"Zoho","Products":{"Zoho Creator","Zoho
+              Chat","Zoho CRM"}};
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

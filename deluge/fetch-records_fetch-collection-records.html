@@ -1,0 +1,696 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Data Access</a></li>
+        <li><a>Fetch records</a></li>
+        <li><a>Fetch records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Fetch records</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Things to keep in mind</a></li>
+                <li><a>Examples</a></li>
+                <li><a>Limitations</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note</strong>: This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>fetch record</strong>&nbsp;deluge task retrieves
+              records from a specified form, when a given criteria is met.
+            </p>
+            <p>The criteria is mandatory.</p>
+            <p>
+              See <a>this page</a> to learn about fetching all values of a field
+              in a collection.
+            </p>
+            <p>
+              See <a>this page</a> to learn about fetching a specified field's
+              value from the first record in the collection.
+            </p>
+            <div>
+              <p>Note:</p>
+              <ul>
+                <li>
+                  The fetched records may appear to be sorted based on "added
+                  time" (oldest first) system field. However, there is no
+                  guarantee to this order and there is no guarantee that the
+                  order will remain constant over time. If you are particular
+                  about the sequence of the records, it is advisable to use the
+                  sort param.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Return</h2>
+            <p>This task returns a collection of records.</p>
+            <h2><a></a>Syntax</h2>
+            <p>To fetch records which meet a criteria</p>
+            <p>
+              <span>&lt;variable&gt; = </span><span>&lt;form_link_name&gt;</span
+              ><span> </span><span>[&lt;criteria&gt;]</span><span>;</span>
+            </p>
+            <p>
+              To fetch records which meet a criteria, and sort them in ascending
+              order based on a field
+            </p>
+            <p>
+              <span>&lt;variable&gt; = </span><span>&lt;form_link_name&gt;</span
+              ><span> </span><span>[&lt;</span><span>criteria</span
+              ><span>&gt;]</span><span> sort by &lt;field_link_name&gt;</span
+              ><span>;</span>
+            </p>
+            <p>
+              To fetch records which meet a criteria, and sort them in
+              descending order based on a field
+            </p>
+            <p>
+              <span>&lt;variable&gt; = </span><span>&lt;form_link_name&gt;</span
+              ><span> </span><span>[&lt;</span><span>criteria</span
+              ><span>&gt;]</span
+              ><span> sort by &lt;field_link_name&gt; desc</span><span>;</span>
+            </p>
+            <p>
+              To fetch records within a specified range, which meet a criteria
+            </p>
+            <p>
+              <span>&lt;variable&gt; = </span><span>&lt;form_link_name&gt;</span
+              ><span> </span><span>[&lt;</span><span>criteria</span
+              ><span>&gt;]</span
+              ><span> range from &lt;start_index&gt; to &lt;end_index&gt;</span
+              ><span>;</span> &nbsp;
+            </p>
+            <p>
+              To fetch records within a specified range, which meet a criteria,
+              and sort them in ascending order based on a field
+            </p>
+            <p>
+              <span>&lt;variable&gt; = </span><span>&lt;form_link_name&gt;</span
+              ><span> </span><span>[&lt;</span><span>criteria</span
+              ><span>&gt;]</span><span> sort by &lt;field_link_name&gt;</span
+              ><span> range from &lt;start_index&gt; to &lt;end_index&gt;</span
+              ><span>;</span>
+            </p>
+            <p>
+              To fetch records within a specified range, which meet a criteria,
+              and sort them in descending order based on a field
+            </p>
+            <p>
+              <span>&lt;variable&gt; = </span><span>&lt;form_link_name&gt;</span
+              ><span> </span><span>[&lt;</span><span>criteria</span
+              ><span>&gt;]</span
+              ><span> sort by &lt;field_link_name&gt; desc</span
+              ><span> range from &lt;start_index&gt; to &lt;end_index&gt;</span
+              ><span>;</span>
+            </p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span>&lt;variable&gt;</span></td>
+                    <td>
+                      <a>Collection variable</a> holding the collection of
+                      records.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;form_link_name&gt;</span></td>
+                    <td>
+                      Link name of the form from which the records will be
+                      fetched.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>&lt;</span><span>criteria</span><span>&gt;</span>
+                    </td>
+                    <td>
+                      <a>Criteria</a> based on which records will be
+                      fetched.&nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>sort by &lt;field_link_name&gt;</span></td>
+                    <td>
+                      <p>
+                        Link name of the field based on which records will be
+                        sorted.
+                      </p>
+                      <p>
+                        <strong>Note:</strong> A lookup field will sort the
+                        records based on the record ID.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span
+                        >range from &lt;start_index&gt; to
+                        &lt;end_index&gt;</span
+                      >
+                    </td>
+                    <td>
+                      <p>
+                        Records included in the&nbsp;specified index range will
+                        be fetched.
+                      </p>
+                      <div>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>&lt;start_index&gt;</td>
+                              <td>
+                                <p>
+                                  Start index of the range of records to be
+                                  fetched.&nbsp;
+                                </p>
+                                <p>
+                                  Either&nbsp;<strong>0</strong> or&nbsp;<strong
+                                    >1</strong
+                                  >
+                                  may be specified as the index number of the
+                                  first record when used in &lt;start_index&gt;
+                                  param.<br />If 0 is the specified start index,
+                                  the last index is numbered from 0. If 1, or
+                                  any number greater than 1,&nbsp;is the
+                                  specified start index, the last index is
+                                  numbered from 1.<br /><br />E.g.&nbsp;for&nbsp;records&nbsp;A
+                                  (index 1), B (index 2), C (index 3), D (index
+                                  4), and E (index 5):<br /><br />Range from 0
+                                  to 3&nbsp;will fetch A, B, C, D<br />Range
+                                  from 1 to 4 will fetch A, B, C, D<br />Range
+                                  from 2 to 4 will fetch B, C, D
+                                </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>&lt;end_index&gt;</td>
+                              <td>
+                                Last index of the range of records to be
+                                fetched, inclusive.
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p>
+                        Negative index values will result in a runtime error.
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Things to keep in mind</h2>
+            <ul>
+              <li>
+                <p>
+                  If you wish to fetch all records of the specified form, use
+                  the following script as criteria:
+                </p>
+                <div>[ID != 0]</div>
+                <p>
+                  <br />It is advisable to fetch all records only when
+                  absolutely needed. Fetching all records generates a load
+                  resulting in performance issues.<br />&nbsp;
+                </p>
+              </li>
+              <li>
+                If you wish to use the "sort" and "range" parameters together,
+                the "sort" parameter should be followed by the "range"
+                parameter.<br />&nbsp;
+              </li>
+              <li>
+                If specifying the <strong>Name</strong> or&nbsp;<strong
+                  >Address</strong
+                >
+                field in the criteria, it is mandatory to specify their
+                subfields as shown below:
+                <ul>
+                  <li>Name.first_name</li>
+                  <li>Name.last_name</li>
+                  <li>Name.prefix</li>
+                  <li>Name.suffix</li>
+                  <li>Address.address_line_1</li>
+                  <li>Address.address_line_2</li>
+                  <li>Address.district_city</li>
+                  <li>Address.state_province</li>
+                  <li>Address.postal_Code</li>
+                  <li>Address.country</li>
+                  <li>Address.longitude</li>
+                  <li>
+                    ​Address.latitude&nbsp;&nbsp;<br /><br />If more than one
+                    Name fields are present in the form, the link names of the
+                    subsequent name sub fields will be appended by a number
+                    starting from 1. So, if we take the example of the
+                    subfield&nbsp;<strong>&lt;field&gt;.prefix</strong>, the
+                    link name of the first such field will
+                    be&nbsp;<strong>&lt;field&gt;.prefix</strong>, the link name
+                    of the second such field will
+                    be&nbsp;<strong>&lt;field&gt;.prefix1</strong>, the link
+                    name of the third such field will
+                    be&nbsp;<strong>&lt;field&gt;.prefix2</strong>, and so on.
+                    The same logic applies to the Address subfields.<br />&nbsp;
+                  </li>
+                </ul>
+              </li>
+              <li>
+                The <strong>Name</strong> and <strong>Address</strong> fields do
+                not work with the <strong>sort by&nbsp;</strong>param
+              </li>
+            </ul>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>When a record is Created</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Created or Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Edited</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>When a record is Deleted</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other workflow events</strong></td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <p>
+              1) The following snippet can be used to extract specified field
+              value&nbsp;from the most recently added record.
+            </p>
+            <div>
+              EmployeeDetails = Employees [ ID != 0] sort by Added_Time desc;<br />info
+              EmployeeDetails.&lt;field_link_name&gt;;&nbsp; &nbsp;// picks up
+              the first record from the collection
+            </div>
+            <p>
+              2) The following script fetches all records which have the "age"
+              field value as "25", from the Employees form.
+            </p>
+            <div>EmployeeDetails = Employees [ age == "25" ];</div>
+            <p>
+              3)&nbsp;The following script fetches all records which have the
+              "name" field value as "Edward Thomas" or "Robert Frost", from the
+              Poets_Form&nbsp;form.
+            </p>
+            <div>
+              poets = {"Edward&nbsp;Thomas", "Robert Frost"};<br />Poet_Details
+              = Poets_Form [ name in poets&nbsp;];
+            </div>
+            <p>
+              4)The following script fetches all records which have the "name"
+              field value as "Jon Berryman". The name value is then updated to
+              "John Berryman".
+            </p>
+            <div>
+              EmployeeDetails = Employee[name == "Jon Berryman"];<br />for each
+              employee in EmployeeDetails<br />{<br />employee.name = "John
+              Berryman" ;&nbsp;&nbsp;<br />}
+            </div>
+            <p>
+              5) The following script fetches all records(because no record will
+              have ID as 0) and sorts them by their Names. The Range is
+              specified as 0 to 2, hence only the first 3 records will be
+              fetched.&nbsp;
+            </p>
+            <div>
+              EmployeeDetails = Employee[ID != 0] sort by name range from 0 to
+              2;
+            </div>
+            <h2><a></a>Limitations due to behavioral updates</h2>
+            <p>
+              The following limitations are applicable to this task. To know
+              about more such limitations, you can check <a>this</a> page.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  <strong>Sort using multi select fields</strong>: Records
+                  fetched using this&nbsp;task cannot be sorted using
+                  &nbsp;<strong>Multi Select</strong>,
+                  <strong>Multi Select lookup</strong>,
+                  <strong>Existing Subform</strong>,
+                  <strong>Inline Subform</strong>, or&nbsp;<strong
+                    >Check Box</strong
+                  >&nbsp;fields. For example, the below line of code will throw
+                  an error.
+                </p>
+                <div>
+                  <pre>variable = Form1[ID !=0] sort by checkbox_field ;</pre>
+                </div>
+              </li>
+              <li>
+                <p>
+                  <strong>Sort using composite fields</strong>: Records fetched
+                  using this task cannot be sorted using the
+                  <strong>Name</strong> and <strong>Address</strong>&nbsp;<a
+                    >composite fields</a
+                  >
+                  and <strong>Added_Location</strong> and
+                  <strong>Modified_Location</strong> composite
+                  <a>system fields</a>. For example, the below line of code will
+                  throw an error.
+                </p>
+                <div><pre>variable = Form1[ID !=0] sort by name ;</pre></div>
+              </li>
+              <li>
+                <strong>Fetch records criteria restriction</strong>: The left
+                expression of the <strong>fetch records</strong> task criteria
+                with the format
+                <strong>&lt;parent field&gt;.&lt;child field&gt;</strong> cannot
+                contain the following field types i.e., they cannot contain the
+                format as <em>MultiSelect.MultiSelect</em>.
+                <ul>
+                  <li>
+                    <strong>parent field </strong>- Multi Select Lookup,
+                    Existing Subform, and Inline Subform
+                  </li>
+                  <li>
+                    <p>
+                      <strong>child field </strong>- Multi Select field, Multi
+                      Select Lookup, Existing Subform, Inline Subform, Multi
+                      Select, &nbsp;and Check Box fields.
+                    </p>
+                    <p>
+                      For example, the below line of code will throw an error.
+                    </p>
+                    <div>
+                      <pre>
+variable = Form1[multi_select_lookup_field.multiselect_field == {"Choice 1", "Choice 2"}] ;</pre
+                      >
+                    </div>
+                    <p>
+                      The following method is the best practice to achieve the
+                      use case:
+                    </p>
+                    <div>
+                      <pre>
+fetchedIDs = Form2[multiselect_field IN {"Choice 1", "Choice 2"}].ID.getAll();
+
+variable = Form1[multi_select_lookup_field in fetchedIDs];</pre
+                      >
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p>
+                  <strong>Fetch records criteria restriction</strong> (using
+                  composite fields):&nbsp;The left and right expressions
+                  (operands) of the <strong>fetch records</strong> task criteria
+                  cannot contain the <strong>Name</strong> and
+                  <strong>Address</strong> <a>composite fields</a> and composite
+                  <a>system fields</a> such as
+                  <strong>Added_Location</strong> and
+                  <strong>Modified_Location</strong>. For example, the below
+                  lines of code will throw an error during script execution.
+                  This restriction applies only when the above-mentioned fields
+                  are present in the same form.
+                </p>
+                <div><pre>variable = Form[ Name == Name ];</pre></div>
+                <div><pre>variable = Form[ Address == Address ];</pre></div>
+              </li>
+              <li>
+                <strong>Fetch records criteria restriction</strong> (Multi
+                Select and Single Select fields): A&nbsp;<strong
+                  >Multi Select</strong
+                >
+                field type cannot be compared with a single select field type in
+                the left and right expressions (operands) of the
+                <strong>fetch records</strong> task criteria i.e., the two
+                operands cannot contain the following fields in each of the two
+                field types.
+                <ul>
+                  <li>
+                    <strong>Multi Select field type</strong> - Multi Select
+                    Lookup, Existing Subform, &nbsp;Inline Subform, Multi
+                    Select, &nbsp;and Check Box fields.
+                  </li>
+                  <li>
+                    <p>
+                      <strong>Single Select field type</strong> - Radio, Drop
+                      Down, Drop Down Lookup, and Radio Lookup fields.
+                    </p>
+                    <p>
+                      For example, the below lines of code will throw an error
+                      during script execution.
+                    </p>
+                    <div>
+                      <pre>variable = Form[ MultiSelect == Radio ];</pre>
+                    </div>
+                    <div>
+                      <pre>
+variable = Form[ MultiSelectLookup == SingleSelectLookup ];</pre
+                      >
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Fetch records criteria restriction</strong> (Multi
+                Select fields): The left and right expressions of the
+                <strong>fetch records</strong> task criteria cannot contain the
+                following <strong>Multi Select</strong> field types:
+                <ul>
+                  <li><strong>Lookup (Multi Select)</strong></li>
+                  <li><strong>Existing Subform</strong></li>
+                  <li><strong>Inline Subform</strong></li>
+                  <li>
+                    <p><strong>Check Box</strong></p>
+                    <p>
+                      For example, the below lines of code will throw an error
+                      during script execution.
+                    </p>
+                    <div>
+                      <pre>
+variable = Form[ MultiSelectLookup == MultiSelect ];</pre
+                      >
+                    </div>
+                    <div>
+                      <pre>
+variable = Form[ MultSelectField1 == MultSelectField2 ];</pre
+                      >
+                    </div>
+                    <div><pre>variable = Form[ SubForm == SubForm ];</pre></div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Operator-based criteria restriction</strong>: The left
+                expressions of the <strong>fetch records</strong> task criteria
+                cannot contain the following <strong>Multi Select</strong> field
+                types and the right expressions cannot contain more than
+                <strong>six elements</strong> in the list (here, arguments refer
+                to choices related to the Multi Select fields).
+                <ul>
+                  <li><strong>Multi Select</strong></li>
+                  <li><strong>Lookup (Multi Select)</strong></li>
+                  <li><strong>Existing Subform</strong></li>
+                  <li><strong>Inline Subform</strong></li>
+                  <li>
+                    <p><strong>Check Box</strong></p>
+                    <p>
+                      For example, the below line of code will throw an error.
+                    </p>
+                    <div>
+                      <pre>
+rec = Form[ MultiSelect == {"Choice 1", "Choice 2", "Choice 3", "Choice 4", "Choice 5", "Choice 6", "Choice 7"} ];</pre
+                      >
+                    </div>
+                    <div>
+                      <pre>
+rec = Form[ MultiSelect IN {"Choice 1", "Choice 2", "Choice 3", "Choice 4", "Choice 5", "Choice 6", "Choice 7"} ];</pre
+                      >
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>contains() function criteria restriction</strong>:
+                Records fetched using the <strong>fetch records</strong> task
+                cannot contain more than <strong>one searchString</strong> in
+                the <a>contains()</a> function used as a criteria. This
+                restriction is applicable when the criteria are specified for
+                the following Creator fields:
+                <ul>
+                  <li><strong>Multi Select</strong></li>
+                  <li><strong>Check Box</strong></li>
+                  <li><strong>Multi Select Lookup</strong></li>
+                  <li><strong>Subform</strong></li>
+                  <li>
+                    <p>
+                      <strong>SingleSelect_Lookup.MultiSelectField</strong> -
+                      when you've used a single select lookup field (dropdown or
+                      radio) that looks up data from a multi select field in the
+                      parent form.
+                    </p>
+                    <p>
+                      For example, the below line of code will throw an error
+                      during script execution since<strong>
+                        two searchStrings</strong
+                      >
+                      are specified in the criteria.
+                    </p>
+                    <div>
+                      <pre>
+rec = Form[ MultiSelect.contains({"Choice 1", "Choice 2"}) ];</pre
+                      >
+                    </div>
+                    <p>
+                      The following method is the best practice to achieve the
+                      use case:
+                    </p>
+                    <div>
+                      <pre>
+rec = Form[ MultiSelect.contains("Choice 1") &amp;&amp; MultiSelect.contains("Choice 2")  ];</pre
+                      >
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li>
+                <a>Learn how to fetch records from other Zoho services</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

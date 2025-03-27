@@ -1,0 +1,230 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Cliq Integration Tasks</a></li>
+        <li><a>Delete record using the record ID</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Delete Record by ID</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note</strong>: This task is applicable to all Zoho
+                Services except Zoho Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to delete a record using its ID from a
+              <a>Zoho Cliq database</a>.
+            </p>
+            <p>This task is based on Zoho Cliq API - <a>Delete a record</a></p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.cliq.deleteRecord</span><span>(</span><span>&lt;</span><span>database_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_ID</span><span>&gt;, &lt;connection&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;variable&gt;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        specifies the variable which will hold the response
+                        returned by Zoho Cliq.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;database_name&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        specifies the <a>unique name</a> of the database from
+                        which the record is deleted.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;record_ID&gt;</p></td>
+                    <td>
+                      <p><span>NUMBER</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        specifies the ID of the record which will be deleted.
+                      </p>
+                      <p>
+                        Learn how to fetch the record ID
+                        after&nbsp;<a>creating</a>&nbsp;or&nbsp;<a>fetching</a>&nbsp;records.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;connection&gt;</p></td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      specifies the link name of the Zoho
+                      Cliq&nbsp;<a>connection</a>.
+                      <div>
+                        <p><strong>Note</strong>:</p>
+                        <ul>
+                          <li>
+                            In view of&nbsp;<a
+                              >stopping new authtoken generation</a
+                            >,&nbsp;a Zoho OAuth connection with appropriate
+                            scopes is mandatory&nbsp;for new integration tasks
+                            (created after the deadline specified in the post)
+                            to work as expected. Existing integration tasks will
+                            continue to work with or without the connections
+                            parameter unless the authtoken is manually
+                            deleted&nbsp;from&nbsp;<a>accounts</a>.
+                          </li>
+                          <li>
+                            Add relevant scopes as mentioned in&nbsp;Zoho Cliq
+                            API - <a>Delete a record</a>.
+                          </li>
+                          <li>
+                            Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                            list of Zoho services that support the connections
+                            page.
+                          </li>
+                          <li><a>Learn more about connections</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following example deletes a record with ID -
+              <strong>1775XXXX0002XXXX009</strong>&nbsp;from the database
+              -&nbsp;<strong>availabilitydatabase</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>response_map</span><span>=</span><span>zoho</span><span>.cliq.deleteRecord</span><span>(</span><span>"availabilitydatabase"</span><span>,</span><span>1775XXXX0002XXXX009</span><span>,</span><span> "cliq_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response_map</span></pre>
+                    </div>
+                    <div>
+                      is the variable which will hold
+                      the&nbsp;<span>KEY-VALUE</span>&nbsp;response returned by
+                      Zoho Cliq.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"availabilitydatabase"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the unique name
+                      of the database from which the record is deleted
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>1775XXXX0002XXXX009</span></pre>
+                    </div>
+                    <div>
+                      is the <span>NUMBER</span> that represents the ID of the
+                      record to be deleted
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"cliq_connection"</span></pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the name of the
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>The success response returned is of the following format</p>
+                <div>&nbsp;{"status":"SUCCESS"}</div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned for an
+                  <strong>incorrect database name</strong> is of the following
+                  format
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"status":"FAILURE",<br />&nbsp;"message":"Uh-oh!
+                  Looks like availabilitydata does not exist.",<br />&nbsp;"code":"platform_storage_database_not_found"<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned for an
+                  <strong>incorrect record ID</strong> is of the following
+                  format
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"status":"FAILURE",<br />&nbsp;"message":"No
+                  record found for the id 1775XXXX0002XXXX009",<br />&nbsp;"code":"platform_storage_record_not_exists_for_given_id"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Cliq API</a></li>
+              <li>Common error codes can be <a>viewed here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

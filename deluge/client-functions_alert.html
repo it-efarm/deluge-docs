@@ -1,0 +1,509 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Client Functions</a></li>
+        <li><a>Alert</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Alert</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Example 1: Standard alert</a></li>
+                    <li><a>Example 2: Inline alert</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p>
+                <strong>Note:</strong> This task is applicable only to Zoho
+                Creator.
+              </p>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>Alert </strong>Deluge task&nbsp;displays a specified
+              message&nbsp;in a pop-up window or below
+              the&nbsp;specified&nbsp;field to the user.
+            </p>
+            <p>
+              This task will be listed under
+              <strong>Client Functions</strong> in all events except the "On
+              Validate" event&nbsp;in which it will be listed under
+              <strong>Debug</strong>.
+            </p>
+            <div>
+              <p><strong>Note:</strong></p>
+              <ul>
+                <li>
+                  The collective response from the <a>info</a> and alert
+                  statements in a function can be up to <strong>500 KB</strong>.
+                  When this is limit is exceeded, the response will be truncated
+                  and appended with the following note:<br /><br /><i
+                    >The info message has been truncated because its size
+                    exceeded 500 KB.</i
+                  >
+                </li>
+                <li>
+                  The <strong>alert</strong> task will be executed for the
+                  record events&nbsp;<strong>Created</strong>,
+                  <strong>Edited</strong>,
+                  <strong>Created or Edited</strong>&nbsp;in the&nbsp;<strong
+                    >On Validate</strong
+                  >&nbsp;form event only when followed by the
+                  <a>cancel submit</a> task.
+                </li>
+                <li>
+                  The <a>info</a> task differs from the
+                  <strong>alert</strong> statement in the following ways:
+                  <ul>
+                    <li>
+                      The info statement can be used in all
+                      workflow&nbsp;events.
+                    </li>
+                    <li>
+                      A user must be an admin to be able to view the output of
+                      the info statement.
+                    </li>
+                    <li>
+                      When the info statement is executed in&nbsp;<strong
+                        >On load</strong
+                      >,&nbsp;<strong>On validate</strong>,&nbsp;<strong
+                        >On success</strong
+                      >,&nbsp;<strong>On user input</strong>,&nbsp;<strong
+                        >Subform on add row</strong
+                      >, and&nbsp;<strong>Subform on delete row&nbsp;</strong
+                      >events,&nbsp;the output of the info statement&nbsp;can be
+                      viewed only by clicking on "View Log Details" button at
+                      the bottom of the form.
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre>&nbsp;<span>alert</span><span> &lt;</span><span>expression</span><span>&gt;</span><span>;</span>
+</pre>
+            </div>
+            &nbsp; (or)
+            <div>
+              <pre>&nbsp;<span>alert</span><span>(</span><span>[&lt;field_link_name&gt;]</span><span>, </span><span>&lt;</span><span>message</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>&lt;field_link_name&gt;</span><br />(optional)
+                    </td>
+                    <td><span>FIELD</span></td>
+                    <td>
+                      <p>
+                        The link name of the field below which you need to
+                        display the error message.
+                      </p>
+                      <div>
+                        <strong>Note: </strong>
+                        <ul>
+                          <li>
+                            <strong
+                              >When&nbsp;this parameter is provided:</strong
+                            >
+                            <ul>
+                              <li>
+                                The error message will be displayed
+                                <strong>below the specified field</strong>
+                              </li>
+                              <li>
+                                This task can be used <strong>only</strong> in
+                                the "On Validate event when a record is
+                                <strong>created</strong>,
+                                <strong>edited</strong>, or
+                                <strong>created or edited</strong>. So, the
+                                error message&nbsp;will be displayed below the
+                                specified field only on submitting the
+                                form.&nbsp;Providing any alternate value to the
+                                error field will clear the error message below
+                                the specified field but evaluating the new value
+                                will be done only on resubmitting the form.
+                              </li>
+                              <li>
+                                The maximum number of alert tasks that can be
+                                <strong>executed</strong> by a single "On
+                                Validate" action is <strong>10</strong>.
+                              </li>
+                              <li>
+                                If multiple alert tasks are specified, the order
+                                of execution starts from the top.
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <strong
+                              >When this parameter is not provided:</strong
+                            >
+                            <ul>
+                              <li>
+                                The error message will be displayed in a
+                                <strong>pop-up window</strong>.
+                              </li>
+                              <li>
+                                This task can be used in selected workflow
+                                events. Click <a>here</a> for the entire list.
+                              </li>
+                              <li>
+                                If multiple alert tasks are specified, the order
+                                of execution starts from the bottom.
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;message&gt;</span></td>
+                    <td>All data types</td>
+                    <td>
+                      <p>
+                        The message to be displayed. You can
+                        directly&nbsp;specify&nbsp;a value, or you can also
+                        specify an expression, i.e. a combination of values,
+                        constants, variables, operators, functions and so on,
+                        which evaluates to a value.
+                      </p>
+                      <div>
+                        <strong>Note: </strong>If the
+                        <strong>&lt;field_link_name&gt; </strong>parameter is
+                        provided, the error message can only be a
+                        <span>TEXT</span>&nbsp;and can hold only up
+                        to&nbsp;<strong>256 characters</strong>.
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <a></a>
+            <h2>This task can be used in the following events</h2>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <center><strong>When a record is Created</strong></center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong
+                        >When &lt;field_link_name&gt; is not provided</strong
+                      >
+                    </td>
+                    <td>
+                      <strong
+                        >When &lt;field_link_name&gt; is&nbsp;provided</strong
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center>
+                        <strong>When a record is Created or Edited</strong>
+                      </center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong
+                        >when &lt;field_link_name&gt; is not provided</strong
+                      >
+                    </td>
+                    <td>
+                      <strong
+                        >when &lt;field_link_name&gt; is&nbsp;provided</strong
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center><strong>When a record is Edited</strong></center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong
+                        >when &lt;field_link_name&gt; is not provided</strong
+                      >
+                    </td>
+                    <td>
+                      <strong
+                        >when &lt;field_link_name&gt; is&nbsp;provided</strong
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>On Load</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>Yes</span></td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On User input</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Update</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on add row</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>Subform on delete row</td>
+                    <td><span>Yes</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center><strong>When a record is Deleted</strong></center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong>when &lt;field_link_name&gt; is provided</strong>
+                    </td>
+                    <td>
+                      <strong
+                        >when &lt;field_link_name&gt; is not provided</strong
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>On Validate</td>
+                    <td><span>No</span></td>
+                    <td><span>Yes</span></td>
+                  </tr>
+                  <tr>
+                    <td>On Success</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <center><strong>Other workflow events</strong></center>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>Workflow event</strong></td>
+                    <td>
+                      <strong>when &lt;field_link_name&gt; is provided</strong>
+                    </td>
+                    <td>
+                      <strong
+                        >when &lt;field_link_name&gt; is not provided</strong
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>On a scheduled date</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During approval process</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>During payment process</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In a Custom Function</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                  <tr>
+                    <td>In an Action item in report</td>
+                    <td><span>No</span></td>
+                    <td><span>No</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1: Standard alert</h2>
+            <p>
+              In the following example, if the Age field has a value
+              lesser&nbsp;than 18, the user is shown an alert message and the
+              form submission is canceled. This alert message will be displayed
+              in a pop-up window.
+            </p>
+            <div>
+              <pre>&nbsp;<span>if</span><span>(</span><span>Age</span><span> &lt;</span><span> 18</span><span>)</span>
+&nbsp;<span>{</span>
+&nbsp;<span>alert</span> <span>"You are not authorized to make this transaction"</span><span>;</span>
+&nbsp;<span>cancel</span><span> submit</span><span>;</span>
+&nbsp;<span>}</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"You are not authorized to make this transaction"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the custom error
+                      message that needs to be displayed in a pop-up window.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2: Inline alert</h2>
+            <p>
+              The following example displays a custom error message below the
+              specified&nbsp;date field - <strong>due_date</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>if</span><span>(</span><span>due_date</span><span> &lt;</span><span> zoho</span><span>.currentdate</span><span>)</span>
+&nbsp;<span>{</span>
+&nbsp;<span>alert</span><span>(</span><span>due_date</span><span>, </span><span>"Enter a future date"</span><span>)</span><span>;</span>
+&nbsp;<span>cancel</span><span> submit</span><span>;</span>
+&nbsp;<span>}</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>due_date</span></pre>
+                    </div>
+                    <div>
+                      The <span>FIELD</span>&nbsp;that represents the field link
+                      name.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Enter a future date"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the custom error
+                      message.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,337 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho FSM integration tasks</a></li>
+        <li><a>Get Related Records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get Related Records from Zoho FSM</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              You can fetch related information (Notes, Tasks, Contacts, etc.)
+              about a record using the
+              <strong>zoho.fsm.getRelatedRecords()</strong>&nbsp;Deluge task.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span> <span>=</span> <span>zoho</span><span>.fsm.getRelatedRecords</span><span>(</span><span>&lt;</span><span>relation_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>parent_module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>record_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>page</span><span>&gt;</span><span>,</span> <span>&lt;</span><span>per_page</span><span>&gt;</span><span>, <span>&lt;</span><span>optional_data_map</span><span>&gt;</span></span><span>, <span>&lt;</span><span>connection</span><span>&gt;)</span><span>;</span></span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;response&gt;&nbsp;</p></td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td><p>is the response returned&nbsp;by Zoho FSM.</p></td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;relation_name&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        is the API name of the related list whose entries you
+                        want to fetch.
+                      </p>
+                      <p>
+                        <strong>Note: </strong>You can find the supported
+                        modules in <a>Zoho FSM API document</a>.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;parent_module_name&gt;&nbsp;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        is the API name of the module whose related list
+                        information you want to fetch.
+                      </p>
+                      <p>
+                        <strong>Note:</strong> You can find the supported
+                        modules in <a>Zoho FSM API document</a>.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;record_id&gt;&nbsp;</p></td>
+                    <td>
+                      <p><span>NUMBER</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        is the unique ID of the record you want to retrieve.
+                      </p>
+                      <p>
+                        <strong>Note:</strong> Learn how to fetch the ID of a
+                        record
+                        after&nbsp;<a>creating</a>&nbsp;or&nbsp;<a>fetching</a>&nbsp;it.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;page&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p><span>NUMBER</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        indicates the page number from which you want to
+                        retrieve records.
+                      </p>
+                      <p><strong>Default value:</strong> 1</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;per_page&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p><span>NUMBER</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        indicates&nbsp;the number of records that need to be
+                        fetched per page.
+                      </p>
+                      <p><strong>Default value:</strong> 200</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;optional_data_map&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p><span>KEY-VALUE</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        is a parameter to pass any additional values in the
+                        <a>Zoho FSM API</a>.&nbsp;To ignore querying, provide an
+                        empty map. For example: {"":""}
+                      </p>
+                      <strong>Note:&nbsp;</strong>Currently there is no extra
+                      parameter supported by the&nbsp;<a
+                        >Zoho FSM - Get Related Records API</a
+                      >.&nbsp;
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;connection&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        is the name of the <a>connection</a>&nbsp;created for
+                        Zoho FSM.
+                      </p>
+                      <strong>Note:&nbsp;</strong>Add relevant scopes as
+                      mentioned in <a>Zoho FSM API</a>.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script fetches all the
+              <strong>Work Orders</strong> associated to the
+              <strong>Request</strong> with ID -
+              <strong>23033XXXXXXXXXXXXXX</strong> in Zoho FSM.
+            </p>
+            <div>
+              <pre>&nbsp;<span>emptyMap </span><span>= </span><span>Map</span><span>()</span><span>;</span>
+&nbsp;
+&nbsp;<span>response </span><span>= </span><span>zoho</span><span>.fsm.getRelatedRecords</span><span>(</span><span>"Work_Orders"</span><span>, </span><span>"Requests"</span><span>, </span><span>23033XXXXXXXXXXXXXX​</span><span>, </span><span>1​</span><span>, </span><span>200​</span><span>, </span><span>emptyMap​</span><span>, </span><span>"fsm_connection"​</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <pre><span>response</span></pre>
+                </div>
+                <div>
+                  is the&nbsp;<span>KEY-VALUE</span>&nbsp;response returned by
+                  Zoho FSM.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Work_Orders"</span></pre>
+                </div>
+                <div>
+                  is the <span>TEXT</span> that represents the API name of the
+                  Zoho FSM module from which the record has to be fetched.
+                </div>
+              </div>
+              <div>
+                <div>
+                  <pre><span>"Requests"</span></pre>
+                </div>
+                <div>
+                  is the <span>TEXT</span> that represents the parent module to
+                  which the submodule belongs.
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p>
+              The following is a <strong>sample response</strong>&nbsp;returned
+              when related records are fetched:
+            </p>
+            <div>
+              {<br />&nbsp;&nbsp;"data": [<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Owner":
+              {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":
+              "Mary Cooper",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000161001",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email":
+              "shawn@zylker.com"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Estimate":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Company": {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":
+              "ABC Services",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000161212"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Email":
+              "betty@zylker.com",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Discount":
+              0,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"$currency_symbol":
+              "$",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Cancellation_Reason":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Config":
+              "{\"sales_tax_type\":\"exclusive\",\"tax_rounding_type\":\"not_configured\",\"Type\":\"32\",\"is_discount_before_tax\":true,\"is_inclusive_tax\":false,\"is_discount_tax_inclusive\":false,\"discount_type\":\"entity_level\",\"is_sales_inclusive_tax_enabled\":false,\"transaction_rounding_type\":\"no_rounding\",\"is_registered_for_tax\":true,\"Tax_Details\":{\"Tax_Percentage\":7,\"Tax_Id\":\"3219741000000078015\",\"taxFromModule\":\"Addresses\",\"Tax_Name\":\"SalesTax\",\"Taxable\":true}}",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Closed_Time":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Cancelled_Or_Terminated_Time":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Dispatcher": {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":
+              "Mary Cooper",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000161001"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Name":
+              "WO9",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Tax_Amount":
+              7,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Invalid_Data":
+              false,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Modified_By":
+              {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":
+              "Mary Cooper",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000161001",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email":
+              "shawn@zylker.com"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Exchange_Rate":
+              1,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Phone":
+              "111-111-1111",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Cancellation_Message":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Currency":
+              "USD",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"$inactive":
+              false,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Service_Address":
+              {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Service_Latitude":
+              41.491496,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Service_Street_1":
+              "4117 Kennedy Dr",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Service_State":
+              "Illinois",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Service_Zip_Code":
+              "61244",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":
+              "AD-2",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000161231",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Service_Longitude":
+              -90.457028,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Service_Address_Name":
+              "Service Address",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Service_Street_2":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Service_City":
+              "East Moline",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Service_Country":
+              "United States"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Asset":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000185184",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Discount_Type":
+              "Currency",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Status":
+              "New",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Grand_Total":
+              107,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Territory": {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":
+              "Colona",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000161185"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Modified_Time":
+              "2022-05-16T00:48:59-07:00",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Due_Date":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Adjustment": 0,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Priority":
+              "Medium",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Created_Time":
+              "2022-05-13T00:51:11-07:00",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Request":
+              {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":
+              "REQ1",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000185139"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Sub_Total":
+              100,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"$editable":
+              true,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Completed_Time":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Billing_Status":
+              "-None-",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"$permissions":
+              {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"read":
+              true,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"edit":
+              true,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"delete":
+              true<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Contact":
+              {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":
+              "Lucy Robins",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000161222"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Type":
+              "Service",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Parent_Work_Order":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Preference": {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Preferred_Date_1":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Preferred_Date_2":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Preference_Note":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Preferred_Time":
+              null<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Billing_Address":
+              {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Billing_Longitude":
+              -90.358476,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Billing_City":
+              "Colona",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Billing_Country":
+              "United States",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":
+              "AD-1",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Billing_Address_Name":
+              "Billing Address",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Billing_Street_1":
+              "901 1st St",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Billing_State":
+              "Illinois",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Billing_Zip_Code":
+              "61241",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Billing_Street_2":
+              null,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Billing_Latitude":
+              41.469353,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000161230"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Summary":
+              "Bathroom floor repair",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Created_By":
+              {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name":
+              "Mary Cooper",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":
+              "1439000000161001",<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"email":
+              "shawn@zylker.com"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"info":
+              {<br />&nbsp;&nbsp;&nbsp;&nbsp;"per_page": 200,<br />&nbsp;&nbsp;&nbsp;&nbsp;"count":
+              1,<br />&nbsp;&nbsp;&nbsp;&nbsp;"page": 1,<br />&nbsp;&nbsp;&nbsp;&nbsp;"more_records":
+              false<br />&nbsp;&nbsp;}<br />}
+            </div>
+            <p>
+              To get the list of record IDs from the response, execute the
+              following snippet:
+            </p>
+            <div>
+              <pre>&nbsp;<span>records </span><span>= </span><span>response</span><span>.toMap</span><span>(</span><span>)</span><span>.get</span><span>(</span><span>"data"</span><span>)</span><span>;</span>
+&nbsp;<span>for each </span><span>rec </span><span>in </span><span>records</span>
+&nbsp;<span>{</span>
+&nbsp;&nbsp;<span>info </span><span>rec</span><span>.get</span><span>(</span><span>"id"</span><span>)</span><span>;</span>
+&nbsp;<span>}</span></pre>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho FSM API</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

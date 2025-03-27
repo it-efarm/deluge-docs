@@ -1,0 +1,118 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Encryption functions</a></li>
+        <li><a>base64decode</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Base 64 Decode</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.encryption.base64Decode</strong> task is used to
+              decode text that is <a>encoded</a> in base 64 format
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.encryption.base64Decode</span><span>(</span><span>&lt;</span><span>encoded_text</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the response that represents the decoded text
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;encoded_text&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        Specifies the base 64 encoded text that needs to be
+                        decoded
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>
+              The following script decodes the base 64 encoded text -
+              <strong>am9obkB6eWxrZXIuY29t</strong> and returns the original
+              text - <strong>john@zylker.com</strong>.
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.encryption.base64Decode</span><span>(</span><span>"am9obkB6eWxrZXIuY29t"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> response that represents the base 64
+                      encoded text.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"am9obkB6eWxrZXIuY29t"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the base 64 encoded
+                      text that needs to be decoded
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Encryption tasks</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="opacity: 0.00678537"><iframe></iframe></div>
+</div>

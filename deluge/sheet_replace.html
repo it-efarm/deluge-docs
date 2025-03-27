@@ -1,0 +1,554 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sheet Integration Tasks</a></li>
+        <li><a>Replace text</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Replace in Zoho Sheet</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Replace a piece of text with a new text in a workbook
+                        of Zoho Sheet file</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Replace a piece of text with a new text in the
+                        specified column of a workbook of Zoho Sheet file</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.sheet.replace</strong> task is used to find the
+              specified text in a row,&nbsp;column,&nbsp;worksheet,
+              or&nbsp;workbook of Zoho Sheet file, and replace all its
+              occurrences&nbsp;with a new text. This task is based on the
+              <a>Zoho Sheet API - Find and Replace</a>.
+            </p>
+            <div>
+              <strong>Note:</strong> On average, it takes about a minute to
+              index a file/folder after it is created or updated. This indexing
+              time can increase if the queue size increases.&nbsp;You will not
+              get the expected result if&nbsp;you execute zoho.sheet.replace
+              task before the Zoho Sheet file from which you need to find and
+              replace a text is indexed.
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.sheet.replace</span><span>(</span><span>&lt;</span><span>resource_id</span><span>&gt;</span><span>, </span><span>&lt;</span><span>scope</span><span>&gt;</span><span>, </span><span>&lt;</span><span>search_text</span><span>&gt;</span><span>, </span><span>&lt;</span><span>replace_with</span><span>&gt;</span><span>, </span><span>&lt;</span><span>worksheet_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>row_index/column_index</span><span>&gt;</span>,<span>[&lt;</span><span>connection&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            where:
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The status of the executed task, the number of rows
+                            matched, and their data after replacing.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;resource_id&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The ID of the Zoho Sheet file in which the search
+                            needs to be performed.
+                          </p>
+                          <p>
+                            <strong>Note: </strong>The resource_id can be
+                            obtained from the URL of the Zoho sheet file. The
+                            URL is in&nbsp;the following format:
+                          </p>
+                          <p>
+                            https://sheet.zoho.com/sheet/open/<strong>&lt;resource_id&gt;</strong>/sheets/&lt;worksheet_name&gt;<br />/ranges/&lt;cell_range&gt;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;scope&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          The scope in which the search needs to be
+                          performed.<br /><br /><strong>Allowed values:</strong>
+                          <ul>
+                            <li>workbook</li>
+                            <li>worksheet</li>
+                            <li>row</li>
+                            <li>column</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;search_text&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          The text that needs to be searched for and
+                          replaced.<br /><br /><strong>Note: </strong>The search
+                          performed by this task is not case-sensitive. This
+                          task finds the occurrences of the specified text
+                          regardless of its casing (uppercase/lowercase).
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;replace_with&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          The new text to replace all the occurrences of the
+                          specified search text.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;worksheet_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            The name of the worksheet in which the find and
+                            replace task needs to be performed.
+                          </p>
+                          <div>
+                            <strong>Note:</strong>
+                            <ul>
+                              <li>
+                                To skip this parameter, provide an empty text
+                                value.
+                              </li>
+                              <li>
+                                This parameter is <strong>required</strong> if
+                                the scope is set to
+                                <strong
+                                  >worksheet,&nbsp;row, or&nbsp;column.</strong
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;row_index/column_index&gt;</p></td>
+                        <td>
+                          <p><span>NUMBER</span></p>
+                        </td>
+                        <td>
+                          The index number of the row or the column in which the
+                          search needs to be performed.<br /><br /><strong
+                            >Note:</strong
+                          >
+                          <ul>
+                            <li>
+                              This parameter is <strong>required</strong> if the
+                              &lt;scope&gt; parameter is set to&nbsp;<strong
+                                >row or column</strong
+                              >.
+                            </li>
+                            <li>
+                              This parameter will not be validated if the
+                              &lt;scope&gt; parameter is set to
+                              <strong>workbook</strong> or
+                              <strong>worksheet</strong>.
+                            </li>
+                            <li>
+                              The column_index needs to be supplied with the
+                              number equivalent of the column index (in
+                              letters).&nbsp;The index number starts with 1. For
+                              example, the index number of the column -
+                              <strong>A</strong> is <strong>1</strong> and the
+                              index number of the column -
+                              <strong>AA</strong> is <strong>27</strong>.
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;<br />&nbsp;</p>
+                        </td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>The link name of the <a>connection</a>.</p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of
+                                <a>stopping new authtoken generation</a>,&nbsp;a
+                                Zoho OAuth connection with appropriate scopes is
+                                mandatory in order for new integration tasks
+                                (created after the deadline specified in the
+                                post) to work as expected. Existing integration
+                                tasks will continue to work with or without the
+                                connections parameter until you manually delete
+                                the authtoken from <a>accounts</a>.
+                              </li>
+                              <li>
+                                Scopes required for this task as mentioned in
+                                API docs -
+                                <strong
+                                  >ZohoSheet.dataAPI.UPDATE,
+                                  ZohoSheet.dataAPI.READ</strong
+                                >.
+                              </li>
+                              <li>
+                                Refer to <a>this&nbsp;post</a> for the list of
+                                Zoho services that support the connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div>
+              <strong>Note: </strong>The resource_id and worksheet_name can be
+              obtained from the URL of the Zoho Sheet file.<br /><br /><strong
+                >URL format:</strong
+              >
+              https://sheet.zoho.com/sheet/open/<strong>&lt;resource_id&gt;</strong>/sheets/<strong
+                >&lt;worksheet_name&gt;</strong
+              ><br />/ranges/&lt;cell_range&gt;
+            </div>
+            <h2>
+              <a></a>Example 1: Replace a piece of text with a new text in a
+              workbook of Zoho Sheet file
+            </h2>
+            <p>
+              The following script searches for the text -
+              <strong>Trade Show</strong> in the workbook of ID -
+              <strong>eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41</strong> and
+              replaces all the occurrences with the text -
+              <strong>Event:</strong>
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sheet.replace</span><span>(</span><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span>, <span>"workbook"</span>, <span>"Trade Show"</span>, <span>"Event"</span>, <span>""</span>, <span>0</span>, <span>"sheet_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response returned by Zoho
+                      Sheet. It represents the status of the executed task, the
+                      number of rows matched, and their data after replacing.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the ID of the Zoho
+                      Sheet file.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"workbook"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the scope in which
+                      the find and replace task&nbsp;is performed.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Trade Show"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the piece of text
+                      that needs to be searched in the specified scope.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Event"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the new text.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>""</span></pre>
+                    </div>
+                    <div>
+                      The empty&nbsp;<span>TEXT</span> value supplied to skip
+                      &lt;worksheet_name&gt; parameter.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>0</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span>&nbsp;that is supplied to skip
+                      &lt;row_index/column_index&gt; parameter.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"sheet_connection</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;that represents the link name
+                      of the sheet connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 2: Replace a piece of text with a new text in the
+              specified column of a workbook of Zoho Sheet file
+            </h2>
+            <p>
+              The following script searches for the text -
+              <strong>High</strong> in the column -
+              <strong>E (index number: 5)</strong> of the Zoho Sheet file with
+              ID - <strong>eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41</strong> and
+              replaces all the occurrences with the new text -
+              <strong>Closed:</strong>
+            </p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sheet.replace</span><span>(</span><span>"eev4nXXXXXXXXXXXXXXXXXXXXXXXXXXXcff41"</span>, <span>"column"</span>, <span>"Sheet1"</span>, <span>"High"</span>, <span>"Closed"</span>, <span>5</span>, <span>"sheet_connection"</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>"column"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the scope in which
+                      the find and replace task is performed.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Sheet1"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the worksheet name.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"High"</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the piece of text
+                      that needs to be replaced with a new text.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Closed"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the new text.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>5</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span> that represents the column index
+                      number in which the find and replace task needs to be
+                      performed.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"sheet_connection</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;that represents the link name
+                      of the sheet connection.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be&nbsp;returned&nbsp;in the
+                  following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"cells": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"row_index":
+                  2,<br />&nbsp;&nbsp;"formula": "Closed",<br />&nbsp;&nbsp;"cell_value":
+                  "Closed",<br />&nbsp;&nbsp;"sheet_name": "Sheet1",<br />&nbsp;&nbsp;"column_index":
+                  5<br />&nbsp;&nbsp;},<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"row_index":
+                  4,<br />&nbsp;&nbsp;"formula": "Closed",<br />&nbsp;&nbsp;"cell_value":
+                  "Closed",<br />&nbsp;&nbsp;"sheet_name": "Sheet1",<br />&nbsp;&nbsp;"column_index":
+                  5<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"method":
+                  "replace",<br />&nbsp;&nbsp;"matches_found": 2,<br />&nbsp;&nbsp;"status":
+                  "success"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response for invalid resource ID will
+                  be&nbsp;returned&nbsp;in&nbsp;the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The workbook
+                  does not exists",<br />&nbsp;&nbsp;"error_code": 2862<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for incorrect or non-existent worksheet
+                  name will be&nbsp;returned&nbsp;in&nbsp;the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The sheet
+                  does not exists",<br />&nbsp;&nbsp;"method": "replace",<br />&nbsp;&nbsp;"error_code":
+                  2863,<br />&nbsp;&nbsp;"status": "failure"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for missing column index will
+                  be&nbsp;returned&nbsp;in&nbsp;the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The parameter
+                  [column] required for processing this request is missing.",<br />&nbsp;&nbsp;"method":
+                  "replace",<br />&nbsp;&nbsp;"error_code": 2831,<br />&nbsp;&nbsp;"status":
+                  "failure"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for missing row index will
+                  be&nbsp;returned&nbsp;in&nbsp;the following format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The parameter
+                  [row] required for processing this request is missing.",<br />&nbsp;&nbsp;"method":
+                  "replace",<br />&nbsp;&nbsp;"error_code": 2831,<br />&nbsp;&nbsp;"status":
+                  "failure"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for missing worksheet_name or
+                  worksheet_id will be&nbsp;returned&nbsp;in&nbsp;the following
+                  format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The parameter
+                  [worksheet_name or worksheet_id] required for processing this
+                  request is missing.",<br />&nbsp;&nbsp;"method": "replace",<br />&nbsp;&nbsp;"error_code":
+                  2831,<br />&nbsp;&nbsp;"status": "failure"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for null value in the search_text
+                  parameter will be&nbsp;returned&nbsp;in&nbsp;the following
+                  format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The parameter
+                  [search] required for processing this request is missing.",<br />&nbsp;&nbsp;"method":
+                  "replace",<br />&nbsp;&nbsp;"error_code": 2831,<br />&nbsp;&nbsp;"status":
+                  "failure"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response for null value in the search_text
+                  parameter will be&nbsp;returned&nbsp;in&nbsp;the following
+                  format:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"error_message": "The parameter
+                  [search] required for processing this request is missing.",<br />&nbsp;&nbsp;"method":
+                  "replace",<br />&nbsp;&nbsp;"error_code": 2831,<br />&nbsp;&nbsp;"status":
+                  "failure"<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Sheet integration tasks</a></li>
+              <li><a>Zoho Sheet API - Find and Replace</a></li>
+              <li><a>Zoho Sheet - Possible errors</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,116 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Collection functions</a></li>
+        <li><a>isEmpty</a></li>
+        <li><a>Functions which return a boolean value</a></li>
+        <li><a>isEmpty - logical function</a></li>
+        <li><a>List functions</a></li>
+        <li><a>isEmpty</a></li>
+        <li><a>Logical functions</a></li>
+        <li><a>isEmpty</a></li>
+        <li><a>Map functions</a></li>
+        <li><a>isEmpty</a></li>
+        <li><a>Text functions</a></li>
+        <li><a>isEmpty</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>isEmpty</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>isEmpty</strong> function takes an
+              <strong>expression</strong> as argument. It returns true if the
+              value resolved by the expression is empty. Otherwise, it returns
+              false.
+            </p>
+            <div>
+              <p>
+                <strong>Note:</strong> Please refer to the
+                <a>differences between isBlank(), isNull() and isEmpty()</a> and
+                how data can be validated.
+              </p>
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li><span>BOOLEAN</span></li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span> = <span>&lt;</span><span>expression</span><span>&gt;</span><span>.isEmpty</span><span>(</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><strong>Parameter</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td><span>BOOLEAN</span></td>
+                    <td>
+                      Variable which will contain the returned boolean value.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;expression&gt;</td>
+                    <td>
+                      <span>TEXT</span>/<span>LIST</span>/<span>MAP</span>/<span
+                        >COLLECTION</span
+                      >
+                    </td>
+                    <td>
+                      Variable which will hold the expression awaiting the empty
+                      validation.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              <pre>&nbsp;<span>listVar</span> <span>=</span> <span>{</span><span>"Projects"</span><span>,</span> <span>"Mail"</span><span>,</span> <span>{</span><span>"Zoho Creator"</span><span>,</span> <span>"Zoho CRM"</span><span>}</span><span>}</span><span>;</span>
+&nbsp;<span>info </span><span>listVar</span><span>.isEmpty</span><span>(</span><span>)</span><span>;</span> <span>//returns false</span>
+</pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>collVar</span> <span>=</span> <span>Collection</span><span>(</span><span>)</span><span>;</span>
+&nbsp;<span>info </span><span>collVar</span><span>.isEmpty</span><span>(</span><span>)</span><span>;</span> <span>//returns true</span>
+</pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>mapVar</span> <span>=</span> <span>Map</span><span>(</span><span>{</span><span>"key1"</span><span>:</span><span>"value1"</span><span>,</span> <span>"key2"</span><span>:</span><span>"value2"</span><span>}</span><span>)</span><span>;</span>
+&nbsp;<span>mapVar</span> <span>=</span> <span>{</span><span>}</span><span>;</span>
+&nbsp;<span>info </span><span>mapVar</span><span>.isEmpty</span><span>(</span><span>)</span><span>;</span> <span>//returns true</span>
+</pre>
+            </div>
+            <div>
+              <pre>&nbsp;<span>textVar</span> <span>=</span> <span>" "</span><span>;</span>
+&nbsp;<span>info </span><span>textVar</span><span>.isEmpty</span><span>(</span><span>)</span><span>;</span> <span>//returns false</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

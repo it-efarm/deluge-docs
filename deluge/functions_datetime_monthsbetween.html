@@ -1,0 +1,128 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Date-time functions</a></li>
+        <li><a>monthsBetween</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>monthsBetween()</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Return Type</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Examples</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>monthsBetween()</strong> function takes
+              <strong>startDateTimeValue</strong> and
+              <strong>endDateTimeValue</strong> as arguments. It returns the
+              number of months between the given date-time values.
+            </p>
+            <div>
+              <strong>Note:</strong> The difference between monthsBetween
+              function and <a>monthsDiff</a>&nbsp;function is that the
+              monthsBetween function considers a month as 30 days. So, let's say
+              the start date is specified as 01-Feb-2020 and the end date is
+              specified as 01-Mar-2020, the monthsBetween function will return 0
+              (since the difference in days is less than 30). The monthsDiff
+              function returns 1 in this case since this function considers a
+              month depending on the number of days in it.&nbsp;
+            </div>
+            <h2><a></a>Return Type</h2>
+            <ul>
+              <li>Number</li>
+            </ul>
+            <h2><a></a>Syntax</h2>
+            <div>
+              &lt;variable&gt;
+              =&nbsp;<span>&lt;startDateTimeValue&gt;</span>.monthsBetween(<span>&lt;endDateTimeValue&gt;</span>);
+            </div>
+            <p>(OR)</p>
+            <div>
+              &lt;variable&gt; =
+              monthsBetween(<span>&lt;startDateTimeValue&gt;</span>,<span>&lt;endDateTimeValue&gt;</span>);
+            </div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Data type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;variable&gt;</td>
+                    <td>Variable which will contain the returned number.</td>
+                    <td>NUMBER</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;startDateTimeValue&gt;</span></td>
+                    <td><p>The starting date-time value.</p></td>
+                    <td>DATE-TIME</td>
+                  </tr>
+                  <tr>
+                    <td><span>&lt;endDateTimeValue&gt;</span></td>
+                    <td><p>The ending date-time value.</p></td>
+                    <td>DATE-TIME</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <strong>Note:</strong>
+              <p>
+                The time value is not taken into account while using this
+                function.
+              </p>
+              <p>
+                Please refer <a>this help document</a> to learn about the
+                supported date-time formats.
+              </p>
+              <p>A runtime error will be encountered in Zoho Creator if:</p>
+              <ul>
+                <li>
+                  the hour value, or minute value, or second value, is specified
+                  in more than 2 digits.
+                </li>
+                <li>
+                  the date value exceeds the number of days in that month.
+                </li>
+                <li>an incorrect month value is specified.</li>
+                <li>the year value has more than 4 digits.</li>
+              </ul>
+            </div>
+            <h2><a></a>Examples</h2>
+            <div>
+              startDate = '31-Dec-1989';<br />endDate = '01-Jan-1990';<br />newEndDate
+              = '01-Feb-1990';<br />numberOfMonths= monthsBetween(startDate,
+              endDate);&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+              &nbsp; // returns 0<br />numOfMonths = monthsBetween(startDate,
+              newEndDate);&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; //
+              returns 1
+            </div>
+            &nbsp;
+            <div>
+              startDate = '01-Feb-2020';<br />endDate = '01-Mar-2020';<br />info
+              monthsBetween(startDate, endDate); // returns 0
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

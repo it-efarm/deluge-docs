@@ -1,0 +1,154 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Sign Integration Tasks</a></li>
+        <li><a>Get templates</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get templates from&nbsp;Zoho Sign</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.sign.getTemplates</strong> task is used
+              to&nbsp;get the&nbsp;list of all templates from&nbsp;Zoho Sign.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.sign.getTemplates</span><span>(</span><span>[&lt;</span><span>query_value</span><span>&gt;]</span>,<span>[&lt;</span><span>connection</span><span>&gt;]</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;response&gt;</p></td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The templates details that contain the template
+                            owner name, template ID and other templates specific
+                            information.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;query_value&gt;</p>
+                          <p>(optional)</p>
+                        </td>
+                        <td><span>KEY-VALUE</span></td>
+                        <td>
+                          <p>
+                            The query values. The keys to this parameter need to
+                            be provided as specified in the
+                            <a>Zoho Sign API</a>.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>(optional)*</p>
+                        </td>
+                        <td><span>TEXT</span></td>
+                        <td>
+                          <p>The name of the <a>connection</a>.</p>
+                          <div>
+                            <strong>*Note:</strong> This param is not applicable
+                            to <strong>Zoho Creator</strong> and mandatory in
+                            <strong>Zoho Cliq.</strong>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example</h2>
+            <p>The following script fetches all templates from Zoho Sign:</p>
+            <div>
+              <pre>&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.sign.getTemplates</span><span>(</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      template details.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response</h2>
+            <strong>Success response</strong>
+            <ul>
+              <li>
+                The success response will be returned in the following format:
+                <div>
+                  &nbsp;{<br />&nbsp;"code":0,<br />&nbsp;"templates":[<br />&nbsp;{<br />&nbsp;"owner_email":"shawn@zylker.com",<br />&nbsp;"created_time":1572858733743,<br />&nbsp;"email_reminders":true,<br />&nbsp;"document_ids":[<br />&nbsp;{<br />&nbsp;"document_name":"art-background-blue-1037996.jpg",<br />&nbsp;"document_size":1095706,<br />&nbsp;"document_order":"0",<br />&nbsp;"total_pages":1,<br />&nbsp;"document_id":"10696000000010002"<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"document_name":"CRM_V2_equivalent_tasks.png",<br />&nbsp;"document_size":96995,<br />&nbsp;"document_order":"1",<br />&nbsp;"total_pages":1,<br />&nbsp;"document_id":"10696000000009014"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"notes":"",<br />&nbsp;"reminder_period":5,<br />&nbsp;"owner_id":"10696000000009003",<br />&nbsp;"description":"",<br />&nbsp;"template_name":"art-background-blue-1037996.jpg",<br />&nbsp;"modified_time":1572865144905,<br />&nbsp;"is_deleted":false,<br />&nbsp;"expiration_days":15,<br />&nbsp;"is_sequential":true,<br />&nbsp;"template_id":"10696000000010001",<br />&nbsp;"validity":-1,<br />&nbsp;"request_type_name":"Others",<br />&nbsp;"owner_first_name":"Shawn",<br />&nbsp;"request_type_id":"10696000000000187",<br />&nbsp;"owner_last_name":"M",<br />&nbsp;"actions":[<br />&nbsp;{<br />&nbsp;"ishost":false,<br />&nbsp;"verify_recipient":false,<br />&nbsp;"role":"Role
+                  1",<br />&nbsp;"action_id":"10696000000010014",<br />&nbsp;"action_type":"SIGN",<br />&nbsp;"private_notes":"",<br />&nbsp;"recipient_email":"hailee@zylker.com",<br />&nbsp;"signing_order":1,<br />&nbsp;"recipient_name":"Hailee",<br />&nbsp;"recipient_phonenumber":"",<br />&nbsp;"recipient_countrycode":""<br />&nbsp;}<br />&nbsp;]<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"owner_email":"shawn@zylker.com",<br />&nbsp;"created_time":1572860148596,<br />&nbsp;"email_reminders":true,<br />&nbsp;"document_ids":[<br />&nbsp;{<br />&nbsp;"document_name":"CRM_V2_equivalent_tasks.png",<br />&nbsp;"document_size":96995,<br />&nbsp;"document_order":"0",<br />&nbsp;"total_pages":1,<br />&nbsp;"document_id":"10696000000009027"<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"notes":"",<br />&nbsp;"reminder_period":5,<br />&nbsp;"owner_id":"10696000000009003",<br />&nbsp;"description":"",<br />&nbsp;"template_name":"CRM_V2_equivalent_tasks.png",<br />&nbsp;"modified_time":1572871750953,<br />&nbsp;"is_deleted":false,<br />&nbsp;"expiration_days":15,<br />&nbsp;"is_sequential":true,<br />&nbsp;"template_id":"10696000000009026",<br />&nbsp;"validity":-1,<br />&nbsp;"request_type_name":"Others",<br />&nbsp;"owner_first_name":"Shawn",<br />&nbsp;"request_type_id":"10696000000000187",<br />&nbsp;"owner_last_name":"M",<br />&nbsp;"actions":[<br />&nbsp;{<br />&nbsp;"ishost":false,<br />&nbsp;"verify_recipient":false,<br />&nbsp;"role":"Role
+                  1",<br />&nbsp;"action_id":"10696000000010023",<br />&nbsp;"action_type":"SIGN",<br />&nbsp;"private_notes":"",<br />&nbsp;"recipient_email":"justin@zylker.com",<br />&nbsp;"signing_order":1,<br />&nbsp;"recipient_name":"Justin",<br />&nbsp;"recipient_phonenumber":"",<br />&nbsp;"recipient_countrycode":""<br />&nbsp;},<br />&nbsp;{<br />&nbsp;"ishost":false,<br />&nbsp;"verify_recipient":false,<br />&nbsp;"role":"Role
+                  2",<br />&nbsp;"action_id":"10696000000010065",<br />&nbsp;"action_type":"APPROVER",<br />&nbsp;"private_notes":"",<br />&nbsp;"recipient_email":"ben@zylker.com",<br />&nbsp;"signing_order":2,<br />&nbsp;"recipient_name":"Ben",<br />&nbsp;"recipient_phonenumber":"",<br />&nbsp;"recipient_countrycode":""<br />&nbsp;}<br />&nbsp;]<br />&nbsp;}<br />&nbsp;],<br />&nbsp;"message":"Template
+                  list retrieved successfully",<br />&nbsp;"page_context":{<br />&nbsp;"sort_column":"template_name",<br />&nbsp;"has_more_rows":false,<br />&nbsp;"start_index":1,<br />&nbsp;"total_count":2,<br />&nbsp;"sort_order":"ASC",<br />&nbsp;"row_count":2<br />&nbsp;},<br />&nbsp;"status":"success"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <a></a>
+            <p>
+              To fetch the template ID from the response returned, execute the
+              following script.
+            </p>
+            <div>
+              <pre>&nbsp;<span>res </span><span>= </span><span>&lt;response&gt;</span><span>.get</span><span>(</span><span>"templates"</span><span>)</span><span>.get</span><span>(</span><span>0</span><span>)</span><span>.get</span><span>(</span><span>"document_ids"</span><span>)</span><span>;</span>
+&nbsp;<span>for each </span><span>var </span><span>in </span><span>res</span>
+&nbsp;<span>{</span>
+&nbsp;<span>info </span><span>var</span><span>.get</span><span>(</span><span>"document_id"</span><span>)</span><span>;</span>
+&nbsp;<span>}</span>
+</pre>
+            </div>
+            <h2>​<a></a>Related Links</h2>
+            <ul>
+              <li><a>Zoho Sign integration tasks</a></li>
+              <li><a>Connections</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

@@ -1,0 +1,291 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Artificial Intelligence Tasks</a></li>
+        <li><a>Keyword Extraction</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Keyword Extraction</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Description</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Example</a>
+                  <ul>
+                    <li><a>Example 1</a></li>
+                    <li><a>Example 2</a></li>
+                  </ul>
+                </li>
+                <li><a>Response Format</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Description</h2>
+            <p>
+              The <strong>zoho.ai.extractKeywords</strong>&nbsp;task extracts
+              tags/ keywords from the given text.
+            </p>
+            <div>
+              <p><strong>Note:&nbsp;</strong></p>
+              <ul>
+                <li>
+                  The prediction results may not be accurate, which is also the
+                  case with any AI prediction. However, we are working on
+                  improving this.
+                </li>
+                <li>
+                  The prediction results are dynamic. The same script may
+                  produce different outcomes at different times based on how
+                  much the machine has learned.
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.ai.extractKeywords</span><span>(</span><span>&lt;</span><span>content</span><span>&gt;</span>, <span>[&lt;</span><span>number_of_element</span><span>&gt;]</span>, <span>[&lt;</span><span>model_type</span><span>&gt;]</span>, <span>[&lt;</span><span>keyword_length</span><span>&gt;]</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th><strong>Params</strong></th>
+                    <th><strong>Data type</strong></th>
+                    <th><strong>Description</strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>&lt;response&gt;</td>
+                    <td><span>KEY-VALUE</span></td>
+                    <td>
+                      Specifies the keywords&nbsp;extracted from the given text.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>&lt;content&gt;</td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Specifies the text from which keywords need to be
+                        extracted.
+                      </p>
+                      <p>
+                        <strong>Note:</strong>&nbsp;The maximum allowed
+                        character length is <strong>5000.</strong>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;number_of_elements&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      Specifies the number&nbsp;of top keywords that need to be
+                      returned.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;model_type&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>TEXT</span></td>
+                    <td>
+                      <p>
+                        Specifies one of the supported&nbsp;model types. An
+                        appropriate model type can be provided to improve the
+                        reading accuracy.
+                      </p>
+                      <p><strong>Applicable Values:</strong></p>
+                      <p>
+                        <strong>​</strong>​i)
+                        <strong>ONLY_VALID_KEYWORDS</strong> - Returns all
+                        keywords.<br />ii) <strong>RANKED_KEYWORDS </strong>-
+                        Returns all keywords along with the number of their
+                        occurrences (Score).<br />iii)
+                        <strong>RANKED_KEYWORDS_WITH_CATEGORY </strong>(default)
+                        - Returns keywords with the category of content.<br />iv)<strong>
+                          RANKED_KEYWORDS_WITH_INDEX </strong
+                        >- Returns base word as an index along with keywords.<br />​v)
+                        <strong>RANKED_KEYWORDS_WITH_FREQ </strong>-
+                        &nbsp;Returns keywords along with the word forms of each
+                        keyword and their frequency in order.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;keyword_length&gt;</p>
+                      <p>(optional)</p>
+                    </td>
+                    <td><span>NUMBER</span></td>
+                    <td>
+                      <p>
+                        Specifies the maximum number of tokens in a single
+                        keyword. For example, the number of tokens in the
+                        keyword - <strong>Operating Systems</strong> is 2.
+                      </p>
+                      <p>&nbsp;</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2><a></a>Example 1</h2>
+            <p>
+              The following script extracts keywords from the specified text.
+            </p>
+            <div>
+              <pre>query = "An operating system (OS) is system software that manages computer hardware, software resources, and provides common services for computer programs.Time-sharing operating systems schedule tasks for efficient use of the system and may also include accounting software for cost allocation of processor time, mass storage, printing, and other resources.For hardware functions such as input and output and memory allocation, the operating system acts as an intermediary between programs and the computer hardware,[1][2] although the application code is usually executed directly by the hardware and frequently makes system calls to an OS function or is interrupted by it. Operating systems are found on many devices that contain a computer – from cellular phones and video game consoles to web servers and supercomputers.";&nbsp;
+
+<span>response</span><span> = </span><span>zoho.ai.extractKeywords</span><span>(</span><span>query</span><span>)</span><span>;</span></pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>KEY-VALUE</span> response that represents the
+                      text extracted keywords from the text.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>query</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp;&nbsp;from which the
+                      keywords&nbsp;need&nbsp;to be extracted.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Example 2</h2>
+            <p>
+              The following script extracts the <strong>top 3</strong> keywords
+              with&nbsp;a length maximum of <strong>2 words</strong> from the
+              given text.
+            </p>
+            <div>
+              <pre>query = "An operating system (OS) is system software that manages computer hardware, software resources, and provides common services for computer programs.Time-sharing operating systems schedule tasks for efficient use of the system and may also include accounting software for cost allocation of processor time, mass storage, printing, and other resources.For hardware functions such as input and output and memory allocation, the operating system acts as an intermediary between programs and the computer hardware,[1][2] although the application code is usually executed directly by the hardware and frequently makes system calls to an OS function or is interrupted by it. Operating systems are found on many devices that contain a computer – from cellular phones and video game consoles to web servers and supercomputers.";
+
+<span>response</span><span> = </span><span>zoho.ai.extractKeywords</span><span>(</span><span>query</span><span>,</span><span>3</span><span>,</span><span>"RANKED_KEYWORDS_WITH_CATEGORY"</span><span>,</span><span>2</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>3</span></pre>
+                    </div>
+                    <div>
+                      The <span>NUMBER</span>&nbsp;of top keywords needs&nbsp;to
+                      be extracted.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>RANKED_KEYWORDS_WITH_CATEGORY</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span>&nbsp; that represents the model
+                      type.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>2</span></pre>
+                    </div>
+                    <div>
+                      The maximum&nbsp;<span>NUMBER&nbsp;</span>of words that
+                      the extracted keywords can contain.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Response Format</h2>
+            <p><strong>Success Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The success response will be returned in the following format:
+                </p>
+                <div>
+                  {<br />"data": {<br />"items": [<br />{<br />"keywords": [<br />{<br />"score":
+                  2,<br />"keyword": "operating system"<br />},<br />{<br />"score":
+                  1,<br />"keyword": "video game consoles"<br />},<br />{<br />"score":
+                  1,<br />"keyword": "computer hardware"<br />},<br />{<br />"score":
+                  1,<br />"keyword": "computer hardware,[1]"<br />},<br />{<br />"score":
+                  1,<br />"keyword": "system calls"<br />},<br />{<br />"score":
+                  1,<br />"keyword": "web servers"<br />},<br />{<br />"score":
+                  1,<br />"keyword": "function"<br />},<br />{<br />"score":
+                  1,<br />"keyword": "hardware"<br />},<br />{<br />"score":
+                  1,<br />"keyword": "system software"<br />},<br />{<br />"score":
+                  1,<br />"keyword": "memory allocation"<br />}<br />],<br />"categories":
+                  [<br />{<br />"categoryTag": "mobile &amp; computer",<br />"distribution":
+                  0.28<br />},<br />{<br />"categoryTag": "tech companies",<br />"distribution":
+                  0.11<br />},<br />{<br />"categoryTag": "multimedia",<br />"distribution":
+                  0.1<br />},<br />{<br />"categoryTag": "engineering &amp;
+                  technology",<br />"distribution": 0.09<br />}<br />]<br />}<br />]<br />},<br />"message":
+                  "OK",<br />"status": 200<br />}
+                </div>
+              </li>
+            </ul>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned for an empty input will&nbsp;be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"message": "EMPTY_VALUE_NOT_ALLOWED",<br />&nbsp;"status":
+                  400<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned for an input value with
+                  character length greater than the allowed limitwill&nbsp;be
+                  returned in the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"message": "queryValue length is max than
+                  maximum length",<br />&nbsp;"status": 400<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li><a>AI tasks</a></li>
+              <li><a>Invoke URL</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

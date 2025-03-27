@@ -1,0 +1,534 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Deluge tasks</a></li>
+        <li><a>Data Access</a></li>
+        <li><a>Update multiple fields</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h1>Update Multiple Fields</h1>
+      <h4>Table of Contents</h4>
+      <ul>
+        <li><a>Overview</a></li>
+        <li><a>Syntax</a></li>
+        <li><a>Parameters</a></li>
+        <li><a>Supported Events</a></li>
+        <li><a>Examples</a></li>
+        <li><a>Usecase</a></li>
+        <li><a>Points to Note</a></li>
+        <li><a>Related Links</a></li>
+      </ul>
+      <div>
+        <p>
+          <strong>Note</strong>: This task is applicable only to Zoho Creator.
+        </p>
+      </div>
+      <h2><a></a>Overview</h2>
+      <p>
+        The Update Multiple Fields Deluge task updates multiple field values of
+        a record with the provided input, in a single Deluge statement. This
+        cuts down the execution time and allows for more efficiency.
+      </p>
+      <div>
+        <p>
+          <strong>Note</strong>: Records need to be fetched using the
+          <a>Fetch Records</a> task before they can be updated.
+        </p>
+      </div>
+      <h2><a></a>Syntax</h2>
+      <p>
+        To update the field values in the first record stored in a collection
+        variable:
+      </p>
+      <div>
+        <pre><span>update</span> <span>&lt;</span><span>collection_variable</span><span>&gt;</span>&nbsp;
+<span>[</span>&nbsp;
+<span>&lt;</span><span>field_link_name_1</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression1</span><span>&gt;</span>&nbsp;
+<span>&lt;</span><span>field_link_name_2</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression2</span><span>&gt;</span>&nbsp;
+<span>&lt;</span><span>field_link_name_3</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression3</span><span>&gt;</span><span>;</span>&nbsp;
+<span>...</span>&nbsp;
+<span>]</span><span>;</span></pre>
+      </div>
+      <p>
+        To update field values in every record of a form/collection, use the
+        <a>For each record</a> syntax after you've <a>fetched</a> the required
+        records:
+      </p>
+      <div>
+        <pre><span>for each</span> <span>&lt;</span><span>loop_variable</span><span>&gt;</span> <span>in</span> <span>&lt;</span><span>form_link_name</span><span>&gt;</span><span>[</span><span>&lt;</span><span>criteria</span><span>&gt;</span><span>]</span>       <span>//&lt;collection_variable&gt; can also be used </span><br><span>instead of &lt;form_link_name&gt; if required</span>&nbsp;
+<span>{</span>&nbsp;
+<span>update</span> <span>&lt;</span><span>loop_variable</span><span>&gt;</span>&nbsp;
+<span>[</span>&nbsp;
+<span>&lt;</span><span>field_link_name_1</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression_1</span><span>&gt;</span>&nbsp;
+<span>&lt;</span><span>field_link_name_2</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression_2</span><span>&gt;</span>      <span>...</span>&nbsp;
+<span>]</span><span>;</span>&nbsp;
+<span>}</span></pre>
+      </div>
+      <p>
+        To update the first record from a set of filtered records of a form:
+      </p>
+      <div>
+        <pre><span>update</span> <span>&lt;</span><span>form_link_name</span><span>&gt;</span><span>[</span><span>&lt;</span><span>criteria</span><span>&gt;</span><span>]</span>&nbsp;
+<span>[</span>&nbsp;
+<span>&lt;</span><span>field_link_name_1</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression1</span><span>&gt;</span>&nbsp;
+<span>&lt;</span><span>field_link_name_2</span><span>&gt;</span> <span>=</span> <span>&lt;</span><span>expression2</span><span>&gt;</span>     <span>...</span>&nbsp;&nbsp;
+<span>]</span><span>;</span></pre>
+      </div>
+      <p>&nbsp;&nbsp;</p>
+      <h2><a></a>Parameters</h2>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <p><strong>Parameter</strong></p>
+              </td>
+              <td>
+                <p><strong>Data Type</strong></p>
+              </td>
+              <td>
+                <p><strong>Description</strong></p>
+              </td>
+            </tr>
+            <tr>
+              <td>&lt;form_link_name&gt;</td>
+              <td><span>STRING</span></td>
+              <td>
+                Link name of the form which has the stored data that needs to be
+                updated.
+              </td>
+            </tr>
+            <tr>
+              <td>&lt;criteria&gt;</td>
+              <td>-</td>
+              <td>
+                <a>Condition</a> based on which a set of records are
+                <a>fetched</a> and updated.
+              </td>
+            </tr>
+            <tr>
+              <td>&lt;collection_variable&gt;</td>
+              <td><span>STRING</span></td>
+              <td>
+                <a>Collection variable</a> holding the set of fetched records.
+              </td>
+            </tr>
+            <tr>
+              <td>&lt;field_link_name&gt;</td>
+              <td><span>STRING</span></td>
+              <td>
+                <p>Link name of the field whose value will be updated.</p>
+                <p>
+                  Unsupported fields : <a>Auto number</a>, <a>Formula</a>,
+                  <a>Notes</a>, <a>AR</a>, fields within a <a>Subform</a>,
+                  <a>Prediction</a>, <a>Keyword Extraction</a>,
+                  <a>Sentiment Analysis</a>, <a>OCR</a>, <a>Object Detection</a>
+                </p>
+                <div>
+                  <p><strong>Note</strong>:</p>
+                  <ul>
+                    <li>Mandatory fields cannot be updated with null value.</li>
+                    <li>
+                      <a>System fields</a> such as Added Time, Modified IP
+                      Address, ID, etc., should not be specified. Zoho Creator
+                      will set values for them automatically.
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>&lt;expression&gt;</td>
+              <td><a>Datatype differs based on the Creator field</a></td>
+              <td>
+                Value to be assigned to the field. The values should conform to
+                the Creator <a>field's properties</a>. For example, if you've
+                configured a <a>Number</a> field to accept a maximum of 12
+                digits in its field properties, the <a>expression</a> should
+                also abide by the limit.<br />You can directly specify a value,
+                or you can specify an expression, i.e. a combination of values,
+                constants, variables, operators, functions and so on, which
+                evaluates to a value.
+              </td>
+            </tr>
+            <tr>
+              <td>&lt;loop_variable&gt;</td>
+              <td><span>STRING</span></td>
+              <td>
+                Variable to hold an individual record for each iteration. It is
+                advised to use unique loop variables, and these need not be
+                declared initially.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2><a></a>Supported Events</h2>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <td><strong>When a record is Created</strong></td>
+            </tr>
+            <tr>
+              <td>On Load</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td>On Validate</td>
+              <td><span>Yes</span></td>
+            </tr>
+            <tr>
+              <td>On Success</td>
+              <td><span>Yes</span></td>
+            </tr>
+            <tr>
+              <td>On User input</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td>Subform on add row</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td>Subform on delete row</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td><strong>When a record is Created or Edited</strong></td>
+            </tr>
+            <tr>
+              <td>On Load</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td>On Validate</td>
+              <td><span>Yes</span></td>
+            </tr>
+            <tr>
+              <td>On Success</td>
+              <td><span>Yes</span></td>
+            </tr>
+            <tr>
+              <td>On User input</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td>Subform on add row</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td>Subform on delete row</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td><strong>When a record is Edited</strong></td>
+            </tr>
+            <tr>
+              <td>On Load</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td>On Validate</td>
+              <td><span>Yes</span></td>
+            </tr>
+            <tr>
+              <td>On Success</td>
+              <td><span>Yes</span></td>
+            </tr>
+            <tr>
+              <td>On User input</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td>Subform on add row</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td>Subform on delete row</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td><strong>When a record is Deleted</strong></td>
+            </tr>
+            <tr>
+              <td>On Validate</td>
+              <td><span>No</span></td>
+            </tr>
+            <tr>
+              <td>On Success</td>
+              <td><span>Yes</span></td>
+            </tr>
+            <tr>
+              <td><strong>Other workflow events</strong></td>
+            </tr>
+            <tr>
+              <td>On a scheduled date</td>
+              <td><span>Yes</span></td>
+            </tr>
+            <tr>
+              <td>During approval process</td>
+              <td><span>Yes</span></td>
+            </tr>
+            <tr>
+              <td>During payment process</td>
+              <td><span>Yes</span></td>
+            </tr>
+            <tr>
+              <td>For batch workflow</td>
+              <td><span>Yes</span></td>
+            </tr>
+            <tr>
+              <td>In a Custom Function</td>
+              <td><span>Yes</span></td>
+            </tr>
+            <tr>
+              <td>In an Action item in report</td>
+              <td><span>Yes</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2><a></a>Examples</h2>
+      <p>
+        1. The following script updates two <a>name</a> fields and an
+        <a>image</a> field of all records in the Creator form - Employees.
+      </p>
+      <div>
+        <pre><span>for each</span> <span>rec</span> <span>in</span> <span>Employees</span><span>[</span><span>ID</span><span>!=</span><span>0</span><span>]</span>&nbsp;
+<span>{</span>&nbsp;
+<span>update</span> <span>rec</span>&nbsp;
+<span>[</span>&nbsp;
+<span>Manager.first_name</span> <span>=</span> <span>"Scott"</span> &nbsp; <span>// for composite fields, update each subfield</span>&nbsp;
+<span>Manager.last_name</span> <span>=</span> <span>"Wasowski"</span>&nbsp;
+<span>Assistant_Manager.first_name1</span> <span>=</span> <span>"Alicia"</span>  <span>// consequent subfields get appended with numbers</span>&nbsp;
+<span>Assistant_Manager.last_name1</span> <span>=</span> <span>"Tamizh"</span>&nbsp;
+<span>Manager_Signature</span> <span>=</span> <span>&lt;</span><span>img</span> <span>src</span> <span>=</span> <span>"https://example.com/imageSource.jpg"</span> <span>border</span> <span>=</span> <span>"0"</span><span>&gt;&lt;</span><span>/</span><span>img</span><span>&gt;//image field</span>&nbsp;
+<span>]</span><span>;</span>&nbsp;
+<span>}</span></pre>
+      </div>
+      <p>&nbsp;where</p>
+      <ul>
+        <li>
+          Employees is the link name of the form from which the records were
+          fetched
+        </li>
+        <li>
+          rec is the loop variable that holds a single record for each iteration
+        </li>
+        <li>
+          Manager.first_name, Manager.last_name, Assistant_Manager.first_name1,
+          Assistant_Manager.last_name1, and Manager_Signature are the field link
+          names of the fields that are updated
+        </li>
+      </ul>
+      <p>
+        2. The following script updates the <a>lookup</a> field,
+        <a>multi-select</a> field, and <a>URL</a> field of all the filtered
+        records in a collection variable.
+      </p>
+      <div>
+        <pre><span>var</span> <span>=</span> <span>Entries</span><span>[</span><span>Symptoms</span><span>==</span><span>"Heart Issue"</span><span>]</span><span>;</span>&nbsp;
+<span>for each</span> <span>rec</span> <span>in</span> <span>var</span>&nbsp;
+<span>{</span>&nbsp;
+<span>update</span> <span>rec</span>&nbsp;
+<span>[</span>&nbsp;
+<span>Assigned_Doctor</span> <span>=</span> <span>4364236000000551029</span> <span>// lookup field value should be the target record_ID</span>&nbsp;
+<span>Tests</span> <span>=</span> <span>{</span><span>"Tox Screen"</span><span>,</span> <span>"CT"</span><span>,</span> <span>"ECG"</span><span>}</span>     <span>// values other than predefined choices can also be mentioned for multi select field</span>&nbsp;
+<span>URL</span> <span>=</span> <span>&lt;</span><span>a</span> <span>href</span><span>=</span><span>"https://example.com"</span> <span>&gt;</span><span>Terms</span> <span>and</span> <span>Conditions</span><span>&lt;</span><span>/</span><span>a</span><span>&gt;</span>&nbsp;
+<span>]</span><span>;</span>&nbsp;
+<span>}</span></pre>
+      </div>
+      <p>&nbsp;where:</p>
+      <ul>
+        <li>var is the collection variable holding the fetched records</li>
+        <li>
+          Entries is the link name of the form from which the records were
+          fetched
+        </li>
+        <li>
+          Symptoms=="Heart Issue" is the criteria using which records are
+          fetched
+        </li>
+        <li>
+          rec is the loop variable that holds a single record for each iteration
+        </li>
+        <li>
+          Assigned_Doctor, Tests, URL are the field link names of the fields
+          that are updated
+        </li>
+      </ul>
+      <p>
+        3. The following script updates the <a>Drop Down</a> and
+        <a>Percent</a> fields of a unique record in a collection variable.
+      </p>
+      <div>
+        <pre><span>update</span> <span>Car_Evaluation</span><span>[</span><span>Owner</span><span>=</span><span>"Ms.Portia Lance"</span><span>]</span>&nbsp;
+<span>[</span>&nbsp;
+<span>Vehicle_Condition</span> <span>=</span> <span>"Very Good"</span>&nbsp;
+<span>Discount</span> <span>=</span> <span>13</span>&nbsp;
+<span>]</span><span>;</span>       </pre>
+      </div>
+      <p>where:</p>
+      <ul>
+        <li>
+          Interviewees is the link name of the form from which the records were
+          fetched
+        </li>
+        <li>
+          Depreciation_Rate&lt;=20 is the criteria using which records are
+          fetched
+        </li>
+        <li>
+          Vehicle_Condition and Discount are the field link names of the fields
+          that are updated
+        </li>
+      </ul>
+      <h2><a></a>Usecase</h2>
+      <p>
+        Let's say you've built a Recruitment Tracker Creator application. While
+        a mass drive is conducted, you want to assign batches of interviewees to
+        different interviewers. Further, you want to update the date on which
+        they need to come in and the interview rooms they will be reporting to.
+        Instead of manually updating the records of data, the Update Multiple
+        Fields task can be used to update all the required fields using a Deluge
+        statement.
+      </p>
+      <p>
+        <strong>Implementation</strong><br />Say the Recruitment Tracker
+        application has been created using Creator. You need to update the
+        following fields in the Interviewees form:
+      </p>
+      <ul>
+        <li>Interviewer</li>
+        <li>Reporting Time</li>
+        <li>Interview Room</li>
+      </ul>
+      <p>
+        You will need to fetch the required records first before updating them.
+        A workflow with a Deluge script will help you do this.
+      </p>
+      <div>
+        <pre><span>batch_1</span> <span>=</span> <span>Interviewees</span><span>[</span><span>Batch_Number</span> <span>==</span> <span>1</span><span>]</span><span>;</span>&nbsp;
+<span>for each</span> <span>singlerec</span> <span>in</span> <span>batch_1</span>&nbsp;
+<span>{</span>&nbsp;
+<span>update</span> <span>singlerec</span>&nbsp;
+<span>[</span>&nbsp;
+<span>Interviewer</span> <span>=</span> <span>"Cillian Shelby"</span>&nbsp;
+<span>Reporting_Time</span> <span>=</span> <span>"09:30:00"</span>&nbsp;
+<span>Interview_Room</span> <span>=</span> <span>"&gt;Skyline Tower"</span>&nbsp;
+<span>]</span><span>;</span>&nbsp;
+<span>}</span>&nbsp;
+<span>batch_2</span> <span>=</span> <span>Interviewees</span><span>[</span><span>Batch_Number</span> <span>==</span> <span>2</span><span>]</span><span>;</span>&nbsp;
+<span>for each</span> <span>onerec</span> <span>in</span> <span>batch_2</span>&nbsp;
+<span>{</span>&nbsp;
+<span>update</span> <span>onerec</span>&nbsp;
+<span>[</span>&nbsp;
+<span>Interviewer</span> <span>=</span> <span>"Grace Wallis"</span>&nbsp;
+<span>Reporting_Time</span> <span>=</span> <span>"10:30:00"</span>&nbsp;
+<span>Interview_Room</span> <span>=</span> <span>"Lakeview Tower"</span>&nbsp;
+<span>]</span><span>;</span>&nbsp;
+<span>}</span>&nbsp;                                     &nbsp;
+<span>batch_3</span> <span>=</span> <span>Interviewees</span><span>[</span><span>Batch_Number</span> <span>==</span> <span>3</span><span>]</span><span>;</span>&nbsp;
+<span>for each</span> <span>rec</span> <span>in</span> <span>batch_3</span>&nbsp;
+<span>{</span>&nbsp;
+<span>update</span> <span>rec</span>&nbsp;
+<span>[</span>&nbsp;
+<span>Interviewer</span> <span>=</span> <span>"Arthur Anderson"</span>&nbsp;
+<span>Reporting_Time</span> <span>=</span> <span>"13:00:00"</span>&nbsp;
+<span>Interview_Room</span> <span>=</span> <span>"Sand Tower"</span>&nbsp;
+<span>]</span><span>;</span>&nbsp;
+<span>}</span></pre>
+      </div>
+      <p>where:</p>
+      <ul>
+        <li>
+          batch_1, batch_2, and batch_3 are the variable that denotes the
+          different batches of interviewees'Interviewees is the field link name
+          of the form from which the records were fetched
+        </li>
+        <li>
+          Batch_Number == 3 is the criteria using which different batches of
+          interviewees are fetched
+        </li>
+        <li>
+          singlerec, onerec, and rec are the loop variables holding a single
+          record for each iteration
+        </li>
+        <li>
+          Interviewer, Reporting_Time, and Interview_Room are the field link
+          names of the fields that are updated
+        </li>
+      </ul>
+      <p>&nbsp;</p>
+      <h2><a></a>Points to Note</h2>
+      <ul>
+        <li>
+          <a>Drop Down</a>, <a>Radio</a>, <a>Multi Select</a>, and
+          <a>Checkbox</a> fields: Values other than the ones configured in the
+          fields' properties can always be specified for <a>Multiselect</a> and
+          <a>Checkbox</a>. This is applicable for <a>Drop Down</a> and
+          <a>Radio</a> fields too, regardless of Allow Other Choice being
+          enabled/disabled in the field's properties.<br />When values other
+          than those configured in the fields' properties are specified, they
+          will only be stored in the record. It will not be stored as a choice
+          in the Creator field's properties and therefore cannot be retrieved if
+          the value is modified again.
+        </li>
+        <li>
+          <a>File Upload</a>, <a>Audio</a>, and <a>Video</a> fields - A file
+          value fetched from another identical field type should be specified as
+          a value. Alternately, the <a>invokeURL</a> task can be used to fetch a
+          file object from another Creator application or external service as
+          well.
+        </li>
+        <li>
+          <a>URL field's</a> value can be given in :
+          <ul>
+            <li>
+              <p>
+                HTML format - An anchor tag can be used to specify hyperlinked
+                URLs. Format:
+              </p>
+              <div>
+                <pre><span>&lt;</span><span>a</span> <span>href</span><span>=</span> <span>\"&lt;URL&gt;\" title = \"&lt;TITLE&gt;\" target = \"_blank\"</span><span>&gt;&lt;</span><span>linkname</span><span>&gt;&lt;/</span><span>a</span><span>&gt;</span></pre>
+              </div>
+            </li>
+            <li>
+              Plain text format - URLs as such without the tag can be specified
+              in double quotes only in "On success", "On create", "On edit", and
+              "On create or edit" workflow events.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <p>
+            <a>Image</a> field - Regardless of configuring how an image needs to
+            be uploaded (Local computer, Link, Camera) in the Creator field's
+            properties, specify the URL as the field value in this task. Make
+            sure to include only a public image. Format:
+          </p>
+          <div>
+            <pre><span>&lt;</span><span>a</span> <span>href</span><span>=</span><span>"https://www.example.com"</span><span>&gt;</span>&nbsp;
+<span>&lt;</span><span>img</span> <span>src</span><span>=</span><span>"example.jpg"</span> <span>alt</span><span>=</span><span>"Example Image"</span><span>&gt;</span>&nbsp;
+<span>&lt;</span><span>/</span><span>a</span><span>&gt;</span></pre>
+          </div>
+        </li>
+        <li>
+          For updating data within Creator using a <a>lookup</a> field, or from
+          another supported service using <a>integration</a> fields, the field
+          value should be the target record's ID.
+        </li>
+      </ul>
+      <h2><a></a>Related Links</h2>
+      <ul>
+        <li><a>Fetch Records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

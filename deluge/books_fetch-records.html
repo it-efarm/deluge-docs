@@ -1,0 +1,473 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Integrations</a></li>
+        <li><a>Pre-defined integrations with Zoho services</a></li>
+        <li><a>Zoho Books integration tasks</a></li>
+        <li><a>Fetch records</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>Get records from Zoho Books</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li><a>Example</a></li>
+                <li><a>Sample Response</a></li>
+                <li><a>Related Links</a></li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              This&nbsp;task is used to fetch records from a specified module in
+              Zoho Books.
+            </p>
+            <p>
+              This task is based on&nbsp;<a>Zoho Books API</a>&nbsp;-&gt;
+              &lt;Module&gt; -&gt; List &lt;ModuleName&gt;.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>variable</span><span>&gt;</span><span> = </span><span>zoho</span><span>.books.getRecords</span><span>(</span><span>&lt;</span><span>module_name</span><span>&gt;</span><span>, </span><span>&lt;</span><span>org_ID</span><span>&gt;</span><span>, </span><span>&lt;</span><span>search</span><span>&gt;</span>, <span>&lt;</span><span>connection</span><span>&gt;</span><span>)</span><span>;</span></pre>
+            </div>
+            <div>
+              <div>
+                <div>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td><strong>Params</strong></td>
+                        <td><strong>Data Type</strong></td>
+                        <td><strong>Description</strong></td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;variable&gt;</p></td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            Variable to hold the&nbsp;response returned by Zoho
+                            Books.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;module_name&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the Zoho Books module from which the
+                            records will be fetched.
+                          </p>
+                          <p>
+                            The applicable module names&nbsp;can be found in the
+                            "Request Example" section in&nbsp;<a
+                              >Zoho Books API</a
+                            >&nbsp;-&gt; &lt;Module&gt; -&gt; List
+                            &lt;ModuleName&gt;&nbsp;
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><p>&lt;org_ID&gt;</p></td>
+                        <td>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the <a>organization ID</a> of the Zoho
+                            Books account, from where the records will be
+                            fetched.
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;search&gt;</p>
+                          <p>&nbsp;</p>
+                        </td>
+                        <td>
+                          <p><span>KEY-VALUE</span></p>
+                          <p>(or)</p>
+                          <p><span>TEXT</span></p>
+                        </td>
+                        <td>
+                          <p>
+                            specifies the values based on which the records will
+                            be filtered.&nbsp;
+                          </p>
+                          <p>
+                            <strong
+                              >When the param is used as&nbsp;key-value:</strong
+                            ><br /><a>Click here</a>&nbsp;and go to
+                            &lt;moduleName&gt; -&gt; list &lt;moduleName&gt;.
+                            All query params listed there are applicable as keys
+                            with the required values.
+                          </p>
+                          <p>
+                            The values are
+                            <strong>not</strong> case-sensitive.&nbsp;
+                          </p>
+                          <div>
+                            <p>
+                              <strong>Note:</strong> Key-value data type is
+                              applicable for all Zoho services except&nbsp;Zoho
+                              Creator.
+                            </p>
+                          </div>
+                          <p>
+                            <strong>When the param is used as a&nbsp;</strong
+                            ><strong>text:</strong><br /><a>Click here</a
+                            >&nbsp;and go to &lt;moduleName&gt; -&gt; list
+                            &lt;moduleName&gt;. All query params listed there
+                            are applicable as keys with the required values in
+                            format&nbsp;<strong>&lt;key&gt;=&lt;value&gt;.</strong>&nbsp;Multiple
+                            criteria can be specified in the format:
+                            &lt;key&gt;=&lt;value&gt;<strong>&amp;</strong>&lt;key&gt;=&lt;value&gt;<strong>.&nbsp;</strong>The
+                            values must be <a>encoded</a>&nbsp;if they contain
+                            spaces.&nbsp;
+                          </p>
+                          <div>
+                            <p>
+                              <strong>Note:</strong>&nbsp;You can specify an
+                              empty string or an empty map for this param, in
+                              which case all the records will be fetched
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>&lt;connection&gt;</p>
+                          <p>&nbsp;</p>
+                        </td>
+                        <td>TEXT</td>
+                        <td>
+                          <p>
+                            is the name of the Zoho Books&nbsp;<a>connection</a>
+                          </p>
+                          <div>
+                            <p><strong>Note</strong>:</p>
+                            <ul>
+                              <li>
+                                In view of&nbsp;<a
+                                  >stopping new authtoken generation</a
+                                >,&nbsp;a Zoho OAuth connection with appropriate
+                                scopes is mandatory&nbsp;for new integration
+                                tasks (created after the deadline specified in
+                                the post) to work as expected. Existing
+                                integration tasks will continue to work with or
+                                without the connections parameter unless the
+                                authtoken is manually
+                                deleted&nbsp;from&nbsp;<a>accounts</a>.
+                              </li>
+                              <li>
+                                Add relevant scopes as mentioned in&nbsp;<a
+                                  >Zoho Books API</a
+                                >&nbsp;-&gt; &lt;Module&gt; -&gt; List
+                                &lt;ModuleName&gt;.&nbsp;
+                              </li>
+                              <li>
+                                Refer to&nbsp;<a>this&nbsp;post</a>&nbsp;for the
+                                list of Zoho services that support the
+                                connections page.
+                              </li>
+                              <li><a>Learn more about connections</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 1: Fetch records from Zoho Books using
+              KEY-VALUE&nbsp;search parameter (Applicable for all services
+              except Zoho Creator)
+            </h2>
+            <p>
+              The following script fetches records from the Zoho Books module -
+              <strong>Contacts</strong> which contains the contact_name -
+              <strong>Will</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>searchParam</span><span> = </span><span>{</span><span>"contact_name"</span><span>:</span><span>"Will"</span><span>}</span><span>;</span>&nbsp;
+&nbsp;<span>response</span> <span>= </span><span>zoho</span><span>.books.getRecords</span><span>(</span><span>"Contacts"</span><span>, </span><span>"53XXXXXX"</span>, <span>searchParam</span>, <span>"books_connection"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where,</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      is the variable which will hold the&nbsp;<span
+                        >KEY-VALUE</span
+                      >
+                      response returned from Zoho Books. It represents the
+                      values of the fetched records.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Contacts"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module from
+                      which records will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"53XXXXXX"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the organization
+                      ID of the Zoho Books account from which the records will
+                      be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>searchParam</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      search parameter
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"contact_name"</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the query
+                      parameter specified in Zoho books <a>API</a>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"books_connection"</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents Zoho Books
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 2: Fetch records from Zoho Books using TEXT search
+              parameter (Applicable for all services)
+            </h2>
+            <p>
+              The following script fetches records from the Zoho Books module -
+              <strong>Estimate</strong> if the value against the
+              field&nbsp;contact_name is&nbsp;<strong>Shawn Smith</strong> and
+              the total estimate amount exceeds <strong>2000</strong>.
+            </p>
+            <div>
+              <pre>&nbsp;<span>encoded_name</span><span> = </span><span>encodeUrl</span><span>(</span><span>"Shawn Smith"</span><span>)</span><span>;</span>
+&nbsp;<span>response</span><span> = </span><span>zoho</span><span>.books</span><span>.getRecords</span><span>(</span><span>"Estimates"</span><span>, </span><span>"53XXXXXX"</span><span>, </span><span>"contact_name="</span><span>+ </span><span>encoded_name</span><span>+ </span><span>"&amp;total_greater_than=20000"</span>, <span>"books_connection"</span><span>)</span><span>;</span>
+&nbsp;<span>info </span><span>response</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span>
+</pre>
+                    </div>
+                    <div>
+                      is the variable that will hold the&nbsp;<span
+                        >KEY-VALUE</span
+                      >
+                      response returned from Zoho Books. It represents the
+                      values of the fetched records.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"Estimates"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the module from
+                      which records will be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"53XXXXXX"</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the organization
+                      ID of the Zoho Books account from which the records will
+                      be fetched.
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>searchParam</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>KEY-VALUE</span> variable that holds the
+                      search parameter
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>encoded_name</span>
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span>&nbsp;variable that holds the
+                      encoded contact name
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"contact_name"</span>&nbsp;
+<span>"total_greater_than"</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span>&nbsp;variable that represents the
+                      query parameters specified in Zoho books <a>API</a>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"books_connection"</span>&nbsp;
+</pre>
+                    </div>
+                    <div>
+                      is the <span>TEXT</span> that represents the Zoho Books
+                      connection
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2><a></a>Sample Response</h2>
+            <ul>
+              <li>
+                <p>
+                  The following is a
+                  sample&nbsp;<strong>success</strong>&nbsp;response:
+                </p>
+                <div>
+                  &nbsp;&nbsp;{<br />&nbsp;&nbsp;"code": 0,<br />&nbsp;&nbsp;"message":
+                  "success",<br />&nbsp;&nbsp;"contacts": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"contact_id":
+                  "XXXXXXXXXX05023",<br />&nbsp;&nbsp;"contact_name": "Will
+                  Smith",<br />&nbsp;&nbsp;"customer_name": "1",<br />&nbsp;&nbsp;"vendor_name":
+                  "1",<br />&nbsp;&nbsp;"company_name": "",<br />&nbsp;&nbsp;"website":
+                  "",<br />&nbsp;&nbsp;"language_code": "",<br />&nbsp;&nbsp;"language_code_formatted":
+                  "",<br />&nbsp;&nbsp;"contact_type": "customer",<br />&nbsp;&nbsp;"contact_type_formatted":
+                  "Customer",<br />&nbsp;&nbsp;"status": "active",<br />&nbsp;&nbsp;"customer_sub_type":
+                  "business",<br />&nbsp;&nbsp;"source": "zoho_crm",<br />&nbsp;&nbsp;"is_linked_with_zohocrm":
+                  true,<br />&nbsp;&nbsp;"payment_terms": 0,<br />&nbsp;&nbsp;"payment_terms_label":
+                  "Due On Receipt",<br />&nbsp;&nbsp;"currency_id":
+                  "XXXXXXXXXX00099",<br />&nbsp;&nbsp;"twitter": "",<br />&nbsp;&nbsp;"facebook":
+                  "",<br />&nbsp;&nbsp;"currency_code": "INR",<br />&nbsp;&nbsp;"outstanding_receivable_amount":
+                  0.0,<br />&nbsp;&nbsp;"outstanding_receivable_amount_bcy":
+                  0.0,<br />&nbsp;&nbsp;"outstanding_payable_amount": 0.0,<br />&nbsp;&nbsp;"outstanding_payable_amount_bcy":
+                  0.0,<br />&nbsp;&nbsp;"unused_credits_receivable_amount":
+                  0.0,<br />&nbsp;&nbsp;"unused_credits_payable_amount": 0.0,<br />&nbsp;&nbsp;"first_name":
+                  "",<br />&nbsp;&nbsp;"last_name": "1",<br />&nbsp;&nbsp;"email":
+                  "",<br />&nbsp;&nbsp;"phone": "",<br />&nbsp;&nbsp;"mobile":
+                  "",<br />&nbsp;&nbsp;"created_time":
+                  "2018-12-11T15:45:00+0530",<br />&nbsp;&nbsp;"created_time_formatted":
+                  "11/12/2018",<br />&nbsp;&nbsp;"last_modified_time":
+                  "2018-12-11T15:45:04+0530",<br />&nbsp;&nbsp;"last_modified_time_formatted":
+                  "11/12/2018",<br />&nbsp;&nbsp;"custom_fields": [<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"ach_supported":
+                  false,<br />&nbsp;&nbsp;"has_attachment": false<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;],<br />&nbsp;&nbsp;"page_context":
+                  {<br />&nbsp;&nbsp;"page": 1,<br />&nbsp;&nbsp;"per_page":
+                  200,<br />&nbsp;&nbsp;"has_more_page": false,<br />&nbsp;&nbsp;"report_name":
+                  "Contacts",<br />&nbsp;&nbsp;"applied_filter":
+                  "Status.All",<br />&nbsp;&nbsp;"sort_column":
+                  "contact_name",<br />&nbsp;&nbsp;"search_criteria": [<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;"column_name":
+                  "contact_name",<br />&nbsp;&nbsp;"search_text": "Will
+                  Smith",<br />&nbsp;&nbsp;"comparator": "equal"<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;]<br />&nbsp;&nbsp;}<br />&nbsp;&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <p>
+              To fetch the IDs of the records, execute the following snippet:
+            </p>
+            <div>
+              var =
+              &lt;response_variable&gt;.get("&lt;module_name&gt;");&nbsp;<br />//
+              example for &lt;module_name&gt; is contacts<br />for each var1 in
+              var<br />&nbsp; {&nbsp;<br />&nbsp; &nbsp; info
+              var1.toMap().get("&lt;module_name&gt;_id");&nbsp;<br />&nbsp;
+              &nbsp;// example for &lt;module_name&gt;_id is contact_id&nbsp;<br />&nbsp;
+              }
+            </div>
+            <p><strong>Failure Response</strong></p>
+            <ul>
+              <li>
+                <p>
+                  The failure response returned due to invalid
+                  <strong>organization ID</strong> is of the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"code":6041,<br />&nbsp;"message":"This
+                  user is not associated with the
+                  CompanyID/CompanyName:63XX."<br />&nbsp;}
+                </div>
+              </li>
+              <li>
+                <p>
+                  The failure response returned&nbsp;due to invalid
+                  <strong>search parameter</strong> is of the following format:
+                </p>
+                <div>
+                  &nbsp;{<br />&nbsp;"code":2,<br />&nbsp;"message":"Invalid
+                  value passed for filter_by"<br />&nbsp;}
+                </div>
+              </li>
+            </ul>
+            <h2><a></a>Related Links</h2>
+            <ul>
+              <li>
+                <a>Zoho Books API</a>&nbsp;-&gt; &lt;Module&gt; -&gt; List
+                &lt;ModuleName&gt;​
+              </li>
+              <li><a>Common error codes can be viewed&nbsp;here</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>

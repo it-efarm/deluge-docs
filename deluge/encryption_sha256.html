@@ -1,0 +1,201 @@
+<div class="help-content-panel">
+  <div>
+    <div>
+      <ul>
+        <li><a>Built-in functions</a></li>
+        <li><a>Encryption functions</a></li>
+        <li><a>sha256</a></li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div>
+        <div>
+          <h1>SHA256 encryption</h1>
+          <div>
+            <div>
+              <h4>Table of Contents</h4>
+              <ul>
+                <li><a>Overview</a></li>
+                <li><a>Syntax</a></li>
+                <li>
+                  <a>Examples</a>
+                  <ul>
+                    <li>
+                      <a
+                        >Example 1 Generate hash in hexadecimal format using
+                        sha256 algorithm</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        >Example 2: Generate hash in binary format using sha256
+                        algorithm</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <h2><a></a>Overview</h2>
+            <p>
+              The <strong>zoho.encryption.sha256</strong> task returns the hash
+              corresponding to the given text, generated using the SHA256
+              algorithm.
+            </p>
+            <h2><a></a>Syntax</h2>
+            <div>
+              <pre><span>&lt;</span><span>response</span><span>&gt;</span><span> = </span><span>zoho</span><span>.encryption.sha256</span><span>(</span><span>&lt;</span><span>data</span><span>&gt;</span>, <span>&lt;</span><span>output_type</span><span>&gt;</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td><strong>Params</strong></td>
+                    <td><strong>Data type</strong></td>
+                    <td><strong>Description</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><p>&lt;response&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>The hash generated using the SHA256 algorithm.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><p>&lt;data&gt;</p></td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The source text whose corresponding hash needs to be
+                        computed.
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p>&lt;output_type&gt;</p>
+                      <p>(Optional)</p>
+                    </td>
+                    <td>
+                      <p><span>TEXT</span></p>
+                    </td>
+                    <td>
+                      <p>
+                        The type in which the generated hash needs to be
+                        represented. By default, the output type is
+                        <strong>hex</strong>.
+                      </p>
+                      <p><strong>Allowed values:</strong></p>
+                      <ul>
+                        <li>hex</li>
+                        <li>binary</li>
+                      </ul>
+                      <p>
+                        <strong>Note:</strong> When the &lt;output_type&gt; is
+                        specified as <strong>binary</strong>, the input
+                        <strong>&lt;data&gt;</strong>&nbsp;cannot be more than
+                        <strong>1 MB.</strong>
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h2>
+              <a></a>Example 1: Generate hash in hexadecimal format using sha256
+              algorithm
+            </h2>
+            <p>
+              The following script returns the hash in hexadecimal format
+              generated using the SHA256 algorithm for the text -&nbsp;:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.encryption.sha256</span><span>(</span><span>"hello"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the hash value
+                      returned by this task. Here, the hash returned
+                      is&nbsp;<strong
+                        >2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824</strong
+                      >
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"hello"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the source text
+                      whose corresponding hash needs to be computed.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2>
+              <a></a>Example 2: Generate hash in binary format using sha256
+              algorithm
+            </h2>
+            <p>
+              The following script returns the hash in binary
+              format&nbsp;generated using the SHA256 algorithm for the text -
+              hello:
+            </p>
+            <div>
+              <pre><span>response</span><span> = </span><span>zoho</span><span>.encryption.sha256</span><span>(</span><span>"hello"</span>,<span> "binary"</span><span>)</span><span>;</span>
+</pre>
+            </div>
+            <p>where:</p>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <div>
+                      <pre><span>response</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the hash value in
+                      binary format returned by this task. Here, the hash
+                      returned is&nbsp;<strong
+                        >0010110011110010010011011011101001011111101100001010001100001110001001101110100000111011001010101100010110111001111000101001111000011011000101100001111001011100000111111010011101000010010111100111001100000100001100110110001010010011100010111001100000100100</strong
+                      >
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <pre><span>"binary"</span></pre>
+                    </div>
+                    <div>
+                      The <span>TEXT</span> that represents the format in which
+                      the hash will be returned.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div><iframe></iframe></div>
+</div>
